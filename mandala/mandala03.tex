@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale=0.8]
+    \foreach \d in {4.55,3.0375,2.025,1.35,0.9,0.6}{
+        \pgfmathsetmacro{\r}{0.26*\d};
+        \pgfmathsetmacro{\width}{0.05+0.12*\d};
+        \foreach \phi in {0,30,...,330}{
+            \fill[white] (\phi:\d) circle[radius=\r cm];
+            \draw[line width=\width mm] (\phi:\d) circle[radius=\r cm];
+        }
+    }
+\end{tikzpicture}

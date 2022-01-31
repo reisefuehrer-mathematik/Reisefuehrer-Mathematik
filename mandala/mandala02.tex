@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=0.6]
+    \path[coordinate] (0,0)  coordinate(A)
+                ++( 120:6cm) coordinate(B)
+                ++(60:6cm) coordinate(C)
+                ++(0:6cm) coordinate(D)
+                ++(-60:6cm) coordinate(E)
+                ++(240:6cm) coordinate(F)
+                ;
+    \draw (A) -- (B) -- (C) --(D) -- (E) -- (F)-- cycle;
+    \foreach \x in {1,...,40}{
+        \path[coordinate] coordinate(X) at (A){};
+        \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
+                            -- (C) coordinate[pos=.10](B)
+                            -- (D) coordinate[pos=.10](C)
+                            -- (E) coordinate[pos=.10](D)
+                             -- (F) coordinate[pos=.10](E)
+                            -- (X) coordinate[pos=.10](F);
+        \draw (A)--(B)--(C)-- (D) --(E) -- (F) -- cycle;
+    }
+\end{tikzpicture}

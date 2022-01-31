@@ -1,0 +1,46 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\todocomment[Tobi]{Ich finde diese Art Hinweis gut. Allerdings dies nicht der einzige Abschnitt sein, der so einen Hinweis benötigt. Es sollte einen Abschnittsnamen geben, aus dem das hervorgeht und der z.B. im Vorwort erklärt wird (sonst muss man diesen Kasten copy-pasten, was redundant wäre)}
+
+\subsection{Lineare Rekursionsgleichungen}
+\todo{Lineare Rekursionsgleichungen}
+\begin{nutshell}{Lineare Rekursionsgleichungen\index{Lineare Rekursionsgleichungen}}
+    Eine \emph{Lineare Rekursionsgleichung} ($k$-ter Ordnung) wird definiert durch einen Rekursionsanfang
+    $$x_0 = b_0, \dots, x_{k-1} = b_{k-1}$$
+    und eine Rekursion
+    $$x_n = c_1 x_{k-1} + \dots + c_k x_{n-k} + b_k = b_k + \sum_{i=1}^{k} c_ix_{k-i} \hspace{1cm}(\text{für }n \geq k).$$
+\end{nutshell}
+
+\subsection{Catalan-Zahlen}
+\todo{Catalan-Zahlen}
+\begin{nutshell}{Catalan-Zahlen\index{Catalan-Zahlen}}
+    Die Catalan-Zahlen sind gegeben durch
+    $$C_n = \binom{2n}{n} \frac{1}{n+1}.$$
+    Die Catalan-Zahl $C_n$ gibt zum Beispiel die Anzahl der korrekten Klammerausdrücke mit $n$ Klammerpaaren an (der leere Klammerausdruck zählt als ein Klammerausdruck):
+    \begin{center}
+        \newcommand{\tmp}[2]{\textcolor{#1!80!black}{\textbf{(}#2\textbf{)}}}
+        \begin{tabular}{ccc}\toprule
+            $n$ & Klammerausdrücke & $C_n$ \\\midrule
+            0 & & 1\\
+            1 & \tmp{green}{} & 1\\
+            2 & \tmp{green}{\tmp{red}{}}, \tmp{green}{}\tmp{red}{} & 2\\
+            3 & \tmp{green}{\tmp{red}{\tmp{blue}{}}}, \tmp{green}{\tmp{red}{}\tmp{blue}{}}, \tmp{green}{\tmp{red}{}}\tmp{blue}{}, \tmp{green}{}\tmp{red}{\tmp{blue}{}}, \tmp{green}{}\tmp{red}{}\tmp{blue}{} & 5\\
+            \multicolumn{3}{c}{\dots}\\\bottomrule
+        \end{tabular}
+    \end{center}
+\end{nutshell}
+
+\subsection{Stirling-Zahlen}
+\todo{Stirling-Zahlen}
+\begin{nutshell}{Stirling-Zahlen\index{Stirling-Zahlen}}
+    Die \emph{Stirling-Zahlen erster Art} sind rekursiv definiert als
+    $$s_{0,0}=1, s_{n,k} = \begin{cases}s_{n-k,k-1} + (n-1) s_{n-1,k}, & 1\leq k \leq n\\0,&\text{sonst}\end{cases}.$$
+    $s_{n,k}$ gibt die Anzahl der Permutationen mit $k$ Zyklen aus $S_n$ an.
+    
+    Die \emph{Sitrling-Zahlen zweiter Art} sind rekursiv definiert als
+    $$S_{0,0}=1, S_{0,k} = S_{k,0} = 0 \text{ für } n,k \geq 1, S_{n,k} = S_{n-1,k-1}+k\cdot S_{n-1, k}$$
+    $S_{n,k}$ gibt die Anzahl verschiedener Partitionierungen von $\{1, \dots, n\}$ in $k$ nicht-leere Partitionen.
+\end{nutshell}
+\end{document}

@@ -1,0 +1,152 @@
+\usepackage{xspace}
+\usepackage{pgfplots}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfplotsset{compat=1.17} 
+\pgfplotsset{
+    defgrid/.style={
+        axis x line=middle, axis y line=middle,
+        grid=both,
+        grid style={dashed, draw=black!40},
+        xticklabel style={text=red},
+        yticklabel style={text=blue},
+        enlarge x limits={abs=.2cm}, enlarge y limits={abs=.2cm},
+        x tick style={thick, red},
+        y tick style={thick, blue},
+        xlabel style = {at={(1,0)},anchor=east},
+        ylabel style = {at={(0,1)},anchor=south},
+    }
+}
+\tikzstyle{grayset}=[draw,fill=black!10]
+\tikzstyle{onbase}=[baseline={([yshift=-.5ex]current bounding box.center)}]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Macros
+\newenvironment{linearEquation}{
+    \begin{tikzpicture}[
+        scale=1.5,
+        marble/.style={
+            shading=ball,
+            circle,
+            inner sep=.2cm,
+            draw
+        }
+    ]
+}
+{
+    %Gerüst
+    \draw[fill=brown!50!black, line width=.3mm] (-0.05,-0.45) rectangle (0.05, 1.8);
+    
+    \draw[fill=white] (0.3,1.4) -- (0.2,0.8) -- (-0.2,0.8) -- (-0.3,1.4) -- cycle;
+    
+    \fill (0.1,1.4) -- (-0.1,1.4) -- (0,1.1) -- cycle;
+    \foreach \phi in {-120,-105,-90,-75,-60}{
+        \draw ($ (0,1.2) + (\phi:0.2) $) -- ($ (0,1.2) + (\phi:0.3) $);
+    }
+    
+    \draw[fill=brown,line width=.3mm] (-1,1.45) rectangle (1, 1.4);
+    
+    %Fuß
+    \draw[fill=brown] (0.8,-0.5) to[out=90,in=0] (0.7,-0.4) -- (-0.7,-0.4) to[out=180,in=90] (-0.8,-0.5) -- cycle;
+    
+    %Linke Waagschale
+    \draw (-1,1.4) -- (-1.45,0.25);
+    \draw (-1,1.4) -- (-0.55,0.25);
+    \shadedraw[top color=black!15,bottom color=black!60] (-1.5,0.25) to[out=270, in=270] (-0.5,0.25) -- cycle;
+    
+    %Rechte Waagschale
+    \draw (1,1.4) -- (1.45,0.25);
+    \draw (1,1.4) -- (0.55,0.25);
+    \shadedraw[top color=black!15,bottom color=black!60] (1.5,0.25) to[out=270, in=270] (0.5,0.25) -- cycle;
+    \end{tikzpicture}
+}
+
+\newenvironment{linearUnequal}{
+    \begin{tikzpicture}[
+        scale=1.5,
+        marble/.style={
+            shading=ball,
+            circle,
+            inner sep=.2cm,
+            draw
+        }
+    ]
+}
+{
+    %Gerüst
+    \draw[fill=brown!50!black, line width=.3mm] (-0.05,-0.45) rectangle (0.05, 1.8);
+    
+    \draw[fill=white] (0.3,1.4) -- (0.2,0.8) -- (-0.2,0.8) -- (-0.3,1.4) -- cycle;
+    
+    \fill (0.1,1.4) -- (-0.1,1.4) -- (0,1.1) -- cycle;
+    \foreach \phi in {-120,-105,-90,-75,-60}{
+        \draw ($ (0,1.2) + (\phi:0.2) $) -- ($ (0,1.2) + (\phi:0.3) $);
+    }
+    
+    \draw[fill=brown,line width=.3mm] (0,1.4) -- ++ (-10:1) coordinate (rightanchor) -- ++ (80:0.05) -- ++ (170:2) -- ++ (-100:0.05) coordinate (leftanchor) -- cycle;
+    
+    %Fuß
+    \draw[fill=brown] (0.8,-0.5) to[out=90,in=0] (0.7,-0.4) -- (-0.7,-0.4) to[out=180,in=90] (-0.8,-0.5) -- cycle;
+    
+    %Linke Waagschale
+    \draw (leftanchor) -- ++ (-0.45,-1.15) coordinate (leftbowlL);
+    \draw (leftanchor) -- ++ (0.45,-1.15) coordinate (leftbowlR);
+    \shadedraw[top color=black!15,bottom color=black!60] (leftbowlL) to[out=270, in=270] (leftbowlR) -- cycle;
+    
+    %Rechte Waagschale
+    \draw (rightanchor) -- ++ (-0.45,-1.15) coordinate (rightbowlL);
+    \draw (rightanchor) -- ++ (0.45,-1.15) coordinate (rightbowlR);
+    \shadedraw[top color=black!15,bottom color=black!60] (rightbowlL) to[out=270, in=270] (rightbowlR) -- cycle;
+    \end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Balls
+\newcommand{\ball}[3]{\fill[#1] (#2) circle (.2) node[text=white]{#3};}
+\newcommand{\tikzball}[2]{\tikz[onbase]{\ball{#1}{0,0}{#2}}}
+\newcommand{\blueball}{\tikzball{blue}{1}}
+\newcommand{\redball}{\tikzball{red}{2}}
+\newcommand{\greenball}{\tikzball{green!70!black}{3}}
+\newcommand{\orangeball}{\tikzball{orange}{4}}
+\newcommand{\violetball}{\tikzball{violet}{5}}
+\newcommand{\brownball}{\tikzball{brown}{6}}
+
+%%% Books
+\newcommand{\book}[3]{
+    \begin{scope}[shift={(#2)}]
+        \fill[#1!80!black] (.1,.06) rectangle (0.81,-0.94);
+        \fill[white!80!black] (0,0) -- (.05,.05) -| (0.8,-0.95) -- (0.75, -1) |- cycle;
+        \fill[#1] (0,0) rectangle (0.75,-1);
+        \fill[#1!60!black] (-.05,0) rectangle (0.05, -1);
+        \fill[#1!60!black] (-.05,0) -- (0, 0) -- (.1, .06) -- (.05, .06) -- cycle;
+        \fill[white] (0.125, -0.125) rectangle (0.625, -0.5);
+        \node[black] at (.375, -.3125) {#3};
+    \end{scope}
+}
+
+%%% Bonbons
+\newcommand{\bonbon}[3]{
+    \begin{scope}[shift={(#2)}]
+        \fill[#1!50!black] (-.3, -.2) -- (-.3, .2) -- (0, 0) -- cycle;
+        \fill[#1!50!black] (.3, -.2) -- (.3, .2) -- (0, 0) -- cycle;
+        \fill[#1] (0,0) circle (.2);
+        \node[white, font=\bfseries] at (0,0) {#3};
+    \end{scope}
+}
+\newcommand{\tikzbonbon}[2]{\tikz[onbase]{\bonbon{#1}{0,0}{#2}}}
+\newcommand{\bluebonbon}{\tikzbonbon{blue}{1}}
+\newcommand{\redbonbon}{\tikzbonbon{red}{2}}
+\newcommand{\greenbonbon}{\tikzbonbon{green!70!black}{3}}
+\newcommand{\orangebonbon}{\tikzbonbon{orange}{4}}
+\newcommand{\violetbonbon}{\tikzbonbon{violet}{5}}
+\newcommand{\brownbonbon}{\tikzbonbon{brown}{6}}
+
+%%% Playing cards
+\newcommand{\AceDiamond}{\ensuremath{\diamondsuit}\text{A}}
+\newcommand{\AceHeart}{\ensuremath{\heartsuit}\text{A}}
+\newcommand{\AceSpade}{\ensuremath{\spadesuit}\text{A}}
+\newcommand{\AceClub}{\ensuremath{\clubsuit}\text{A}}
+\tikzstyle{playcard}=[black, thin, draw=gray, solid, fill=white, inner sep=2pt]

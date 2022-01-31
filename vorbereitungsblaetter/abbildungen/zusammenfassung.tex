@@ -1,0 +1,136 @@
+\def\pathToMain{../../buch/}
+\documentclass[solution]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\sheet{Zusammenfassungsblatt}
+\title{Abbildungen}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+
+\begin{remark}
+\parpic[r]{
+        \input{diagrams/simple_map}%Needed by tasks
+}
+Abbildungen sind in der Mathematik eine Regel, mit der Elemente von einer Menge, der \textbf{Definitionsmenge}, in Elemente der \textbf{Bildmenge} übersetzt werden.
+
+\picskip{2}
+Eine Abbildung mit dem Namen $f$, die aus einer Definitionsmenge $U$ in eine Bildmenge $V$ abbildet, schreibt man als $f\colon U\rightarrow V$ (gelesen: $f$ ist eine Abbildung von $U$ nach $V$).
+
+Um eine Abbildung anzuwenden, nimmt man ein Element der Definitionsmenge (das \textbf{Argument} der Abbildung) und erhält dessen \textbf{Bild}, also ein Element der Bildmenge, das die Abbildung eindeutig festlegt. 
+
+Als Formel schreibt man, wenn die Abbildung $f$ das Argument $u\in U$ auf das Element $v\in V$ abbildet, $f(u)=v$. Alternativ kann man auch $u\mapsto v$ schreiben (d.h. $u$ wird auf $v$ abgebildet), um explizit zu betonen, dass $u$ das \textbf{Bild} $v$ hat bzw. $u$ ein \textbf{Urbild} von $v$ ist.
+
+\dotfill
+\begin{center}
+    \qrcode[height=1cm]{https://www.google.de}
+    \hspace*{6mm}
+    \qrcode[height=1cm]{https://www.google.de}
+\end{center}
+
+\end{remark}
+
+\begin{remark}
+Die Regel, nach der eine Abbildung $f$ ihren Argumenten aus der Definitionsmenge Bilder zuordnet -- also die Abbildungsvorschrift -- kann auf verschiedene Weisen aufgeschrieben werden:
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+    \item \textbf{mit der expliziten Schreibweise}\\
+        \sloppy
+        Zu jedem Element der Definitionsmenge schreibst du \emph{explizit} auf, welches Bildelement ihm zugeordnet wird. Dafür nutzt du die Schreibweise \mbox{$f(\text{Argument})=\text{Bild}$} und listest für jedes Element der Definitionsmenge eine solche Regel auf.
+    
+        \fussy
+    \item \textbf{mit einer Wertetabelle}\\
+        Du zeichnest eine Tabelle mit zwei Spalten. In der linken Spalte trägst du alle Elemente der Definitionsmenge ein. In der rechten Spalte schreibst du neben jedes Element der Definitionsmenge das Bild, in das es von der Abbildung übersetzt wird.
+    
+    \item \textbf{mit einer Berechnungsvorschrift}\\
+        Hier gibst du an, wie aus einem \emph{beliebigen} Element $x$ der Definitionsmenge bestimmt werden kann, welches Bild es erhält. Dafür schreibst du
+        \[f(x)=\langle\textit{Regel, mit der aus $x$ das Bild von $x$ berechnet werden kann}\rangle.\]
+\end{enumerate} 
+\end{remark}
+
+\begin{remark}
+\parpic[r]{
+    \begin{tikzpicture}[scale=0.8]
+        \draw[->] (-0.2,0) -- (3.6,0) node[right] {$x$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+        %
+        \draw[dashed] (0,0) -- (0,1) node[left]{$1$};
+        \draw[dashed] (1,0) node[below]{$1$} -- (1,2) -- (0,2) node[left]{$2$};
+        \draw[dashed] (2,0) node[below]{$2$} -- (2,3) -- (0,3) node[left]{$3$};
+        \draw[dashed] (3,0) node[below]{$3$} -- (3,4) -- (0,4) node[left]{$4$};
+        %
+        \draw[violet] (0,1) -- (3,4);
+    \end{tikzpicture}
+}
+
+Die Darstellung von Abbildungen mit Mengendiagrammen ist bei großen Definitionsmengen sehr unpraktisch und die Pfeile stellen die Abbildungsvorschrift nicht übersichtlich dar.
+
+Deswegen stellt man Abbildungen normalerweise im Koordinatensystem dar, indem man einen \textbf{Abbildungsgraph} einzeichnet. Dafür stellt die $x$-Achse die Elemente der Definitionsmenge und die $y$-Achse die Elemente der Bildmenge dar. Über jedem $x$-Wert wird ein Punkt auf der Höhe seines Bildes eingezeichnet. 
+
+Ist die Definitionsmenge \textbf{dicht}, dann verbindet man die eingezeichneten Punkte zu einer durchgehenden Linie, um den \textbf{Graph} der Abbildung zu erhalten.
+\end{remark}
+
+\begin{remark}
+\parpic[r]{\input{diagrams/composition_scheme}}
+Zwei Abbildungen $f$ und $g$, bei denen $f$ seine Argumente in die Definitionsmenge von $g$ abbildet, können hintereinander angewandt werden. Dafür bildet man ein Element $x$ der Definitionsmenge von $f$ erst mit $f$ und das Ergebnis $f(x)$ dann mit $g$ ab. Man berechnet also $g(f(x))$.
+
+\picskip{0} 
+Die Abbildung, die jedes Element aus der Definitionsmenge von $f$ auf das Element der Bildmenge von $g$ abbildet, das man erhält, wenn man erst $f$ und dann $g$ anwendet, heißt \textbf{Verkettung} von $f$ und $g$. Sie wird geschrieben als $g\circ f$. Es gilt also $(g\circ f)(x)=g(f(x))$.
+\end{remark}
+
+\newpage
+
+\section*{Abschlusstest}
+
+\vspace*{5mm}
+
+\begin{exercise}
+    \textbf{Kurzfragen.} 
+    
+    Entscheide für die folgenden Aussagen, ob sie wahr oder falsch sind. Gib jeweils eine Begründung an.
+    
+    \begin{center}
+        \begin{tabular}{p{.7\textwidth}cc}
+            \toprule
+            Aussage & richtig & falsch\\\midrule
+            Insgesamt stehen hier 6 Fragen. & $\Box$ & $\Box$ \\
+            \multicolumn{3}{l}{\textbf{Begründung:}}\\\midrule
+            Um eine Abbildung im Koordinatensystem darzustellen, macht man irgendwas total dummes. & $\Box$ & $\Box$ \\
+            \multicolumn{3}{l}{\textbf{Begründung:}}\\\midrule
+            Hier wird eine konkrete Aussage zu einem bestimmten Beispiel stehen. & $\Box$ & $\Box$ \\
+            \multicolumn{3}{l}{\textbf{Begründung:}}\\\midrule
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{exercise}
+
+\begin{exercise}
+    Arbeiten mit Koordinatensystemen
+\end{exercise}
+
+\begin{exercise}
+    Abbildungsvorschriften
+\end{exercise}
+
+\begin{exercise}
+    Verschieben, strecken, stauchen
+\end{exercise}
+
+\begin{exercise}
+    Eigenschaften, auch Teilaufgabe mit Verkettung
+\end{exercise}
+
+\end{document}

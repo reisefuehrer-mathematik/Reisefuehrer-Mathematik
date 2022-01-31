@@ -1,0 +1,102 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 7}
+\title{Symmetrien von Abbildungsgraphen}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt führt die \textbf{Verkettung} von Abbildungen ein.
+\end{contents}
+\video{Achsensymmetrie an der $y$-Achse}{4}{Kapitel 11.6.6 (ab Seite 18)}{https://www.google.de}
+\begin{theorem}
+    Der Graph einer Abbildung $f$ ist genau dann achsensymmetrisch an der $y$-Achse, wenn $f(x)=f(-x)$ für alle $x\in\Real$ gilt.
+\end{theorem}
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Die beiden folgenden Koordinatensysteme enthalten jeweils einen Teil eines Graphen einer Abbildung, die symmetrisch an der $y$-Achse ist.
+    \begin{multicols}{2}\centering
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-0:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=20]
+                \addplot[color=violet] expression{x^2*sin(deg(x))};
+            \end{axis}
+        \end{tikzpicture}
+        
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:0, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=32]
+                \addplot[color=violet] expression{sin(deg(x^3))};
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+    \begin{enumerate}
+        \item[a)] Der im linken Bild eingezeichnete Punkt hat die Koordinaten $\coord{1}{1}$. Es gilt deshalb $f(1)=\answerfield{0.5cm}{1}$. Welchen Funktionswert kennst du dadurch außerdem, wenn $f$ achsensymmetrisch an der $y$-Achse ist?
+        \begin{answerbox}[.3in]
+            Es gilt zudem $f(-1)=f(1)=1$, weil bei Achsensymmetrie stets $f(x)=f(-x)$ gilt.
+        \end{answerbox}
+        \item[b)] Vervollständige die beiden Graphen, sodass sie achsensymmetrisch an der $y$-Achse sind.
+    \end{enumerate}
+\end{exercise}
+\begin{exercise}
+    Ist die Abbildung $f(x)=\abs{x}$ achsensymmetrisch an der $y$-Achse? Was musst du tun, um das zu prüfen?
+    \begin{answerbox}[.5in]
+        Ja, sie ist achsensymmetrisch. Dazu muss geprüft werden, ob $f(x)=f(-x)$ gilt. Das ist der Fall, da $\abs{x}=\abs{-x}$ gilt (Beträge sind immer positiv).
+    \end{answerbox}
+\end{exercise}
+\video{Achsensymmetrie an der $y$-Achse}{4}{Kapitel 11.6.6 (ab Seite 18)}{https://www.google.de}
+\newpage
+\begin{theorem}
+    Der Graph einer Abbildung $f$ ist genau dann punktsymmetrisch am Ursprung, wenn $f(x)=-f(-x)$ für alle $x\in\Real$ gilt.
+\end{theorem}
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Setze die Graphen aus Aufgabe 1 mit gestrichelten Linien so fort, dass die Abbildung punktsymmetrisch am Ursprung ist.
+\end{exercise}
+\begin{exercise}
+    \begin{enumerate}[label=\alph*)]
+        \item Wenn man einen Punkt \textchoice[0]{an der $y$-Achse,am Ursprung} spiegelt, dann gibt es lediglich einen Vorzeichenwechsel bei der $x$-Koordinate, denn er wird einfach nur horizontal nach links oder rechts gespiegelt. Gilt daher für eine Abbildungf $f$ immer $f(x)=f(-x)$ für beliebige Werte für $x$, dann weiß man sicher, dass $f$ \textchoice[0]{achsensymmetrisch,punktsymmetrisch} ist.
+        \item Spiegelt man einen Punkt \textchoice[1]{an der $y$-Achse,am Ursprung}, dann gibt es sowohl bei der $x$-Koordinate als auch bei der $y$-Koordinate einen Vorzeichenwechsel. Gilt also \textchoice[0]{$f(x)=-f(-x)$,$f(-x)=f^{-1}(x)$} für alle $x\in\Real$, dann ist $f$ \textchoice[1]{achsensymmetrisch,punktsymmetrisch} \textchoice[1]{an der $y$-Achse,am Ursprung}.
+    \end{enumerate}
+\end{exercise}
+\begin{exercise}
+    Entscheide, welche der folgenden Abbildungen punktsymmetrisch und welche achsensymmetrisch sind, indem du prüfst, ob jeweils $f(x)=f(-x)$ oder $f(x)=-f(-x)$ gilt.
+    \begin{multicols}{2}
+        \begin{enumerate}[label=\alph*)]
+            \item $f(x)=x$ 
+            \begin{multiplechoice}
+                \item achsensymmetrisch
+                \citem punktsymmetrisch
+            \end{multiplechoice}
+            \item $f(x)=x^2$
+            \begin{multiplechoice}
+                \citem achsensymmetrisch
+                \item punktsymmetrisch
+            \end{multiplechoice}
+            \item $f(x)=7$
+            \begin{multiplechoice}
+                \item achsensymmetrisch
+                \item punktsymmetrisch
+            \end{multiplechoice}
+            \item $f(x)=x^3$
+            \begin{multiplechoice}
+                \item achsensymmetrisch
+                \citem punktsymmetrisch
+            \end{multiplechoice}
+        \end{enumerate}
+    \end{multicols}
+\end{exercise}
+\mandala{mandala/mandala07}
+
+\end{document}

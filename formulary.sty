@@ -1,0 +1,56 @@
+\usepackage{tikz}
+\usepackage{bold-extra}
+\usepackage[strict]{changepage}
+\usepackage{scrlayer-scrpage}
+\usepackage{afterpage}
+
+%#1 color
+%#2 title color
+%#3 text color
+\newenvironment{formulargroup}[3]{%
+	\def\arraystretch{1.5}% tested 2
+	\arrayrulewidth=1pt%
+	\arrayrulecolor{#1!80!black}%
+	\newcommand{\labelcell}{%
+		\cellcolor{#1!50}%
+		%\color{black}
+		\bfseries%
+	}%
+	\newcommand{\markcell}{%
+		\cellcolor{#1!20}%
+		%\color{black}
+		\bfseries%
+	}%
+}{}
+\colorlet{pageaccent}{violet}
+\DeclareNewLayer[background, head, hoffset=0pt, width=\paperwidth, mode=picture,  contents={
+	\begin{tikzpicture}[remember picture, overlay]
+		\checkoddpage
+		\def\width{1.5cm}
+		\ifoddpage
+			\fill[pageaccent!50, path fading=south](current page.north west) rectangle ++(\width, -10cm);
+			\node[anchor=north west, minimum width=\width,minimum height=\width, text height=\width, text width=\width, inner sep=0pt, font=\Huge\bfseries, align=left] (pnum) at  ($(current page.north west)$) {\thepage};
+			\node[anchor=south west, rotate=-90, font=\Huge\bfseries\scshape, color=white] at ($(pnum.south west) - (0, .5cm)$) {Mathematik};
+			\draw[pageaccent, thick] let \p1=(pnum.south west), \p2=(current page.north east) in (pnum.south west) -- (\x2, \y1);
+			\node[anchor=south west, inner sep=0pt, text height=\width, font=\bfseries\Large] at (pnum.south east) {Formelsammlung};
+		\else
+			\fill[pageaccent!50, path fading=south](current page.north east) rectangle ++(-\width, -10cm);
+			\node[anchor=north east, minimum width=\width,minimum height=\width, text height=\width, text width=\width, inner sep=0pt, font=\Huge\bfseries, align=right] (pnum) at  ($(current page.north east)$) {\thepage};
+			\node[anchor=south east, rotate=90, font=\Huge\bfseries\scshape, color=white] at ($(pnum.south east) - (0, .5cm)$) {Mathematik};
+			\draw[pageaccent, thick] let \p1=(pnum.south east), \p2=(current page.north west) in (pnum.south east) -- (\x2, \y1);
+			\node[anchor=south east, inner sep=0pt, text height=\width, font=\bfseries\Large] at (pnum.south west) {Formelsammlung};
+		\fi
+	\end{tikzpicture}
+}]{formulary.bg}
+\DeclareNewPageStyleByLayers{formulary}{formulary.bg}
+
+\newcommand\newformularypage[2]{
+	%\newgeometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+	\afterpage{\globaldefs=1%
+		%\restoregeometry%
+		\clearpage%
+	}
+	\newpage
+	\colorlet{pageaccent}{#1}
+	\thispagestyle{formulary}
+}

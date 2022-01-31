@@ -1,0 +1,190 @@
+\documentclass[../../main.tex]{subfiles}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Diese Präambel muss leer bleiben! %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    \subsection{Charakteristische Punkte der Ableitung}
+    Da wir also nun wissen, was eine \enquote{Ableitung}, also die Steigung einer Kurve an einer beliebigen Stelle $x$, ist, können wir uns zunächst eine qualitative Methode überlegen diese zu bestimmen. Dazu ist es sinnvoll sich zunächst zu überlegen, welche Steigung an einigen auffälligen Punkten einer Kurve, zum Beispiel seinem kleinsten oder größten Wert, sowie an Wende- oder Sattelpunkten vorliegt.\\
+    Betrachten wir also zunächst lokal höchste Punkte einer Kurve, sogenannte \textbf{lokale Maxima}:
+    \begin{multicols}{2}
+        In der Abbildung erkennt man ein \textbf{lokales Maximum}. Betrachtet man die Steigung an verschiedenen Stellen $x$, so erkennt man, dass bei $x=0$, also genau an der Stelle des Maximums, die Steigung gleich Null ist. Wenn man also hier eine Tangente anlegen würde, so wäre sie horizontal. Für Orte \enquote{links} des Maximums, also in diesem Fall für $x < 0$ steigt der Graph, und \enquote{rechts} des \textbf{lokalen Maximums} fällt er.
+     \begin{center}\normalsize
+                  \begin{tikzpicture}
+                        \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, samples=20]
+                          \addplot[color=violet] expression{2-x^2};
+                     \end{axis}
+                 \end{tikzpicture}
+             \end{center}
+    \end{multicols}
+    Die selbe Betrachtung kann natürlich auch für \textbf{lokale Minima} durchgeführt werden:
+    \begin{multicols}{2}
+       Auch für \textbf{lokale Minima} erkennt man, dass die Steigung am Ort des Minimums verschwindet, die Ableitung hier also eine Nullstelle besitzen muss. \enquote{Links} des Minimums ist aber nun --im Gegensatz zum \textbf{lokalem Maximum}-- negativ und \enquote{rechts} positiv.
+     \begin{center}\normalsize
+                  \begin{tikzpicture}
+                        \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, samples=20]
+                          \addplot[color=violet] expression{x^2-2};
+                     \end{axis}
+                 \end{tikzpicture}
+             \end{center}
+    \end{multicols}
+    Für \textbf{lokale Extrema} muss also die Ableitung eine Nullstelle an der Stelle des Extremums besitzen. Die Bereiche \enquote{links} oder \enquote{rechts} des Extremums sind davon abhängig, ob es sich um ein Minimum oder Maximum handelt. Es gibt aber nicht nur diesen Fall, in dem eine Tangentensteigung von Null vorliegen muss. Es gibt immerhin auch noch \textbf{Sattelpunkte}:
+    \begin{multicols}{2}
+       In dem dargestellten \textbf{Sattelpunkt} ist die Steigung bei $x=0$ Null. Aber im Gegensatz zu Maxima und Minima wechselt die Steigung nicht das Vorzeichen, wenn man sie \enquote{links} und \enquote{rechts} dieser Stelle vergleicht. Stattdessen liegt hier eine Steigung vor, die überall größer oder gleich Null ist.
+       
+     \begin{center}\normalsize
+                  \begin{tikzpicture}
+                        \begin{axis}[defgrid, domain=-1:1, y=2cm, x=2cm, samples=20]
+                          \addplot[color=violet] expression{x^3};
+                     \end{axis}
+                 \end{tikzpicture}
+             \end{center}
+    \end{multicols}
+    Dabei ist natürlich wichtig, dass in dem gezeigten Graphen ein Beispiel dargestellt ist. Andere \textbf{Sattelpunkte} können auch negative Steigungen aufweisen. Charakteristisch für \textbf{Sattelpunkte} ist allerdings immer, dass die Ableitung eine Nullstelle besitzt, sich bei dieser Nullstelle das Vorzeichen der Steigung aber nicht verändert.\\
+    Den Fall der Sattelpunkte kann man natürlich weiter auf alle \textbf{Wendepunkte} verallgemeinern:
+    \begin{multicols}{2}
+       Man erkennt unschwer, dass die Steigung für alle Stellen positiv ist. Dabei ist die Steigung aber am kleinsten an dem \textbf{Wendepunkt}. Man hätte wieder ein Beispiel mit negativer Steigung wählen können. Dann wäre an der Stelle des \textbf{Wendepunkts} die Steigung entsprechend am größten.
+     \begin{center}\normalsize
+                  \begin{tikzpicture}
+                        \begin{axis}[defgrid, domain=-1:1, y=1cm, x=2cm, samples=20]
+                          \addplot[color=violet] expression{x^3+x};
+                     \end{axis}
+                 \end{tikzpicture}
+             \end{center}
+    \end{multicols}
+    Man findet also, dass Wendepunkte \textbf{lokale Extrema} der Ableitung darstellen. In dem Sonderfall eines \textbf{Sattelpunktes} liegt dieses Extremum des Ableitung außerdem auf der $x$-Achse.\\
+    Von diesen Betrachtungen können wir also schließen, dass bestimmte Punkte einer Kurve charakteristische Eigenschaften für die entsprechende Steigung und damit die Ableitung bedeuten. Wir fanden soeben folgende Idenditäten:
+    
+    \begin{center}
+        \begin{tabular}{ll}
+            Kurve & Ableitung \\\hline
+            Maximum & Nullstelle mit negativer Steigung\\
+            Minimum & Nullstelle mit positiver Steigung\\
+            Sattelpunkt & Nullstelle und lokales Extremum\\
+            Wendepunkt & lokales Extremum
+        \end{tabular}
+    \end{center}
+    Anhand dieser Eigenschaften der Ableitung kann man also leicht erkennen, ob man eine Ableitung richtig bestimmt hat. Damit sind sie sehr von Nutzen, wenn man eine Ableitung --wie es in späteren Kapiteln gezeigt wird-- berechnet hat und prüfen möchte, ob das Ergebnis stimmt. Außerdem lassen diese Eigenschaften es zu eine einfache, wenn auch nur qualitative Methode zu finden, um eine Ableitung zu berechnen: Das \enquote{Graphische Ableiten}
+    
+    \subsection{Graphisches Ableiten}
+    Für gewöhnlich beinhalten Funktionen verschiedene Extrema, Wende- und Sattelpunkte, sodass eine qualitative Ableitung anhand der im vorigen Abschnitt gewonnenen Ergenntnisse \enquote{zusammengesetzt} werden kann.
+    Betrachten wir zum Beispiel einmal das Polynom
+    $$f(x) = \frac{1}{2}\left( x^3 + (x-1)^2 - 2x\right)+1,$$
+    so müssen wir uns eingestehen nicht zu wissen, wie die Ableitung genau aussieht, da wir (noch) nichteinmal genau wissen, wo die Extrema und Wendepunkte liegen. Wir können uns aber die Funktion plotten und aus den erkennbaren lokalen Extrema und dem Wendepunkt die Ableitung grob beschreiben: Dazu legen wir den Plot der Funktion über ein zunächst leeres Koordinatensystem, in das wir dann die Nullstellen und grobe Lage der Maxima eintragen. Die Höhe der Maxima ist dabei natürlich nur abschätzbar, da wir noch keine quantitative Methode kennengelernt haben. Man muss sich dabei aber dennoch daran halten, dass eine große Steigung einen hohen Wert in der Ableitung zur Folge hat.\\
+    Unter den Plot der Funktion zeihen wir dann vertikale Linien in das Koordinatensystem darunter um dort die Nullstellen (für Extrema) oder das Extremum (für Wendepunkte) zu zeichnen. Anhand der Betrachtung der Steigung um diese Punkte herum kann außerdem die Steigung der Ableitung in diesen Punkten beschrieben werden, wie es in dem vorigen Teilkapitel getan wurde. Durch verbinden der entstandenen Punkte kann so eine qualtitative Ableitung konstruiert werden. Am Beispiel von $f(x)$ ist das im Folgenden präsentiert:
+    \begin{center}\normalsize
+        \begin{tikzpicture}
+        \begin{groupplot}[group style={group size=3 by 1},  y=1cm, ymin=-2.5, ymax=3, x=2cm, xmin=-2.5, xmax=2.5, defgrid, yticklabels={,,}, xticklabels={,,}]
+            \nextgroupplot
+            \addplot[color=violet] expression{(0.5*(x^3+(x-1)^2-2*x)+1};
+            \nextgroupplot
+            \addplot[] coordinates {
+                (0,0)
+                (0.5,1)
+                (1,2)
+            };
+            \addplot[] coordinates {
+                (0,0)
+                (0.5,1)
+                (1,2)
+            };
+            \addplot[] coordinates {
+                (0,0)
+                (0.5,1)
+                (1,2)
+            };
+            \nextgroupplot
+            \addplot[color=violet] expression{0.5*(3*x^2+2*(x-1)-2)};
+        \end{groupplot}
+        \end{tikzpicture}
+    \end{center}
+             
+    \subsection{Sekanten- und Tangentensteigung}
+    Für praktische Anwedungen ist die Graphische Ableitung natürlich aufgrund ihrer qualitativen Natur nicht zugebrauchen. Deshalb suchen wir in diesem Teilkapitel eine \enquote{richtige} Methode zu Berechnung der Steigung einer Kurve in einem beliebigen Punkt $x$.\\
+    Wir können uns anschaulich überlegen, dass eine Tangente zu einer Kurve, also eine Linie, welche die Kurve in dem Punkt $x$ berührt, aber nicht schneidet, ein Maß für die Steigung der Kurve darstellt. Hätte die Tangente dabei eine andere Steigung, als die der Kurve, so würde sie sie zwangsläufig schneiden und wäre keine Tangente mehr, wie man sich anschaulich an der unten stehenden Abbildung überzeugen kann.
+    
+    \begin{center}\normalsize
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-1:1, xmin=-1, xmax=1, ymin=-1, ymax=1, y=4cm, x=4cm, xlabel=$\scriptstyle x$, ylabel=$\scriptstyle y$]
+                \addplot[color=violet, samples=20] expression{x^2};
+                \addplot[color=green, samples=2] expression{x-0.25};
+                \addplot[color=red, samples=2] expression{2*x-0.75};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Dadurch, dass wir an die Punkte einer Kurve eine Tangende anlegen, können wir also die Steigung an der entsprechenden Stelle bestimmen. Wir haben also das Problem die Steigung einer Kurve zu bestimmen reduziert auf die Bestimmung der Steigung einer Geraden, welche für beliebige Punkte $\coord{x_1}{f(x_1)}$ und $\coord{x_2}{f(x_2)}$ als
+    $$m = \frac{y_2 - y_1}{x_2 - x_1}$$
+    bekannt ist. Noch ist allerdings nicht klar, wie wir an die Kurve eine Tangente anlegen, das müssen wir also nun betrachten.\\
+    Die Schwierigkeit eine Tangente anzulegen liegt darin, dass nur ein einziger Punkt bekannt ist. Dieser eine Punkt ist die Funktion $f$ am Ort $x$ ausgewertet. Leider brauchen wir aber zwei Punkte um durch sie eine Gerade zu legen, sodass dieser eine Punkt nicht ausreicht.\\
+    Wo kriegen wir also einen weiteren Datenpunkt her? Wir könnten eine Näherungslösung betrachten, das wir als zweiten Punkt einen weiteren Punkt aus der Kurve nutzen. Damit können wir also eine Gerade durch $\coord{x}{f(x)}$ nach $\coord{x+h}{f(x+h)}$ ziehen. $h$ ist dabei zunächst irgendeine reelle Zahl. Damit verändern wir aber die Steigung unserer Tangente, und das sorgt ja dafür, dass es sich gar nicht wirklich um eine Tangente handelt. Das ist auch (noch) der Fall, allerdings stellt man fest, dass für kleine $h$ diese Betrachtung ziemlich genau eine Tangente beschreibt, wie man an der folgenden Abbildung erkennen kann.
+    \begin{center}\normalsize
+        \begin{tikzpicture}
+        PLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDER
+            \begin{axis}[defgrid, domain=-1:1, xmin=-1, xmax=1, ymin=-1, ymax=1, y=4cm, x=4cm, xlabel=$\scriptstyle x$, ylabel=$\scriptstyle y$]
+                \addplot[color=violet, samples=20] expression{x^2};
+                \addplot[color=green, samples=2] expression{x-0.25};
+                \addplot[color=red, samples=2] expression{2*x-0.75};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+             
+    Wir stellen also fest, dass für $h\neq 0$ also eine Näherungslösung vorliegt, die für $h\to 0$ aber immer genauer wird. Für $h=0$ ist die Tangentensteigung aber nicht direkt berechenbar, weil bekanntermaßen die Steigung einer Gerade durch
+    $$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{f(x+h) - f(x)}{(x+h)-x} \stackrel{h=0}{=} \frac{f(x) - f(x)}{x-x} = \frac{0}{0}$$
+    wegen der Null im Nenner nicht berechenbar ist. Was wir aber machen können ist den Grenzwert für $h\to 0$ zu berechnen und dieser Grenzwert beschreibt, wenn er existiert, die Steigung der Tangente. Die Grenzwertbildung würde uns außerdem die \enquote{korrekte} Steigung einer Tangente geben, da eine Linie mit dieser Steigung die Kurve an der Stelle $x$ nicht schneiden würde, da $h$ unendlich klein wäre.\\
+    Die Steigung der Tangente lässt sich also schreiben als
+    $$m = \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{(x+h) - x} = \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{h}$$
+    Die rechte Seite dieser Gleichung ist als \textbf{Differenzenquotient} bekannt. Sofern er existiert wird die Funktion $f$ im Punkt $x$ als \textbf{differenzierbar} bezeichnet. Weil die Steigung $m$ im Allgemeinen von der Stelle $x$ abhängt, definieren wir uns eine neue Funktion $f'(x)$, indem wir $x$ nun als Variable verstehen als
+    $$\boxed{f'(x) \coloneqq \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{h}}.$$
+    Diese Funktion gibt für eine beliebige Stelle $x$ die Steigung der Funktion $f$ wieder und wird als \textbf{Ableitung von} $\boldsymbol{f}$ bezeichnet.\\
+    Weil der \textbf{Differenzenquotienten} in der Praxis meist unhandlich zu nutzen ist, wird er meist nicht zu Berechnung der \textbf{Ableitung} genutzt. Stattdessen gibt es \textbf{Ableitungsregeln}, welche aus den \textbf{Differenzenquotienten} herleitbar sind, welche für Berechnungen herangezogen werden.\\
+    
+    \begin{example} \label{bsp:geradenAbleitungBeispiel}
+        Wir wissen bereits, dass die Steigung einer Geraden $f(x) = mx + b$ durch $m$ gegeben ist. Damit die Ableitung stimmen kann muss also als Ergebnis $m$ herauskommen. Wir prüfen:
+        \begin{align*}
+        f'(x) = \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{f(x+h)-f(x)}{h} &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{m(x+h)+b-(mx+b)}{h}\\
+        &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{m(x-x+h)+b-b}{h}\\
+        &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{mh}{h}\\
+        &= m\underbrace{\lim\limits_{\stackrel{h\to 0}{h\neq 0}}\underbrace{\frac{h}{h}}_{=1}}_{=1}\\
+        &= m
+        \end{align*}
+        Das Ergebnis ist unabhängig von $x$, also überall gleich undzwar gleich $m$, sodass tatsächlich eine Gerade vorliegt. Außerdem stellt man fest, dass die Steigung für alle $y$-Achsenabschnitte $b$ gleich ist, die Steigung also nicht von der Verschiebung entlang der $y$-Achse abhängt, was anschaulich klar ist.
+    \end{example}
+    \begin{example}
+        Für $f(x) = x^2$ hängt die Steigung offensichtlich von $x$ ab. Wie sieht damit die Ableitung aus?
+        \begin{align*}
+        f'(x) = \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{f(x+h)-f(x)}{h} &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{(x+h)^2-x^2}{h}\\
+        &\stackrel{\text{Binom. F.}}{=} \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{x^2+2xh+h^2-x^2}{h}\\
+        &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{2xh + h^2}{h}\\
+        &= 2x\underbrace{\lim\limits_{\stackrel{h\to 0}{h\neq 0}}\underbrace{\frac{h}{h}}_{=1}}_{=1} + \underbrace{\lim\limits_{\stackrel{h\to 0}{h\neq 0}}\underbrace{\frac{h^2}{h}}_{=h}}_{=0}\\
+        &= 2x
+        \end{align*}
+        Die Ableitung hängt also tatsächlich von $x$ ab. Außerdem besitzt $f'$ bei $x=0$ eine Nullstelle, wobei $f'(x<0)<0$ und $f'(x>0)>0$ ist. Aus den Betrachtungen von charakteristischen Punkten wissen wir also nun, dass ein lokales Minimum in der Null vorliegt.\\ Später werden wir als Rechenregel finden, dass für $f(x) = x^n$ gilt, dass $f'(x) = nx^{n-1}$ gilt, wodurch dieses Ergebnis verallgemeinert wird.
+    \end{example}
+    \begin{example}
+        In der Physik und damit auch in den Ingenieurwissenschaften ist die Ableitung ein sehr wichtiges Werkzeug. Beispiele sind:
+        \begin{itemize}
+        \item Klassische Physik:
+            \begin{itemize}
+                \item Geschwindigkeiten $v$ in Abhängigkeit der Zeit $t$ sind aus dem Ort $x(t)$ beschrieben durch $$v(t) = x'(t).$$ Die Steigung im $x$-$t$-Diagramm gibt also die Geschwindigkeit wieder. Das erkennt man auch an der Einheit der Geschwindigkeit als Meter pro Sekunde.
+                \item Die Beschleunigung $a$ ist wiederum die Ableitung aus der Geschwindigkeit. Deshalb ist auch die Ableitung des Impulses $p(t) = mv(t)$ gleich der wirkenden Kraft $F(t) = ma(t)$.
+                \item Eine Kraft $F$ im Abhängigkeit des Ortes $x$ kann anhand der potentiellen Energie $E_\text{pot}(x)$ anhand von $$F(x)=-E_\text{pot}'(x)$$ berechnet werden. Dieses Gesetz gilt für viele Felder in der klassischen Physik, wie Gravitationsfelder und elektrostatische Felder. Deshalb ist auch die Gravitationskraft $F_G(x)=-mg$ und die Höhenenergie $E_\text{pot}(x)=mgx$, wobei $x$ die Höhe ist (vgl. Beispiel \ref{bsp:geradenAbleitungBeispiel}).
+                \item Phänomene, wie Wellen, Wärmeleitung, plastische Verformungen, Flüssigkeitsverhalten etc. werden durch Differentialgleichungen und damit Ableitungen beschrieben.
+            \end{itemize}
+        \item Elektrodynamik:
+        \begin{itemize}
+            \item Die gesamte Elektrodynamik wird durch die vier Maxwell-Gleichungen beschrieben, welche alle mehrere Ableitungen enthalten.
+            \item Auch hier gibt es Wellenphänomene, welche --wie in der klassischen Physik bereits geschrieben-- eine Differentialgleichung erfüllen. Diese Wellen sind Licht.
+        \end{itemize}
+        \item Quantenmechanik:
+        \begin{itemize}
+            \item Für eine sog. Wellenfunktion $\Psi(x)$, wobei $x$ der Ort ist, gilt die Schrödingergleichung $$C\Psi''(x) = E\Psi,$$ wobei $C$ eine Konstante und $E$ die Energie des Zustands ist. Aus dieser Gleichung sind alle weiteren Eigenschaften vollständig bestimmt.
+            \item Der Impuls eines Teilchens ist proportional zu der Ableitung der Wellenfunktion.
+        \end{itemize}
+        \item allg. Relativitätstheorie:
+        \begin{itemize}
+            \item Die Raumkrümmung ist die zweite Ableitung einer Koordinate. In der Relativitätstheorie wird als Maß dieser Krümmung der Einsteintensor $G$ genutzt. Dieser Beschreibt entsprechend die Krümmung der Raumzeit und damit alle gravitativen Effekte, sowie Zeitdilatationen und Raumkontraktionen, sowie Singularitäten wie schwarze Löcher und den Urknall.
+        \end{itemize}
+        \end{itemize}
+        Kurz gesagt kann man ohne ein solides Verständnis von Ableitungen keine Physik und damit auch kein Ingenierwesen, Chemie, Elektrotechnik, Mechanik etc. betreiben. Es gibt wohl kaum ein mathematisches Hilfsmittel mit der Wichtigkeit von Ableitungen.
+    \end{example}
+\end{document}

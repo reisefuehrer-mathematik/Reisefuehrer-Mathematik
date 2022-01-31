@@ -1,0 +1,90 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+[Mit bloßen Zahlen lässt sich kein Sinn ausdrücken]
+
+[Sie können Sachzusammenhänge gut beschreiben]
+
+\begin{example}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \node at (0,1.2) {\includegraphics[width=.26\textwidth]{images/dictionary.png}};
+            \node at (0,2) {\footnotesize \textbf{für 2 Pfannkuchen:}};
+            \node at (0,1.55) {\footnotesize 100\,g Mehl, 1 Ei};
+            \node at (0,1.15) {und \footnotesize 125\,ml Milch};
+            \node at (0,0) {\includegraphics[width=.32\textwidth]{images/Pancake.png}};
+        \end{tikzpicture}
+    }
+    
+    Martin möchte seine Freunde zum Pfannkuchenessen einladen. Die meisten seiner Freunde essen zwei Pfannkuchen. Deshalb plant er Teig für doppelt so viele Pfannkuchen ein wie Personen anwesend sein werden.
+    
+    \picskip{3}
+    Aktuell erwartet er, dass er mit seinen Freunden zu fünft essen wird. Er muss also 10 Pfannkuchen braten. Im Schrank findet Martin ein Rezept mit der rechts abgebildeten Zutatenliste. Für fünf Personen muss er also 5 Eier, 500\,g Mehl und 625\,ml Milch kaufen.
+    
+    Die Menge Milch, die Martin kaufen muss, berechnet sich beispielsweise durch \[125\,\text{ml}\cdot\text{Anzahl der Personen}.\]
+    Mit dieser Regel kann Martin ausrechnen, wie viel Milch er braucht -- abhängig davon, wie viele Personen kommen werden.
+    
+    Mit dieser Regel siehst du ein Beispiel für eine Formel, in der nicht nur Zahlen vorkommen, sondern noch weitere Platzhalter, die beim Ausrechnen durch Zahlen ersetzt werden müssen. Die \enquote{Anzahl der Personen} kann je nachdem, wie viele Freunde zum Essen kommen, durch verschiedene Werte ersetzt werden.
+\end{example}
+
+Weil der Wert variabel ist, werden solche Ausdrücke, die für Zahlen stehen, aber erst noch durch eine (beiebige) Zahl ersetzt werden müssen, \textbf{Variablen}.
+
+[Variablen können in Termen vorkommen]
+
+\begin{example}
+    Pfannkuchen-Beispiel: Als kompakter Term aufgeschrieben.
+    \[125\,\text{ml}\cdot P\]
+\end{example}
+
+[ggf. noch ein Beispiel, mit Flächeninhalten]
+
+[]das kann verwirrend aussehen, weil man nicht weiß, wie man mit Buchstaben rechnen soll]
+
+[Variablen sind eigentlich nur Zahlen, sagen wir, wir ersetzen die Buchstaben aus dem letzten Beispiel durch die Werte aus dem folgenden Wörterbuch]
+
+\begin{example}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=.6]
+            \node at (0,0) {\includegraphics[width=.3\textwidth]{images/dictionary.png}};
+            \node at (-1.6,1.5) {\small\textbf{Zeichen}};
+            \node at (1.6,1.5) {\small\textbf{Wert}};
+            \node[red] at (1.6,0) {$5$};
+            \node[red] at (-1.6,0) {$x$};
+            \node[violet] at (1.6,-1) {$12$};
+            \node[violet] at (-1.6,-1) {$y$};
+            \node at (0,-1) {$\rightarrow$};
+            \node at (0,0) {$\rightarrow$};
+        \end{tikzpicture}
+    }
+    
+    Letztes Beispiel: Schön und gut. Glücklicherweise haben wir hier ein Wörterbuch, das uns sagt, welche Werte wir für $x$ und $y$ einsetzen sollen. Dann kann man den Spaß auch ausrechnen.
+\end{example}
+
+[Am Ende versteckt sich hinter einer Variablen also wieder nur eine Zahl -- welche, ist dann irgendwann noch zu klären (oder eben nie)]
+
+[Merke: Terme mit Variablen haben keinen festen Wert, sondern der Wert hängt davon ab, durch was man die Variablen ersetzt]
+
+Um einfache Rechenaufgaben wie $17\cdot73+17\cdot 27$ oder $(28-6\cdot 4)\cdot 11$ auszurechnen, hast du bereits verschiedene Rechenregeln und -gesetze wie etwa \emph{Punkt- vor Strichrechnung} oder Regeln zum Umgang mit Klammern erlernt. Du weißt auch, wie du dir Rechnungen wie die obige mit Gesetzen wie dem \emph{Distributivgesetz} vereinfachen kannst.
+
+\begin{example}
+    Bei der Rechnung $\textcolor{red}{\underbrace{17\cdot73}_?}+\textcolor{violet}{\underbrace{17\cdot 27}_?}$ lassen sich weder der rot eingezeichnete linke Teil noch der violett eingezeichnete rechte Teil einfach im Kopf berechnen. Mithilfe das Distributivgesetzes, das besagt, dass
+    \[a\cdot b+a\cdot c=a\cdot (b+c)\]
+    für beliebige Zahlen $a,b,c$ ist, kann die obige Rechnung zu $17\cdot (73+27)$ umgeformt werden. Wenn du jetzt den Teil in der Klammer (also $73+27$) berechnest, dann erhältst du dafür den Wert $100$.
+    
+    Schließlich kannst du $17\cdot 100$ einfach ausrechnen, indem du zwei Nullen an die $17$ hängst. Das Ergebnis ist also $1700$.
+\end{example}
+
+Du kannst Terme, in denen Variablen vorkommen, zwar nicht direkt ausrechnen (denn du weißt nicht, durch welchen Wert du die Variable ersetzen musst), es ist aber trotzdem möglich, mit den Rechenregeln, die du bereits kennst, auch Terme mit Variablen umzuformen und zu vereinfachen. In diesem Kapitel lernst du, wie du mit Termen, in denen Variablen vorkommen, umgehen kannst und wie du sie ähnlich wie im letzten Beispiel, in dem nur Zahlen vorkamen, umformen und damit vereinfachen kannst.
+
+[Nicht behandelt: Wie baue ich aus einem Sachzusammenhang einen Term? Das kann in einer Beispiellösung einer Übungsaufgabe erklärt werden (?)]
+
+\section{Terme zusammenfassen}
+\section{Ausklammern}
+\section{Ausmultiplizieren}
+
+[Wie das allgemein geht]
+
+\subsection{Binomische Formeln}
+\subsection{Minusklammern}
+\end{document}

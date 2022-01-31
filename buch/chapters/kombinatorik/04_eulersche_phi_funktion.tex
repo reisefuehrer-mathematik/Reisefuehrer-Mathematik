@@ -1,0 +1,34 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+%als Zusatzwissen deklarieren
+
+\begin{reminder}
+    Der \enquote{größte gemeinsame Teiler} (ggT) von zwei Zahlen $a$ und $b$ ist die größte Zahl, die sowohl $a$ als auch $b$ ohne Rest teilt. Wir schrieben: $$\ggt(a,b).$$
+\end{reminder}
+
+\todo{}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\linewidth}{l|*{19}{Y|}Y}\rowcolor{maincolor!80}
+        $n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20\\\hline
+        $\varphi(n)$ & 1 & \cellcolor{maincolor!50}{1} & \cellcolor{maincolor!50}{2} & 2 & \cellcolor{maincolor!50}{4} & 2 & \cellcolor{maincolor!50}{6} & 4 & 6 & 4 & \cellcolor{maincolor!50}{10} & 4 & \cellcolor{maincolor!50}{12} & 6 & 8 & 8 & \cellcolor{maincolor!50}{16} & 6 & \cellcolor{maincolor!50}{18} & 8
+    \end{tabularx}
+    \caption{Diese Tabelle zeigt die ersten 20 Werte der eulerschen Phi-Funktion. Die Werte, die durch Einsetzen von Primzahlen raus kommen, sind hervogehoben. Fällt dir etwas auf?}
+    %\label{tab:my_label}
+\end{table}
+
+\begin{remark}{Aber Warum?}
+    Die eulersche Phi-Funktion kann schnell in ihrer Wichtigkeit unterschätzt werden. Die Möglichkeit, die Anzahl der teilerfremden Zahlen zu zählen, scheint nicht viel mehr als eine mathematische Spielerei. Aber das ist weit von der Wirklichkeit. Die Phi-Funktion spielt eine zentrale Rolle in der heutigen Kryptographie aufgrund ihrer Eigenschaften, die im \emph{Satz von Euler-Fermat} und im \emph{kleinen fermatschen Satz} behandelt werden. Wenn du mehr über die Anwendung erfahren möchtest, ist die \emph{RSA-Verschlüsselung} ein guter Startpunkt.
+\end{remark}
+
+\todocomment[Tobi]{Du solltest erst teilerfremd einführen und dann verwenden. Teilerfremd wird als Adjektiv klein geschrieben.}
+
+\begin{nutshell}{Phi-Funktion\index{Phi-Funktion}}
+    Die Eulersche Phi-Funktion, $\varphi$, nimmt natürliche Zahlen $n$ als Eingabe und gibt die Anzahl der teilerfremden Zahlen kleiner als $n$ aus:
+    $$\varphi(n) = \text{Anz. der Zahlen zwischen $1$ und $n$, die Teilerfremd sind zu $n$}.$$
+    Zwei Zahlen heißen Teilerfremd, wenn ihr größter gemeinsamer Teiler die 1 ist.
+\end{nutshell}
+\end{document}

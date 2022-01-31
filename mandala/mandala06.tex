@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale=0.7,line width=.4mm]
+   \draw (0,0) circle[radius=4.3];
+   \draw (0,0) circle[radius=5.7];
+   \foreach \phi in {0,15,...,345}{
+        \draw[fill=white,rotate=\phi] (90:2) ellipse (0.3cm and 1.5cm);
+        \draw[fill=white,rotate=\phi] (90:4.3) ellipse (0.25cm and 1cm);
+        \draw[fill=white,rotate=\phi] (90:5.7) ellipse (0.2cm and 0.5cm);
+        \draw[fill=white,rotate=\phi] (90:6.3) circle[radius=1mm];
+    }
+\end{tikzpicture}

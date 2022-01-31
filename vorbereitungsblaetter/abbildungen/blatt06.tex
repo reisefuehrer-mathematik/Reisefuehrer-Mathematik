@@ -1,0 +1,164 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 6}
+\title{Eigenschaften von Abbildungsgraphen}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt führt in die grundlegende Untersuchung von Abbildungsgraphen ein. Es werden dabei der \textbf{$y$-Achsenabschnitt}, \textbf{Nullstellen} und \textbf{Monotonie} untersucht. 
+    
+    Darüber hinaus wird thematisiert, wie sich \textbf{$y$-Achsenabschnitt} und \textbf{Nullstellen} rechnerisch finden lassen.
+\end{contents}
+
+\video{Der $y$-Achsenabschnitt}{6}{Kapitel \ref{ext:sec:abbildungen_ordinatenabschnitt} (ab Seite \pageref{ext:sec:abbildungen_ordinatenabschnitt})}{https://www.google.de}
+\begin{definition}
+    Für eine Abbildung $f$ heißt der $y$-Wert, an dem der Graph von $f$ die $y$-Achse schneidet, der \textbf{$y$-Achsenabschnitt} (oder \textbf{Ordinatenabschnitt}) von $f$.
+\end{definition}
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Lies aus den folgenden Abbildungsgraphen jeweils den $y$-Achsenabschnitt ab.
+    \begin{multicols}{3}\centering
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-1.5,xmax=2,ymin=-1,ymax=2, samples=2]
+                \addplot[color=violet] expression{1-2*x};
+            \end{axis}
+        \end{tikzpicture}
+        $y$-Achsenabschnitt: \answerfield{0.5cm}{1}
+        
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-1.5,ymin=-1,ymax=2, samples=20]
+                \addplot[color=violet] expression{2^(-x)*x^2-1};
+            \end{axis}
+        \end{tikzpicture}
+        $y$-Achsenabschnitt: \answerfield{0.5cm}{-1}
+        
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-1.5,ymin=-1,ymax=2, samples=20]
+                \addplot[color=violet] expression{x^2};
+            \end{axis}
+        \end{tikzpicture}
+        $y$-Achsenabschnitt: \answerfield{0.5cm}{0}
+    \end{multicols}
+\end{exercise}
+\begin{exercise}
+    Der $y$-Abschnitt einer Abbildung lässt sich ermitteln, indem man $f(\answerfield{0.5cm}{0})$ berechnet. Eine Abbildung $f\colon\Real\rightarrow\Real$ hat \textchoice[0]{genau einen, mindestens einen, beliebig viele} \textchoice[0]{$y$-Achsenabschnitt,$y$-Achsenabschnitte}.
+\end{exercise}
+\begin{exercise}
+    Bestimme den $y$-Achsenabschnitt der Abbildung $f(x)=3x^2+5$.
+    \begin{answerbox}[0.5in]
+        Es muss $f(0)$ berechnet werden. Wir erhalten $f(0)=3\cdot 0^2+5=0+5=5$, also hat $f$ den $y$-Achsenabschnitt 5.
+    \end{answerbox}
+\end{exercise}
+\video{Was sind Nullstellen?}{6}{Kapitel \ref{ext:sec:abbildungen_nullstelle} (ab Seite \pageref{ext:sec:abbildungen_nullstelle})}{https://www.google.de}
+\begin{definition}
+    Ist $f$ eine Abbildung, dann heißen alle $x\in\Real$ mit $f(x)=0$ \textbf{Nullstellen} von $f$.
+\end{definition}
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Kennzeichne alle Nullstellen der Abbildung im folgenden Koordinatensystem.
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-4:4, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-4,xmax=4,ymin=-2,ymax=2, samples=40]
+                    \addplot[color=violet] expression{0.2*(x+2)*(x+0.5)*(x-1)*(x-3)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Die Abbildung hat die Nullstellen \answerfield{3cm}{$-2,-\frac{1}{2},1$ und $3$}.
+\end{exercise}
+\begin{exercise}
+    Um alle Nullstellen einer Abbildung zu finden, müssen alle Werte für \textchoice[0]{$x$,$f(x)$} gefunden werden, sodass \textchoice[1]{$f(0)=x$,$f(x)=0$} gilt. 
+    
+    Möchte man beispielsweise alle Nullstellen von $f(x)=2x-1$ finden, dann müssen alle Werte $x$ gefunden werden, für die \textchoice[0]{$2x-1=0$,$2\cdot 0-1=x$} gilt. Entsprechend ist \textchoice[2]{$f(0)$,$f(x)=\frac{1}{2}$,$x=\frac{1}{2}$} eine Nullstelle von $f$ (denn es gilt \answerfield{3cm}{$f(\frac{1}{2})=2\cdot\frac{1}{2}-1$}$=0$). Der Graph schneidet dort die \textchoice[0]{$x$-Achse,$y$-Achse}.
+\end{exercise}
+\video{Monotonie}{6}{Kapitel \ref{ext:sec:abbildungen_monotonie} (ab Seite \pageref{ext:sec:abbildungen_monotonie})}{https://www.google.de}
+\begin{definition}
+    Eine Abbildung $f$ heißt \textbf{monoton steigend}, falls $f(x)\leq f(y)$ für alle $x<y$ gilt. Sie heißt \textbf{streng monoton steigend}, falls $f(x)<f(y)$ für alle $x<y$ gilt.
+    
+    Analog heißt sie \textbf{monoton fallend}, falls $f(x)\geq f(y)$ für alle $x<y$ gilt und \textbf{streng monoton fallend}, falls $f(x)>f(y)$ für alle $x<y$ gilt.
+    
+    Eine Abbildung, die entweder monoton fallend oder monoton steigend ist, heißt \textbf{monoton}.
+\end{definition}
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Kreuze für die folgenden Abbildungen an, ob sie (streng) monoton fallend oder steigend sind.
+    \begin{multicols}{3}\centering
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-1.5,xmax=2,ymin=-1,ymax=2, samples=2]
+                \addplot[color=violet] expression{1.5-0.5*x};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{multiplechoice}
+            \citem monoton fallend
+            \item monoton steigend
+            \citem streng monoton fallend
+            \item streng monoton steigend
+        \end{multiplechoice}
+        
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-1.5,ymin=-1,ymax=2, samples=20]
+                \addplot[color=violet] expression{2^(-x)*x^2-1};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{multiplechoice}
+            \item monoton fallend
+            \item monoton steigend
+            \item streng monoton fallend
+            \item streng monoton steigend
+        \end{multiplechoice}
+        
+        \begin{tikzpicture}[
+          declare function={
+            func(\x)= (\x<=0) * (\x*\x*\x + 1.5) +
+                      (\x> 0) * (1.5);
+          }
+        ]
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={-1,...,2},xmin=-1.5,ymin=-1,ymax=2, samples=20]
+                \addplot[color=violet] expression{func(x)};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{multiplechoice}
+            \item monoton fallend
+            \citem monoton steigend
+            \item streng monoton fallend
+            \item streng monoton steigend
+        \end{multiplechoice}
+    \end{multicols}
+\end{exercise}
+\begin{exercise}
+    Der Graph der Abbildung $f(x)=x+3$ ist \textchoice[1]{monoton,streng monoton} \textchoice[1]{fallend,steigend}, weil die Funktionswerte von $f$ immer größer werden, je größere Argumente man in die Abbildung einsetzt. Es gilt beispielsweise $f(1)<f(1.5)<f(2)$. Der Graph führt \textchoice[0]{stets,manchmal} nach \mbox{\textchoice[0]{oben,unten},} wenn man ihm nach rechts folgt.
+\end{exercise}
+\begin{exercise}
+    Jede konstante Abbildung wie z.\,B. $f(x)=4.2$ ist
+    \begin{multiplechoice}
+        \begin{multicols}{2}
+            \citem monoton fallend
+            \citem monoton steigend
+            \item streng monoton fallend
+            \item streng monoton steigend
+        \end{multicols}
+    \end{multiplechoice}
+\end{exercise}
+\begin{exercise}
+    Kann eine Abbildung gleichzeitig streng monoton fallend und streng monoton steigend sein?
+    \begin{answerbox}[.5in]
+        Nein, weil für $x<y$ dann gleichzeitig $f(x)<f(y)$ (damit $f$ streng monoton steigend ist) und $f(x)>f(y)$ (damit $f$ streng monoton fallend ist) gelten muss.
+    \end{answerbox}
+\end{exercise}
+
+\mandala{mandala/mandala06}
+
+\end{document}

@@ -1,0 +1,110 @@
+\usepackage{tikzdef}
+\usepackage{randomlist}
+\usepackage[many]{tcolorbox}
+\usepackage{picins}
+
+
+%\newmdenv[linewidth=1pt,backgroundcolor=yellow!10,linecolor=black!30,frametitle=\textbf{\textsf{\Large Beispiellösungen}}]{solutions}
+\newtcolorbox{solutions}{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    sharp corners,
+    colback=yellow!10,colframe=yellow!30, coltitle=black,
+    fonttitle=\sffamily\bfseries\Large,
+    title={Beispiellösungen}, attach title to upper=\vspace*{.5em}\par}
+
+\newtcolorbox{task}{sharp corners, boxrule=1pt, colframe=black!30, colback=white, boxsep=0pt}
+
+\makeatletter
+%\roundedicon{fg}{bg}{textcolor}{text}
+\newcommand\roundedicon[4]{%
+    \fill[draw=#1, fill=#2,rounded corners=2mm, line width=.5mm] (0,0) rectangle (1,1);%
+    \node[#3] at (.5, .5) {#4};%
+}
+\newcommand{\offerHint}[2]{
+    \tikz[scale=0.7]{%
+        \roundedicon{black!40}{black!10}{black!40}{\textsf{\textbf{#1}}};%
+        \node[black!75] at (1,0.2) {\small\textsf{\textbf{(#2)}}};%
+    }%
+}
+\newcommand{\icon@advanced} {%
+    \tikz[scale=0.7, onbase]{\roundedicon{red}{red!70}{white}{$\star\star$};}%
+}
+\newcommand{\icon@difficult} {%
+    \tikz[scale=0.7, onbase]{\roundedicon{red!50}{red!20}{red}{$\star$};}%
+}
+\newcommand{\icon@easy} {%
+    \tikz[scale=0.7, onbase]{\roundedicon{blue!80}{blue!60}{white}{\textsf{\textbf{R}}}}%
+}
+\newcommand{\icon@intro} {%
+    \tikz[scale=0.7, onbase]{\roundedicon{blue!80}{blue!60}{white}{\textsf{\textbf{E}}}}%
+}
+\renewenvironment{exercise}[1]{%
+    \renewcommand{\PrintHintOffers}{}%
+    \stepcounter{exercisectr}%
+    \task%
+        \renewcommand\labelenumi{\alph{enumi})}%
+        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}
+        \hfill\ifstrequal{#1}{advanced}{\icon@advanced}{%
+        \ifstrequal{#1}{difficult}{\icon@difficult}{%
+        \ifstrequal{#1}{easy}{\icon@easy}{%
+        \ifstrequal{#1}{intro}{\icon@intro}{}}}}\vspace*{1mm}\par
+}{
+        \PrintHintOffers
+    \endtask
+}
+
+\newcounter{hint}
+\newcommand{\PrintHintOffers}{}
+\newcommand{\PrintHints}{\RandomEnumerateList}
+\newcommand{\AddToHintOffers}[2]{%
+  \protected@edef\@tempa{\unexpanded{\offerHint}{\ref{hint:#1}}{#2} \noexpand}
+  \expandafter\g@addto@macro\expandafter\PrintHintOffers\expandafter{\@tempa}}
+\newcommand{\AddToHints}[2]{%
+  \protected@edef\@tempa{{\unexpanded{\label} {hint:#1} \unexpanded{#2} }\noexpand}
+  \expandafter\g@addto@macro\expandafter\PrintHints\expandafter{\@tempa}}
+\newcommand{\hint}[1]{%
+    \stepcounter{hint}%
+    \AddToHintOffers{\thehint}{\alph{enumi}}%
+    \AddToHints{\thehint}{#1}
+}
+
+\newcommand{\makehints}{
+    \begin{tcolorbox}[code={\pgfkeysalsofrom{\tcmathenvopt}}, sharp corners, colframe=black!30, colback=black!10, coltitle=black, boxsep=0pt, fonttitle=\sffamily\bfseries\Large, title=Hinweise, attach title to upper=\vspace*{.5em}\par]
+        Die Hinweise zu den Aufgaben sind zufällig sortiert, damit du nicht versehentlich beim Anschauen eines Hinweises direkt den Hinweis zur nächsten Aufgabe siehst.
+        {\setlist[enumerate]{label=\textbf{\arabic*:}, ref=\arabic*,noitemsep, topsep=0pt}\PrintHints}
+    \end{tcolorbox}
+}
+
+\newcommand{\makepreamble}{
+    \begin{contents}\parskip=2mm
+    Dieser Aufgabenblock enthält eine große Anzahl von Aufgaben zum Themenblock \textit{Abbildungen}.
+    Die Anzahl der Aufgaben ist bewusst sehr groß gewählt, um ausreichend Möglichkeiten für Wiederholung und verschiedene Lerntempos zu bieten. \textit{Es ist allerdings keineswegs erforderlich, alle Aufgaben zu bearbeiten}. Stattdessen ist es am sinnvollsten, sich diejenigen Aufgaben herauszusuchen, die am besten zum eigenen Lernstand passen. Um das zu ermöglichen, sind die Aufgaben in verschiedene Kategorien unterteilt.
+    
+    \parpic[l]{\icon@intro}
+    Mit einem E gekennzeichnete Aufgaben sind \textbf{Einstiegsaufgaben}, die dazu gedacht sind, ein Grundverständnis zu den Definitionen vom Vorbereitungsblatt aufzubauen. Einstiegsaufgaben solltest du direkt nach dem Bearbeiten des Vorbereitungsblatts lösen können.
+    
+    \parpic[l]{\icon@easy}
+    Mit einem blauen R gekennzeichnete Aufgaben sind \textbf{Rechenaufgaben}, in denen die Definitionen für Beispiele angewandt werden sollen. In diesen Aufgaben soll eine Routine im Umgang mit den aktuellen Themen entwickelt werden.
+    
+    \parpic[l]{\icon@difficult}
+    Mit einem Stern gekennzeichnete Aufgaben sind \textbf{Knobelaufgaben}. Sie sind schwieriger als die restlichen Rechenaufgaben und richten sich an Schüler, die die Rechenaufgaben bereits gut verstanden haben. Sie laden zum Weiterdenken ein und bereiten auf die Expertenaufgaben vor.
+    
+    \parpic[l]{\icon@advanced}
+    Bei mit diesem Symbol gekennzeichneten Aufgaben handelt es sich um sehr schwierige \textbf{Expertenaufgaben}, die ein großes Maß an kreativem Denken erfordern und als besondere Herausforderung für sehr gute Schüler gedacht sind. Aufgaben, die mit diesem Symbol gekennzeichnet sind, solltest du deshalb nur bearbeiten, wenn du die Knobelaufgaben bearbeitet und verstanden hast und diese keine ausreichende Herausforderung für dich waren.
+    \picskip{0}
+    
+    Solltest du dich an die Expertenaufgaben wagen, lass dich nicht entmutigen, wenn du beim Lösen dieser Aufgaben nicht weiterkommst -- die Aufgaben sind extra so gestellt, dass dir nicht sofort eine Lösung einfällt!
+    
+    \vspace*{2mm}
+    \textbf{Beispiellösungen und Hinweise}
+    
+    Zu den Aufgaben jedes Vorbereitungsblatts gibt es Beispielaufgaben mit Lösungen. Diese Lösungen sind sehr ausführlich gestaltet und sollen dir Material, das über Mitschriften aus dem Unterricht hinausgeht, an die Hand geben, um die Bearbeitung ähnlicher Aufgaben zu vereinfachen. Sie enthalten außerdem ein Kochrezept, wie du ähnliche Aufgaben lösen kannst.
+    
+    Darüber hinaus gibt es zu einigen Aufgaben zusätzliche Hinweise, die dir helfen sollen, weiterzukommen, wenn du gerade nicht weiter weißt. Versuche aber immer erstmal, eine Aufgabe ohne Hinweise zu lösen! Ist zu einer Aufgabe ein Hinweis vorhanden, dann siehst du unter der Aufgabenstellung das nachfolgend abgebildete Symbol. Das Symbol zeigt dir die Nummer des relevanten Hinweises und die Teilaufgabe, bei der dieser Hinweis helfen soll.
+    
+    \parpic[r]{\offerHint{5}{a}}
+    Bei Einführungsaufgaben werden dir immer Hinweise zur mathematischen Notation gegeben, die du benötigst, um deine Lösung aufzuschreiben. Diese Hinweise fallen bei späteren Aufgaben weg, da du nach den Einstiegsaufgaben mit der Notation vertraut sein solltest.
+    \end{contents}
+    \newpage
+}
+\makeatother

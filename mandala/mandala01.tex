@@ -1,0 +1,12 @@
+\begin{tikzpicture}[pics/leaf/.style={code={
+     \pgfgettransformentries{\myxx}{\myxy}{\myyx}{\myyy}{\tmp}{\tmp}
+     \pgfmathsetmacro{\myscale}{sqrt(\myxx*\myyy-\myxy*\myyx)}
+     \draw[line width=\myscale*1pt,pic actions] (-0.1,0) to[out=80,in=-80] (0,0.5)
+     to[out=100,in=-90] (-0.5,1) to[out=90,in=-80] (-0.03,2) -- (0,2)
+     to[out=-80,in=90] (0.5,1) to[out=-90,in=80] (0.1,0.5)
+     to[out=-100,in=95] (0.1,0) -- cycle;}}]
+     \path foreach \Radius [count=\Cnt] in {1.6,0.8,0.4,0.2} 
+     {foreach \Angle [evaluate=\Angle as \EffAngle using {\Angle-15*\Cnt}] 
+     in {0,30,...,330} { (\EffAngle:\Radius) 
+     pic[rotate=\EffAngle-90,scale=\Radius,fill=white]{leaf}}};
+\end{tikzpicture}

@@ -1,0 +1,153 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+
+\usepackage{booktabs}
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 3}
+\title{Abbildungsgraphen}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt führt in die anschauliche Darstellung von Abbildungen in Koordinatensystemen mittels \textbf{Abbildungsgraphen} ein. Du lernst, wie du \textbf{Abbildungsgraphen zeichnen} kannst und wie sich \textbf{Abbildungsvorschriften aus Graphen ablesen} lassen.
+\end{contents}
+
+\video{Abbildungsgraphen für diskrete Definitionsmengen}{6}{Kapitel \ref{ext:sec:abbildungen_graphen_intro} und \ref{ext:sec:abbildungen_graphen_diskret} (ab Seite \pageref{ext:sec:abbildungen_graphen_intro})}{https://www.google.de}
+
+\begin{definition}
+    \parpic[r]{
+        \begin{tikzpicture}[domain=1:4]
+            \draw[->] (0,0) -- (2.75,0);
+            \draw[->] (0,0) -- (0,2);
+            %
+            \draw[dashed,black!50] (0.5,0) -- (0.5,0.9) -- (0,0.9);
+            \draw[dashed,black!50] (1,0) -- (1,1.1) -- (0,1.1);
+            \draw[dashed,black!50] (1.5,0) -- (1.5,1.3) -- (0,1.3);
+            \draw[dashed,black!50] (2,0) -- (2,1.4) -- (0,1.4);
+            \draw[dashed,black!50] (2.5,0) -- (2.5,1.5) -- (0,1.5);
+            %
+            \fill[violet] (0,0.5) circle[radius=.75mm];
+            \fill[violet] (0.5,0.9) circle[radius=.75mm];
+            \fill[violet] (1,1.1) circle[radius=.75mm];
+            \fill[violet] (1.5,1.3) circle[radius=.75mm];
+            \fill[violet] (2,1.4) circle[radius=.75mm];
+            \fill[violet] (2.5,1.5) circle[radius=.75mm];
+            %
+            \foreach \x in {0,0.5,...,2.5}{
+                \fill[red] (\x,0) circle[radius=.75mm];
+            }
+        \end{tikzpicture}
+    }
+    Für eine Abbildung $f\colon U\rightarrow V$ mit $U,V\subseteq \Real$ ist der \textbf{Graph} von $f$ die Menge aller Punkte im Koordinatensystem, deren Koordinate $(x\:|\:y)$ die Eigenschaft hat, dass $f(x)=y$ gilt. Der Graph von $f$ ist also die Menge \[\{\coord{x}{y}\:|\:f(x)=y\}.\]
+\end{definition}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    In einem Koordinatensystem steht die \textchoice{Definitionsmenge, Abbildungsvorschrift, Bildmenge} auf der $x$-Achse und die \textchoice{Definitionsmenge, Abbildungsvorschrift, Bildmenge} auf der $y$-Achse.
+    
+    Um eine Abbildungsregel $f(x)=y$ in einem Koordinatensystem darzustellen, zeichnet man eine gerade Linie von \textchoice{$x$, $y$} nach oben und unten sowie eine gerade Linie von \textchoice{$x$, $y$} nach links und rechts und trägt einen Punkt am Schnittpunkt der beiden Linien ein. 
+\end{exercise}
+\begin{exercise}
+    Trage die Abbildungsregeln der Abbildung $f$ mit $f(1)=1, f(2)=1, f(3)=2, f(4)=2, f(5)=3$ in das linke abgebildete Koordinatensystem ein.
+    
+    \begin{multicols}{2}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xmin=0, xmax=5, ymin=0, ymax=3, xtick={1,2,3,4,5}, ytick={1,2,3}]
+                \begin{insolution}
+                    \addplot[mark=*, only marks, fill=violet] coordinates {(1,1) (2,1) (3,2) (4,2) (5,3)};
+                \end{insolution}
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xmin=0, xmax=5, ymin=0, ymax=3, xtick={1,2,3,4,5}, ytick={1,2,3}]
+               \addplot[mark=*, fill=white] coordinates {(1,3)};
+               \addplot[mark=*, only marks] coordinates {(2,2) (3,1) (4,2) (5,3)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+\end{exercise}
+\begin{exercise}
+    Im rechten Koordinatensystem ist die Abbildung $g$ dargestellt. Vervollständige den folgenden Text über $g$, indem du die nötigen Informationen aus dem Koordinatensystem abliest.
+    
+    Es gilt $g(3)=\underline{~~~~~}$ und $g(5)=\underline{~~~~~}$. Der weiße Punkt rechts neben der blauen $3$ stellt die Abbildungsregel \textchoice{$g(3)=1$, $g(1)=1$, $g(1)=3$, $g(3)=3$} dar. Die Abbildung $g\colon\Natural\rightarrow\Natural$ bildet genau \textchoice{eine Zahl, zwei Zahlen, drei Zahlen} auf die $2$ ab.
+\end{exercise}
+
+\video{Abbildungsgraphen für dichte Definitionsmengen}{3}{Kapitel \ref{ext:sec:abbildungen_graphen_stetig} (ab Seite \pageref{ext:sec:abbildungen_graphen_stetig})}{https://www.google.de}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    \begin{enumerate}
+        \item[a)] Zeichne den Graphen der Abbildung $f\colon\Real\rightarrow\Real$, die die Abbildungsvorschrift $f(x)=2x$ hat, in das linke Koordinatensystem ein. 
+        
+        \textbf{Hinweis:} \emph{Beginne mit wenigen einzelnen Punkten und füge so lange Punkte hinzu, bis du deutlich siehst, wie der Graph aussieht.}
+        \item[b)] Zeichne den Graphen der Abbildung $g\colon\Real\rightarrow\Real$, die die Abbildungsvorschrift $g(x)=x^2$ hat, in das rechte Koordinatensystem ein.
+    \end{enumerate}
+    \begin{multicols}{2}
+        \centering
+        \if 0
+        \begin{tikzpicture}
+            \draw[->] (-0.2,0) -- (4.2,0);
+            \draw[->] (0,-0.2) -- (0,4.2);
+            
+            \foreach \x in {1,2,...,4}{
+                \pgfmathsetmacro{\value}{0.5*\x};
+                \draw[dashed,black!40] (\x,0) -- (\x,4.2);
+                \fill[red] (\x,0) circle[radius=.75mm] node[below] {$\value$};
+            }
+            \foreach \y in {1,...,4}{
+                \draw[dashed,black!40] (0,\y) -- (4.2,\y);
+                \fill[blue] (0,\y) circle[radius=.75mm] node[left] {$\y$};
+            }
+            \insolution{\draw[violet] (0,0) -- (4,4);}
+        \end{tikzpicture}
+        \begin{tikzpicture}[domain=0:4]
+            \draw[->] (-0.2,0) -- (4.2,0);
+            \draw[->] (0,-0.2) -- (0,4.2);
+            \draw[dashed,black!40] (1,0) -- (1,4.2);
+            \draw[dashed,black!40] (2,0) -- (2,4.2);
+            \draw[dashed,black!40] (3,0) -- (3,4.2);
+            \draw[dashed,black!40] (4,0) -- (4,4.2);
+            \draw[dashed,black!40] (0,1) -- (4.2,1);
+            \draw[dashed,black!40] (0,2) -- (4.2,2);
+            \draw[dashed,black!40] (0,3) -- (4.2,3);
+            \draw[dashed,black!40] (0,4) -- (4.2,4);
+            
+            \foreach \x in {1,2,...,4}{
+                \pgfmathsetmacro{\value}{0.5*\x};
+                \fill[red] (\x,0) circle[radius=.75mm] node[below] {$\value$};
+            }
+            \foreach \y in {1,...,4}{
+                \fill[blue] (0,\y) circle[radius=.75mm] node[left] {$\y$};
+            }
+            \draw[color=violet] plot function{(0.5*x)**2};
+        \end{tikzpicture}
+        \fi
+        
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:2, y=1cm, x=2cm, xmin=0, xmax=2, ymin=0, ymax=4, xtick={.5,1,1.5,2.0}, ytick={1,2,3,4}]
+               \insolution{\addplot[color=violet] {2*x};}
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:2, y=1cm, x=2cm, xmin=0, xmax=2, ymin=0, ymax=4, xtick={.5,1,1.5,2.0}, ytick={1,2,3,4}]
+               \insolution{\addplot[color=violet] {x^2};}
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+\end{exercise}
+
+\mandala{mandala/mandala03}
+
+\end{document}

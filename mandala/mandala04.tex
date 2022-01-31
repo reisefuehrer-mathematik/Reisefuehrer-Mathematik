@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=0.9]
+    \foreach \phi in {0,45,...,315}{
+        \draw[line width=0.3mm] (\phi:3.55) circle[radius=1.35];
+        \draw[line width=0.3mm] (\phi:3.55) circle[radius=1];
+        \draw[line width=0.3mm] (\phi:3.55) circle[radius=0.6cm];
+        \draw[line width=0.25mm] (\phi:1.2) circle[radius=1cm];
+    }
+    \foreach \phi in {22.5,67.5,...,337.5}{
+        \draw[line width=0.3mm] (\phi:4.2) circle[radius=1.5mm];
+        \draw[line width=0.3mm] (\phi:4.2) circle[radius=3mm];
+    }
+    \draw[fill=white] (0,0) circle[radius=2.5mm];
+    \draw[line width=0.3mm] (0,0) circle[radius=3.55];
+    \draw[line width=0.3mm] (0,0) circle[radius=5];
+    \draw[line width=0.3mm] (0,0) circle[radius=5.2];
+\end{tikzpicture}

@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=.6]
+    \fill[grayset] (-1.5,0) ellipse (2.4cm and 2cm);
+    \fill[grayset] (4,0) ellipse (2.4cm and 2cm);
+    %
+    \node[label={[blue]left:blau}, blue] (x1) at (-1,0.7) {$\bullet$};
+    \node[label={[red]left:rot}, red] (x2) at (-1,-0.2) {$\bullet$};
+    \node[label={[yellow!70!black]left:gelb}, yellow!70!black] (x3) at (-1,-1.1) {$\bullet$};
+    %
+    \node[label={[green!70!black]right:grün}, green!70!black] (y1) at (3.5,0.7) {$\bullet$};
+    \node[label={[orange]right:orange}, orange] (y2) at (3.5,-0.2) {$\bullet$};
+    \node[label={[yellow!70!black]right:gelb}, yellow!70!black] (y3) at (3.5,-1.1) {$\bullet$};
+    %
+    \draw[->] (x1) to[bend left] (y1);
+    \draw[->] (x2) -- (y2);
+    \draw[->] (x3) to[bend right] (y3);
+\end{tikzpicture}

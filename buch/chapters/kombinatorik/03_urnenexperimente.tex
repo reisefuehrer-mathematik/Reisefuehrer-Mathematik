@@ -1,0 +1,324 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    So makaber die Bezeichnung des \enquote{Urnenexperimentes} auch klingt, so wichtig ist es für die Stochastik (Wahrscheinlichkeitsrechnung). Wir möchten im Folgenden auf dem Permutationsbegriff aufbauen und diesen auf andere Szenarien verallgemeinern. Permutationen kennen wir bisher als \enquote{Umordnung} oder \enquote{Mischung} einer festen Anzahl von Elementen.
+    
+    In diesem Abschnitt beschäftigen wir uns mit der Frage, wie viele Permutationen es gibt, wenn wir zudem Elemente vor dem Mischen entfernen dürfen. Zum Beispiele wenn wir 4 Spielkarten haben und nur 3 von ihnen mischen.
+    Zudem weiten wir die Permutation aus, sodass wir Elemente auch mehrfach verwenden dürfen. Wie viele 3-stellige Zahlen kann ich mit den Ziffern 0 bis 9 bilden? Eine reine Permutation dürfte jede Ziffer nur ein Mal verwenden, die Zahl 999 wäre also zum Beispiel nicht möglich. Bei einer Permutation mit Wiederholungen schon.
+    \begin{center}
+        \begin{tabularx}{.9\linewidth}{YYY}
+            \begin{tikzpicture}[yscale=.5, ->, shorten >=10pt, shorten <=6pt, rounded corners, dashed, thick]
+                \draw[blue] (0, 0) node[playcard]{\AceDiamond} -- (1,0) -- (2, 2) -- (3,2) node[playcard]{\AceDiamond};
+                \draw[red] (0, 1) node[playcard]{\AceHeart} -- (1,1) -- (2,0) -- (3,0) node[playcard]{\AceHeart};
+                \draw[green] (0, 2) node[playcard]{\AceSpade} -- (1,2) -- (2,1) -- (3,1) node[playcard]{\AceSpade};
+                \draw[orange] (0, 3) node[playcard]{\AceClub} -- (1,3) -- (2,3) -- (3,3) node[playcard]{\AceClub};
+            \end{tikzpicture} & 
+            \begin{tikzpicture}[yscale=.5, ->, shorten >=10pt, shorten <=6pt, rounded corners, dashed, thick]
+                \draw[blue] (0, 0) node[playcard]{\AceDiamond} -- (1,0) -- (2, 2) -- (3,2) node[playcard]{\AceDiamond};
+                \draw[-, red, shorten >=0pt] (0, 1) node[playcard]{\AceHeart} -- (1,1) node{$\times$};
+                \draw[green] (0, 2) node[playcard]{\AceSpade} -- (1,2) -- (2,1) -- (3,1) node[playcard]{\AceSpade};
+                \draw[orange] (0, 3) node[playcard]{\AceClub} -- (1,3) -- (2,3) -- (3,3) node[playcard]{\AceClub};
+            \end{tikzpicture} &
+            \begin{tikzpicture}[yscale=.5, ->, shorten >=10pt, shorten <=6pt, rounded corners, dashed, thick]
+                \node at (0, 0) {...};%\dots ist mir hier zu breit
+                \draw[-, red, shorten >=0pt] (0, 1) node[playcard]{2} -- (1,1) node{$\times$};
+                \draw[green] (0, 2) node[playcard]{1} -- (1,2) -- (2,1) -- (3,1) node[playcard]{1};
+                \draw[orange] (0, 3) node[playcard]{0} -- (1,3) -- (2,2) -- (3,2) node[playcard]{0};
+                \draw[orange] (0, 3) -- (1,3) -- (2,3) -- (3,3) node[playcard]{0};
+            \end{tikzpicture}\\
+            \small\itshape 4 von 4 Karten mischen (permutieren ohne Wdh.). & \small\itshape 3 von 4 Karten mischen (permutieren ohne Wdh.). &
+            \small\itshape 2 von 10 Ziffern mit Wiederholung permutiert (bilden die Zahl 001)
+        \end{tabularx}
+    \end{center}
+    
+    Manchmal ist uns die Reihenfolge allerdings egal. \emph{Kombinationen} beschreiben lediglich die Auswahl verschiedener Elemente einer Gesamtmenge ohne (wie eine Permutation) die Reihenfolge zu betrachten. Wenn ich 4 Bücher habe und 3 von ihnen mitnehmen möchte, dann kann ich mich fragen, wie viele Kombinationen von 3 Büchern ich in meinen Rucksack packe. Die Reihenfolge, in der ich die Bücher in meinen Rucksack packe, ist dafür nicht wichtig, lediglich wichtig ist, \emph{welche} Bücher ich auswähle.
+    Auch hier können wir uns überlegen, dass wir Kombinationen mit Wiederholung definieren. Es gibt 5 Süßigkeitenautomaten und ich darf mir 5 Süßigkeiten nehmen, wie viele Möglichkeiten habe ich, Süßigkeiten zu nehmen? Die Reihenfolge ist auch hier wieder irrelevant, da es nur darauf ankommt, welche Süßigkeiten ich am Ende habe. Ich könnte aber, wenn ich eine Süßigkeit mehr mag als die anderen, auch mehrere von dieser holen.
+    
+    \begin{center}
+        \begin{tabularx}{.7\linewidth}{YY}
+            \begin{tikzpicture}
+                \book{blue}{0,0}{1}
+                \book{red}{1,0}{2}
+                \book{green!50!black}{2,0}{3}
+                \book{orange}{3,0}{4}
+                %\node[font=\bfseries\Large] at (2, -1.5) {?};
+                \book{red}{0.5,-2}{2}
+                \book{green!50!black}{1.5,-2}{3}
+                \book{orange}{2.5,-2}{4}
+            \end{tikzpicture} &
+            \begin{tikzpicture}
+                \bonbon{blue}{0,0}{1}
+                \bonbon{blue}{1,0}{1}
+                \fill[grayset] (-.5, 1) |- ++(1, 1.5) |- cycle;
+                \fill[gray] (-.4, 1.1) |- ++(.8, .2) |- cycle;
+                \fill[grayset] (.5, 1) |- ++(1, 1.5) |- cycle;
+                \fill[gray] (.6, 1.1) |- ++(.8, .2) |- cycle;
+                \bonbon{blue}{0,2.15}{1}
+                \bonbon{red}{1,2.15}{2}
+            \end{tikzpicture}\\
+            \small\itshape 3 von 4 Büchern aussuchen (kombinieren ohne Wdh.) &
+            \small\itshape 2 Süßigkeiten aus 2 Automaten aussuchen (kombinieren mit Wdh.)
+        \end{tabularx}
+    \end{center}
+    
+    \begin{remark}{Unterschied zwischen Permutationen und Kombinationen}
+        Der Unterschied zwischen \emph{Permutationen} und \emph{Kombinationen} ist, dass die Reihenfolge bei Permutationen wichtig und für Kombinationen egal sind. \blueball\redball{} und \redball\blueball{} sind unterschiedliche Permutationen aber dieselbe Kombination.
+    \end{remark}
+    
+    Mit Hilfe von Urnenexperimenten können wir alle diese Szenarien modellieren. Dafür besteht ein Urnenexperiment prinzipiell immer aus zwei Komponenten: Urnen und Bälle. Eine getroffene Wahl stellen wir dar, indem man einen Ball nimmt. Wenn wir erlauben, dass eine Wahl wiederholt getroffen wird, dann wird der Ball wieder zurück gelegt. Die Urne enthält alle verbleibenden Bälle (alle Wahlmöglichkeiten). Ein Beispiel für einen Zug im Urnenexperiment (ohne Zurücklegen) ist in \cref{fig:urne_notation} dargestellt.
+    
+    \begin{figure}[ht]
+        \centering
+        \begin{tabularx}{\linewidth}{YYY}
+            \begin{tikzpicture}[onbase]
+                \draw[grayset] (0, 0) circle (1);
+                \ball{blue}{0,0}{1}
+                \ball{red}{-.4,-.4}{2}
+                \ball{green!70!black}{-.4,.4}{3}
+                \ball{orange}{.4,-.4}{4}
+                \ball{violet}{.4,.4}{5}
+            \end{tikzpicture} & 
+            \begin{tikzpicture}[onbase]
+                \draw[grayset] (0, 0) circle (1);
+                \ball{blue}{0,0}{1}
+                \ball{red}{-.4,-.4}{2}
+                \ball{green!70!black}{-.4,.4}{3}
+                \ball{orange}{.4,-.4}{4}
+                \ball{violet}{.4,.4}{5}
+                
+                \ball{orange}{0, -2}{4}
+                \draw[->, shorten <=1cm, gray, dashed, thick, shorten >=.2cm] (0,0) -- (0,-2);
+            \end{tikzpicture} & 
+            \begin{tikzpicture}[onbase]
+                \draw[grayset] (0, 0) circle (1);
+                \ball{blue}{0,0}{1}
+                \ball{red}{-.4,-.4}{2}
+                \ball{green!70!black}{-.4,.4}{3}
+                \ball{violet}{.4,.4}{5}
+            \end{tikzpicture}\\
+            \raggedright\small\itshape Eine Urne, die 5 Bälle enthält. &
+            \raggedright\small\itshape Alice zieht den Ball {\normalfont\orangeball}. &
+            \raggedright\small\itshape Da Alice den Ball nicht zurück legt, fehlt {\normalfont\orangeball} nun in der Urne.
+        \end{tabularx}
+        \caption{Diese Abbildung zeigt ein Beispiel für einen Zug im Urnenexperiment. Die Bälle in der Urne sind alle Wahlmöglichkeiten. In diesem Fall entscheidet sich Alice für die 4. Da dieses Beispiel ohne Zurücklegen zählt, fehlt der 4. Ball danach in der Urne und kann nicht mehr gezogen werden.}
+        \label{fig:urne_notation}
+    \end{figure}
+    
+    \todocomment{Aufgabenidee: Wie viele Möglichkeiten gibt es, 3 positive ganze Zahlen zu wählen, die in Summe 10 ergeben?}
+    
+    \begin{example}
+        \parpic[r]{
+            \centering
+            \begin{tikzpicture}[scale=.6]
+                \draw[fill=white, very thick, rounded corners=.2cm] (-1,-1) rectangle (1,1);
+                \node[font=\bfseries\Huge] at (0,0) {?};
+            \end{tikzpicture}
+        }
+        \textbf{Alice hat 3 Würfel und fragt sich, wie viele mögliche Anordnungen sie mit diesen Würfeln bilden kann.}\\
+        Eine mögliche Anordnung ist zum Beispiel \epsdice{1}\epsdice{2}\epsdice{3}. Alice kann aber auch dieselbe Zahl auf mehreren Würfeln darstellen: \epsdice{1}\epsdice{6}\epsdice{6}. Die Reihenfolge ist in diesem Szenario wichtig, da zum Beispiel \epsdice{1}\epsdice{2}\epsdice{3} und \epsdice{2}\epsdice{1}\epsdice{3} unterschiedliche Anordnungen sind. Wir können aber dieselbe Zahl mehrfach verwenden. Wir zählen also \emph{Permutationen mit Wiederholung}.\picskip{0}
+        
+        Um uns der Aufgabenstellung zu nähern, modellieren wir das Problem als Urnenexperiment. Alice hat pro Würfel 6 Wahlmöglichkeiten: \epsdice{1}, \epsdice{2}, \epsdice{3}, \epsdice{4}, \epsdice{5} oder \epsdice{6}. Sie wählt 3 Mal (ein Mal für jeden Würfel) eine dieser Möglichkeiten, kann aber dieselbe Wahl mehrfach treffen. Das Urnenexperiment hat also eine Urne mit 6 Bällen, von denen Alice 3 Mal zieht und die Bälle wieder zurücklegt.
+        
+        \begin{tabularx}{\linewidth}{X}
+            \centering
+            \begin{tikzpicture}
+                \foreach\x in{1,2,3}{
+                    \begin{scope}[xshift=(\x-1)*2.4cm]
+                        \node[red] at (-1, 1) {\x.};
+                        \coordinate (s\x) at (0,0);
+                        \draw[grayset] (0, 0) circle (1);
+                        \ifthenelse{\equal{\x}{3}}{}{
+                            \draw[dashed, red, thick] (1.2, 1) -- ++(0, -2);
+                        }
+                        \ball{blue}{0,0}{1}
+                        \ball{red}{-.4,-.4}{2}
+                        \ball{green!70!black}{-.4,.4}{3}
+                        \ball{orange}{.4,-.4}{4}
+                        \ball{violet}{.4,.4}{5}
+                        \ball{brown}{0,-.8}{6}
+                    \end{scope}
+                }
+                \begin{scope}[xshift=2.4cm-0.6cm, yshift=-2cm]%[xshift=6*2.4cm-1cm]
+                    \ball{green!70!black}{  0,0}{3}
+                    \ball{orange}{ .6,0}{4}
+                    \ball{green!70!black}{ 1.2,0}{3}
+                    \foreach\x in{1,2,3}{
+                        \draw[->, shorten <=1cm, gray, dashed, thick, shorten >=.2cm] (s\x) -- (.6*\x-.6, 0);
+                    }
+                \end{scope}
+            \end{tikzpicture}\\
+            \raggedright\small\textit{Alice zieht nacheinander aus derselben Urne einen von 6 Bällen, schreibt sich auf, welchen Ball sie gezogen hat, und legt ihn wieder zurück. Egal, wie häufig sie zieht, sie hat immer 6 mögliche Bälle, die sie ziehen könnte.}
+        \end{tabularx}
+        
+        Alice hat für jeden Zug 6 mögliche Bälle, die sie ziehen könnte. Für 3 Züge hat sie also insgesamt $6\cdot6\cdot6 = 6^3$ Möglichkeiten, da in der Urne immer 6 Bälle liegen. Wenn Alice nun $k$ Würfel hätte, dann könnte sie also $k$-Mal eine von 6 Möglichkeiten wählen und hat entsprechend $6^k$ Möglichkeiten. 
+    \end{example}
+    
+    Wir möchten aber nicht immer nur Würfel betrachten sondern allgemeine Urnenexperimente aus $n$ Bällen, von denen wir $k$ Mal ziehen und sie wieder zurück legen. Wir betrachten das Problem aber analog zu Alice im Beispiel: wir können $k$-Mal einen von $n$-Bällen auswählen. Da wir nach jedem Zug den Ball wieder zurück legen, haben wir in jedem Zug $n$ Optionen. Entsprechend gibt es $n^k$ verschiedene Permutationen mit Wiederholung.
+    
+    \begin{lemma}
+        Die Anzahl $N$ verschiedener Permutationen mit Wiederholung aus $n$ Kugeln mit $k$ Zügen beträgt $$N = n^k.$$
+    \end{lemma}
+    
+    Im Folgenden betrachten wir den Fall, dass wir die Bälle nicht zurücklegen.
+    
+    \begin{example}
+        \textbf{Alice hat 5 Spielkarten, die sie vor sich anordnen möchte. Alice fragt sich, wie viele Möglichkeiten es gibt, diese Karten anzuordnen.}\\
+        Alice' Optionen modellieren wir wieder als Bälle. Wir brauchen also insgesamt 5 Bälle, von denen jeder für eine der Spielkarten steht. In unserem Fall möchte Alice alle Karten anordnen und zieht also 5 Mal aus der Urne (es wäre natürlich auch denkbar, dass Alice nur jeweils zweier-, dreier- oder vierer-paare bilden möchte). Sie darf aber jede Karte nur ein Mal verwenden. Wenn sie ein Mal einen Ball gezogen hat, legt sie ihn also nicht wieder zurück. Wir betrachten also \emph{Permutationen ohne Wiederholung}.
+        
+        \begin{tabularx}{\linewidth}{X}
+            \centering
+            \begin{tikzpicture}
+            \begin{scope}[xshift=(1-1)*2.4cm]
+                \node[red] at (-1, 1) {1.};
+                \coordinate (s1) at (0,0);
+                \draw[grayset] (0, 0) circle (1);
+                \draw[dashed, red, thick] (1.2, 1) -- ++(0, -2);
+                \ball{blue}{0,0}{1}\ball{red}{-.4,-.4}{2}\ball{green!70!black}{-.4,.4}{3}
+                \ball{orange}{.4,-.4}{4}\ball{violet}{.4,.4}{5}
+            \end{scope}
+            \begin{scope}[xshift=(2-1)*2.4cm]
+                \node[red] at (-1, 1) {2.};
+                \coordinate (s2) at (0,0);
+                \draw[grayset] (0, 0) circle (1);
+                \draw[dashed, red, thick] (1.2, 1) -- ++(0, -2);
+                \ball{blue}{0,0}{1}\ball{red}{-.4,-.4}{2}
+                \ball{orange}{.4,-.4}{4}\ball{violet}{.4,.4}{5}
+            \end{scope}
+            \begin{scope}[xshift=(3-1)*2.4cm]
+                \node[red] at (-1, 1) {3.};
+                \coordinate (s3) at (0,0);
+                \draw[grayset] (0, 0) circle (1);
+                \draw[dashed, red, thick] (1.2, 1) -- ++(0, -2);
+                \ball{blue}{0,0}{1}\ball{red}{-.4,-.4}{2}\ball{violet}{.4,.4}{5}
+            \end{scope}
+            \begin{scope}[xshift=(4-1)*2.4cm]
+                \node[red] at (-1, 1) {4.};
+                \coordinate (s4) at (0,0);
+                \draw[grayset] (0, 0) circle (1);
+                \draw[dashed, red, thick] (1.2, 1) -- ++(0, -2);
+                \ball{red}{-.4,-.4}{2}\ball{violet}{.4,.4}{5}
+            \end{scope}
+            \begin{scope}[xshift=(5-1)*2.4cm]
+                \node[red] at (-1, 1) {5.};
+                \coordinate (s5) at (0,0);
+                \draw[grayset] (0, 0) circle (1);
+                \ball{violet}{.4,.4}{5}
+            \end{scope}
+            \begin{scope}[xshift=2*2.4cm-1.2cm, yshift=-2cm]%[xshift=6*2.4cm-1cm]
+                \ball{green!70!black}{  0,0}{3}
+                \ball{orange}{ .6,0}{4}
+                \ball{blue}{ 1.2,0}{1}
+                \ball{red}{1.8,0}{2}
+                \ball{violet}{2.4,0}{5}
+                \foreach\x in{1,2,...,5}{
+                    \draw[->, shorten <=1cm, gray, dashed, thick, shorten >=.2cm] (s\x) -- (.6*\x-.6, 0);
+                }
+            \end{scope}
+        \end{tikzpicture}\\
+        \raggedright\small\textit{Alice zieht nacheinander aus derselben Urne einen von 5 Bällen, schreibt sich auf, welchen Ball sie gezogen hat, und zieht den nächsten ohne zurückzulegen.} 
+        \end{tabularx}
+        
+        Der erste Ball, den Alice zieht ist einer von 5 Möglichen, der zweite einer von 4 Möglichen, und so weiter:
+        $$N = 5\cdot 4 \cdot 3 \cdot 2 \cdot 1.$$
+        Würde Alice nur eine Karte ziehen wollen, dann gäbe es also 5 Möglichkeiten. Wenn sie zwei ziehen möchte, dann gibt es $5\cdot 4$ Möglichkeiten, und so weiter.
+    \end{example}
+    
+    Formeln der Art $5\cdot 4\cdot 3\cdot 2\cdot 1$, in denen eine Folge von Zahlen aufmultipliziert wird, sehen wir so häufig in der Kombinatorik, dass sie einen eigenen Namen bekommen haben.
+    
+    \begin{definition}[Fakultät\index{Fakultät}]
+        Die \emph{Fakultät} von $k$ (für $k\in\Natural$) wird $k!$ geschrieben und bezeichnet das Produkt aller natürlichen Zahl kleiner oder gleich $k$ (außer der 0):
+        $$k! = k\cdot (k-1) \cdot \ldots \cdot 2 \cdot 1.$$
+        Die Fakultät von $0$ ist per Definition $1$: $0! = 1$.
+    \end{definition}
+    \todocomment{Wieviele mögliche Tic Tac Toe-Feldkonfigurationen gibt es?}
+    
+    Betrachten wir die Formeln im Beispiel mit der neuen Notation, dann ist die Anzahl Möglichkeiten, diese 5 Bälle in 5 Zügen zu ziehen, $5!$. Wie sieht das aber aus, wenn $k < 5$? In dem Fall haben wir $N = 5\cdot 4 \cdot \ldots \cdot (5-k+1)$ Möglichkeiten. Wir können uns also vorstellen, dass wir die Fakultät berechnet haben und den Teil, den wir \enquote{zuviel} multipliziert haben, wieder dividieren:
+    $$N = \frac{5!}{(5-k) \cdot (5-k-1) \cdot \ldots \cdot 1}.$$
+    Der untere Term kommt uns bekannt vor, da es sich lediglich um die Fakultät $(5-k)!$ handelt. Für eine beliebige Anzahl an Kugeln, $n$ ergibt sich also:
+    \begin{lemma}
+        Die Anzahl verschiedener Permutationen, $k$ Kugeln aus einer Urne mit $n$ Kugeln zu ziehen, ohne Kugeln zurückzulegen, ist $$N = \frac{n!}{(n-k)!}.$$
+    \end{lemma}
+    
+    Mit Hilfe dieser Formel können wir nun insbesondere auch die Anzahl verschiedener Permutationsfunktionen einer $n$-Elementigen Menge zählen. Wir können uns überlegen, dass jede Permutation $\sigma \in S_n$ gebildet werden kann, indem wir die Einzeilen-Form durch wiederholtes Ziehen ohne zurücklegen aus der Urne mit $n$-Elementen darstellen. Wir müssen also $n$ Bällen ohne zurücklegen aus einer Urne mit $n$ Bällen ziehen. Gemäß der Formel oben gibt es also
+    $$N = \frac{n!}{(n-n)!} = n!$$
+    mögliche Permutationsfunktionen über einer $n$-Elementige Menge: $\abs{S_n} = n!$.
+    
+    Bisher haben wir immer betrachtet, dass die Reihenfolge, in der Alice die Bälle zieht, relevant ist. Dass sie zuerst den blauen und dann den roten Ball ziehen könnte und umgekehrt, haben wir bisher als zwei unterschiedliche Fälle gezählt. Alice hätte zum Beispiel also insgesamt 2 Möglichkeiten, 2 Bälle mit zurücklegen zu ziehen:
+    $$\redball\blueball, \blueball\redball$$
+    Wir könnten noch betrachten, dass uns die Reihenfolge, in der Alice die Bälle zieht, egal ist. Relevant ist dann lediglich, \emph{wie oft} Alice einen Ball gezogen hat. An dem Beispiel bedeutet das, dass Alice nur drei Möglichkeit hat, 2 Bälle aus einer Urne mit zwei Bällen zu ziehen:
+    $$\blueball\blueball, \blueball\redball, \redball\redball$$
+    Wenn die Reihenfolge relevant wäre, dann gäbe es 4 Fälle, da $\redball\blueball$ noch möglich ist.
+    
+    \begin{example}
+        \textbf{Alice hat eine Sack mit $3$ Süßigkeiten. Wie viele Kombinationen gibt es, wenn Alice sich $k\leq 3$ Süßigkeiten nehmen darf?}\\
+        Für dieses Beispiel ist egal, in welcher Reihenfolge Alice die Süßigkeiten zieht. Es geht nur darum, welche Süßigkeiten sie auswählt. Wenn sie zudem eine Süßigkeit ausgewählt hat, dann kann sie sie nicht nochmal wählen. Wir betrachten also \emph{Kombinationen ohne Wiederholung}. In der Modellierung als Urnenexperiment sind nun die einzelnen Süßigkeiten die Bälle. Wenn Alice eine Süßigkeit nimmt, dann wird der entsprechende Ball aus der Urne entfernt und kann nicht nochmal genommen werden.
+        
+        Um zu zählen, wie viele Möglichkeiten Alice hat, $k$ der Süßigkeiten auszuwählen, betrachtet wir zuerst, wie viele Permutationen ohne Wiederholungen sie beispielsweise mit $k=2$ Zügen bilden kann. Wir wissen bereits, dass sie $\frac{3!}{(3-2)!} = 6$ Permutationen der Süßigkeiten ziehen kann:
+        $$\begin{array}{*{6}{l@{\,}c}}
+            1. & \bluebonbon\,\redbonbon & 2. & \bluebonbon\,\greenbonbon & 3. & \redbonbon\,\bluebonbon & 4. & \redbonbon\,\greenbonbon & 5. & \greenbonbon\,\bluebonbon & 6. & \greenbonbon\,\redbonbon
+        \end{array}$$
+        Da die Reihenfolge für die Kombinationen aber irrelevant ist, zählen wir damit jede Kombination mehrfach, da verschiedenen Umordnungen (Permutationen) einer Kombination immer mitgezählt werden. So zählen wir zum Beispiel \bluebonbon{}\,\redbonbon{} und \redbonbon{}\,\bluebonbon{} getrennt. Wir müssen also durch die Anzahl der Permutationen in $S_k$ dividieren, um auf die korrekte Lösung zu kommen. An dem Beispiel ergibt sich für $k=2$:
+        $$N = \frac{3!}{(3-2)!} / \abs{S_2} = 3.$$
+        Denselben Wert bekommen wir, wenn wir uns die Permutationen von oben anschauen und Umordnungen manuell streichen:
+        $$\begin{array}{*{6}{l@{\,}c}}
+            1. & \bluebonbon\,\redbonbon & 2. & \bluebonbon\,\greenbonbon & 3. & \redbonbon\,\greenbonbon
+        \end{array}$$
+    \end{example}
+    
+    Die Überlegung aus dem Beispiel können wir wieder für allgemeine Ballmengen $n$ und Anzahlen an Ziehungen $k$ ausweiten, indem wir mit derselben Idee sagen, dass es
+    $$\frac{\frac{n!}{(n-k)!}}{\abs{S_k}} = \frac{n!}{(n-k)! \cdot \abs{S_n}} = \frac{n!}{(n-k)!\cdot k!}$$
+    mögliche Konfigurationen gibt. Der Zähler des Doppelbruches beschreibt die Anzahl der Reihenfolgen, $k$ von $n$ Bällen zu ziehen. Dieser zählt aber jede Permutation dieser $k$ gezogenen Bälle einzeln, sodass wir durch die Anzahl der $k$-Permutationen ($\abs{S_k}$) teilen. Im nächsten Schritt lösen wir den Doppelbruch auf.
+    
+    Die Formel $\frac{n!}{(n-k)!\cdot k!}$ wird uns in der Kombinatorik auch so häufig begegnen, dass wir dafür eine eigene Notation einführen.
+    
+    \begin{definition}[Binomialkoeffizient\index{Binomialkoeffizient}]
+        Der Binomialkoeffizient \enquote{$n$ über $k$} ist definiert mit
+        $$\binom{n}{k} \coloneqq \frac{n!}{(n-k)! \cdot k!}.$$
+    \end{definition}
+    
+    \begin{advanced}{Kombinationen mit Zurücklegen}
+        \textbf{Alice steht vor $5$ Süßigkeitenautomaten (jeder enthält unbeschränkt viele Süßigkeiten einer anderen Sorte). Sie darf sich $3$ Süßigkeiten nehmen. Wie viele Möglichkeiten hat sie?}\\
+        Wir möchten auch dieses Problem wieder als Urnenexperiment modellieren. Die Wahl, die Alice treffen kann, ist zwischen den 5 Süßigkeitenautomaten. Wir brauchen also eine Urne mit insgesamt 5 Bällen. Da wir annehmen, dass Alice aus jedem Süßigkeitenautomaten so viele Süßigkeiten nehmen kann, wie sie möchte, bleiben diese Optionen immer gleich.
+        Die Reihenfolge, in der Alice die Süßigkeiten zieht, ist nicht relevant. Außerdem kann sie wiederholt von demselben Süßigkeitenautomaten nehmen. Wir zählen also die \emph{Kombinationen mit Wiederholung}.
+        
+        Eine mögliche Kombination mit Wiederholung, die Alice ziehen könnte ist zum Beispiel
+        $$\bluebonbon{}, \bluebonbon{}, \greenbonbon{}.$$
+        Um die Kombinationen besser zählen zu können, wählen wir allerdings eine andere Darstellung:
+        $$\bluebonbon{+}{+}\redbonbon\greenbonbon{+}\orangebonbon\violetbonbon.$$
+        Wir schreiben also jede der Süßigkeiten ein Mal hin und schreiben dahinter so viele Plusse, wie oft Alice die Süßgikeiten zieht. Dies erleichtert uns das Abzählen, da wir die Kombinationen nun immer durch $n+k$ Zeichen darstellen können (an dem Beispiel: $5+3=8$ Zeichen). Das erste Zeichen darf kein ${+}$ sein, da die Plusse \emph{hinter} den Süßigkeiten stehen, die sie zählen. Damit brauchen wir nun lediglich zählen, wie viele Möglichkeiten es gibt, $k$ von $n+k-1$ Stellen der Kodierung auszuwählen, an denen ein ${+}$ stehen soll.
+        
+        Das ist aber genau die Anzahl der verschiedenen Kombinationen ohne Wiederholung über $n+k-1$ Bällen:
+        $$\binom{n+k-1}{k}.$$
+    \end{advanced}
+    
+    \todocomment{Mögliche Übungsaufgabe: Jeder Süßigkeitenautomat hat nur 4 Süßigkeiten. Wieviele Kombinationen kann Alice mit 5 Zügen und mit Wiederholung bilden?}
+    \todocomment{Mögliche Übungsaufgabe: Szenario beschreiben und fragen, ob es [Permutation | Kombination] [mit | ohne] Wiederholung ist}
+    \begin{nutshell}{Urnenexperiment\index{Urnenexperiment}\index{Fakultät}\index{Binomialkoeffizient}}
+        Bei Urnenexperimenten geht es um die Frage, wie viele Möglichkeiten es gibt, $k$ Bälle von insgesamt $n$ Bällen aus einer Urne zu ziehen.
+        
+        Wir können dabei unterscheiden, ob Bälle nach dem Ziehen zurückgelegt werden (sie können noch einmal gezogen werden) oder nicht. Außerdem kann man unterscheiden, ob die Reihenfolge, in der die Bälle gezogen werden, relevant ist (\redball\blueball{} und \blueball\redball{} sind zwei unterschiedliche Möglichkeiten) oder nicht.
+        \begin{center}
+        \begin{tikzpicture}
+            \node[rounded corners=5pt, rectangle, clip] (table) [inner sep=0pt] {%
+                \arrayrulecolor{brown!40}%
+                \linethickness{2pt}%
+                \arrayrulewidth=2pt%
+                \begin{tabularx}{.95\linewidth}{@{}c|Y|Y}
+                    {\color{brown!40}\backslashbox{\color{black}\textbf{~Zurücklegen}}{\color{black}\textbf{Reihenfolge}}} & \makecell{wichtig\\\emph{\footnotesize\textcolor{brown!70}{\enquote{Permutation}}}} & \makecell{egal\\\emph{\footnotesize\textcolor{brown!70}{\enquote{Kombination}}}}\\\hline
+                    ja & $n^k$ & $\binom{n+k-1}{k}$\\
+                    nein & $\frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
+                \end{tabularx}
+                \arrayrulecolor{black}%
+            };
+            \draw[rounded corners=5pt, line width=2pt, brown!40] (table.north west) rectangle (table.south east);
+        \end{tikzpicture}
+        \end{center}
+        
+        Die Notation $k!$ (gesprochen \enquote{k Fakultät} oder \enquote{Fakultät von k}) bezeichnet das Produkt aller Zahlen von $1$ bis $k$:
+        $$k! = k \cdot (k-1) \cdot \ldots \cdot 1. \hspace{2cm}\text{\footnotesize\textcolor{brown!70}{\emph{beachte den Sonderfall $0! \coloneqq 1$}}}$$
+        
+        Der \emph{Binomialkoeffizient} \enquote{$n$ über $k$} ist definiert mit
+        $$\binom{n}{k} \coloneqq \frac{n!}{(n-k)!\cdot k!}.$$
+        Er gibt die Anzahl der $k$-elementigen Teilmengen einer $n$-elementigen Menge.
+    \end{nutshell}
+\end{document}

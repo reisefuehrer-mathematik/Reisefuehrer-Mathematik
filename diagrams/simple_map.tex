@@ -1,0 +1,22 @@
+%\begin{wrapfigure}{r}{.3\textwidth}
+    %\centering
+    \begin{tikzpicture}[scale=.6]
+        \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+        \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+        %
+        \node at (-1.5,1.5) {$U$};
+        \node at (1.5,1.5) {$V$};
+        \node at (0,0.2) {$f$};
+        %
+        \node (x1) at (-1.5,0.7) {$\bullet$};
+        \node (x2) at (-1.5,-0.2) {$\bullet$};
+        \node (x3) at (-1.5,-1.1) {$\bullet$};
+        \node (y1) at (1.5,0.7) {$\bullet$};
+        \node (y2) at (1.5,-0.2) {$\bullet$};
+        \node (y3) at (1.5,-1.2) {$\bullet$};
+        %
+        \draw[->] (x1) -- (y3);
+        \draw[->] (x2) to[bend right] (y1);
+        \draw[->] (x3) to[bend right] (y2);
+    \end{tikzpicture}
+%\end{wrapfigure}

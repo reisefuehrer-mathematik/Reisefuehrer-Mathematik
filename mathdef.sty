@@ -1,0 +1,48 @@
+\usepackage{mathtools}
+\usepackage{xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Letter Symbols
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Natural}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand{\Integer}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand{\Rational}{\ensuremath{\mathbb{Q}}\xspace}
+\newcommand{\Real}{\ensuremath{\mathbb{R}}\xspace}
+\newcommand{\Complex}{\ensuremath{\mathbb{C}}\xspace}
+\newcommand{\Prime}{\ensuremath{\mathbb{P}}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Constants
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ident}[1][]{\text{id}\ifstrempty{#1}{}{_{#1}}}
+\newcommand{\true}{\textbf{Wahr}}
+\newcommand{\false}{\textbf{Falsch}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xor}{\ensuremath{\mathbin{\oplus}}}
+\newcommand{\corresponds}{\ensuremath{\mathbin{\widehat{=}}}}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\multiset{\{\!\!\{}{\}\!\!\}}
+\DeclareMathOperator{\ggt}{ggT}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Relations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\perdef}[1][=]{\mathbin{\overset{\text{def}}{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typesetting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\coord}[2]{\left(#1 \:\middle|\: #2\right)}
+\newcommand{\st}{\:|\:} % short for "such that"
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Memes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\isom}{\cong} % der Elias-Befehl

@@ -1,0 +1,88 @@
+\documentclass[../abbildungen.tex]{subfiles}
+
+\begin{document}
+\begin{exercise}{intro}
+    
+\end{exercise}
+
+\begin{exercise}{easy}
+    Pandabären essen täglich zwischen 10\,kg und 40\,kg Bambus. Es soll eine Abbildung \[\textsc{Bambusbedarf}\colon\Natural\rightarrow\Natural\] definiert werden, die einer bestimmten Anzahl Pandas zuordnet, wie viel Bambus sie pro Tag essen.
+    \begin{enumerate}
+        \item Finde eine Berechnungsvorschrift für \textsc{Bambusbedarf} und nehme dafür an, dass Pandas immer genau 25\,kg Bambus täglich fressen.
+        \item Zeichne ein Koordinatensystem, das auf der $x$-Achse Werte zwischen $0$ und $4$ darstellen kann und auf der $y$-Achse Werte zwischen $0$ und $100$.
+        \item Trage jeweils einen Punkt in das Koordinatensystem ein, der die Abbildungsvorschrift von \textsc{Bambusbedarf} für $0, 1, 2, 3, 4$ Pandas beschreibt.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{easy}
+    Welche der folgenden Koordinatensysteme enthalten den Graphen einer Abbildung?
+    \begin{multicols}{4}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=0:4, y=.7cm, x=.7cm, xmin=0,xmax=4,ymin=0, ymax=4, xtick={1,...,4}, ytick={1,...,4}]
+            \draw[violet] (0,3) -- (4,0);
+        \end{axis}
+    \end{tikzpicture}
+    
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=0:4, y=.7cm, x=.7cm, xmin=0,xmax=4,ymin=0, ymax=4, xtick={1,...,4}, ytick={1,...,4}]
+            \plot[violet] expression{sin(deg(x))+2};
+        \end{axis}
+    \end{tikzpicture}
+    
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=0:4, y=.7cm, x=.7cm, xmin=0,xmax=4,ymin=0, ymax=4, xtick={1,...,4}, ytick={1,...,4}]
+            \draw[violet] (2,2) circle[radius=2];
+        \end{axis}
+    \end{tikzpicture}
+    
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=0:4, y=.7cm, x=.7cm, xmin=0,xmax=4,ymin=0, ymax=4, xtick={1,...,4}, ytick={1,...,4}]
+            \draw[violet] (0,0) -- (1,4) -- (2,0) -- (3,4) -- (4,0);
+        \end{axis}
+    \end{tikzpicture}
+\end{multicols}
+\end{exercise}
+
+\begin{exercise}{difficult}
+    Für zwei Abbildungen $f\colon U\rightarrow V$ und $g\colon V\rightarrow W$ ist es möglich, das Bild, das $f$ einem Element aus $U$ zuordnet, direkt in die Abbildung $g$ einzusetzen, weil $f(u)\in V$ für alle $u\in U$ gilt und damit $f(u)$ in der Definitionsmenge von $g$ liegt.
+    
+    Aus welcher der Mengen $U, V$ oder $W$ kommen die folgenden Ausdrücke, falls sie definiert sind?
+        \begin{enumerate}
+            \item $g(v)$, wobei $u$ ein Element der Definitionsmenge $V$ von $g$ ist
+            \item $g(u)$, wobei $u$ ein Element der Definitionsmenge $U$ von $f$ ist
+            \item $g(x)$, wobei $x$ das Bild $f(u)$ eines Elements $u\in U$ ist
+            \item $g(f(u))$, wobei $u$ ein Element der Definitionsmenge $U$ von $f$ ist
+            \item $f(g(v))$, wobei $v$ ein Element der Definitionsmenge $V$ von $g$ ist
+            \item $f(g(w))$, wobei $w$ ein Element aus $W$ ist
+        \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{difficult}
+    Eine Abbildung $f\colon U\rightarrow U$, d.h. eine Abbildung, in der Definitions- und Wertebereich übereinstimmen, wird auch \textbf{Selbstabbildung} genannt.
+    
+    \begin{enumerate}
+        \item Ist es möglich, dass es ein Element von $U$ gibt, das kein Urbild bzgl. einer bestimmten Selbstabbildung hat? 
+        \item Wie viele Selbstabbildungen auf einer Menge $M$ mit $|M|=m$, bei denen zwei verschiedene Elemente immer auch verschiedene Bilder haben (d.h. $f(u)\neq f(v)$ für alle $u,v\in M$ mit $u\neq v$), gibt es?
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{advanced}
+    \begin{enumerate}
+        \item Finde eine Selbstabbildung $f$ auf der Menge $M\coloneqq\{1,2,3,4,5,6\}$ mit der Eigenschaft, dass $f(f(f(n)))=n$ für alle $n\in M$, aber $f(f(n))\neq n$.
+        \item Für welche Zahlen $n\in\Natural$ ist es möglich, eine Selbstabbildung auf einer Menge $M$ zu definieren, sodass jedes Element von $M$ nach $n$-maligem Anwenden der Abbildung wie in Aufgabe a) wieder auf sich selbst abgebildet wird? Wir wollen hier die Abbildung, die alle Elemente auf sich selbst abbildet, ausschließen.
+        \item Wie ändert sich das Ergebnis aus Aufgabe b), wenn zusätzlich gefordert wird, dass kein $m\in M$ nach weniger als $n$ Anwendungen von $f$ auf sich selbst abgebildet werden darf?
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{advanced}
+    Wir betrachten eine Menge $M$ und die Menge $S_M$ aller Selbstabbildungen auf $M$, für die jedes Element genau ein Urbild hat, also \[S_M\coloneqq\{f\colon M\rightarrow M\,|\,\text{bzgl. $f$ hat jedes Element aus $M$ genau ein Urbild}\}.\]
+    
+    Beweise die folgenden Aussagen:
+    \begin{enumerate}
+        \item Für alle Abbildungen $f$ mit $f\in S_M$ existiert eine Abbildung $g\in S_M$, sodass \mbox{$g(f(m))=n$} für alle $f(m)\in M$.
+        \item Für alle Abbildungen $f$ mit $f\in S_M$ existiert eine Abbildung $f^{-1}\in S_M$, sodass $f^{-1}(f(m))=m$ für alle $m\in M$.
+        \item Für alle Abbildungen $f,g$ und $h$ mit $f,g,h\in S_M$ gilt: Wenn $f(g(m))=f(h(m))$ für alle $m\in M$ gilt, dann ist $g(m)=h(m)$ für alle $m\in M$, also ist $g=h$.
+    \end{enumerate}
+\end{exercise}
+\end{document}

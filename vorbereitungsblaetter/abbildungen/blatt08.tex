@@ -1,0 +1,94 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 8}
+\title{Abbildungsgraphen verschieben}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+\usepackage{todonotes}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Auf diesem Vorbereitungsblatt geht es darum, wie sich \textbf{Abbildungsgraphen verschieben} lassen. Dabei wird thematisiert, wie sich die \textbf{Berechnungsvorschrift ändern} muss, damit sich der Graph nach oben, unten, links oder rechts verschiebt.
+\end{contents}
+\video{Abbildungegraphen nach oben und unten verschieben}{4}{Kapitel \ref{ext:sec:abbildungen_verschieben_y} (ab Seite \pageref{ext:sec:abbildungen_verschieben_y})}{https://www.google.de}
+\begin{remark}
+    Es sei $f$ eine Abbildung und $c>0$. Dann ist der Graph der Abbildung $g(x)=f(x)+c$ im Vergleich zum Graphen von $f$ um $c$ Einheiten nach oben und der Graph der Abbildung $g(x)=f(x)-c$ um $c$ Einheiten nach unten verschoben.
+\end{remark}
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Zeichne in die folgenden Koordinatensysteme jeweils einen Graphen ein, der im Vergleich zum bereits eingezeichneten Graphen eine Einheit nach oben verschoben ist. 
+    \begin{multicols}{2}\centering
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=40]
+                    \addplot[color=violet] expression{x^2*(x-1)};
+            \end{axis}
+        \end{tikzpicture}
+        
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=40]
+                    \addplot[color=violet] expression{0.2*(x+2)*(x+0.5)*(x-1)*(x-3)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+\end{exercise}
+\begin{exercise}
+    \begin{enumerate}
+        \item[a)] Der im linken Koordinatensystem in Aufgabe 1 dargestellte Graph entsteht durch die Berechnungsvorschrift $f(x)=x^2\cdot (x-1)$. Die Abbildung $g$, deren Graph wie der von dir eingezeichnete aussieht, muss die Berechnungsvorschrift $g(x)=$\textchoice[2]{$f(x+1)$,$f(x-1)$,$f(x)+1$,$f(x+c)+1$} haben.
+        \item[b)] Es gilt $f(x+c)=$\textchoice[2]{$x^2\cdot (x-1)+c$,$x^2\cdot (x+c)$,$(x+c)^2\cdot (x+c-1)$} und $f(x)+c=$\textchoice[0]{$x^2\cdot (x-1)+c$,$x^2\cdot (x+c)$,$(x+c)^2\cdot (x+c-1)$}.
+        \item[c)] Es gilt deshalb $g(x)=$\answerfield{3cm}{$x^2\cdot (x-1)+1$}.
+    \end{enumerate}
+\end{exercise}
+\begin{exercise}
+    Der Graph einer Abbildung $f(x)$ wird um 4 Einheiten nach \textchoice{oben,unten,links,rechts} verschoben, wenn man stattdessen die Berechnungsvorschrift $f(x)-4$ verwendet.
+\end{exercise}
+\video{Abbildungegraphen nach links und rechts verschieben}{4}{Kapitel \ref{ext:sec:abbildungen_verschieben_x} (ab Seite \pageref{ext:sec:abbildungen_verschieben_x})}{https://www.google.de}
+\begin{remark}
+    Es sei $f$ eine Abbildung und $c>0$. Dann ist der Graph der Abbildung $g(x)=f(x+c)$ im Vergleich zum Graphen von $f$ um $c$ Einheiten nach links und der Graph der Abbildung $g(x)=f(x-c)$ um $c$ Einheiten nach rechts verschoben.
+\end{remark}
+\subsection*{Aufgabenteil}
+
+\newcommand{\startingGraph}{
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=40]
+                \addplot[color=violet] expression{x^3-x};
+        \end{axis}
+    \end{tikzpicture}
+}
+
+\begin{exercise}
+    In den folgenden drei Koordinatensystemen findest du jeweils den Graphen, den die Funktion \mbox{$f(x)=x^3-x$} beschreibt.
+    \begin{multicols}{2}\centering
+        \startingGraph
+        
+        \startingGraph
+    \end{multicols}
+    \begin{enumerate}
+        \item[a)] Die Abbildung $g(x)=x^3-x+1$ hat eine sehr ähnliche Berechnungsvorschrift wie $f$. Zu $f(x)$ wird jetzt zusätzlich noch 1 addiert, also ist $g(x)=f(x)+1$. 
+        
+        Zeichne in das linke Koordinatensystem die Abbildung $g$ ein. Berechne dafür $g(-1),g(-\frac{1}{2}),g(\frac{1}{2})$ und $g(1)$, bis du siehst, wie sich der Graph verändert. Was fällt dir auf?
+        \begin{answerbox}[.5in]
+        \end{answerbox}
+        \item[b)] Die Abbildung $h(x)=(x+1)^3-(x+1)$ hat ebenfalls eine ähnliche Berechnungsvorschrift wie $f$. Überall, wo vorher $x$ stand, steht jetzt $x+1$. Man berechnet hier also $f(x+1)$.
+        
+        Zeichne den Graphen von $h$ auf die gleiche Art wie in a) in das rechte Koordinatensystem. Wie hat sich der Graph verändert?
+        \begin{answerbox}[.5in]
+        \end{answerbox}
+    \end{enumerate}
+\end{exercise}
+\mandala{mandala/mandala08}
+
+\todo{Work in Progress: Unzufrieden mit den Aufgaben}
+
+\end{document}

@@ -1,0 +1,114 @@
+\documentclass[./main.tex]{subfiles}
+
+\begin{document}
+    \newgeometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+    
+	\newformularypage{orange}{Symbole}
+	\begin{formulargroup}{orange}{white}{black}
+	    \begin{tabularx}{\linewidth}{*{4}{|>{\markcell}l>{\markcell}l|X|}}\hline
+	        \multicolumn{12}{|l|}{\labelcell Griechisches Alphabet}\\\hline
+	        $A$ & $\alpha$ & Alpha & $H$ & $\eta$ & Eta & $N$ & $\nu$ & Ny & $T$ & $\tau$ & Tau \\
+	        $B$ & $\beta$ & Beta & $\Theta$ & $\theta/\vartheta$ & Theta & $\Xi$ & $\xi$ & Xi & $\Upsilon$ & $\upsilon$ & Ypsilon\\
+	        $\Gamma$ & $\gamma$ & Gamma & $I$ & $\iota$ & Jota & $O$ & $o$ & Omikron & $\Phi$ & $\phi, \varphi$ & Phi\\
+	        $\Delta$ & $\delta$ & Delta & $K$ & $\kappa$ & Kappa & $\Pi$ & $\pi/\varpi$ & Pi & $X$ & $\chi$ & Chi\\
+	        $E$ & $\epsilon/\varepsilon$ & Epsilon & $\Lambda$ & $\lambda$ & Lambda & $P$ & $\rho/\varrho$ & Rho & $\Psi$ & $\psi$ & Psi\\
+	        $Z$ & $\zeta$ & Zeta & $M$ & $\mu$ & My & $\Sigma$ & $\sigma/\varsigma$ & Sigma & $\Omega$ & $\omega$ & Omega\\\hline
+	    \end{tabularx}\\
+	    \vfill
+	    \noindent\begin{tabularx}{\linewidth}{|>{\markcell}l|X|X|X|}\hline
+	        \multicolumn{4}{|l|}{\labelcell Zahlenbereiche}\\\hline
+	        $\Natural,\Natural^+$ & Natürliche Zahlen (ohne 0) & $\{1, 2, \dots\}$ & \multirow{8}{*}{
+            	\begin{tikzpicture}[scale=.75, anchor=center]
+            	    \fill[orange!40, draw=orange] (0,0) ellipse (3 and 4);
+            	    \fill[green!70!black!40, draw=green!50!black] (0,.5) ellipse (2.5 and 3.25);
+            	    \fill[red!70!black!40, draw=red!50!black] (0,1) ellipse (2 and 2.5);
+            	    \fill[violet!40, draw=violet] (0,1.5) ellipse (1.5 and 1.75);
+            	    \fill[blue!40, draw=blue] (0,2) ellipse (1 and 1);
+            	    \fill[yellow!60!orange!40, draw=yellow!60!orange] (0,2.5) ellipse (.5 and .5);
+            	    \node at (0, -3.5) {$\Complex$};
+            	    \node at (0, -2.25) {$\Real$};
+            	    \node at (0, -1) {$\Rational$};
+            	    \node at (0, 0.5) {$\Integer$};
+            	    \node at (0, 1.5) {$\Natural$};
+            	    \node at (0, 2.5) {$\Prime$};
+            	\end{tikzpicture}
+            }\\
+	        $\Natural, \Natural_0$ & Natürliche Zahlen (mit 0) & $\{0, 1, 2, \dots\}$& \\
+	        $\Integer$ & Ganze Zahlen & $\{\dots, -2, -1, 0, 1, 2, \dots\}$ & \\
+	        $\Rational$ & Rationale Zahlen (durch Brüche darstellbar) & $\{\frac{p}{q} \mid p\in \Integer, q \in \Natural^+\}$& \\
+	        $\Rational^+$ & Positive rationale Zahlen (ohne 0) & $\{\frac{p}{q} \mid p\in\Natural^+, q\in\Natural^+\}$ & \\
+	        $\Real$ & Reelle Zahlen & $(-\infty, \infty)$ & \\
+	        $\Complex$ & Komplexe Zahlen & $\{a+i\cdot b \mid a, b \in \Real\}$ & \\
+	        $\Prime$ & Primzahlen & $\left\{p \:\middle|\: \parbox{.7\linewidth}{$p$ hat als Teiler nur die 1 und sich selbst}\right\}$ & \\\hline
+	    \end{tabularx}\\
+	    \vfill
+	    \begin{tabularx}{\linewidth}{*{2}{|>{\markcell}c|X}|}\hline
+	        \multicolumn{2}{|l|}{\labelcell Operationen auf Zahlen} & & \\\hhline{--|~|~|}
+	        $+$ & $\text{Summand} + \text{Summand} = \text{Summe}$ & & \\
+	        $-$ & $\text{Minuent} - \text{Subtrahend} =\text{Differenz}$ & & \\
+	        $\cdot$ & $\text{Faktor} \cdot \text{Faktor} = \text{Produkt}$ & & \\
+	        $\div$ & $\text{Divident} \div \text{Divisor} = \text{Quotient}$ & & \\
+	        $\frac{a}{b}$ & $\frac{\text{Zähler}}{\text{Nenner}}$ & & \\\hhline{==|~|~|}
+	        \multicolumn{2}{|l|}{\labelcell Operationen auf Aussagen} & & \\\hhline{--|~|~|}
+	        $\land$ & $A\land B$: $A$ \textbf{und} $B$ müssen gelten & & \\
+	        $\lor$ & $A\lor B$: $A$ \textbf{oder} $B$ muss gelten (oder beide) & & \\
+	        $\lnot$ & $\lnot A$: $A$ gilt \textbf{nicht} & & \\
+	        $\xor$ & $A\xor B$: \textbf{entweder} $A$ \textbf{oder} $B$ muss gelten & & \\
+	        ${\iff}$ & $A\iff B$: $A$ und $B$ gilt oder $\lnot A$ und $\lnot B$ gilt & & \\
+	        ${\implies}$ & $A \implies B$: Wenn $A$ gilt, muss auch $B$ gelten & & \\\hline
+	    \end{tabularx}\\
+	    \vfill
+	\end{formulargroup}
+	%SYMBOLE
+    
+    \newformularypage{violet}{Mathematik}
+    \addcontentsline{toc}{chapter}{Formelsammlung}
+	\section*{Mathematik}
+	\begin{formulargroup}{violet}{white}{black}
+		\begin{tabularx}{\linewidth}{|l|X|}\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\\hline
+			\labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\\hline
+			\labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+		\end{tabularx}\\
+		\noindent\begin{tabularx}{\linewidth}{|*{2}{l|X|}}\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ & \labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ & \labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+		\end{tabularx}\\
+		\begin{tabularx}{\linewidth}{|X|X|}\hline
+			\labelcell Satz des Pythagoras & \labelcell ABC-Formel\\\hline
+			$a^2+b^2 = c^2$ & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ \\\hline
+			\labelcell Satz des Pythagoras & \labelcell ABC-Formel\\\hline
+			$a^2+b^2 = c^2$ & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ \\\hline
+		\end{tabularx}
+	\end{formulargroup}
+	
+	\newformularypage{green!50!black}{Mathematik}
+	\section*{Mathematik}
+	\begin{formulargroup}{green!50!black}{white}{black}
+		\begin{tabularx}{\linewidth}{|l|X|}\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\\hline
+			\labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\\hline
+			\labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+		\end{tabularx}\\
+		\noindent\begin{tabularx}{\linewidth}{|*{2}{l|X|}}\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ & \labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ & \labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+		\end{tabularx}\\
+		\begin{tabularx}{\linewidth}{|X|X|}\hline
+			\labelcell Satz des Pythagoras & \labelcell ABC-Formel\\\hline
+			$a^2+b^2 = c^2$ & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ \\\hline
+			\labelcell Satz des Pythagoras & \labelcell ABC-Formel\\\hline
+			$a^2+b^2 = c^2$ & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ \\\hline
+		\end{tabularx}
+		\begin{tabularx}{\linewidth}{|l|X|}\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\\hline
+			\labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+			\labelcell ABC-Formel & $x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$\\\hline
+			\labelcell Satz des Pythagoras & $a^2+b^2 = c^2$\\\hline
+		\end{tabularx}\\
+	\end{formulargroup}
+	
+	\restoregeometry
+\end{document}

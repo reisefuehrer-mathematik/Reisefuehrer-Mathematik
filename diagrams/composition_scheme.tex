@@ -1,0 +1,27 @@
+\begin{tikzpicture}[scale=.6]
+    \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+    \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+    \draw[grayset] (4.5,0) ellipse (0.7cm and 2cm);
+
+    \node (x1) at (-1.5,0.7) {$\bullet$};
+    \node (x2) at (-1.5,-0.2) {$\bullet$};
+    \node (x3) at (-1.5,-1.1) {$\bullet$};
+    \node (y1) at (1.5,0.7) {$\bullet$};
+    \node (y2) at (1.5,-0.2) {$\bullet$};
+    \node (y3) at (1.5,-1.2) {$\bullet$};
+    \node (z1) at (4.5,1.2) {$\bullet$};
+    \node (z2) at (4.5,0.4) {$\bullet$};
+    \node (z3) at (4.5,-0.4) {$\bullet$};
+    \node (z4) at (4.5,-1.2) {$\bullet$};
+
+    \draw[->] (x1) -- (y3);
+    \draw[->] (x2) to[bend right] (y1);
+    \draw[->] (x3) to[bend right] (y2);
+    
+    \draw[->] (y1) -- (z3);
+    \draw[->] (y2) -- (z1);
+    \draw[->] (y3) -- (z4);
+    
+    \node at (0,1) {$f$};
+    \node at (3,1) {$g$};
+\end{tikzpicture}

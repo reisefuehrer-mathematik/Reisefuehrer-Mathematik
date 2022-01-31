@@ -1,0 +1,87 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+
+\sheet{Vorbereitungsblatt 1}
+\title{Einführung: Abbildungen}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt behandelt die \textbf{Definition von Abbildungen} in der Mathematik und
+    führt damit verbundene einfache \textbf{Schreibweisen} ein.
+\end{contents}
+
+\video{Intuition zu Abbildungen}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    In der Fußballbundesliga steht jede Mannschaft auf einem bestimmten Tabellenplatz. Wir möchten nun jedem Verein zuordnen, auf welchem Tabellenplatz er steht.
+        
+    Wenn wir also gefragt werden, auf welchem Platz der FC Bayern München steht, dann antworten wir mit genau einem Tabellenplatz. Wir ordnen Fußballvereinen aus der \textchoice[0]{Definitionsmenge,Bildmenge,Abbildungsvorschrift} -- also Vereinen, die gerade in der Bundesliga spielen -- ihren Tabellenplatz zu. Dies ist eine Zahl zwischen 1 und 18. Die Menge dieser Zahlen ist für diese Abbildung deshalb die \textchoice[1]{Definitionsmenge,Bildmenge,Abbildungsvorschrift}.
+\end{exercise}  
+
+\begin{exercise}
+    Drei Kinder machen eine Schneeballschlacht. Jedes Kind wirft einen Schneeball auf ein anderes Kind. Den Flug der Schneebälle können wir mit einer Abbildung beschreiben:
+        
+    \textchoice[2]{Kein Kind, Nur ein Kind, Jedes Kind} trifft mit seinem Schneeball \textchoice[1]{beliebig viele andere Kinder, genau ein anderes Kind}. Fragen wir nun ein Kind, wen es getroffen hat, dann können wir ihm anschließend das Kind zuordnen, das es getroffen hat.
+        
+    Wir ordnen hier also \textchoice[0]{jedem Kind, einem Kind} dasjenige Kind zu, das von ihm getroffen wurde. Hier entsteht deshalb eine Abbildung, die von den \textchoice[1]{Schneebällen, teilnehmenden Kindern, getroffenen Kindern} auf die \textchoice[2]{Schneebälle, teilnehmenden Kinder, getroffenen Kinder} abbildet.
+\end{exercise}
+
+\begin{exercise}
+    Beschreibe ein Beispiel aus dem Alltag, das sich wie eine Abbildung verhält. Identifiziere dann die Definitions- und Bildmenge.
+    \begin{answerbox}[.5in]
+    \end{answerbox}
+\end{exercise}
+
+\video{Definition von Abbildungen}{4}{Kapitel \ref{ext:sec:abbildungen_definition} (ab Seite \pageref{ext:sec:abbildungen_definition})}{https://www.google.de}
+\begin{definition}
+    \parpic[r]{
+        \input{diagrams/simple_map}
+    }
+    
+    Eine \textbf{Abbildung} $f$ ist eine Vorschrift, die allen Elementen aus der Definitionsmenge $U$ genau ein Element aus der Bildmenge $V$ zuordnet, geschrieben $f\colon U\rightarrow V$. 
+    
+    Wird ein Element $u\in U$ auf $v\in V$ abgebildet, so schreibt man $f(u)=v$ bzw. $u\mapsto v$.
+\end{definition}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Eine Abbildung bildet \textchoice[2]{ein bestimmtes, jedes, kein} Element einer \textchoice[1]{Menge, Zahl, Vorschrift} auf \textchoice[2]{bestimmte, genau ein, alle} \textchoice[1]{Element, Elemente} einer anderen \textchoice[1]{Menge, Zahl, Vorschrift} ab.
+\end{exercise}
+
+\begin{exercise}
+    Zeichne jeweils eine Abbildung zwischen den dargestellten Mengen ein.
+    \begin{multicols}{2}
+        \input{diagrams/nonsurjective_template}
+        
+        \input{diagrams/noninjective_template}
+    \end{multicols}
+\end{exercise}
+
+\begin{exercise}
+    Was sagt die Schreibweise $f\colon\Natural\rightarrow\Natural$ aus?
+    \begin{answerbox}[0.6in]
+        $f$ ist eine Abbildung von den natürlichen Zahlen in die natürliche Zahlen.
+    \end{answerbox}
+\end{exercise}
+
+\begin{exercise}
+    Stelle die Abbildung $f\colon\{1,2,3\}\rightarrow\{\clubsuit,\heartsuit\}$ mit $f(1)=\clubsuit, f(2)=\heartsuit, f(3)=\heartsuit$ als Diagramm dar.
+    \begin{answerbox}[1in]
+    \end{answerbox}
+\end{exercise}
+
+\mandala{mandala/mandala01}
+
+\end{document}

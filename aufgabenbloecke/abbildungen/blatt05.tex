@@ -1,0 +1,58 @@
+\documentclass[../abbildungen.tex]{subfiles}
+
+\begin{document}
+\begin{exercise}{easy}
+    Die drei Abbildungen $f(x)=x^2$, $g(x)=4x$, $h(x)=x-1$ sollen verkettet werden. Gib jeweils eine Berechnungsvorschrift für die folgenden Abbildungen an.
+    \begin{enumerate}
+        \item $f\circ g$
+        \item $g\circ h$
+        \item $f\circ h$
+        \item Erhält man die gleichen Abbildungen wie in den vorherigen Teilaufgaben, wenn man stattdessen die Abbildungen $g\circ f, h\circ g$ und $h\circ f$ bildet? 
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{difficult}
+    Es sei $h$ eine Abbildung, die als Verkettung der Abbildungen $f\colon U\rightarrow V$ und $g\colon V\rightarrow W$ definiert ist, also $h(x)=(g\circ f)(x)=g(f(x))$. Unter welchen Voraussetzungen an $f$ und $g$ ist
+    \begin{enumerate}
+        \item $h$ injektiv?
+        \item $h$ surjektiv?
+        \item $h$ bijektiv?
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{difficult}
+    \begin{enumerate}
+        \item Zeige, dass die Abbildung $f(x)=x^2$ nicht bijektiv ist.
+        \item Schränke die Definitions- und Bildmenge so ein, dass $f$ bezüglich dieser Definitions- und Bildmenge bijektiv ist.
+        \item Zeige, dass es keine größeren Definitions- und Bildmengen als die, die du in Aufgabe b) gefunden hast, indem du für jede Definitionsmenge $U'\subseteq\Rational$ mit $U\subsetneq U'$ und jede Bildmenge $V'\subseteq\Rational$ mit $V\subsetneq V'$ zeigst, dass $f$ mit diesen Definitions- oder Bildmengen nicht injektiv bzw. surjektiv sein kann.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{difficult}
+    % Umbauen zu Hilberts Hotel
+    Es sei $M\subseteq\Real$ eine Menge und $a\in\Real$ eine Zahl. Dann bezeichnen wir mit $aM$ die Menge
+    \[aM:=\{am\st m\in M\}.\]
+    \begin{enumerate}
+        \item Zeige, dass es genauso viele ungerade natürliche Zahlen wie gerade natürliche Zahlen gibt.
+            \hint{Du findest im Zusatzwissen zu injektiven, surjektiven und bijektiven Abbildungen einen Satz, mit dem du die Aussage zeigen kannst.}
+            \hint{Für zwei Mengen $M$ und $N$ gilt $\abs{M}=\abs{N}$, falls eine bijektive Abbildung zwischen diesen Mengen existiert.}
+            \hint{Finde eine Abbildung $f\colon\textsc{Ungerade}\rightarrow\textsc{Gerade}$ und beweise, dass sie bijektiv ist. Dann folgt, dass $\abs{\Natural}=\abs{2\Natural}$ gilt.}
+        \item Zeige, dass $\abs{\Natural}=\abs{2\Natural}$ gilt.
+        \item Zeige, dass $\abs{\Natural}=\abs{\Rational}$ gilt.
+            \hint{Zeichne \Rational{} als eine Tabelle auf, indem du in die Zeilen den Zähler und in die Spalten den Nenner von Brüchen schreibst.}
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{advanced}
+    Es sei $f$ die Abbildung mit der Abbildungsvorschrift $f(x)=\sqrt{x+1}$. Wir definieren die Abbildung $f^n$ durch \[f^n(x)=(\underbrace{f\circ f\circ\dots\circ f}_{n-\text{mal}})(x),\]
+    also ist zum Beispiel $f^3(x)=(f\circ f\circ f)(x)=f(f(f(x)))$.
+    \begin{enumerate}
+        \item Gib jeweils die Berechnungsvorschrift für $f^2$ und $f^3$ an.
+            \hint{Für das Aufschreiben der Berechnungsvorschrift benötigst du mehrere Wurzeln.}
+        \item Berechne $f^2(8)$.
+        \item Zeige, dass für $x\leq 2$ gilt, dass $f^n(x)\leq 2$ für beliebige $n$ ist.
+            \hint{Diese Aussage lässt sich am besten mithilfe von vollständiger Induktion über $n$ beweisen.}
+            \hint{Führe für den Beweis eine Induktion durch, bei der du als Induktionsanfang zeigst, dass $f^n(x)\leq 2$ für $n=1$ gilt. Anschließend zeigst du als Induktionsschritt für ein beliebiges $n$, dass $f^{n+1}(x)\leq 2$. Dafür darfst du voraussetzen, dass $f^n(x)\leq 2$ ist (aufgrund der Induktionsvoraussetzung).}
+    \end{enumerate}
+\end{exercise}
+\end{document}

@@ -1,0 +1,135 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{amsmath}
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 4}
+\title{Abbildungen verketten}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt führt die \textbf{Verkettung} von Abbildungen ein und stellt übliche Schreibweisen rund um dieses Thema vor.
+\end{contents}
+
+\video{Was sind Verkettungen?}{6}{Kapitel \ref{ext:sec:abbildungen_verkettung} (ab Seite \pageref{ext:sec:abbildungen_verkettung})}{https://www.google.de}
+\begin{definition}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=.55]
+            \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+            \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+            \draw[grayset] (4.5,0) ellipse (0.7cm and 2cm);
+            % add elements
+            \node (x1) at (-1.5,0.7) {$\bullet$};
+            \node (x2) at (-1.5,-0.2) {$\bullet$};
+            \node (x3) at (-1.5,-1.1) {$\bullet$};
+            \node (y1) at (1.5,0.7) {$\bullet$};
+            \node (y2) at (1.5,-0.2) {$\bullet$};
+            \node (y3) at (1.5,-1.2) {$\bullet$};
+            \node (z1) at (4.5,1.2) {$\bullet$};
+            \node (z2) at (4.5,0.4) {$\bullet$};
+            \node (z3) at (4.5,-0.4) {$\bullet$};
+            \node (z4) at (4.5,-1.2) {$\bullet$};
+            %draw f arrows
+            \draw[->] (x1) -- (y3);
+            \draw[->] (x2) to[bend right] (y1);
+            \draw[->] (x3) to[bend right] (y2);
+            % draw g arrows
+            \draw[->] (y1) -- (z3);
+            \draw[->] (y2) -- (z1);
+            \draw[->] (y3) -- (z4);
+            % labels f, g
+            \node at (0,1) {$f$};
+            \node at (3,1) {$g$};
+        \end{tikzpicture}
+    }
+    
+    Es seien $U,V,W$ Mengen und $f\colon U\rightarrow V$ sowie $g\colon V\rightarrow W$ Abbildungen. Die Abbildung $g\circ f\colon U\rightarrow W$ mit 
+    \[x\mapsto (g\circ f)(x)\coloneqq g(f(x))\] 
+    heißt die \textbf{Komposition} oder \textbf{Verkettung} von $f$ und $g$.
+\end{definition}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Bei der Verkettung von zwei Abbildungen $f$ und $g$ nimmt man ein Element aus der \textchoice[0]{Definitionsmenge,Bildmenge} von \textchoice[0]{$f$,$g$} und setzt es in die Abbildung $f$ ein. Wenn sich das Bild $f(x)$ in der  \textchoice[0]{Definitionsmenge,Bildmenge} von \textchoice[0]{$f$,$g$} befindet, kann man es anschließend direkt in \textchoice[1]{$f$,$g$} einsetzen und erhält insgesamt $g(f(x))$. Eine andere Schreibweise dafür ist \textchoice[1]{$(f\circ g)(x)$,$(g\circ f)(x)$}.
+\end{exercise}
+
+\begin{exercise}
+    Im folgenden Diagramm sind die Abbildungen $f$ und $g$ dargestellt. Zeichne Elemente in die beiden Mengen im rechten Bild ein und füge Pfeile hinzu, sodass dort die Abbildung $g\circ f$ dargestellt wird.
+    \begin{multicols}{2}\centering
+        \begin{tikzpicture}[scale=.8]
+            \draw[grayset] (-1.5,0) ellipse (1.1cm and 2cm);
+            \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+            \draw[grayset] (4.5,0) ellipse (0.7cm and 2cm);
+            % add elements
+            \node[label={left:1}] (x1) at (-1.5,0.7) {$\bullet$};
+            \node[label={left:2}] (x2) at (-1.5,-0.2) {$\bullet$};
+            \node[label={left:3}] (x3) at (-1.5,-1.1) {$\bullet$};
+            \node[blue] (y1) at (1.5,0.5) {$\bullet$};
+            \node[green!70!black] (y2) at (1.5,-0.9) {$\bullet$};
+            \node (z1) at (4.5,1.2) {$\heartsuit$};
+            \node (z2) at (4.5,0.4) {$\Diamond$};
+            \node (z3) at (4.5,-0.4) {$\clubsuit$};
+            \node (z4) at (4.5,-1.2) {$\spadesuit$};
+            %draw f arrows
+            \draw[->] (x1) -- (y2);
+            \draw[->] (x2) to[bend right] (y1);
+            \draw[->] (x3) to[bend right] (y2);
+            % draw g arrows
+            \draw[->] (y1) -- (z3);
+            \draw[->] (y2) -- (z4);
+            % labels f, g
+            \node at (0.1,1) {$f$};
+            \node at (3,1) {$g$};
+        \end{tikzpicture}
+        
+        \begin{tikzpicture}[scale=.8]
+            \draw[grayset] (-2.3,0) ellipse (1.4cm and 2cm);
+            \draw[grayset] (2.3,0) ellipse (1.4cm and 2cm);
+            \node at (0,1.4) {$g\circ f$};
+        \end{tikzpicture}
+    \end{multicols}
+\end{exercise}
+
+\begin{exercise}
+    Hättest du in der letzten Aufgabe auch eine Abbildung $f\circ g$ einzeichnen können?
+    \begin{answerbox}[.5in]
+        Nein, denn die Bildmenge von $g$ stimmt nicht mit der Definitionsmenge von $f$ überein. Dadurch lässt sich $f(g(x))$ nicht berechnen, weil $f$ an der Stelle $g(x)$ undefiniert ist.
+    \end{answerbox}
+\end{exercise}
+
+\video{Abbildungsvorschriften verketten}{6}{Kapitel \ref{ext:sec:abbildungen_verkettung} (ab Seite \pageref{ext:sec:abbildungen_verkettung})}{https://www.google.de}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Wir betrachten die Abbildungen $f\colon\Real\rightarrow\Real$ und $g\colon\Real\rightarrow\Real$ mit $f(x)=x^2$ und $g(x)=x+1$.
+    \begin{enumerate}
+        \item[a)] Um $(g\circ f)(x)$ zu berechnen, muss $x$ zunächst in die Abbildung \textchoice[0]{$f$,$g$} und das Ergebnis anschließend in \textchoice[1]{$f$,$g$} eingesetzt werden.
+        \item[b)] Kreuze die zutreffenden Aussagen an.
+        \begin{multiplechoice}
+            \citem $f(2)=4$ und $g(4)=5$. Also ist $(g\circ f)(2)=5$.
+            \item $f(5)=25$ und $g(25)=26$. Also ist $(f\circ g)(5)=26$.
+            \item $g(f(x))=(x+1)^2$
+            \citem $g(f(x))=x^2+1$
+        \end{multiplechoice}
+        \item[c)] Berechne $(g\circ f)(4)$ und $(f\circ g)(4)$.
+        \begin{answerbox}[.5in]
+            $(g\circ f)(4)=g(f(4))=g(4^2)=g(16)=16+1=17$.\\
+            $(f\circ g)(4)=f(g(4))=f(4+1)=f(5)=5^2=25$.
+        \end{answerbox}
+    \end{enumerate}
+\end{exercise}
+
+\mandala{mandala/mandala04}
+
+\end{document}

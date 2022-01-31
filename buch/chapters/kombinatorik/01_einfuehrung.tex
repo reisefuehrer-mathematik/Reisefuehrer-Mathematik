@@ -1,0 +1,30 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\epigraph{\enquote{Die Macht ist es, die dem Jedi seine Stärke gibt. Es ist ein Energiefeld, das alle lebenden Dinge erzeugen. Es umgibt uns, es durchdringt uns. Es hält die Galaxis zusammen.}}{--Obi-Wan Kenobi}
+
+\dots und dasselbe lässt sich über die Kombinatorik -- das \enquote{mathematische Zählen}, wenn man so will -- und die Mathematik sagen. Die Kombinatorik lehrt, die Anzahl von Ereignissen zu zählen (/errechnen). Konkret bedeutet das, dass wir zum Beispiel gerne wissen wollen, wie viele Möglichkeiten es für uns gibt, aus $N$ Bällen $M$ verschiedene Auszuwählen. Damit spielt die Kombinatorik insbesondere auch für die Stochastik eine große Rolle.
+
+\begin{example}
+    Alice hat 3 Bälle: einen blauen, einen grünen und einen roten. Sie verbindet Bob die Augen und er wählt 2 Bälle zufällig aus. Wie hoch ist die Wahrscheinlichkeit, dass Bob den roten Ball zieht?
+    
+    Wir wissen bereits, dass die Wahrscheinlichkeit sich zusammensetzt aus $$p = \frac{\text{Anz. Möglichkeiten, in denen Bob den roten Ball zieht}}{\text{Anz. Möglichkeiten}}.$$
+    
+    Wir können nun beide Anzahlen zählen. Bob hat die folgenden Möglichkeiten:
+    $$\blueball\greenball, \blueball\redball, \greenball\blueball, \greenball\redball, \redball\blueball, \redball\greenball$$
+    Wir sehen, dass er in 4 von 6 Szenarien den roten Ball zieht. Damit hat er eine Wahrscheinlichkeit von $\frac{2}{3}$, den roten Ball zu ziehen.
+\end{example}
+
+\begin{example}
+    \begin{enumerate}
+        \item Alice hat 3 Bälle, Bob hat 4. Wie viele Bälle haben Alice und Bob?\\
+        \emph{Alice und Bob haben zusammen $3+4 = 7$ Bälle.}
+        \item Alice hat 3 Bälle, Bob hat 4. 2 Bälle gehören aber Alice und Bob gemeinsam. Wie viele Bälle haben Alice und Bob?\\
+        \emph{Alice und Bob haben zusammen $(3+4) - 2 = 5$ Bälle. Wir addieren die Bälle, die Bob besitzt mit denen, die Alice besitzt. Die Bälle, die beide Besitzen, haben wir aber nun doppelt gezählt und müssen sie also noch einmal abziehen.}
+    \end{enumerate}
+\end{example}
+
+Wir können nun leider nicht für jedes Problem alle Möglichkeiten durchgehen. Wenn Alice 5 Bälle hat, dann wären das schon 20 Möglichkeiten und somit wird das schnell unübersichtlich.
+
+Die Kombinatorik erlaubt uns, solche Abzählungen durch Einsetzen in eine Formel schnell und elegant zu lösen. Diese Fähigkeit benötigen wir in jedem Gebiet der Mathematik. Häufig ist sie intuitiv, weswegen wir nicht realisieren, dass wir eigentlich mit kombinatorischen Formeln arbeiten.
+\end{document}

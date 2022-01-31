@@ -1,0 +1,70 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{Injektionen, Surjektionen und Bijektionen}
+\pagecolor{violet!20}
+\label{advanced:bijektion}
+Graphisch sieht man die Bedeutung der Begriffe \textbf{surjektiv}, \textbf{injektiv} und \textbf{bijektiv} am besten am Abbildungsdiagramm:
+    
+\begin{multicols}{3}\centering
+    \input{diagrams/surjective_maping}
+    
+    \input{diagrams/injective_mapping}
+    
+    \input{diagrams/function_scheme}
+\end{multicols}
+
+Wie viele Urbilder ein Element der Bildmenge hat, sieht man an der Anzahl der Pfeile, die auf dieses Element zeigen.
+
+Im linken Diagramm hat jedes Element der Bildmenge mindestens ein Urbild, die Abbildung ist also surjektiv. Da das mittlere Element allerdings zwei Urbilder hat, lässt sich nicht sagen, dass jedes Element \emph{genau} ein Urbild hat. Die Abbildung ist daher weder injektiv noch bijektiv.
+
+Im mittleren Beispiel hat das untere Element der Bildmenge kein Urbild. Daher ist die Abbildung zwar injektiv (kein Element hat mehrere Urbilder), aber nicht surjektiv und deswegen auch nicht bijektiv.
+
+Im rechten Bild hat jedes Element genau ein Urbild. Daher ist die Abbildung bijektiv und damit erst recht surjektiv und injektiv.
+
+\begin{advexample}
+    Die Abbildung \textsc{MitGelbMischen}, die in einigen Beispielen im Kapitel vorgekommen ist, ist bijektiv. Das liegt daran, dass es für jede Mischfarbe (grün, orange und gelb) nur genau eine Grundfarbe gibt, die man mit gelb mischen, um die jeweilige Mischfarbe zu erhalten.
+\end{advexample}
+
+Ob eine Abbildung bijektiv ist, steht im direkten Zusammenhang damit, ob zu ihr eine Umkehrabbildung existiert. Es lässt sich nämlich beweisen:
+
+\begin{theorem}[Existenz der Umkehrabbildung]
+    Zu einer Abbildung $f\colon U\rightarrow V$ existiert genau dann eine Umkehrabbildung, wenn $f$ bijektiv ist.
+\end{theorem}
+
+Der Beweis zu diesem Satz befindet sich auf Seite \pageref{proof:existenceOfInverseMap}.
+
+Wenn zwischen zwei Mengen eine Abbildung $f\colon U\rightarrow V$ existiert, dann lässt sich die Kardinalität von $U$ und $V$ vergleichen -- abhängig davon, ob $f$ eine Injektion, Surjektion oder Bijektion ist. In diesen Fällen lässt sich eine Aussage darüber treffen, welche Menge mehr Elemente enthält.
+
+\begin{theorem}
+    Es sei $f\colon U\rightarrow V$ eine Abbildung. Dann gilt:
+    \begin{enumerate}
+        \item Falls $f$ injektiv ist, dann gilt $|U|\leq |V|$.
+        \item Falls $f$ surjektiv ist, dann gilt $|U|\geq |V|$.
+        \item Falls $f$ bijektiv ist, dann gilt $|U|=|V|$.
+    \end{enumerate}
+\end{theorem}
+
+Das bedeutet insbesondere, dass das Definieren einer Bijektion zwischen zwei Mengen $U$ und $V$ eine Methode ist, um zu zeigen, dass die beiden Mengen gleich viele Elemente besitzen. Damit können bijektive Abbildungen zu einer Methode werden, die Elemente einer Menge zu zählen: Man gibt zwischen einer Menge $U$, deren Elemente man zählen möchte, und einer Menge $V$, von der man weiß, wie viele Elemente sie enthält, eine Bijektion an. Dadurch ist sofort klar, wie viele Elemente $V$ besitzt (nämlich genauso viele wie $U$).
+
+\subsection*{Beweis zu Satz 1.1 -- Existenz der Umkehrabbildung}
+\begin{proof}
+    \label{proof:existenceOfInverseMap}
+    Es soll bewiesen werden, dass zu einer Abbildung eine Umkehrabbildung existiert genau dann, wenn die Abbildung bijektiv ist. Um diese Äquivalenz zu zeigen, zeigen wir, dass aus der Existenz der Umkehrabbildung von $f$ folgt, dass $f$ bijektiv ist (d.h. aus der linken Aussage folgt die rechte). Außerdem zeigen wir, dass daraus, dass $f$ bijektiv ist, folgt, dass es eine Umkehrabbildung zu $f$ gibt (d.h. aus der rechten Aussage folgt die linke). Insgesamt folgt dann, dass beide Aussagen äquivalent sind.
+    
+    \enquote{$\Leftarrow$}:
+    Falls $f$ eine bijektive Abbildung ist, dann gibt es zu jedem $v\in V$ ein eindeutig bestimmtes Element $u_v\in U$ mit $f(u)=v$ (wenn ein solches Element nicht existieren würde, dann wäre $f$ nicht surjektiv und wenn es nicht eindeutig wäre, dann wäre $f$ nicht injektiv). 
+    
+    Dann ist die Abbildung $g\colon V\rightarrow U$, die definiert ist durch $g(v)=u_v$ die gewünschte Umkehrabbildung von $f$. Gilt nämlich $f(u')=v'$ für ein $u'\in U,v'\in V$, dann ist $g(f(u'))=g(v')=u'_v$. Weil $u'_{v'}$ eindeutig ist und die Eigenschaft $f(u'_{v'})=v'$ hat, muss $u'_{v'}=u'$ gelten. Damit ist $g(f(u'))=u'$ und $g\circ f$ die Identität auf $U$. Auf die gleiche Weise kann gezeigt werden, dass $f\circ g$ die Identität auf $V$ ist.
+    
+    \enquote{$\Rightarrow$}:
+    Sei $g$ eine solche Umkehrabbildung von $f$. Dann existiert zu jedem $v\in V$ ein eindeutiges $u\in U$ mit $g(v)=u$. Angenommen, $f$ sei nicht injektiv. Dann existieren $u_1,u_2\in U$ mit $u_1\neq u_2$, sodass $f(u_1)=f(u_2)=v$ für ein $v\in V$ gilt. Dann ist $g(f(u_1))=g(v)=g(f(u_2))$. Nun kann $g$ aber keine Umkehrabbildung von $f$ mehr sein, denn es gilt nun entweder $g(f(u_1))\neq u_1$ oder $g(f(u_2))\neq u_2$. Also muss $f$ injektiv sein.
+    
+    Falls $f$ nicht surjektiv ist, dann existiert ein $v\in V$, sodass $v$ kein Urbild bzgl. $f$ hat. Entsprechend ist $f(g(v))\neq v$. Damit ist aber $f\circ g\neq id_V$ und $g$ keine Umkehrabbildung von $f$. Also muss $f$ surjektiv sein.
+\end{proof}
+
+\newpage
+\pagecolor{white}
+
+\end{document}

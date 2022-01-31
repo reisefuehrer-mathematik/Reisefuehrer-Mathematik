@@ -1,0 +1,217 @@
+\makeatletter
+\renewcommand{\PackageInfo}[2]{}% Remove package information
+\renewcommand{\@font@info}[1]{}% Remove font information
+\renewcommand{\@latex@info}[1]{}% Remove LaTeX information
+\makeatother
+
+\documentclass{buch}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{formulary}
+\usepackage{mathdef}
+\usepackage{tikzdef}
+
+\usepackage{collcell}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsthm}
+\usepackage[]{todonotes}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{transparent}
+\usepackage{diagbox}
+\usepackage{multirow, makecell, hhline}
+\usepackage{picins}
+\usepackage{clipboard}
+\usepackage{xifthen}
+
+\newclipboard{chapters}
+
+%%%%%%%%%%%%%%%%%%%%
+% Characters
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{epsdice}
+
+%%%%%%%%%%%%%%%%%%%%
+% Quotes
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{epigraph}
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+
+%%%%%%%%%%%%%%%%%%%%
+% Blind text
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{lipsum}
+
+\parskip=9pt plus 11 pt
+
+\usetikzlibrary{positioning}
+\tikzset{>=stealth}
+\graphicspath{../}
+
+%%%%%%%%%%%%%%%%%%%%
+% Timer for each page
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{atbegshi}
+\newcommand\showtimer{%
+  \message{^^Jtimer: \the\numexpr\the\pdfelapsedtime*1000/65536\relax}%
+  \pdfresettimer}
+\AtBeginDocument{\showtimer}
+\AtBeginShipout {\showtimer}
+
+\usepackage{scrhack} %I guess?
+
+
+\newcommand{\ifdraft}[2]{#1}
+%\newcommand{\ifdraft}[2]{#2}
+
+\usepackage{eso-pic}
+\usepackage{transparent}
+%\AddToShipoutPictureFG{%
+%    \transparent{.5}{\tikz[overlay,remember picture]{
+%        \path (current page.south west) -- (current page.north east)
+%     node[midway,scale=6,color=gray,sloped, align=center] {\Large ENTWURF\\{\small\today}};}}
+%}
+
+\newcommand{\declchapter}[2]{\chapter{#2}\label{chap:#1}\vphantom{\Copy{chap:lbl_#1}{#2}}}
+
+%\bookseries{Zahlen, Formeln\\\& ganz viel Magie}
+%\volume{1}
+%\title{Mathematik für Uneingeweihte}
+\bookseries{Reiseführer\\Mathematik}
+\volume{1}
+\title{}%Sehenswürdigkeiten \& Wanderrouten}
+\begin{document}
+    \frontmatter
+    \maketitle
+    \setcounter{tocdepth}{1}
+    \tableofcontents
+    
+    \begin{train}
+    \chapter{\prefacename}
+    \subfile{chapters/preface}
+    
+    \chapter{Konzept}
+    \subfile{chapters/concept}
+    %\end{train}
+    
+    \mainmatter
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % GRUNDLAGEN
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \part{Grundlagen}
+    
+    %\begin{wip}
+    \declchapter{grundrechnen}{Grundrechenarten}
+    
+    \end{train}
+    \if 0
+    
+    \declchapter{teilbarkeit}{Teilbarkeit}
+    
+    \declchapter{einheiten}{Rechnen mit Einheiten}
+    
+    \declchapter{geominebene}{Geometrie in der Ebene}
+    
+    \declchapter{ganzzahl}{Ganze Zahlen}
+    
+    \declchapter{koords}{Koordinatensysteme}
+    
+    \declchapter{bruche}{Bruchrechnung}
+    
+    \declchapter{vars}{Variablen}
+    \ldsection{Einführung}
+    
+    \declchapter{aussagenlogik}{Aussagenlogik}
+    \ldsection{Einführung}
+    \ldsection{Aussagen in der Mathematik}
+    
+    \declchapter{menge}{Mengen}
+    \end{wip}
+    
+    \declchapter{abbildungen}{Abbildungen}
+    \ldsection{Einführung}
+    \ldsection{Formale Schreibweisen}
+    \ldsection{Abbildungsvorschriften}
+    \ldsection{Abbildungsgraphen}
+    \ldsection{Hintereinanderausführung}
+    \ldsection{Eigenschaften von Abbildungen}
+    \ldsection{Abbildungsgraphen modifizieren}
+    \ldadvsection{Weiterführendes Wissen}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % MITTELSTUFE
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \part{Mittelstufenmathematik}
+    
+    \begin{wip}
+    \declchapter{statistik}{Beschreibende Statistik}
+    
+    \declchapter{kombinatorik}{Kombinatorik}
+    \ldsection{Einführung}
+    \ldsection{Permutationen}
+    \ldsection{Urnenexperimente}
+    \ldsection{Eulersche Phi Funktion}
+    \ldadvsection{Für Fortgeschrittene}
+    
+    \declchapter{wkeitstheorie}{Wahrscheinlichkeitstheorie}
+    
+    
+    \declchapter{lingleichungen}{Lineare Gleichungen}
+    \ldsection{Einführung}
+    \ldsection{Äquivalenzumformungen}
+    \ldsection{Auflösen linearer Gleichungen}
+    \ldsection{Auflösen linearer Ungleichungen}
+    \ldsection{Geradengleichungen}
+    \ldadvsection{Weiterführendes Wissen}
+    
+    \declchapter{lgs}{Lineare Gleichungssysteme}
+    
+    \declchapter{quadgleichungen}{Quadratische Gleichungen}
+    
+    \declchapter{geomkonstr}{Geometrische Konstruktionen}
+    
+    \declchapter{geomraum}{Geometrie im Raum}
+    
+    \declchapter{kreise}{Kreise}
+    
+    \declchapter{potulog}{Potenz- und Logarithmenrechnung}
+    
+    \declchapter{trig}{Trigonometrie}
+    \end{wip}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % OBERSTUFE
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \part{Oberstufenmathematik}
+    
+    \begin{wip}
+    \declchapter{folgenundreihen}{Folgen und Reihen}
+    
+    \declchapter{diff}{Differentialrechnung in \Real}
+    \def\Chaptername{differentialrechnung}
+    \ldsection{Einführung}
+    \ldsection{Tangentensteigung}
+    
+    \declchapter{interpol}{Interpolation}
+    
+    \declchapter{integrale}{Integralrechnung}
+    \ldsection{Einführung}
+    
+    \declchapter{vektoren}{Vektorrechnung}
+    
+    \declchapter{zufallsvars}{Zufallsvariablen und Verteilungen}
+    \end{wip}
+    
+    \backmatter
+    \printindex
+    
+    \begin{wip}
+    \subfile{formulary}
+    \end{wip}
+    
+    \fi
+\end{document}

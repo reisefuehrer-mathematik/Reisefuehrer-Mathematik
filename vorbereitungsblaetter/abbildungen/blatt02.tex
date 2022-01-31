@@ -1,0 +1,163 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+
+\usepackage{booktabs}
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 2}
+\title{Abbildungsvorschriften beschreiben}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt führt verschiedene Möglichkeiten ein, wie Abbildungsvorschriften angegeben werden können. Es beschäftigt sich mit der \textbf{expliziten Schreibweise}, mit \textbf{Wertetabellen} und mit \textbf{Berechnungsvorschriften}.
+\end{contents}
+
+\video{Explizite Abbildungsvorschriften}{2}{Kapitel \ref{ext:sec:abbildungen_explizite_schreibweise} (ab Seite \pageref{ext:sec:abbildungen_explizite_schreibweise})}{https://www.google.de}
+
+\begin{remark}
+    Eine Abbildungsvorschrift kann angegeben werden, indem man zu jedem Element der Definitionsmenge \emph{explizit} aufschreibt, welches Bildelement ihm zugeordnet wird. Dafür nutzt man die Schreibweise $f(\text{Argument})=\text{Bild}$ und listet für jedes Element der Definitionsmenge eine solche Regel auf.
+\end{remark}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Wenn du eine \textchoice{Menge, Summe, Abbildung} mit der expliziten Schreibweise beschreibst, dann benötigst du eine Abbildungsregel für jedes Element der \textchoice{Definitionsmenge, Zielmenge}.
+\end{exercise}
+\begin{exercise}
+    Notiere zu jedem der folgenden Diagramme eine Abbildungsvorschrift in expliziter Schreibweise. Links ist die Abbildung $f\colon\textsc{Grundfarben}\rightarrow\textsc{NeueFarben}$ dargestellt, rechts die Abbildung $g\colon\{3,5,6,8,12\}\rightarrow\{0,1,2,3\}$.\\
+    \begin{multicols}{2}\centering
+        \input{diagrams/mix_with_blue}
+        
+        \begin{tikzpicture}[scale=.5]
+            \draw[grayset] (-1.5,0) ellipse (2cm and 2.5cm);
+            \draw[grayset] (3.5,0) ellipse (2cm and 2.5cm);
+        
+            \node[label=left:8] (x1) at (-1,1.6) {$\bullet$};
+            \node[label=left:6] (x2) at (-1,0.7) {$\bullet$};
+            \node[label=left:3] (x3) at (-1,-0.2) {$\bullet$};
+            \node[label=left:12] (x4) at (-1,-1.1) {$\bullet$};
+            \node[label=left:5] (x5) at (-1,-2) {$\bullet$};
+            
+            \node[label=right:0] (y1) at (3,1.15) {$\bullet$};
+            \node[label=right:1] (y2) at (3,0.25) {$\bullet$};
+            \node[label=right:2] (y3) at (3,-0.65) {$\bullet$};
+            \node[label=right:3] (y4) at (3,-1.55) {$\bullet$};
+            
+            \draw[->] (x1) -- (y1);
+            \draw[->] (x2) to[bend right] (y3);
+            \draw[->] (x3) to[bend right] (y4);
+            \draw[->] (x4) -- (y1);
+            \draw[->] (x5) -- (y2);
+        \end{tikzpicture}
+    \end{multicols}
+    \begin{answerbox}[1in]
+        $f(\text{blau})=\text{blau}, f(\text{rot})=\text{lila}, f(\text{gelb})=\text{grün}$\\
+        $g(8)=0, g(6)=2, g(3)=3, g(12)=0, g(5)=1$
+    \end{answerbox}
+\end{exercise}
+
+\video{Arbeiten mit Wertetabellen}{6}{Kapitel \ref{ext:sec:abbildungen_wertetabellen} (ab Seite \pageref{ext:sec:abbildungen_wertetabellen})}{https://www.google.de}
+\newpage
+\begin{remark}
+    \parpic[r]{
+        \begin{tabular}{cc}\toprule
+            $x$ & $f(x)$ \\\midrule
+            0 & 1\\
+            1 & 2\\
+            \dots & \dots\\\bottomrule
+        \end{tabular}
+    }
+        
+    Eine Abbildungsvorschrift kann angegeben werden, indem sie als Tabelle mit einer Spalte für die Definitions- und einer Spalte für die Zielmenge notiert wird. In einer Zeile einer solchen Tabelle stehen jeweils ein Argument aus der Definitionsmenge und sein Bild.
+    
+    Die in einer Wertetabelle notierten Abbildungsregeln sind gleichbedeutend mit Regeln in der expliziten Schreibweise.
+\end{remark}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Die folgende Wertetabelle gehört zum linken Diagramm aus Aufgabe 2. Ergänze die fehlenden Werte so, dass sie die Abbildungsvorschrift aus Aufgabe 2 darstellt.
+    \begin{center}
+        \begin{tabular}{cc}\toprule
+            Farbe & Neue Farbe\\\midrule
+            blau & \answerfield{2cm}{blau}\\
+            \answerfield{2cm}{gelb} & grün\\
+            rot & \answerfield{2cm}{lila}\\\bottomrule
+        \end{tabular}
+    \end{center}
+\end{exercise}
+\begin{exercise}
+    Beim Kartenspiel Skat spielt ein einzelner Spieler gegen ein Team aus zwei Spielern und versucht, mehr Punkte als das Team zu sammeln. Die folgende Tabelle stammt aus den Skatregeln.
+    \begin{center}
+        \begin{tabular}{cc}\toprule
+            Farbe & Punkte\\\midrule
+            $\clubsuit$ & 12\\
+            $\spadesuit$ & 11\\
+            $\heartsuit$ & 10\\
+            $\diamondsuit$ & 9\\\bottomrule
+        \end{tabular}
+    \end{center}
+    
+    In der Tabelle ist die Abbildung $\textsc{Punktwert}\colon\{\diamondsuit,\heartsuit,\spadesuit,\clubsuit\}\rightarrow\{9,10,11,12\}$ beschrieben. Ergänze die fehlenden Werte in der nachfolgenden Liste, um sie in der expliziten Schreibweise aufzuschreiben.
+    \[
+        \textsc{Punktwert}(\diamondsuit)=\answerfield{.5cm}{9},
+        \textsc{Punktwert}(\clubsuit)=\answerfield{.5cm}{12},
+        \textsc{Punktwert}(\spadesuit)=\answerfield{.5cm}{11},
+        \textsc{Punktwert}(\heartsuit)=\answerfield{.5cm}{10}
+    \]
+\end{exercise}
+
+\video{Berechnungsvorschriften}{5}{Kapitel \ref{ext:sec:abbildungen_berechnungsvorschriften} (ab Seite \pageref{ext:sec:abbildungen_berechnungsvorschriften})}{https://www.google.de}
+\begin{remark}
+    Eine Abbildungsvorschrift kann angegeben werden, indem man notiert, wie aus einem \emph{beliebigen} Element $x$ der Definitionsmenge bestimmt werden kann, welches Bild es erhält. Dafür schreibt man
+    \[f(x)=\langle\textit{Regel, mit der aus $x$ das Bild von $x$ berechnet werden kann}\rangle.\]
+\end{remark}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Die Abbildungen $f$ und $g$ haben beide die Definitionsmenge 
+    $\textsc{Grundfarben}=\{\text{rot},\text{blau},\text{gelb}\}$. Die Abbildung 
+    $f\colon\textsc{Grundbfarben}\rightarrow\textsc{Grundfarben}$ hat die Abbildungsvorschrift $f(x)=x$.
+    Die Abbildungsvorschrift von $g\colon\textsc{Grundfarben}\rightarrow\Natural$ ist die Berechnungsvorschrift \[g(x)=\text{Anzahl der Buchstaben von $x$}.\] 
+    
+    \begin{enumerate}
+        \item[a)] Beschreibe jeweils in Worten, was die Abbildungen $f$ und $g$ machen.
+        \begin{answerbox}[1in]
+            $f$ bildet jede Grundfarbe auf sich selbst ab, also rot auf rot, blau auf blau und gelb auf gelb.
+            
+            $g$ erhält als Argument eine Grundfarbe und zählt dann die Anzahl der Buchstaben, die die Farbe hat. Insgesamt bildet $g$ also jede Farbe auf die Zahl ab, die angibt, wie viele Buchstaben das Wort hat, das für die Farbe steht.
+        \end{answerbox}
+        \item[b)] Gib die Abbildungsvorschrift für $g$ mit der expliziten Schreibweise an.
+        \begin{answerbox}[0.5in]
+            $g(\text{blau})=4, g(\text{rot})=3, g(\text{gelb})=4$
+        \end{answerbox}
+    \end{enumerate}
+\end{exercise}
+\begin{exercise}
+    Die linke Abbildung aus Aufgabe 2 mischt jede Grundfarbe mit blau. Gib die Abbildungsvorschrift dieser Abbildung als Berechnungsvorschrift an.
+    
+    \emph{Hinweis: Du kannst der Abbildung den Namen \textsc{MitBlauMischen} geben, wenn du einen Namen für die Abbildung benötigst.}
+    \begin{answerbox}[0.5in]
+        $\textsc{MitBlauMischen}(x)=\text{Farbe, die man erhält, wenn man}~x~\text{mit blau mischt}$
+    \end{answerbox}
+\end{exercise}
+\begin{exercise}
+    Eine Abbildung $f\colon\Natural\rightarrow\Natural$ ordnet jeder natürlichen Zahl das Ergebnis der Rechnung, wenn man die Zahl mit $2$ multipliziert, zu. Es ist also zum Beispiel \[f(0)=2\cdot 0=0, f(1)=2\cdot 1=2, f(2)=2\cdot 2=4, f(5)=2\cdot 5=10~\text{usw.}\]
+    Gib die Abbildungsvorschrift von $f$ durch eine Berechnungsvorschrift an.
+    \begin{answerbox}[0.5in]
+        $f(x)=2x$
+    \end{answerbox}
+\end{exercise}
+
+\mandala{mandala/mandala02}
+
+\end{document}

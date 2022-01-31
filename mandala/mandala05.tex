@@ -1,0 +1,8 @@
+\begin{tikzpicture}[scale=0.8]
+    \foreach \phi in {0,30,...,330}{
+        \foreach \r in {3,4.5,5.25,5.625}{
+            \pgfmathsetmacro{\width}{0.05+0.12*\r};
+            \draw[line width=\width mm] (0:0) to[bend right] (\phi:\r) to[bend right] (0,0);
+        }
+    }
+\end{tikzpicture}

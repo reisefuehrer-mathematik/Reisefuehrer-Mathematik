@@ -1,0 +1,181 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+
+\usetikzlibrary{positioning}
+
+\sheet{Vorbereitungsblatt 5}
+\title{Umkehrabbildungen}
+\topic{\getchaptername{abbildungen}}
+\chapternum{\getchapternum{abbildungen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Dieses Vorbereitungsblatt führt die Begriffe \textbf{Identische Abbildung} und \textbf{Umkehrabbildung} ein und stellt Schreibweisen für diese Begriffe vor.
+\end{contents}
+\video{Die Identische Abbildung}{6}{Kapitel \ref{ext:sec:abbildungen_identitaet} (ab Seite \pageref{ext:sec:abbildungen_identitaet})}{https://www.google.de}
+\begin{definition}
+    Es sei $M$ eine Menge. Dann heißt die Abbildung, die jedes Element von $M$ auf sich selbst abbildet, die \textbf{identische Abbildung} oder \textbf{Identität} auf $M$, geschrieben $\ident[M]$. Es gilt also \[\ident[M](x)=x\text{~für alle~}x\in M.\]
+\end{definition}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    $\ident[M]$ steht für die \textchoice[1]{gespiegelte,identische,geklonte} Abbildung auf der Menge $M$. Das ist die Abbildung, die \textchoice[1]{ein,jedes} Element aus $M$ \textchoice[1]{verändert,gleich lässt}. Es gilt $\ident[\Real](4)=\answerfield{1cm}{4}$.
+\end{exercise}
+\begin{exercise}
+    Welche der folgenden Diagramme zeigen eine identische Abbildung?
+    \begin{multiplechoice}
+        \begin{multicols}{3}
+            \citem\begin{tikzpicture}
+                \draw[grayset] (0,0) ellipse (0.7cm and 1cm);
+                \node[label={left:1}] (x1) at (0,0) {$\bullet$};
+                \draw[->] (x1) to[loop above] (x1);
+            \end{tikzpicture}
+            \item\begin{tikzpicture}
+                \draw[grayset] (0,0) ellipse (0.7cm and 1cm);
+                \draw[grayset] (2,0) ellipse (0.7cm and 1cm);
+                \node[label={left:1}] (x1) at (0,0.4) {$\bullet$};
+                \node[label={left:2}] (x2) at (0,-0.4) {$\bullet$};
+                \node[label={right:3}] (y1) at (2,0.4) {$\bullet$};
+                \node[label={right:4}] (y2) at (2,-0.4) {$\bullet$};
+                \draw[->] (x1) -- (y1);
+                \draw[->] (x2) -- (y2);
+            \end{tikzpicture}
+            \item\begin{tikzpicture}
+                \draw[grayset] (0,0) ellipse (0.7cm and 1cm);
+                \node[label={left:1}] (x1) at (0,0.4) {$\bullet$};
+                \node[label={left:2}] (x2) at (0,-0.4) {$\bullet$};
+                \draw[->] (x1) to[bend right] (x2);
+                \draw[->] (x2) to[bend right] (x1);
+            \end{tikzpicture}
+            \citem\begin{tikzpicture}
+                \draw[grayset] (0,0) ellipse (0.7cm and 1cm);
+                \draw[grayset] (2,0) ellipse (0.7cm and 1cm);
+                \node[label={left:1}] (x1) at (0,0.4) {$\bullet$};
+                \node[label={left:2}] (x2) at (0,-0.4) {$\bullet$};
+                \node[label={right:1}] (y1) at (2,0.4) {$\bullet$};
+                \node[label={right:2}] (y2) at (2,-0.4) {$\bullet$};
+                \draw[->] (x1) -- (y1);
+                \draw[->] (x2) -- (y2);
+            \end{tikzpicture}
+            \citem\begin{tikzpicture}
+                \draw[grayset] (0,0) ellipse (0.7cm and 1cm);
+                \node[label={left:1}] (x1) at (0.1,0.3) {$\bullet$};
+                \node[label={left:2}] (x2) at (0.1,-0.5) {$\bullet$};
+                \draw[->] (x1) to[loop above] (x1);
+                \draw[->] (x2) to[loop above] (x2);
+            \end{tikzpicture}
+            \item\begin{tikzpicture}
+                \draw[grayset] (0,0) ellipse (0.7cm and 1cm);
+                \draw[grayset] (2,0) ellipse (0.7cm and 1cm);
+                \node[label={left:1}] (x1) at (0,0.4) {$\bullet$};
+                \node[label={left:2}] (x2) at (0,-0.4) {$\bullet$};
+                \node[label={right:1}] (y1) at (2,0.4) {$\bullet$};
+                \node[label={right:2}] (y2) at (2,-0.4) {$\bullet$};
+                \draw[->] (x1) to[bend right] (y2);
+                \draw[->] (x2) -- (y1);
+            \end{tikzpicture}
+        \end{multicols}
+    \end{multiplechoice}
+\end{exercise}
+
+\video{Die Umkehrabbildung}{6}{Kapitel \ref{ext:sec:abbildungen_umkehrabbildung} (ab Seite \pageref{ext:sec:abbildungen_umkehrabbildung})}{https://www.google.de}
+\begin{definition}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=.6]
+            \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+            \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+            %
+            \node (x1) at (-1.5,0.7) {$\bullet$};
+            \node (x2) at (-1.5,-0.2) {$\bullet$};
+            \node (x3) at (-1.5,-1.1) {$\bullet$};
+            \node (y1) at (1.5,0.7) {$\bullet$};
+            \node (y2) at (1.5,-0.2) {$\bullet$};
+            \node (y3) at (1.5,-1.2) {$\bullet$};
+            %
+            \draw[blue,->] (x1) -- (y3);
+            \draw[blue,->] (x2) to[bend right] (y1);
+            \draw[blue,->] (x3) to[bend right] (y2);
+            %
+            \draw[dashed,->] (y3) to[bend right] (x1);
+            \draw[dashed,->] (y1) to[bend right] (x2);
+            \draw[dashed,->] (y2) to[bend right] (x3);
+        \end{tikzpicture}
+    }
+    Es seien $U,V$ Mengen und $f\colon U\rightarrow V$ eine Abbildung. Eine Abbildung $g\colon V\rightarrow U$ mit $g\circ f=\ident[U]$ und $f\circ g=\ident[V]$ heißt \textbf{Umkehrabbildung} von $f$. In diesem Fall schreibt man $f^{-1}$ statt $g$.
+    
+    \vspace*{10mm}
+\end{definition}
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Die Umkehrabbildung $f^{-1}$ ist im Grunde das \textchoice[0]{Gegenstück,Herzstück,Prinzip} zu einer Abbildung $f$. Ist $f\colon U\rightarrow V$ eine Abbildung und $f^{-1}$ die Umkehrabbildung von $f$, dann wird jede Abbildung $u\mapsto v$, die $f$ vornimmt, von $f^{-1}$ \textchoice[1]{plausibel,rückgängig gemacht, verstärkt}. Es gilt \textchoice[2]{$f^{-1}(u)=f(u)$,$f^{-1}=\ident[U]$,$f^{-1}(f(u))=u$} für beliebige \textchoice[0]{$u\in U$,$u\in V$}.
+\end{exercise}
+\begin{exercise}
+    Links siehst du die Abbildung $\textsc{MitBlauMischen}$. Zeichne zwischen den beiden rechts abgebildeten Mengen Pfeile ein, sodass dort die Umkehrabbildung von $\textsc{MitBlauMischen}$ zu sehen ist.
+    \begin{multicols}{2}\centering
+        \begin{tikzpicture}[scale=.6]
+            \draw[grayset] (-1.5,0) ellipse (2.4cm and 2cm);
+            \draw[grayset] (4,0) ellipse (2.4cm and 2cm);
+        
+            \node[blue] (x1) at (-1,0.7) {$\bullet$}; 
+            \node[blue,left=1mm of x1] {blau};
+            \node[red] (x2) at (-1,-0.2) {$\bullet$}; 
+            \node[red,left=1mm of x2] {rot};
+            \node[yellow!70!black] (x3) at (-1,-1.1) {$\bullet$}; 
+            \node[yellow!70!black,left=1mm of x3] {gelb};
+            
+            \node[green!70!black] (y1) at (3.5,0.7) {$\bullet$}; 
+            \node[green!70!black,right=1mm of y1] {grün};
+            \node[violet] (y2) at (3.5,-0.2) {$\bullet$}; 
+            \node[violet,right=1mm of y2] {lila};
+            \node[blue] (y3) at (3.5,-1.1) {$\bullet$}; 
+            \node[blue,right=1mm of y3] {blau};
+        
+            \draw[->] (x1) to[bend right] (y3);
+            \draw[->] (x2) -- (y2);
+            \draw[->] (x3) to[bend right] (y1);
+        \end{tikzpicture}
+
+        \begin{tikzpicture}[scale=0.6]
+            \draw[grayset] (-1.5,0) ellipse (2.4cm and 2cm);
+            \draw[grayset] (4,0) ellipse (2.4cm and 2cm);
+            
+            \node[green!70!black,label={[green!70!black]left:grün}] (x1) at (-1,0.7) {$\bullet$};
+            \node[violet,label={[violet]left:lila}] (x2) at (-1,-0.2) {$\bullet$}; 
+            \node[blue,label={[blue]left:blau}] (x3) at (-1,-1.1) {$\bullet$}; 
+            
+            \node[blue,label={[blue]right:blau}] (y1) at (3.5,0.7) {$\bullet$}; 
+            \node[red,label={[red]right:rot}] (y2) at (3.5,-0.2) {$\bullet$};
+            \node[yellow!70!black,label={[yellow!70!black]right:gelb}] (y3) at (3.5,-1.1) {$\bullet$}; 
+        \end{tikzpicture}
+    \end{multicols}
+\end{exercise}
+\begin{exercise}
+    Subtrahieren ist genau das Gegenteil von \textchoice[0]{Addieren,Multiplizieren,Dividieren}. Rechnet man beispielsweise $42+5$ und \textchoice[1]{multipliziert,subtrahiert,dividiert} anschließend \textchoice[1]{mit 5,5,durch 5}, dann erhält man wieder die $42$, die man zu Beginn hatte. Die Abbildung $f\colon\Real\rightarrow\Real$ mit \textchoice{$f(x)=5$,$f(x)=x+5$,$f(x)=+5$}, die zu jeder Zahl $5$ addiert, hat als Umkehrabbildung also die Abbildung $f^{-1}\colon\Real\rightarrow\Real$ mit \textchoice{$f^{-1}(x)=-5$,$f^{-1}(x)=5$,$f^{-1}(x)=x+5$,$f^{-1}(x)=5x$,$f^{-1}(x)=x-5$}.
+\end{exercise}
+\begin{exercise}
+    Kreuze an, welche der folgenden Abbildungen $g\colon\Real\rightarrow\Real$ eine Umkehrabbildung zu $f\colon\Real\rightarrow\Real$ mit $f(x)=2x+1$ ist. Berechne dafür beispielhaft $f(1)$ und $f(5)$ und überprüfe, ob wieder $1$ bzw. $5$ herauskommt, wenn du das Ergebnis in $g$ einsetzt.
+    
+    \[f(1)=\answerfield{1cm}{3}, f(5)=\answerfield{1cm}{11}\]
+    \begin{multiplechoice}
+        \begin{multicols}{2}
+        \item $g(x)=1+2x$
+        \item $g(x)=\frac{1}{2}x-1$
+        \item $g(x)=\ident[\Real]$
+        \citem $g(x)=\frac{1}{2}(x-1)$
+        \end{multicols}
+    \end{multiplechoice}
+\end{exercise}
+
+\mandala{mandala/mandala05}
+
+\end{document}

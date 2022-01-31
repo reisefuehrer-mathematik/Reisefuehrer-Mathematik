@@ -1,0 +1,44 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \textcolor{red}{Hier entsteht Magie!!!}
+    
+    %#1: Name
+    %#2: Logische Grundlage
+    %#3: Beispiel
+    \newcommand{\dispProof}[3]{
+        \begin{tcolorbox}[title=#1, fonttitle=\fontfamily{pbk}\selectfont\bfseries\large, sharp corners]%
+            \arrayrulecolor{tcbcolframe}%
+            \begin{tabularx}{\linewidth}{@{}>{\fontfamily{pbk}\selectfont}lX@{}}
+                Prinzip & #2\\\midrule
+                Beispiel & #3
+            \end{tabularx}
+        \end{tcolorbox}
+    }
+    
+    \dispProof{Direkter Beweis}
+        {}
+        {Zeige: $x\text{ gerade} \implies x^2\text{ gerade}$. $x\text{ gerade} \implies x=2\cdot y \text{ für ein }y \implies x^2=(2y)^2=4y^2 \implies x^2 \text{ gerade}$.}
+%\todo{Übungsaufgabe: Zeige durch einen direkten Beweis, dass $x \text{ ungerade} \implies x^2 \text{ ungerade}$}
+    
+    \dispProof{Vollständige Induktion}
+        {Sei $A(x)$ die zu beweisende Aussage. Man zeigt, dass $A(0)$ gilt (Induktionsanfang) und, dass $A(i) \implies A(i+1)$. Also: wenn $A$ für einen Wert gilt, dann auch für dessen Nachfolger. Weil man $A(0)$ zeigt, ergibt sich eine unendliche Implikationskette $A(0) \implies A(1) \implies A(2) \implies \dots$.}
+        {Die Klasse hat eine Telefonkette eingerichtet: Wenn die Lehrerin benachrichtigt wird, ruft sie den ersten Schüler auf der Klassenliste an und jeder Schüler ruft den nächsten Schüler auf der Klassenliste an. Wenn die Lehrerin benachrichtigt wird, werden also alle Schüler angerufen.}
+    
+    \dispProof{Widerspruchsbeweis}
+        {Wir wissen $A \implies B$ und $\lnot B$. Um zu zeigen, dass $\lnot A$, nehmen wir an, dass $A$ gelte und zeigen, dass dann auch $B$ gelten müsste. Da wir aber wissen, dass $B$ nicht gilt, haben wir einen Widerspruch, sodass $A$ nicht gelten kann.}
+        {Angenommen, es hätte nicht geschneit, dann hätte ich auch keinen Schneemann bauen können. Ich habe aber einen Schneemann gebaut, also muss es geschneit haben.}
+        
+    \dispProof{Kontraposition}
+        {Wir zeigen $A \implies B$ indem wir zeigen, dass $\lnot B \implies \lnot A$.}
+        {}
+    
+    \dispProof{Ringschluss}
+        {Eine Kette von Implikationen $A \implies B \implies \dots \implies C$, in der das Ende wieder den Anfang impliziert ($C \implies A$), ist äquivalent dazu, dass $A \iff B \iff \dots \iff C$.}
+        {}
+    
+    \dispProof{Kettenschluss}
+        {In einer Kette von Implikationen $A \implies B \implies \dots \implies C$ impliziert das erste Element auch das letzte: $A \implies C$.}
+        {%Wenn die Sonne scheint, dann ist es warm. Wenn es warm ist, dann esse ich Eis. Damit folgt: Wenn die Sonne scheint, dann esse ich Eis.
+        Alle Menschen sind sterblich. Alle Griechen sind Menschen. Daraus folgt, dass alle Griechen sterblich sind.}
+\end{document}
