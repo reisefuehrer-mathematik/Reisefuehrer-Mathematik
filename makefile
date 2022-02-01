@@ -21,6 +21,7 @@ $(BOOK_OUT_DIR)/main.aux: $(BOOK_SRC_DIR)/main.tex $(BOOK_CLS) $(STY_FILES)
 	$(MKDIR_P) $(BOOK_OUT_DIR);\
 	export TEXINPUTS=".;./buch/;";\
 	$(LATEX) -output-directory=$(BOOK_OUT_DIR) $(BOOK_SRC_DIR)/main.tex;\
+	makeindex $(BOOK_OUT_DIR)/main.idx;\
 	$(LATEX) -output-directory=$(BOOK_OUT_DIR) $(BOOK_SRC_DIR)/main.tex;
 
 $(VB_OUT_DIR)/%.aux: $(VB_SRC_DIR)/%.tex book

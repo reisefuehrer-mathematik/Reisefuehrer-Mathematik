@@ -64,8 +64,8 @@
 \usepackage{scrhack} %I guess?
 
 
-\newcommand{\ifdraft}[2]{#1}
-%\newcommand{\ifdraft}[2]{#2}
+%\newcommand{\ifdraft}[2]{#1}
+\newcommand{\ifdraft}[2]{#2}
 
 \usepackage{eso-pic}
 \usepackage{transparent}
@@ -89,7 +89,7 @@
     \setcounter{tocdepth}{1}
     \tableofcontents
     
-    \begin{train}
+    %\begin{train}
     \chapter{\prefacename}
     \subfile{chapters/preface}
     
@@ -104,11 +104,8 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \part{Grundlagen}
     
-    %\begin{wip}
+    \begin{wip}
     \declchapter{grundrechnen}{Grundrechenarten}
-    
-    \end{train}
-    \if 0
     
     \declchapter{teilbarkeit}{Teilbarkeit}
     
@@ -212,6 +209,4 @@
     \begin{wip}
     \subfile{formulary}
     \end{wip}
-    
-    \fi
 \end{document}
