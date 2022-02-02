@@ -50,12 +50,14 @@ Die Erkenntnisse aus dem letzten Beispiel lassen sich verallgemeinern. Tatsächl
 Atomare Aussagen sind Aussagen, die keine Konnektoren enthalten.
 \end{definition}
 
-Im Folgenden erläutern wir, wie man für beliebige Aussagen den Wahrheitswert bestimmen kann, falls man bereits die Wahrheitswerte aller atomaren Aussage dieser Aussage kennt. Wir gehen also davon aus, dass wir zumindest die Wahrheitswerte von atomaren Aussagen immer \enquote{geschenkt} bekommen.
+Im Folgenden erläutern wir, wie man für beliebige Aussagen den Wahrheitswert bestimmen kann, falls man bereits die Wahrheitswerte aller atomaren Aussagen dieser Aussage kennt. Wir gehen also davon aus, dass wir zumindest die Wahrheitswerte von atomaren Aussagen immer \enquote{geschenkt} bekommen.
 
-Bevor wir erläutern, wie wir den Wahrheitswert von komplexen Aussagen mit vielen Konnektoren bestimmen können, schauen wir uns zunächst einmal die einfachen Fälle an. Wir überlegen uns dazu zunächst einmal wie sich der Wahrheitswert einer Aussage mit genau einem Konnektor mit Hilfe der Wahrheitswerte ihrer atomaren Aussagen bestimmen lässt.
+Die Grundidee besteht darin, beginnend bei den atomaren Aussagen, schrittweise die Wahrheitswerte von immer komplexer werdenden Unteraussagen zu folgern, bis wir den Wahrheitswert der gesamten Aussage kennen. 
+Wir stellen deshalb jetzt vor, wie wir aus Wahrheitswerten von einer oder zwei Aussagen den Wahrheitswert einer komplexeren Aussage folgern können. Das Muster wird im Folgenden dabei immer gleich sein: Kennen wir Wahrheitswerte von einer oder zwei Aussagen, zeigen wir wie man daraus den Wahrheitswert der Verknüpfung dieser Aussage(n) durch einen Konnektor folgert. Kennen wir beispielsweise den Wahrheitswert von den Aussagen $A,B$, dann zeigen wir wie man daraus den Wahrheitswert von $A \land B$ oder $\neg A$ folgert. 
 
-Betrachten wir zunächst den Fall, dass wir eine Aussage vorliegen haben, die dadurch entstanden ist, dass wir 2 atomare Aussagen durch den Konnektor \statement{und} verknüpft haben. Das Symbol für \statement{und} ist $\land$. 
-Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen atomaren Aussagen. Angenommen, wir kennen die Wahrheitswerte von $A$ und $B$, was ist dann nun der Wahrheitswert von $A \land B$? Wir legen fest, dass $A \land B$ genau dann wahr ist, wenn sowohl $A$ als auch $B$ wahr ist. Ist also $A$ oder $B$ falsch oder sogar beide, dann ist auch $A \land B$ falsch.
+\textbf{Wahrheitswerte von dem Konnektor \enquote{und}}:
+Betrachten wir zunächst den Fall, dass wir eine Aussage vorliegen haben, die dadurch entstanden ist, dass wir zwei Aussagen durch den Konnektor \statement{und} verknüpft haben. Das Symbol für \statement{und} ist $\land$. 
+Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen Aussagen. Angenommen, wir kennen die Wahrheitswerte von $A$ und $B$, was ist dann nun der Wahrheitswert von $A \land B$? Wir legen fest, dass $A \land B$ genau dann wahr ist, wenn sowohl $A$ als auch $B$ wahr ist. Ist also $A$ oder $B$ falsch oder sind sogar beide falsch, dann ist auch $A \land B$ falsch.
 
 \begin{example}
     Sei $S$ eine Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} und $G$ eine Abkürzung für \statement{Der Zaubertrank ist giftig}. Ist der Zauberer tatsächlich schlecht gelaunt ($S$ ist wahr) und ist der Zaubertrank giftig ($G$ ist auch wahr), dann ist $S \land G$ wahr. 
@@ -74,7 +76,7 @@ Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen atomaren Aussagen. Ang
 Wir halten jetzt das, was wir gerade formuliert haben, präzise in einer Definition fest.
 
 \begin{definition} [Wahrheitswerte von $\land$]
-    Sind $A,B$ atomare Aussagen von denen der Wahrheitswert bekannt ist, dann ergibt sich der Wahrheitswert von $A \land B$ durch folgende Tabelle.
+    Sind $A,B$ Aussagen von denen der Wahrheitswert bekannt ist, dann ergibt sich der Wahrheitswert von $A \land B$ durch folgende Tabelle.
     \[\begin{array}{cc s c}\toprule
         A & B & A \land B\\\midrule
         \falsch   & \falsch   & \falsch  \\
@@ -84,7 +86,7 @@ Wir halten jetzt das, was wir gerade formuliert haben, präzise in einer Definit
     \end{array}\]
 \end{definition}
 
-Betrachten wir als nächstes den Fall, dass wir eine Aussage vorliegen haben, die dadurch entstanden ist, dass wir 2 atomare Aussage durch den Konnektor \statement{oder} verknüpft haben. Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen atomaren Aussagen. Angenommen wir kennen die Wahrheitswerte von $A$ und $B$, wie lässt sich daraus der Wahrheitswert von $A \lor B$ ermitteln? Wir legen fest, dass $A \lor B$ genau dann wahr ist, wenn mindestens eine der Aussagen $A,B$ wahr ist. Insbesondere ist $A \lor B$ auch wahr wenn $A$ und $B$ beide gleichzeitig wahr sind. Der einzige Fall indem  $A \lor B$ falsch wird, ist, wenn sowohl $A$ als auch $B$ beide falsch sind.
+\textbf{Wahrheitswerte von dem Konnektor \enquote{oder}}: Betrachten wir als nächstes den Fall, dass wir eine Aussage vorliegen haben, die dadurch entstanden ist, dass wir zwei Aussagen durch den Konnektor \statement{oder} verknüpft haben. Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen Aussagen. Angenommen wir kennen die Wahrheitswerte von $A$ und $B$, wie lässt sich daraus der Wahrheitswert von $A \lor B$ ermitteln? Wir legen fest, dass $A \lor B$ genau dann wahr ist, wenn mindestens eine der Aussagen $A,B$ wahr ist. Insbesondere ist $A \lor B$ auch wahr wenn $A$ und $B$ beide gleichzeitig wahr sind. Der einzige Fall indem  $A \lor B$ falsch wird, ist, wenn sowohl $A$ als auch $B$ beide falsch sind.
 
 \begin{example}
     Sei $S$ wieder die Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} und $G$ wieder die Abkürzung für \statement{Der Zaubertrank ist giftig}. Ist mindestens eine Aussage der Aussagen $S, G$  wahr, dann ist $S \lor G$ wahr. Ist also zum Beispiel der Zauberer nicht schlecht gelaunt ($S$ ist falsch), aber der Zaubertrank ist giftig ($G$ ist wahr), dann ist $S \lor G$ wahr. 
@@ -103,7 +105,7 @@ Betrachten wir als nächstes den Fall, dass wir eine Aussage vorliegen haben, di
 Die nächste Definition hält noch einmal genau das fest, was wir gerade besprochen haben.
 
 \begin{definition}[Wahrheitswerte von $\lor$]
-    Seien $A,B$ atomare Aussagen von denen der Wahrheitswert bekannt ist. Dann ergibt sich der Wahrheitswert von $A \lor B$ durch folgende Tabelle.
+    Seien $A,B$ Aussagen von denen der Wahrheitswert bekannt ist. Dann ergibt sich der Wahrheitswert von $A \lor B$ durch folgende Tabelle.
     \[\begin{array}{cc s c}\toprule
         A & B & A \lor B\\\midrule
         \falsch   & \falsch   & \falsch  \\
@@ -113,7 +115,7 @@ Die nächste Definition hält noch einmal genau das fest, was wir gerade besproc
     \end{array}\]
 \end{definition}
 
-Den nächsten Fall, den wir betrachten, ist die Negation. Zur Erinnerung: Verneinen wir eine Aussage, dann ist das die Negation der ursprünglichen Aussage. Ist $A$ eine beliebige atomare Aussage, dann notieren wir die Negation von $A$ durch $\lnot A$. Da eine Verneinung den Inhalt einer Aussage \enquote{umdreht} legen wir, fest dass die Negation einer Aussage, ihren Wahrheitswert \enquote{umdreht}. Das heißt, wenn die Aussage wahr ist, dann ist ihre Negation falsch und ist eine Aussage falsch, dann ist ihre Negation wahr.
+\textbf{Wahrheitswerte der Negation}: Den nächsten Fall, den wir betrachten, ist die Negation. Zur Erinnerung: Verneinen wir eine Aussage, dann ist das die Negation der ursprünglichen Aussage. Ist $A$ eine beliebige  Aussage, dann notieren wir die Negation von $A$ durch $\lnot A$. Da eine Verneinung den Inhalt einer Aussage \enquote{umdreht} legen wir, fest dass die Negation einer Aussage, ihren Wahrheitswert \enquote{umdreht}. Das heißt, wenn die Aussage wahr ist, dann ist ihre Negation falsch und ist eine Aussage falsch, dann ist ihre Negation wahr.
 
 \begin{example}
 Sei $G$ noch einmal die Abkürzung für die Aussage \statement{Der Zaubertrank ist giftig}. Ist $G$ wahr, dann ist die Negation $\lnot G$ falsch. Ist aber andersherum $G$ falsch, dann ist $\lnot G$ wahr. Die folgende Tabelle verdeutlicht dies.
@@ -127,7 +129,7 @@ Sei $G$ noch einmal die Abkürzung für die Aussage \statement{Der Zaubertrank i
 Wie zuvor, halten wir diese Erkenntnisse auch nochmal in einer Definition fest.
 
 \begin{definition}[Wahrheitswerte von $\lnot$]
-    Sei $A$ eine atomare Aussage dessen Wahrheitswert bekannt ist. Dann ergibt sich der Wahrheitswert von $\lnot A$ durch folgende Tabelle.
+    Sei $A$ eine Aussage dessen Wahrheitswert bekannt ist. Dann ergibt sich der Wahrheitswert von $\lnot A$ durch folgende Tabelle.
     \[\begin{array}{c s c}\toprule
         A & \lnot A\\\midrule
         \falsch & \wahr\\
@@ -135,7 +137,7 @@ Wie zuvor, halten wir diese Erkenntnisse auch nochmal in einer Definition fest.
     \end{array}\]
 \end{definition}
 
-Betrachten wir nun den Fall, dass wir 2 Aussagen mit dem Konnektor \statement{genau dann, wenn} verknüpft haben. Solch eine Verknüpfung haben wir Äquivalenz genannt. Das Symbol für den Konnektor \statement{genau dann, wenn} notieren wir durch $\iff$. Seien nun $A,B$ wieder Abkürzungen für 2 beliebige atomare Aussagen. Wir definieren, dass $A \iff B$ genau dann wahr ist, wenn $A$ denselben Wahrheitswert wie $B$ besitzt. 
+\textbf{Wahrheitswerte von dem Konnektor \enquote{genau dann, wenn}}: Betrachten wir nun den Fall, dass wir zwei Aussagen mit dem Konnektor \statement{genau dann, wenn} verknüpft haben. Solch eine Verknüpfung haben wir Äquivalenz genannt. Das Symbol für den Konnektor \statement{genau dann, wenn} notieren wir durch $\iff$. Seien nun $A,B$ wieder Abkürzungen für zwei beliebige  Aussagen. Wir definieren, dass $A \iff B$ genau dann wahr ist, wenn $A$ denselben Wahrheitswert wie $B$ besitzt. 
 
 \begin{example}
     Sei $F$ eine Abkürzung für die Aussage \statement{Der Zaubertrank verleiht Superkräfte} und $S$ wieder die Abkürzung für \statement{Der Zauberer ist schlecht gelaunt}. Verleiht zum Beispiel der Zaubertrank keine Superkräfte (also $F$ ist falsch) und ist der Zauberer nicht gut gelaunt ($G$ ist falsch), dann ist trotzdem $F \iff G$ wahr, da $F$ und $G$ den gleichen Wahrheitswert besitzen. 
@@ -154,7 +156,7 @@ Betrachten wir nun den Fall, dass wir 2 Aussagen mit dem Konnektor \statement{ge
 Wir halten das Beschriebene wieder in einer Definition fest.
 
 \begin{definition}[Wahrheitswerte von $\iff$]
-    Sind $A,B$ atomare Aussagen von denen der Wahrheitswert bekannt ist, dann ergibt sich der Wahrheitswert von $A \iff B$ durch folgende Tabelle.
+    Sind $A,B$ Aussagen von denen der Wahrheitswert bekannt ist, dann ergibt sich der Wahrheitswert von $A \iff B$ durch folgende Tabelle.
     \[\begin{array}{cc s c}\toprule
         A & B & A \iff B\\\midrule
         \falsch   & \falsch   & \wahr  \\
@@ -164,8 +166,9 @@ Wir halten das Beschriebene wieder in einer Definition fest.
     \end{array}\]
 \end{definition}
 
+\textbf{Wahrheitswerte von dem Konnektor \enquote{wenn, dann}}: 
 Den letzten Fall, den wir betrachten, ist die Implikation. Wir schauen jetzt also wie sich die Wahrheitswerte einer Implikation ergeben, wenn wir die Wahrheitswerte der Bedingung und der Konsequenz der Implikation kennen. Zur Erinnerung: Das Symbol für die Implikation lautet: $\implies$ und sie steht für den Konnektor \enquote{\textbf{wenn, dann}}.
-Seien $A,B$ wieder Abkürzungen für zwei beliebige atomare Aussagen. Um die gleich folgende Definition besser nachvollziehen zu können, interpretiert man die Aussage $A \implies B$ als ein Versprechen. Nur wenn dieses Versprechen explizit gebrochen wird, soll $A \implies B$ falsch werden. Das Versprechen ist nun, dass wenn $A$ wahr ist, dann muss auch $B$ wahr. Wenn $A$ falsch ist, dann ist dem Versprechen egal, was mit $B$ passiert. Das Versprechen wird also nur gebrochen, wenn $A$ wahr ist, aber $B$ falsch ist.
+Seien $A,B$ wieder Abkürzungen für zwei beliebige  Aussagen. Um die gleich folgende Definition besser nachvollziehen zu können, interpretiert man die Aussage $A \implies B$ als ein Versprechen. Nur wenn dieses Versprechen explizit gebrochen wird, soll $A \implies B$ falsch werden. Das Versprechen ist nun, dass wenn $A$ wahr ist, dann muss auch $B$ wahr. Wenn $A$ falsch ist, dann ist dem Versprechen egal, was mit $B$ passiert. Das Versprechen wird also nur gebrochen, wenn $A$ wahr ist, aber $B$ falsch ist.
 
 \begin{example}
     Sei $G$ wieder die Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} und $F$ wieder die Abkürzung für \statement{Der Zaubertrank verleiht Superkräfte}. Ist der Zauberer nicht gut gelaunt ($G$ ist falsch) und der Zaubertrank verleiht auch keine Superkräfte ($F$ ist falsch), dann ist trotzdem $G \implies F$ wahr, da hier das Versprechen nicht gebrochen wurde, dass wenn der Zauberer gut gelaunt ist, der Zaubertrank Superkräfte verleihen wird. 
@@ -184,7 +187,7 @@ Seien $A,B$ wieder Abkürzungen für zwei beliebige atomare Aussagen. Um die gle
 Wir halten wieder die Überlegungen zur Definition der Wahrheitswerte einer Implikation in einer konkreten Definition fest.
 
 \begin{definition}[Wahrheitswerte $\implies$]
-    Sind $A,B$ atomare Aussagen von denen der Wahrheitswert bekannt ist, dann ergibt sich der Wahrheitswert von $A \implies B$ durch folgende Tabelle.
+    Sind $A,B$ Aussagen von denen der Wahrheitswert bekannt ist, dann ergibt sich der Wahrheitswert von $A \implies B$ durch folgende Tabelle.
        \[\begin{array}{cc s c}\toprule
         A & B & A \implies B\\\midrule
         \falsch   & \falsch   & \wahr  \\
@@ -194,10 +197,8 @@ Wir halten wieder die Überlegungen zur Definition der Wahrheitswerte einer Impl
     \end{array}\]
 \end{definition}
 
-Wir haben jetzt gesehen wie sich der Wahrheitswert einer beliebigen zusammengesetzten Aussage ergibt, wenn diese eine Verknüpfung von 2 atomaren Aussagen (bzw. eine, im Fall der Negation) ist. Wie definieren wir den Wahrheitswert der Verknüpfung von 2 beliebigen Aussagen (d.h. diese müssen nicht zwangsläufig atomar sein, sondern können auch bereits selbst schon Konnektoren enthalten), wenn wir den Wahrheitswert dieser Aussagen kennen? \todo{Beispiel, was das für Aussagen sind, um sie von den bisher betrachteten Verknüpfungen abzutrennen} Ganz einfach: Wir definieren diesen völlig analog zu dem Fall, dass diese Aussagen atomar wären. Wir verallgemeinern also die Definitionen der Wahrheitswerte der verschiedenen Konnektoren nun auf Verknüpfungen von beliebigen Aussagen. Folgende Definition tut nun genau dies. Die jeweiligen Tabelleneinträge sind identisch zu denen, die wir in den letzten Abschnitten definiert haben (gerne nachprüfen!).
-
-
-\begin{definition}[Wahrheitswerte]
+Wir haben jetzt Konnektor für Konnektor Wahrheitswerte definiert. Wir haben insgesamt die Konnektoren $\land,\lor,\implies,\iff,\lnot$ behandelt. Die folgende Tabelle fasst nochmal alle vorangegangen Definitionen in einer Tabelle zusammen.
+\begin{definition}[Wahrheitswerte aller Konnektoren]
 \label{whw}
 Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswert aller möglichen Verknüpfungen dieser beiden Aussagen ist dann wie folgt definiert.
 
@@ -212,7 +213,8 @@ Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswert aller möglichen Verknüp
     \end{array}\]
 \end{definition}
 
-Zu Beginn dieses Kapitels wurde erwähnt, dass die Wahrheitswerte von atomaren Unteraussagen einer völlig beliebigen Aussage, die einzigen Informationen sind, die wir benötigen um den Wahrheitswert der Aussage zu ermitteln. Tatsächlich können wir jetzt schon, gegeben die Wahrheitswerte von atomaren Unteraussagen, den Wahrheitswert einer Aussage bestimmen. Wie man dies genau macht, schauen wir uns jetzt an.
+Zu Beginn dieses Kapitels wurde erwähnt, dass die Wahrheitswerte von atomaren Unteraussagen einer völlig beliebigen Aussage, die einzigen Informationen sind, die wir benötigen um den Wahrheitswert der Aussage zu ermitteln. Die Grundidee, wie man das macht, wurde auch schon anfänglich kurz angerissen: Beginnend bei den atomaren Unteraussagen einer Aussage, können wir den Wahrheitswert von immer komplexer werdenden Unteraussagen folgern, bis wir den Wahrheitswert der gesamten Aussage kennen.
+Wie das funktioniert, schauen wir uns jetzt an.
 
 Tatsächlich ist die Vorgehensweise, die wir gleich zeigen, nichts neues und funktioniert völlig analog zu einem Verfahren, das man bereits im Schlaf beherrscht: Dem Auswerten von Termen. Das nächste Beispiel wiederholt dies und dröselt die Schritte, die man dabei vornimmt, auf.
 
@@ -223,28 +225,35 @@ Um den Wert von $x \cdot (y - (z \cdot z))$ heraufzufinden, wendet man folgende 
 \begin{enumerate}
     \item Ersetze die Variablen im Term durch ihre Werte:
     \[x \cdot (y - (z \cdot z)) \longmapsto 3 \cdot (7 - (2 \cdot 2)) \]
-    \item Wähle einen Teilterm dessen Wert direkt bestimmt werden kann und ersetze diesen Term durch seinen Wert. Wiederhole dies solange, bis nur noch eine einzige Zahl übrig bleibt - Das Endergebnis.
+    \item Bis das Ergebnis bekannt ist, führe folgende Schritte aus:
+        \begin{enumerate}
+            \item Wähle einen Teilterm dessen Wert direkt bestimmt werden kann.
+            \item Ersetze diesen Teilterm durch seinen Wert.
+        \end{enumerate}
+    \end{enumerate}
     
     Die nächste Abbildung zeigt genau dieses Vorgehen. Dabei ist in jeder Zeile blau markiert welcher Teilterm gewählt und dann ersetzt wurde.
     \begin{center}
-        \includegraphics[width=0.3\textwidth]{images/TEMP_termalg.png}
+        \includegraphics[width=0.275\textwidth]{images/TEMP_termalg.png}
     \end{center}
-    Wir haben also erst $(2 \cdot 2)$ durch $4$ ersetzt, dann haben wir $(7-4)$ durch $3$ ersetzt und am Ende noch $3 \cdot 3$ durch 9 ersetzt.
-    
+
     Es bleibt am Ende nur noch 9 übrig. Wir haben damit herausgefunden, dass $x \cdot (y - (z \cdot z)) = 9$ ist.
-\end{enumerate}
 
 \end{example}
 
 Und genau diese Vorgehensweise, die wir beim Auswerten von Termen benutzen, lässt sich völlig analog auf das Auswerten von Aussagen übertragen. 
 Es kommen nämlich genau dieselben Schritte vor. Möchte man nämlich den Wahrheitswert einer Aussage bestimmen, dann führt man folgende zwei Schritte aus:
-\begin{enumerate}
+    \begin{enumerate}
     \item Ersetze alle atomaren Aussagen durch ihren Wahrheitswert.
-    \item Wähle einen einzelnen Wahrheitswert oder ein Paar von Wahrheitswerten, das durch einen Konnektor verknüpft ist und ersetze dies durch den Wahrheitswert, der für den Konnektor in der Wahrheitswerttabelle definiert wurde. 
-    Beispielsweise ersetzt man $\wahr \land \wahr$ durch $\wahr$ oder $\neg \wahr$ durch $\falsch$.
+    \item 
+        Wiederhole die nächsten beiden Teilschritte, bis nur noch ein Wahrheitswert übrig bleibt - Das Ergebnis.
+        \begin{enumerate}
+            \item Wähle einen einzelnen Wahrheitswert oder ein Paar von Wahrheitswerten, das durch einen Konnektor verknüpft ist.
+            \item Ersetze den/die ausgewählten Wahrheitswert(e) durch den vom Konnektor vorgeschriebenen Wahrheitswert. Beispielsweise ersetzt man $\wahr \land \wahr$ durch $\wahr$ oder $\neg \wahr$ durch $\falsch$. 
+        \end{enumerate}
+    \end{enumerate}
     
-    Wiederhole dies solange, bis nur noch ein einzelner Wahrheitswert übrig bleibt - Dieser ist dann das Ergebnis.
-\end{enumerate}Jetzt mal ein Beispiel in dem dieses Verfahren angewendet wird.
+Jetzt mal ein Beispiel in dem dieses Verfahren angewendet wird.
 
 \todo{die abbildung tikzen}
 \begin{example}
@@ -254,7 +263,7 @@ Wir wenden das eben beschriebene, 2-schrittige Verfahren an.
 \begin{enumerate}
     \item Zunächst ersetzen wir alle atomaren Aussagen durch ihren Wahrheitswert:
     \[A \land ( (\lnot B) \lor C) \longmapsto  \wahr \land ((\lnot \wahr) \lor \falsch)\]
-    \item Jetzt müssen wir Paare oder einzelne Wahrheitswerte, die direkt mit einem Konnektor verknüpft sind durch den, vom Konnektor vorgeschriebenen, Wahrheitswert ersetzen. Das machen wir solange, bis nur noch ein Wahrheitswert übrig bleibt.
+    \item Solange bis nur noch ein einzelner Wahrheitswert übrig bleibt müssen wir jetzt also a) Paare oder einzelne Wahrheitswerte, die direkt mit einem Konnektor verknüpft sind, auswählen b) und durch den, vom Konnektor vorgeschriebenen, Wahrheitswert ersetzen.
     
     Die nächste Abbildung zeigt dieses Vorgehen nun in Aktion. In jeder Zeile ist dabei blau gekennzeichnet, welcher Wahrheitswert bzw. welches Paar von Wahrheitswerten gewählt und dann ersetzt wurde. 
 \end{enumerate}
@@ -294,9 +303,9 @@ Ist $A$ eine Aussage und kommen in $A$ die atomaren Unteraussagen $x_1,\dots,x_n
 \begin{nutshell}{Wahrheitstabellen}
     Eine \textbf{atomare Aussage} ist eine Aussage, die keine Konnektoren enthält. \bigskip
    
-    Eine \textbf{Wahrheitstabelle} für eine Aussage gibt für alle möglichen Kombinationen der Wahrheitswerte der atomaren Unteraussagen an, was der Wahrheitswert der Aussage ist.\bigskip
+    Eine \textbf{Wahrheitstabelle} einer Aussage gibt für alle möglichen Kombinationen der Wahrheitswerte der atomaren Unteraussagen an, was der Wahrheitswert der Aussage ist.\bigskip
 
-    Seien $A,B$ beliebige Aussagen. Die folgende Tabelle definiert für alle Konnektoren den Wahrheitswert der Verknüpfung von $A,B$ durch diesen Konnektor, gegeben den Wahrheitswert von $A$,$B$.
+    Seien $A,B$ beliebige Aussagen. Die folgende Tabelle definiert für alle Konnektoren den Wahrheitswert der Verknüpfung von $A,B$.
     \[\begin{array}{cc s ccccc}\toprule
         A & B & A \land B & A\lor B & A\implies B & A\iff B & \lnot A\\\midrule
         \falsch & \falsch & \falsch & \falsch & \wahr & \wahr & \multirow{2}{*}{\wahr}\\
@@ -306,8 +315,18 @@ Ist $A$ eine Aussage und kommen in $A$ die atomaren Unteraussagen $x_1,\dots,x_n
         \wahr & \wahr & \wahr & \wahr & \wahr & \wahr & 
          \\\bottomrule
     \end{array}\]
-    
-    \textbf{Pseudocode zum Algorithmus der Wahrheitswertbestimmung?}
+    \\ \\
+    Möchte man den Wahrheitswert einer Aussage bestimmen und kennt man die Wahrheitswerte ihrer atomaren Aussagen, dann geht man wie folgt vor:
+    \begin{enumerate}
+    \item Ersetze alle atomaren Aussagen durch ihren Wahrheitswert.
+    \item 
+        Wiederhole die nächsten beiden Teilschritte, bis nur noch ein Wahrheitswert übrig bleibt - Das Ergebnis.
+        \begin{enumerate}
+            \item Wähle einen einzelnen Wahrheitswert oder ein Paar von Wahrheitswerten, das durch einen Konnektor verknüpft ist.
+            \item Ersetze den/die ausgewählten Wahrheitswert(e) durch den vom Konnektor vorgeschriebenen Wahrheitswert. 
+        \end{enumerate}
+    \end{enumerate}
+
 \end{nutshell}
 \todo{Idee für \"Ubungsaufgabe; \enquote{Stelle die Implikation durch und/oder und nicht dar. Zeige, dass deine Aussage stimmt, indem du die Wahrheitstabelle aufstellst}}
 
