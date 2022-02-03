@@ -1,0 +1,49 @@
+{
+	"latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out",
+	"latex-workshop.latex.tools": [{
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+			"-output-directory=%OUTDIR%/%RELATIVE_DIR%",
+            "%DOC_EXT%"
+        ],
+		"env": {
+			"TEXINPUTS": "%WORKSPACE_FOLDER%;%WORKSPACE_FOLDER%/buch/;"
+		}
+    },{
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%WORKSPACE_FOLDER%/%RELATIVE_DIR%/%DOCFILE%"
+        ]
+    },{
+		"name": "mkdir",
+		"command": "mkdir",
+		"args": [
+			"-p",
+			"%OUTDIR%/%RELATIVE_DIR%"
+		]
+	}],
+	"latex-workshop.latex.recipes":[
+		{
+			"name": "pdflatex",
+			"tools": [
+				"mkdir",
+				"pdflatex",
+			]
+		},
+		{
+			"name": "pdflatex ➞ bibtex ➞ pdflatexd × 2",
+			"tools": [
+				"mkdir",
+				"pdflatex",
+				"bibtex",
+				"pdflatex",
+				"pdflatex"
+			]
+		}
+	]
+}
