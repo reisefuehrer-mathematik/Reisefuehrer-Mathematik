@@ -1,90 +1,85 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
+    \begin{remark}{}
+        Vielleicht das schwierigste daran, Variablen zu erklären, ist es, zu vermitteln, \textbf{wie wichtig} Variablen sind,
+        aber gleichzeitig dem Leser nicht das Gefühl zu geben, dass Variablen ein schwieriges Konzept seien.
+        Genau das sind sie nämlich nicht. Wenn richtig bearbeitet, ist dieses Kapitel wahrscheinlich eines der einfachsten Kapitel
+        in diesem Buch und gleichzeitig eines der wichtigsten.
+    \end{remark}
+    Variablen erweitern die Mathematik so, dass wir eine \enquote{Schablone} für Rechnungen vorgeben können, die wir später durch
+    Zahlen ausfüllen können. Wenn ein Kaugummi 10 Cent kostet, dann kosten 2 Kaugummis 20 Cent, 3 Kaugummis 30 Cent, usw.
+    Wir können damit ganz einfach sehen, dass wir den Preis von mehreren Kaugummis also berechnen können mit
+    \[\mtext{Anzahl Kaugummis} \cdot 10\text{ct}.\]
+    \mtext{Anzahl Kaugummis} ist bereits eine Variable (da wir ihr einen beliebigen Wert zuweisen können / ihr Wert ist variabel).
+    Weil Mathematiker schreibfaul sind (was gut ist) und Leerzeichen oder lange Bezeichnungen in Rechnungen unübersichtlich sind,
+    wählt man in der Regel einzelne Buchstaben oder Abkürzungen für Variablen. Wir könnten also auch schreiben:
+    \[\mtext{Anz}\cdot 10\text{ct} \text{  oder  } n\cdot 10\text{ct} \text{  oder  } x\cdot 10\text{ct}.\]
+    Eine Variable ist also nichts anderes als ein Platzhalter für einen Zahlenwert.
+    Damit können wir insbesondere auch bekannte Tatsachen mathematisch formulieren.
+    \begin{example}
+        Die Fläche eines Rechteckes, $\mtext{Fläche}$, ist seine Breite multipliziert mit der Höhe.
+        Als eine Formel mit Variablen können wir das Ausdrücken durch
+        \[\mtext{Fläche} = \mtext{Breite} \cdot \mtext{Höhe}.\]
+        Oder, wenn wir einzelne Buchstaben als Variablenbezeichner wählen, dann könnten wir es schreiben als
+        \[A = b\cdot h\]
+        wobei $A$ die Fläche (vom Englischen \enquote{Area}), $b$ die Breite und $h$ die Höhe ist.
+        Insbesondere müssen wir, wenn die Bezeichner nicht klar sind, also immer angeben, für welchen Sachverhalt die Variable steht.
+    \end{example}
 
-[Mit bloßen Zahlen lässt sich kein Sinn ausdrücken]
+    Das nächste Beispiel führt uns auf eine interessante Beobachtung, wenn wir mit Variablen rechnen.
+    \begin{example}
+        Wir betrachten nun zwei Rechtecke, die dieselbe Höhe haben und neben einander liegen. Wir möchten einen Term für ihre Gesamtfläche finden.
+        \begin{center}
+            \begin{tikzpicture}
+                \fill[orange!10, draw=orange, text=orange] (0,0) rectangle (2cm, 1cm) node[pos=.5]{$A_1$};
+                \fill[blue!10, draw=blue, text=blue] (2cm,0cm) rectangle (3cm, 1cm) node[pos=.5]{$A_2$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,0) -- (0,1)
+                    node[pos=0.5,left=10pt,black]{$h$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,1) -- (2,1)
+                    node[pos=0.5,above=10pt,black]{$b_1$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (2,1) -- (3,1)
+                    node[pos=0.5,above=10pt,black]{$b_2$};
+            \end{tikzpicture}
+        \end{center}
+        Die Bezeichner $b_1$, $b_2$, $A_1$ und $A_2$ sind in der Darstellung sicher aufgefallen, wegen der niedergestellten Zahlen.
+        Damit ist keine neue Regel verbunden, wir haben einfach gewählt, die Zahlen für die Bezeichner niedergestellt zu schreiben. $A_1$ zum Beispiel kann gelesen werden als \enquote{Fläche von Rechteck 1}.
+        Wir könnten natürlich ebenso $\mtext{Fläche von Rechteck 1}$ oder $A1$ oder ähnliches wählen. Analoges gilt auch für die $b$s.
+        Wir haben uns für die dargestellten Bezeichner entschieden, da wir das Gefühl haben, dass sie klar darstellen, für welche Eigenschafften der Rechtecke sie stehen.
 
-[Sie können Sachzusammenhänge gut beschreiben]
+        Wenn wir uns überlegen, wie wir die Gesamtfläche, nennen wir sie $A_\mtext{Ges}$, berechnen können, finden wir recht schnell zwei Formeln:
+        \begin{itemize}[nosep]
+            \item Wir überlegen uns, dass $A_\mtext{Ges}$ einfach die Summe von $A_1$ und $A_2$ ist:
+                \[A_\mtext{Ges} = A_1 + A_2.\]
+                Wir kennen zudem aus dem Beispiel oben die Formeln für $A_1$ und $A_2$ und können also schreiben, dass
+                \[A_\mtext{Ges} = h\cdot b_1 + h \cdot b_2.\]
+            \item Alternativ können wir uns überlegen, dass die beiden Rechtecke nebeneinander ebenfalls ein Rechteck der Breite $b_1+b_2$ bilden.
+                Mit der Formel von oben folgt nun, dass
+                \[A_\mtext{Ges} = h\cdot (b_1 + b_2).\]
+        \end{itemize}
+        Wir haben also zwei unterschiedliche Terme für dieselbe Berechnung gefunden.
+        Da beides gleich $A_\mtext{Ges}$ ist, können wir sogar folgern, dass
+        \[h\cdot b_1 + h \cdot b_2 = h\cdot (b_1 + b_2).\]
+    \end{example}
 
-\begin{example}
-    \parpic[r]{
-        \begin{tikzpicture}
-            \node at (0,1.2) {\includegraphics[width=.26\textwidth]{images/dictionary.png}};
-            \node at (0,2) {\footnotesize \textbf{für 2 Pfannkuchen:}};
-            \node at (0,1.55) {\footnotesize 100\,g Mehl, 1 Ei};
-            \node at (0,1.15) {und \footnotesize 125\,ml Milch};
-            \node at (0,0) {\includegraphics[width=.32\textwidth]{images/Pancake.png}};
-        \end{tikzpicture}
-    }
-    
-    Martin möchte seine Freunde zum Pfannkuchenessen einladen. Die meisten seiner Freunde essen zwei Pfannkuchen. Deshalb plant er Teig für doppelt so viele Pfannkuchen ein wie Personen anwesend sein werden.
-    
-    \picskip{3}
-    Aktuell erwartet er, dass er mit seinen Freunden zu fünft essen wird. Er muss also 10 Pfannkuchen braten. Im Schrank findet Martin ein Rezept mit der rechts abgebildeten Zutatenliste. Für fünf Personen muss er also 5 Eier, 500\,g Mehl und 625\,ml Milch kaufen.
-    
-    Die Menge Milch, die Martin kaufen muss, berechnet sich beispielsweise durch \[125\,\text{ml}\cdot\text{Anzahl der Personen}.\]
-    Mit dieser Regel kann Martin ausrechnen, wie viel Milch er braucht -- abhängig davon, wie viele Personen kommen werden.
-    
-    Mit dieser Regel siehst du ein Beispiel für eine Formel, in der nicht nur Zahlen vorkommen, sondern noch weitere Platzhalter, die beim Ausrechnen durch Zahlen ersetzt werden müssen. Die \enquote{Anzahl der Personen} kann je nachdem, wie viele Freunde zum Essen kommen, durch verschiedene Werte ersetzt werden.
-\end{example}
+    Diese Beobachtung kann verwunderlich sein. Wenn wir mit Zahlen rechnen, dann bekommen wir immer ein eindeutiges Ergebnis (eine Zahl).
+    Mit Variablen kommen wir aber auf unterschiedliche Terme, die dasselbe beschreiben.
+    Insbesondere könnte uns
+    \[h\cdot b_1 + h \cdot b_2 = h\cdot (b_1 + b_2)\]
+    auch bekannt vorkommen, da es genau das Distributivgesetz ist (\mayberef).
+    Dadurch, dass wir allgemeine Terme über Variablen für den Flächeninhalt eines Rechteckes aufgestellt haben,
+    waren wir also in der Lage, auf eine neue, ebenso allgemeingültige Gesetzmäßigkeit (das Distributivgesetz) zu schließen.
+    Während diese Erkenntnis mehr Teil der Aussagenlogik (\mayberef) sein wird und hier erstmal nicht explizit behandelt wird,
+    motiviert es vor allem das Interesse daran, sich mit Variablen weiter auseinander zu setzen.
 
-Weil der Wert variabel ist, werden solche Ausdrücke, die für Zahlen stehen, aber erst noch durch eine (beiebige) Zahl ersetzt werden müssen, \textbf{Variablen}.
+    Wir hoffen, dass diese kurze Einleitung in die Variablen dir gezeigt hat, dass man mit Variablen rechnet wie mit jeder beliebigen Zahl.
+    Variablen sind also nichts neues. Allerdings helfen sie uns, allgemeine Aussagen zu formulieren, die wir anschließend verwenden können,
+    um neues Wissen zu erschließen.
 
-[Variablen können in Termen vorkommen]
-
-\begin{example}
-    Pfannkuchen-Beispiel: Als kompakter Term aufgeschrieben.
-    \[125\,\text{ml}\cdot P\]
-\end{example}
-
-[ggf. noch ein Beispiel, mit Flächeninhalten]
-
-[]das kann verwirrend aussehen, weil man nicht weiß, wie man mit Buchstaben rechnen soll]
-
-[Variablen sind eigentlich nur Zahlen, sagen wir, wir ersetzen die Buchstaben aus dem letzten Beispiel durch die Werte aus dem folgenden Wörterbuch]
-
-\begin{example}
-    \parpic[r]{
-        \begin{tikzpicture}[scale=.6]
-            \node at (0,0) {\includegraphics[width=.3\textwidth]{images/dictionary.png}};
-            \node at (-1.6,1.5) {\small\textbf{Zeichen}};
-            \node at (1.6,1.5) {\small\textbf{Wert}};
-            \node[red] at (1.6,0) {$5$};
-            \node[red] at (-1.6,0) {$x$};
-            \node[violet] at (1.6,-1) {$12$};
-            \node[violet] at (-1.6,-1) {$y$};
-            \node at (0,-1) {$\rightarrow$};
-            \node at (0,0) {$\rightarrow$};
-        \end{tikzpicture}
-    }
-    
-    Letztes Beispiel: Schön und gut. Glücklicherweise haben wir hier ein Wörterbuch, das uns sagt, welche Werte wir für $x$ und $y$ einsetzen sollen. Dann kann man den Spaß auch ausrechnen.
-\end{example}
-
-[Am Ende versteckt sich hinter einer Variablen also wieder nur eine Zahl -- welche, ist dann irgendwann noch zu klären (oder eben nie)]
-
-[Merke: Terme mit Variablen haben keinen festen Wert, sondern der Wert hängt davon ab, durch was man die Variablen ersetzt]
-
-Um einfache Rechenaufgaben wie $17\cdot73+17\cdot 27$ oder $(28-6\cdot 4)\cdot 11$ auszurechnen, hast du bereits verschiedene Rechenregeln und -gesetze wie etwa \emph{Punkt- vor Strichrechnung} oder Regeln zum Umgang mit Klammern erlernt. Du weißt auch, wie du dir Rechnungen wie die obige mit Gesetzen wie dem \emph{Distributivgesetz} vereinfachen kannst.
-
-\begin{example}
-    Bei der Rechnung $\textcolor{red}{\underbrace{17\cdot73}_?}+\textcolor{violet}{\underbrace{17\cdot 27}_?}$ lassen sich weder der rot eingezeichnete linke Teil noch der violett eingezeichnete rechte Teil einfach im Kopf berechnen. Mithilfe das Distributivgesetzes, das besagt, dass
-    \[a\cdot b+a\cdot c=a\cdot (b+c)\]
-    für beliebige Zahlen $a,b,c$ ist, kann die obige Rechnung zu $17\cdot (73+27)$ umgeformt werden. Wenn du jetzt den Teil in der Klammer (also $73+27$) berechnest, dann erhältst du dafür den Wert $100$.
-    
-    Schließlich kannst du $17\cdot 100$ einfach ausrechnen, indem du zwei Nullen an die $17$ hängst. Das Ergebnis ist also $1700$.
-\end{example}
-
-Du kannst Terme, in denen Variablen vorkommen, zwar nicht direkt ausrechnen (denn du weißt nicht, durch welchen Wert du die Variable ersetzen musst), es ist aber trotzdem möglich, mit den Rechenregeln, die du bereits kennst, auch Terme mit Variablen umzuformen und zu vereinfachen. In diesem Kapitel lernst du, wie du mit Termen, in denen Variablen vorkommen, umgehen kannst und wie du sie ähnlich wie im letzten Beispiel, in dem nur Zahlen vorkamen, umformen und damit vereinfachen kannst.
-
-[Nicht behandelt: Wie baue ich aus einem Sachzusammenhang einen Term? Das kann in einer Beispiellösung einer Übungsaufgabe erklärt werden (?)]
-
-\section{Terme zusammenfassen}
-\section{Ausklammern}
-\section{Ausmultiplizieren}
-
-[Wie das allgemein geht]
-
-\subsection{Binomische Formeln}
-\subsection{Minusklammern}
+    Der Rest dieses Kapitels wird zuletzt die Begriffe des \enquote{Ausklammerns} und \enquote{Ausmultiplizierens} einführen,
+    (hierbei handelt es sich lediglich um neue Begriffe für bereits bekannte Sachen)
+    sowie besprechen, wie man Terme über Variablen übersichtlich aufschreiben kann, indem man Terme zusammenfasst.
 \end{document}

@@ -11,13 +11,17 @@
             "%DOC_EXT%"
         ],
 		"env": {
-			"TEXINPUTS": "%WORKSPACE_FOLDER%;%WORKSPACE_FOLDER%/buch/;"
+			"TEXINPUTS": "%WORKSPACE_FOLDER%:%WORKSPACE_FOLDER%/buch/:"
 		}
     },{
+		"name": "makeindex",
+		"command": "makeindex",
+		"args": [ "%OUTDIR%/%RELATIVE_DIR%/%DOCFILE%.idx" ]
+	},{
         "name": "bibtex",
         "command": "bibtex",
         "args": [
-            "%WORKSPACE_FOLDER%/%RELATIVE_DIR%/%DOCFILE%"
+            "%OUTDIR%/%RELATIVE_DIR%/%DOCFILE%"
         ]
     },{
 		"name": "mkdir",
@@ -36,14 +40,17 @@
 			]
 		},
 		{
-			"name": "pdflatex ➞ bibtex ➞ pdflatexd × 2",
+			"name": "full",
 			"tools": [
 				"mkdir",
 				"pdflatex",
-				"bibtex",
+				"makeindex",
+				//"bibtex",
 				"pdflatex",
 				"pdflatex"
 			]
 		}
-	]
+	],
+	"latex-workshop.latex.rootFile.doNotPrompt": true,
+	"latex-workshop.latex.autoBuild.run": "onSave"
 }
