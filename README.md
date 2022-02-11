@@ -9,6 +9,7 @@ vertieft, und Aufgabenblöcke, die, nachdem entsprechende Abschnitte im Buch gel
 
 ## Download
 Den aktuellen Stand des Buches findest du unter den [Releases](https://github.com/TrianguIator/reisefuehrer/releases).
+Um den neusten Stand des Buches runterzuladen, kannst du sonst auch [hier](https://github.com/TrianguIator/reisefuehrer/releases/latest/download/buch.pdf) klicken.
 
 ## Projektziele
 Der Status des Projekts kann im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Lehrbuch) eingesehen werden.
@@ -19,7 +20,7 @@ Der Status des Projekts kann im [Wiki](https://github.com/TrianguIator/reisefueh
 ## Du möchtest mitmachen?
 Da das Projekt sehr ambitioniert ist, ist Hilfe jedweder Art **sehr gerne** gesehen! Möchtest du uns Unterstützen als Author, Lehrer, Korrektor, Designer oder hast
 einfach einen guten Vorschlag für das Projekt?
-Informationen, wie du zum Projekt beisteuern kannst, findest du im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Beiträge).
+Informationen, wie du zum Projekt beisteuern kannst, findest du im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Projekt).
 
 ## Kompillieren
 Du möchtest das Projekt selbst kompillieren? Eine Anleitung dafür findest du im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Projekt#arbeitsumgebung-aufsetzen-und-kompilieren).
