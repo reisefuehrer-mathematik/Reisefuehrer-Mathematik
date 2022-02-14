@@ -8,6 +8,8 @@
 %\newcolumntype{s}{@{\hspace{.25cm}\transparent{.5}\to\hspace{.25cm}}}
 \newcolumntype{s}{||}
 
+\todo{Reihenfolge Beispiel/Erläuterung zu Konnektoren tauschen?}
+
 Wir wissen bereits, dass man auf Aussagen entweder mit \enquote{Ja, das ist wahr} oder mit \enquote{Nein, das ist falsch} antworten kann. Nur eine dieser beiden Antwortmöglichkeiten ist die passende bzw. die richtige. Wir haben gesagt, dass eine Aussage \textbf{wahr} ist, sofern \enquote{Ja, das ist wahr} die richtige Antwortmöglichkeit ist und \textbf{falsch} ist, falls \enquote{Nein, das ist falsch} die richtige Antwortmöglichkeit ist. 
 
 In diesem Abschnitt widmen wir uns der Frage, wie man denn nun herausfinden kann, ob eine Aussage wahr oder falsch ist. Blöderweise ist das in manchen Fällen gar nicht so einfach oder manchmal sogar gar nicht möglich. Das nächste Beispiel zeigt Aussagen, für die es aus verschiedenen Gründen schwierig ist zu entscheiden, ob sie wahr oder falsch sind.
@@ -270,9 +272,10 @@ Wir wenden das eben beschriebene, 2-schrittige Verfahren an.
 \end{center}
 Es bleibt nur noch \falsch\  übrig. Es handelt sich dabei um den gesuchten Wahrheitswert. Insgesamt folgt also, dass $A \land ( (\lnot B) \lor C)$, \falsch\  ist.
 \end{example}
-Wir wissen jetzt also wie wir für eine Aussage $A$ mit bekannten Wahrheitswerten der atomaren Unteraussagen von $A$, den Wahrheitswert von $A$ ermitteln können. Kennt man die Wahrheitswerte der atomaren Unteraussagen aber nicht, kann man $A$ trotzdem analysieren indem man für alle Kombinationen der möglichen Wahrheitswerte der atomaren Unteraussagen, den Wahrheitswert von $A$ angibt. Aber selbst wenn man die Wahrheitswerte der atomaren Unteraussagen kennt, kann es trotzdem interessant sein die Fälle durchzuspielen, dass die atomaren Unteraussagen andere Wahrheitswerte hätten. 
+Wir wissen jetzt also wie wir für eine Aussage $A$ mit bekannten Wahrheitswerten der atomaren Unteraussagen von $A$, den Wahrheitswert von $A$ ermitteln können. Kennt man die Wahrheitswerte der atomaren Unteraussagen aber nicht, kann man $A$ trotzdem analysieren indem man für alle Kombinationen der möglichen Wahrheitswerte der atomaren Unteraussagen, den Wahrheitswert von $A$ angibt.
 
 Listen wir alle Kombinationen der Wahrheitswerte der atomaren Aussagen von $A$, zusammen mit den entsprechenden Wahrheitswerten von $A$ tabellarisch auf, dann nennen wir dies eine \textbf{Wahrheitstabelle} für $A$. 
+
 \begin{example}
 Wir stellen eine Wahrheitstabelle für die Aussage 
 $A \land ( (\lnot B) \lor C)$
@@ -297,6 +300,8 @@ Die nächste Definition formalisiert das eben beschriebene Konzept von Wahrheits
 \begin{definition}[Wahrheitstabelle]
 Ist $A$ eine Aussage und kommen in $A$ die atomaren Unteraussagen $x_1,\dots,x_n$ vor, dann nennen wir eine Tabelle, die für alle möglichen Kombinationen der Wahrheitswerte von $x_1,\dots,x_n$ den Wahrheitswert von $A$ angibt, eine \textbf{Wahrheitstabelle} für $A$.
 \end{definition}
+
+Prinzipiell kann man nach dieser Definition für jede Aussage eine Wahrheitstabelle aufstellen. In der Praxis gibt es aber Aussagen für die das aber nicht unbedingt sinnvoll ist, da die Wahrheitswerte der atomaren Aussagen offensichtlich sind und es sich daher nicht lohnt Fälle durch zuspielen, in denen die atomaren Aussagen andere Wahrheitswerte annehmen. Das könnte ja eh nicht eintreten. Ein Beispiel hierfür ist die Aussage: \statement{1 ist gleich 1 oder 1 ist gleich 1}. Den Fall durch zuspielen, dass \statement{1 ist gleich 1}, \falsch\ ist, wäre zwar prinzipiell möglich, ist aber wenig sinnvoll. 
 
 \begin{nutshell}{Wahrheitstabellen}
     Eine \textbf{atomare Aussage} ist eine Aussage, die keine Konnektoren enthält. \bigskip
