@@ -78,16 +78,17 @@ Wenn man den Graphen einer Abbildung sieht, ist die Frage, wo dieser die $y$-Ach
 Es hat allerdings einige Nachteile, wenn man den $y$-Achsenabschnitt nur durch das Ansehen des Abbildungsgraphen bestimmen kann. Erstens erhält man so nicht immer genaue Werte und zweitens muss der gesuchte Schnittpunkt nicht immer ein kleiner Wert sein. In diesem Fall würde man ein sehr großes Bild benötigen. Auch wenn die Abbildung nicht als Graph, sondern -- wie es normal der Fall ist -- als Berechnungsvorschrift vorliegt, ist es nicht hilfreich, auf den Abbildungsgraphen angewiesen zu sein. Deshalb untersuchen wir nun, wie sich der $y$-Achsenabschnitt auch rechnerisch ohne das Benutzen eines Abbildungsgraphen bestimmen lässt.
 
 \begin{example}
-    \begin{minipage}{\textwidth}
+    \parpic[r]{
         \input{diagrams/read_rules_from_graph}%Also used by abbildungen/04_abbildungen_in_koordinatensystemen
-        Der rechts abgebildete Graph gehört zur Abbildung \mbox{$f(x)=x+1$}. Der eingezeichnete Punkt hat die $x$-Koordinate $2$ und damit insgesamt die Koordinate $\coord{2}{f(2)}=\coord{2}{3}$. 
-        
-        Weil jedes Argument nur ein Bild haben kann, gibt es nur einen Punkt auf dem Graph von $f$, der den $x$-Wert $2$ hat.
-        
-        Der Graph schneidet die $y$-Achse beim Wert $1$. Der dort liegende Punkt hat die $x$-Koordinate $0$ und insgesamt die Koordinate $\coord{0}{f(0)}=\coord{0}{1}$. Damit hat die Abbildung $f$ den $y$-Achsenabschnitt $1$.
-        
-        Der $y$-Achsenabschnitt von $f$ entspricht somit dem Wert $f(0)$ -- denn auf genau dieser Höhe liegt der Punkt über $x=0$, der die entsprechende Abbildungsvorschrift darstellt.
-    \end{minipage}
+    }
+    Der rechts abgebildete Graph gehört zur Abbildung \mbox{$f(x)=x+1$}. Der eingezeichnete Punkt hat die $x$-Koordinate $2$ und damit insgesamt die Koordinate $\coord{2}{f(2)}=\coord{2}{3}$. 
+    
+    Weil jedes Argument nur ein Bild haben kann, gibt es nur einen Punkt auf dem Graph von $f$, der den $x$-Wert $2$ hat.
+    
+    \picskip{3}
+    Der Graph schneidet die $y$-Achse beim Wert $1$. Der dort liegende Punkt hat die $x$-Koordinate $0$ und insgesamt die Koordinate $\coord{0}{f(0)}=\coord{0}{1}$. Damit hat die Abbildung $f$ den $y$-Achsenabschnitt $1$.
+    
+    Der $y$-Achsenabschnitt von $f$ entspricht somit dem Wert $f(0)$ -- denn auf genau dieser Höhe liegt der Punkt über $x=0$, der die entsprechende Abbildungsvorschrift darstellt.
 \end{example}
 
 Um einen Abbildungsgraphen zu erhalten, hatten wir über jedem möglichen Argument (also jedem möglichen $x$-Wert) einen Punkt eingezeichnet. Jeder Punkt auf dem Abbildungsgraph steht für eine Abbildungsregel, die ein bestimmtes Argument auf ein bestimmtes Bild abbildet und hat die Koordinate $\coord{x}{f(x)}$ für ein $x\in\Real$.
@@ -122,6 +123,7 @@ Jeder Punkt auf dem Abbildungsgraphen hat die Koordinate $\coord{x}{f(x)}$, also
     
     Das liegt daran, dass die Abbildung für beide $x$-Werte null wird: Es gilt \[f(3)=(3-2)^2-1=1-1=0\] und \[f(1)=(1-2)^2-1=1-1=0.\]
     
+    \picskip{0}
     Wie du darauf kommen kannst, dass die Abbildung ausgerechnet an den Stellen $1$ und $3$ den Wert $0$ annimmt, ist zunächst nicht wichtig (das wird Gegenstand der Kapitel über lineare und quadratische Gleichungen sein).
     
     Weil der $y$-Wert eines Punktes auf dem Graphen immer $f(x)$ (also dem Bild eines gewissen Arguments) entspricht, ist liegt für diese beiden $x$-Werte der Punkt auf der $x$-Achse (denn der $y$-Wert ist $0$).
@@ -138,7 +140,7 @@ Um herauszufinden, welche Werte man für $x$ wählen kann, damit $f(x)=0$ gilt, 
 Das lernst du vor allem in den Kapiteln über \textbf{lineare und quadratische Gleichungen}. Zunächst wird es nicht erforderlich sein, dass du systematisch Gleichungen lösen kannst -- stattdessen werden die Nullstellen in der Regel so einfach sein, dass sie sich leicht durch Ausprobieren finden lassen.
 
 \begin{example}
-    Die Nullstellen der Abbildung $f(x)=x+5$ sind alle Werte, die sich für $x$ einsetzen lassen, damit $f(x)=0$ gilt. Es muss die Gleichung $\underbrace{x+5}_{f(x)}=0$ gelöst werden. Der einzige Wert, den man für $x$ wählen kann, damit $f(x)=x+5=0$ gilt, ist $x=-5$.
+    Die Nullstellen der Abbildung $f(x)=x+5$ sind alle Werte, die sich für $x$ einsetzen lassen, damit $f(x)=0$ gilt. Es muss die Gleichung $\colorbrace{x+5}{f(x)}=0$ gelöst werden. Der einzige Wert, den man für $x$ wählen kann, damit $f(x)=x+5=0$ gilt, ist $x=-5$.
     
     Es folgt, dass $f$ genau eine Nullstelle hat, und zwar bei $x=-5$.
 \end{example}
@@ -308,7 +310,7 @@ Der Graph aus dem letzten Beispiel ist \textbf{achsensymmetrisch an der $y$-Achs
 \begin{figure}[ht]
     \centering
     \begin{tikzpicture}
-        \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={1,2,3}, ymax=3]
+        \begin{axis}[defgrid, domain=-2:2, y=0.9cm, x=0.9cm, xtick={-2,...,2}, ytick={1,2,3}, ymax=3]
             \addplot[mark=*, only marks, fill=white] coordinates {(-1,2) (1, 2)};
             \addplot[mark=*, only marks, fill=yellow] coordinates {(-2,1) (2, 1)};
             \draw[-latex,red,dashed] (-2,1) to[bend left] (2,1);
@@ -323,7 +325,7 @@ Das bedeutet auch, dass man die gleichen Funktionswerte erhält, egal ob man von
 \begin{example}
     \parpic[r]{
         \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={1,2,3}, samples=\ifdraft{5}{20}]
+            \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={1,2}, samples=\ifdraft{5}{20}]
                 \addplot[color=violet] expression{x^2-1};
                 \addplot[mark=*, only marks, fill=white] coordinates {(-1,0) (1, 0)};
                 \addplot[mark=*, only marks, fill=yellow] coordinates {(-2,3) (2, 3)};
@@ -373,7 +375,7 @@ Die Punktspiegelung am Ursprung ähnelt sehr der Achsenspiegelung an der $y$-Ach
 
 Das ist nun anders: Punkte werden hier auch nach oben (oder unten, falls sie bereits oben waren) gespiegelt. Dadurch verändert sich bei der Spiegelung nun nicht nur die $x$-Koordinate, sondern dasselbe passiert nun auch mit der $y$-Koordinate.
 
-Spiegeln wir etwa den Punkt $\coord{-2}{-2}$ am Ursprung, dann liegt der gespiegelte Punkt anschließend genauso weit rechts und oben wie der ursprüngliche Punkt links und unten lag. Mit anderen Worten: Bei der $x$- und der $y$-Koordinate ändert sich jeweils das Vorzeichen. Der neue Punkt lautet in diesem Fall $\coord{-2}{-2}$.
+Spiegeln wir etwa den Punkt $\coord{-2}{-2}$ am Ursprung, dann liegt der gespiegelte Punkt anschließend genauso weit rechts und oben wie der ursprüngliche Punkt links und unten lag. Mit anderen Worten: Bei der $x$- und der $y$-Koordinate ändert sich jeweils das Vorzeichen. Der neue Punkt lautet in diesem Fall $\coord{2}{2}$.
 
 Liegt nun ein Punkt $\coord{x}{y}$ auf dem Abbildungsgraphen (das stellt die Regel $f(x)=y$ dar), dann liegt ebenso sein gespiegelter Punkt auf dem Graphen. Dieser hat nach den vorherigen Überlegungen die Koordinaten $\coord{-x}{-y}$ und stellt damit die Abbildungsregel $f(-x)=-y$ dar. Für jede Abbildungsregel $f(x)=y$ lässt sich demnach sofort feststellen, dass auch $f(-x)=-y$ eine Regel sein muss (denn der entsprechende Punkt liegt auf dem Graphen). Formen wir diese Bedingung ein wenig um, dann erhalten wir \[f(x)=y=-(-y)=-f(-x),\]
 also hat eine Abbildung einen punktsymmetrischen Graphen, falls stets $f(x)=-f(-x)$ gilt.
@@ -383,7 +385,9 @@ also hat eine Abbildung einen punktsymmetrischen Graphen, falls stets $f(x)=-f(-
 \end{theorem}
 
 \begin{example}
-    Der Graph der Abbildung $f(x)=x^3$ ist punktsymmetrisch am Ursprung. Um zu prüfen, ob der Graph punktsymmetrisch ist, muss geschaut werden, ob $f(x)=-f(-x)$ gilt. Weil $f(x)$ nichts anderes als $x^3$ ist, muss 
+    Der Graph der Abbildung $f(x)=x^3$ ist punktsymmetrisch am Ursprung. Um zu prüfen, ob der Graph punktsymmetrisch ist, muss geschaut werden, ob \mbox{$f(x)=-f(-x)$} gilt. Weil $f(x)$ nichts anderes als $x^3$ ist, muss hier lediglich geprüft werden, ob $x^3$ dasselbe ist wie $-\colorbrace{(-x)^3}{f(-x)}$. Wir können nun leicht nachrechnen, dass
+    \[-(-x)^3=-(-x^3)=x^3\]
+    gilt. Und das ist genau dasselbe wie $f(x)$. Der Graph der Funktion ist also punktsymmetrisch am Ursprung.
 \end{example}
 
 \begin{nutshell}{Symmetrie bei Abbildungsgraphen}
