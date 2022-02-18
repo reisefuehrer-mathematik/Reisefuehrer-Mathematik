@@ -154,7 +154,9 @@ suffix_3p "\\,ff."
 \newcounter{lem}[chapter]
 \newcounter{cor}[chapter]
 \newcounter{sample}[chapter]
+\newcounter{envcount}[chapter]
 
+\renewcommand{\thectr}{\arabic{chapter}.\arabic{envcount}}
 \renewcommand{\thedef}{\arabic{chapter}.\arabic{def}}
 \renewcommand{\thetheo}{\arabic{chapter}.\arabic{theo}}
 \renewcommand{\thelem}{\arabic{chapter}.\arabic{lem}}
@@ -162,17 +164,17 @@ suffix_3p "\\,ff."
 \renewcommand{\thesample}{\arabic{chapter}.\arabic{sample}}
 
 \def\tcmathenvopt{breakable, enhanced jigsaw, pad at break=2mm, fonttitle=\bfseries, boxrule=2pt}
-\newtcolorbox{definition}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=red!5!white,colframe=red!75!black, title={\refstepcounter{def} Definition~\thedef\ifstrempty{#1}{}{~--~#1}}}
-\newtcolorbox{lemma}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!20,colframe=yellow!50!orange, title={\refstepcounter{lem} Satz~\thelem\ifstrempty{#1}{}{~--~#1}}}
+\newtcolorbox{definition}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=red!5!white,colframe=red!75!black, title={\refstepcounter{envcount} Definition~\thectr\ifstrempty{#1}{}{~--~#1}}}
+\newtcolorbox{lemma}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!20,colframe=yellow!50!orange, title={\refstepcounter{envcount} Satz~\thectr\ifstrempty{#1}{}{~--~#1}}}
 
-\newtcolorbox{theorem}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!black, title={\refstepcounter{theo} Satz~\thetheo\ifstrempty{#1}{}{~--~#1}}}
-\newtcolorbox{corollary}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!gray, title={\refstepcounter{cor} Korollar~\thecor\ifstrempty{#1}{}{~--~#1}}}
+\newtcolorbox{theorem}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!black, title={\refstepcounter{envcount} Satz~\thectr\ifstrempty{#1}{}{~--~#1}}}
+\newtcolorbox{corollary}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!gray, title={\refstepcounter{envcount} Korollar~\thectr\ifstrempty{#1}{}{~--~#1}}}
 \newtcolorbox{example}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}},
     sharp corners,
     boxrule=0pt, colframe=black!5,
     coltitle=black, colback=black!5,
     borderline west={3pt}{0pt}{gray},
-    title={\refstepcounter{sample}Beispiel~\thesample\ifstrempty{#1}{}{~--~#1}},
+    title={\refstepcounter{envcount}Beispiel~\thectr\ifstrempty{#1}{}{~--~#1}},
     attach title to upper=\vspace*{.5em}\par
 }
 \newtcolorbox{advexample}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}},
@@ -180,7 +182,7 @@ suffix_3p "\\,ff."
     boxrule=0pt, colframe=violet!30,
     coltitle=black, colback=violet!30,
     borderline west={3pt}{0pt}{violet!70},
-    title={\refstepcounter{sample}Beispiel~\thesample\ifstrempty{#1}{}{~--~#1}},
+    title={\refstepcounter{envcount}Beispiel~\thectr\ifstrempty{#1}{}{~--~#1}},
     attach title to upper=\vspace*{.5em}\par
 }
 
