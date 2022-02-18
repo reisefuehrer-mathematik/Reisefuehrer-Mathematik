@@ -47,10 +47,24 @@
 % Decoration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\colorbrace}[2]{
-    \ensuremath{\textcolor{orange!75!black}{\underbrace{\textcolor{black}{#1}}_{#2}}}
+    \ensuremath{
+        \textcolor{orange!75!black}{
+            \underbrace{\textcolor{black}{#1}}_{\tikzmarknode{bracenode}{}}
+        }
+    }
+    \begin{tikzpicture}[overlay, remember picture]
+        \node at ($(bracenode) + (0,0.05)$) {\scriptsize \textcolor{orange!75!black}{\ensuremath{#2}}};
+    \end{tikzpicture}
 }
 \newcommand{\colorobrace}[2]{
-    \ensuremath{\textcolor{orange!75!black}{\overbrace{\textcolor{black}{#1}}^{#2}}}
+    \ensuremath{
+        \textcolor{orange!75!black}{
+            \overbrace{\textcolor{black}{#1}}^{\tikzmarknode{bracenode}{}}
+        }
+    }
+    \begin{tikzpicture}[overlay, remember picture]
+        \node at ($(bracenode) + (0,0.05)$) {\scriptsize \textcolor{orange!75!black}{\ensuremath{#2}}};
+    \end{tikzpicture}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
