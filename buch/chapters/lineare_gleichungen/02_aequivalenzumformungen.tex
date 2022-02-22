@@ -4,7 +4,7 @@
 
 Um herauszufinden, welchen Wert eine Unbekannte (also normalerweise $x$) haben muss, um eine Gleichung zu erfüllen, muss sie \emph{isoliert} werden -- die Gewichte und Gegenstände auf der Waage müssen so umsortiert werden, dass sich sofort das Gewicht des Gegenstandes ablesen lässt. Im folgenden Beispiel siehst du, dass du dann sofort ablesen kannst, welchen Wert die Unbekannte $x$ hat (bzw. wie viel die blaue Kugel wiegt).
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -30,10 +30,10 @@ Die Variable $x$ steht allein auf der linken Seite und kommt auf der rechten Sei
 
 In diesem Kapitel lernst du, wie sich dies bei \textbf{linearen Gleichungen} bewerkstelligen lässt. Lineare Gleichungen sind eine bestimmte Art von Gleichungen, die sich vergleichsweise einfach lösen lassen.
 
-\begin{example}
+\begin{example}{}
     Die Gleichungen $x=19, x=5$ und $x=-7$ sind bereits nach $x$ aufgelöst, da das $x$ allein auf der linken Seite steht und auf der rechten Seite jeweils nicht vorkommt.
 \end{example}
-\begin{example}
+\begin{example}{}
     Die Gleichung $3x+15=(x-2)^2-7$ ist \emph{nicht} nach $x$ aufgelöst, denn das $x$ ist nicht isoliert. Auch die Gleichung $x=7x-24$ ist nicht nach $x$ aufgelöst, denn das $x$ steht zwar zumindest isoliert auf der linken Seite, aber leider kommt es zusätzlich auch auf der rechten Seite vor. Das möchten wir beim Auflösen von Gleichungen aber vermeiden. Die Aussage, dass $x$ den Wert $7x-24$ hat, hilft uns nicht weiter, denn $7x-24$ ist keine Zahl, die wir direkt ausrechnen können. In $7x-24$ kommt nämlich wieder der Wert $x$ vor, und den kennen wir ja noch nicht.
 \end{example}
 
@@ -41,7 +41,7 @@ In diesem Kapitel lernst du, wie sich dies bei \textbf{linearen Gleichungen} bew
 
 Damit wir im weiteren Verlauf dieses Kapitels Lösungsstrategien für das Lösen von Gleichungen entwickeln können, müssen wir uns zunächst anschauen, wie wir Gleichungen modifizieren können, ohne dass sie sich dadurch effektiv ändern. Das Ziel ist es dabei, dass die Gleichungen immer noch durch dieselben Werte, die für $x$ eingesetzt werden, erfüllt sind.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -74,7 +74,7 @@ Zwei Gleichungen, die wie im letzten Beispiel die gleichen Lösungen haben, hei�
 
 Jede Gleichung wird von bestimmten Werten für $x$ gelöst und von anderen nicht (dabei ist es auch möglich, dass es Gleichungen gibt, die gar keine Lösung haben -- wir werden später Beispiele dafür sehen). Die Werte, die sich für $x$ einsetzen lassen, damit die Gleichung erfüllt ist, sind prinzipiell eine Ansammlung von Zahlen. Zum Beispiel wird die Gleichung $x^2=4$ von $x=2$ und von $x=-2$ gelöst. Die Zahlen, die eine Gleichung lösen, können wir hinter einander aufschreiben (beim Beispiel $x^2=4$ also $-2,2$) und daraus eine Menge machen (also $\{-2,2\}$). Die Menge aller Werte, die für $x$ eingesetzt werden können, damit eine Gleichung erfüllt ist, heißt die \textbf{Lösungsmenge} dieser Gleichung. Eine Lösungsmenge bezeichnet man oft mit dem Buchstaben \Solutions.
 
-\begin{example}
+\begin{example}{}
     Die Lösungsmenge der Gleichungen im letzten Beispiel ist $\Solutions=\{5\}$, denn 5 ist die einzige Zahl, die die Gleichungen erfüllt. Weil die Lösungsmenge beider Gleichungen gleich ist, ist die Gleichung $x=5$ äquivalent zur Gleichung $15+x=20$.
 \end{example}
 
@@ -92,7 +92,7 @@ An das Wort \emph{äquivalent} erinnerst du dich vielleicht noch aus dem Kapitel
 \[A\Leftrightarrow B\]
 geschrieben. Für uns bedeutet das hier, dass bei zwei äquivalenten Gleichungen jede Lösung der ersten Gleichung auch eine Lösung der zweiten Gleichung sein soll und umgekehrt. Das ist genau dann der Fall, wenn beide Lösungsmengen gleich sind.
 
-\begin{example}
+\begin{example}{}
     Die Gleichung $x=5$ hat genau eine Lösung, nämlich $5$. Die Gleichung $x+4=9$ hat ebenfalls genau eine Lösung -- auch die Zahl $5$. Wenn eine Zahl nun die erste Gleichung erfüllt, wissen wir sofort, dass diese Zahl die $5$ sein muss. Und dann wissen wir, dass sie auch die zweite Gleichung erfüllt, denn die hatte ebenfalls die Lösung $5$.
     
     Umgekehrt geht das natürlich genauso: Eine Zahl, die die Gleichung $x+4=9$ erfüllt, muss $5$ sein, denn das ist die einzige Lösung. Und wenn die Zahl $5$ ist, dann erfüllt sie auch die erste Gleichung.
@@ -100,8 +100,7 @@ geschrieben. Für uns bedeutet das hier, dass bei zwei äquivalenten Gleichungen
     Es folgt in diesem Beispiel, dass die Aussage, dass eine Zahl die erste Gleichung erfüllt, äquivalent dazu ist, dass diese Zahl die zweite Gleichung erfüllt. Die Gleichungen sind daher äquivalent. Man kann auch schreiben:
     \[x=5\Leftrightarrow x+4=9.\]
 \end{example}
-\begin{example}
-    \label{ex:sqrt_umformung}
+\begin{example}[ex:sqrt-umformung]{}
     Die Gleichung $x=2$ hat natürlich die Lösung $2$. Die Lösung $x^2=4$ hat ebenfalls die Lösung $2$. Wenn eine Zahl die erste Gleichung erfüllt, dann erfüllt sie also auch die zweite Gleichung.
     
     Andersherum gilt dies allerdings nicht: Die zweite Gleichung hat auch die Lösung $-2$. Diese Zahl erfüllt die erste Gleichung jedoch nicht. Dass heißt, dass daraus, dass eine Zahl die Gleichung $x^2=4$ erfüllt, nicht unbedingt folgt, dass sie auch die Gleichung $x=2$ erfüllt. Wir können in diesem Fall
@@ -114,7 +113,7 @@ Wenn wir uns nun auf die Suche nach Äquivalenzumformungen machen, dann müssen 
 
 Wir stellen wir uns Gleichungen als Balkenwaagen im Gleichgewicht vor. Bei Balkenwaagen ist es möglich, Gewichte aus den Waagschalen zu entfernen. Werden von beiden Seiten gleichmäßig Gewichte entfernt, so gerät die Waage dadurch nicht aus dem Gleichgewicht.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -157,7 +156,7 @@ Es ist also erlaubt, auf der linken und der rechten Seite einer Gleichung jeweil
 
 Wichtig ist, dass es \textbf{nicht ausreicht, den Term von nur einer Seite zu subtrahieren}. Bei der Waage würde dadurch eine Seite leichter als die andere werden und sie würde aus dem Gleichgewicht geraten. Werte für $x$, die die ursprüngliche Gleichung erfüllt hätten, würden die neue Gleichung dann nicht mehr erfüllen.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{linearUnequal}
             % Füllung linke Waagschale
@@ -180,7 +179,7 @@ Wichtig ist, dass es \textbf{nicht ausreicht, den Term von nur einer Seite zu su
 
 Wir schauen uns ein weiteres Beispiel an, in dem sich durch das Entfernen von Gegenständen aus den Waagschalen eine neue, äquivalente Gleichung erzeugen lässt.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -209,7 +208,7 @@ Wir schauen uns ein weiteres Beispiel an, in dem sich durch das Entfernen von Ge
 
 Während wir in den letzten Beispielen vor allem Gewichte bzw. Kugeln entfernt haben, können wir natürlich auch genau das Gegenteil machen: Gewichte und Kugeln hinzufügen. Solange wir auf beiden Seiten das gleiche hinzufügen, bleibt die Waage im Gleichgewicht (wenn sie vorher schon im Gleichgewicht war).
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
         \end{linearEquation}
@@ -246,7 +245,7 @@ In jedem Fall haben wir gesehen, dass diese Veränderungen die Lösungsmenge nic
 
 Bisher haben wir gesehen, dass das beiderseitige Hinzufügen bzw. Entfernen von Termen zu einer Gleichung nichts an der Lösungsmenge ändert, also eine Äquivalenzumformung ist. Im folgenden Beispiel nehmen wir eine etwas subtilere Änderung vor.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -286,7 +285,7 @@ Letztlich haben wir hier jede Seite der Gleichung mit derselben Zahl multiplizie
 
 Beim Multiplizieren ist jedoch Vorsicht geboten, weil sich Gleichungen durch unvorsichtiges Multiplizieren schnell zerstören lassen, wie das nächste Beispiel zeigt.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearUnequal}
             %Füllung linke Waagschale
@@ -314,7 +313,7 @@ Das Multiplizieren beider Seiten mit einer Zahl ist normalerweise eine Äquivale
 
 Bevor wir zusammenfassen, welche Äquivalenzumformungen wir bisher gesehen haben, betrachten wir noch ein weiteres Beispiel. Es wird darauf hinauslaufen, dass wir beide Seiten einer Gleichung durch dieselbe Zahl dividieren.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -352,7 +351,7 @@ Wir haben jetzt insgesamt vier verschiedene Äquivalenzumformungen gesehen:
 
 Damit haben wir die wichtigsten Werkzeuge beisammen, um Gleichungen so umzuformen, dass wir herausfinden können, für welche Werte für $x$ sie erfüllt sind. Der folgende Satz drückt noch einmal aus, dass die Veränderungen, die wir gerade zusammengefasst haben, Äquivalenzumformungen sind. All das, was wir uns gerade mithilfe von Balkenwaagen überlegt haben, lässt sich theoretisch auch mathematisch beweisen.
 
-\begin{theorem}[th:equivalent_transformations]{Äquivalenzumformungen}
+\begin{theorem}[th:equivalent-transformations]{Äquivalenzumformungen}
     Die Lösungsmenge einer Gleichung bleibt unverändert, wenn man
     \begin{itemize}
         \item zu jeder Seite eine Zahl $a\in\mathbb{R}$ addiert.
@@ -375,8 +374,8 @@ Damit haben wir die wichtigsten Werkzeuge beisammen, um Gleichungen so umzuforme
 
 Neben den Grundrechenarten, die Beispiele für Äquivalenzumformungen sind, kennen wir bereits andere Rechenarten, die \emph{keine} Äquivalenzumformungen sind. Eine davon ist das Wurzelziehen.
 
-\begin{example}
-    In Beispiel \ref{ex:sqrt_umformung} ist uns bereits einmal die Gleichung $x^2=4$ begegnet. Wenn wir auf beiden Seiten die Wurzel ziehen, erhalten wir links $\sqrt{x^2}$, also $x$. Rechts bekommen wir $\sqrt{4}$, also $2$. Die neue Gleichung nach dem Wurzelziehen ist also $x=2$. Wir wissen aber bereits aus Beispiel \ref{ex:sqrt_umformung}, dass diese beiden Gleichungen nicht äquivalent sind, weil $x^2=4$ die Lösung $-2$ hat, die es bei der Gleichung $x=2$ nicht gibt.
+\begin{example}{}
+    In Beispiel \ref{ex:sqrt-umformung} ist uns bereits einmal die Gleichung $x^2=4$ begegnet. Wenn wir auf beiden Seiten die Wurzel ziehen, erhalten wir links $\sqrt{x^2}$, also $x$. Rechts bekommen wir $\sqrt{4}$, also $2$. Die neue Gleichung nach dem Wurzelziehen ist also $x=2$. Du weißt aber bereits aus Beispiel \ref{ex:sqrt-umformung}, dass diese beiden Gleichungen nicht äquivalent sind, weil $x^2=4$ die Lösung $-2$ hat, die es bei der Gleichung $x=2$ nicht gibt.
 \end{example}
 
 Achte, wenn du Gleichungen umformst, also immer darauf, dass die Umformung, die du vornimmst, eine Äquivalenzumformung ist. Falls du das nicht tust, entstehen Schwierigkeiten, die du zusätzlich beachten musst.

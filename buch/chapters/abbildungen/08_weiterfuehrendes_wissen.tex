@@ -5,6 +5,16 @@
 \subsection*{Injektionen, Surjektionen und Bijektionen}
 \pagecolor{violet!20}
 \label{advanced:bijektion}
+Man defniert für Abbildungen bestimmte Eigenschaften, die sie zu injektiven, surjektiven bzw. bijektiven Abbildungen machen können.
+
+\begin{definition}{}
+    Eine Abbildung $f\colon U\rightarrow V$ heißt \textbf{surjektiv}, falls für jedes $v\in V$ ein $u\in U$ mit $f(u)=v$ existiert, d.h. wenn jedes Element der Bildmenge mindestens ein Urbild hat.
+    
+    Sie heißt \textbf{injektiv}, falls aus $f(u)=f(u')$ für beliebige $u,u'\in U$ stets folgt, dass $u=u'$ gilt. 
+    
+    Eine Abbildung heißt bijektiv, falls sie \textbf{surjektiv} und \textbf{injektiv} ist.
+\end{definition}
+
 Graphisch sieht man die Bedeutung der Begriffe \textbf{surjektiv}, \textbf{injektiv} und \textbf{bijektiv} am besten am Abbildungsdiagramm:
     
 \begin{multicols}{3}\centering
@@ -23,13 +33,13 @@ Im mittleren Beispiel hat das untere Element der Bildmenge kein Urbild. Daher is
 
 Im rechten Bild hat jedes Element genau ein Urbild. Daher ist die Abbildung bijektiv und damit erst recht surjektiv und injektiv.
 
-\begin{advexample}
+\begin{advexample}{}
     Die Abbildung \textsc{MitGelbMischen}, die in einigen Beispielen im Kapitel vorgekommen ist, ist bijektiv. Das liegt daran, dass es für jede Mischfarbe (grün, orange und gelb) nur genau eine Grundfarbe gibt, die man mit gelb mischen, um die jeweilige Mischfarbe zu erhalten.
 \end{advexample}
 
 Ob eine Abbildung bijektiv ist, steht im direkten Zusammenhang damit, ob zu ihr eine Umkehrabbildung existiert. Es lässt sich nämlich beweisen:
 
-\begin{theorem}[Existenz der Umkehrabbildung]
+\begin{theorem}{Existenz der Umkehrabbildung}
     Zu einer Abbildung $f\colon U\rightarrow V$ existiert genau dann eine Umkehrabbildung, wenn $f$ bijektiv ist.
 \end{theorem}
 
@@ -37,7 +47,7 @@ Der Beweis zu diesem Satz befindet sich auf Seite \pageref{proof:existenceOfInve
 
 Wenn zwischen zwei Mengen eine Abbildung $f\colon U\rightarrow V$ existiert, dann lässt sich die Kardinalität von $U$ und $V$ vergleichen -- abhängig davon, ob $f$ eine Injektion, Surjektion oder Bijektion ist. In diesen Fällen lässt sich eine Aussage darüber treffen, welche Menge mehr Elemente enthält.
 
-\begin{theorem}
+\begin{theorem}{}
     Es sei $f\colon U\rightarrow V$ eine Abbildung. Dann gilt:
     \begin{enumerate}
         \item Falls $f$ injektiv ist, dann gilt $|U|\leq |V|$.
