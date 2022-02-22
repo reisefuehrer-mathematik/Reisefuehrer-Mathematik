@@ -94,7 +94,6 @@ suffix_3p "\\,ff."
     \tosnakecase{#2}{\filename}
     \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
 }
-\makeatother
 \newcommand\ldadvsection[2][]{
     \clearpage
     \pagecolor{violet!30!white}
@@ -110,7 +109,6 @@ suffix_3p "\\,ff."
     \clearpage
     \pagecolor{white}%\restorepagecolor
 }
-\makeatletter
 \newenvironment{wip}{%
     \begingroup%
     \newpage%
