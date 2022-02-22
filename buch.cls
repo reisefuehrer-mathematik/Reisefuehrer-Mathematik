@@ -106,7 +106,7 @@ suffix_3p "\\,ff."
     \end{remark}
     \tosnakecase{\Chaptername}{\chapname}
     \tosnakecase{#2}{\filename}
-    \subfile{chapters/\chapname/0\arabic{section}_\filename}
+    \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
     \clearpage
     \pagecolor{white}%\restorepagecolor
 }
