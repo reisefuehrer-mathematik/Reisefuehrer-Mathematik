@@ -78,7 +78,7 @@ Jede Gleichung wird von bestimmten Werten für $x$ gelöst und von anderen nicht
     Die Lösungsmenge der Gleichungen im letzten Beispiel ist $\Solutions=\{5\}$, denn 5 ist die einzige Zahl, die die Gleichungen erfüllt. Weil die Lösungsmenge beider Gleichungen gleich ist, ist die Gleichung $x=5$ äquivalent zur Gleichung $15+x=20$.
 \end{example}
 
-\begin{definition}[Lösungsmenge]
+\begin{definition}{Lösungsmenge}
     Die \textbf{Lösungsmenge} einer Gleichung $G$ ist die Menge 
     \[\Solutions:=\{x\:|\:x~\text{erfüllt die Gleichung~}G\},\]
     also die Menge aller Werte, die für die vorkommenden Unbekannten eingesetzt werden können, sodass die Gleichung erfüllt ist.
@@ -101,6 +101,7 @@ geschrieben. Für uns bedeutet das hier, dass bei zwei äquivalenten Gleichungen
     \[x=5\Leftrightarrow x+4=9.\]
 \end{example}
 \begin{example}
+    \label{ex:sqrt_umformung}
     Die Gleichung $x=2$ hat natürlich die Lösung $2$. Die Lösung $x^2=4$ hat ebenfalls die Lösung $2$. Wenn eine Zahl die erste Gleichung erfüllt, dann erfüllt sie also auch die zweite Gleichung.
     
     Andersherum gilt dies allerdings nicht: Die zweite Gleichung hat auch die Lösung $-2$. Diese Zahl erfüllt die erste Gleichung jedoch nicht. Dass heißt, dass daraus, dass eine Zahl die Gleichung $x^2=4$ erfüllt, nicht unbedingt folgt, dass sie auch die Gleichung $x=2$ erfüllt. Wir können in diesem Fall
@@ -351,7 +352,7 @@ Wir haben jetzt insgesamt vier verschiedene Äquivalenzumformungen gesehen:
 
 Damit haben wir die wichtigsten Werkzeuge beisammen, um Gleichungen so umzuformen, dass wir herausfinden können, für welche Werte für $x$ sie erfüllt sind. Der folgende Satz drückt noch einmal aus, dass die Veränderungen, die wir gerade zusammengefasst haben, Äquivalenzumformungen sind. All das, was wir uns gerade mithilfe von Balkenwaagen überlegt haben, lässt sich theoretisch auch mathematisch beweisen.
 
-\begin{theorem}[Äquivalenzumformungen]
+\begin{theorem}[th:equivalent_transformations]{Äquivalenzumformungen}
     Die Lösungsmenge einer Gleichung bleibt unverändert, wenn man
     \begin{itemize}
         \item zu jeder Seite eine Zahl $a\in\mathbb{R}$ addiert.
@@ -361,7 +362,7 @@ Damit haben wir die wichtigsten Werkzeuge beisammen, um Gleichungen so umzuforme
 \begin{advanced}{Kürzungsregel}
     Dass sich die Lösungsmenge einer Gleichung bei den Äquivalenzumformungen, die im obigen Satz beschrieben sind, nicht ändert, haben wir uns auf den letzten Seiten anschaulich mithilfe von Balkenwaagen überlegt. Formal lässt sich die Korrektheit von Äquivalenzumformungen mit der Kürzungsregel für die Addition und Multiplikation beweisen.
     
-    \begin{theorem}[Kürzungsregel]
+    \begin{theorem}{Kürzungsregel}
         Es seien $a,b\in\Real$. Dann gilt: 
         \begin{enumerate}
             \item Für beliebige $c\in\Real$ ist $a+c=b+c$ genau dann, wenn $a=b$.
@@ -375,7 +376,7 @@ Damit haben wir die wichtigsten Werkzeuge beisammen, um Gleichungen so umzuforme
 Neben den Grundrechenarten, die Beispiele für Äquivalenzumformungen sind, kennen wir bereits andere Rechenarten, die \emph{keine} Äquivalenzumformungen sind. Eine davon ist das Wurzelziehen.
 
 \begin{example}
-    In Beispiel (TODO) ist uns bereits einmal die Gleichung $x^2=4$ begegnet. Wenn wir auf beiden Seiten die Wurzel ziehen, erhalten wir links $\sqrt{x^2}$, also $x$. Rechts bekommen wir $\sqrt{4}$, also $2$. Die neue Gleichung nach dem Wurzelziehen ist also $x=2$. Wir wissen aber bereits aus Beispiel (TODO), dass diese beiden Gleichungen nicht äquivalent sind, weil $x^2=4$ die Lösung $-2$ hat, die es bei der Gleichung $x=2$ nicht gibt.
+    In Beispiel \ref{ex:sqrt_umformung} ist uns bereits einmal die Gleichung $x^2=4$ begegnet. Wenn wir auf beiden Seiten die Wurzel ziehen, erhalten wir links $\sqrt{x^2}$, also $x$. Rechts bekommen wir $\sqrt{4}$, also $2$. Die neue Gleichung nach dem Wurzelziehen ist also $x=2$. Wir wissen aber bereits aus Beispiel \ref{ex:sqrt_umformung}, dass diese beiden Gleichungen nicht äquivalent sind, weil $x^2=4$ die Lösung $-2$ hat, die es bei der Gleichung $x=2$ nicht gibt.
 \end{example}
 
 Achte, wenn du Gleichungen umformst, also immer darauf, dass die Umformung, die du vornimmst, eine Äquivalenzumformung ist. Falls du das nicht tust, entstehen Schwierigkeiten, die du zusätzlich beachten musst.
