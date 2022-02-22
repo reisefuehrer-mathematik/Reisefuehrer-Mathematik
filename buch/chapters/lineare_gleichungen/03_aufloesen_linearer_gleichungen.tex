@@ -15,16 +15,35 @@ Jede Seite einer Waagschale kann durch einen Term der Form $ax+b$ dargestellt we
 Sinnvollerweise liegt nie eine negative Anzahl von Kugeln auf der Waage. Auch so etwas wie $\frac{7}{2}$ Kugeln scheint nicht besonders sinnvoll. Das ist der Punkt, an dem unsere Vorstellung mit der Waage nicht mehr besonders gut funktioniert. Wir wollen aber alle Gleichungen als linear bezeichnen, bei denen die linke und die rechte Seite jeweils die Form $ax+b$ mit beliebigen $a,b\in\Real$ haben. Im Wesentlichen sind das immer noch genau die Gleichungen, die sich (bis auf ein paar kleine Probleme) auf Waagen darstellen lassen.
 
 \begin{example}
-    Die Gleichung $7x+5=2x$ ist eine lineare Gleichung. Die linke Seite ist hier eine Darstellung von \enquote{7 Kugeln und Gewichte mit dem Wert 5} und die rechte Seite beschreibt \enquote{zwei Kugeln}. Oder, etwas technischer: Die linke Seite hat die Form $ax+b$, wenn man $a=7$ und $b=5$ wählt. Die rechte Seite hat diese Form ebenfalls, und zwar mit $a=2$ und $b=0$.
-    
-    Auch die Gleichung $5(x+4)=2(3+x)-8$ ist eine lineare Gleichung. Sie sieht zwar erstmal merkwürdig aus, aber sie lässt sich zu einer normal aussehenden Gleichung ausmultiplizieren. Auf der linken Seite steht $5(x+4)$. Das lässt sich umformen zu $5x+20$ (und damit haben wir wieder die Form $ax+b$). Auf der rechten Seite steht $2(3+x)-8=6+2x-8=2x-2$ (und mit $2x-2$ haben wir wieder die Form $ax+b$). Deshalb ist auch die Gleichung $5(x+4)=2(3+x)-8$ linear.
+    Die Gleichung 
+    \[7x+5=2x\] 
+    ist eine lineare Gleichung. Die linke Seite ist hier eine Darstellung von \enquote{7 Kugeln und Gewichte mit dem Wert 5} und die rechte Seite beschreibt \enquote{zwei Kugeln}. Oder, etwas technischer: Die linke Seite hat die Form $ax+b$, wenn man $a=7$ und $b=5$ wählt. Die rechte Seite hat diese Form ebenfalls, und zwar mit $a=2$ und $b=0$.
+\end{example}
+\begin{example}
+    Auch die Gleichung 
+    \[5(x+4)=2\cdot (3+x)-8\] 
+    ist eine lineare Gleichung. Sie sieht zwar erstmal merkwürdig aus, aber sie lässt sich zu einer normal aussehenden Gleichung ausmultiplizieren. Auf der linken Seite steht $5(x+4)$. Das lässt sich umformen zu $5x+20$ (und damit haben wir wieder die Form $ax+b$). Auf der rechten Seite steht 
+    \[2\cdot (3+x)-8=6+2x-8=2x-2\] 
+    (und mit $2x-2$ haben wir wieder die Form $ax+b$). Deshalb ist auch die Gleichung $5(x+4)=2(3+x)-8$ linear.
 \end{example}
 
 \begin{example}
-    Die Gleichung $2^x+5=0$ ist nicht linear: Wir können sie nicht so umformen, dass links $ax+b$ steht, weil wir die Potenz nicht loswerden können. Aus demselben Grund ist auch $x^2-4x+9=0$ keine lineare Gleichung, denn $x^2$ lässt sich nicht ohne weiteres eliminieren.
+    Die Gleichung 
+    \[2^x+5=0\] 
+    ist nicht linear: Wir können sie nicht so umformen, dass links $ax+b$ steht, weil wir die Potenz nicht loswerden können. Aus demselben Grund ist auch 
+    \[x^2-4x+9=0\] 
+    keine lineare Gleichung, denn $x^2$ lässt sich nicht ohne weiteres eliminieren.
 \end{example}
 
-\begin{definition}[Lineare Gleichung]
+\vfill
+
+\begin{center}
+    \includegraphics[height=11cm]{images/justitia.jpg}
+\end{center}
+
+\newpage
+
+\begin{definition}{Lineare Gleichung}
     Eine \textbf{lineare Gleichung} ist eine Gleichung, deren Seiten durch Termumformung in die Form $ax+b$ mit $a,b\in\Real$ gebracht werden können.
 \end{definition}
 
@@ -112,12 +131,14 @@ Mit diesen Schritten lässt sich jede lineare Gleichung auflösen. Wenn du also 
     \item Gleichung vereinfachen \hfill \textcolor{black!40}{$\leadsto$ Zwischenziel 2}
     \item Terme mit $x$ nach links, Zahlen nach rechts \hfill \textcolor{black!40}{$\leadsto$ Zwischenziel 3}
     \item Durch den Vorfaktor von $x$ teilen \hfill \textcolor{black!40}{$\leadsto$ Zwischenziel 4}
-    \item Lösungsmenge ablesen \hfill \textcolor{black!40}{$\leadsto$ fertig}
+    %\item Lösungsmenge ablesen \hfill \textcolor{black!40}{$\leadsto$ fertig}
 \end{enumerate}
+Schließlich muss noch die Lösungsmenge abgelesen werden.
+
 Um dieses Verfahren besser zu verstehen, schauen wir uns ein paar Beispiele für Gleichungen an, die auf die gerade beschriebene Weise gelöst werden können.
 \begin{example}
     Wir wollen die Lösungen der Gleichung
-    \[4x+9=34-x \hspace*{10mm} \textcolor{orange!75!black}{| -9}\]
+    \[4x+9=34-x\]
     finden. Wir haben keine Klammern und es ist bereits alles zusammengefasst, was zusammengefasst werden konnte. Damit ist Zwischenziel 2 bereits erreicht.
     
     Der nächste Schritt, den der Plan uns vorgibt, ist, alle Summanden mit $x$ von der rechten Seite zu eliminieren und alle Summanden ohne $x$ von der linken Seite zu eliminieren.
@@ -145,13 +166,81 @@ Um dieses Verfahren besser zu verstehen, schauen wir uns ein paar Beispiele für
     Wie du siehst, haben wir alles richtig gemacht. Die obige Gleichung hat also die Lösungsmenge $\Solutions=\{5\}$.
 \end{example}
 \begin{example}
-    Leere Lösungsmenge
+    Die Gleichung
+    \[3x=2(x+1)+x\] 
+    soll nach $x$ aufgelöst werden. In dieser Gleichung kommen jedoch noch Klammern vor, sodass wir Zwischenziel 2 erst noch erreichen müssen. Wir lösen die Klammern daher zunächst auf:
+    \[3x=2x+2+x\]
+    und fassen die rechte Seite zusammen
+    \[3x=3x+2.\]
+    Da wir nun Zwischenziel 2 erreicht haben, steht es als nächstes an, auf der rechten Seite alle Vorkommen von $x$ zu eliminieren. Eigentlich müssten wir links auch alle Zahlen loswerden, allerdings ist das bereits erledigt. Wir subtrahieren auf beiden Seiten $3x$, da sich das mit den $3x$ auf der rechten Seite aufhebt.
+    \begin{align*}
+        3x-3x&=3x+2-3x\\
+        0&=2
+    \end{align*}
+    Wieder haben wir nur Äquivalenzumformungen vorgenommen. Jetzt müssen wir nur noch untersuchen, welche Lösungen die Gleichung $0=2$ hat und kennen damit alle Lösungen unserer Ausgangsgleichung.
+    
+    Die Gleichung $0=2$ hat allerdings keine Lösungen, denn wir können ja keinen Wert für $x$ einsetzen, sodass $0=2$ gilt (vor allem, da in der Gleichung noch nicht mal ein $x$ vorkommt). Da es keine Lösungen gibt, ist die Lösungsmenge die leere Menge, also $\Solutions=\emptyset$.
 \end{example}
+Beim Ablesen der Lösungsmenge gibt es nur drei verschiedene Möglichkeiten: Entweder erhalten wir am Ende eine Gleichung, die aussieht wie 
+\begin{itemize}
+\item $x=\langle\text{Zahl}\rangle$ oder 
+\item $0=0$ oder
+\item $0=\langle\text{andere~Zahl~als~}0\rangle$.
+\end{itemize}
+In jedem dieser Fälle ist es leicht, die Lösungsmenge abzulesen. Im ersten Fall enthält die Lösungsmenge einfach genau die Zahl, die auf der rechten Seite steht. Beispielsweise weißt du bereits, dass die Lösungsmenge der Gleichung $x=7$ einfach $\Solutions=\{7\}$ ist.
+
+Im zweiten Fall ist die Gleichung immer erfüllt. Welchen Wert du für $x$ wählst, ist nicht wichtig, da $x$ gar nicht vorkommt. Deshalb kann $x$ einfach eine beliebige Zahl sein und die Gleichung ist in jedem Fall erfüllt. Die Lösungsmenge besteht hier aus alle Zahlen, es ist also $\Solutions=\Real$.
+
+Im letzten Fall passiert genau das Gegenteil: Die Gleichung kann nicht erfüllt werden, weil sie einfach nicht stimmt -- und das kann auch nicht repariert werden, wenn wir irgendeinen Wert für $x$ einsetzen. Es gibt also keine Lösungen und die Lösungsmenge ist $\Solutions=\emptyset$.
+
+Zum Abschluss dieses Abschnitts wenden wir unser neues Wissen an, um die noch offene Frage aus Beispiel \ref{ex:handball_quali}, das in der Einführung vorkam, zu beantworten.
 \begin{example}
-    Unendlich viele Lösungen
+    Während der Einführung haben wir in Beispiel \ref{ex:handball_quali} die folgende Gleichung aufgestellt: 
+    \[\textsc{Plätze Süden}+\textsc{Plätze Mitte}+\textsc{Plätze Norden}=48.\]
+    Darauf soll nun unser Wissen über lineare Gleichungen angewandt werden. Leider ist das nicht ohne weiteres möglich, da lineare Gleichungen den Vorteil haben, dass es nur eine Unbekannte (in der Regel $x$) gibt. Das ist hier nicht der Fall -- wir haben drei Unbekannte.
+    
+    Allerdings haben wir dafür ein paar Zusatzinformationen:
+    \begin{itemize}
+        \item Norddeutschland hat doppelt so viele Qualifikationsplätze wie Süddeutschland
+        \item Mitteldeutschland hat dreimal so viele Qualifikationsplätze wie Süddeutschland
+    \end{itemize}
+    Diese beiden Informationen können wir in unserer Gleichung nutzen, indem wir dort, wo von \textsc{Plätze Mitte} die Rede ist, stattdessen unser Wissen einsetzen, dass \textsc{Plätze Mitte} nichts anderes ist als $3\cdot \textsc{Plätze Süden}$. Auf die gleiche Weise können wir statt \textsc{Plätze Norden} auch $2\cdot \textsc{Plätze Süden}$ schreiben. Die Gleichung, die wir jetzt erhalten, sieht wie folgt aus:
+    \[\colorbrace{\textsc{Plätze Süden}}{x}+3\cdot \colorbrace{\textsc{Plätze Süden}}{x}+2\cdot \colorbrace{\textsc{Plätze Süden}}{x}=48.\]
+    Beim Weiterrechnen kürzen wir \textsc{Plätze Süden} ab sofort mit $x$ ab, um Schreibaufwand zu sparen. Es bleibt die Aufgabe übrig, wie gehabt die Gleichung $x+3x+2x=48$ zu lösen. Die linke Seite kann direkt zu $6x$ zusammengefasst werden. Wir haben also Zwischenziel 3 bereits erreicht und müssen zum Lösen der Gleichung
+    \[6x=48\]
+    nur noch die Gleichung durch $6$ teilen. Als Ergebnis erhalten wir
+    \[x=8,\]
+    also haben wir die Lösungsmenge $\Solutions=\{8\}$. $x$ war ja nichts anderes als die Anzahl der Qualifikatinsplätze für Süddeutschland. Wir wissen jetzt also, dass Süddeutschland $8$ Plätze bekommt. Die Plätze von Mittel- und Norddeutschland auszurechnen, ist damit einfach: Mitteldeutschland erhält $8\cdot 3=24$ Plätze und Norddeutschland $8\cdot 2=16$ Plätze.
 \end{example}
-\begin{example}
-    Lösen der Gleichung aus dem Einführungsbeispiel
-\end{example}
+
+\begin{nutshell}{Lineare Gleichungen lösen}
+    \textbf{Lineare Gleichungen} sind Gleichungen, deren linke und rechte Seite sich beide in die Gestalt $ax+b$ für Zahlen $a,b\in\Real$ umformen lassen. 
+    
+    Um eine lineare Gleichung nach $x$ aufzulösen, müssen nach einander die folgenden Zwischenziele erreicht werden:
+    \vspace*{2mm}
+    
+    \textbf{Zwischenziel 1: Beliebige Lineare Gleichung}\\ 
+    Falls du eine Textaufgabe bearbeitest, musst du zunächst eine geeignete lineare Gleichung aufstellen.
+    \vspace*{2mm}
+    
+    \textbf{Zwischenziel 2: Zusammengefasste Gleichung ohne Klammern}\\
+    Multipliziere Klammern aus und fasse gleichartige Terme zusammen, um auf jeder Seite des Gleichheitszeichens einen Term zu erhalten, der aussieht wie $ax+b$ mit Zahlen $a,b\in\Real$.
+    \vspace*{2mm}
+    
+    \textbf{Zwischenziel 3: Summanden mit \emph{x} links, Summanden ohne \emph{x} rechts}\\
+    Eliminiere durch geschicktes Addieren und Subtrahieren alle Summanden mit $x$ auf der rechten Seite und alle Summanden ohne $x$ auf der linken Seite, sodass du eine Gleichung $ax=b$ mit Zahlen $a,b\in\Real$ erhältst.
+    \vspace*{2mm}
+    
+    \textbf{Zwischenziel 4: Fertig aufgelöste Gleichung}\\
+    Teile die Gleichung durch den Vorfaktor von $x$, der auf der linken Seite steht. Anschließend steht das $x$ isoliert und die Gleichung ist fertig aufgelöst.
+    \vspace*{4mm}
+    
+    Nachdem du das letzte Zwischenziel erreicht hast, kannst du die Lösungen sofort ablesen. Die Gleichung hat eine der folgenden Lösungsmengen:
+    \begin{itemize}
+        \item $\Solutions=\{a\}$, falls die Gleichung aussieht wie \enquote{$x=a$} ($a$ ist hierbei eine Zahl)
+        \item $\Solutions=\emptyset$, wenn links und rechts jeweils eine Zahl steht, die Zahlen aber verschieden sind
+        \item $\Solutions=\Real$, wenn links und rechts jeweils die gleiche Zahl steht
+    \end{itemize}
+\end{nutshell}
 
 \end{document}
