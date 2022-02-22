@@ -1,0 +1,107 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\label{sec:abbildungen_monotonie}
+
+Was kann mit den Funktionswerten einer Abbildung passieren, wenn man größere Argumente einsetzt?
+
+Eine sehr spezielle und auch eher uninteressante Art von Abbildungen sind solche, deren Abbildungsvorschrift jedem beliebigen Argument das gleiche Bild zuordnet. Abbildungen, die diese Eigenschaft haben, heißen \textbf{konstant}.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:3, y=.8cm, x=.8cm, ymin=0, ymax=2, samples=2, ylabel=$f(x)$, xlabel=$x$]
+                \addplot[color=violet] expression{2};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    
+    Die Abbildung $f(x)=2$ ordnet jeder beliebigen Zahl den Wert $2$ zu. Das Bild, das $f$ produziert, hängt also überhaupt nicht davon ab, welches Argument in die Abbildung eingesetzt wird. Deshalb ist $f$ eine \emph{konstante} Abbildung.
+    
+    Der Graph von $f$ ist eine horizontale Linie. Die Linie verläuft immer auf der Höhe des Bildes, auf das die Abbildung ihre Argumente abbildet. Weil dieses Bild immer dasselbe ist, ist auch die $y$-Koordinate von jedem Punkt auf dem Graphen dieselbe. Daher kommt die horizontale Linie.
+\end{example}
+
+Die Funktionswerte von konstanten Abbildungen verändern sich nicht, wenn man das Argument ändert. Sie bleiben also immer gleich, wenn man größere Argumente einsetzt.
+
+Spannender sind natürlich Abbildungen, die auch verschiedene Funktionswerte annehmen können. Wenn man den Graphen einer Abbildung nach rechts verfolgt, können im Wesentlichen vier verschiedene Dinge passieren:
+\begin{itemize}
+    \item Der Abbildungsgraph bleibt konstant auf einer Höhe (wie im letzten Beispiel)
+    \item Der Abbildungspgrah steigt immer weiter nach oben, wenn man ihm nach rechts folgt (d.h. wenn man größere Argumente $x$ in die Abbildung einsetzt, wird auch ihr Funktionswert größer)
+    \item Der Abbildungspgrah fällt immer weiter nach unten, wenn man ihm nach rechts folgt (d.h. wenn man größere Argumente $x$ in die Abbildung einsetzt, wird ihr Funktionswert kleiner)
+    \item Der Abbildungsgraph führt in keine klare Richtung, sondern mal nach oben, mal nach unten (d.h. wenn man größere Argumente $x$ in die Abbildung einsetzt, kann man nicht vorher sagen, ob der Funktionswert größer oder kleiner wird)
+\end{itemize}
+
+Den Fall konstanter Abbildungen haben wir im letzten Beispiel gesehen. Im folgenden Bild siehst du, wie ein Abbildungsgraph in den anderen drei Fällen beispielsweise aussehen kann.
+
+\begin{figure}[ht]
+    \centering
+    \begin{multicols}{3}\centering
+        \begin{tikzpicture}[samples=40]
+            \begin{axis}[defgrid, domain=0:4, y=.75cm, x=.75cm, ymin=-1, ymax=3, xtick={1,...,4}, ytick={1,2,3}, samples=\ifdraft{5}{17}]
+                \addplot[color=violet] expression{sqrt(x)-0.5};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[samples=2]
+            \begin{axis}[defgrid, domain=0:4, y=.75cm, x=.75cm, ymin=-1, ymax=3, xtick={1,...,4}, ytick={1,2,3}, samples=2]
+                \addplot[color=violet] expression{3-0.875*x};
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}[samples=40]
+            \begin{axis}[defgrid, domain=0:4, y=.75cm, x=.75cm, ymin=-1, ymax=3, xtick={1,...,4}, ytick={1,2,3}, samples=\ifdraft{7}{40}]
+                \addplot[color=violet] expression{sin(4*deg(x))};
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+    \caption{Im linken Beispiel steigt der Abbildungsgraph nach rechts hin immer weiter. Im mittleren Beispiel fällt er immer weiter. Beide Graphen steigen bzw. sinken ohne Unterbrechung, d.h. sie wechseln nicht zwischendurch die Richtung. Dies ist eine besondere Eigenschaft, denn für Argumente $x$ und $y$ mit $x<y$ gilt im linken Beispiel immer $f(x)<f(y)$. Im mittleren Bild gilt stattdessen immer $f(x)>f(y)$, denn die Funktionswerte werden dort immer kleiner.
+    Schließlich lässt sich für die rechts dargestellte Abbildung keine solche Aussage treffen: Je nachdem, \emph{wie weit} man nach rechts geht, kann es sowohl sein, dass man einen größeren Wert erreicht als auch, dass man einen kleineren erreicht.}
+    %\label{fig:my_label}
+\end{figure}
+
+Eine Abbildung, deren Graph dauerhaft fällt oder dauerhaft sinkt, heißt \textbf{monoton}. Das bedeutet, dass der Graph seine Richtung (entweder nach oben oder nach unten) nicht ändert. Die beiden links abgebildeten Graphen im obigen Bild gehören somit zu einer monotonen Abbildung. Sie führen entweder konsequent nur nach oben (links) oder konsequent nur nach unten (Mitte).
+
+\begin{definition}{Monotonie\index{Monotonie}}
+    Eine Abbildung $f$ heißt \textbf{monoton steigend}, falls $f(x)\leq f(y)$ für alle $x<y$ gilt. Sie heißt \textbf{streng monoton steigend}, falls $f(x)<f(y)$ für alle $x<y$ gilt.
+    
+    Analog heißt sie \textbf{monoton fallend}, falls $f(x)\geq f(y)$ für alle $x<y$ gilt und \textbf{streng monoton fallend}, falls $f(x)>f(y)$ für alle $x<y$ gilt.
+    
+    Eine Abbildung, die entweder monoton fallend oder monoton steigend ist, heißt \textbf{monoton}.
+\end{definition}
+
+Bei strenger Monotonie muss ein Graph tatsächlich pausenlos steigen, die Funktionswerte müssen also wirklich immer größer werden (im Falle von streng monoton steigend, bei streng monoton fallend ist es genau umgekehrt). Damit eine Abbildung nur monoton steigend ist, reicht es, wenn sie nicht zwischendurch fällt. Schaust du dir den Abbildungsgraphen an, musst du also bei strenger Monotonie darauf achten, ob der Graph zwischendurch konstant ist. Nur wenn es keine konstanten Stellen gibt, ist eine Abbildung wirklich \emph{streng} monoton.
+
+Wenn bestimmt werden soll, ob eine Abbildung monoton ist, dann lässt sich das anhand ihres Abbildungsgraphen ablesen: Wenn dieser stets steigt (dann ist die Abbildung streng monoton steigend) oder stets fällt (streng monoton fallend), dann ist der Fall klar. Gibt es ein auf- und ab, dann ist die Abbildung nicht monoton. Wenn der Graph zwar nicht dauerhaft steigt, aber zumindest nie sinkt, dann ist die Abbildung immerhin noch monoton steigend (aber nicht mehr streng monoton steigend). Genauso funktioniert das, wenn die Abbildung nie steigt: Dann ist sie monoton fallend. 
+
+Es ist auch möglich, Monotonie rechnerisch nachzuweisen. Wirklich adäquate Mittel dafür erlernst du allerdings erst im Kapitel über \textbf{Differentialrechnung in \Real}.\todocomment{Hier am besten eine verlinkung}
+
+\begin{example}{}
+    
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:4, y=.5cm, x=.75cm, xtick={1,...,4}, ytick={1,2,3}, samples=2]
+                \addplot[color=violet] expression{3-x};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    
+    Die Abbildung $f(x)=3-x$ ist streng monoton fallend, weil die Funktionswerte kleiner werden, je größer das $x$ wird (denn man zieht dann immer größere Zahlen von der Zahl $3$ ab). Wie bei jeder streng monoton fallenden Abbildung sieht man auch, dass der Graph stetig nach unten führt.
+    
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:4, y=.5cm, x=.75cm, ymin=0, xtick={1,...,4}, ytick={1,2,3}, samples=2]
+                \addplot[color=violet] expression{2};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    
+    Die Abbildung $f(x)=2$ ist monoton steigend und monoton fallend, weil jeweils \mbox{$f(x)=f(y)$} für alle $x,y\in\Real$ gilt. Deshalb gilt insbesondere auch $f(x)\leq f(y)$ und $f(x)\geq f(y)$ für alle $x,y$. Sie ist allerdings nicht streng monoton steigend oder fallend, weil die Funktionswerte nicht tatsächlich größer oder kleiner werden.
+\end{example}
+
+\begin{nutshell}{Monotonie}
+    Man spricht davon, dass eine Abbildung \textbf{monoton} ist, wenn ihre Funktionswerte für steigende Argumente $x$, die man in die Abbildung einsetzt, entweder niemals größer werden oder niemals kleiner werden.
+    
+    Eine Abbildung $f$ heißt \textbf{monoton steigend}, falls $f(x)\leq f(y)$ für alle $x<y$ gilt, also wenn ihre Funktionswerte für steigende Argumente $x$ nicht kleiner werden. Entsprechend heißt sie \textbf{monoton fallend}, wenn ihre Funktionswerte für steigende $x$ nicht größer werden, also $f(x)\geq f(y)$ für alle $x<y$.
+    
+    Eine Abbildung heißt bereits dann monoton steigend, wenn sie nie fällt. Es ist allerdings erlaubt, dass sie konstant bleibt. Wenn eine Abbildung tatsächlich dauerhaft steigt und nie konstant bleibt, dann heißt sie \textbf{streng monoton steigend}. Es gilt dann $f(x)<f(y)$ für alle $x<y$. Wenn eine Abbildung stattdessen dauerhaft sinkt, dann heißt sie \textbf{streng monoton fallend} und es gilt $f(x)>f(y)$ für alle $x<y$.
+\end{nutshell}
+
+\end{document}
