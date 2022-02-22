@@ -7,7 +7,7 @@
 
 Abbildungen übersetzen Argumente, die aus ihrer Definitionsmenge kommen, in ihr jeweiliges Bild. Auf diese Weise erhält man bei einer Abbildung $f\colon U\rightarrow V$ Bilder aus der Menge $V$. Wie im folgenden Beispiel kommt es manchmal vor, dass nach Anwendung einer Abbildung direkt eine zweite Abbildung angewandt werden soll.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{\includegraphics[width=.33\textwidth]{images/train.png}}
     Eine Gruppe von sechs Freunden möchte sich in Hamburg-Niendorf treffen. Zwei von ihnen wohnen außerhalb von Hamburg. Deswegen steigen sie zunächst in einen Zug, der sie zum Hamburger Hauptbahnhof fährt. Nach der Ankunft steigen die beiden um und fahren mit der U-Bahn weiter, bis sie ihre Freunde im Stadtteil Niendorf treffen.
     
@@ -19,7 +19,7 @@ Abbildungen übersetzen Argumente, die aus ihrer Definitionsmenge kommen, in ihr
 
 Bei der Hintereinanderausführung (oder \textbf{Komposition}) von Abbildungen geht es darum, ein Argument mithilfe einer Abbildung auf sein Bild abzubilden (so, wie du das bereits aus den letzten Abschnitten kennst) und anschließend das erhaltene Bild direkt in eine zweite Abbildung einzusetzen und erneut abzubilden. Auf diese Weise wird jedes Element aus der Definitionsmenge der ersten Abbildung -- mit einem Zwischenschritt -- auf ein Element aus der Bildmenge der zweiten Abbildung abgebildet.
 
-\begin{example}
+\begin{example}{}
     Der Freund, der aus Itzehoe nach Niendorf gefahren ist, hat zwei Abbildungen hintereinander ausgeführt. Er ist erst mit dem Zug nach Hamburg gefahren und anschließend mit der U-Bahn zu seinem Ziel in Niendorf. Mathematisch aufgeschrieben gilt \[\textsc{BahnNachNiendorf}(\underbrace{\textsc{ZugNachHamburg}(\emph{Itzehoe})}_{\emph{Hamburg Hbf.}})=\emph{Niendorf}.\]
 \end{example}
 
@@ -35,7 +35,7 @@ Zwei Abbildungen hintereinander auszuführen klappt nur dann, wenn die zweite Ab
 
 So ist es möglich, dass -- wie an einem Fließband in einer Fabrik -- erst die Abbildung $f$ ein Argument erhält und es in ein Bild übersetzt, mit dem $g$ weiterarbeiten kann. Anschließend erhält $g$ dieses Bild und verarbeitet es seinerseits weiter.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \draw[black!25,fill=black!10] (-1.5,0) circle[radius=6mm];
@@ -68,7 +68,7 @@ So ist es möglich, dass -- wie an einem Fließband in einer Fabrik -- erst die 
 
 Zwei Abbildungen $f$ und $g$ nacheinander anzuwenden, kann sich manchmal als sinnvoll erweisen, wenn man mit einfachen Zwischenschritten zu einem bestimmten Ergebnis kommt, statt eine kompliziertere Abbildung in einem Schritt zu berechnen.
 
-\begin{example}
+\begin{example}{}
     Wenn man im Kopf für eine bestimmte Zahl $x$ den Wert $3x+2$ ausrechnen möchte, dann kann man das nicht sinnvoll in einem Schritt tun. Stattdessen wirst du dir erst überlegen, was $3x$ ist. Anschließend wirst du $2$ zum Ergebnis addieren. In einem ersten Schritt berechnest du also die Abbildung $f(x)=3x$, die die Addition von $2$ zunächst ignoriert.
     
     Nachdem du weißt, welchen Wert $3x$ hat, addierst du darauf $2$. Mit der Abbildung $g(x)=x+2$ tust du genau das. Führst du beide Abbildungen hintereinander aus, berechnest du \[g(f(x))=g(3x)=3x+2,\] also genau das, was du berechnen wolltest -- nur mit einem Zwischenschritt.
@@ -88,7 +88,7 @@ Die Abbildung $g\circ f$ bildet ihre Argumente auf das Bild ab, das man erhält,
 
 Die Reihenfolge, in der man $f$ und $g$ anwendet, ist für Verkettungen sehr wichtig. Einerseits kann es sein, dass man, wenn man erst $g$ anwendet, überhaupt kein Bild erhält, das in der Definitionsmenge von $f$ liegt. Es ist aber auch selbst dann, wenn die Definitions- und Bildmengen dennoch zu einander passen, nicht egal, in welcher Reihenfolge man die Abbildungen anwendet (wie im nächsten Beispiel zu sehen ist).
 
-\begin{example}
+\begin{example}{}
     Im letzten Beispiel haben wir gesehen, dass $g(f(x))=3x+2$ ist. Die Verkettung dieser beiden Abbildungen $g\circ f$ ist die Abbildung $(g\circ f)(x)=3x+2$.
     
     Es gilt hingegen aber $(f\circ g)(x)=f(g(x))=f(x+2)=3(x+2)=3x+6$. Die Reihenfolge, in der man $f$ und $g$ anwendet, ist also sehr wichtig und verändert die Abbildung, die man bei der Verkettung erhält.
@@ -109,7 +109,7 @@ In der Regel verändern Abbildungen ihre Argumente, indem sie diese auf ihre Bil
 
 Es ist jedoch nicht verboten, mit Abbildungen, die gar nichts tun, zu arbeiten. Damit sind Abbildungen gemeint, die ihr Argument nicht verändern. Das heißt, jedes Argument, das man in die Abbildung einsetzt, wird auf sich selbst abgebildet.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{\input{diagrams/mix_self}}
     Wir hatten bereits die Abbildung $\textsc{MitGelbMischen}$ gesehen, die Grundfarben erhält und mit gelb mischt. Dadurch verändern sich die Farben blau zu grün und rot zu orange. Deutlich langweiliger ist es, eine Grundfarbe mit sich selbst zu mischen, also blau mit blau, rot mit rot und gelb mit gelb. Natürlich ändert eine Farbe sich nicht, wenn man sie mit sich selbst mischt.
     
@@ -141,7 +141,7 @@ Dieser Abschnitt thematisiert die Frage, ob es möglich ist, wenn man bereits ei
     \caption{In diesem Abbildungsdiagramm ist die Abbildung $f$ mit blauen Pfeilen dargestellt. Die gestrichelte Abbildung dreht alle Pfeile von $f$ um. Dadurch läuft man immer im Kreis, wenn man erst einem blauen und dann einem gestrichelten Pfeil folgt. Führt man die beiden Abbildungen hintereinander aus, bekommt man deshalb die identische Abbildung auf der linken Menge.}
 \end{figure}
 
-\begin{example}
+\begin{example}{}
     Die Abbildung $f\colon\Real\rightarrow\Real$ mit der Abbildungsvorschrift $f(x)=x+1$ addiert zu jeder Zahl 1. Wenn man vom Ergebnis wieder $1$ subtrahiert, kommt man bei der Zahl an, bei der man angefangen hat. Für die Abbildung $g\colon\Real\rightarrow\Real$ mit $g(x)=x-1$ gilt also $(g\circ f)(x)=x$. Das lässt sich nachrechnen:
     \[g(f(x))=g(x+1)=(x+1)-1=x.\]
     Die Abbildung $g$ kehrt die Abbildung $f$ daher um und es gilt $g\circ f=\ident[\Real]$.
@@ -155,11 +155,11 @@ Eine Abbildung $g$, die eine Abbildung $f\colon U\rightarrow V$ rückgängig mac
 
 Die Umkehrabbildung einer Abbildung $f$ notiert man mit $f^{-1}$. Im nächsten Beispiel wird noch einmal erläutert, warum $g$ im letzten Beispiel eine Umkehrabbildung von $f$ war. Anschließend werden zwei weitere Beispiele präsentiert.
 
-\begin{example}
+\begin{example}{}
     Im letzten Beispiel haben wir gesehen, dass für $f\colon\Real\rightarrow\Real$ mit $f(x)=x+1$ die Umkehrabbildung durch $f^{-1}(x)=x-1$ bestimmt ist. Es gilt nämlich $g\circ f=\ident[\Real]$. Außerdem gilt $f\circ g=\ident[\Real]$, weil $f(g(x))=f(x-1)=(x-1)+1$ gilt.
 \end{example}
 
-\begin{example}
+\begin{example}{}
     Wenn ein mit Butter beschmiertes Toast von einem normalen Tisch nach unten fällt, landet es leider oft mit der beschmierten Seite unten. Während des Falls kann das Toast sich prinzipiell mehrmals drehen. Nach jedem Drehen zeigt entweder die Seite mit Butter oder die Seite ohne Butter nach oben.
     
     Die Abbildung $\textsc{Umdrehen}\colon\textsc{Toastseiten}\rightarrow\textsc{Toastseiten}$ gibt nun an, welche Seite des Toasts nach dem Umdrehen oben ist, abhängig davon, welche vorher oben war (wobei $\textsc{Toastseiten}$ die Menge der Seiten ist, die sich prinzipiell oben befinden können, d.h. $\textsc{Toastseiten}=\{\text{Butter},\text{keine Butter}\}$). Es gilt (weil sich nach einmaligem Umdrehen jeweils die andere Seite oben befindet)
@@ -168,7 +168,7 @@ Die Umkehrabbildung einer Abbildung $f$ notiert man mit $f^{-1}$. Im nächsten B
     und auf die gleiche Weise liegt auch die Seite mit Butter oben, wenn vorher die Seite mit Butter oben war und sich das Toast zweimal umdreht. Damit ist das zweimalige Umdrehen des Toasts die identische Abbildung auf der Menge \textsc{Toastseiten}. Weil $\textsc{Umdrehen}\circ \text{Umdrehen}=\ident[\textsc{Toastseiten}]$ gilt, ist \textsc{Umdrehen} die Umkehrabbildung von sich selbst.
 \end{example}
 
-\begin{example}
+\begin{example}{}
     Die Abbildung $f\colon\Real\rightarrow\Real$ mit $f(x)=4x$ hat die Umkehrabbildung $f^{-1}\colon\Real\rightarrow\Real$ mit $f^{-1}(x)=\frac{1}{4}x$: Um eine Multiplikation mit $4$ rückgängig zu machen, muss man durch $4$ teilen (oder mit $\frac{1}{4}$ multiplizieren).
     
     Zur Überprüfung lässt sich schnell nachrechnen, dass \[(f^{-1}\circ f)(x)=f^{-1}(f(x))=f^{-1}(4x)=\frac{1}{4}\cdot 4x=x.\] 

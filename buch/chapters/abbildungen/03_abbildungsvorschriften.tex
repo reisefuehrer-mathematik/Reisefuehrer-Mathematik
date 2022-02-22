@@ -10,7 +10,7 @@ Die Abbildungsvorschrift kann auf verschiedenen Wegen beschrieben werden. Im let
 
 Du kannst eine Abbildungsvorschrift durch das Hintereinanderschreiben von Abbildungsregeln auflisten. Im letzten Abschnitt waren alle Definitionsmengen, die du gesehen hast, sehr klein. Sie enthielten allesamt nur sehr wenige Elemente. Deshalb war es möglich, einzeln zu jedem Element aus der Definitionsmenge aufzuschreiben, in welches Bild es übersetzt wird.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}[scale=.6]
             \draw[grayset] (-1.5,0) ellipse (2.2cm and 2.7cm);
@@ -54,7 +54,7 @@ Der größte Nachteil dieser sehr einfachen Möglichkeit ist, dass eine solche L
 
 Du hast bereits die explizite Schreibweise für das Notieren von Abbildungsvorschriften kennengelernt. Außerdem kennst du nun den Nachteil, dass sich mit der expliziten Schreibweise große Definitionsmengen sehr schlecht oder sogar überhaupt nicht vertragen. In diesem Abschnitt siehst du eine andere Darstellungsart, in der du Abbildungsvorschriften oft vorfinden wirst.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tabular}{cc}\toprule
             Tag & Vorhersage\\\midrule
@@ -94,7 +94,7 @@ Letztendlich schreibt man mit Tabellen immer noch für jedes einzelne Element de
 
 Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit einer gegebenen Wertetabelle herausfindest, welche Abbildung man mit ihr beschreibt.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tabular}{cc}\toprule
             Land & Hauptstadt \\\midrule
@@ -127,7 +127,7 @@ Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit ein
 
 In diesem Beispiel hat die Abbildung einen Namen bekommen, der sich aus dem Sachzusammenhang ergeben hat. Fällt dir kein solcher Name ein, verwende einfach $f, g$ oder $h$. Dies sind die Buchstaben, mit denen standardmäßig Abbildungen beschrieben werden, denen sich nicht so einfach ein Name wie im letzten Beispiel zuordnen lässt. Wenn in der Tabelle zum Beispiel nur Zahlen stehen, ist es sinnvoll, auf solche Namen auszuweichen.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tabular}{cc}\toprule
             $x$ & $y$ \\\midrule
@@ -158,7 +158,7 @@ Es gibt -- vor allem im Alltag -- viele Abbildungen, die man tatsächlich nur da
 
 Aus mathematischer Sicht interessant sind aber vor allem Abbildungen, bei denen es genau so eine Regel gibt.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \node[blue] at (0,0) {$\underbrace{\text{Schaufel}}_{\textcolor{green!60!black}{\text{8 Buchstaben}}}$};
@@ -185,7 +185,7 @@ Das heißt, um für ein \emph{beliebiges} Element der Definitionsmenge von $f$ s
 
 Das nächste Beispiel behandelt noch einmal die Abbildung, die Farben mit gelb mischt und schlägt eine Berechnungsvorschrift, die man für diese Abbildung verwenden kann, vor. Anschließend siehst du ein Beispiel mit einer etwas mathematischeren Berechnungsvorschrift.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \input{diagrams/mix_with_yellow}%Also used by abbildungen/02_formale_schreibweisen
     }
@@ -198,7 +198,7 @@ Das nächste Beispiel behandelt noch einmal die Abbildung, die Farben mit gelb m
     dann ist trotzdem noch eindeutig klar, wie die Abbildung mit \textsc{MitGelbMischen} funktioniert.
 \end{example}
 
-\begin{example}
+\begin{example}{}
     Ein Bauer verkauft frische Milch zu einem Preis von 2 Euro pro Liter. Wenn ein Kunde Milch kauft, hängt der Preis, den er zahlen muss, natürlich davon ab, wie viel Milch er kauft. Der Zusammenhang zwischen der gekauften Menge und dem Preis ist eine Abbildung \[\textsc{Preis}\colon\Integer\rightarrow\Integer,\] also eine Abbildung, die die Anzahl an Litern Milch, die gekauft werden, auf ihren Preis in Euro abbildet. Wenn die Einheiten weggelassen werden, arbeiten wir also nur noch mit Zahlen. 
     
     Statt für jede Menge Milch einzeln aufzulisten, wie viel sie kostet (etwa \mbox{$\textsc{Preis}(1)=2$}, $\textsc{Preis}(2)=4$ usw.), ist es auch möglich, einfach den Preis für eine beliebige Menge Milch anzugeben. Dafür bezeichnen wir die Menge Milch, die gekauft wird, mit $m$ (in Litern). Egal, welche ganze Zahl $m$ wir wählen: Es gilt immer, dass der Preis in Euro doppelt so groß wie $m$ ist, also \[\textsc{Preis}(m)=2\cdot m.\]

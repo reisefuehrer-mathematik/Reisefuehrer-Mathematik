@@ -14,7 +14,7 @@ Während es in den einführenden Abschnitten sehr wichtig war, zu erwähnen, wel
 
 Wenn nichts anderes gesagt ist, wird deshalb ab sofort davon ausgegangen, dass eine Abbildung einfach Zahlen auf Zahlen abbildet. Jede Abbildung, bei der Definitions- und Bildmenge nicht in der Schreibweise $f\colon U\rightarrow V$ angegeben sind, sondern weggelassen werden, soll einfach als eine Abbildung von den reellen Zahlen in die reellen Zahlen, also als eine Abbildung $f\colon\Real\rightarrow\Real$ verstanden werden.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=0:3, y=.8cm, x=.8cm, ymin=0, ymax=2, xmin=0, xmax=3, samples=2, ylabel=$f(x)$, xlabel=$x$]
@@ -29,7 +29,7 @@ Wenn nichts anderes gesagt ist, wird deshalb ab sofort davon ausgegangen, dass e
 
 Abbildungsgraphen können eine Vielzahl von möglichen Eigenschaften haben. Sie können vollkommen verschieden aussehen und beispielsweise die Form einer Gerade haben, ständig die $x$-Achse schneiden oder einfach nach rechts immer weiter nach oben verlaufen.
 
-\begin{example}
+\begin{example}{}
     Die folgenden drei Bilder zeigen jeweils den Graphen einer bestimmten Abbildung. Der linke Graph schneidet die $y$-Achse in der Höhe $4$ beim Punkt $\coord{0}{4}$. Es ist kein Punkt zu sehen, an dem er die $x$-Achse schneidet. Da der Graph aber in gerader Linie nach unten steigt, könnte man erwarten, dass er das weiter rechts tun würde.
     \begin{multicols}{3}
         \centering
@@ -77,7 +77,7 @@ Wenn man den Graphen einer Abbildung sieht, ist die Frage, wo dieser die $y$-Ach
 
 Es hat allerdings einige Nachteile, wenn man den $y$-Achsenabschnitt nur durch das Ansehen des Abbildungsgraphen bestimmen kann. Erstens erhält man so nicht immer genaue Werte und zweitens muss der gesuchte Schnittpunkt nicht immer ein kleiner Wert sein. In diesem Fall würde man ein sehr großes Bild benötigen. Auch wenn die Abbildung nicht als Graph, sondern -- wie es normal der Fall ist -- als Berechnungsvorschrift vorliegt, ist es nicht hilfreich, auf den Abbildungsgraphen angewiesen zu sein. Deshalb untersuchen wir nun, wie sich der $y$-Achsenabschnitt auch rechnerisch ohne das Benutzen eines Abbildungsgraphen bestimmen lässt.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \input{diagrams/read_rules_from_graph}%Also used by abbildungen/04_abbildungen_in_koordinatensystemen
     }
@@ -97,7 +97,7 @@ Wir suchen nun einen Punkt, der auf dem Graphen einer Abbildung und gleichzeitig
 
 Im Beispiel haben wir bereits gesehen, dass $\coord{0}{f(0)}$ der einzige Punkt auf dem Graphen ist, der auf der $y$-Achse liegt. Um den $y$-Achsenabschnitt einer beliebigen Abbildung auszurechnen, genügt es aus diesem Grund, einfach $f(0)$ zu berechnen.
 
-\begin{example}
+\begin{example}{}
     \sloppy
     Die Abbildung $f(x)=4(x+1)$ hat den $y$-Achsenabschnitt $4$, denn um den $y$-Achsenabschnitt zu berechnen, muss einfach nur $f(0)$ berechnet werden. Es gilt $f(0)=4\cdot (0+1)=4$.
 \end{example}
@@ -111,7 +111,7 @@ Wie bereits beim $y$-Achsenabschnitt ist es, wenn man einen Graphe sieht, natür
 
 Jeder Punkt auf dem Abbildungsgraphen hat die Koordinate $\coord{x}{f(x)}$, also eine Kombination aus einem Element $x$ aus der Definitionsmenge und dem Bild $f(x)$, auf das $x$ abgebildet wird. Damit die $y$-Koordinate $0$ wird, muss der rechte Teil, also $f(0)$, null werden. Für Schnittpunkte mit der $x$-Ache müssen deshalb einfach Werte für $x$ gefunden werden, für die $f(x)=0$ gilt.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}[samples=\ifdraft{5}{30}]
             \begin{axis}[defgrid, domain=0:4, y=.75cm, x=.75cm, xtick={1,...,4}, ytick={-1,...,3}, samples=\ifdraft{5}{20}]
@@ -139,7 +139,7 @@ Um herauszufinden, welche Werte man für $x$ wählen kann, damit $f(x)=0$ gilt, 
 
 Das lernst du vor allem in den Kapiteln über \textbf{lineare und quadratische Gleichungen}. Zunächst wird es nicht erforderlich sein, dass du systematisch Gleichungen lösen kannst -- stattdessen werden die Nullstellen in der Regel so einfach sein, dass sie sich leicht durch Ausprobieren finden lassen.
 
-\begin{example}
+\begin{example}{}
     Die Nullstellen der Abbildung $f(x)=x+5$ sind alle Werte, die sich für $x$ einsetzen lassen, damit $f(x)=0$ gilt. Es muss die Gleichung $\colorbrace{x+5}{f(x)}=0$ gelöst werden. Der einzige Wert, den man für $x$ wählen kann, damit $f(x)=x+5=0$ gilt, ist $x=-5$.
     
     Es folgt, dass $f$ genau eine Nullstelle hat, und zwar bei $x=-5$.
@@ -160,7 +160,7 @@ Was kann mit den Funktionswerten einer Abbildung passieren, wenn man größere A
 
 Eine sehr spezielle und auch eher uninteressante Art von Abbildungen sind solche, deren Abbildungsvorschrift jedem beliebigen Argument das gleiche Bild zuordnet. Abbildungen, die diese Eigenschaft haben, heißen \textbf{konstant}.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=0:3, y=.8cm, x=.8cm, ymin=0, ymax=2, samples=2, ylabel=$f(x)$, xlabel=$x$]
@@ -226,8 +226,7 @@ Wenn bestimmt werden soll, ob eine Abbildung monoton ist, dann lässt sich das a
 
 Es ist auch möglich, Monotonie rechnerisch nachzuweisen. Wirklich adäquate Mittel dafür erlernst du allerdings erst im Kapitel über \textbf{Differentialrechnung in \Real}.\todocomment{Hier am besten eine verlinkung}
 
-\begin{example}
-    
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=0:4, y=.5cm, x=.75cm, xtick={1,...,4}, ytick={1,2,3}, samples=2]
@@ -292,7 +291,7 @@ Wenn man davon spricht, dass der Graph einer Abbildung symmetrisch ist, dann mei
     \end{advexample}
 \end{advanced}
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={1,2,3}, samples=\ifdraft{5}{20}]
@@ -322,7 +321,7 @@ Der Graph aus dem letzten Beispiel ist \textbf{achsensymmetrisch an der $y$-Achs
 
 Das bedeutet auch, dass man die gleichen Funktionswerte erhält, egal ob man von der $y$-Achse eine gewisse Schrittzahl nach links oder rechts geht: Letztendlich verläuft der Graph auf beiden Seiten auf der gleichen Höhe.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={1,2}, samples=\ifdraft{5}{20}]
@@ -347,13 +346,13 @@ Wenn der Punkt $\coord{x}{y}$ auf dem Graphen einer Abbildung liegt, dann steht 
     Der Graph einer Abbildung $f$ ist genau dann achsensymmetrisch an der $y$-Achse, wenn $f(x)=f(-x)$ für alle $x\in\Real$ gilt.
 \end{theorem}
 
-\begin{example}
+\begin{example}{}
     Es lässt sich rechnerisch erklären, dass der Graph der Abbildung $f(x)=x^2-1$ achsensymmetrisch an der $y$-Achse ist: Es gilt \[f(-x)=(-x)^2-1=x^2-1=f(x),\] also insgesamt $f(x)=f(-x)$. Die Bedingung $f(x)=f(-x)$ ist nach den vorherigen Überlegungen genau die Voraussetzung für die Achsensymmetrie an der $y$-Achse.
 \end{example}
 
 Anders als in den vorherigen Beispielen ist es auch möglich, dass der Graph nicht an der $y$-Achse achsengespiegelt ist, sondern stattdessen punktgespiegelt am Ursprung. Dabei wird der Graph nicht einfach von links nach rechts geklappt.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={-4,...,4}, samples=\ifdraft{5}{20}]
@@ -384,7 +383,7 @@ also hat eine Abbildung einen punktsymmetrischen Graphen, falls stets $f(x)=-f(-
     Der Graph einer Abbildung $f$ ist genau dann punktsymmetrisch am Ursprung, wenn $f(x)=-f(-x)$ für alle $x\in\Real$ gilt.
 \end{theorem}
 
-\begin{example}
+\begin{example}{}
     Der Graph der Abbildung $f(x)=x^3$ ist punktsymmetrisch am Ursprung. Um zu prüfen, ob der Graph punktsymmetrisch ist, muss geschaut werden, ob \mbox{$f(x)=-f(-x)$} gilt. Weil $f(x)$ nichts anderes als $x^3$ ist, muss hier lediglich geprüft werden, ob $x^3$ dasselbe ist wie $-\colorbrace{(-x)^3}{f(-x)}$. Wir können nun leicht nachrechnen, dass
     \[-(-x)^3=-(-x^3)=x^3\]
     gilt. Und das ist genau dasselbe wie $f(x)$. Der Graph der Funktion ist also punktsymmetrisch am Ursprung.
