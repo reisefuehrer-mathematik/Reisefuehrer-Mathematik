@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage[ngerman]{babel}
+\RequirePackage[main=ngerman]{babel}
 \RequirePackage[table]{xcolor}
 
 \RequirePackage[utf8]{inputenc}
@@ -48,7 +48,8 @@ suffix_3p "\\,ff."
 
 \RequirePackage{bookmark}
 \RequirePackage{hyperref}
-\RequirePackage[capitalise]{cleveref}
+\RequirePackage{aliascnt} % must be loaded before cleveref
+\RequirePackage[capitalise, nameinlink, ngerman]{cleveref}
 
 \RequirePackage[most]{tcolorbox}
 %\RequirePackage[framemethod=TikZ]{mdframed}
@@ -149,14 +150,30 @@ suffix_3p "\\,ff."
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathematical environments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcounter{def}[chapter]
-\newcounter{theo}[chapter]
-\newcounter{lem}[chapter]
-\newcounter{cor}[chapter]
-\newcounter{sample}[chapter]
-\newcounter{envcount}[chapter]
+\newcounter{mathenv}[chapter]
 
-\renewcommand{\thectr}{\arabic{chapter}.\arabic{envcount}}
+\renewcommand{\themathenv}{\arabic{chapter}.\arabic{mathenv}}
+\newcounter{def}[chapter]
+\newaliascnt{theo}{mathenv}
+\newaliascnt{lem}{mathenv}
+\newaliascnt{cor}{mathenv}
+\newaliascnt{sample}{mathenv}
+\newaliascnt{rem}{mathenv}
+
+
+\Crefname{def}{Definition}{Definitionen}
+\crefname{def}{Definition}{Definitionen}
+\Crefname{theo}{Theorem}{Theoreme}
+\crefname{theo}{Theorem}{Theoreme}
+\Crefname{lem}{Lemma}{Lemmata}
+\crefname{lem}{Lemma}{Lemmata}
+\Crefname{cor}{Korollar}{Korollare}
+\crefname{cor}{Korollar}{Korollare}
+\Crefname{sample}{Beispiel}{Beispiele}
+\crefname{sample}{Beispiel}{Beispiele}
+\Crefname{rem}{Anmerkung}{Anmerkungen}
+\crefname{rem}{Anmerkung}{Anmerkungen}
+
 \renewcommand{\thedef}{\arabic{chapter}.\arabic{def}}
 \renewcommand{\thetheo}{\arabic{chapter}.\arabic{theo}}
 \renewcommand{\thelem}{\arabic{chapter}.\arabic{lem}}
@@ -164,29 +181,64 @@ suffix_3p "\\,ff."
 \renewcommand{\thesample}{\arabic{chapter}.\arabic{sample}}
 
 \def\tcmathenvopt{breakable, enhanced jigsaw, pad at break=2mm, fonttitle=\bfseries, boxrule=2pt}
-\newtcolorbox{definition}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=red!5!white,colframe=red!75!black, title={\refstepcounter{envcount} Definition~\thectr\ifstrempty{#1}{}{~--~#1}}}
-\newtcolorbox{lemma}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!20,colframe=yellow!50!orange, title={\refstepcounter{envcount} Satz~\thectr\ifstrempty{#1}{}{~--~#1}}}
-
-\newtcolorbox{theorem}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!black, title={\refstepcounter{envcount} Satz~\thectr\ifstrempty{#1}{}{~--~#1}}}
-\newtcolorbox{corollary}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!gray, title={\refstepcounter{envcount} Korollar~\thectr\ifstrempty{#1}{}{~--~#1}}}
-\newtcolorbox{example}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}},
+\newtcolorbox{definition}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=red!5!white,colframe=red!75!black,
+    title={Definition~\thedef\ifstrempty{#2}{}{~--~#2}},
+    step=def, 
+    label=#1
+}
+\newtcolorbox{lemma}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=yellow!20,colframe=yellow!50!orange,
+    title={Satz~\thelem\ifstrempty{#2}{}{~--~#2}},
+    step=lem, 
+    label=#1
+}
+\newtcolorbox{theorem}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=green!20,colframe=green!50!black,
+    title={Satz~\thetheo\ifstrempty{#2}{}{~--~#2}},
+    step=theo, 
+    label=#1
+}
+\newtcolorbox{corollary}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=green!20,colframe=green!50!gray,
+    title={Korollar~\thecor\ifstrempty{#2}{}{~--~#2}},
+    step=cor, 
+    label=#1
+}
+\newtcolorbox{example}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
     sharp corners,
     boxrule=0pt, colframe=black!5,
     coltitle=black, colback=black!5,
     borderline west={3pt}{0pt}{gray},
-    title={\refstepcounter{envcount}Beispiel~\thectr\ifstrempty{#1}{}{~--~#1}},
-    attach title to upper=\vspace*{.5em}\par
+    title={Beispiel~\thesample\ifstrempty{#2}{}{~--~#2}},
+    attach title to upper=\vspace*{.5em}\par,
+    step=sample, 
+    label=#1
 }
-\newtcolorbox{advexample}[1][]{code={\pgfkeysalsofrom{\tcmathenvopt}},
+\newtcolorbox{advexample}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
     sharp corners,
     boxrule=0pt, colframe=violet!30,
     coltitle=black, colback=violet!30,
     borderline west={3pt}{0pt}{violet!70},
-    title={\refstepcounter{envcount}Beispiel~\thectr\ifstrempty{#1}{}{~--~#1}},
-    attach title to upper=\vspace*{.5em}\par
+    title={Beispiel~\thesample\ifstrempty{#2}{}{~--~#2}},
+    attach title to upper=\vspace*{.5em}\par,
+    step=sample, 
+    label=#1
 }
-
-\newtcolorbox{remark}[1]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=blue!20,colframe=blue!40, title={\color{blue} Anmerkung: #1\hfill\tikz[overlay, scale=.5]{\squirrel}}, attach title to upper=\vspace*{.5em}\par}
+\newtcolorbox{remark}[2][]{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=blue!20,colframe=blue!40,
+    title={\color{blue} Anmerkung: #2\hfill\tikz[overlay, scale=.5]{\squirrel}},
+    attach title to upper=\vspace*{.5em}\par,
+    step=rem, 
+    label=#1
+}
 \newtcolorbox{reminder}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=gray!20,colframe=gray!40, title={\color{gray} Erinnerung}, attach title to upper=\vspace*{.5em}\par}
 %\newtcolorbox{nutshell}[1]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=brown!20,colframe=brown!40, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par}
 \newenvironment{nutshell}[1]{
