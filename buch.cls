@@ -276,10 +276,10 @@ suffix_3p "\\,ff."
 \renewcommand{\chapterlinesformat}[3]{%
     \ifthenelse{\equal{#2}{\empty}}{}{
     \tikz[remember picture, overlay]{
-        \node[anchor=south east, inner sep=0pt, transform shape, scale=8, text=chaptercolor!40!black!20!white] at ($(A.south east)-(0,.5cm)-(-.25cm, .25cm)$) {\bfseries\thechapter};
-        \node[anchor=south east, inner sep=0pt, transform shape, scale=8] at ($(A.south east)-(0,.5cm)$) {#2};
+        \node[anchor=south east, inner sep=0pt, transform shape, scale=8, text=chaptercolor!40!black!20!white] at ($(pic cs:A)-(0,.5cm)-(-.25cm, .25cm)$) {\bfseries\thechapter};
+        \node[anchor=south east, inner sep=0pt, transform shape, scale=8] at ($(pic cs:A)-(0,.5cm)$) {#2};
     }}%
-    \tikzmarknode{A}{\bfseries#3}
+    \bfseries#3\tikzmark{A}
     \vspace*{-.5\baselineskip}%
     \rule{\textwidth}{.4pt}\par\nobreak
 }
