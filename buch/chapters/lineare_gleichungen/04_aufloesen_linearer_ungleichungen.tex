@@ -2,12 +2,85 @@
 
 \begin{document}
 
-Was ist eine Ungleichung?
+Lineare Gleichungen sind eine mathematische Beschreibung davon, dass zwei Dinge gleich sind. In unserer Vorstellungen waren das oft die beiden Seiten einer Balkenwaage. Sobald die Waage im Gleichgewicht ist, müssen links und rechts die gleichen Gesamtgewichte in den Waagschalen liegen. In diesem Abschnitt schauen wir uns an, ob sich auch Aussagen über das Gewicht der Kugeln treffen lassen können, wenn die Waage sich nicht im Gleichgewicht befindet, wenn wir also wissen, dass eine Seite schwerer ist oder -- mathematischer formuliert -- einen größeren Wert hat.
+Wenn 
+\begin{example}[ex:ungleichung_auf_waage]
+    \parpic[r]{
+        \begin{linearUnequal}
+            % Füllung linke Waagschale
+            \node[white,marble,inner sep=.12cm] at (-0.85,0.52) {$x$};
+            \node[white,marble,inner sep=.12cm] at (-1.15,0.52) {$x$};
+            %Füllung rechte Waagschale
+            \node[white,marble,inner sep=.12cm] at (1.2,0.2) {$x$};
+            \fill (0.55,0.05) -- (1.05,0.05) -- (1.0,0.45) -- (0.6,0.45) -- cycle;
+            \draw[line width=0.75mm] (0.8,0.51) circle[radius=0.06cm];
+            \node[white] at (0.8,0.25) {$19$};
+        \end{linearUnequal}
+    }
+    
+    Rechts siehst du das Bild einer Balkenwaage, die sich nicht im Gleichgewicht befindet: Sie ist nach rechts gekippt. Das bedeutet, dass auf der rechten Seite ein höheres Gewicht liegen muss als auf der linken.
+    
+    Weil links das Gewicht $2x$ liegt und rechts das Gewicht $19+x$, kannst du dir schnell überlegen, dass $2x$ (die linke Seite), einen kleineren Wert haben muss als $19+x$ (die rechte Seite). Wenn du das mathematisch aufschreibst, erhältst du die Aussage
+    \[2x<19+x.\]
+    Das funktioniert genauso wie bei den Gleichungen, die wir bisher gesehen haben -- mit dem einzigen Unterschied, dass in der Mitte nun ein \enquote{$<$} steht.
+\end{example}
 
-Beispiele
+Im letzten Beispiel haben wir so etwas ähnliches wie eine lineare Gleichung erhalten, allerdings stand in der Mitte kein \enquote{$=$}, sondern ein \enquote{$<$}. Statt auszusagen, dass beide Seiten gleich sein sollen, steht hier also, dass die linke Seite einen kleineren Wert haben soll. 
 
-Problem beim Auflösen mit Multiplikation
+Vor allem heißt das natürlich, dass die Seiten nicht mehr den gleichen Wert haben. Deshalb wäre es irreführend, Aussagen wie $2x<19+x$ oder $4x+71>3$ als Gleichungen zu bezeichnen. Solche Aussagen werden daher \textbf{Ungleichungen} genannt -- denn die Seiten haben jetzt ja unterschiedliche Werte, sind also ungleich.
 
-Wie löst man das dann?
+Abgesehen von ihrem Namen und dem Zeichen in der Mitte sind Ungleichungen aber fast dasselbe wie Gleichungen. Du kannst sie auf die gleiche Weise auflösen und damit ebenso Informationen über den Wert von $x$ bekommen wie bei Gleichungen. Es gibt lediglich eine Besonderheit, die du beachten musst, und zwar lassen sich \textbf{Ungleichungen nicht ohne weiteres mit negativen Zahlen multiplizieren}.
+
+\begin{example}
+    Die Ungleichung $2<7$ ist natürlich erfüllt, da $2$ die kleinere der beiden Zahlen ist. Du weißt, dass du Gleichungen auf beiden Seiten mit beliebigen Zahlen (außer 0) multiplizieren kannst, ohne sie zu verändern. 
+    
+    Wenn du die Ungleichung $2<7$ allerdings mit $-1$ multiplizierst, dann erhältst du die neue Ungleichung
+    \[\colorbrace{-2<-7}{\text{falsch!}}.\]
+    Auf einmal ist aber $-2$ die größere der beiden Zahlen, sodass es jetzt eigentlich korrekt $-2>-7$ heißen müsste. Das Zeichen in der Mitte hat sich also umgedreht.
+\end{example}
+
+Sobald du eine Ungleichung mit einer negativen Zahl multiplizierst, dreht sie sich um. Wenn also vorher die linke Seite größer war (in der Mitte stand also ein \enquote{$>$}), dann ist sie nach der Multiplikation mit einer negativen Zahl kleiner (das Zeichen in der Mitte wird also zu \enquote{$<$}).
+
+Alle anderen Regeln für Äquivalenzumformungen bleiben erhalten, sodass für Ungleichungen die folgende Aussage gilt (der einzige Unterschied zu Satz \ref{th:equivalent_transformations} ist, dass eine Multiplikation jetzt nicht mit allen $a\neq 0$, sondern nur noch mit $a>0$ möglich ist).
+
+\begin{theorem}{Äquivalenzumformungen für Ungleichungen}
+    Die Lösungsmenge einer Ungleichung bleibt unverändert, wenn man
+    \begin{itemize}
+        \item zu jeder Seite eine Zahl $a\in\mathbb{R}$ addiert.
+        \item jede Seite mit einer Zahl $a>0$ multipliziert.
+    \end{itemize}
+\end{theorem}
+
+Mithilfe der etwas modifizierten Regeln für Äquivalenzumformungen können wir Ungleichungen fast genauso wie normale Gleichungen lösen. In den beiden folgenden Beispielen siehst du zunächst die Lösung der Ungleichung aus Beispiel \ref{ex:ungleichung_auf_waage}, die exakt so funktioniert als wäre dies einfach eine Gleichung. Danach siehst du ein Beispiel, in dem wir das Zeichen in der Mitte tatsächlich umdrehen müssen.
+
+\todo{Bugfix: Einrückungen nach Befehlsstrichen entfernen}
+\begin{example}
+    In Beispiel \ref{ex:ungleichung_auf_waage} hast du die Ungleichung 
+    \cEquation{2x<19+x}{-x}
+    gesehen. Wir tun zunächst einmal so als hätten wir es mit einer normalen Gleichung zu tun. Um alle Summanden mit $x$ auf die linke Seite zu bringen, subtrahieren wir auf beiden Seiten $x$ und erhalten
+    \[x<19.\]
+    Damit ist die Ungleichung nach $x$ aufgelöst und wir wissen, dass die Waage nur nach rechts gekippt sein kann, wenn $x$ kleiner als $19$ ist. Die Lösungsmenge ist $\Solutions=\{x\mid x<19\}$.
+\end{example}
+\begin{example}
+    Die Ungleichung
+    \cEquation{2x+14<5x-13}{-5x}
+    soll nach $x$ aufgelöst werden. Wir möchten also herausfinden, welche Werte $x$ haben darf, damit die Ungleichung gilt. Zunächst bringen wir wieder Summanden mit $x$ nach links und Summanden ohne $x$ nach rechts. Dafür subtrahieren wir $5x$ von der Ungleichung und erhalten
+    \cEquation{-3x+14<-13.}{-14}
+    Anschließend subtrahieren wir $14$ und erhalten
+    \cEquation{-3x<-27.}{:(-3)}
+    Der letzte Schritt ist nun, die Ungleichung durch $-3$, also den Vorfaktor von $x$, zu teilen. Allerdings ist $-3$ eine negative Zahl, das heißt, dass wir jetzt auch das Zeichen in der Mitte umdrehen müssen. Mit dem umgedrehten Zeichen erhalten wir anschließend
+    \[x>9.\]
+    Jeder Wert größer als $9$ löst also die obige Ungleichung. Beispielsweise kannst du $x=10$ einsetzen, um das Ergebnis zu überprüfen. Du erhältst
+    \[2\cdot\colorobrace{10}{x}+14=16+14=\colorobrace{34<37}{\text{Ungleichung~erfüllt}}=50-13=5\cdot \colorobrace{10}{x}-13.\]
+\end{example}
+
+Du siehst also, dass du kein neues Verfahren anwenden musst, um Ungleichungen zu lösen. Solange du daran denkst, das Zeichen in der Mitte umzudrehen, wenn du mit einer negativen Zahl multiplizierst, musst du dich nicht davon verwirren lassen, wenn in der Mitte kein \enquote{$=$} steht.
+
+\begin{nutshell}{Ungleichungen}
+    Eine \textbf{Ungleichung} unterscheidet sich von einer Gleichung dadurch, dass in der Mitte nicht das Symbol \enquote{$=$} steht, sondern eines der Symbole $<,>,\leq$ oder $\geq$.
+    \vspace*{2mm}
+    
+    Du kannst Ungleichungen genauso wie Gleichungen auflösen, allerdings musst du darauf achten, dass du immer, wenn du die Gleichung mit einer \emph{negativen} Zahl multiplizierst, das Symbol in der Mitte umdrehst (also wird aus \enquote{$<$} ein \enquote{$>$} und umgekehrt).
+\end{nutshell}
 
 \end{document}
