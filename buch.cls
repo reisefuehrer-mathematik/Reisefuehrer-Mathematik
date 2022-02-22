@@ -87,12 +87,14 @@ suffix_3p "\\,ff."
     \StrSubstitute{#2}{ü}{ue}[#2]
     \StrSubstitute{#2}{ }{_}[#2]
 }
+\makeatletter
 \newcommand\ldsection[2][]{
     \section{#2}
     \tosnakecase{\Chaptername}{\chapname}
     \tosnakecase{#2}{\filename}
-    \subfile{chapters/\chapname/0\arabic{section}_\filename}
+    \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
 }
+\makeatother
 \newcommand\ldadvsection[2][]{
     \clearpage
     \pagecolor{violet!30!white}
