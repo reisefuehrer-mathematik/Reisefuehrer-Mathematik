@@ -78,7 +78,7 @@
 }
 %Erstellt eine Gleichung, deren Umformung mit einem Befehlsstrich kommentiert werden kann
 \newcommand{\cEquation}[2]{
-    \[\tikzmarknode{equation}{#1}\]
+    \tikzmarknode{equation}{#1}
     \begin{tikzpicture}[overlay,remember picture]
         \node[text width=.1\textwidth] at ($(equation) + (.4\textwidth,0)$) {\textcolor{orange!75!black!}{$\bigl|\,#2$}};
     \end{tikzpicture}
