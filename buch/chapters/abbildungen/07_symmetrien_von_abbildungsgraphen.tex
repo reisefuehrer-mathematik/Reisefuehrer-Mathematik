@@ -20,8 +20,8 @@ Wenn man davon spricht, dass der Graph einer Abbildung symmetrisch ist, dann mei
             \begin{tikzpicture}
                 \draw[blue] (0,0) circle[radius=1.5cm];
                 \draw[dashed] (0,-1.7) -- (0,1.7);
-                \draw[-latex,dash dot,red] (135:1.5) -- node[fill=violet!30,below] {$f$} (45:1.5);
-                \draw[-latex,dash dot,red] (-150:1.5) -- node[fill=violet!30,below] {$f$} (-30:1.5);
+                \draw[very thick,-latex,dashed,red] (135:1.5) -- node[fill=violet!30,below] {$f$} (45:1.5);
+                \draw[very thick,-latex,dashed,red] (-150:1.5) -- node[fill=violet!30,below] {$f$} (-30:1.5);
                 \draw[fill=yellow] (45:1.5) circle[radius=.5mm];
                 \draw[fill=yellow] (135:1.5) circle[radius=.5mm];
                 \draw[fill=orange] (-30:1.5) circle[radius=.5mm];
@@ -51,18 +51,18 @@ Wenn man davon spricht, dass der Graph einer Abbildung symmetrisch ist, dann mei
 
 Der Graph aus dem letzten Beispiel ist \textbf{achsensymmetrisch an der $y$-Achse}. Das heißt, dass die $y$-Achse als Spiegelachse fungiert und sich der Teil links von der $y$-Achse auf den Teil rechts von der $y$-Achse klappen lässt.
 
-\begin{figure}[ht]
-    \centering
+
+\parpic[r]{
     \begin{tikzpicture}
-        \begin{axis}[defgrid, domain=-2:2, y=0.9cm, x=0.9cm, xtick={-2,...,2}, ytick={1,2,3}, ymax=3]
+        \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={1,2,3}, yticklabels={~,~,3},ymax=3]
             \addplot[mark=*, only marks, fill=white] coordinates {(-1,2) (1, 2)};
             \addplot[mark=*, only marks, fill=yellow] coordinates {(-2,1) (2, 1)};
-            \draw[-latex,red,dashed] (-2,1) to[bend left] (2,1);
-            \draw[-latex,red,dashed] (-1,2) to[bend left] (1,2);
+            \draw[very thick,-latex,red,dashed] (-2,1) -- (2,1);
+            \draw[very thick,-latex,red,dashed] (-1,2) -- (1,2);
         \end{axis}
     \end{tikzpicture}
-    \caption{Nutzt man die $y$-Achse als Spiegelachse, dann werden alle Punkte auf der linken Seite (also mit negativen $x$-Werten) in gerader Linie nach rechts gespiegelt. Der gelbe Punkt auf der linken Seite wird in waagerechter Linie nach rechts gespiegelt. Dadurch verändert sich sein $y$-Wert nicht. Durch die Spiegelung ändert sich das Vorzeichen der $x$-Koordinate, weil der Punkt nach der Spiegelung genauso weit rechts von der $y$-Achse ist wie er vorher links war.}
-\end{figure}
+}
+Nutzt man die $y$-Achse als Spiegelachse, dann werden alle Punkte auf der linken Seite (also mit negativen $x$-Werten) in gerader Linie nach rechts gespiegelt. Der gelbe Punkt auf der linken Seite wird in waagerechter Linie nach rechts gespiegelt. Dadurch verändert sich sein $y$-Wert nicht. Durch die Spiegelung ändert sich das Vorzeichen der $x$-Koordinate, weil der Punkt nach der Spiegelung genauso weit rechts von der $y$-Achse ist wie er vorher links war.
 
 Das bedeutet auch, dass man die gleichen Funktionswerte erhält, egal ob man von der $y$-Achse eine gewisse Schrittzahl nach links oder rechts geht: Letztendlich verläuft der Graph auf beiden Seiten auf der gleichen Höhe.
 
@@ -73,7 +73,7 @@ Das bedeutet auch, dass man die gleichen Funktionswerte erhält, egal ob man von
                 \addplot[color=violet] expression{x^2-1};
                 \addplot[mark=*, only marks, fill=white] coordinates {(-1,0) (1, 0)};
                 \addplot[mark=*, only marks, fill=yellow] coordinates {(-2,3) (2, 3)};
-                \draw[-latex,dashed,red] (-2,3) -- (2,3);
+                \draw[very thick,-latex,dashed] (-2,3) -- (2,3);
             \end{axis}
         \end{tikzpicture}
     }
@@ -100,11 +100,11 @@ Anders als in den vorherigen Beispielen ist es auch möglich, dass der Graph nic
 \begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,...,2}, ytick={-4,...,4}, samples=\ifdraft{5}{20}]
+            \begin{axis}[defgrid, domain=-2:2, y=.75cm, x=.75cm, xtick={-2,-1,1,2}, xticklabels={-2,~,1,2}, ytick={-4,...,4}, samples=\ifdraft{5}{20}]
                 \addplot[color=violet] expression{0.5*x^3};
                 \addplot[mark=*, only marks, fill=white] coordinates {(-1.5,-1.6875)};
                 \addplot[mark=*, only marks, fill=yellow] coordinates {(1.5, 1.6875)};
-                \draw[dashed,-latex] (-1.5,-1.6875) -- (1.5,1.6875);
+                \draw[very thick,dashed,-latex] (-1.5,-1.6875) -- (1.5,1.6875);
             \end{axis}
         \end{tikzpicture}
     }
