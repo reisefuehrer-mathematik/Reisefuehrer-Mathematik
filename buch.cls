@@ -153,7 +153,7 @@ suffix_3p "\\,ff."
 \newcounter{mathenv}[chapter]
 
 \renewcommand{\themathenv}{\arabic{chapter}.\arabic{mathenv}}
-\newcounter{def}[chapter]
+\newaliascnt{def}{mathenv}
 \newaliascnt{theo}{mathenv}
 \newaliascnt{lem}{mathenv}
 \newaliascnt{cor}{mathenv}

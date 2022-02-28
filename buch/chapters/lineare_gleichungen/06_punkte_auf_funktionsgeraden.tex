@@ -1,0 +1,47 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Punkte auf Funktionsgeraden}
+
+Du weißt, dass sich Geraden im Koordinatensystem mithilfe ihrer Steigung und ihres Achsenabschnitts beschreiben lassen. Beides kannst du sofort aus ihrer Berechnungsvorschrift $f(x)=ax+b$ ablesen. In diesem Abschnitt siehst du, wie du untersuchen kannst, ob bestimmte Punkte auf einer gegebenen Geraden liegen und wie du die Nullstellen einer Funktion bestimmen kannst, deren Graph eine Gerade ist.
+
+\begin{example}[ex:points-on-lines]{}
+    \parpic[r]{
+        \tikz{
+            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},yticklabels={-5,-4,-3,~,-1,~,1,...,5},ymin=-5,ymax=5,xmin=-2,xmax=2, samples=2]
+                \addplot[color=violet] expression{4*x-1};
+                \addplot[mark=*, only marks, fill=violet] coordinates {(2,1)};
+                \node[above,violet] at (2,1) {$P$};
+            \end{axis}
+        }
+    }
+    Wir möchten die Frage beantworten, ob der Punkt $\coord{2}{1}$ auf dem Graphen der Funktion $f(x)=4x-1$ liegt. Da jeder Punkt $\coord{x}{y}$ auf einem Funktionsgraphen immer eine Abbildungsregel $f(x)=y$ darstellt, liegt der Punkt $\coord{2}{1}$ auf dem Graphen einer Funktion, wenn $f(2)=1$ gilt. Wir müssen also überprüfen, ob $f(2)=1$ gilt:
+    \[f(2)=4\cdot 2-1=8-1=7.\]
+    Das bedeutet, dass der Punkt $\coord{2}{7}$ auf dem Graphen liegt. Gleichzeitig weißt du jetzt, dass der Punkt $\coord{2}{1}$ zu weit unten liegt, um auf der Gerade $f(x)=4x-1$ zu liegen. Die Abbildung auf der rechten Seite zeigt die Gerade und den Punkt $\coord{2}{1}$.
+\end{example}
+
+Wenn ein Punkt $\coord{x}{y}$ auf dem Funktionsgraphen liegt, dann muss $f(x)=y$ gelten, denn das ist die Regel, die der Punkt darstellt, wenn er auf dem Graphen liegt. Indem du die $x$-Koordinate des Punkts in die Funktion einsetzt, kannst du also herausfinden, ob er auf dem Graphen liegt. Und zwar liegt er genau dann auf dem Graphen, wenn du als Ergebnis die $y$-Koordinate des Punkts erhältst.
+
+Du weißt bereits, dass bei einer Nullstelle $x$ einer Funktion gelten muss, dass $f(x)=0$ ist. Um die Nullstellen einer Funktion $f(x)=ax+b$ zu finden, musst du also herausfinden, wann $ax+b=0$ gilt.
+
+\begin{example}{}
+    Um die Nullstellen der Funktion $f(x)=4x-1$ zu bestimmen, musst du herausfinden, für welche Wert von $x$ die Gleichung $f(x)=0$ erfüllt ist. Es muss also die Gleichung
+    \[4x-1=0\]
+    nach $x$ aufgelöst werden:
+    \begin{align*}
+        4x-1&=0\\
+        4x&=1\\
+        x&=\frac{1}{4}
+    \end{align*}
+    Die Gleichung hat die Lösungsmenge $\Solutions=\{-\frac{1}{4}\}$, also hat die Funktion \mbox{$f(x)=4x-1$} die Nullstelle $-\frac{1}{4}$. Wenn du das Bild im Beispiel \ref{ex:points-on-lines} ansiehst, dann siehst du, dass $\frac{1}{4}$ ein sinnvoller Wert für eine Nullstelle ist und mit dem Bild übereinstimmt.
+\end{example}
+
+Zum Auffinden der Nullstelle einer Funktionsgeraden muss die lineare Gleichung aufgelöst werden, die sich durch $f(x)=0$ ergibt. [Auch Punkte können Geraden definieren]
+
+Interpolation
+
+\begin{nutshell}{Geraden durch vorgegebene Punkte}
+\end{nutshell}
+
+\end{document}
