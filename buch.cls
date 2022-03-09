@@ -180,6 +180,8 @@ suffix_3p "\\,ff."
 \renewcommand{\thecor}{\arabic{chapter}.\arabic{cor}}
 \renewcommand{\thesample}{\arabic{chapter}.\arabic{sample}}
 
+\tcbuselibrary{breakable}
+
 \def\tcmathenvopt{breakable, enhanced jigsaw, pad at break=2mm, fonttitle=\bfseries, boxrule=2pt}
 \newtcolorbox{definition}[2][]{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
@@ -251,7 +253,29 @@ suffix_3p "\\,ff."
     \arrayrulecolor{black}
 }
 
-\newtcolorbox{advanced}[1]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=violet!20,colframe=violet!40, title={\color{violet} Tiefer in den Hasenbau: #1\hfill\tikz[overlay, scale=.5]{\moles}}, attach title to upper=\vspace*{.5em}\par}
+\makeatletter
+\newtcolorbox{advanced}[1]{
+    %breakable,
+    attach title to upper=\par,
+    colback=violet!20,
+    colframe=violet!20,
+    left*=0pt,
+    right*=0pt,
+    outer arc=0pt,
+    parbox=false,
+    title={\bfseries\color{violet} #1},
+    %extras pre={
+    if odd page or oneside={
+    grow to left by=\Gm@lmargin,
+    grow to right by=\Gm@rmargin,
+    }{
+    grow to left by=\Gm@rmargin,
+    grow to right by=\Gm@lmargin,
+    }
+    %},
+}
+\makeatother
+
 
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}

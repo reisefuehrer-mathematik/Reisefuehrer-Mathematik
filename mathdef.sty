@@ -56,25 +56,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Decoration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\colorbrace}[2]{
-    \ensuremath{
-        \textcolor{maincolor}{
-            \underbrace{\textcolor{black}{#1}}_{\tikzmarknode{bracenode}{}}
-        }
-    }
-    \begin{tikzpicture}[overlay, remember picture]
-        \node at ($(bracenode) + (0,0.05)$) {\scriptsize \textcolor{orange!75!black}{\ensuremath{#2}}};
-    \end{tikzpicture}
+\newcommand{\colorbrace}[2]{%
+    \ensuremath{%
+        \textcolor{maincolor}{%
+            \underbrace{\color{black}#1}_{\makebox(0,0){%
+                \ensuremath{\scriptstyle #2}%
+            }}%
+        }%
+    }%
 }
 \newcommand{\colorobrace}[2]{
-    \ensuremath{
-        \textcolor{maincolor}{
-            \overbrace{\textcolor{black}{#1}}^{\tikzmarknode{bracenode}{}}
-        }
-    }
-    \begin{tikzpicture}[overlay, remember picture]
-        \node at ($(bracenode) + (0,0.05)$) {\scriptsize \textcolor{orange!75!black}{\ensuremath{#2}}};
-    \end{tikzpicture}
+    \ensuremath{%
+        \textcolor{maincolor}{%
+            \overbrace{\color{black}#1}^{\makebox(0,0){%
+                \ensuremath{\scriptstyle #2}%
+            }}%
+        }%
+    }%
 }
 %Erstellt eine Gleichung, deren Umformung mit einem Befehlsstrich kommentiert werden kann
 \newcommand{\cEquation}[2]{
