@@ -183,35 +183,35 @@ suffix_3p "\\,ff."
 \tcbuselibrary{breakable}
 
 \def\tcmathenvopt{breakable, enhanced jigsaw, pad at break=2mm, fonttitle=\bfseries, boxrule=2pt}
-\newtcolorbox{definition}[2][]{
+\DeclareTColorBox{definition}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     colback=red!5!white,colframe=red!75!black,
     title={Definition~\thedef\ifstrempty{#2}{}{~--~#2}},
     step=def,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{lemma}[2][]{
+\DeclareTColorBox{lemma}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     colback=yellow!20,colframe=yellow!50!orange,
     title={Satz~\thelem\ifstrempty{#2}{}{~--~#2}},
     step=lem,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{theorem}[2][]{
+\DeclareTColorBox{theorem}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     colback=green!20,colframe=green!50!black,
     title={Satz~\thetheo\ifstrempty{#2}{}{~--~#2}},
     step=theo,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{corollary}[2][]{
+\DeclareTColorBox{corollary}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     colback=green!20,colframe=green!50!gray,
     title={Korollar~\thecor\ifstrempty{#2}{}{~--~#2}},
     step=cor,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{example}[2][]{
+\DeclareTColorBox{example}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     sharp corners,
     boxrule=0pt, colframe=black!5,
@@ -222,7 +222,7 @@ suffix_3p "\\,ff."
     step=sample,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{advexample}[2][]{
+\DeclareTColorBox{advexample}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     sharp corners,
     boxrule=0pt, colframe=violet!30,
@@ -233,7 +233,7 @@ suffix_3p "\\,ff."
     step=sample,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{remark}[2][]{
+\DeclareTColorBox{remark}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     colback=blue!20,colframe=blue!40,
     title={\color{blue} Anmerkung: #2\hfill\tikz[overlay, scale=.5]{\squirrel}},
