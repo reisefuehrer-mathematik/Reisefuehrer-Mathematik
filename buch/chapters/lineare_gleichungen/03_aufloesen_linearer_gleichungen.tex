@@ -130,7 +130,7 @@ Schließlich muss noch die Lösungsmenge abgelesen werden.
 Um dieses Verfahren besser zu verstehen, schauen wir uns ein paar Beispiele für Gleichungen an, die auf die gerade beschriebene Weise gelöst werden können.
 \begin{example}{}
     Wir wollen die Lösungen der Gleichung
-    \[\cEquation{4x+9=34-x}{-9}\]
+    \[4x+9=34-x\commentLine{-9}\]
     finden. Wir haben keine Klammern und es ist bereits alles zusammengefasst, was zusammengefasst werden konnte. Damit ist Zwischenziel 2 bereits erreicht.
     
     Der nächste Schritt, den der Plan uns vorgibt, ist, alle Summanden mit $x$ von der rechten Seite zu eliminieren und alle Summanden ohne $x$ von der linken Seite zu eliminieren.
@@ -138,12 +138,12 @@ Um dieses Verfahren besser zu verstehen, schauen wir uns ein paar Beispiele für
     Schauen wir uns zunächst die linke Seite an: $4x+9$. Wir würden gern die $9$ loswerden. Die $9$ kannst du loswerden, indem du auf beiden Seiten $-9$ rechnest, denn $+9$ und $-9$ heben sich auf. Also machen wir das einmal:
     \begin{align*}
         4x+9-9&=34-x-9\\
-        \cEquation{4x&=25-x}{+x}
+        4x&=25-x \commentLine{+x}
     \end{align*}
     Nun muss noch der Teil mit dem $x$ auf der rechten Seite verschwinden. Genau genommen stört uns das \enquote{$-x$}. Hier kannst du einfach auf beiden Seiten $+x$ rechnen, denn $-x$ und $+x$ heben sich auf. Also:
     \begin{align*}
         4x+x&=25-x+x\\
-        \cEquation{5x&=25}{:5}
+        5x&=25 \commentLine{:5}
     \end{align*}
     Schließlich haben wir Zwischenziel 3 erreicht. Wir wissen nun, dass $5x$ dasselbe wie $25$ ist. Das heißt, der Wert $25$ hängt schon eng mit der Lösung zusammen, ist aber um den Faktor $5$ zu groß. Auf einer Waage hätten wir gesagt: \enquote{5 Kugeln haben ein Gewicht von 25}. Jetzt wird die ganze Gleichung noch durch 5 geteilt, damit wir nicht erhalten, was 5 Kugeln wiegen, sondern, was eine einzige Kugel wiegt. Es ergibt sich
     \begin{align*}
@@ -159,11 +159,11 @@ Um dieses Verfahren besser zu verstehen, schauen wir uns ein paar Beispiele für
 \end{example}
 \begin{example}{}
     Die Gleichung
-    \[3x=2(x+1)+x\] 
+    \[3x=2(x+1)+x\]
     soll nach $x$ aufgelöst werden. In dieser Gleichung kommen jedoch noch Klammern vor, sodass wir Zwischenziel 2 erst noch erreichen müssen. Wir lösen die Klammern daher zunächst auf:
     \[3x=2x+2+x\]
     und fassen die rechte Seite zusammen
-    \[\cEquation{3x=3x+2.}{-3x}\]
+    \[3x=3x+2. \commentLine{-3x}\]
     Da wir nun Zwischenziel 2 erreicht haben, steht es als nächstes an, auf der rechten Seite alle Vorkommen von $x$ zu eliminieren. Eigentlich müssten wir links auch alle Zahlen loswerden, allerdings ist das bereits erledigt. Wir subtrahieren auf beiden Seiten $3x$, da sich das mit den $3x$ auf der rechten Seite aufhebt.
     \begin{align*}
         3x-3x&=3x+2-3x\\
@@ -199,7 +199,7 @@ Zum Abschluss dieses Abschnitts wenden wir unser neues Wissen an, um die noch of
     Diese beiden Informationen können wir in unserer Gleichung nutzen, indem wir dort, wo von \textsc{Plätze Mitte} die Rede ist, stattdessen unser Wissen einsetzen, dass \textsc{Plätze Mitte} nichts anderes ist als $3\cdot \textsc{Plätze Süden}$. Auf die gleiche Weise können wir statt \textsc{Plätze Norden} auch $2\cdot \textsc{Plätze Süden}$ schreiben. Die Gleichung, die wir jetzt erhalten, sieht wie folgt aus:
     \[\colorbrace{\textsc{Plätze Süden}}{x}+3\cdot \colorbrace{\textsc{Plätze Süden}}{x}+2\cdot \colorbrace{\textsc{Plätze Süden}}{x}=48.\]
     Beim Weiterrechnen kürzen wir \textsc{Plätze Süden} ab sofort mit $x$ ab, um Schreibaufwand zu sparen. Es bleibt die Aufgabe übrig, wie gehabt die Gleichung $x+3x+2x=48$ zu lösen. Die linke Seite kann direkt zu $6x$ zusammengefasst werden. Wir haben also Zwischenziel 3 bereits erreicht und müssen zum Lösen der Gleichung
-    \[\cEquation{6x=48}{:6}\]
+    \[6x=48 \commentLine{:6}\]
     nur noch die Gleichung durch $6$ teilen. Als Ergebnis erhalten wir
     \[x=8,\]
     also haben wir die Lösungsmenge $\Solutions=\{8\}$. $x$ war ja nichts anderes als die Anzahl der Qualifikatinsplätze für Süddeutschland. Wir wissen jetzt also, dass Süddeutschland $8$ Plätze bekommt. Die Plätze von Mittel- und Norddeutschland auszurechnen, ist damit einfach: Mitteldeutschland erhält $8\cdot 3=24$ Plätze und Norddeutschland $8\cdot 2=16$ Plätze.
