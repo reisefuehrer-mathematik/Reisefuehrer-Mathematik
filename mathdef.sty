@@ -74,13 +74,8 @@
         }%
     }%
 }
-%Erstellt eine Gleichung, deren Umformung mit einem Befehlsstrich kommentiert werden kann
-\newcommand{\cEquation}[2]{
-    \tikzmarknode{equation}{#1}
-    \begin{tikzpicture}[overlay,remember picture]
-        \node[text width=.1\textwidth] at ($(equation) + (.4\textwidth,0)$) {\textcolor{maincolor}{$\bigl|\,#2$}};
-    \end{tikzpicture}
-}
+% Kommentiert eine Zeile ohne, dass der Kommentar Platz einnimmt
+\newcommand{\commentLine}[1]{\makebox[0pt][l]{\hspace{.3\textwidth}\textcolor{maincolor}{$\bigl|\,#1$}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Memes
