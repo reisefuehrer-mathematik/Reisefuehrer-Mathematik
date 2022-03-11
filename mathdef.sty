@@ -75,7 +75,16 @@
     }%
 }
 % Kommentiert eine Zeile ohne, dass der Kommentar Platz einnimmt
-\newcommand{\commentLine}[1]{\makebox[0pt][l]{\hspace{.3\textwidth}\textcolor{maincolor}{$\bigl|\,#1$}}}
+\RequirePackage{zref-savepos}
+\newcounter{possaveslot}
+\newcommand{\pushxpos}{%
+    \stepcounter{possaveslot}%
+    \zsaveposx{\thepossaveslot}%
+}
+\newcommand{\getxpos}{%
+    \zposx{\thepossaveslot}sp%
+}
+\newcommand{\commentLine}[1]{\makebox[0pt][l]{\pushxpos\hspace{\textwidth-\getxpos}\textcolor{maincolor}{$\bigl|\,#1$}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Memes
