@@ -15,7 +15,7 @@ Wir wissen bereits, dass man auf Aussagen entweder mit \enquote{Ja, das ist wahr
 In diesem Abschnitt widmen wir uns der Frage, wie man denn nun herausfinden kann, ob eine Aussage wahr oder falsch ist. Blöderweise ist das in manchen Fällen gar nicht so einfach oder manchmal sogar gar nicht möglich. Das nächste Beispiel zeigt Aussagen, für die es aus verschiedenen Gründen schwierig ist zu entscheiden, ob sie wahr oder falsch sind.
 
 \todo{Wo weitere Bilder einfügen? Es werden immer die gleichen Aussagen verwendet -> Also immer die gleichen Bilder einfügen?}
-\begin{example}
+\begin{example}{}
         \parpic[r]{
         \includegraphics[width=0.1\textwidth]{images/wizard_angry_tmp.png}
     }
@@ -31,7 +31,7 @@ Wir stellen also fest, dass es Aussagen gibt, über die wir nicht ohne weiteres 
 
 Wir müssen uns also damit abfinden, dass wir im Allgemeinen nicht über den Wahrheitswert einer Aussage entscheiden können. Wir geben uns damit aber noch nicht zufrieden. Können wir zumindest herausfinden, welche Informationen wir mindestens benötigen, um den Wahrheitswert einer Aussage zu bestimmen?
 
-\begin{example}
+\begin{example}{}
 Wir betrachten noch einmal zwei der Aussagen aus dem letzten Beispiel und verknüpfen diese mit \statement{und} zu einer neuen Aussage, die lautet:
 \[\statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig}\]
 Angenommen wir würden die Wahrheitswerte von den beiden kleineren Unteraussagen
@@ -59,7 +59,7 @@ Wir stellen deshalb jetzt vor, wie wir aus Wahrheitswerten von einer oder zwei A
 Betrachten wir zunächst den Fall, dass wir eine Aussage vorliegen haben, die dadurch entstanden ist, dass wir zwei Aussagen durch den Konnektor \statement{und} verknüpft haben. Das Symbol für \statement{und} ist $\land$. 
 Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen Aussagen. Angenommen, wir kennen die Wahrheitswerte von $A$ und $B$, was ist dann nun der Wahrheitswert von $A \land B$? Wir legen fest, dass $A \land B$ genau dann wahr ist, wenn sowohl $A$ als auch $B$ wahr ist. Ist also $A$ oder $B$ falsch oder sind sogar beide falsch, dann ist auch $A \land B$ falsch.
 
-\begin{example}
+\begin{example}{}
     Sei $S$ eine Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} und $G$ eine Abkürzung für \statement{Der Zaubertrank ist giftig}. Ist der Zauberer tatsächlich schlecht gelaunt ($S$ ist wahr) und ist der Zaubertrank giftig ($G$ ist auch wahr), dann ist $S \land G$ wahr. 
     
     Ist aber entweder $S$ oder $G$ falsch oder sind sogar beide falsch, dann ist $S \land G$ auch falsch. Das in einer Tabelle zusammengetragen, sieht wie folgt aus:
@@ -88,7 +88,7 @@ Wir halten jetzt das, was wir gerade formuliert haben, präzise in einer Definit
 
 \textbf{Wahrheitswerte von dem Konnektor \enquote{oder}}: Betrachten wir als nächstes den Fall, dass wir eine Aussage vorliegen haben, die dadurch entstanden ist, dass wir zwei Aussagen durch den Konnektor \statement{oder} verknüpft haben. Seien nun $A,B$ Abkürzungen für irgendwelche beliebigen Aussagen. Angenommen wir kennen die Wahrheitswerte von $A$ und $B$, wie lässt sich daraus der Wahrheitswert von $A \lor B$ ermitteln? Wir legen fest, dass $A \lor B$ genau dann wahr ist, wenn mindestens eine der Aussagen $A,B$ wahr ist. Insbesondere ist $A \lor B$ auch wahr wenn $A$ und $B$ beide gleichzeitig wahr sind. Der einzige Fall indem  $A \lor B$ falsch wird, ist, wenn sowohl $A$ als auch $B$ beide falsch sind.
 
-\begin{example}
+\begin{example}{}
     Sei $S$ wieder die Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} und $G$ wieder die Abkürzung für \statement{Der Zaubertrank ist giftig}. Ist mindestens eine Aussage der Aussagen $S, G$  wahr, dann ist $S \lor G$ wahr. Ist also zum Beispiel der Zauberer nicht schlecht gelaunt ($S$ ist falsch), aber der Zaubertrank ist giftig ($G$ ist wahr), dann ist $S \lor G$ wahr. 
     
     $S \lor G$ kann nur falsch werden, wenn der Zauberer nicht schlecht gelaunt ist ($S$ ist falsch) und der Zaubertrank nicht giftig ist ($G$ ist falsch). Wir tragen alle möglichen Fälle in einer Tabelle zusammen:
@@ -117,7 +117,7 @@ Die nächste Definition hält noch einmal genau das fest, was wir gerade besproc
 
 \textbf{Wahrheitswerte der Negation}: Den nächsten Fall, den wir betrachten, ist die Negation. Zur Erinnerung: Verneinen wir eine Aussage, dann ist das die Negation der ursprünglichen Aussage. Ist $A$ eine beliebige  Aussage, dann notieren wir die Negation von $A$ durch $\lnot A$. Da eine Verneinung den Inhalt einer Aussage \enquote{umdreht} legen wir, fest dass die Negation einer Aussage, ihren Wahrheitswert \enquote{umdreht}. Das heißt, wenn die Aussage wahr ist, dann ist ihre Negation falsch und ist eine Aussage falsch, dann ist ihre Negation wahr.
 
-\begin{example}
+\begin{example}{}
 Sei $G$ noch einmal die Abkürzung für die Aussage \statement{Der Zaubertrank ist giftig}. Ist $G$ wahr, dann ist die Negation $\lnot G$ falsch. Ist aber andersherum $G$ falsch, dann ist $\lnot G$ wahr. Die folgende Tabelle verdeutlicht dies.
     \[\begin{array}{c s c}\toprule
         G & \lnot G\\\midrule
@@ -139,7 +139,7 @@ Wie zuvor, halten wir diese Erkenntnisse auch nochmal in einer Definition fest.
 
 \textbf{Wahrheitswerte von dem Konnektor \enquote{genau dann, wenn}}: Betrachten wir nun den Fall, dass wir zwei Aussagen mit dem Konnektor \statement{genau dann, wenn} verknüpft haben. Solch eine Verknüpfung haben wir Äquivalenz genannt. Das Symbol für den Konnektor \statement{genau dann, wenn} notieren wir durch $\iff$. Seien nun $A,B$ wieder Abkürzungen für zwei beliebige  Aussagen. Wir definieren, dass $A \iff B$ genau dann wahr ist, wenn $A$ denselben Wahrheitswert wie $B$ besitzt. 
 
-\begin{example}
+\begin{example}{}
     Sei $F$ eine Abkürzung für die Aussage \statement{Der Zaubertrank verleiht Superkräfte} und $S$ wieder die Abkürzung für \statement{Der Zauberer ist schlecht gelaunt}. Verleiht zum Beispiel der Zaubertrank keine Superkräfte (also $F$ ist falsch) und ist der Zauberer nicht gut gelaunt ($G$ ist falsch), dann ist trotzdem $F \iff G$ wahr, da $F$ und $G$ den gleichen Wahrheitswert besitzen. 
     
     Verleiht der Zaubertrank Superkräfte ($F$ ist wahr) und ist der Zauberer schlecht gelaunt ($G$ ist falsch), dann ist $F \iff G$ falsch, da die Wahrheitswerte von $F$ und $G$ unterschiedlich sind. Die folgende Tabelle zeigt alle möglichen Fälle der Wahrheitswerte von $F$ und $G$ und wie sich daraus der Wahrheitswert von $F \iff G$ ergibt.
@@ -170,7 +170,7 @@ Wir halten das Beschriebene wieder in einer Definition fest.
 Den letzten Fall, den wir betrachten, ist die Implikation. Wir schauen jetzt also wie sich die Wahrheitswerte einer Implikation ergeben, wenn wir die Wahrheitswerte der Bedingung und der Konsequenz der Implikation kennen. Zur Erinnerung: Das Symbol für die Implikation lautet: $\implies$ und sie steht für den Konnektor \enquote{\textbf{wenn, dann}}.
 Seien $A,B$ wieder Abkürzungen für zwei beliebige  Aussagen. Um die gleich folgende Definition besser nachvollziehen zu können, interpretiert man die Aussage $A \implies B$ als ein Versprechen. Nur wenn dieses Versprechen explizit gebrochen wird, soll $A \implies B$ falsch werden. Das Versprechen ist nun, dass wenn $A$ wahr ist, dann muss auch $B$ wahr. Wenn $A$ falsch ist, dann ist dem Versprechen egal, was mit $B$ passiert. Das Versprechen wird also nur gebrochen, wenn $A$ wahr ist, aber $B$ falsch ist.
 
-\begin{example}
+\begin{example}{}
     Sei $G$ wieder die Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} und $F$ wieder die Abkürzung für \statement{Der Zaubertrank verleiht Superkräfte}. Ist der Zauberer nicht gut gelaunt ($G$ ist falsch) und der Zaubertrank verleiht auch keine Superkräfte ($F$ ist falsch), dann ist trotzdem $G \implies F$ wahr, da hier das Versprechen nicht gebrochen wurde, dass wenn der Zauberer gut gelaunt ist, der Zaubertrank Superkräfte verleihen wird. 
     
     Dieses Versprechen wird nur gebrochen, wenn der Zauberer gut gelaunt ist ($G$ ist wahr) aber trotzdem der Trank keine Superkräfte verleiht ($F$ ist falsch). Dann ist $G \implies F$ falsch. Die folgende Tabelle listet für alle möglichen Kombinationen der Wahrheitswerte von $F,G$ den Wahrheitswert von $G \implies F$ auf. 
@@ -219,7 +219,7 @@ Wie das funktioniert, schauen wir uns jetzt an.
 Tatsächlich ist die Vorgehensweise, die wir gleich zeigen, nichts neues und funktioniert völlig analog zu einem Verfahren, das man bereits im Schlaf beherrscht: Dem Auswerten von Termen. Das nächste Beispiel wiederholt dies und dröselt die Schritte, die man dabei vornimmt, auf.
 
 \todo{abbildung tikzen}
-\begin{example}
+\begin{example}{}
 Stell dir vor deine Aufgabe ist es den Term $x \cdot (y - (z \cdot z))$ auszuwerten und du weißt, dass $x = 3$, $y = 7$ und  $z = 2$ ist.
 Um den Wert von $x \cdot (y - (z \cdot z))$ heraufzufinden, wendet man folgende Schritte an.
 \begin{enumerate}
@@ -256,7 +256,7 @@ Es kommen nämlich genau dieselben Schritte vor. Möchte man nämlich den Wahrhe
 Jetzt mal ein Beispiel in dem dieses Verfahren angewendet wird.
 
 \todo{die abbildung tikzen}
-\begin{example}
+\begin{example}{}
 Seien $A, B, C$ Abkürzungen für irgendwelche atomaren Aussagen. Wenn wir wissen, dass $A$ \wahr\  ist, $B$ \wahr\  ist und $C$ \falsch\   ist, was ist dann der Wahrheitswert folgender Aussage?
 \[A \land ( (\lnot B) \lor C)\]
 Wir wenden das eben beschriebene, 2-schrittige Verfahren an.
@@ -276,7 +276,7 @@ Wir wissen jetzt also wie wir für eine Aussage $A$ mit bekannten Wahrheitswerte
 
 Listen wir alle Kombinationen der Wahrheitswerte der atomaren Aussagen von $A$, zusammen mit den entsprechenden Wahrheitswerten von $A$ tabellarisch auf, dann nennen wir dies eine \textbf{Wahrheitstabelle} für $A$. 
 
-\begin{example}
+\begin{example}{}
 Wir stellen eine Wahrheitstabelle für die Aussage 
 $A \land ( (\lnot B) \lor C)$
 aus letztem Beispiel auf.

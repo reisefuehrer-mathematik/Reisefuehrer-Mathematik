@@ -1,0 +1,125 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+	\textcolor{red}{Hier entsteht Magie!}
+
+	In der Einleitung haben wir gesehen, dass wir dieselbe Rechnung durch verschiedene Terme darstellen können.
+	Denselben Effekt können wir auch für das Rechnen mit Zahlen betrachten: $2+3$ und $3+2$ sind derselbe Term
+	wegen des \enquote{Vertauschungsgesetzes} (Kommutativität der Addition \mayberef).
+
+	Betrachten wir das Distributivgesetz, dann sagt es uns, dass wir Terme der Form $a\cdot (b+c)$ auch
+	darstellen können als $a\cdot b + a\cdot c$ und umgekehrt. Bisher war diese Erkenntnis vielleicht noch nicht
+	besonders relevant, und hat das Kopfrechnen höchstens vereinfacht. $12\cdot 8 + 12\cdot 2$ ist wesentlich
+	einfacher im Kopf zu berechnen, wenn man sieht, dass
+	\[12\cdot 8 + 12\cdot 2 = 12\cdot(8+2) = 12\cdot 10 = 120.\]
+
+	Wenn wir mit Variablen rechnen, ist das ähnlich.
+
+	\todo{\enquote{Einsetzen} von Werten für Variablen definieren}
+	
+	\begin{example}{}
+		Wir betrachten wieder das Beispiel aus der Einführung. Du hast zwei Rechtecke, die nebeneinander gelegt
+		ein neues Rechteck bilden und möchtest nun einen Ausdruck für die Gesamtfläche angeben.
+		\begin{center}
+            \begin{tikzpicture}
+                \fill[orange!10, draw=orange, text=orange] (0,0) rectangle (2cm, 1cm) node[pos=.5]{$A_1$};
+                \fill[blue!10, draw=blue, text=blue] (2cm,0cm) rectangle (3cm, 1cm) node[pos=.5]{$A_2$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,0) -- (0,1)
+                    node[pos=0.5,left=10pt,black]{$h$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,1) -- (2,1)
+                    node[pos=0.5,above=10pt,black]{$b_1$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (2,1) -- (3,1)
+                    node[pos=0.5,above=10pt,black]{$b_2$};
+            \end{tikzpicture}
+        \end{center}
+		Wir erinnern uns, dass wir die beiden Formeln $(h\cdot b_1 + h\cdot b_2)$ und $h\cdot (b_1+b_2)$
+		bisher erarbeitet haben und bisher nicht sagen konnten, welche von beiden \enquote{besser} ist als die
+		andere.
+
+		Wir betrachten aber jetzt den Fall, dass wir für zwei der drei Variablen Werte bekommen haben und möchten
+		jetzt für diese Gegebene Werte eine Formel angeben für die Gesamtfläche:
+		\begin{itemize}
+			\item Wir setzen $b_1=2$ und $b_2=3$ in beide Formeln ein. Dann bekommen wir die Terme:
+				\[(h\cdot 2 + h\cdot 3) \text{ bzw. } h\cdot(2+3).\]
+				Während wir im linken Term keine Teilterme mehr zusammenfassen können, wissen wir im rechten Term, dass $2+3=5$.
+				Somit können wir auch schreiben
+				\[(h\cdot 2 + h\cdot 3) \text{ bzw. } h\cdot 5.\]
+				Hier ist aber ganz klar der rechte Term besser weil wir $h$ nur noch an einer Stelle einsetzen müssen.
+				Wir wissen ja, dass wir $h$ mit dem Distributivgesetz vor die Klammern ziehen können. Daher sagen wir
+				im zweiten Term, wir haben \enquote{$h$ ausgeklammert}.
+			\item Wir setzen $h=3$ und $b_1=2$ in beide Formeln ein. Dann bekommen wir die Terme:
+				\[(3\cdot2+3\cdot b_2) \text{ bzw. } 3\cdot(2+b_2).\]
+				Hier sehen wir, dass der linke Term weiter vereinfacht werden kann:
+				\[6+3\cdot b_2 \text{ bzw. } 3\cdot(2+b_2).\]
+				Und in diesem Fall ist also der linke Term übersichtlicher.
+		\end{itemize}
+	\end{example}
+
+	Das Beispiel zeigt uns, dass wir bei Termen mit Formeln uns überlegen können, wie wir sie darstellen können, um sie übersichtlich
+	zu halten. Wir möchten an dieser Stelle aber nochmal betonen, dass diese beiden Terme, die wir betrachtet haben, immer durch das
+	Distributivgesetz ineinander überführt werden können, wenn wir die Teilterme nicht weiter ausgerechnet haben.
+
+	Konkret haben wir gesehen, dass wir Faktoren aus Termen rausziehen können:
+	\[{\color{orange}a}\cdot b + {\color{orange}a}\cdot c = {\color{orange}a\cdot (}b+c{\color{orange})}.\]
+	Dasselbe gilt entsprechend auch für 4 Variablen
+	\[{\color{orange}a}\cdot b + {\color{orange}a}\cdot c + {\color{orange}a}\cdot d = {\color{orange}a\cdot (}b+c{\color{orange})} + {\color{orange}a}\cdot d = {\color{orange}a\cdot (}b+c+d{\color{orange})}\]
+	beziehungsweise nach demselben Prinzip für beliebig viele Variablen.
+
+	Wenn wir eine Variable, die in allen Summanden vorkommt, so aus einer Summe ziehen, dann bezeichnen wir das auch als \enquote{ausklammern}.
+	In die andere Richtung bezeichnen wir den Vorgang als \enquote{ausmultiplizieren}.
+
+	\begin{example}{}
+		Alice hat $n$ Freunde. Für jeden kauft sie ein kleines Geschenk im Wert von $5\,\euro{}$ und Schokolade im Wert von $1\,\euro{}$.
+		Da sie auch Hungrig ist auf Schokolade, kauft sie für sich selbst zusätzlich zwei Schokoladen. Um die Geschenke zu verpacken, kauft sie
+		nocht Geschenkpapier im Wert von $1\,\euro{}$. Wie viel Geld gibt Alice aus?\\[.5em]
+		Wir können den Aufgabentext direkt in einen Term übersetzen:
+		\[n\cdot 5\,\euro{}+(n+2)\cdot 1\,\euro{} + 1\,\euro{}.\]
+		Momentan sagt der Term damit aber leider nicht viel mehr aus als die Aufgabenstellung (lediglich etwas übersichtlicher dargestellt).
+		Um die Ausgaben von Alice darstellen zu können, möchten wir den Term so umformen, dass $n$ nur noch an einer Stelle vorkommt.
+		Dafür multiplizieren wir den Term $(n+2)\cdot 1\,\euro{}$ erstmal aus und können zuletzt $n$ aus den meisten Termen ausklammern.
+		\textbf{Achtung. Wir können n nicht aus allen Termen ausklammern.}
+		\begin{align*}
+			n\cdot 5\,\euro{} + \underbrace{(n+2)\cdot 1\,\euro{}}_{n\cdot 1\,\euro{}+2\cdot 1\,\euro{}} + 1\,\euro{} &= n\cdot 5\,\euro{}+n\cdot 1\,\euro{} + 2\,\euro{}+1\,\euro{}\\
+			 &= n\cdot(5\,\euro{}+1\,\euro{})+2\,\euro{}+1\,\euro{}\\
+			 &= n\cdot 6\,\euro{} + 3\,\euro{}.
+		\end{align*}
+	\end{example}
+	\todo{Schwere Aufgabe: Gebe eine Linearfaktorisierung für $(x^3-xy^2+x^2y-y^3) = (x+y)^2(x-y)$ an.}
+
+	\begin{nutshell}{Variablen und Terme über Variablen}
+		Variablen kann man sich als \enquote{Platzhalter} oder \enquote{Schablone} vorstellen: ein Term mit Variablen gilt allgemein, egal, was wir einsetzen.
+
+		Zum Beispiel ist $A = b\cdot h$ die Rechenvorschrift, wie man aus der Breite $b$ und der Höhe $h$ eines Rechteckes dessen Fläche $A$ bestimmt.
+		Möchten wir für ein konkretes Rechteck (zum Beispiel $b=3$ und $h=2$) die Fläche berechnen, dann müsen wir die Werte für die Variablen \textbf{einsetzen}:
+		$A = 3\cdot 2 = 6$. Die Fläche dieses Rechteckes ist also $6$.
+
+		Häufig können wir denselben Term auf verschiedene Weisen darstellen. Wenn ein Term nur wenige Variablen besitzt, möchten wir ihn so formulieren,
+		dass er möglichst unverschachtelt ist:
+		\begin{center}
+			\begin{tabular}{r@{ statt }l}
+				$a\cdot b + b$ & $(a+1)\cdot b$\\
+				$4\cdot b$ & $3\cdot b + b$\\
+				$9+12\cdot a$ & $3\cdot (3 + 4\cdot a)$
+			\end{tabular}
+		\end{center}
+
+		Wenn wir eine Variable aus einem Teilterm rausziehen, nennen wir das \textbf{ausklammern}:\\
+		Zum Beispiel können wir $a$ aus dem Term $a\cdot 3+7\cdot a$ ausklammern und bekommen $a\cdot(3+7)$.
+
+		Wenn wir eine Variable, die mit einem Term multipliziert wird, stattdessen mit jedem Summanden in diesem Term multiplizieren, nennen wir das \textbf{ausmultiplizieren}:\\
+		Zum Beispiel können wir $a\cdot (3+7)$ ausmultiplizieren (in diesem Beispiel lediglich wenig sinnvoll) und bekommen wieder $a\cdot 3+ a\cdot 7$.
+	\end{nutshell}
+
+	Bisher haben wir immer nur von Addition und Multiplikation gesprochen. Wie sieht das aus, wenn wir subtrahieren und / oder dividieren?
+	Nicht anders! Weil eine Subtraktion mit $a$ dasselbe ist wie die Addition von $(-a)$ und die Division durch $a$ dasselbe ist wie die Multiplikation mit $\frac{1}{a}$.
+	\begin{example}{}
+		\begin{itemize}
+			\item Klammere aus: $\left(\frac{3}{a}+\frac{b}{a}\right)$. Wir können die Division mit $a$ als Multiplikation mit $\frac{1}{a}$ betrachten und diesen Bruch entsprechend rausziehen:
+			$(3+b)\cdot \frac{1}{a}$. Wir können dies natürlich auch hübscher schreiben als $\frac{3+b}{a}$.
+		\end{itemize}
+	\end{example}
+	\todo{Schwere Aufgabe (?): Klammere aus: (3/{2a} + b/a) = (3/2+b)/a oder (3+2b)/{2a}}
+\end{document}

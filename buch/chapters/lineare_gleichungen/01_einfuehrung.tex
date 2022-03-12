@@ -6,9 +6,9 @@ In der Mathematik begegnen dir ständig Variablen -- in Definitionen und Sätzen
 
 Eine Variable ist eine Art Platzhalter -- meistens für gewöhnliche Zahlen. Wir verwenden sie beispielsweise in Formeln für Flächeninhalte von geometrischen Figuren. 
 
-\begin{example}
+\begin{example}{}
     In der folgenden Abbildung siehst du drei Quadrate, in denen ihr Flächeninhalt eingetragen ist.
-
+    
     \parpic[r]{
         \begin{tikzpicture}
             \fill[blue!20,draw=blue, dashed] (0,0) -- (0,3) -- (3,3) -- (3,0) -- node[below,blue] {$a$} cycle;
@@ -19,6 +19,9 @@ Eine Variable ist eine Art Platzhalter -- meistens für gewöhnliche Zahlen. Wir
             \node[green!70!black] at (-1.1,2.75) {$4$};
         \end{tikzpicture}
     }
+    %\parpic[r]{
+        
+    %}
     \picskip{8}
     Der Flächeninhalt eines Quadrats mit der Seitenlänge $a$ ist $a^2$. Die Variable $a$ bezeichnet hier die Seitenlänge, wird also als Platzhalter verwendet. Sie wird durch eine konkrete Zahl ersetzt, sobald ein konkreter Flächeninhalt ausgerechnet werden soll -- etwa des orangefarbenen Quadrats mit der Seitenlänge 5. Um den Flächeninhalt für ein bestimmtes Quadrat zu berechnen, musst du in der Formel das $a$ durch die Seitenlänge deines Quadrats ersetzen und dann alles ausrechnen.
     
@@ -38,10 +41,10 @@ Die erste Anwendung von Variablen, nämlich zum Aufschreiben von Formeln, ist di
 \[17-\Box=11\] 
 vorstellen. Hier möchtest du wissen, welche Zahl in den Kasten gehört, damit die Rechnung stimmt. Der Wert des Kastens ist in diesem Beispiel die \emph{Unbekannte}. Ziel einer Rechnung mit einer Unbekannten ist es, den Wert der Unbekannten zu bestimmen. Dass du einen Wert bestimmen möchtest, wenn du bestimmte Informationen über ihn hast, ist ein Problem, das dir in der Praxs oft begegnet. Wir schauen uns im folgenden Beispiel an, wie so ein Problem aussehen kann.
 
-\begin{example}
+\begin{example}[ex:handball-quali]{}
     \parpic[r]{
         \begin{tikzpicture}[scale=0.9]
-            \node (germay) at (0,5.5) {\includegraphics[height=4cm]{images/Deutschland.pdf}};
+            \node (germay) at (0,5.5) {\includegraphics[height=4cm]{images/deutschland.pdf}};
             \draw[fill=green!80!black] (-3,0) -- ++ (0:2) arc [start angle=180, end angle=108, radius=1] -- ++ (108:2) arc [start angle=108, end angle=180, radius=3];
             \draw[fill=green!50!black] (1,0) -- ++ (0:2) arc [start angle=0, end angle=67.5, radius=3] -- ++ (247.5:2) arc [start angle=67.5, end angle=0, radius=1];
             \draw[fill=green!65!black] (108:1) arc [start angle=108, end angle=67.5, radius=1] -- ++ (67.5:2) arc [start angle=67.5, end angle=108, radius=3] -- ++ (-72:2);
@@ -72,30 +75,26 @@ Wenn es darum geht, den Wert einer Unbekannten zu ermitteln, werden dafür irgen
 
 Eine Gleichung sagt über zwei verschiedene Terme aus, dass sie gleich sind, also den gleichen Wert haben, wenn man sie ausrechnet. Beispielsweise ist $2+2=4$ eine Gleichung, denn sie sagt aus, dass $2+2$ das gleiche ist wie $4$. Deswegen liest man diese Gleichung auch als \enquote{$2+2$ \emph{ist gleich} $4$}.
 
-\begin{figure}[h]
-    \centering
+\parpic[r]{
     \begin{linearEquation}
         %Füllung linke Waagschale
         \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
         \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
         \node[white] at (-0.75,0.42) {$2$};
-        
         \fill (-1.45,0.25) -- (-1.05,0.25) -- (-1.1,0.6) -- (-1.4,0.6) -- cycle;
         \draw[line width=0.75mm] (-1.25,0.66) circle[radius=0.06cm];
         \node[white] at (-1.25,0.42) {$2$};
-        
         %Füllung rechte Waagschale
         \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
         \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
         \node[white] at (1,0.45) {$4$};
     \end{linearEquation}
-    \caption{Bei einer Gleichung ist es wichtig, dass links und rechts vom Gleichheitszeichen zwei gleichwertige Terme stehen. $2+2=4$ ist eine der einfachsten Gleichungen, die man sich vorstellen kann. Die Balkenwaage soll zeigen, dass der linke Teil der Gleichung (nämlich $2+2$, linke Waageschale) den gleichen Wert wie der rechte Teil der Gleichung (nämlich $4$, rechte Waagschale) haben muss. Die Balkenwaage befindet sich im Gleichgewicht.}
-    \label{fig:my_label}
-\end{figure}
+}
+Bei einer Gleichung ist es wichtig, dass links und rechts vom Gleichheitszeichen zwei gleichwertige Terme stehen. $2+2=4$ ist eine der einfachsten Gleichungen, die man sich vorstellen kann. Die Balkenwaage soll zeigen, dass der linke Teil der Gleichung (nämlich $2+2$, linke Waageschale) den gleichen Wert wie der rechte Teil der Gleichung (nämlich $4$, rechte Waagschale) haben muss. Die Balkenwaage befindet sich im Gleichgewicht.
 
 Es kann manchmal helfen, sich Gleichungen als eine Balkenwaage vorzustellen, auf deren Waagschalen jeweils die Teile links und rechts vom Gleichheitszeichen liegen. Dadurch wird nämlich klar, dass links und rechts vom Gleichheitszeichen immer dasselbe stehen muss, damit die Waage im Gleichgewicht ist. Später in diesem Kapitel werden wir Gleichungen modifizieren und müssen dabei immer darauf achten, dass trotzdem noch dasselbe auf beiden Seiten steht -- oder, anschaulich gesprochen, die Balkenwaage nicht aus dem Gleichgewicht gerät.
 
-\begin{example}
+\begin{example}{}
     \begin{center}
         \begin{linearEquation}
             %Füllung linke Waagschale
@@ -128,7 +127,7 @@ Es kann manchmal helfen, sich Gleichungen als eine Balkenwaage vorzustellen, auf
 
 Wenn bei einer Gleichung nur Zahlen vorkommen (also keine Variablen), dann kannst du dir diese einfach als beschriftete Gewichte auf den Waagschalen einer Balkenwaage vorstellen. In diesem Kapitel interessieren wir uns allerdings vor allem für Gleichungen, in denen Unbekannte vorkommen. Die Werte dieser Unbekannten sollen ermittelt werden. Das kannst du dir so vorstellen, dass du das Gewicht eines Gegenstandes ermitteln möchtest, der auf der Waage liegt.
  
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{linearEquation}
             %Füllung linke Waagschale

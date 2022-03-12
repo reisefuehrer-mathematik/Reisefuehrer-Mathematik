@@ -7,6 +7,10 @@ Das Projekt gliedert sich insgesamt grob auf in ein Lehrbuch, das zumindest den 
 Vorbereitungsblätter, die darauf ausgelegt sind, während des Lesens des Buches bearbeitet zu werden, damit der Lese den Stoff direkt
 vertieft, und Aufgabenblöcke, die, nachdem entsprechende Abschnitte im Buch gelesen wurden, diese weiter vertiefen sollen.
 
+## Download
+Den aktuellen Stand des Buches findest du unter den [Releases](https://github.com/TrianguIator/reisefuehrer/releases).
+Um den neusten Stand des Buches runterzuladen, kannst du sonst auch [hier](https://github.com/TrianguIator/reisefuehrer/releases/latest/download/buch.pdf) klicken.
+
 ## Projektziele
 Der Status des Projekts kann im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Lehrbuch) eingesehen werden.
  * Bis 31.03.2022 soll der Themenblock *Mengen und Funktionen* (Variablen, Aussagenlogik, Mengen, Abbildungen, Lineare Gleichunge) fertig gestellt sein.
@@ -16,13 +20,7 @@ Der Status des Projekts kann im [Wiki](https://github.com/TrianguIator/reisefueh
 ## Du möchtest mitmachen?
 Da das Projekt sehr ambitioniert ist, ist Hilfe jedweder Art **sehr gerne** gesehen! Möchtest du uns Unterstützen als Author, Lehrer, Korrektor, Designer oder hast
 einfach einen guten Vorschlag für das Projekt?
- * **Author:** ``TODO: was?``
- * **Lehrer:** ``TODO: was?``
- * **Designer:** ``TODO: was?``
- * **Korrektor:** ``TODO: was?``
- * **Sonstiges:** ``TODO: was?``
-
-Weitere Informationen über Beiträge und unsere Richtlinien, findest du im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Beiträge).
+Informationen, wie du zum Projekt beisteuern kannst, findest du im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Projekt).
 
 ## Kompillieren
-``TODO``
+Du möchtest das Projekt selbst kompillieren? Eine Anleitung dafür findest du im [Wiki](https://github.com/TrianguIator/reisefuehrer/wiki/Projekt#arbeitsumgebung-aufsetzen-und-kompilieren).

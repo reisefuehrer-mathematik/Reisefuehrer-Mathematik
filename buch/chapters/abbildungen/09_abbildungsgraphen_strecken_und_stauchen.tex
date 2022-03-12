@@ -1,214 +1,12 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\todocomment[TIM]{Das Wort \enquote{gewiss} kommt auffällig oft vor}
-Nachdem du einige Eigenschaften von Abbildungsgraphen wie ihre Monotonie oder ihre Nullstellen kennengelernt hast, lernst du in diesem Abschnitt, wie sich Abbildungsgraphen verändern lassen. Es geht hierbei um die Fragestellung, wie du die Berechnungsvorschrift verändern musst, damit der Graph sich in bestimmter Weise ändert.
-
-Die Veränderungen, die wie vornehmen werden, unterteilen sich in eine Verschiebung des Graphen (d.h. der gesamte Graph wird beispielsweise um eine bestimmte Distanz nach oben verschoben) und eine Streckung oder Stauchung des Graphen (d.h. der Graph wird auseinandergezogen oder zusammengepresst).
-
-\subsection{Abbildungsgraphen in $y$-Richtung verschieben}
-\label{sec:abbildungen_verschieben_y}
-
-Einen Abbildungsgraphen zu verschieben, bedeutet, dass du die Berechnungsvorschrift der Abbildung so änderst, dass der gesamte Graph seine Form behält, aber als Ganzes in eine bestimmte Richtung verschoben wird.
-
-\begin{example}
-    \begin{minipage}{\textwidth}
-        Du beginnst mit der Abbildung $f$, deren Graph im linken Bild zu sehen ist und im Ursprung beginnt, bevor er in einer Kurve verläuft.
-        
-        Den Graphen von $f$ nach oben zu verschieben, bedeutet, dass du die Berechnungsvorschrift von $f$ so änderst, dass der Graph von $f$ zum Beispiel wie im rechten Bild aussieht. Der gesamte Graph bleibt in seiner Form unverändert, verläuft immer noch auf dieselbe Weise und befindet sich lediglich eine Einheit weiter oben.
-        \begin{multicols}{2}\centering
-            \begin{tikzpicture}
-                \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, xtick={1,...,4}, ytick={1,2},ymin=0,ymax=2, samples=\ifdraft{3}{15}]
-                    \addplot[color=violet] expression{2^(-x)*x^2};
-                \end{axis}
-            \end{tikzpicture}
-            
-            \begin{tikzpicture}
-                \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, xtick={1,...,4}, ytick={1,2},ymin=0,ymax=2,xmax=4, samples=\ifdraft{3}{15}]
-                    \addplot[color=violet] expression{2^(-x)*x^2+1};
-                \end{axis}
-            \end{tikzpicture}
-        \end{multicols}
-        
-        Die Frage, die nun beantwortet werden muss, ist, \emph{wie} die Berechnungsvorschrift angepasst werden muss, damit wir genau diese Änderung erreichen.
-    \end{minipage}
-\end{example}
-
-Je nachdem, in welche Richtung ein Graph verschoben werden soll, muss anders vorgegangen werden. Es wird aber gleich klar werden, dass eine Verschiebung nach oben sehr ähnlich wie eine Verschiebung nach unten funktioniert. Auch zwischen einer Verschiebung nach links oder rechts gibt es kaum einen Unterschied.
-
-Jeder Punkt $\coord{x}{f(x)}$ auf dem Graphen stellt eine Regel $x\mapsto f(x)$ dar. Den Graphen um eine gewisse Distanz nach oben zu verschieben, bedeutet, jeden einzelnen Punkt um eine gewisse Strecke nach oben zu verschieben. Um einen Punkt im Koordinatensystem nach oben zu verschieben, muss sein $y$-Wert erhöht werden (denn dieser gibt an, wie weit oben ein Punkt liegt).
-
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, xtick={1,...,4}, ytick={1,2}, samples=\ifdraft{5}{30}]
-            \addplot[color=violet] expression{x^(0.5)};
-            \addplot[color=black!30] expression{x^(0.5)+1};
-            \addplot[mark=*, only marks, fill=yellow] coordinates {(2,1.414)};
-            \addplot[mark=*, only marks, fill=black!40] coordinates {(2,2.414)};
-            \draw[dashed,-latex] (2,1.414) node[below] {$\coord{x}{f(x)}$} -- (2,2.414) node[above] {$\coord{x}{f(x)+1}$};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Der Punkt $\coord{x}{f(x)}$ liegt nach der Verschiebung um eine Einheit nach oben bei $\coord{x}{f(x)+1}$ (der $y$-Wert erhöht sich um 1, dadurch ist der Punkt eine Einheit weiter oben im Koordinatensystem).}
-    %\label{fig:my_label}
-\end{figure}
-
-Auf diese Weise muss jeder Punkt auf dem Graphen von $f$ verschoben werden. Die neue Abbildung $g$, die das gleiche wie $f$ tun soll, allerdings nach oben verschoben, muss demnach den Punkt $\coord{x}{f(x)+1}$ auf ihrem Graphen haben. Der neue Punkt auf dem Graphen von $g$ stellt die Regel $g(x)=f(x)+1$ dar.
-
-Um den Graphen einer Abbildung um 1 nach oben zu verschieben, müssen also einfach alle Funktionswerte nach ihrer Berechnung um 1 erhöht werden. Immer nach der Berechnung eines Funktionswertes $f(x)$ nimmt man den erhaltenen Wert und addiert 1, sodass man $f(x)+1$ erhält. Das klappt natürlich nicht nur für die Zahl 1, sondern für beliebige Zahlen.
-
-\begin{example}
-    \parpic[r]{
-        \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-2,2,4},samples=2,ymin=-3,ymax=4]
-                \addplot[color=violet] expression{x-1};
-                \addplot[color=black!30] expression{x+2};
-                \addplot[mark=*, only marks, fill=white] coordinates {(0,-1)};
-                \addplot[mark=*, only marks, fill=yellow] coordinates {(0,2)};
-            \end{axis}
-        \end{tikzpicture}
-    }
-    Der violette Graph gehört zur Abbildung \mbox{$f(x)=x-1$}. Rechnet man $f(0)$ aus, so erhält man \mbox{$f(0)=0-1=-1$}. Der entsprechende Punkt $\coord{0}{-1}$, der diese Regel darstellt, ist im nebenstehenden Bild weiß eingezeichnet.
-    
-    \picskip{4}
-    Jetzt verschieben wir den Graphen um $3$ nach oben. Dafür muss jeder Punkt auf dem linken Graphen eine um $3$ höhere $y$-Koordinate erhalten als vorher. Aus dem Punkt $\coord{0}{-1}=\coord{0}{f(0)}$ soll also der Punkt $\coord{0}{f(0)+3}=\coord{0}{2}$ werden, der im Bild gelb eingezeichnet ist.
-    
-    Wir können die Berechnungsvorschrift von $f$ so ändern, dass wir eine Abbildung $g$ erhalten, die den rechts dargestellten grauen Graphen hat, der um $3$ nach oben verschoben ist. Die Berechnungsvorschrift von $g$ ist \[g(x)=f(x)+3=\underbrace{x-1}_{f(x)}+3=x+2.\] 
-    Damit werden alle Punkte auf dem Graphen um $3$ nach oben verschoben, etwa ist $g(0)=0+2=2$. Der gelb eingezeichnete Punkt $\coord{0}{2}$ liegt somit beispielsweise auf dem Graphen von $g$.
-\end{example}
-
-\sloppy
-Soll der Graph einer Abbildung $f$ um $c$ Einheiten nach oben verschoben werden, dann muss zu jedem Funktionswert $c$ addiert werden und man erhält die Abbildung \mbox{$g(x)=f(x)+c$}, deren Graph wie der Graph von $f$ verläuft -- nur $c$ Einheiten weiter oben.
-
-\fussy
-Ähnlich wie es im letzten Beispiel möglich war, einen Graphen nach oben zu verschieben, ist es auch möglich, ihn beliebig nach unten zu verschieben. Um einen Punkt nach unten zu verschieben, muss seine $y$-Koordinate nicht vergrößert, sondern verkleinert werden. Statt $g(x)=f(x)+c$ zu verwenden, um einen Graphen um $c$ nach oben zu schieben, kann man ihn um $c$ nach unten verschieben, wenn man die nach unten verschobene Abbildung $g$ durch $g(x)=f(x)-c$ definiert.
-
-\begin{example}
-    \parpic[r]{
-        \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-2,2,4},ymin=-3,ymax=4, samples=\ifdraft{5}{15}]
-                \addplot[color=violet] expression{x^2};
-                \addplot[color=black!30] expression{x^2-2};
-            \end{axis}
-        \end{tikzpicture}
-    }
-
-    Die Abbildung $f(x)=x^2$ besitzt den violett dargestellten Abbildungsgraphen. Wenn man den gesamten Graphen um 2 Einheiten nach unten verschieben möchte, muss dafür an jeder $x$-Stelle der Funktionswert um 2 verkleinert werden: Statt $f(x)=x^2$ muss der Funktionswert $f(x)-2=x^2-2$ verwendet werden. 
-    
-    \picskip{2}
-    Der Graph von $g(x)=f(x)-2=x^2-2$ ist um 2 Einheiten nach unten verschoben und rechts in grau zu sehen.
-    
-    Auf diese Weise wird zum Beispiel der Punkt $\coord{0}{0}$, der vorher auf dem Graphen von $f$ lag, nach unten zu $\coord{0}{-2}$ verschoben. Das passiert, weil $f(0)=0^2=0$ gilt. Berechnet man jedoch für den grauen Graphen $g(0)$, denn erhält man den Funktionswert \mbox{$g(0)=0^2-2=-2$}.
-\end{example}
-
-\subsection{Abbildungsgraphen in $x$-Richtung verschieben}
-\label{sec:abbildungen_verschieben_x}
-
-Anders als bei der Verschiebung nach oben oder unten müssen wir vorgehen, wenn wir eine Berechnungsvorschrift verändern möchten, sodass der Graph sich nach links oder rechts verschiebt. Das Verschieben eines Graphen nach rechts kannst du im folgenden Beispiel beobachten.
-
-\begin{example}
-    \parpic[r]{
-        \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-2,2,4},ymin=-3,ymax=4, samples=\ifdraft{5}{15}]
-                \addplot[color=violet] expression{x^2-2};
-                \addplot[color=black!30] expression{(x-1)^2-2};
-            \end{axis}
-        \end{tikzpicture}
-    }
-    
-    In violett siehst du den Graphen aus dem letzten Beispiel (nach der Verschiebung nach unten). Es soll nun untersucht werden, wie du die Abbildungsvorschrift ändern musst, damit der Graph nach rechts verschoben wird. 
-    
-    Bei einer Verschiebung nach rechts nimmst den ganzen Graphen so, wie er ist, und bewegst ihn nach rechts. Nachdem man den Graphen um eine Einheit nach rechts verschoben hat, sieht er aus wie in grau dargestellt.
-\end{example}
-
-Achtet man wie auch schon bei der Verschiebung nach oben oder unten auf einen einzelnen Punkt, der auf dem Graphen liegt, dann verändert sich diesmal nicht seine $y$-Koordinate (die für die Oben-Unten-Richtung verantwortlich ist), sondern die $x$-Koordinate (da diese die Links-Rechts-Richtung beeinflusst).
-
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=1:5, y=1cm, x=1.5cm, xtick={1,...,5}, ytick={1,2},ymin=0,ymax=3,xmin=0,xmax=5, samples=\ifdraft{6}{25}]
-                \addplot[color=violet] expression{(x-2.5)^2*2^(-x+2.5)};
-                \addplot[color=black!30] expression{(x-3.5)^2*2^(-x+3.5)};
-                \addplot[mark=*, only marks, fill=yellow] coordinates {(1.5,2)};
-                \addplot[mark=*, only marks, fill=black!40] coordinates {(2.5,2)};
-                \draw[dashed,-latex] (1.5,2) node[below left] {$\coord{x}{f(x)}$} -- (2.5,2) node[above right] {$\coord{x+1}{f(x)}$};
-            \end{axis}
-        \end{tikzpicture}
-    \caption{Ein Punkt $\coord{x}{f(x)}$, der auf dem Graphen einer Abbildung $f$ liegt, kann nach rechts verschoben werden, indem man seine $x$-Koordinate vergrößert. Aus der $x$-Koordinate mit dem Wert $x$ wird der Wert $x+1$. Der Punkt $\coord{x}{f(x)}$ wird durch die Verschiebung nach rechts zu $\coord{x+1}{f(x)}$.}
-\end{figure}
-
-Jeder Punkt $\coord{x}{f(x)}$ auf dem Graphen von $f$ bedeutet also, dass nach der Verschiebung nach rechts der Punkt $\coord{x+1}{f(x)}$ auf dem Graphen liegen muss. Du kannst dir das so vorstellen, dass du zwar den Wert $x+1$ in die Abbildung einsetzt, aber eigentlich den Wert bekommen möchtest, den du erhalten hättest, wenn du $x$ eingesetzt hättest.
-
-Wenn die bereits nach rechts verschobene Abbildung $g$ heißt, dann berechnest du $g(x+1)$ also, indem du $f(x)$ berechnest (also den Wert, den $f$ eine Stelle weiter links hat). Um den Wert $g(x)$ auszurechnen, schaust du ebenfalls eine Einheit weiter links bei $f$ nach. Demnach schaust du bei der ursprünglichen Abbildung bei $x-1$ nach. Du berechnest damit $f(x-1)$, um $g(x)$ zu erhalten.
-
-\begin{example}
-    \parpic[r]{
-        \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-2,2,4},ymin=-3,ymax=4, samples=\ifdraft{5}{15}]
-                \addplot[color=violet] expression{x^2};
-                \addplot[mark=*, only marks, fill=white] coordinates {(0,0)};
-                \addplot[mark=*, only marks, fill=yellow] coordinates {(1,0)};
-            \end{axis}
-        \end{tikzpicture}
-    }
-
-    Rechts siehst du den Graphen der Abbildung $f$ mit der Berechnungsvorschrift $f(x)=x^2$. Du kannst zum Beispiel $f(0)=0^2=0$ ausrechnen, um herauszufinden, dass der Punkt $\coord{0}{0}$ (im Bild weiß dargestellt) auf dem Graphen liegt.
-    
-    \picskip{4}
-    Dieser Punkt soll nach dem Verschieben weiter rechts liegen, also nicht bei $\coord{0}{-2}$, sondern bei $\coord{1}{-2}$. Dieser neue Punkt ist im Bild gelb dargestellt. Wir bauen nun eine Berechnungsvorschrift für eine Abbildung $g$ zusammen, für die man $f(0)$ berechnen muss, wenn man $g(1)$ haben möchte. Das erreicht man mit \[g(x)=f(x-1)=(x-1)^2-2.\]
-    Wir sehen uns einmal an, wie man nun $g(1)$ berechnet: \[g(1)=\underbrace{(1-1)^2-2}_{f(1-1)}=\underbrace{0^2-2}_{f(0)}=-2.\]
-    Man sieht also: Der Wert, der bei $x=0$ auf dem Graphen lag, also $f(0)$, hat sich nach rechts verschoben: Wenn wir $f(0)$ auswerten, erhalten wir auch $g(1)$ -- und das ist genau eine Einheit weiter rechts.
-\end{example}
-
-Um einen Graphen $c$ Einheiten nach rechts zu verschieben, muss man, wie du gerade gesehen hast, erreichen, dass $f(x-c)$ ausgewertet wird, wenn man die neue Abbildung an der Stelle $x$ auswertet (damit der Funktionswert bei $x-c$, der vorher eigentlich weiter links als an der Stelle $x$ war, anschließend bei $x$, also weiter rechts als vorher, ist). Die nach rechts verschobene Abbildung $g(x)=f(x-c)$ macht genau das. Überall, wo in der Berechnungsvorschrift von $f$ ein $x$ vorkam, ersetzt man das $x$ also durch $x-c$.
-
-\begin{example}
-    Nachdem in der Berechnungsvorschrft $f(x)=x-5$ alle Vorkommen von $x$ durch $x-2$ ersetzt worden sind, lautet die neue Vorschrift 
-    \[g(x)=\underbrace{(x-2)}_{\text{hier stand vorher }x}+5=x+3.\]
-\end{example}
-
-Einen Graphen nach links zu verschieben, bedeutet, dass sich alle Funktionwerte $f(x)$ nach links verschieben. Nach der Verschiebung möchten wir deswegen an der Stelle $x$ einen Funktionswert bekommen, der vorher weiter rechts stand, also zum Beispiel $f(x+1)$. Bei der nach links verschobenen Abbildung $g$ möchten wir $g(x)$ beispielsweise berechnen, indem wir stattdessen $f(x+1)$ auswerten (weil wir dann einen Wert, der vorher weiter rechts war, an die Stelle $x$ verschoben haben).
-
-Allgemeiner geht das für jede Zahl $c$ (die angibt, \emph{wie weit} nach links der Graph verschoben werden soll). Um die nach links verschobene Abbildung (wie nennen sie wieder $g$) an der Stelle $x$ auszuwerten, also um $g(x)$ zu berechnen, verwendet man demnach einen Wert, der vorher weiter rechts stand: $f(x+c)$. Entsprechend musst du für eine Verschiebung um $c$ Einheiten nach links die Berechnungsvorschrift so ändern, dass du alle Vorkommen von $x$ durch $x+c$ ersetzt.
-
-\begin{example}
-    Die Abbildung $f(x)=x^2$ soll so abgeändert werden, dass ihr Graph um zwei Einheiten nach links verschoben wird. Aus dem violetten Graphen soll also der graue werden.
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-3:2, y=0.5cm, x=1cm, xtick={-3,...,2}, ytick={-2,2,4},ymin=-3,ymax=4, samples=\ifdraft{5}{15}]
-                \addplot[color=violet] expression{x^2};
-                \addplot[color=black!30] expression{(x+2)^2};
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
-    Der Wert, der entsteht, wenn man die Abbildung $f$ bei $x=1$ auswertet, soll dafür also schon zwei Einheiten weiter links, also bei $x=-1$, herauskommen. Das gelingt, indem wir den vorherigen Überlegungen entsprechend alle Vorkommnisse von $x$ in der Berechnungsvorschrift von $f$ durch $x+2$ ersetzen. Den grauen Graphen erhalten wir dann durch die Berechnungsvorschrift $g(x)=(x+2)^2$. 
-    
-    Durch diese Veränderung in der Berechnungsvorschrift (in der wieder $x$ durch $x+2$ ersetzt wurde) kann man nun $g(-1)$ ausrechnen und erhält den Wert, der bei $f$ zwei Einheiten weiter rechts gewesen wäre:
-    \[g(-1)=\underbrace{(-1+2)^2}_{f(-1+2)}=\underbrace{(1)^2}_{f(1)}=1.\]
-    Der Punkt bei $\coord{1}{1}$ wurde zwei Einheiten nach links verschoben, weil man $f(1)$ jetzt bereits weiter links auswerten muss. Auf diese Weise wird jeder Punkt auf dem Graphen von $f$ um zwei Einheiten nach links verschoben. Als Ergebnis verschiebt sich der ganze Graph zwei Einheiten nach links.
-\end{example}
-\begin{nutshell}{Abbildungsgraphen verschieben}
-    Wir können den Abbildungsgraphen von $f(x)$ in beliebige Richtungen verschieben.
-    \begin{description}
-        \item[Verschiebung entlang der $y$-Achse] ist möglich, indem zu $f(x)$ zusätzlich eine Konstante addiert wird: $g(x) = f(x)+c$. Wenn die Konstante \emph{negativ} ist, verschieben wir nach \emph{unten}. Wenn die Konstante \emph{positiv} ist, verschieben wir nach \emph{oben}.
-        \item[Verschiebung entlang der $x$-Achse] ist möglich, indem zu jedem Vorkommen von $x$ in der Berechnungsvorschrift zusätzlich eine Konstante addiert wird: $g(x) = f(x+c)$. Wenn die Konstante \emph{negativ} ist, verschieben wir nach \emph{rechts}. Wenn die Konstante \emph{positiv} ist, verschieben wir nach \emph{links}.
-    \end{description}
-    Die folgende Tabelle gibt dir die Richtung an, in die der Graph verschoben wird, je nachdem, wie du die Berechnungsvorschrift änderst.
-    \begin{center}
-        \begin{tabular}{l||cc}
-             & $f(x\textcolor{blue}{+c})$ & $f(x)\textcolor{blue}{ + c}$\\\hline\hline
-            $\color{blue} c$ ist \textcolor{green!50!black}{positiv} & links & oben\\
-            $\color{blue} c$ ist \textcolor{red}{negativ} & rechts & unten\\
-        \end{tabular}
-    \end{center}
-\end{nutshell}
-
 \subsection{Abbildungsgraphen in \texorpdfstring{$y$}{y}-Richtung strecken und stauchen}
 \label{sec:abbildungen_strecken_y}
 
 Wir beschäftigen uns nun damit, wie wir den Graphen einer Abbildung zusammendrücken und auseinanderziehen können. Ein Graph wird dadurch nicht verschoben, sondern schmaler oder breiter, beziehungswiese steiler oder flacher.
 
-\begin{example}
+\begin{example}{}
     Wir möchten den folgenden Abbildungsgraphen auseinanderziehen. Das kann in zwei verschiedene Richtungen passieren: Als eine Möglichkeit nimmst du den Graphen und ziehst ihn wie einen elastischen Faden nach links und rechts auseinander. Alternativ kannst du den Graphen aber auch nach oben und unten auseinanderziehen.
     \begin{multicols}{2}\centering
         \begin{tikzpicture}
@@ -269,7 +67,7 @@ Das Auseinanderziehen von Punkten gelingt, wenn wir den Abstand aller Punkte zur
 
 Um nun herauszufinden, welche Berechnungsvorschrift eine Abbildung $g$ haben muss, die den gleichen Graphen wie $f$ hat, jedoch gestreckt, schauen wir uns also wieder einen Punkt $\coord{x}{f(x)}$ auf dem Graphen von $f$ an. Dieser stellt die Regel dar, dass $x$ auf den Wert $f(x)$ abgebildet wird. Auf dem neuen Graphen liegt stattdessend er Punkt $\coord{x}{2\cdot f(x)}$, der die Regel $x\mapsto 2\cdot f(x)$ darstellt. Es muss also $g(x)=2\cdot f(x)$ gelten.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xmin=-2, xmax=2, ymin=-2,ymax=2,xtick={-2,...,2}, ytick={-2,...,2},samples=\ifdraft{5}{32}]
@@ -290,7 +88,7 @@ Um nun herauszufinden, welche Berechnungsvorschrift eine Abbildung $g$ haben mus
 
 Es gibt keinen Grund dafür, dass man die Abstände zur $x$-Achse ausgerechnet verdoppeln muss. Eine Streckung erreicht man auch, wenn man die Abstände etwa verdreifacht oder vervierfacht. Allgemeiner kann man auch sagen, dass wir den Abstand mit einer Zahl $a$ multiplizieren. Diese Zahl $a$ heißt \textbf{Streckungsfaktor}. Damit der Abstand wirklich größer wird, muss aber $a>1$ gelten. Würden wir nämlich einen kleineren Streckungsfaktor wählen (beispielsweise $a=\frac{1}{2}$), dann verkleinert sich stattdessen der Abstand zur $x$-Achse. Er wird also nicht größer -- so, wie das eigentlich beim Strecken sein sollte. Der Graph wird dadurch zusammengedrückt, also gestaucht.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xmin=-2, xmax=2, ymin=-2,ymax=2,xtick={-2,...,2}, ytick={-2,...,2},samples=\ifdraft{5}{32}]
@@ -334,7 +132,7 @@ Um einen Graphen in $x$-Richtung zu strecken oder zu stauchen, gehen wir sehr ä
 
 Diese Veränderung des Abstands können wir erreichen, indem wie alle $x$-Koordinaten beispielsweise verdoppeln. Aus jedem Punkt $\coord{x}{f(x)}$ auf dem Graphen wird nach der Verdoppelung der $x$-Koordinate der Punkt $\coord{2x}{f(x)}$. Wir wissen bereits, dass dieser Punkt die Regel $2x\mapsto f(x)$ darstellt.
 
-\begin{example}
+\begin{example}{}
    Der nachfolgende Abbildungsgraph soll um den Faktor $2$ in $x$-Richtung gestreckt werden, sodass sich alle $x$-Koordinaten von Punkten auf dem Graphen verdoppeln. Dabei nehmen wir exemplarisch für die Punkte $\coord{\frac{1}{2}}{0}$ (weiß eingezeichnet), $\coord{-\frac{1}{2}}{0}$ (gelb) und $\coord{1}{-1}$ (grau) unter die Lupe, wohin sie bei der Streckung wandern.
    \begin{center}
         \begin{tikzpicture}
@@ -383,7 +181,7 @@ Fangen wir erst einmal bei $g(2x)$ an und fragen uns, an welcher Stelle wir $f$ 
 
 Zum Strecken von $f$ mit dem Faktor $2$ (also zum Verdoppeln der Breite des Graphen) müssen wir die Berechnungsvorschrift so verändern, dass wir alle Vorkommnisse von $x$ durch $\frac{x}{2}$ ersetzen.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-2,2,4},samples=2,ymin=-3,ymax=4]
@@ -401,7 +199,7 @@ Zum Strecken von $f$ mit dem Faktor $2$ (also zum Verdoppeln der Breite des Grap
     Wir erhalten also $g(x)=f(\frac{x}{2})=\frac{x}{2}+1$. Nun überzeugen wir uns, dass dies auch tatsächlich die gewünschte Streckung verursacht: Wir wissen, dass wegen $f(1)=1+1=2$ der Punkt $\coord{1}{2}$ (weiß eingezeichnet) auf dem Graphen von $f$ liegt. Durch die Streckung muss sich die $x$-Koordinate dieses Punktes verdoppeln, das heißt, der Punkt $\coord{2\cdot 1}{2}=\coord{2}{2}$ muss auf dem gestreckten Graphen liegen. Dieser ist im Bild gelb dargestellt.
     
     Tatsächlich ist das auch der Fall, denn wenn wir den Punkt auf dem Graphen von $g$ finden möchten, der bei der $x$-Koordinate $2$ liegt, dann müssen wir
-    \[g(2)=\underbrace{\frac{2}{2}+1}_{f(\frac{2}{2})}=\underbrace{1+1}_{f(1)}=2\] 
+    \[g(2)=\colorbrace{\frac{2}{2}+1}{f(\frac{2}{2})}=\colorbrace{1+1}{f(1)}=2\] 
     berechnen. Für $x=2$ liegt also derjenige Punkt auf dem neuen Graphen, der vorher nur halb so weit rechts lag. Das funktioniert natürlich auf dieselbe Art auch für jeden anderen Punkt, den wir uns aussuchen können.
 \end{example}
 
@@ -411,7 +209,7 @@ Damit wir wirklich eine Streckung durchführen, ist es allerdings wichtig, dass 
 
 Strecken und Stauchen sind also im Kern genau das gleiche. Um einen Graphen zusammenzustauchen, verwenden wir einfach einen Streckungsfaktor kleiner als 1 und der Graph wird zusammengedrückt.
 
-\begin{example}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-2,...,2}, ytick={1,2,3,4}, ymax=4, samples=\ifdraft{3}{15}]
@@ -426,7 +224,7 @@ Strecken und Stauchen sind also im Kern genau das gleiche. Um einen Graphen zusa
     Eine Streckung mit dem Faktor $\frac{1}{2}$ bedeutet, dass wir alle Vorkommen von $x$ in der Berechnungsvorschrift durch $\frac{x}{(\frac{1}{2})}=2x$ ersetzen. Es gilt also, dass \[g(x) = f(2x) = (2x)^2 - 1.\]
     
     \picskip{1}
-    Der graue Graph der Abbildung $g$ ist nun gestaucht, weil wir zum Berechnen eines Funktionswerts $g(1)$ beispielsweise $f(2)$ auswerten müssen: \[g(1)=\underbrace{(2\cdot 1)^2-1}_{f(2\cdot 1)}=\underbrace{2^2-1}_{f(2)}=3.\]
+    Der graue Graph der Abbildung $g$ ist nun gestaucht, weil wir zum Berechnen eines Funktionswerts $g(1)$ beispielsweise $f(2)$ auswerten müssen: \[g(1)=\colorbrace{(2\cdot 1)^2-1}{f(2\cdot 1)}=\colorbrace{2^2-1}{f(2)}=3.\]
     
     Der Funktionswert $f(2)$ wird jetzt also bereits weiter innen für die Berechnung benötigt. Der Graph wird schmaler, die Punkte nach innen verschoben und insgesamt erhalten wir eine Stauchung.
 \end{example}
@@ -439,5 +237,6 @@ Strecken und Stauchen sind also im Kern genau das gleiche. Um einen Graphen zusa
     \end{description}
      Wenn der Streckungsfaktor \emph{größer als 1} ist, \emph{streckst} du den Graphen. Wenn der Streckungsfaktor \emph{kleiner als 1} ist, \emph{stauchst} du den Graphen.
 \end{nutshell}
+
 
 \end{document}
