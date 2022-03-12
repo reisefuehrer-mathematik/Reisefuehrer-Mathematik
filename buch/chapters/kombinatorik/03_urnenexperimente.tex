@@ -106,7 +106,7 @@
     
     \todocomment{Aufgabenidee: Wie viele Möglichkeiten gibt es, 3 positive ganze Zahlen zu wählen, die in Summe 10 ergeben?}
     
-    \begin{example}
+    \begin{example}{}
         \parpic[r]{
             \centering
             \begin{tikzpicture}[scale=.6]
@@ -161,7 +161,7 @@
     
     Im Folgenden betrachten wir den Fall, dass wir die Bälle nicht zurücklegen.
     
-    \begin{example}
+    \begin{example}{}
         \textbf{Alice hat 5 Spielkarten, die sie vor sich anordnen möchte. Alice fragt sich, wie viele Möglichkeiten es gibt, diese Karten anzuordnen.}\\
         Alice' Optionen modellieren wir wieder als Bälle. Wir brauchen also insgesamt 5 Bälle, von denen jeder für eine der Spielkarten steht. In unserem Fall möchte Alice alle Karten anordnen und zieht also 5 Mal aus der Urne (es wäre natürlich auch denkbar, dass Alice nur jeweils zweier-, dreier- oder vierer-paare bilden möchte). Sie darf aber jede Karte nur ein Mal verwenden. Wenn sie ein Mal einen Ball gezogen hat, legt sie ihn also nicht wieder zurück. Wir betrachten also \emph{Permutationen ohne Wiederholung}.
         
@@ -225,7 +225,7 @@
     
     Formeln der Art $5\cdot 4\cdot 3\cdot 2\cdot 1$, in denen eine Folge von Zahlen aufmultipliziert wird, sehen wir so häufig in der Kombinatorik, dass sie einen eigenen Namen bekommen haben.
     
-    \begin{definition}[Fakultät\index{Fakultät}]
+    \begin{definition}{Fakultät\index{Fakultät}}
         Die \emph{Fakultät} von $k$ (für $k\in\Natural$) wird $k!$ geschrieben und bezeichnet das Produkt aller natürlichen Zahl kleiner oder gleich $k$ (außer der 0):
         $$k! = k\cdot (k-1) \cdot \ldots \cdot 2 \cdot 1.$$
         Die Fakultät von $0$ ist per Definition $1$: $0! = 1$.
@@ -235,7 +235,7 @@
     Betrachten wir die Formeln im Beispiel mit der neuen Notation, dann ist die Anzahl Möglichkeiten, diese 5 Bälle in 5 Zügen zu ziehen, $5!$. Wie sieht das aber aus, wenn $k < 5$? In dem Fall haben wir $N = 5\cdot 4 \cdot \ldots \cdot (5-k+1)$ Möglichkeiten. Wir können uns also vorstellen, dass wir die Fakultät berechnet haben und den Teil, den wir \enquote{zuviel} multipliziert haben, wieder dividieren:
     $$N = \frac{5!}{(5-k) \cdot (5-k-1) \cdot \ldots \cdot 1}.$$
     Der untere Term kommt uns bekannt vor, da es sich lediglich um die Fakultät $(5-k)!$ handelt. Für eine beliebige Anzahl an Kugeln, $n$ ergibt sich also:
-    \begin{lemma}
+    \begin{lemma}{}
         Die Anzahl verschiedener Permutationen, $k$ Kugeln aus einer Urne mit $n$ Kugeln zu ziehen, ohne Kugeln zurückzulegen, ist $$N = \frac{n!}{(n-k)!}.$$
     \end{lemma}
     
@@ -249,7 +249,7 @@
     $$\blueball\blueball, \blueball\redball, \redball\redball$$
     Wenn die Reihenfolge relevant wäre, dann gäbe es 4 Fälle, da $\redball\blueball$ noch möglich ist.
     
-    \begin{example}
+    \begin{example}{}
         \textbf{Alice hat eine Sack mit $3$ Süßigkeiten. Wie viele Kombinationen gibt es, wenn Alice sich $k\leq 3$ Süßigkeiten nehmen darf?}\\
         Für dieses Beispiel ist egal, in welcher Reihenfolge Alice die Süßigkeiten zieht. Es geht nur darum, welche Süßigkeiten sie auswählt. Wenn sie zudem eine Süßigkeit ausgewählt hat, dann kann sie sie nicht nochmal wählen. Wir betrachten also \emph{Kombinationen ohne Wiederholung}. In der Modellierung als Urnenexperiment sind nun die einzelnen Süßigkeiten die Bälle. Wenn Alice eine Süßigkeit nimmt, dann wird der entsprechende Ball aus der Urne entfernt und kann nicht nochmal genommen werden.
         
@@ -271,7 +271,7 @@
     
     Die Formel $\frac{n!}{(n-k)!\cdot k!}$ wird uns in der Kombinatorik auch so häufig begegnen, dass wir dafür eine eigene Notation einführen.
     
-    \begin{definition}[Binomialkoeffizient\index{Binomialkoeffizient}]
+    \begin{definition}{Binomialkoeffizient\index{Binomialkoeffizient}}
         Der Binomialkoeffizient \enquote{$n$ über $k$} ist definiert mit
         $$\binom{n}{k} \coloneqq \frac{n!}{(n-k)! \cdot k!}.$$
     \end{definition}

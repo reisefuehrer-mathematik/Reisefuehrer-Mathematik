@@ -138,7 +138,7 @@
     Diese Funktion gibt für eine beliebige Stelle $x$ die Steigung der Funktion $f$ wieder und wird als \textbf{Ableitung von} $\boldsymbol{f}$ bezeichnet.\\
     Weil der \textbf{Differenzenquotienten} in der Praxis meist unhandlich zu nutzen ist, wird er meist nicht zu Berechnung der \textbf{Ableitung} genutzt. Stattdessen gibt es \textbf{Ableitungsregeln}, welche aus den \textbf{Differenzenquotienten} herleitbar sind, welche für Berechnungen herangezogen werden.\\
     
-    \begin{example} \label{bsp:geradenAbleitungBeispiel}
+    \begin{example}[bsp:geradenAbleitungBeispiel]{}
         Wir wissen bereits, dass die Steigung einer Geraden $f(x) = mx + b$ durch $m$ gegeben ist. Damit die Ableitung stimmen kann muss also als Ergebnis $m$ herauskommen. Wir prüfen:
         \begin{align*}
         f'(x) = \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{f(x+h)-f(x)}{h} &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{m(x+h)+b-(mx+b)}{h}\\
@@ -149,7 +149,7 @@
         \end{align*}
         Das Ergebnis ist unabhängig von $x$, also überall gleich undzwar gleich $m$, sodass tatsächlich eine Gerade vorliegt. Außerdem stellt man fest, dass die Steigung für alle $y$-Achsenabschnitte $b$ gleich ist, die Steigung also nicht von der Verschiebung entlang der $y$-Achse abhängt, was anschaulich klar ist.
     \end{example}
-    \begin{example}
+    \begin{example}{}
         Für $f(x) = x^2$ hängt die Steigung offensichtlich von $x$ ab. Wie sieht damit die Ableitung aus?
         \begin{align*}
         f'(x) = \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{f(x+h)-f(x)}{h} &= \lim\limits_{\stackrel{h\to 0}{h\neq 0}}\frac{(x+h)^2-x^2}{h}\\
@@ -160,7 +160,7 @@
         \end{align*}
         Die Ableitung hängt also tatsächlich von $x$ ab. Außerdem besitzt $f'$ bei $x=0$ eine Nullstelle, wobei $f'(x<0)<0$ und $f'(x>0)>0$ ist. Aus den Betrachtungen von charakteristischen Punkten wissen wir also nun, dass ein lokales Minimum in der Null vorliegt.\\ Später werden wir als Rechenregel finden, dass für $f(x) = x^n$ gilt, dass $f'(x) = nx^{n-1}$ gilt, wodurch dieses Ergebnis verallgemeinert wird.
     \end{example}
-    \begin{example}
+    \begin{example}{}
         In der Physik und damit auch in den Ingenieurwissenschaften ist die Ableitung ein sehr wichtiges Werkzeug. Beispiele sind:
         \begin{itemize}
         \item Klassische Physik:

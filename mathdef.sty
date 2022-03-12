@@ -10,6 +10,7 @@
 \newcommand{\Real}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand{\Complex}{\ensuremath{\mathbb{C}}\xspace}
 \newcommand{\Prime}{\ensuremath{\mathbb{P}}\xspace}
+\newcommand{\Solutions}{\ensuremath{\mathbb{L}}\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
@@ -26,13 +27,17 @@
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 \DeclarePairedDelimiter\multiset{\{\!\!\{}{\}\!\!\}}
-\DeclareMathOperator{\ggt}{ggT}
+\DeclareMathOperator{\ggT}{ggT}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Relations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\perdef}[1][=]{\mathbin{\overset{\text{def}}{#1}}}
-
+\newcommand{\axiom}[1]{
+    \ensuremath{
+        \stackrel{\textcolor{orange!75!black}{\text{#1}}}{=}
+    }
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,7 +45,46 @@
 \newcommand{\st}{\:|\:} % short for "such that"
 \renewcommand{\vec}[1]{\overrightarrow{#1}}
 
+% Formats a longer text that should be easily identifyable as part
+% of a mathematical expression. This is for example used by the
+% chapter "Variablen" for formatting longer variable names in math
+% and in text.
+\newcommand{\mtext}[1]{\text{\fontfamily{qpl}\selectfont#1}}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Decoration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\colorbrace}[2]{%
+    \ensuremath{%
+        \textcolor{maincolor}{%
+            \underbrace{\color{black}#1}_{\makebox(0,0){%
+                \ensuremath{\scriptstyle #2}%
+            }}%
+        }%
+    }%
+}
+\newcommand{\colorobrace}[2]{
+    \ensuremath{%
+        \textcolor{maincolor}{%
+            \overbrace{\color{black}#1}^{\makebox(0,0){%
+                \ensuremath{\scriptstyle #2}%
+            }}%
+        }%
+    }%
+}
+% Kommentiert eine Zeile ohne, dass der Kommentar Platz einnimmt
+\RequirePackage{zref-savepos}
+\newcounter{possaveslot}
+\newcommand{\pushxpos}{%
+    \stepcounter{possaveslot}%
+    \zsaveposx{\thepossaveslot}%
+}
+\newcommand{\getxpos}{%
+    \zposx{\thepossaveslot}sp%
+}
+\newcommand{\commentLine}[1]{\makebox[0pt][l]{\pushxpos\hspace{\textwidth-\getxpos}\textcolor{maincolor}{$\bigl|\,#1$}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Memes

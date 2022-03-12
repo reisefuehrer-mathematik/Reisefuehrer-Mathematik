@@ -4,30 +4,30 @@
 \lipsum[2]
 
 Über das gesamte Buch verteilt sind verschiedene, farbig hervorgehobene, Boxen zu sehen:
-\begin{definition}
+\begin{definition}[def:notitle]{}
     Dies ist eine Definition.
 \end{definition}
-\begin{definition}[Titel]
+\begin{definition}[def:title]{Title}
     Diese Definition hat einen Namen.
 \end{definition}
 
-\begin{example}
+\begin{example}[ex:sample]{}
     Dies ist ein Beispiel.    
 \end{example}
 
-\begin{remark}{}
+\begin{remark}[rem:notitle]{}
     Dies ist eine Anmerkung.
 \end{remark}
 
-\begin{lemma}
+\begin{lemma}[lem:mylem]{}
     Dies ist eine Mathematische Aussage, auch als Satz oder -- wenn du vor deinen (danach nicht mehr) Freunden angeben möchtest -- Lemma bezeichnet.
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem}[thm:mytheorem]{}
     Dies ist ein Theorem. Es ist ähnlich zu einem Lemma aber meist umfassender. Lemmata helfen häufig, um Theoreme zu Beweisen.
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}[cor:mycorollary]{}
     Dies ist eine direkte Folgerung aus einer vorangegangenen Aussage, auch Korollar genannt.
 \end{corollary}
 
@@ -45,4 +45,7 @@
 %    \draw[black] (-.2, -.4) -- (.2, -.4);
 %    \draw[blue, fill=blue!10!white] (-.6, -3) -- (.6, -3) -- (0, -1) -- cycle;
 %\end{tikzpicture}
+
+Referenzen mit \texttt{cleveref}: \cref{def:notitle,def:title,ex:sample,rem:notitle,lem:mylem,thm:mytheorem,cor:mycorollary}.
+
 \end{document}

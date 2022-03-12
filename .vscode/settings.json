@@ -1,0 +1,60 @@
+{
+	"latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out",
+	"latex-workshop.latex.tools": [{
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+			"-output-directory=%OUTDIR%/%RELATIVE_DIR%",
+			//these options are for MiKTeX installations (texlive installations will only complain but not fail)
+			"--include-directory=%WORKSPACE_FOLDER%",
+			"--include-directory=%WORKSPACE_FOLDER%/buch/",
+			//--
+            "%DOC_EXT%"
+        ],
+		"env": {
+			"TEXINPUTS": "%WORKSPACE_FOLDER%:%WORKSPACE_FOLDER%/buch/:"
+		}
+    },{
+		"name": "makeindex",
+		"command": "makeindex",
+		"args": [ "%OUTDIR%/%RELATIVE_DIR%/%DOCFILE%.idx" ]
+	},{
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%OUTDIR%/%RELATIVE_DIR%/%DOCFILE%"
+        ]
+    },{
+		"name": "mkdir",
+		"command": "mkdir",
+		"args": [
+			"-p",
+			"%OUTDIR%/%RELATIVE_DIR%"
+		]
+	}],
+	"latex-workshop.latex.recipes":[
+		{
+			"name": "pdflatex",
+			"tools": [
+				"mkdir",
+				"pdflatex",
+			]
+		},
+		{
+			"name": "full",
+			"tools": [
+				"mkdir",
+				"pdflatex",
+				"makeindex",
+				//"bibtex",
+				"pdflatex",
+				"pdflatex"
+			]
+		}
+	],
+	"latex-workshop.latex.rootFile.doNotPrompt": true,
+	"latex-workshop.latex.autoBuild.run": "onSave"
+}
