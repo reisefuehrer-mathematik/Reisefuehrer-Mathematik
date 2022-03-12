@@ -8,6 +8,10 @@
             "-interaction=nonstopmode",
             "-file-line-error",
 			"-output-directory=%OUTDIR%/%RELATIVE_DIR%",
+			//these options are for MiKTeX installations (texlive installations will only complain but not fail)
+			"--include-directory=%WORKSPACE_FOLDER%",
+			"--include-directory=%WORKSPACE_FOLDER%/buch/",
+			//--
             "%DOC_EXT%"
         ],
 		"env": {
