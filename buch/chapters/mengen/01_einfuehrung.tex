@@ -19,7 +19,7 @@ Wenn wir mehrere Dinge unter einem Oberbegriff zusammenfassen, dann haben wir es
 Da du beispielsweise weißt, dass Besteck ein Oberbegriff für Messer, Gabel und Löffel ist, kannst du im Alltag etwa beim Tisch decken jedes Mal ein wenig Zeit sparen, wenn du sagst: \enquote{Kannst du noch Besteck mitbringen?} anstatt einzeln aufzuzählen \enquote{Kannst du noch Messer, Gabeln und Löffel mitbringen?}.
 
 Damit ein solcher Oberbegriff sinnvoll ist, sollte jedem klar sein, \emph{wofür} er ein Oberbegriff ist, also welche Dinge unter den Oberbegriff fallen und welche nicht. Wenn du in der Mathematik einer Menge begegnest oder selbst eine kreierst, dann ist es also immer wichtig, genau anzugeben, welche Objekte Teil der Menge sind (also anschaulich unter den Oberbegriff fallen) und welche nicht. Weil das etwas ist, was dir sehr oft passieren wird, gibt es dafür auch eine besondere Schreibweise:
-\[\langle\text{Name der Menge}\rangle=\{\text{Objekte, die zur Menge gehören}\}\]
+\[\text{Name der Menge}=\{\text{Objekte, die zur Menge gehören}\}\]
 Mit dieser Schreibweise meinst du, dass du den Namen auf der linken Seite ab sofort als Oberbegriff für die Wörter zwischen den geschweiften Klammern auf der rechten Seite verwenden möchtest. Die Wörter auf der rechten Seite, also die Dinge, die zur Menge gehören, werden auch als die \textbf{Elemente} der Menge bezeichnet.
 
 \begin{example}[ex:grundfarben-elemente]{}
@@ -57,26 +57,28 @@ Diese Schreibweise kann gelesen werden als \enquote{$x$ ist ein Element von $M$}
     Die Farbe rot ist eine Grundfarbe. Sie gehört also zur Menge \textsc{Grundfarben} aus Beispiel \ref{ex:grundfarben-elemente}. Deshalb kannst du auch
     \[\text{rot}\in\textsc{Grundfarben}\]
     schreiben. Selbstverständlich sind aber sowohl schwarz als auch orange keine Grundfarben. Das kannst du mit
-    \[\text{schwarz}\notin\textsc{Grundfarben}}~\text{und}~\text{orange}\notin\textsc{Grundfarben}\]
+    \[\text{schwarz}\notin\textsc{Grundfarben}~\text{und}~\text{orange}\notin\textsc{Grundfarben}\]
     notieren.
 \end{example}
 
 Während Grundfarben ein vollkommen korrektes Beispiel für eine Menge sind, siehst du in der Mathematik natürlich meistens Mengen, die Zahlen enthalten. Solchen Mengen kann man zwar meistens nicht ganz so schöne Namen geben (daher verwendet man oft einfach Buchstaben wie $M$ oder $N$), aber abgesehen davon funktionieren sie auf die gleiche Art und Weise.
 
 \begin{example}{}
-    Mengen aus Zahlen
+    Mengen als Wertevorräte für Zahlen in Formeln
 \end{example}
 
-Mengen als Wertevorräte
-
-\begin{example}{}
-    Menge, die explizit echt ein Krampf ist
+\begin{example}[ex:mammals-as-set]{}
+    Menge, bei der die explizite Schreibweise ein Krampf ist
 \end{example}
 
-Implizite Schreibweise
+Es ist nicht immer sinnvoll möglich, bei Mengen all ihre Elemente aufzulisten. Manchmal werden es einfach zu viele, sodass die Liste mehrere Seiten lang wäre. In solchen Fällen gibt es meistens eine bestimmte Regel, die uns verrät, wann ein Objekt zur Menge gehört und wann nicht. Um genau solche Regeln sinnvoll und übersichtlich aufschreiben zu können, gibt es die \textbf{implizite Schreibweise} für Mengen. Statt explizit alle Elemente der Menge aufzulisten, schreibst du nur eine Eigenschaft auf, die ein Objekt erfüllen muss, damit es Teil der Menge ist.
+
+Beim Aufschreiben der Menge lässt sich das ausdrücken, indem du einen Namen für einen möglichen Kandidaten für ein Element der Menge auswählst (zum Beispiel $x$) und hinter einem senkrechten Strich aufschreibst, welche Eigenschaft dein Kandidat $x$ haben muss, um tatsächlich ein Element deiner Menge zu sein.
+\[M=\{x\mid \text{Eigenschaft,~die}~x~\text{haben~muss,~um~zur~Menge~zu~gehören}\}\]
+Mit dieser Zeile haben wir ausgedrückt, wie wir für ein beliebiges Objekt $x$ prüfen können, ob es zur Menge gehört. Dadurch ist ebenfalls klar, welche Elemente zur Menge gehören, wir mussten sie aber nicht alle einzeln aufzählen.
 
 \begin{example}{}
-    Beispiel für implizite Schreibweise (bessere Schreibweise für die Menge aus dem letzten Beispiel)
+    \[\textsc{Säugetiere}=\{x\mid x~\text{ist~ein~Säugetier}\}.\]
 \end{example}
 
 Irgendwo: Leere Menge
