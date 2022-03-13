@@ -2,24 +2,100 @@
 
 \begin{document}
 
-Variablen bisher implizit Zahlen. Aber: Besser, man könnte einen Wertevorrat angeben
+Die Welt ist voller Ansammlungen von Dingen, die wir mit Oberbegriffen zusammenfassen. Die Farben rot, blau und gelb sind dir beispielsweise unter dem Oberbegriff Grundfarben bekannt und Messer, Gabel und Löffel nennst du auch einfach Besteck. In diesem Kapitel lernst du, warum es sinnvoll ist, solche Oberbegriffe auch in der Mathematik zur Verfügung zu haben und wie du sie verwenden kannst.
 
 \begin{example}{}
-    Beispiel für Wertevorräte bzw Sätze mit solchen (z.B. fehlt noch ein Besteckstück-> was könnte das sein?)
+    \parpic[r]{
+        \includegraphics[width=.19\textwidth]{images/grundfarben.pdf}
+    }
+    Unter den Oberbegriff \textsc{Grundfarben} fallen die Farben rot, blau und gelb. Währenddessen ist grün selbstverständlich keine Grundfarbe, ebenso wenig wie braun oder rosa.
+
+    \picskip{3}
+    Zu den Grundfarben gehören also bestimmte, genau festgelegte Farben. Nachdem einmal jemand festgelegt hat, welche drei Farben Grundfarben sind, weißt du bei jeder Farbe, ob sie eine Grundfarbe ist oder nicht. Das macht die Grundfarben zu einer sogenannten \textbf{Menge}, dem mathematischen Wort für Oberbegriffe, die bestimmte Dinge wie eben Farben zusammenfassen.
 \end{example}
 
-Was macht eine Menge aus? (ihre Elemente)
+Wenn wir mehrere Dinge unter einem Oberbegriff zusammenfassen, dann haben wir es aus mathematischer Sicht mit einer \textbf{Menge} zu tun. Eine Menge ist eigentlich nichts anderes als eine Ansammlung von verschiedenen Dingen, die zusammengefasst werden soll, damit wir einen Oberbegriff haben. Das hat vor allem den Vorteil, dass es Unterhaltungen einfacher macht (oder, wie wir später sehen werden, das Aufschreiben von Zusammenhängen in der Mathematik). 
 
-\begin{example}{}
-    Grundfarben inkl. Darstellung als Sack
+Da du beispielsweise weißt, dass Besteck ein Oberbegriff für Messer, Gabel und Löffel ist, kannst du im Alltag etwa beim Tisch decken jedes Mal ein wenig Zeit sparen, wenn du sagst: \enquote{Kannst du noch Besteck mitbringen?} anstatt einzeln aufzuzählen \enquote{Kannst du noch Messer, Gabeln und Löffel mitbringen?}.
+
+Damit ein solcher Oberbegriff sinnvoll ist, sollte jedem klar sein, \emph{wofür} er ein Oberbegriff ist, also welche Dinge unter den Oberbegriff fallen und welche nicht. Wenn du in der Mathematik einer Menge begegnest oder selbst eine kreierst, dann ist es also immer wichtig, genau anzugeben, welche Objekte Teil der Menge sind (also anschaulich unter den Oberbegriff fallen) und welche nicht. Weil das etwas ist, was dir sehr oft passieren wird, gibt es dafür auch eine besondere Schreibweise:
+\[\langle\text{Name der Menge}\rangle=\{\text{Objekte, die zur Menge gehören}\}\]
+Mit dieser Schreibweise meinst du, dass du den Namen auf der linken Seite ab sofort als Oberbegriff für die Wörter zwischen den geschweiften Klammern auf der rechten Seite verwenden möchtest. Die Wörter auf der rechten Seite, also die Dinge, die zur Menge gehören, werden auch als die \textbf{Elemente} der Menge bezeichnet.
+
+\begin{example}[ex:grundfarben-elemente]{}
+    \parpic[r]{
+        \tikz{
+            \node at (0,0) {\includegraphics[height=3cm]{../images/set_diagram.png}};
+            \node[blue] at (0,0.4) {\scriptsize blau};
+            \node[red] at (0.3,-0.8) {\scriptsize rot};
+            \node[yellow!70!black] at (-0.2,-0.1) {\scriptsize gelb};
+            \draw[<-] (0.35,0.95) to[bend right] (0.8,1.45) node[above] {\scriptsize Grundfarben};
+        }
+    }
+
+    Die Menge der Grundfarben können wir mathematisch notieren, indem wir mit der Schreibweise
+    \[\colorbrace{\textsc{Grundfarben}}{\text{Name der Menge}}=\{\colorbrace{\text{rot},\text{blau},\text{gelb}}{\text{Elemente der Menge}}\}\]
+    \picskip{3}
+    ausdrücken, dass es genau drei Dinge gibt, die wir als Grundfarben bezeichnen, nämlich die drei Farben rot, blau und gelb, die wir zwischen den geschweiten Klammern aufgelistet haben. Die Farben rot, blau und gelb sind die \emph{Elemente} der Menge der Grundfarben. Wenn wir von nun an über Grundfarben sprechen, ist eindeutig festgelegt, was wir damit meinen. Das wirkt hier noch sehr überflüssig, da das auch bereits vorher klar war, aber in komplizierteren Fällen wird das sehr hilfreich sein.
+
+    Vorstellen kannst du dir eine Menge, indem du ein Gefäß aufzeichnest, in den du alles zeichnest, was dazugehört. Der Sack auf der rechten Seite stellt die Menge mit dem Namen \textsc{Grundfarben} dar, die wir gerade eingeführt haben. Du siehst im Sack die drei Elemente der Menge.
 \end{example}
 
-Wie kann man den Spaß aufschreiben? Erstmal nur explizit
+Jede Menge wird allein dadurch ausgemacht, welche Elemente zu ihr gehören. Die folgende Definition fasst unsere bisherigen Erkenntnisse zusammen. Außerdem führt sie eine weitere Schreibweise ein, die wir uns gleich genauer ansehen werden.
 
-\begin{definition}{}
-    Für die Definition einer Menge braucht man ne Menge Mathematik ()
+\begin{definition}{Menge}
+    Eine \textbf{Menge} $M$ ist eine Zusammenfassung von unterscheidbaren Objekten, die die \textbf{Elemente} der Menge genannt werden. Ein Objekt $x$ heißt in der Menge $M$ enthalten, wenn es zu den Elementen der Menge $M$ gehört. In diesem Fall schreiben wir $x\in M$, ansonsten $x\notin M$.
+
+    Zwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten. Eine Menge, die keine Elemente enthält, wird als \textbf{leere Menge} bezeichnet und mit dem Symbol $\varnothing$ notiert.
 \end{definition}
 
-TODO: Wo kommt die implizite Schreibweise hin? Wäre vermutlich etwas viel das auch noch in die Einführung zu packen
+Es passiert oft, dass wir darüber sprechen wollen, ob ein bestimmtes Objekt zu einer bestimmten Menge gehört. Beispielsweise ist eine Gabel zwar Besteck, ein Radiergummi jedoch nicht. Die obige Definition gibt uns dafür eine abkürzende Schreibweise an die Hand:
+\[x\in M.\]
+Diese Schreibweise kann gelesen werden als \enquote{$x$ ist ein Element von $M$} und besagt lediglich, dass das Objekt links vom Symbol \enquote{$\in$} zur Menge auf der rechten Seite des Symbols gehört. Alternativ kannst du das Symbol auch durchstreichen, um damit auszudrücken, dass das Objekt auf der linken Seite \emph{nicht} zur Menge auf der rechten Seite gehört.
+
+\begin{example}{}
+    Die Farbe rot ist eine Grundfarbe. Sie gehört also zur Menge \textsc{Grundfarben} aus Beispiel \ref{ex:grundfarben-elemente}. Deshalb kannst du auch
+    \[\text{rot}\in\textsc{Grundfarben}\]
+    schreiben. Selbstverständlich sind aber sowohl schwarz als auch orange keine Grundfarben. Das kannst du mit
+    \[\text{schwarz}\notin\textsc{Grundfarben}}~\text{und}~\text{orange}\notin\textsc{Grundfarben}\]
+    notieren.
+\end{example}
+
+Während Grundfarben ein vollkommen korrektes Beispiel für eine Menge sind, siehst du in der Mathematik natürlich meistens Mengen, die Zahlen enthalten. Solchen Mengen kann man zwar meistens nicht ganz so schöne Namen geben (daher verwendet man oft einfach Buchstaben wie $M$ oder $N$), aber abgesehen davon funktionieren sie auf die gleiche Art und Weise.
+
+\begin{example}{}
+    Mengen aus Zahlen
+\end{example}
+
+Mengen als Wertevorräte
+
+\begin{example}{}
+    Menge, die explizit echt ein Krampf ist
+\end{example}
+
+Implizite Schreibweise
+
+\begin{example}{}
+    Beispiel für implizite Schreibweise (bessere Schreibweise für die Menge aus dem letzten Beispiel)
+\end{example}
+
+Irgendwo: Leere Menge
+
+\begin{nutshell}{Mengen}
+    \parpic[r]{
+        \tikz{
+            \node at (0,0) {\includegraphics[height=2.8cm]{../images/set_diagram.png}};
+            \node[maincolor] at (0,0.4) {\scriptsize 4};
+            \node[maincolor] at (0.3,-0.8) {\scriptsize 9};
+            \node[maincolor] at (-0.3,-0.9) {\scriptsize 8};
+            \node[maincolor] at (-0.2,-0.1) {\scriptsize 13};
+            \draw[<-] (0.35,0.95) to[bend right] (0.8,1.4) node[above] {\scriptsize Menge};
+        }
+    }
+
+    Mengen sind cool! (Sonnenbrillen-Smiley)
+
+    Und weil es hässlich aussieht, wenn das Bild größer als die Box ist, teile ich hier noch die unfassbar wichtige Info, was Katzen für großartige Wesen sind. Sie sind in ihrer Niedlichkeit, ihrer Flauschigkeit und ihrer Niedlichkeit einfach nicht zu übertreffen. Außerdem sind sie echt niedlich (ich glaube ich hatte vergessen, das zu erwähnen). 
+\end{nutshell}
 
 \end{document}
