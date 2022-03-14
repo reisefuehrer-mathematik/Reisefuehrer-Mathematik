@@ -25,7 +25,7 @@ Mit dieser Schreibweise meinst du, dass du den Namen auf der linken Seite ab sof
 \begin{example}[ex:grundfarben-elemente]{}
     \parpic[r]{
         \tikz{
-            \node at (0,0) {\includegraphics[height=3cm]{../images/set_diagram.png}};
+            \node at (0,0) {\includegraphics[height=3cm]{images/set_diagram.png}};
             \node[blue] at (0,0.4) {\scriptsize blau};
             \node[red] at (0.3,-0.8) {\scriptsize rot};
             \node[yellow!70!black] at (-0.2,-0.1) {\scriptsize gelb};
@@ -46,7 +46,7 @@ Jede Menge wird allein dadurch ausgemacht, welche Elemente zu ihr gehören. Die 
 \begin{definition}{Menge}
     Eine \textbf{Menge} $M$ ist eine Zusammenfassung von unterscheidbaren Objekten, die die \textbf{Elemente} der Menge genannt werden. Ein Objekt $x$ heißt in der Menge $M$ enthalten, wenn es zu den Elementen der Menge $M$ gehört. In diesem Fall schreiben wir $x\in M$, ansonsten $x\notin M$.
 
-    Zwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten. Eine Menge, die keine Elemente enthält, wird als \textbf{leere Menge} bezeichnet und mit dem Symbol $\varnothing$ notiert.
+    Zwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten. Eine Menge, die keine Elemente enthält, wird als \textbf{leere Menge} bezeichnet und mit dem Symbol $\emptyset$ notiert.
 \end{definition}
 
 Es passiert oft, dass wir darüber sprechen wollen, ob ein bestimmtes Objekt zu einer bestimmten Menge gehört. Beispielsweise ist eine Gabel zwar Besteck, ein Radiergummi jedoch nicht. Die obige Definition gibt uns dafür eine abkürzende Schreibweise an die Hand:
@@ -61,32 +61,49 @@ Diese Schreibweise kann gelesen werden als \enquote{$x$ ist ein Element von $M$}
     notieren.
 \end{example}
 
-Während Grundfarben ein vollkommen korrektes Beispiel für eine Menge sind, siehst du in der Mathematik natürlich meistens Mengen, die Zahlen enthalten. Solchen Mengen kann man zwar meistens nicht ganz so schöne Namen geben (daher verwendet man oft einfach Buchstaben wie $M$ oder $N$), aber abgesehen davon funktionieren sie auf die gleiche Art und Weise.
+Während Grundfarben ein vollkommen korrektes Beispiel für eine Menge sind, siehst du in der Mathematik natürlich meistens Mengen, die Zahlen enthalten. Solchen Mengen kann man zwar meistens nicht ganz so schöne Namen geben (daher verwendet man oft einfach Buchstaben wie $M$ oder $N$), aber abgesehen davon funktionieren sie auf die gleiche Art und Weise. Du legst fest, was zur Menge gehört, indem du eine Liste aller Elemente zwischen den geschweiften Klammern \textbf{explizit} aufschreibst.
 
-\begin{example}{}
-    Mengen als Wertevorräte für Zahlen in Formeln
+\begin{example}[ex:alphabet]{}
+    Das deutsche Alphabet besteht aus 26 Buchstaben von A bis Z. Als Menge lässt es sich wie folgt aufschreiben:
+    \[\scriptsize{\textsc{Alphabet}=}\{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z\}.}\]
+    Du siehst wieder sofort, welches die Elemente der Menge sind, da wir sie alle einzeln aufgeschrieben haben -- wir haben die Menge \emph{explizit} als Liste aufgeschrieben. Dass das $R$ ein Teil des Alphabets ist, kannst du anhand dieser Liste schnell überprüfen. Dennoch wirst du vermutlich zustimmen, dass es einfacher wäre, dieselbe Menge als
+    \[\textsc{Alphabet}=\{A,B,C,\dots,Z\}\]
+    aufzuschreiben. Das ist deutlich kürzer und es ist vollkommen klar, was hier gemeint ist, obwohl nicht jeder einzelne Buchstabe auftaucht.
 \end{example}
 
-\begin{example}[ex:mammals-as-set]{}
-    Menge, bei der die explizite Schreibweise ein Krampf ist
+Es ist nicht immer sinnvoll möglich, bei Mengen all ihre Elemente aufzulisten. Manchmal werden es einfach zu viele, sodass die Liste mehrere Seiten lang wäre. Wenn du die Elemente einer Menge auflistest, dann ist es manchmal schon sehr schnell klar, wie die Liste weitergeht, ohne dass du sie noch ewig fortsetzen musst. Es ist deshalb vollkommen ausreichend, irgendwann mit dem Aufschreiben der Elemente aufzuhören, wenn klar ist, wie die Liste weitergeht.
+
+\begin{example}[ex:even-numbers]{}
+    Wir schauen uns die Menge
+    \[M=\{2,4,6,8,10,12,\dots\}\]
+    an. In der Liste stehen bereits ein paar Elemente der Menge, allerdings symbolisieren die Punkte auf der rechten Seite, dass sich die Liste noch viel weiter fortsetzen ließe. Allein vom Hinsehen weißt du, dass etwa die $2$ oder die $4$ zu den Elementen der Menge gehören. Vermutlich hast du aber auch schon bemerkt, dass dies alles gerade Zahlen sind. Dir ist also sofort klar, dass $M$ wohl die Menge aller geraden Zahlen sein wird, obwohl du nur den Anfang der Liste gesehen hast.
 \end{example}
 
-Es ist nicht immer sinnvoll möglich, bei Mengen all ihre Elemente aufzulisten. Manchmal werden es einfach zu viele, sodass die Liste mehrere Seiten lang wäre. In solchen Fällen gibt es meistens eine bestimmte Regel, die uns verrät, wann ein Objekt zur Menge gehört und wann nicht. Um genau solche Regeln sinnvoll und übersichtlich aufschreiben zu können, gibt es die \textbf{implizite Schreibweise} für Mengen. Statt explizit alle Elemente der Menge aufzulisten, schreibst du nur eine Eigenschaft auf, die ein Objekt erfüllen muss, damit es Teil der Menge ist.
+In einfachen Fällen reicht es also, den Anfang der Liste der Elemente aufzuschreiben. Manchmal ist es allerdings nicht so einfach, durch ein paar Beispiele sofort zu erkennen, was die Regel ist. Was ist zum Beispiel die Regel, wann eine Zahl zu der folgenden Menge gehört?
+\[\{6,28,496,8128,33\,550\,336,8\,589\,869\,056,\dots\}\]
+Die Regel, wann eine Zahl zu dieser Menge gehört, ist so kompliziert, dass sie sich nicht sofort erkennen lässt, wenn du ein paar Beispiele siehst. Hier genügt der Anfang einer Liste also nicht aus, um klar zu vermitteln, wie die Elemente der Menge aussehen.
+
+In solchen Fällen gibt es eine bestimmte Regel, die uns verrät, wann ein Objekt zur Menge gehört und wann nicht. Um genau solche Regeln sinnvoll und übersichtlich aufschreiben zu können, gibt es die \textbf{implizite Schreibweise} für Mengen. Statt explizit alle Elemente der Menge aufzulisten, schreibst du nur eine Eigenschaft auf, die ein Objekt erfüllen muss, damit es Teil der Menge ist.
 
 Beim Aufschreiben der Menge lässt sich das ausdrücken, indem du einen Namen für einen möglichen Kandidaten für ein Element der Menge auswählst (zum Beispiel $x$) und hinter einem senkrechten Strich aufschreibst, welche Eigenschaft dein Kandidat $x$ haben muss, um tatsächlich ein Element deiner Menge zu sein.
 \[M=\{x\mid \text{Eigenschaft,~die}~x~\text{haben~muss,~um~zur~Menge~zu~gehören}\}\]
 Mit dieser Zeile haben wir ausgedrückt, wie wir für ein beliebiges Objekt $x$ prüfen können, ob es zur Menge gehört. Dadurch ist ebenfalls klar, welche Elemente zur Menge gehören, wir mussten sie aber nicht alle einzeln aufzählen.
 
 \begin{example}{}
-    \[\textsc{Säugetiere}=\{x\mid x~\text{ist~ein~Säugetier}\}.\]
+    Die Menge \textsc{Alphabet} aus Beispiel \ref{ex:alphabet} lässt sich mithilfe der impliziten Schreibweise als
+    \[\textsc{Alphabet}=\{x\mid x~\text{ist~ein~Buchstabe~des~Alphabets}\}\]
+    aufschreiben.
 \end{example}
 
-Irgendwo: Leere Menge
+\begin{example}{}
+    Die Menge $M=\{2,4,6,8,10,12,\dots\}$ aus Beispiel \ref{ex:even-numbers} enthält alle geraden Zahlen. Statt die Liste aufzuschreiben, kannst du auch einfach direkt die Regel angeben, wann eine Zahl zu dieser Menge gehört:
+    \[M=\{x\mid x~\text{ist~eine~gerade~Zahl~und~}x>0\}.\]
+\end{example}
 
 \begin{nutshell}{Mengen}
     \parpic[r]{
         \tikz{
-            \node at (0,0) {\includegraphics[height=2.8cm]{../images/set_diagram.png}};
+            \node at (0,0) {\includegraphics[height=2.8cm]{images/set_diagram.png}};
             \node[maincolor] at (0,0.4) {\scriptsize 4};
             \node[maincolor] at (0.3,-0.8) {\scriptsize 9};
             \node[maincolor] at (-0.3,-0.9) {\scriptsize 8};
@@ -95,9 +112,15 @@ Irgendwo: Leere Menge
         }
     }
 
-    Mengen sind cool! (Sonnenbrillen-Smiley)
+    \textbf{Mengen} sind in der Mathematik eine Zusammenfassung von bestimmten Objekten. Die Objekte, die zu einer Menge gehören, nennen wir die \textbf{Elemente} der Menge. Vorstellen kann man sich eine Menge als den Inhalt eines Sacks. Bei dieser Vorstellung sind die Elemente der Menge die Gegenstände im Sack.
 
-    Und weil es hässlich aussieht, wenn das Bild größer als die Box ist, teile ich hier noch die unfassbar wichtige Info, was Katzen für großartige Wesen sind. Sie sind in ihrer Niedlichkeit, ihrer Flauschigkeit und ihrer Niedlichkeit einfach nicht zu übertreffen. Außerdem sind sie echt niedlich (ich glaube ich hatte vergessen, das zu erwähnen). 
+    \picskip{2}
+    Um zu schreiben, dass ein Objekt $x$ zu den Elementen der Menge $M$ gehört, schreibt man $x\in M$. Falls $x$ nicht zu $M$ gehört, dann schreibt man $x\notin M$.
+
+    Die Elemente einer Menge können \textbf{explizit} durch eine Liste in geschweiten Klammern angegeben werden, z.B. $\{2,3,5,7,11\}$,
+    oder \textbf{implizit}, indem du eine Regel angibst, die bestimmt, wann ein bestimmtes Objekt $x$ zur Menge gehört:
+    \[\{x\mid \text{Regel,~wann~}x\text{~zur~Menge~gehört}\}\]
+    Wenn eine Menge gar keine Elemente hat, dann heißt sie die \textbf{leere Menge} und wird mit $\emptyset$ notiert.
 \end{nutshell}
 
 \end{document}
