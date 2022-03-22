@@ -2,6 +2,9 @@
 
 \begin{document}
     %
+
+    \todo{einheitlich überall falsch und wahr, rot bzw grün machen}
+
     An vielen Stellen im alltäglichen Leben ziehst du irgendwelche Schlussfolgerungen -- die meisten davon, ohne wirklich darüber nachzudenken. Dauernd leitest du aus deinen Beobachtungen Informationen ab. Alleine schon die Erkenntnis, dass du Hunger hast, weil du hörst, dass dein Magen knurrt, ist eine Schlussfolgerung. Ähnlich ist es in der Mathematik unabdingbar, dass du ausgehend von Beobachtungen oder gegebenen Aussagen auf neue Aussagen schließen kannst. Du lernst in diesem Kapitel die \emph{Aussagenlogik} kennen, die systematisch an das Schlussfolgern herangeht und damit ein wichtiges Werkzeug für Schlussfolgerungen in der Mathematik ist.
     
     Der Hauptzweck der Aussagenlogik ist es, dir als Werkzeug für Schlussfolgerungen (nicht nur) in der Mathematik zur Verfügung zu stehen. Im Verlauf des Kapitels wird dir auffallen, dass die deutsche Sprache an viele Stellen zu uneindeutig und unübersichtlich ist, um komplexere Schlussfolgerungen übersichtlich nachvollziehbar zu machen. Was sind zum Beispiel deine Optionen, wenn die Speisekarte \enquote{Einen Burger und Pommes oder Salat} anbietet? Die zwei möglichen Interpretationen für die Speisekarte sind, dass du wählen darfst zwischen\dots
@@ -18,7 +21,7 @@
     
     %In diesem Kapitel lernst du, richtig zu schlussfolgern. Vielleicht ist es dir noch gar nicht bewusst, aber du kannst bereits einfache Schlussfolgerungen ziehen.
     
-    \begin{example}{}
+    \begin{example}{Schlussfolgerung}
          \parpic[r]{
             \includegraphics[width=0.2\textwidth]{images/zaubertrank.png}
         }
@@ -42,7 +45,7 @@
     %Dieses Kapitel trägt den Namen \enquote{Aussagenlogik}. Die Aussagenlogik ist ein Werkzeug, das dir hilft strukturiert zu schlussfolgern. 
     Zugegebenermaßen waren die Schlussfolgerungen, die hier angestellt worden sind, ziemlich simpel. Doch logische Folgerungen zu ziehen, ist nicht immer so einfach. Das nächste Beispiel ist ein schwierigeres Logikrätsel. Mit den Methoden, die in diesem Kapitel vorgestellt werden, wirst du später in der Lage sein, solche Rätsel systematisch zu lösen.
     
-    \begin{example}{}
+    \begin{example}{Logikrätsel}
         \parpic[r]{
             \includegraphics[width=0.2\textwidth]{images/wizard.png}
         }
@@ -57,8 +60,13 @@
         Mithilfe von aussagenlogischen Überlegungen wirst du im Laufe des Kapitels in der Lage sein, systematisch herauszufinden, was du den Zauberer fragen musst.
     \end{example}
     
-    Die Aussagenlogik beschäftigt sich mit Aussagen. Das sind Sätze, die zwar keine Fragen sind, auf die man aber trotzdem entweder mit \enquote{Ja, das ist \textbf{wahr}} oder \enquote{Nein, das ist \textbf{falsch}} antworten könnte. Ergeben beide diese Antwortmöglichkeiten auf einen Satz keinen Sinn, dann ist dieser Satz keine Aussage.
-    \begin{example}{}
+    Die Aussagenlogik beschäftigt sich mit Aussagen. Das sind Sätze, die zwar 
+    keine Fragen sind, auf die man aber trotzdem entweder 
+    mit \enquote{Ja, das ist \textbf{wahr}} oder 
+    \enquote{Nein, das ist \textbf{falsch}} antworten könnte. Ergeben beide diese 
+    Antwortmöglichkeiten auf einen Satz keinen Sinn, dann ist dieser Satz keine 
+    Aussage.
+    \begin{example}{Aussagen}
         Stell dir vor du hast wieder einen giftigen Zaubertrank gefunden. Dann ist der Satz
         \[\textrm{\enquote{Der Zaubertrank ist giftig}}\]
         eine Aussage.
@@ -70,9 +78,16 @@
         ist ebenfalls eine Aussage. Der Zaubertrank ist giftig, also keineswegs harmlos. Man kann deshalb auf diesen Satz passend mit \enquote{Nein, das ist \textbf{falsch}} antworten. Es handelt sich demnach um eine \textbf{falsche} Aussage.
     \end{example}
     
-    Aussagen sind also genau die Sätze, abgesehen von Fragen, auf die man entweder mit \enquote{Ja, das ist \textbf{wahr}} oder mit \enquote{Nein, das ist \textbf{falsch}} antworten kann. Kann man auf eine Aussage passend bzw. stimmig mit \enquote{Ja, das ist \textbf{wahr}} antworten, dann ist die Aussage \textbf{wahr}. Ist nur \enquote{Nein, das ist \textbf{falsch}} eine passende Antwort, dann ist die Aussage \textbf{falsch}.
+    Aussagen sind also genau die Sätze, abgesehen von Fragen, auf die man entweder 
+    mit \enquote{Ja, das ist \textbf{wahr}} oder mit \enquote{Nein, das ist 
+    \textbf{falsch}} antworten kann. Kann man auf eine Aussage passend bzw. stimmig 
+    mit \enquote{Ja, das ist \textbf{wahr}} antworten, dann ist die Aussage 
+    \textbf{wahr}. Ist nur \enquote{Nein, das ist \textbf{falsch}} eine passende 
+    Antwort, dann ist die Aussage \textbf{falsch}. \textbf{Falsch} und \textbf{wahr} nennt
+    man auch Wahrheitswerte. Man sagt dann zum Beispiel, dass der Wahrheitswert einer wahren
+    Aussage, wahr ist.
 
-    \begin{example}{}
+    \begin{example}{Sätze, die keine Aussagen sind}
         Wir schauen uns einmal Beispiele für Sätze an, die keine Aussagen sind. Das sind zum einen Aufforderungen wie
         \[\textrm{\enquote{Trinke diesen Zaubertrank!}}\]
         Dieser Aufforderung mit \enquote{Ja, das ist \textbf{wahr}} oder \enquote{Nein, das ist \textbf{falsch}} zu entgegnen, ergibt keinen Sinn. Unser natürliches Sprachgefühl sagt bereits, dass diese Antworten keine sinnvollen Fortsetzung des Gespräch sein können.
@@ -83,15 +98,31 @@
         \enquote{Der Zaubertrank ist giftig}.
     \end{example}
 
-    Es gibt Sätze auf die du entweder mit \enquote{Ja, das ist \textbf{wahr}} oder \enquote{Nein, das ist \textbf{falsch}} antworten könntest, jedoch nicht weißt welche die passende bzw. stimmige Antwort ist. Nichtsdestotrotz handelt es sich bei dem Satz um eine Aussage. Das, was einen Satz zur Aussage macht, ist, dass dieser mit \enquote{Ja, das ist \textbf{wahr}} oder mit \enquote{Nein, das ist \textbf{falsch}} bejaht bzw. verneint werden kann. Welche nun die passende Antwort ist, ist dabei belanglos.
+
+    Es gibt auch Aussagen, deren Wahrheitswert du nicht kennst. 
+    Das, was einen Satz zu einer Aussage macht, 
+    ist, dass dieser mit \enquote{Ja, das ist \textbf{wahr}} oder 
+    mit \enquote{Nein, das ist \textbf{falsch}} bejaht bzw. verneint werden kann. 
+    Welche nun die passende Antwort ist, also was der Wahrheitswert ist, ist dabei belanglos.
    
-   \begin{example}{}
+   \begin{example}{Aussage mit unbekanntem Wahrheitswert}
         Der Satz 
         \[\textrm{\enquote{Der Zauberer ist 1024 Jahre alt}}\]
-        ist eine Aussage. Zwar wissen wir eventuell nicht, ob der Zauberer tatsächlich 1024 Jahre alt ist (Der Zauberer verrät uns sein Alter nicht), nichtsdestotrotz ist dieser Satz eine Aussage. Das liegt daran, dass \enquote{Ja, das ist \textbf{wahr}} und  \enquote{Nein, das ist \textbf{falsch}} Antwortmöglichkeiten sind. Welche dieser beiden Antworten jetzt die passende ist, kann uns dabei egal sein.
+        ist eine Aussage. Zwar wissen wir eventuell nicht, ob der Zauberer tatsächlich 1024 
+        Jahre alt ist (Der Zauberer verrät uns sein Alter nicht), nichtsdestotrotz ist 
+        dieser Satz eine Aussage. Das liegt daran, dass 
+        \enquote{Ja, das ist \textbf{wahr}} und  \enquote{Nein, das ist \textbf{falsch}} 
+        Antwortmöglichkeiten sind. Welche dieser Antwortmöglichkeiten die passende ist, also 
+        was der Wahrheitswert der Aussage ist, kann uns dabei egal sein.
    \end{example}
 
-    Im Verlaufe dieses Kapitels werden wir Aussagen genauer untersuchen. Im nächsten Abschnitt nehmen wir die Struktur von Aussagen unter die Lupe und schauen wie diese aufgebaut sind. Im darauf folgenden Abschnitt beschäftigten wir uns damit wie man bei Aussagen entscheiden kann, ob diese wahr oder falsch sind. Am Ende kommen wir auf das Logikrätsel mit dem Zauberer zurück und nutzen das neu gewonnene Wissen, um dieses Rätsel systematisch mit der Aussagenlogik zu lösen.
+    Im Verlaufe dieses Kapitels werden wir Aussagen genauer untersuchen. Im nächsten 
+    Abschnitt nehmen wir die Struktur von Aussagen unter die Lupe und schauen wie 
+    diese aufgebaut sind. Im darauf folgenden Abschnitt beschäftigten wir uns damit 
+    wie man bei Aussagen den Wahrheitswert bestimmen kann, 
+    also wie man entscheiden kann, ob diese wahr oder falsch sind. Am Ende 
+    kommen wir auf das Logikrätsel mit dem Zauberer zurück und nutzen das neu 
+    gewonnene Wissen, um dieses Rätsel systematisch mit der Aussagenlogik zu lösen.
 
     
     % Ist nur zum Ausprobieren hier
