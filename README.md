@@ -1,7 +1,7 @@
 <div align="center">
-  <!--a href="https://github.com/Reisefuhrer-Mathematik/Reisefuehrer-Mathematik">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a-->
+  <a href="https://github.com/Reisefuhrer-Mathematik/Reisefuehrer-Mathematik">
+    <img src="images/icon.svg" alt="Logo" width="80" height="80">
+  </a>
 
   <h3 align="center">Reiseführer Mathematik</h3>
 
