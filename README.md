@@ -43,5 +43,5 @@ Da das Projekt sehr ambitioniert ist, ist Hilfe jedweder Art **sehr gerne** gese
 einfach einen guten Vorschlag für das Projekt?
 Informationen, wie du zum Projekt beisteuern kannst, findest du im [Wiki](https://github.com/Reisefuhrer-Mathematik/reisefuehrer/wiki/Projekt).
 
-## Kompillieren
-Du möchtest das Projekt selbst kompillieren? Eine Anleitung dafür findest du im [Wiki](https://github.com/Reisefuhrer-Mathematik/reisefuehrer/wiki/Projekt#arbeitsumgebung-aufsetzen-und-kompilieren).
+## Kompilieren
+Du möchtest das Projekt selbst kompilieren? Eine Anleitung dafür findest du im [Wiki](https://github.com/Reisefuhrer-Mathematik/reisefuehrer/wiki/Projekt#arbeitsumgebung-aufsetzen-und-kompilieren).
