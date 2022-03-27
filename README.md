@@ -12,9 +12,9 @@
     <br />
     <br />
     <a href="https://github.com/Reisefuhrer-Mathematik/reisefuehrer/releases/latest/download/buch.pdf">Buch runterladen</a>
-    ·
+    &#8226;
     <a href="https://github.com/Reisefuhrer-Mathematik/Reisefuehrer-Mathematik/releases">Alle Downloads</a>
-    ·
+    &#8226;
     <a href="https://github.com/Reisefuhrer-Mathematik/Reisefuehrer-Mathematik/discussions">Vorschläge machen</a>
   </p>
 </div>
@@ -25,7 +25,7 @@ Ziel des Projektes ist es, ein Konzept auszuarbeiten, mit dem es Spaß macht, Ma
 Mit Hilfe von Einschüben weiterführenden Wissens soll zudem tiefer gehendes Interesse an dem Stoff gefördert werden.
 
 Das Projekt gliedert sich insgesamt grob auf in ein Lehrbuch, das zumindest den Schulstoff umfassen und anschaulich erläutern soll,
-Vorbereitungsblätter, die darauf ausgelegt sind, während des Lesens des Buches bearbeitet zu werden, damit der Lese den Stoff direkt
+Vorbereitungsblätter, die darauf ausgelegt sind, während des Lesens des Buches bearbeitet zu werden, damit der Leser den Stoff direkt
 vertieft, und Aufgabenblöcke, die, nachdem entsprechende Abschnitte im Buch gelesen wurden, diese weiter vertiefen sollen.
 
 ## Download
