@@ -14,11 +14,12 @@ body:
       description: Ein kurzer Titel, der deinen Vorschlag in wenigen Worten beschreibt.
       placeholder: |
         Z. B.: Eulersche Phi-Funktion in Kombinatorik behandeln
-      validations:
-        required: true
+    validations:
+      required: true
   - type: dropdown
     id: regarding
     attributes:
+      label: Betroffener Projektteil
       description: |
         Welche Teile des Projektes betrifft der Vorschlag?
         Wenn du nicht sicher bist, gibt es dafür auch eine Auswahl.
@@ -36,6 +37,7 @@ body:
       description: Beschreib hier so kurz wie möglich deinen Vorschlag.
         Wie sieht der Vorschlag aus? Welche Vorteile hat er für das Projekt?
   - type: markdown
-    attributes: |
-      Vielen Dank für Dein Interesse an dem Projekt.
-      Wir wissen es sehr zu schätzen, dass Du Dir gedanken gemacht hast, wie man es weiter verbessern kann.
+    attributes:
+      value: |
+        Vielen Dank für Dein Interesse an dem Projekt.
+        Wir wissen es sehr zu schätzen, dass Du Dir gedanken gemacht hast, wie man es weiter verbessern kann.
