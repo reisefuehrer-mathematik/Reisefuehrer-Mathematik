@@ -34,7 +34,7 @@ Um den neusten Stand des Buches runterzuladen, kannst du sonst auch [hier](https
 
 ## Projektziele
 Der Status des Projekts kann im [Wiki](https://github.com/Reisefuhrer-Mathematik/reisefuehrer/wiki/Lehrbuch) eingesehen werden.
- * [ ] Themenblock *Mengen und Funktionen* (Variablen, Aussagenlogik, Mengen, Abbildungen, Lineare Gleichunge) verfassen *(bis 31.03.2022)*
+ * [ ] Themenblock *Mengen und Funktionen* (Variablen, Aussagenlogik, Mengen, Abbildungen, Lineare Gleichungen) verfassen *(bis 31.03.2022)*
  * [ ] Vorbereitungsblätter und Aufgabenblöcke zu dem Themenblock in Zusammenarbeit mit Lehrern *(bis 30.06.2022)*
  * [ ] Musterlösung zu den Blättern verfassen *(bis 30.09.2022)*
 
