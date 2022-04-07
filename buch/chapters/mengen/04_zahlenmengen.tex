@@ -1,33 +1,30 @@
 \documentclass[../../main.tex]{subfiles}
 
-\begin{document}
-	\picchangemode
-	\todo{Beispiele hinzufügen}
-	Wir nutzen Mengen nicht nur, um einfache Alltagsobjekte in Kategorien zu ordnen, wir können auch Mengen verschiedener Zahlen betrachten. Eine besondere Rolle nehmen dabei die Mengen der verschiedenen Zahlentypen ein. Wir wollen diese nun beschreiben, ihnen einen Namen geben und auch ein Symbol zuordnen, durch das wir immer wissen, welche Zahlen gemeint sind.
-	
-	\parpic{
-	\begin{tikzpicture}[draw = blue!50!green, font = \small, scale = 0.8]	
-		\draw[fill = blue!50!green!80] (0,0.5) ellipse (1.2 and 1.5);
-		\node[left] at (0,1.4) {$\Natural_0$};
-		\node at (0.5,1.25) {$0$};	
-		\draw[fill = blue!50!green] (0,0) circle[radius = 1];
-		\node[left] at (0,0) {\Natural};	
-		\foreach \i/\j in {(0.5,0.5)/1, (-0.75,-0.25)/2, (0.25,-0.25)/3, (-0.25,-0.75)/4, (-0.3,0.6)/5, (0.75,0)/6} {
-			\node at \i {$\j$};
-		}
-	\end{tikzpicture}
-	}
-	Als ersten Zahlentyp gibt es die Zahlen, die wir im Alltag zum Zählen verwenden. Das sind die Zahlen $1$, $2$, $3$ und so weiter. Zusammengenommen ergeben sie die Menge der \textbf{natürlichen Zahlen}, für die wir auch einfach \Natural schreiben. Wenn man die Eier in seinem Kühlschrank zählen möchte, verwendet man also genau die natürlichen Zahlen (ein Ei, zwei Eier, drei Eier,$\ldots$). Eine gesonderte Rolle kommt der Zahl $0$ zu. Wir zählen die $0$ nicht als natürliche Zahl (es gibt kein nulltes Ei). Möchte man dennoch zusätzlich die $0$ beim Zählen betrachten (ich habe sechs Eier in meinem Kühlschrank und lege kein weiteres dazu), so schreibt man stattdessen $\Natural_0$. Diese Menge beinhaltet also die Zahlen $0$, $1$, $2$, $3$, $\ldots$ Es gibt allerdings keinen allgemeinen Konsens, ob die $0$ in den natürlichen Zahlen liegt, oder nicht.
-	
-	Wir wollen aber nicht immer nur aufzählen, also addieren, sondern auch Zahlen voneinander abziehen. Innerhalb der natürlichen Zahlen geht die Subtraktion so lange gut, bis wir eine größere von einer kleineren Zahl abziehen wollen. Zum Beispiel ist $3-7=-4$, was negativ und somit keine natürliche Zahl mehr ist. 
-	
-	\parpic{
-		\begin{tikzpicture}[draw = blue!50!green, font = \small, scale = 0.8]			
+% Zum iterativen Aufbau des Inklusionsdiagramms. Parameter: 1 -> nur N/N_0; 2 -> bis Z; 3 -> bis Q; 4 -> bis R
+\newcommand{\inclusionDiagram}[1]{
+	\begin{tikzpicture}[draw = blue!50!green, font = \small, scale = 0.8]
+		\ifnum#1=4
+			\draw[fill = blue!50!green!20] (0, 2.75) ellipse (1.8 and 3.75);
+			\node[left] at (0, 5.8) {\Real};
+			\foreach \i/\j in {(-0.9, 5.2)/\sqrt{2}, (0.7, 5.5)/\pi, (1.1, 4.75)/\sqrt{3}} {
+				\node at \i {$\j$};
+			}
+		\fi	
+		\ifnum#1>2		
+			\draw[fill = blue!50!green!40] (0,2) ellipse (1.6 and 3);
+			\node[left] at (0,4) {\Rational};
+			\foreach \i/\j in {(-0.9, 3.5)/\frac{2}{3}, (0.25, 4.25)/\frac{1}{2}, (1.1, 3.2)/\frac{7}{8}} {
+				\node at \i {$\j$};
+			}
+		\fi
+		\ifnum#1>1			
 			\draw[fill = blue!50!green!60] (0,1.2) ellipse (1.4 and 2.2);
 			\node[left] at (0, 2.6) {\Integer};
 			\foreach \i/\j in {(0,3)/-1, (-1, 2)/-2, (1, 1.75)/-3, (0.5,2.3)/-4} {
 				\node at \i {$\j$};
-			}			
+			}
+		\fi
+		\ifnum#1>0			
 			\draw[fill = blue!50!green!80] (0,0.5) ellipse (1.2 and 1.5);
 			\node[left] at (0,1.4) {$\Natural_0$};
 			\node at (0.5,1.25) {$0$};			
@@ -36,41 +33,36 @@
 			\foreach \i/\j in {(0.5,0.5)/1, (-0.75,-0.25)/2, (0.25,-0.25)/3, (-0.25,-0.75)/4, (-0.3,0.6)/5, (0.75,0)/6} {
 				\node at \i {$\j$};
 			}
-		\end{tikzpicture}
+		\fi
+	\end{tikzpicture}	
+}
+
+\begin{document}
+	\picchangemode
+	Wir nutzen Mengen nicht nur, um einfache Alltagsobjekte in Kategorien zu ordnen, wir können auch Mengen verschiedener Zahlen betrachten. Eine besondere Rolle nehmen dabei die Mengen der verschiedenen Zahlentypen ein. Wir wollen diese nun beschreiben, ihnen einen Namen geben und auch ein Symbol zuordnen, durch das wir immer wissen, welche Zahlen gemeint sind.
+	
+	\parpic{
+		\inclusionDiagram{1}
+	}
+	Als ersten Zahlentyp gibt es die Zahlen, die wir im Alltag zum Zählen verwenden. Das sind die Zahlen $1$, $2$, $3$ und so weiter. Zusammengenommen ergeben sie die Menge der \textbf{natürlichen Zahlen}, für die wir auch einfach \Natural schreiben. Wenn man die Eier in seinem Kühlschrank zählen möchte, verwendet man also genau die natürlichen Zahlen (ein Ei, zwei Eier, drei Eier,$\ldots$). Eine gesonderte Rolle kommt der Zahl $0$ zu. Wir zählen die $0$ nicht als natürliche Zahl (es gibt kein nulltes Ei). Möchte man dennoch zusätzlich die $0$ beim Zählen betrachten (ich habe sechs Eier in meinem Kühlschrank und lege kein weiteres dazu), so schreibt man stattdessen $\Natural_0$. Diese Menge beinhaltet also die Zahlen $0$, $1$, $2$, $3$, $\ldots$ Es gibt allerdings keinen allgemeinen Konsens, ob die $0$ in den natürlichen Zahlen liegt, oder nicht.
+	
+	Wir wollen aber nicht immer nur aufzählen, also addieren, sondern auch Zahlen voneinander abziehen. Innerhalb der natürlichen Zahlen geht die Subtraktion so lange gut, bis wir eine größere von einer kleineren Zahl abziehen wollen. Zum Beispiel ist $3-7=-4$, was negativ und somit keine natürliche Zahl mehr ist. 
+	
+	\parpic{
+		\inclusionDiagram{2}
 	}
 	Die natürlichen Zahlen mit $0$ sind eine Teilmenge der sogenannten \textbf{ganzen Zahlen}. Diese verwenden wir, wenn wir nicht nur Objekte aufzählen, sondern von ihrer Anzahl auch wieder etwas abziehen wollen. Den sechs Eiern in meinem Kühlschrank füge ich nach dem Einkauf drei hinzu und verwende fünf, um mir ein Omelett zu machen. Anschließend verbleiben mir vier Eier. Für ein zweites Omelett fehlt mir nun leider ein Ei, da $4-5=-1$ ist. Ganze Zahlen sind also zum einen die natürlichen Zahlen mit $0$, als auch die negativen natürlichen Zahlen $-1$, $-2$, $-3$ und so weiter. Für die Menge der ganzen Zahlen schreiben wir \Integer.
 	
 	Die zum Abzählen verwendeten Zahlen sind die natürlichen Zahlen. Wir verwenden sie oft, wenn wir im Alltag Dinge addieren wollen. Die ganzen Zahlen erweitern die natürlichen um Subtraktion. Wir können diese Zahlen auch miteinander multiplizieren und erhalten jeweils stets wieder eine natürliche, beziehungsweise ganze Zahl. Neben diesen drei Grundrechenarten hast du in der Schule auch die Division kennengelernt. Auch wie bei der Subtraktion bekommen wir beim Teilen keine Probleme, wenn wir eine Zahl durch einen ihrer Teiler dividieren. So gilt etwa $\frac{8}{4} = 2$, jedoch ist $\frac{2}{5} = 0.4$ keine ganze Zahl mehr.
 
 	\parpic{
-	\begin{tikzpicture}[draw = blue!50!green, font = \small, scale = 0.8]
-		\draw[fill = blue!50!green!40] (0,2) ellipse (1.6 and 3);
-		\node[left] at (0,4) {\Rational};
-		\foreach \i/\j in {(-0.9, 3.5)/\frac{2}{3}, (0.25, 4.25)/\frac{1}{2}, (1.1, 3.2)/\frac{7}{8}} {
-			\node at \i {$\j$};
-		}		
-		\draw[fill = blue!50!green!60] (0,1.2) ellipse (1.4 and 2.2);
-		\node[left] at (0, 2.6) {\Integer};
-		\foreach \i/\j in {(0,3)/-1, (-1, 2)/-2, (1, 1.75)/-3, (0.5,2.3)/-4} {
-			\node at \i {$\j$};
-		}		
-		\draw[fill = blue!50!green!80] (0,0.5) ellipse (1.2 and 1.5);
-		\node[left] at (0,1.4) {$\Natural_0$};
-		\node at (0.5,1.25) {$0$};		
-		\draw[fill = blue!50!green] (0,0) circle[radius = 1];
-		\node[left] at (0,0) {\Natural};		
-		\foreach \i/\j in {(0.5,0.5)/1, (-0.75,-0.25)/2, (0.25,-0.25)/3, (-0.25,-0.75)/4, (-0.3,0.6)/5, (0.75,0)/6} {
-			\node at \i {$\j$};
-		}
-	\end{tikzpicture}	
+		\inclusionDiagram{3}
 	}	
 	Als nächstes gibt es also die Menge der Bruchzahlen. Diese nennt man \textbf{rationale Zahlen} und schreibt \Rational. Die Menge der rationalen Zahlen besteht also aus allen Zahlen, die wir als Bruch angeben können ($\frac{1}{2}$, $\frac{7}{8}$, $\frac{42}{57}$, $\ldots$). Wir können auch jede ganze Zahl als Bruch angeben, indem wir sie selbst in den Zähler und die $1$ in den Nenner schreiben. So ist zum Beispiel $3 = \frac{3}{1}$. Die Menge der rationalen Zahlen enthält also die Menge der ganzen Zahlen und damit insbesondere auch alle natürlichen Zahlen. Umgekehrt ist zum Beispiel $\frac{1}{2}$ keine ganze Zahl. Insgesamt bilden diese Zahlenmengen eine Kette von echten Teilmengen, wie im Bild dargestellt. Formal können wir hierfür auch mathematische Notationen verwenden und schreiben:
 	
 	$$\Natural \subsetneq \Natural_0 \subsetneq \Integer \subsetneq \Rational$$
 	
 	Diese Benennung dieser speziellen Mengen hilft es uns, andere Mengen von Zahlen elegant aufschreiben zu können. Anstatt solche Mengen explizit aufzuzählen oder umständlich zu beschreiben, können wir nun einfach auf unsere Zahlenmengen zurückgreifen.
-	
-	\todo{Beispiel ist hier noch unbeholfen, evtl auch ein Bildchen dazu}
 
 	\begin{example}{Gerade und ungerade Zahlen}
 		Gesucht ist die Menge der geraden Zahlen. Das sind diejenigen ganzen Zahlen, die durch $2$ teilbar sind. Nutzen wir unsere Klassifikation aus, so erhalten wir folgende Definition.
@@ -97,12 +89,12 @@
 	\subsection{Die reellen Zahlen}
 	Wir haben jetzt diejenigen Zahlen klassifiziert, mit denen wir im Alltag am meisten zu tun haben. Diese Zahlen können wir nun ihrem Wert entsprechend auf einem Strahl markieren. Einen solchen Strahl nennt man auch Zahlenstrahl. Jeder noch so kleine Punkt auf diesem Strahl (markiert oder nicht) entspricht einer Zahl.
 	
-	\todo{Bild vielleicht in bunt?}
 	\begin{figure}[h]
 		\centering
 		\begin{tikzpicture}[scale=5]
-			\draw (-1.1,0)--(1.1,0);
-			\foreach \x in {-1,0,1} \draw (\x,8pt)--(\x,-8pt) node[below] {$\x$};		
+			\foreach \x in {-1,0,1} {	
+				\draw (\x,8pt)--(\x,-8pt) node[below] {$\x$};	
+			}
 			\draw (1/2,4pt)--(1/2,-4pt) node[below] {$\frac{1}{2}$};
 			\draw (-1/2,4pt)--(-1/2,-4pt) node[below] {$-\frac{1}{2}$};		
 			\foreach \x in {1,3}{
@@ -113,8 +105,7 @@
 				\draw (\x/8,1pt)--(\x/8,-1pt) node[below] {$\frac{\x}{8}$};
 				\draw (-\x/8,1pt)--(-\x/8,-1pt) node[below] {$-\frac{\x}{8}$};
 			}
-			%		\node at (1.1,0) [right] {\ldots};
-			%		\node at (-1.1,0) [left] {\ldots};
+			\draw (-1.1,0)--(1.1,0);
 		\end{tikzpicture}
 		\caption{Ein Ausschnitt eines beispielhaften Zahlenstrahls. Eingezeichnet sind die ganzen Zahlen $-1,\ 0$ und $1$ sowie ein paar ausgewählte (aber nicht alle) Bruchzahlen, die dazwischen liegen. Der Strahl kann auf beiden Seiten weiter fortgeführt werden.}
 	\end{figure}
@@ -125,13 +116,12 @@
 	
 	In manchen Fällen ist die Sache klar. Zum Beispiel ist $\sqrt{9}=3$ eine natürliche Zahl und liegt somit in \Rational. Andere Wurzeln sind leider nicht so eindeutig, wie etwa $\sqrt{2}$. Der Wert von $\sqrt{2}$ liegt irgendwo zwischen $1$ und $2$ und ist damit nicht mehr natürlich. Tatsächlich ist er aber auch nicht rational, wie das folgende Resultat zeigt.
 	
-	\todo{Etwas netter formulieren}
-	\begin{theorem}{$\sqrt{2}$ ist nicht rational}
-		Es gilt $\sqrt{2}\notin\Rational$.
+	\begin{theorem}{Nicht alle Zahlen sind rational}
+		Es gibt Zahlen, die nicht rational sind. Man kann also nicht jede Zahl als Bruchzahl darstellen. Im Speziellen ist etwa $\sqrt{2} \notin\Rational$.
 	\end{theorem}
 	
 	\begin{proof}
-		Ist $\sqrt{2}$ eine rationale Zahl, so können wir sie als Bruch aufschreiben. Das heißt, es gibt ganze Zahlen $a, \ b\in\Integer$ mit $b \neq 0$, sodass gilt
+		Wir zeigen, dass $\sqrt{2}$ nicht rational ist durch einen Widerspruchsbeweis. Ist $\sqrt{2}$ eine rationale Zahl, so können wir sie als Bruch aufschreiben. Das heißt, es gibt ganze Zahlen $a, \ b\in\Integer$ mit $b \neq 0$, sodass gilt
 		
 		$$\sqrt{2} = \frac{a}{b}.$$
 		
@@ -156,31 +146,7 @@
 	\end{proof}
 
 	\parpic{
-		\begin{tikzpicture}[draw = blue!50!green, font = \small, scale = 0.8]
-		\draw[fill = blue!50!green!20] (0, 2.75) ellipse (1.8 and 3.75);
-			\node[left] at (0, 5.8) {\Real};
-			\foreach \i/\j in {(-0.9, 5.2)/\sqrt{2}, (0.7, 5.5)/\pi, (1.1, 4.75)/\sqrt{3}} {
-				\node at \i {$\j$};
-			}			
-			\draw[fill = blue!50!green!40] (0,2) ellipse (1.6 and 3);
-			\node[left] at (0,4) {\Rational};
-			\foreach \i/\j in {(-0.9, 3.5)/\frac{2}{3}, (0.25, 4.25)/\frac{1}{2}, (1.1, 3.2)/\frac{7}{8}} {
-				\node at \i {$\j$};
-			}			
-			\draw[fill = blue!50!green!60] (0,1.2) ellipse (1.4 and 2.2);
-			\node[left] at (0, 2.6) {\Integer};
-			\foreach \i/\j in {(0,3)/-1, (-1, 2)/-2, (1, 1.75)/-3, (0.5,2.3)/-4} {
-				\node at \i {$\j$};
-			}			
-			\draw[fill = blue!50!green!80] (0,0.5) ellipse (1.2 and 1.5);
-			\node[left] at (0,1.4) {$\Natural_0$};
-			\node at (0.5,1.25) {$0$};			
-			\draw[fill = blue!50!green] (0,0) circle[radius = 1];
-			\node[left] at (0,0) {\Natural};			
-			\foreach \i/\j in {(0.5,0.5)/1, (-0.75,-0.25)/2, (0.25,-0.25)/3, (-0.25,-0.75)/4, (-0.3,0.6)/5, (0.75,0)/6} {
-				\node at \i {$\j$};
-			}
-		\end{tikzpicture}	
+		\inclusionDiagram{4}
 	}
 	Tatsächlich sind Wurzeln von Primzahlen niemals rational. Auch andere Zahlen, wie die Kreiszahl $\pi$ sind nicht in \Rational enthalten. Auf unserem Zahlenstrahl liegen diese Zahlen in den Lücken zwischen rationalen Zahlen. Die Menge, die alle Zahlen des Zahlenstrahls enthält, nennen wir die Menge der \textbf{reellen Zahlen} \Real, die wir an dieser Stelle nicht formal definieren wollen. Jeder beliebige Punkt auf dem Zahlenstrahl ist somit eine reelle Zahl.
 	
