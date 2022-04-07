@@ -1,0 +1,202 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\label{sec:abbildungen_intuition}
+Aus den letzten Kapiteln sollte dir bereits bekannt sein, dass Mengen in der Mathematik dazu dienen, über eine bestimmte Auswahl von Objekten -- ganz egal, ob es Zahlen, Farben, Gegenstände oder andere Dinge sind -- zu reden. Anschaulich konnte man sich Mengen durch sogenannte Venn-Diagramme vorstellen. Beispielsweise siehst du ein solches Diagramm für eine einzelne Menge in der nebenstehenden Abbildung.
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \fill[grayset] (-1.5,0) circle (15mm);
+        \node[label={[red]above:rot}, red] at (-1.5,0.7) {\textbullet};
+        \node[label={[blue]above:blau}, blue] at (-2.5,0) {\textbullet};
+        \node[label={[yellow!70!black]above:gelb}, yellow!70!black] at (-1.5,-1.1) {\textbullet};
+        \node[label={[green!70!black]below:grün}, green!70!black] at (1.3,0.3) {\textbullet};
+        \node (setName) at (1.2,1.5) {\textsc{Grundfarben}};
+        \draw[->] (setName) to[bend left] (-0.3,0.5);
+    \end{tikzpicture}
+}
+
+In der Abbildung ist die Menge der Grundfarben zu sehen, wie wir sie bereits aus dem Kapitel über \mayberef{\emph{Mengen}} kennen, dar. Graphisch wird die Menge durch einen Kreis repräsentiert. Objekte, die zur Menge gehören, also die \textbf{Elemente} der Menge, sind im Kreis eingezeichnet, während z.\,B. die Farbe \emph{grün}, die keine Grundfarbe ist, nicht zur Menge gehört und deswegen auch nicht im Kreis, sondern daneben abgebildet ist.
+
+Neben einer praktischen Möglichkeit, Sammlungen von Objekten mathematisch darzustellen, sind Mengen auch die Grundlage für viele weitere Konstrukte in der Mathematik. Den wohl wichtigsten Begriff, der auf Mengen aufbaut, nämlich den der \textbf{Funktion}, lernen wir in diesem Kapitel kennen.
+
+Funktionen sind aus vielerlei Hinsicht relevant: Erst einmal erlauben sie es uns, später über nochmals andere mathematische Objekte zu sprechen. Darüber hinaus funktioniert beispielsweise auch moderne künstliche Intelligenz auf Basis von unserem Wissen über Funktionen. Durch Funktionen ist es Computern also möglich, das Lösen von komplizierten Aufgaben zu lernen -- zum Beispiel das Erkennen von handschriftlichem Text.
+
+Bevor wir uns Funktionen genauer ansehen und mathematisch analysieren, werfen wir zunächst einen Blick auf einige Beispiele, die uns im Leben begegnen und die sich wie Funktionen verhalten.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=.6]
+            \node at (0,0) {\includegraphics[width=.3\textwidth]{images/icecream.png}};
+            \node at (1.5,1.7) {\small\textbf{pro Kugel}};
+            \node[label=above:1.00, orange] at (0.6,0) {\large $\bullet$};
+            \node[label=above:1.50, blue!60] at (2.4,0) {\LARGE $\bullet$};
+        \end{tikzpicture}
+    }
+    Der Besitzer einer Eisdiele, der Eiskugeln verschiedener Größe verkauft, möchte seine Kunden darauf hinweisen, wie viel eine Kugel Eis bei ihm kostet, um erstens Verwirrungen zu vermeiden und zweitens damit zu werben, dass Eis bei ihm billiger als anderswo ist.
+    
+    \picskip{3}Deswegen hängt er das nebenstehend abgebildete Preisschild vor die Tür, auf dem er schreibt, dass er kleine Kugeln für 1.00\,\euro{} verkauft und große Kugeln für 1.50\,\euro.
+    
+    Tatsächlich genügt dieses kleine Beispiel schon, um eine Funktion wiederzufinden. Das Preisschild, das der Inhaber vor seine Tür gestellt hat, macht nämlich aus der Information, welche Kugel man kaufen möchte, den Preis dieser Kugel.
+    
+    Ausgehend von entweder einer kleinen oder einer großen Kugel erhält man also den Preis dieser Kugel. Dabei hängt der Preis natürlich davon ab, welche Größe man haben möchte. Das Schild macht daher aus \emph{einer bestimmten} Größe \emph{einen bestimmten} Preis. Man kann auch sagen, das Schild \textbf{ordnet} eine Eiskugelgröße ihrem Preis \textbf{zu}.
+    
+    Wichtig hierbei ist, dass jede Eiskugel im Angebot auch einen Preis erhält -- und genau einen, denn eine Kugel, die mehrere Preise gleichzeitig hat, ergibt wenig Sinn. Diese Eigenschaft findet sich auch bei Funktionen in der Mathematik wieder, wie wir später sehen werden.
+\end{example}
+
+Grundsätzlich ist der Sinn einer Funktion in der Mathematik, eine Zuordnung zwischen den Elementen einer Menge und den Elementen einer anderen Menge zu sein. Das sind in der Regel Mengen von Zahlen, doch es spricht prinzipiell nichts dagegen, stattdessen Eiskugelgrößen, Farben oder andere Dinge als Mengen zu verwenden. Genau genommen nimmt die Funktion immer ein bestimmtes Element aus der ersten Menge und übersetzt es in ein Element der zweiten Menge.
+
+\parpic[r]{
+    \input{diagrams/function_scheme}%Also used by abbildungen/04_abbildungen_in_koordinatensystemen
+}
+Zunächst einmal muss man sich also überlegen, dass Funktionen ganz bestimmte Einsatzgebiete haben: Jede Funktion bildet Elemente einer ersten Menge, der \textbf{Definitionsmenge}, auf andere Elemente ab. Für Objekte, die nicht aus der Definitionsmenge stammen, ergibt die Funktion dann meistens keinen Sinn -- oder sie ist für diese schlicht nicht definiert.
+
+Bekommt eine Funktion nun ein Element aus der Definitionsmenge, so ordnet sie ihm ein anderes Objekt zu. Du weißt in der Regel vorher, was für eine Art von Objekt dabei herauskommt. Die Menge solcher möglichen Objekte nennt man \textbf{Zielmenge}.
+
+Wenn du die Definitions- und die Zielmenge nebeneinander zeichnest, dann kannst du dir eine Funktion als die Pfeile zwischen diesen beiden Mengen vorstellen, die darstellen, welches Element der linken Menge welchem Element der rechten Menge zugeordnet wird.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=0.8]
+            \draw[grayset] (-1.5,0) circle[radius=15mm];
+            \node (setName) at (0,2) {\textsc{Definitionsmenge}};
+            \node[label={[blue!70]below:groß}, blue!60] (x1) at (-1.1,0.9) {\LARGE $\bullet$};
+            \node[label={[orange]below:klein}, orange] (x2) at (-1.8,-0.4) {$\bullet$};
+            \node (x3) at (-1.5,-1.85) {$\bullet$};
+            \node[label=above:1.50 \euro] (y1) at (1.2,0.6) {$\bullet$};
+            \node[label=above:1.00 \euro] (y2) at (1.2,-0.6) {$\bullet$};
+            \node[red] (y3) at (1.2,-1.6) {\textbf{?}};
+            \draw[->] (setName) to[bend right] (-2.7,0.5);
+            \draw[blue,->] (x1) -- (y1);
+            \draw[orange,->] (x2) -- (y2);
+            \draw[->] (x3) -- (y3);
+        \end{tikzpicture}
+    }
+    Im obigen Beispiel ist die \textbf{Definitionsmenge} die Menge bestehend aus den Größen \emph{groß} und \emph{klein}, also 
+    \[\textsc{Kugeln}\coloneqq\{\text{große Kugel},\text{kleine Kugel}\}.\]
+    Während es sinnvoll ist, zu fragen, wie viel eine große oder kleine Kugel kostet, wird das Schild beispielsweise keine Auskunft darüber geben, wie teuer ein Autoreifen, ein Notizblock oder eine Kartoffel ist -- ganz einfach, weil das Schild vor einer Eisdiele steht und ausschließlich dafür gemacht ist, den Preis von Eis anzugeben.
+\end{example}
+
+Natürlich benötigt man in der Mathematik eine ordentliche Schreibweise für Funktionen. Bevor wir diese einführen, klären wir noch ein paar weitere wichtige Begriffe. Wenn eine Funktion ein Element $x$ aus der Definitionsmenge bekommt und in ein anderes übersetzt, dann nennt man das neu erhaltene Element das \textbf{Bild} von $x$.
+
+Geht man andersherum von einem Element $y$ aus der Zielmenge aus und findet ein Element, das zu diesem bestimmten Abbild übersetzt wird, aus der Definitionsmenge, dann ist dies ein \textbf{Urbild} von $y$.
+
+Schließlich haben wir schon herausgefunden, dass verschiedene Elemente der Definitionsmenge verschiedene \textbf{Bilder} haben können. Eine Funktion wird bei jeder Anwendung auf ein bestimmtes Element der Definitionsmenge angewandt. Dieses Element nennt man \textbf{Argument} der Funktion.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=.75]
+            \fill[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+            \fill[grayset] (1.5,0) ellipse (1.5cm and 2cm);
+            %elements
+            \node[blue!70] (x1) at (-1.5,0.7) {\LARGE $\bullet$};
+            \node[orange] (x2) at (-1.5,-0.7) {$\bullet$};
+            \node (y1) at (1.5,0.7) {1.50\,\euro};
+            \node (y2) at (1.5,-0.7) {1.00\,\euro};
+            %arrows
+            \draw[blue!70,->] (x1) -- (y1);
+            \draw[orange,->] (x2) -- (y2);
+        \end{tikzpicture}
+    }
+    Das Preisschild an der Eisdiele hat wie jede Funktion eine ganz bestimmte Zielmenge: Sie besteht aus den Preisen 1.00 \euro{} und 1.50 \euro, also ist die Zielmenge \[\textsc{MöglichePreise}\coloneqq\{\text{1.00\,\euro},\text{1.50\,\euro}\}.\]
+    Die Funktion, die vom Schild beschrieben wird, ist somit insgesamt eine Funktion von der Definitionsmenge \textsc{Kugeln} zur Zielmenge \textsc{MöglichePreise}. Man sagt auch oft kürzer, sie ist eine Funktion von \textsc{Kugeln} nach \textsc{MöglichePreise}. Das dementsprechende vollständige Diagramm zu dieser Funktion ist rechts zu sehen.
+    
+    \picskip{0}Wertet man die Funktion beispielsweise für das \textbf{Argument} \emph{große Kugel} aus, so erhält man das \textbf{Bild} 1.50\,\euro. Umgekehrt ist \emph{große Kugel} ein \textbf{Urbild} von 1.50\,\euro.
+\end{example}
+
+%============================================
+% Formale Schreibweisen
+%============================================
+
+\section*{Formale Schreibweisen}
+\label{sec:abbildungen_definition}
+Nun sind wir bereit für die formale Definition von Funktionen. Um besser über Dinge reden zu können, möchte man ihnen gern Namen geben. So könnte man der Funktion aus den vorherigen Beispielen den Namen \textsc{EiskugelPreis} geben. Damit ist es leichter, später weiter über diese Funktion zu sprechen -- man hat nun einen bestimmten Namen, mit dem man genau diese Funktion verbindet.
+
+Entsprechend soll auch formal jede Funktion einen bestimmten Namen erhalten. Als Formelsymbol für Funktionen wird hier ein $f$ verwendet. In dieser Definition werden einige Schreibweisen eingeführt, die anschließend weiter diskutiert werden.
+
+\begin{definition}{Funktion}
+Eine \textbf{Funktion} $f$ ist eine Vorschrift, die allen Elementen aus der Definitionsmenge $U$ genau ein Element aus der Zielmenge $V$ zuordnet, geschrieben $f\colon U\rightarrow V$. Wird ein Element $u\in U$ auf $v\in V$ abgebildet, so schreibt man $f(u)=v$ bzw. $u\mapsto v$.
+\end{definition}
+
+Im Großen und Ganzen ist dies eine Wiederholung von dem, was wir soeben gesehen haben. Neu sind im Wesentlichen zwei Schreibweisen: 
+
+Die erste Schreibweise ist \mbox{$f\colon U\rightarrow V$}. Sie sagt zunächst einmal aus, dass wir eine Funktion mit dem Namen $f$ haben. Nach dem Doppelpunkt erklären wir dann, was für eine Funktion $f$ ist, d.h. von welchen Werten wir erwarten können, dass $f$ ihnen ein Bild zuordnet (das macht $f$ genau für die Elemente aus $U$) und welche möglichen Bilder wir erwarten können (alle Bilder müssen aus der Zielmenge $V$ stammen). Man könnte sie also lesen als \enquote{$f$ ist eine Funktion von $U$ nach $V$}.
+
+\begin{example}{}
+    Um auszudrücken, dass das Eis-Preisschild die Funktion \textsc{EiskugelPreis} darstellt, die Eiskugelgrößen, also Elementen der Menge \textsc{Kugeln}, einen Preis, also ein Element aus \textsc{MöglichePreise}, zuordnet, kann man \[\textsc{EiskugelPreis}\colon\textsc{Kugeln}\rightarrow\textsc{MöglichePreise}\] schreiben. Man meint damit also, dass wir eine Funktion namens \textsc{EiskugelPreis} haben, deren Definitionsmenge die Menge \textsc{Kugeln} ist und die Elemente aus dieser Definitionsmenge auf \textsc{MöglichePreise} abbildet.
+\end{example}
+
+Die zweite Schreibweise ermöglicht es, nachdem man klargestellt hat, welche Art von Objekten eine Funktion übersetzt (d.h. nachdem man Definitions- und Zielmenge festgelegt hat), festzulegen, \emph{wie} die Funktion diese Übersetzung vornimmt. Dazu lässt sich mit der Schreibweise $u\mapsto v$ formulieren, dass $u$ das Bild $v$ hat, d.h. die Funktion übersetzt das Element $u$ aus der Definitionsmenge in das Element $v$ aus der Zielmenge.
+
+Üblicher ist es, genau dieselbe Information durch die Schreibweise $f(u)=v$ (gelesen: \emph{$f$ von $u$ ist $v$}) auszudrücken. Damit gibt man nämlich direkt an, \emph{welche} Funktion $u$ zu $v$ übersetzt.
+
+\begin{example}{}
+    \parpic[r]{
+        \centering
+        \begin{tikzpicture}[scale=.6]
+            \node at (0,0) {\includegraphics[width=.3\textwidth]{images/dictionary.png}};
+            \node at (-1.6,1.5) {\small\textbf{Deutsch}};
+            \node at (1.6,1.5) {\small\textbf{English}};
+            \node at (1.6,0) {\small\textit{dog}};
+            \node at (-1.6,0) {\small\textit{Hund}};
+            \node at (1.6,-1) {\small\textit{cat}};
+            \node at (-1.6,-1) {\small\textit{Katze}};
+        \end{tikzpicture}
+    }
+    In verschiedenen Sprachen, zum Beispiel Deutsch und Englisch, verwendet man unterschiedliche Wörter für die gleichen Dinge. Im Englischunterricht lernt man deshalb Vokabeln, etwa, dass das englische Wort für \emph{Hund} das Wort \emph{dog} ist. Hier versteckt sich erneut eine Abbildung. Diese könnte man zum Beispiel \textsc{EnglischesWort} nennen und sie würde aus dem deutschen Wort \emph{Hund} das englische Wort \emph{dog} machen. Entsprechend schreibt man
+    \[\textit{Hund}\mapsto\textit{dog}.\]
+    Ebenfalls wäre es möglich gewesen, $\textsc{EnglischesWort}(\textit{Hund})=\textit{dog}$ zu schreiben. Damit drückt man genau dasselbe aus und auch ausgesprochen als \enquote{\emph{\textsc{EnglischesWort} von Hund ist dog}} ist klar, dass dies richtig sein muss.
+\end{example}
+
+Außerdem lohnt es sich, an dieser Stelle zu betonen, dass eine Funktion nicht unbedingt jedes Element aus der Zielmenge verwenden muss, d.h. nicht jedes Element der Zielmenge muss ein Urbild haben. Stattdessen ist die Zielmenge vielmehr ein Vorrat an möglichen Bildern, der ausgeschöpft werden kann, aber nicht muss.
+
+Wie diese Schreibweisen nun bei weiteren konkreten Funktionen aussehen, schauen wir uns zunächst nochmal am Beispiel mit der Eisdiele an. Anschließend sehen wir ein weiteres Beispiel aus dem Leben, das sich wie eine Funktion verhält und verwenden auch dort die gerade eingeführten Schreibweisen.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=.75]
+            \fill[grayset] (-1.5,0) ellipse (0.5cm and 2cm);
+            \fill[grayset] (3.5,0) ellipse (1.5cm and 2cm);
+            %elements
+            \node[blue!70] (x1) at (-1.5,0.7) {\LARGE $\bullet$};
+            \node[orange] (x2) at (-1.5,-0.7) {$\bullet$};
+            \node (y1) at (3.5,0.7) {1.50 \euro};
+            \node (y2) at (3.5,-0.7) {1.00 \euro};
+            %arrows
+            \draw[->] (x1) -- node[above] {\textcolor{blue!70}{$\bullet$}$\mapsto$\small 1.50 \euro} (y1);
+            \draw[->] (x2) -- node[above] {\textcolor{orange}{$\bullet$}$\mapsto$\small 1.00 \euro} (y2);
+        \end{tikzpicture}
+    }
+    Das Preisschild an der Eisdiele besagt, dass \emph{kleine Kugeln} einen Preis von 1.00~\euro{} haben und dass \emph{große Kugeln} 1.50~\euro{} kosten. 
+    
+    \picskip{4}
+    Aus mathematischer Sicht wäre es vollkommen ausreichend, die Funktion als \[\textsc{EiskugelPreis}\colon\textsc{Kugeln}\rightarrow\textsc{MöglichePreise}\] 
+    mit der Regel zu beschreiben, dass $\textsc{EiskugelPreis}(\textit{kleine Kugel})=\text{1.00 \euro}$ gilt, also eine kleine Kugel 1.00~\euro{} kostet und $\textsc{EiskugelPreis}(\textit{große Kugel})=\text{1.50 \euro}$, d.h. eine große Kugel kostet 1.50~\euro. 
+    
+    Diese letzten beiden Regeln entscheiden also, wie wir in einem Diagramm die Pfeile einzeichnen müssen. Mit anderen Worten legen wir hier einfach nur mit der formalen Schreibweise fest, welche Kugelgröße wie viel kostet.
+\end{example}
+
+\begin{example}{}
+    Durch das Mischen der drei Grundfarben rot, blau und gelb kann man beliebige Farben erhalten. Mischt man beispielsweise rot mit gelb, so erhält man orange. Das folgende Diagramm zeigt, was mit den drei Grundfarben passiert, wenn man sie mit gelb mischt: Sie werden zu grün, orange bzw. gelb.
+    \begin{center}
+        \input{diagrams/mix_with_yellow}%also used by abbildungen/03_abbildungen_beschreiben
+    \end{center}
+    Dieser Vorgang beschreibt eine Funktion \textsc{MitGelbMischen}. Zu Beginn kann man eine beliebige Grundfarbe haben, also ist die Definitionsmenge der Funktion die Menge der Grundfarben -- oder mathematisch \[\textsc{Grundfarben}\coloneqq\{\text{blau},\text{rot},\text{gelb}\}.\]
+    Nachdem man eine Grundfarbe mit gelb gemischt hat, bekommt man eine Mischfarbe. Die drei Mischfarben, die wir hier erhalten können, sind die Zielmenge der Funktion \textsc{MitGelbMischen}. Formal ist die Zielmenge demnach die Menge \[\textsc{Mischfarben}\coloneqq\{\text{grün},\text{orange},\text{gelb}\}.\]
+    Grundfarben mit der Farbe gelb zu mischen, erklärt also eine Funktion \[\textsc{MitGelbMischen}\colon\textsc{Grundfarben}\rightarrow\textsc{Mischfarben}\] mit der Abbildungsvorschrift $\text{blau}\mapsto\text{grün}$, $\text{rot}\mapsto\text{orange}$ und $\text{gelb}\mapsto\text{gelb}$. Alternativ kann man auch die Schreibweise nutzen, bei der man das Argument in Klammern setzt. Dieselbe Abbildungsvorschrift kann man dann durch $\textsc{MitGelbMischen}(\text{blau})=\text{grün}$, $\textsc{MitGelbMischen}(\text{rot})=\text{orange}$ und $\textsc{MitGelbMischen}(\text{gelb})=\text{gelb}$ notieren. Es lohnt sich, noch einmal zu betonen, dass diese beiden Schreibweisen tatsächlich dasselbe meinen.
+\end{example}
+
+\begin{nutshell}{Grundbegriffe zu Funktionen}
+    \parpic[r]{
+        \input{diagrams/simple_map}%Needed by tasks
+    }
+    \textbf{Funktionen} sind in der Mathematik eine Regel, mit der Elemente von einer Menge, der \textbf{Definitionsmenge}, in Elemente der \textbf{Zielmenge} übersetzt werden.
+    
+    \picskip{2}
+    Eine Funktion mit dem Namen $f$, die aus einer Definitionsmenge $U$ in eine Zielmenge $V$ abbildet, schreibt man als $f\colon U\rightarrow V$ (gelesen: $f$ ist eine Funktion von $U$ nach $V$).
+    
+    Um eine Funktion anzuwenden, nimmt man ein Element der Definitionsmenge (das \textbf{Argument} der Funktion) und erhält dessen \textbf{Bild}, also ein Element der Zielmenge, das die Funktion eindeutig festlegt. 
+    
+    Als Formel schreibt man, wenn die Funktion $f$ das Argument $u\in U$ auf das Element $v\in V$ abbildet, $f(u)=v$. Alternativ kann man auch $u\mapsto v$ schreiben (d.h. $u$ wird auf $v$ abgebildet), um explizit zu betonen, dass $u$ das \textbf{Bild} $v$ hat bzw. $u$ ein \textbf{Urbild} von $v$ ist.
+\end{nutshell}
+\end{document}
