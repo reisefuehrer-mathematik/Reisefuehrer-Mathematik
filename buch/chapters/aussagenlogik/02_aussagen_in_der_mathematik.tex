@@ -3,8 +3,10 @@
 \begin{document}
 
 %\newcommand{\statement}[1]{\textrm{\enquote{\textbf{#1}}}}
-\newcommand{\statement}[1]{\textrm{\fontencoding{T1}\fontsize{10}{12}\fontfamily{put}\itshape\selectfont#1}}
-
+%\newcommand{\statement}[1]{\textrm{\fontencoding{T1}\fontsize{10}{12}\fontfamily{put}\itshape\selectfont#1}}
+\newcommand{\statement}[1]{\textrm{\enquote{\textbf{#1}}}}
+\def\wahr{\text{\color{green!50!black}wahr}}
+\def\falsch{\text{\color{red!80!black}falsch}}
 %\newcommand{\centralizedImage}[3]{
 %   \ifthenelse{\equal{#3}{}}
 %   {
@@ -40,8 +42,20 @@
 \def\saladIcn{\statementIcon{images/salat.png}{1.39}{}}
 \def\friesIcn{\statementIcon{images/pommes.png}{0.86}{}}
 
-\todo{einheitlich bold, anführungszeichen}
-\todo{irgendwo erwähnen, dass man streng genommen auch um Negation klammern müsste ( $\lnot (A \implies B)$, vs $(\lnot A) \implies B$), wir lassen das aber aus platzgründen weil, wir nicht am stärksten binden soll. Im letzten beispiel wird negations geklammert}
+In der Einleitung haben wir gesehen, dass wir Aussagen mathematisch betrachten und ihnen einen
+Wahrheitswert zuordnen können.
+
+\begin{definition}{Aussagen}
+    Eine Aussage ist ein Satz, der keine Frage ist, den man aber entweder mit 
+    \statement{Ja, das ist \wahr} bejahen oder mit \statement{Nein, das ist \falsch} 
+    verneinen kann.
+\end{definition}
+
+\begin{definition}{Wahrheitswerte}
+    Eine Aussage ist \wahr, falls die Antwortmöglichkeit \statement{Ja, das ist \wahr}
+    stimmig bzw. passend ist. Ist jedoch \statement{Nein, das ist \falsch} die passende
+    Antwortmöglichkeit, dann ist die Aussage \falsch.
+\end{definition}
 
 In diesem Abschnitt möchten wir den Aufbau von Aussagen genauer untersuchen. 
 Dabei lernen wir verschiedene Typen von Aussagen kennen und lernen, 
@@ -65,12 +79,8 @@ Aussagen lassen sich aber auch durch andere Wörter, abgesehen von \statement{un
 Ein Wort oder eine Kombination von mehreren Wörtern, die Aussagen miteinander zu einer neuen Aussage verknüpfen, nennt man einen Konnektor.
 \end{definition}
 
-\begin{lemma}{}
-Das Wort \statement{und} ist ein Konnektor.
-\end{lemma}
-
 Im Übrigen heißt eine Aussage, die durch die Verknüpfung von zwei Aussagen durch \statement{und}
-entstanden ist, eine Konjunktion.
+entstanden ist, eine \textit{Konjunktion}.
 
 Wir wissen jetzt, dass eine Aussage möglicherweise eine Verknüpfung von mehreren
 anderen Aussagen durch Konnektoren ist. Das bringt uns auf einen neuen Typ von Aussagen.
@@ -96,11 +106,11 @@ In der Mathematik möchte man, wenn möglich, Schreibarbeit sparen. Wir zeigen d
 \begin{example}{Kürzere Schreibweise für Aussagen}
 Wir wollen die Aussage aus letztem Beispiel \statement{Der Zaubertrank ist giftig und ich trinke ihn} kürzer notieren. Um das zu erreichen, denken wir uns Symbole für jede der zwei Unteraussagen aus. Anstatt den Unteraussagen schreiben wir dann nur noch die ausgedachten Symbole, welche dann stellvertretend für die Unteraussagen stehen. 
 Wir wählen folgende Symbole für die Unteraussagen:
- \[\underbrace{\statement{Der Zaubertrank ist giftig}}_{\poisonIcn}\statement{~und~}\underbrace{\statement{ich trinke ihn}}_{\drinkIcn}\]
+ \[\underbrace{\textbf{Der Zaubertrank ist giftig}}_{\poisonIcn}\textbf{~und~}\underbrace{\textbf{ich trinke ihn}}_{\drinkIcn}\]
  Wenn wir nun diese Symbole anstelle von den ausformulierten Unteraussagen schreiben, dann erhalten wir eine deutlich verkürzte Schreibweise für unsere Aussage. Die verkürzte Schreibweise sieht dann wie folgt aus:
  \begin{center}
         \poisonIcn
-        \statement{und}
+        \textbf{und}
         \drinkIcn
   \end{center}
 \end{example}
@@ -111,7 +121,7 @@ Wir haben bereits gesehen, dass wir mit Konnektoren, Aussagen miteinander verkn�
 Neben diesem Konnektor gibt es aber auch noch weitere. Diese werden jetzt vorgestellt.
 
 \begin{example}{Oder}
-    Ein Zauberer überreicht dir 2 Zaubertränke. Beide Zaubertränke sind entweder giftig oder verleihen Superkräfte. Der Zauberer garantiert dir, dass aber mindestens einer der beiden Tränke Superkräfte verleiht. Es könnte also auch passieren, dass beide Tränke Superkräfte verleihen.
+    Ein Zauberer überreicht dir zwei Zaubertränke. Jeder Zaubertrank ist entweder giftig oder verleiht Superkräfte. Der Zauberer garantiert dir, dass aber mindestens einer der beiden Tränke Superkräfte verleiht. Es könnte also auch passieren, dass beide Tränke Superkräfte verleihen.
     
     Diesen Sachverhalt wollen wir als Aussage formulieren. Wir führen vorher Abkürzungen ein, um uns wieder Schreibarbeit abzunehmen. Folgende Tabelle zeigt die Abkürzungen:
     
@@ -120,22 +130,19 @@ Neben diesem Konnektor gibt es aber auch noch weitere. Diese werden jetzt vorges
          \superPwrIcnVarII & \statement{Der 2. Trank verleiht Superkräfte}
     \end{tabular}
     
-    Mit diesen Abkürzungen können wir nun den Sachverhalt, nämlich, dass mindestens einer der Tränke Superkräfte verleiht, als Aussage formulieren.
-    \[\superPwrIcnVarI \statement{ oder } \superPwrIcnVarII\]
+    Mit diesen Abkürzungen können wir nun den Sachverhalt als Aussage formulieren, dass mindestens einer der Tränke Superkräfte verleiht.
+    \[\superPwrIcnVarI \textbf{ oder } \superPwrIcnVarII\]
     Mit dem Konnektor \statement{oder} kann man also ausdrücken, dass mindestens 
-    eine von zwei Aussagen wahr ist. Es kann also durchaus auch sein, dass beide Aussagen wahr sind. In diesem Beispiel könnten nämlich auch beide Tränke Superkräfte verleihen.
+    eine von zwei Aussagen \wahr\  ist. Es kann also durchaus auch sein, dass beide Aussagen \wahr\  sind. In diesem Beispiel könnten nämlich auch beide Tränke Superkräfte verleihen.
 \end{example}
 
 Haben wir zwei Aussagen gegeben und möchten wir in einer neuen Aussage formulieren, 
-dass mindestens eine der zwei Aussagen wahr ist, dann können wir das mit der Aussage \statement{[Erste Aussage] 
-oder [Zweite Aussage]} ausdrücken.
+dass mindestens eine der zwei Aussagen \wahr\  ist, dann können wir das mit der Aussage 
+\[\statement{[Erste Aussage] 
+oder [Zweite Aussage]}\] ausdrücken.
 Wir verbinden also einfach die beiden Aussagen mit dem Konnektor \statement{oder}.
 (Solch eine Aussage, die durch die Verknüpfung mit \statement{oder} entstanden ist,
  nennt sich übrigens \textit{Disjunktion})
-
-\begin{lemma}{}
-    Das Wort \statement{oder} ist ein Konnektor.
-\end{lemma}
 
 Jetzt wird noch eine andere Art vorgestellt, wie man Aussagen verknüpfen kann.
 
@@ -148,20 +155,27 @@ Jetzt wird noch eine andere Art vorgestellt, wie man Aussagen verknüpfen kann.
     \end{tabular}
     
     Wir können dein Verhalten nun durch folgende Aussage beschreiben:
-    \[\statement{Wenn }\superPwrIcn\statement{ dann }\drinkIcn\]
-    Diese Aussage ist eine sogenannte Implikation. Verknüpft man zwei Aussagen mit dem Konnektor \statement{wenn, dann}, dann erhält man eine Implikation. Man nennt die Aussage auf die sich das \statement{wenn} bezieht, die Bedingung. Hier ist das \statement{Der Zaubertrank verleiht Superkräfte}. Die Aussage auf die sich \statement{dann} bezieht, nennt sich die Konsequenz aus der Bedingung. Hier ist das \statement{Ich trinke den Zaubertrank}.
+    \[\textbf{Wenn }\superPwrIcn\textbf{ dann }\drinkIcn\]
+
+    Wir haben hier also mit dem Konnektor \statement{wenn, dann} ausgedrückt, dass wenn
+    der Trank Zauberkräfte verleiht, daraus folgt, dass wir den Trank trinken. Mit Wahrheitswerten formuliert:
+    Ist es \wahr, dass der Trank Superkräfte, dann ist es auch \wahr, dass wir
+    den Trank trinken.
 \end{example}
 
-Wir fassen die Erkenntnisse aus dem letzten Beispiel zusammen.
-Zwei Aussagen lassen durch den Konnektor \statement{wenn, dann} zu einer neuen Aussage verknüpfen. Solch eine Aussage nennt sich Implikation. Implikationen bestehen aus zwei Unteraussagen. Zum einem der Bedingung und der Konsequenz. Die Konsequenz soll dann gelten, wenn die Bedingung erfüllt ist. Der Aufbau einer Implikation ist also \statement{Wenn [Bedingung] dann [Konsequenz]}.
-
-\begin{lemma}{}
-    Die Wortkombination \statement{wenn, dann} ist ein Konnektor.
-\end{lemma}
+Angenommen wir haben zwei Aussagen gegeben
+und wir wollen in einer neuen Aussagen ausdrücken, dass \textbf{[Aussage 2]} aus \textbf{[Aussage 1]} folgt. Das heißt, immer wenn \textbf{[Aussage 1]} \wahr\ ist,
+dann ist auch \textbf{[Aussage 2]} \wahr\ . Dann verknüpfen wir \textbf{[Aussage 1]},\textbf{[Aussage 2]} mit dem 
+Konnektor \statement{wenn, dann} zu
+einer neuen Aussage:
+\[\textbf{Wenn [Aussage 1]}  \textbf{ dann [Aussage 2]}\]
+Solch eine Aussage nennt sich \textbf{Implikation}. Implikationen 
+bestehen aus zwei Unteraussagen. Zum einem der Bedingung (hier: \textbf{[Aussage 1]}) und der Konsequenz (hier: \textbf{[Aussage 2]}), die 
+folgt wenn die Bedingung erfüllt ist. Im letzten Beispiel war die Bedingung, dass 
+der Trank Superkräfte verleiht und die Konsequenz, dass wir den Trank trinken.
 
 Als nächstes wird noch eine weitere Art vorgestellt, wie man Aussagen verknüpfen kann.
 
-\todo{Hier nicht durchstreichen als Notation für Negation benutzen, da dies verwirrend ist, wenn wir später auch als Symbol $\lnot$ verwenden?}
 \begin{example}{Negation}
     Wir betrachten die Aussage
     \statement{Der Zaubertrank ist giftig}
@@ -179,15 +193,11 @@ Wir verallgemeinern nun das, was wir im letzten Beispiel gesehen haben. Baut man
 Konnektor \statement{nicht} in eine Aussage ein, dann nennt man diese resultierende 
 Aussage die \textbf{Negation} der ursprünglichen Aussage. Die Negation dreht die 
 Bedeutung der ursprünglichen Aussage um. Mit \enquote{umdrehen} ist gemeint, dass 
-die Negation einer wahren Aussagen, falsch ist und die Negation einer falschen Aussage wahr ist.
+die Negation einer wahren Aussage, \falsch\  ist und die Negation einer falschen Aussage \wahr\  ist.
 Anstatt zu sagen \enquote{Man dreht eine Aussage 
 um}, sagt man in der Mathematik, dass man eine Aussage \textbf{negiert}.
 Um symbolisch eine Negation zu notieren, streichen wir einfach die Aussage durch, 
 die wir negieren wollen.
-
-\begin{lemma}{}
-    Das Wort \statement{nicht} ist ein Konnektor.
-\end{lemma}
 
 Im nächsten Abschnitt stellen wir die für uns letzte Art vor, wie man Aussagen verknüpfen kann.
 \begin{example}{Genau dann, wenn}
@@ -198,8 +208,8 @@ Im nächsten Abschnitt stellen wir die für uns letzte Art vor, wie man Aussagen
     verleiht. Aber auch nur in diesem Fall: Ist der Trank giftig, würden wir ihn nicht trinken.
     Wir trinken den Trank also \textit{genau dann, wenn} der Trank Superkräfte verleiht.
     
-    Die Wortkombination \textit{genau dann, wenn} ist ein Konnektor. 
-    Wir wollen im Folgenden einmal genauer aufzeigen, was es im Allgemeinen bedeutet,
+    Die Wortkombination \statement{genau dann, wenn} ist ein Konnektor. 
+    Wir wollen im Folgenden einmal genauer aufzeigen, was es bedeutet,
     wenn wir zwei Aussagen mit diesem Konnektor verknüpfen.
     Wir verwenden jetzt folgende Abkürzungen:
 
@@ -211,7 +221,7 @@ Im nächsten Abschnitt stellen wir die für uns letzte Art vor, wie man Aussagen
     Die Aussage, die unser Verhalten beschreibt, lautet:
     \[\statement{\drinkIcn genau dann, wenn \superPwrIcn}\]
 
-    Es gibt nur zwei Fälle die eintreten können, nachdem der Zauberer uns den Inhalt 
+    Es gibt nur zwei Fälle die eintreten können, nachdem uns der Zauberer den Inhalt 
     des Tranks verraten hat:
 
     \begin{enumerate}
@@ -224,28 +234,25 @@ Im nächsten Abschnitt stellen wir die für uns letzte Art vor, wie man Aussagen
              \[\statement{ \statementIcon{images/super_power.png}{0.86}{n} und \statementIcon{images/trinken_TEMP.png}{0.86}{n}}\]
     \end{enumerate}
 
-    Die Aussagen sind also immer beide wahr oder beide falsch. Die Aussagen haben
+    Die Aussagen sind also immer beide \wahr\  oder beide \falsch. Die Aussagen haben
     folglich immer denselben Wahrheitswert. In der Mathematik sagt man dann, dass
     diese Aussagen \textbf{äquivalent} sind. Verknüpfen wir zwei Aussagen mit dem Konnektor
-    \textit{genau dann, wenn} (wie in diesem Beispiel) drücken wir aus, dass diese Aussagen äquivalent sind, beziehunsweise,
+    \statement{genau dann, wenn} (wie in diesem Beispiel) drücken wir aus, dass diese Aussagen äquivalent sind, beziehunsweise,
     dass diese Aussagen immer denselben Wahrheitswert besitzen.
     
 
 \end{example}
 Wir verallgemeinern nun das neu gewonnene Wissen aus dem letzten Beispiel. 
 Haben zwei Aussagen immer denselben Wahrheitswert, das heißt, es können nur die Fälle
-eintreten, dass entweder beide Aussagen wahr sind oder dass beide Aussagen falsch sind,
+eintreten, dass entweder beide Aussagen \wahr\  sind oder dass beide Aussagen \falsch\  sind,
 dann nennen sich diese Aussagen \textbf{äquivalent}.
 
 Mit dem Konnektor \statement{genau dann, wenn} 
  können wir in einer Aussage ausdrücken, dass zwei Aussagen äquivalent sind. Konkret hat 
- diese Verknüpfung also die Form \statement{[Erste Aussage] genau dann, wenn 
- [Zweite Aussage]}. Wir nennen solch eine Aussage, eine \textbf{Äquivalenz}.
-
-\todo{Solche Sätze einfach entfernen!}
-\begin{lemma}{}
-    Die Wortkombination \statement{genau dann, wenn} ist ein Konnektor.
-\end{lemma}
+ diese Verknüpfung also die Form: 
+ \[\statement{[Erste Aussage] genau dann, wenn 
+ [Zweite Aussage]}\]
+  Wir nennen solch eine Aussage, eine \textbf{Äquivalenz}.
 
 Wir haben bereits mehrmals Bilder verwendet, um einfache Unteraussagen darzustellen. Das ist bereits ein Schritt gewesen, um eine Aussage zu formalisieren. Wir zeigen jetzt wie wir eine Aussage vollständig formalisieren können. Es stellt sich zunächst die Frage weshalb wir überhaupt eine mathematische Schreibweise für Aussagen benutzen sollten? Das liegt daran, dass es zwei Probleme damit gibt, Aussagen natürlichsprachlich aufzuschreiben:
 
@@ -290,9 +297,11 @@ Es ist also hilfreich Aussagen zu formalisieren. Im nächsten Beispiel zeigen wi
             \item \statement{\textcolor{gray}{Das Menü enthält} Pommes} (Kommt nur sinngemäß vor)
         \end{itemize}
     Jede dieser Unteraussagen ersetzen wir jetzt durch ein Symbol, was dann stellvertretend für diese Unteraussage stehen soll. Um sich besser merken zu können für welche Unteraussage ein Symbol steht, ist es sinnvoll das Symbol so zu wählen, dass es irgendwas mit der Unteraussage zu tun hat. Es bietet sich daher an die Unteraussage \statement{Das Menü enthält einen Burger} mit einem Burgersymbol abzukürzen. Wir verwenden folgende Abkürzungen:
-    \[\underbrace{\statement{Das Menü enthält einen Burger}}_{\burgerIcn}\statement{~und~}\Bigl(\underbrace{\statement{ Salat}}_{\saladIcn}\statement{~oder~}\underbrace{\statement{Pommes}}_{\friesIcn}\ \ \Bigr)\]
+    \[\underbrace{\textbf{Das Menü enthält einen Burger}}_{\burgerIcn}
+    \textbf{~und~}\Bigl(\underbrace{\textbf{ Salat}}_{\saladIcn}
+    \textbf{~oder~}\underbrace{\textbf{Pommes}}_{\friesIcn}\ \ \Bigr)\]
     Wenn wir die Aussage jetzt nur mit den neuen Symbolen aufschreiben, sieht diese nun wie folgt aus:
-   \[\burgerIcn \statement{ und } \Bigl(\saladIcn \statement{ oder } \friesIcn\Bigr)\]
+   \[\burgerIcn \textbf{ und } \Bigl(\saladIcn \textbf{ oder } \friesIcn\Bigr)\]
     
     Wir sind nun fast fertig mit der Formalisierung. Das Einzige, was noch stört, sind die Konnektoren. Um uns also noch mehr Schreibarbeit zu sparen, ersetzen wir auch diese durch Symbole. Im Gegensatz zu den Unteraussagen, ist aber eindeutig festgeschrieben, welche Konnektoren durch welche Symbole ersetzt werden. 
     
@@ -324,7 +333,7 @@ Um den 3. Schritt immer durchführen zu können, muss man sich einmal merken, we
 Die folgende Tabelle definiert welche Konnektoren durch welches Symbol repräsentiert werden.
 \begin{center}
 \begin{tabular}{cc}\toprule
-                Wort/-kombination & Symbol\\\midrule
+                Konnektor & Symbol\\\midrule
                und &  $\land$\\
                 oder&  $\lor$ \\
                 nicht & $\lnot$ \\
@@ -359,16 +368,22 @@ Auf dem Papier haben wir nicht die Zeit (und nicht unbedingt die Fähigkeiten), 
  
  \begin{example}{Formalisierung mit Buchstaben}
  Wir wollen nochmal einmal die Aussage \statement{Das Menü enthält einen Burger und Salat oder Pommes} formalisieren. Wir kürzen die Unteraussagen aber diesmal mit einzelnen Buchstaben ab. Wir verwenden folgende Abkürzungen:
-     \[\underbrace{\statement{Das Menü enthält einen Burger}}_{B}\statement{~und~}\Bigl(\underbrace{\statement{ Salat}}_{S}\statement{~oder~}\underbrace{\statement{Pommes}}_{P}\Bigr)\]
+     \[\underbrace{\textbf{Das Menü enthält einen Burger}}_{B}\textbf{~und~}\Bigl(\underbrace{\textbf{ Salat}}_{S}\textbf{~oder~}\underbrace{\textbf{Pommes}}_{P}\Bigr)\]
 Ersetzen wir jetzt die Unteraussagen durch die gerade gewählten Symbole und ersetzen wir noch die Konnektoren durch die entsprechenden Konnektoren, erhalten wir als formalisierte Aussage:
     \[B \land (S \lor P)\]
  \end{example}
+
+ Wir können Aussagen also mit einzelnen Buchstaben abkürzen. Wenn wir in den folgenden 
+ Abschnitten also eine Formulierung wie \enquote{\textit{Sei A eine beliebige Aussage}} benutzen, dann
+ist damit gemeint, dass $A$ eine Abkürzung für eine beliebige Aussage ist. $A$ könnte also 
+beispielsweise für die Aussage \statement{Heute regnet es} oder für die Aussage
+\statement{Rot ist eine Farbe} stehen.
 
 \begin{nutshell}
 
    Aussagen können miteinander zu neuen Aussagen kombiniert werden. Wörter oder Wortkombinationen, die Aussagen zu einer neuen Aussage verknüpfen, nennen wir \textbf{Konnektoren}.
    
-   Aussagen, die Teil einer Aussage, nennen wir \textbf{Unteraussagen}.\bigskip
+   Aussagen, die Teil einer Aussage sind, nennen wir \textbf{Unteraussagen}.\bigskip
    
    Wenn wir eine Aussage (in deutscher Sprache vorliegend) formalisieren wollen, dann gehen wir wie folgt vor:
    \begin{enumerate}
