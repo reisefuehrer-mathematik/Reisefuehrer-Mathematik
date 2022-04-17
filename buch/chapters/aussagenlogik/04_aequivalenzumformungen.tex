@@ -52,7 +52,7 @@
             \wahr & \wahr & \wahr & \wahr\\\bottomrule
         \end{array}\]
 
-        Die Wahrheitstabellen zeigen genau, dass für jede der 4 Kombinationen der Wahrheitswerte für $R,G$, die beiden Aussagen
+        Die Wahrheitstabellen zeigen, dass für jede der 4 Kombinationen der Wahrheitswerte für $R,G$, die beiden Aussagen
         denselben Wahrheitswert annehmen. Die Aussagen sind also semantisch äquivalent. Das notieren wir
         formal wie folgt:
         \[G \land R \equiv R \land G\]
@@ -65,7 +65,7 @@
     Bekanntlich führen viele Wege nach Rom. So auch für den Fall, dass man herauszufinden möchte, ob zwei Aussagen semantisch äquivalent sind. Es wird gleich eine Methode vorgestellt, mit der man ohne Wahrheitstabellen zeigen kann, dass Aussagen semantisch äquivalent sind. Um das Prinzip dieser Methode verstehen zu können, erinnern wir an dieser Stelle einmal kurz, wie man bei Termen herausfinden kann, ob diese gleichwertig sind. Für Aussagen funktioniert das dann völlig analog.
     
     \begin{example}{Termumformungen}
-        Stell dir vor du sollst zeigen, dass die Terme $-(x*(x - y))$ und $-(x^2 - x*y)$ gleichwertig sind. Eine Möglichkeit ist es zu zeigen, dass man mittels Terumformungen von einem Term zum anderen gelangen kann. Die nächste Tabelle zeigt Schritt für Schritt eine mögliche Abfolge von Termumformungen, um die Gleichwertigkeit zu zeigen.
+        Stell dir vor du sollst zeigen, dass die Terme $-(x*(x - y))$ und $-x^2 + x*y$ gleichwertig sind. Eine Möglichkeit ist es zu zeigen, dass man mittels Terumformungen von einem Term zum Anderen gelangen kann. Die nächste Tabelle zeigt Schritt für Schritt eine mögliche Abfolge von Termumformungen, um die Gleichwertigkeit zu zeigen.
         \[\begin{array}{cc s c}\toprule
         \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
         \textrm{Start}   &   & -(x*(x-y))  \\
@@ -248,13 +248,13 @@
             \wahr & \wahr & \wahr & \wahr\\\bottomrule
       \end{array}\]
 
-      Die Wahrheitstabellen bestätigt, die semantische Äquivalenz. Es gilt also:
+      Die Wahrheitstabellen bestätigen, die semantische Äquivalenz. Es gilt also:
       \[G \implies T \equiv \lnot (G \land (\lnot T))\]
 
 
     \end{example}
     
-    Dieses Beispiel lässt auch wieder verallgemeinern. Egal welche zwei Aussagen $A,B$ wir 
+    Dieses Beispiel lässt sich auch wieder verallgemeinern. Egal welche zwei Aussagen $A,B$ wir 
     gegeben haben, es gilt immer:
     \[A \implies B \equiv \lnot (A \land (\lnot B))\] 
     Klar: Man fasst die Implikation wieder als 
@@ -276,7 +276,7 @@
     dann stellt sich heraus, 
     dass wir jetzt zwei verschiedene Möglichkeiten kennen eine Implikation alternativ 
     darzustellen bzw. umzuformen. Zusammengefasst wissen wir jetzt also, dass:
-     \[A \implies B \equiv \lnot B \implies \lnot A \equiv \lnot A \lor B\]
+     \[A \implies B \equiv \lnot B \implies \lnot A \equiv \lnot (A \land (\lnot B))\]
     
     Ähnlich dazu wie man eine Implikation auflösen kann, 
     kann man auch eine Äquivalenz ($\iff$) auflösen.
@@ -308,7 +308,7 @@
 
         \[(G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
 
-        Dass diese Aussagen wirklich semantisch äquivalent sind, überprüfen wir
+        Dass diese und unsere ursprüngliche Aussage wirklich semantisch äquivalent sind, überprüfen wir
         jetzt formal mit Wahrheitstabellen:
         \[\begin{array}{cc s cc}\toprule
             G & S &  G \iff (\lnot S) & (G \implies (\lnot S)) \land ((\lnot S) \implies G)\\\midrule
@@ -319,7 +319,6 @@
       \end{array}\]
       Es stimmt also, dass: 
       \[G \iff (\lnot S) \equiv (G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
-      Weshalb diese semantische Äquivalenz auch für beliebige Aussagen gilt, sehen wir gleich.
     \end{example}
     
     Wir verallgemeinern jetzt das, was wir im letzten Beispiel gesehen haben.
@@ -349,16 +348,33 @@
     Sind $A,B$ zwei Aussagen, dann gilt:
         \[ A \iff B \equiv (A \implies B) \land (B \implies A)\]
     \end{lemma}
-    
-    \todo{kommen äquivalenzumformungen von termen hier nach oder hier vor? Wenn hier vor, dann 
-    erwänhne, dass man überprüfen kann ob etwas eine äquivalenzumformungen ist, indem mn die Implikationen
-    in beide richtungen überprüft}
-    
+
     Die Äquivalenzumformungen, die wir hier vorgestellt haben, sind bei weitem nicht alle, die es gibt. Es gibt
-    noch eine riesiger Menge solcher, die wir hier aus Zeit/Platzgründen nicht vorstellen können.
+    noch eine riesige Menge weiterer Umformungen, die wir hier aus Zeit/Platzgründen nicht vorstellen können.
     
     Unsere Hauptmotivation für die Einführung von semantischen Äquivalenzumformungen war es, ohne
     Wahrheitstabellen, überprüfen zu können, ob zwei Aussagen semantisch äquivalent sind. 
+    Wir zeigen jetzt an einem Beispiel wie man mit den hier gezeigten Äquivalenzumformungen, semantische Äquivalenz von 
+    Aussagen zeigen kann.
+
+    \begin{example}{Anwendung von Äquivalenzumformungen}{
+            Wir wollen mittels semantischer Äquivalenzumformungen zeigen, dass 
+            folgende semantische Äquivalenz gilt:
+            \[A \implies B \equiv (\lnot A) \lor B\]
+            Die nächste Tabelle zeigt Schritt für Schritt welche Umformungen wir angewendet haben:
+            \[\begin{array}{cc s c}\toprule
+                \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
+                \textrm{Start}   &   & A \implies B  \\
+                1   & \textrm{Auflösen der Implikation} & \lnot (A \land (\lnot B))\\
+                2 & \textrm{1. De-Morgansches Gesetz}   & (\lnot A) \lor (\lnot \lnot B)\\
+                3 & \textrm{Involution} &  (\lnot A) \lor B\\\bottomrule
+            \end{array}\]
+            Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \implies B$
+            semantisch äquivalent zu der Aussage $(\lnot A) \lor B$ ist. Wir haben
+            jetzt also noch eine neue Darstellung für die Implikation kennengelernt. 
+
+    } \end{example}
+
     Äquivalenzumformungen können aber auch einen anderen Zweck erfüllen: So wie man Termumformungen
     nutzt, um Terme zu vereinfachen, kann man auch Äquivalenzumformungen benutzen, um Aussagen
     zu vereinfachen.
@@ -367,22 +383,21 @@
 
         Wir wollen einmal mit Äquivalenzumformungen die Aussage 
 
-        \[\lnot ( (\lnot \lnot A) \land (\lnot B))\]
+        \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A))\]
 
         vereinfachen. Die folgende Tabelle zeigt schrittweise, welche Äquivalenzumformungen
-        wir anwenden:
+        wir anwenden. Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
 
         \[\begin{array}{cc s c}\toprule
             \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-            \textrm{Start}   &   & \lnot ( (\lnot \lnot A) \land (\lnot B))  \\
-            1   & \textrm{Involution} & \lnot ( A \land (\lnot B))\\
-            2 & \textrm{1. De-Morgansches Gesetz}   & \lnot A \lor (\lnot \lnot B)\\
-            3 & \textrm{Involution} &  (\lnot) A \lor B\\
-            4 & \textrm{Auflösen der Implikation} & A \implies B \\\bottomrule
+            \textrm{Start}   &   & (\lnot ( \color{red}(\lnot \lnot A) \color{black}\land (\lnot B) ) \land (B \implies A))  \\
+            1   & \textrm{Involution} & \color{red}(\lnot ( A\land (\lnot B) ) \color{black} \land (B \implies A))\\
+            2 & \textrm{Auflösen der Implikation}   & \color{red}(A \implies B) \land (B \implies A))  \color{black}\\
+            3 & \textrm{Auflösen der Äquivalenz} &  A \iff B\\
         \end{array}\]
 
         Durch Äquivalenzumformungen haben wir also Folgendes gezeigt:
-        \[\lnot ( (\lnot \lnot A) \land (\lnot B)) \equiv A \implies B\]
+        \[(\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A)) \equiv A \iff B\]
         Wir haben die Aussage also deutlich vereinfacht.
 
     \end{example}
@@ -393,7 +408,7 @@
 
     \begin{example}{Vereinfachung einer Alltagsaussage}
         Wir tun uns schwer damit viele Negationen im Kopf schnell zu verarbeiten.
-        Hören eine Implikation, deren atomare Aussagen negiert sind, dann bietet es sich
+        Hören wir eine Implikation, deren atomare Aussagen negiert sind, dann bietet es sich
         an, Kontraposition anzuwenden. Die Aussage
         \statement{Wenn die Straße nicht nass ist, dann regnet es nicht}
         ist schwer zu verstehen. Dank Kontraposition wissen, dass sie
@@ -408,7 +423,7 @@
         \\ \\
         Eine Umformung einer Aussage $A$ zu einer Aussage $A^{\prime}$, so dass $A \equiv A^{\prime}$ ist, nennt sich \textbf{(semantische) Äquivalenzumformung}.
         \\ \\
-        Die folgende Tabelle zeigt Äquivalenzumformung. Sind $A,B$ Aussagen, dann gilt:
+        Die folgende Tabelle zeigt (semantische) Äquivalenzumformungen. Sind $A,B$ Aussagen, dann gilt:
         \[\begin{array}{c s ccc}\toprule
         \textrm{Name} & & \textrm{Äquivalenz}\\\midrule
         \textrm{Involution} & \lnot \lnot A &\equiv& A\\
