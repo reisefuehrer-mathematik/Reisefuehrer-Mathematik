@@ -1,35 +1,42 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-    \begin{remark}{}
-        Vielleicht das schwierigste daran, Variablen zu erklären, ist es, zu vermitteln, \textbf{wie wichtig} Variablen sind,
-        aber gleichzeitig dem Leser nicht das Gefühl zu geben, dass Variablen ein schwieriges Konzept seien.
-        Genau das sind sie nämlich nicht. Wenn richtig bearbeitet, ist dieses Kapitel wahrscheinlich eines der einfachsten Kapitel
-        in diesem Buch und gleichzeitig eines der wichtigsten.
-    \end{remark}
-    Variablen erweitern die Mathematik so, dass wir eine \enquote{Schablone} für Rechnungen vorgeben können, die wir später durch
+    \textbf{Variablen} erweitern die Mathematik so, dass wir eine \enquote{Schablone} für Rechnungen vorgeben können, die wir später durch
     Zahlen ausfüllen können. Wenn ein Kaugummi 10 Cent kostet, dann kosten 2 Kaugummis 20 Cent, 3 Kaugummis 30 Cent, usw.
     Wir können damit ganz einfach sehen, dass wir den Preis von mehreren Kaugummis also berechnen können mit
     \[\mtext{Anzahl Kaugummis} \cdot 10\text{ct}.\]
-    \mtext{Anzahl Kaugummis} ist bereits eine Variable (da wir ihr einen beliebigen Wert zuweisen können / ihr Wert ist variabel).
+    \mtext{Anzahl Kaugummis} ist bereits eine Variable (da wir ihr einen beliebigen Wert zuweisen können bzw. ihr Wert variabel ist).
     Weil Mathematiker schreibfaul sind (was gut ist) und Leerzeichen oder lange Bezeichnungen in Rechnungen unübersichtlich sind,
     wählt man in der Regel einzelne Buchstaben oder Abkürzungen für Variablen. Wir könnten also auch schreiben:
     \[\mtext{Anz}\cdot 10\text{ct} \text{  oder  } n\cdot 10\text{ct} \text{  oder  } x\cdot 10\text{ct}.\]
     Eine Variable ist also nichts anderes als ein Platzhalter für einen Zahlenwert.
     Damit können wir insbesondere auch bekannte Tatsachen mathematisch formulieren.
     \begin{example}{}
-        Die Fläche eines Rechteckes, $\mtext{Fläche}$, ist seine Breite multipliziert mit der Höhe.
+        \parpic[r]{
+            \begin{tikzpicture}
+                \fill[orange!10, draw=orange, text=orange] (0,0) rectangle (2cm, 1cm) node[pos=.5]{$A$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,0) -- (0,1)
+                    node[pos=0.5,left=10pt,black]{$h$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,1) -- (2,1)
+                    node[pos=0.5,above=10pt,black]{$b$};
+            \end{tikzpicture}
+        }
+        Die Fläche eines Rechteckes ist seine Breite multipliziert mit der Höhe.
         Als eine Formel mit Variablen können wir das ausdrücken durch
         \[\mtext{Fläche} = \mtext{Breite} \cdot \mtext{Höhe}.\]
-        Oder, wenn wir einzelne Buchstaben als Variablenbezeichner wählen, dann könnten wir es schreiben als
+        \picskip{0}
+        Oder, wenn wir einzelne Buchstaben als Bezeichnungen für unsere Variablen wählen, dann könnten wir denselben Zusammenhang schreiben als
         \[A = b\cdot h\]
         wobei $A$ die Fläche (vom Englischen \enquote{Area}), $b$ die Breite und $h$ die Höhe ist.
-        Insbesondere müssen wir, wenn die Bezeichner nicht klar sind, also immer angeben, für welchen Sachverhalt die Variable steht.
+
+        Hier müssen wir (genau wie immer, wenn der Variablenname nicht klar sagt, wofür die Variable steht) angeben, für welchen Sachverhalt die Variable steht
     \end{example}
 
-    Das nächste Beispiel führt uns auf eine interessante Beobachtung, wenn wir mit Variablen rechnen.
+    Das nächste Beispiel führt uns auf eine interessante Beobachtung, wenn wir mit Variablen rechnen.\todo{vlt schon grob teasern?}
     \begin{example}{}
-        Wir betrachten nun zwei Rechtecke, die dieselbe Höhe haben und nebeneinander liegen. Wir möchten einen Term für ihre Gesamtfläche finden.
+        Im folgenden Bild siehst du zwei Rechtecke, die dieselbe Höhe haben und nebeneinander liegen. Wir möchten einen Term für ihre Gesamtfläche finden.
         \begin{center}
             \begin{tikzpicture}
                 \fill[orange!10, draw=orange, text=orange] (0,0) rectangle (2cm, 1cm) node[pos=.5]{$A_1$};
@@ -45,7 +52,7 @@
                     node[pos=0.5,above=10pt,black]{$b_2$};
             \end{tikzpicture}
         \end{center}
-        Die Bezeichner $b_1$, $b_2$, $A_1$ und $A_2$ sind in der Darstellung sicher aufgefallen, wegen der niedergestellten Zahlen.
+        Die Namen $b_1$, $b_2$, $A_1$ und $A_2$ sind in der Darstellung sicher aufgefallen, wegen der niedergestellten Zahlen.
         Damit ist keine neue Regel verbunden, wir haben einfach gewählt, die Zahlen für die Bezeichner niedergestellt zu schreiben. $A_1$ zum Beispiel kann gelesen werden als \enquote{Fläche von Rechteck 1}.
         Wir könnten natürlich ebenso $\mtext{Fläche von Rechteck 1}$ oder $A1$ oder ähnliches wählen. Analoges gilt auch für die $b$s.
         Wir haben uns für die dargestellten Bezeichner entschieden, da wir das Gefühl haben, dass sie klar darstellen, für welche Eigenschafften der Rechtecke sie stehen.
@@ -65,6 +72,7 @@
         \[h\cdot b_1 + h \cdot b_2 = h\cdot (b_1 + b_2).\]
     \end{example}
 
+    \todo{welche Beobachtung? (steht im Beispiel, kann hier aber nochmal genannt werden. Die Redundanz hilft vermutlich)}
     Diese Beobachtung kann verwunderlich sein. Wenn wir mit Zahlen rechnen, dann bekommen wir immer ein eindeutiges Ergebnis (eine Zahl).
     Mit Variablen kommen wir aber auf unterschiedliche Terme, die dasselbe beschreiben.
     Insbesondere könnte uns
