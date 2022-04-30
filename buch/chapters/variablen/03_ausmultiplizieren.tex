@@ -1,5 +1,99 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-	\textcolor{red}{Hier entsteht Magie!}
+	Während wir es auf der linken Seite noch mit einer Klammer zu tun hatten, sind wir diese auf der rechten Seite losgeworden. In Beispielen mit bestimmten Zahlen hast du diese Regel bereits häufig angewandt.
+	
+	\begin{example}{}
+		
+	\end{example}
+	
+	Klammern in Termen mit Variablen aufzulösen, kann beispielsweise helfen, um sie besser vergleichen zu können.
+
+	\begin{example}{}
+		Sind die beiden Terme
+			$(x+1)\cdot (x+2)$ und
+			$2+x\cdot (x+3)$
+		gleich?
+	\end{example}
+
+	Klammern in Termen loszuwerden, ist manchmal toll
+
+	Minusklammern
+
+	Was passiert, wenn wir $(a+b)^2$ ausrechnen wollen? Können wir den Term überhaupt weiter umformen? Bisher sind schließlich nur Grundrechenarten in unseren Termen vorgekommen.
+
+	Man könnte meinen, $(a+b)^2$ sei dasselbe wie $a^2+b^2$, doch dass das nicht stimmt, fällt schnell auf, wenn wir für $a$ und $b$ mal Zahlen einsetzen. 
+	Halten wir das Beispiel einfach und setzen $a=b=1$ ein. Nun gilt 
+	\[(a+b)^2=(1+1)^2=2^2=4,\] aber \[a^2+b^2=1^2+1^2=1+1=2.\]
+	Aber woran liegt das? Um das zu beantworten, betrachten wir den Term $(a+b)^2$ mal genauer. 
+	Du erinnerst dich sicherlich daran, dass eine Potenz bedeutet, dass wir eine Zahl mit sich selbst multiplizieren -- und zwar so oft, wie es oben im Exponenten steht. 
+	In unserem Fall multiplizieren wir $(a+b)$ mit sich selbst, also ist $(a+b)^2$ nichts anderes als $(a+b)\cdot (a+b)$. 
+	Wie du diese beiden Klammern multiplizieren kannst, hast du in diesem Abschnitt bereits gelernt.
+	Wir zeigen im nächsten Beispiel einmal für zwei konkrete Zahlen, wie wir die Klammern korrekt ausmultiplizieren können. 
+	Anschließend siehst du in Satz \ref{thm:binomische-formeln}, wie das Ergebnis allgemein aussieht.
+
+	Du siehst nun, welches Ergebnis wir erhalten, wenn wir $(a+b)^2$ ausrechnen. 
+	Da du in deinen Rechnungen nicht immer nur addieren wirst, ist natürlich auch die Frage interessant, was passiert, wenn wir stattdessen in der Klammer subtrahieren, also $(a-b)^2$ ausrechnen.
+
+	Schließlich schauen wir uns an, was passiert, wenn wir $(a+b)(a-b)$ ausrechnen, also in einer Klammer addieren und in der zweiten subtrahieren. 
+	Direkt unter dem folgenden Satz siehst du, wie du einfach durch Ausmultiplizieren auf die gezeigten Formeln kommen kannst. 
+	Du musst sie also nicht auswendig lernen, sondern kannst notfalls auch einfach wie gewohnt die beiden Klammern ausmultiplizieren.
+
+	\begin{theorem}[thm:binomische-formeln]{Binomische Formeln}
+		Es gilt:
+		\begin{align}
+			(a+b)^2&=a^2+2ab+b^2\\
+			(a-b)^2&=a^2-2ab+b^2\\
+			(a+b)(a-b)&=a^2-b^2
+		\end{align}
+	\end{theorem}
+	\begin{proof}
+		Der Ausdruck $(a+b)^2$ bedeutet, dass wir die Klammer $(a+b)$ mit sich selbst multiplizieren. Er bedeutet also nichts anderes als $(a+b)(a+b)$. Diesen Term können wir mithilfe des Distributivgesetzes ausmultiplizieren, indem wir jeden Summanden in der ersten Klammer mit jedem Summanden in der zweiten Klammer multiplizieren. Wir erhalten
+		\begin{align*}
+			(a+b)(a+b)&=a\cdot (a+b)+b\cdot (a+b)\\
+			&=a^2+\colorbrace{ab+ba}{=2ab}+b^2.
+		\end{align*}
+		Den Teil $ab+ba$ in der Mitte der Summe können wir zu $2ab$ zusammenfassen. Wir erhalten \[a^2+2ab+b^2.\]
+
+		Die zweite Formel können wir ebenso nachrechnen: Es ist $(a-b)^2=(a-b)(a-b)$. Indem wir nun jeden Summanden der linken Klammer mit jedem Summanden der rechten Klammer multiplizieren, erhalten wir
+		\begin{align*}
+			(a-b)(a-b)&=a\cdot (a-b)-b\cdot (a-b)\\&=a^2\colorbrace{-ab-ba}{=-2ab}+\colorbrace{(-b)^2}{=b^2}.
+		\end{align*}
+		Wieder können wir die Summe in der Mitte zusammenfassen. Diesmal erhalten wir allerdings ein Minus als Vorzeichen, sodass wir insgesamt \[a^2-2ab+b^2\] erhalten.
+
+		Für die dritte Formel erhalten wir 
+		\begin{align*}
+			(a+b)(a-b)&=a\cdot (a-b)+b\cdot (a-b)\\
+			&=a^2\colorbrace{-ab+ba}{=0}-b^2,
+		\end{align*}
+		also gilt $(a+b)(a-b)=a^2-b^2$.
+	\end{proof}
+	\begin{tikzpicture}
+		\fill[orange, opacity=.1] (0,1) rectangle (4,5);
+		\fill[blue!50!orange, opacity=.1] (0,0) rectangle
+	(4,1);
+		\fill[blue!50!orange, opacity=.1] (4,1) rectangle
+	(5,5);
+		\fill[blue, opacity=.1] (4,0) rectangle (5,1);
+		\draw (0,0) rectangle (5,5);
+		\draw[dashed] (4,0) -- (4,5);
+		\draw[dashed] (0,1) -- (5, 1);
+		\node[orange] at (2,3) {$a^2$};
+		\node[blue] at (4.5,0.5) {$b^2$};
+		\node[blue!50!orange] at (4.5,3) {$ab$};
+		\node[blue!50!orange] at (2,0.5) {$ab$};
+
+		\draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+			(0,0) -- (0,1)
+			node[pos=0.5,left=10pt,black]{$b$};
+		\draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+			(0,1) -- (0,5)
+			node[pos=0.5,left=10pt,black]{$a$};
+		\draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+			(0,5) -- (4,5)
+			node[pos=0.5,above=10pt,black]{$a$};
+		\draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+			(4,5) -- (5,5)
+			node[pos=0.5,above=10pt,black]{$b$};
+	\end{tikzpicture}
 \end{document}
