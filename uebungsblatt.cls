@@ -9,7 +9,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{amssymb}
 \RequirePackage{qrcode}
-\RequirePackage{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{csquotes}
 \RequirePackage{picins}
 \RequirePackage[gen]{eurosym}
