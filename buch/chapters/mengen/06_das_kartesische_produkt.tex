@@ -1,0 +1,276 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+Mittlerweile hast du eine ganze Reihe von Beispielen für Mengen gesehen -- und damit auch eine ganze Reihe von Dingen, die Elemente einer Menge sein können: Farben, Tierarten, Buchstaben, Zahlen usw.
+
+Weil wir Mengen meist als Oberbegriff für bestimmte Dinge verwendet haben (zum Beispiel $\Natural$ als Oberbegriff für die Zahlen $1,2,3,\dots$), haben wir uns immer nur dafür interessiert, welche Dinge Elemente der Menge sind und welche nicht. Wir haben uns nicht um eine Reihenfolge oder dergleichen gekümmert: Die Mengen $\{4,1\}$ und $\{1,4\}$ sind gleich, da sie beide dieselben Elemente enthalten -- und es ist egal, in welcher Reihenfolge wir sie aufschreiben. Bei Mengen gibt es also nie eine Information über die Reihenfolge, in der ihre Elemente vorkommen. 
+
+Aufbauend auf dem Wissen, dass du Dinge mithilfe von Mengen zu Oberbegriffen zusammenfassen kannst, lernst du in diesem Abschnitt, wie sich verschiedene Objekte (z.B. Zahlen, Gegenstände) sogar noch strukturierter zusammenfassen lassen. Auch in den nächsten Kapiteln wirst du feststellen, dass mithilfe von Mengen und Begriffen, die auf ihnen aufbauen, sehr viele Zusammenhänge aus dem Leben erfasst werden können.
+
+\begin{example}[ex:fussball-tupel]{}
+    \parpic[r]{
+        \includegraphics[height=2.8cm]{images/fussball.pdf}
+    }
+    Das Ergebnis eines Fußballspiels zwischen dem FC Bayern München und Borussia Dortmund, das mit $3:2$ für Bayern entschieden worden ist, enthält zwei Zahlen, nämlich die $3$ und die $2$. Wir haben zwei Informationen, nämlich die Anzahl der Heimtore und die Anzahl der Auswärtstore.
+    
+    \picskip{2}
+    Üblicherweise redest du über das Ergebnis des Spiels, ohne darüber nachzudenken, dass es aus zwei separaten Informationen besteht. Es wäre natürlich schön, wenn es uns gelingen würde, das mathematisch zu repräsentieren. Denn erstmal haben wir nur zwei einzelne Zahlen, $2$ und $3$. Wenn wenn wir das Ergebnis in der Menge $\{3,2\}$ zusammenfassen, dann geht die Information verloren, welches der beiden Teams $3$ Tore geschossen hat und welches nur $2$, denn die Mengen $\{3,2\}$ und $\{2,3\}$ sind gleich. Diese Menge wäre ein Oberbegriff für die Zahlen $2$ und $3$, aber keine Beschreibung dafür, \emph{welche} Mannschaft $2$ und welche $3$ Tore geschossen hat.
+\end{example}
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \node at (0,0) {\includegraphics[width=.25\textwidth]{images/car.pdf}};
+        \draw[fill=maincolor,maincolor] (-0.1,1.3) -- (-0.6,1.6) circle[radius=.6mm] node[above] {\small Farbe};
+        \draw[fill=maincolor,maincolor] (0.8,-0.1) -- (0.6,-0.8) circle[radius=.6mm] node[below] {\small Automarke};
+        \draw[fill=maincolor,maincolor] (-1,-0.3) -- (-1.4,-1.1) circle[radius=.6mm] node[below] {\small PS};
+    \end{tikzpicture}
+}
+
+Im letzten Beispiel haben wir mehrere Informationen gesehen, die wir zusammenfassen wollen. Es lassen sich viele weitere Beispiele finden, in denen ein großes Ganzes aus mehreren kleineren \textbf{Komponenten} besteht: Das Ergebnis eines Fußballspiels besteht aus den Heim- und den Auswärtstoren. Zu den Eigenschaften eines Autos gehören seine Marke, seine Farbe und seine Motorleistung. Ein Buch hat einen Autor, einen Titel, Hauptcharaktere und vieles mehr.
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \fill[grayset] (0,0.5) -- (2,0.5) -- (2,0.5) arc (90:-90:0.5) -- (2,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+        \foreach \x in {0.5,1.5}{
+            \fill[black!25!white] (\x,0) circle[radius=0.25];
+            \draw[line width=0.025cm] (\x,0) circle[radius=0.25];
+        }
+        \node[maincolor] at (1,0.75) {Komponenten};
+        \node at (1,-0.75) {\small \textbf{Tupel}};
+        \draw[maincolor,->] (0.5,0.55) -- (0.5,0.25);
+        \draw[maincolor,->] (1.5,0.55) -- (1.5,0.25);
+    \end{tikzpicture}
+}
+
+\picskip{5}
+In all diesen Beispielen gibt es also eine Sache, die, wenn wir genauer hinschauen, viele verschiedene Details und Eigenschaften hat. Solche Eigenschaften würden wir gern so zusammenfassen, dass sie mathematisch durch ein einzelnes Objekt beschrieben werden können. Das Mittel der Wahl dafür sind \textbf{Tupel}. Du kannst dir ein Tupel als eine Art Stecksystem vorstellen (wie im Bild rechts), zu dem verschiedene Komponenten gehören, die seine Eigenschaften beschreiben. Ein Tupel fasst also mehrere \textbf{Komponenten} zu einem großen Ganzen zusammen.
+
+Mathematisch sind diese Eigenschaften einfach eine Liste von Informationen -- ähnlich wie bei einer Menge. Der Unterschied ist, dass jede Information nun zu einem bestimmten Steckplatz gehört. Dadurch sind sie geordnet. Aufgeschrieben wird ein solches Tupel mit den Komponenten $x_1,x_2,\dots,x_n$ in runden Klammern
+\[(x_1,x_2,\dots,x_n),\]
+damit es von einer Menge unterschieden werden kann, die ja in geschweiften Klammern geschrieben wird.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \fill[grayset] (0,0.5) -- (2,0.5) -- (2,0.5) arc (90:-90:0.5) -- (2,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+            \foreach \x in {0.5,1.5}{
+                \fill[black!25!white] (\x,0) circle[radius=0.25];
+                \draw[line width=0.025cm] (\x,0) circle[radius=0.25];
+            }
+            \node[maincolor] at (0.5,0.75) {Heimtore};
+            \draw[maincolor,->] (0.5,0.55) -- (0.5,0.25);
+            \draw[maincolor,->] (1.5,-0.55) -- (1.5,-0.25);
+            \node[maincolor] at (1.5,-0.75) {Auswärtstore};
+            \node at (0.5,0) {$3$};
+            \node at (1.5,0) {$2$};
+        \end{tikzpicture}
+    }
+    Das Ergebnis des Fußballspiels aus Beispiel \ref{ex:fussball-tupel} besteht aus zwei Komponenten: Der Anzahl der Heimtore und der Anzahl der Auswärtstore. Auf der Ergebnisanzeige würden diese beiden Informationen einfach nebeneinander angezeigt werden, etwa so wie auf der rechten Seite. 
+    
+    \picskip{0}
+    Die beiden Komponenten des Ergebnisses können wir nebeneinander auf das rechts abgebildete Stecksystem stecken. Das, was wir links hin stecken, ist die Anzahl der Heimtore und das, was wir rechts hin stecken, ist die Anzahl der Auswärtstore. Für das $3:2$ aus unserem Beispiel können wir dieses Stecksystem als $(3,2)$ notieren. Wir erhalten also das Tupel $(3,2)$, das aus zwei Komponenten besteht: Der $3$ an der ersten Stelle und der $2$ an der zweiten Stelle.
+\end{example}
+
+\begin{example}{}
+    Die Schulleitung hatte mal wieder ein neues Auto nötig und hat ein Auto wie das rechts auf der letzten Seite abgebildete hellblaue Auto der Marke \emph{Faul-Drive} erworben.
+
+    Die drei \emph{Komponenten} Farbe, Marke und Motorleistung beschreiben zusammen (zumindest einige) Eigenschaften des neuen Autos. Der Hersteller verspricht eine Motorleistung von $75\,\text{PS}$. Wenn wir das Auto nun als ein einziges mathematisches Objekt darstellen möchten, das diese drei Informationen enthält, dann können wir die Eigenschaften zu einem Tupel zusammenfassen:
+    \[\textsc{Auto}=(\text{hellblau}, \text{Faul-Drive}, 75\,\text{PS})\]
+    Die erste Komponente ist die Farbe des Autos, die zweite Komponente die Marke und die dritte die Motorleistung.
+\end{example}
+
+Da Tupel eine Art Steckvorrichtung sind, haben sie immer eine bestimmte Anzahl von Komponenten. Zur Ergebnisdarstellung benötigen wir zwei Komponenten, für Autos sind wir mit drei Komponenten ausgekommen. Abhängig von der Anzahl $n$ seiner Komponenten wird ein $n$-Tupel allgemein wie folgt definiert.
+
+\begin{definition}{Tupel}
+    Ein \textbf{\emph{n}-Tupel} ist eine \textit{geordnete} Liste von $n$ Objekten. Wir schreiben für ein $n$-Tupel mit den Objekten $x_1,\dots,x_n$:
+    \[(x_1,\dots,x_n)\]
+    und nennen $x_1,\dots,x_n$ die \textbf{Komponenten} des Tupels.
+\end{definition}
+
+Auch wenn Tupel für dich noch ein relativ neues Konzept sind, hast du sie bereits deutlich früher in diesem Buch gesehen, nämlich, als du dich mit Koordinatensystemen beschäftigt hast. Ein Punkt im Koordinatensystem besteht immer aus zwei Informationen: Seiner $x$-Koordinate und seiner $y$-Koordinate.
+
+\begin{example}[ex:punkte-als-tupel]{}
+    \parpic[r]{
+        \tikz{
+            \begin{axis}[defgrid, domain=0:3, y=0.75cm, x=1cm, xtick={1,...,3}, ytick={1,...,6},ymin=0,ymax=4,xmin=0,xmax=4, samples=2]
+                \addplot[mark=*, only marks, fill=violet] coordinates {(2,1)};
+                \node[above,violet] at (2,1) {$P$};
+            \end{axis}
+        }
+    }
+    Wie du bereits weißt, können in Koordinatensystemen Punkte durch ihre $x$- und ihre $y$-Koordinate beschrieben werden. Der rechts abgebildete Punkt $P$ hat etwa die Koordinaten $P=\coord{2}{1}$.
+
+    \picskip{4}
+    Wir haben zwei Komponenten, nämlich die $x$- und die $y$-Koordinate, zu einem großen Ganzen zusammengefasst. Weil das genau das ist, was wir mit Tupeln erreichen wollen, könnten wir Punkte im Koordinatensystem auch als Tupel aufschreiben, sodass $P=(2,1)$ gelten würde. Die Koordinaten sind nun also die Komponenten des Tupels. Wir haben Punkte im Koordinatensystem früher nur deshalb anders aufgeschrieben, weil wir noch keine Tupel kannten. Grundsätzlich kannst du dich von nun an für eine Schreibweise entscheiden. Du solltest die beiden Schreibweisen nur nicht gleichzeitig verwenden.
+
+\end{example}
+
+$2$-Tupel eignen sich also hervorragend, um Punkte in einem Koordinatensystem zu beschreiben. Da die Komponenten eines $2$-Tupels aber irgendwelche beliebigen Objekte sein können, eignet sich nicht jedes $2$-Tupel, um einen Punkt darzustellen:
+\begin{multicols}{4}
+    \[(4,11)\]
+
+    \[(-5,0)\]
+
+    \[(\text{Faultier},\text{gelb})\]
+
+    \[(\text{blau},-9)\]
+\end{multicols}
+Nur die linken beiden dieser vier $2$-Tupel beschreiben sinnvoll einen Punkt, denn die Koordinaten eines Punktes sollten sinnvollerweise Zahlen sein. Für die Zahlen, die wir kennen, haben wir in Abschnitt \ref{chapter:zahlenmengen} einen Namen kennengelernt: Die reellen Zahlen \Real. Die Punkte eines Koordinatensystems sind also nicht irgendwelche $2$-Tupel, sondern nur solche, deren Komponenten beide aus \Real kommen. Mathematisch aufgeschrieben benötigen wir also Tupel $(x,y)$ mit der Eigenschaft, dass $x\in\Real$ und $y\in\Real$ gilt.
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \fill[grayset] (0,0.5) -- (2,0.5) -- (2,0.5) arc (90:-90:0.5) -- (2,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+        \foreach \x/\r in {0.5/0.35,1.5/0.25}{
+            \fill[black!25!white] (0.5,0) circle[radius=\r];
+            \draw[line width=0.025cm] (\x,0) circle[radius=\r];
+        }
+        \node[maincolor] at (0.5,0.75) {Steckplatz-Typ 1};
+        \draw[maincolor,->] (0.5,0.55) -- (0.5,0.35);
+        \draw[maincolor,->] (1.5,-0.55) -- (1.5,-0.25);
+        \node[maincolor] at (1.5,-0.75) {Steckplatz-Typ 2};
+    \end{tikzpicture}
+}
+Wenn wir uns Tupel als Stecksysteme vorstellen, dann können wir davon ausgehen, dass nicht alle Objekte auf jeden Steckplatz passen: Manche Steckplätze sind vielleicht nur mit normalen Steckern kompatibel, andere mit USB-Steckern. Wenn wir das Stecksystem bereits mit Komponenten besteckt haben, können wir bereits aufschreiben, wie es dann aussieht. Das fertige Stecksystem für den Punkt $P$ aus Beispiel \ref{ex:punkte-als-tupel} können wir einfach als $(2,1)$ beschreiben, indem wir die verwendeten Komponenten aufschreiben.
+
+Was machen wir aber, wenn wir erstmal nur eine Art Schablone beschreiben wollen? Wie wir gerade gesehen haben, reicht es nicht, zu beschreiben, dass Punkte im Koordinatensystem $2$-Tupel sind. Die Komponenten müssen aus ganz bestimmten Wertebereichen kommen -- hier also aus den reellen Zahlen \Real.
+
+Wir möchten also nur solche $2$-Tupel bekommen, deren Komponenten jeweils aus einer bestimmten Menge kommen.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \fill[grayset] (0,0.5) -- (2,0.5) -- (2,0.5) arc (90:-90:0.5) -- (2,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+            \foreach \x in {0.5,1.5}{
+                \fill[black!25!white] (\x,0) circle[radius=0.25];
+                \draw[line width=0.025cm] (\x,0) circle[radius=0.25];
+            }
+            \node[maincolor] at (0.5,0.75) {$\in\Real$};
+            \draw[maincolor,->] (0.5,0.55) -- (0.5,0.25);
+            \draw[maincolor,->] (1.5,0.55) -- (1.5,0.25);
+            \node[maincolor] at (1.5,0.75) {$\in\Real$};
+        \end{tikzpicture}
+    }
+    \picskip{4}
+    Ein Punkt im Koordinatensystem hat wie bereits festgestellt zwei Komponenten. Beide Komponenten sind jeweils eine einzelne Zahl, kommen also aus den reellen Zahlen \Real. Rechts an unserer Vorstellung als Stecksystem siehst du nun eine zusätzliche Markierung, die an jedem Steckplatz steht. Sie gibt vor, was an den Steckplatz gesteckt werden darf: Jeweils nur eine reelle Zahl und nichts anderes. Die Steckplätze sind also nur mit reellen Zahlen kompatibel.
+
+    Die $2$-Tupel, die für Punkte im Koordinatensystem in Frage kommen, kommen alle aus der Menge
+    \[\{\colorobrace{(x,y)}{\text{2-Tupel}\dots}\mid \colorbrace{x\in\Real,y\in\Real}{\dots\text{~deren~Komponenten~reelle~Zahlen~sind}}\}.\]
+\end{example}
+
+Die Menge am Ende des letzten Beispiels ist ein \textbf{kartesisches Produkt} von zwei Mengen. Dieses schreibt man auf, indem man zwischen die Mengen, die kombiniert werden sollen, das Zeichen $\times$ schreibt. Mithilfe des kartesischen Produkts können wir Tupel beschreiben, deren Komponenten jeweils nur aus bestimmten Mengen kommen. Es eignet sich also, um Tupel zu beschreiben, deren Steckplätze nur mit den Elementen bestimmter Mengen kompatibel sind.
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \fill[grayset] (0,0.5) -- (2,0.5) -- (2,0.5) arc (90:-90:0.5) -- (2,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+        \foreach \x/\r in {0.5/0.25,1.5/0.35}{
+            \fill[black!25!white] (\x,0) circle[radius=\r];
+            \draw[line width=0.025cm] (\x,0) circle[radius=\r];
+        }
+        \node[maincolor] at (0.5,0.75) {$\in M$};
+        \draw[maincolor,->] (0.5,0.55) -- (0.5,0.25);
+        \draw[maincolor,->] (1.5,0.55) -- (1.5,0.35);
+        \node[maincolor] at (1.5,0.75) {$\in N$};
+    \end{tikzpicture}
+}
+Das kartesische Produkt der Mengen $M$ und $N$, das wir als 
+\[M \times N\]
+schreiben können, besteht aus allen Tupeln, deren erste Komponente aus $M$ und deren zweite Komponente aus $N$ kommt, also
+\[M \times N=\{(m,n) \mid m\in M, n\in N\}.\]
+Es enthält also alle Tupel, die wir erhalten können, wenn der erste Steckplatz nur mit Elementen aus $M$ und der zweite nur mit Elementen aus $N$ kompatibel ist.
+
+\begin{definition}{Kartesisches Produkt}
+    Das \textbf{kartesische Produkt} zweier Mengen $M$ und $N$ ist die Menge
+    \[M\times N:=\{(m,n)~|~m\in M, n\in N\}\]
+    aller $2$-Tupel $(m,n)$, deren erste Komponente aus $M$ und deren zweite Komponente aus $N$ kommt.
+\end{definition}
+
+\begin{example}{}
+    Seit der Einleitung kennst du die Menge der Grundfarben
+    \[\textsc{Grundfarben}=\{\text{rot},\text{gelb},\text{blau}\}.\]
+    Das kartesische Produkt der Grundfarben mit der Menge
+    \[\textsc{Schwarzweiß}=\{\text{schwarz},\text{weiß}\}\] besteht nun aus allen $2$-Tupeln, deren erste Komponente eine Grundfarbe und deren zweite Komponente schwarz oder weiß ist. Wir erhalten also das kartesische Produkt $\textsc{Grundfarben}\times\textsc{Schwarzweiß}$, das wie folgt aussieht:
+    \[\{(\text{rot},\text{schwarz}),(\text{rot},\text{weiß}),(\text{gelb},\text{schwarz}),(\text{gelb},\text{weiß}),(\text{blau},\text{schwarz}),(\text{blau},\text{weiß})\}.\]
+    Das sind alle sechs möglichen $2$-Tupel, die wir erhalten können, wenn wir als erste Komponente nur Grundfarben und als zweite Komponente nur schwarz oder weiß verwenden dürfen.
+\end{example}
+
+\begin{example}{}
+    \parpic[r]{
+        \fenboard{rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1}
+        \showboard
+    }
+    Die Felder auf einem Schachbrett haben jeweils bestimmte Namen, damit Schachspieler besser über sie sprechen können. Wenn man sagt, dass Weiß im ersten Zug seinen Springer nach f3 zieht, dann bedeutet das, dass wir nach einem Feld mit dem Namen f3 suchen müssen, um herauszufinden, wo der Springer denn nun hingezogen ist.
+
+    \picskip{5}
+    Um den Feldern Namen zu geben, werden die Zeilen des Schachbretts mit den Zahlen von $1$ bis $8$ durchnummeriert. Die oberste Reihe hat zum Beispiel die Nummer $8$. Die Nummern für Zeilen kommen alle aus der Menge
+    \[\textsc{Zeilen}=\{1,2,3,\dots,8\}.\]
+    Auch die Spalten bekommen Namen. Die linke Spalte erhält den Kleinbuchstaben $a$ und anschließend geht es alphabetisch weiter, bis wir rechts bei Spalte $h$ herauskommen.
+    \[\textsc{Spalten}=\{a,b,c,\dots,h\}\]
+    Jedes Feld befindet sich nun auf genau einer Zeile und genau einer Spalte. Der Name des Felds ergibt sich nun aus dem Namen der Spalte gefolgt vom Namen der Spalte. Zum Beispiel heißt das Feld oben rechts h8, denn es befindet sich auf Spalte $h$ und Zeile 8.
+
+    \parpic[l]{
+        \begin{tikzpicture}
+            \fill[grayset] (0,0.5) -- (2.5,0.5) -- (2.5,0.5) arc (90:-90:0.5) -- (2.5,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+            \foreach \x in {0.5,2}{
+                \fill[black!25!white] (\x,0) circle[radius=0.25];
+                \draw[line width=0.025cm] (\x,0) circle[radius=0.25];
+            }
+            \node[maincolor] at (0.5,0.75) {$\textsc{Spalten}$};
+            \draw[maincolor,->] (0.5,0.55) -- (0.5,0.25);
+            \draw[maincolor,->] (2,0.55) -- (2,0.25);
+            \node[maincolor] at (2,0.75) {$\textsc{Zeilen}$};
+        \end{tikzpicture}
+    }
+    Der Name eines Felds ist ein Tupel, das aus dem Spaltennamen und dem Zeilennamen besteht. Das Feld oben rechts gehört etwa zum Tupel $(h,8)$. Weil die erste Komponente aus der Menge \textsc{Spalten} kommt und die zweite aus der Menge \textsc{Zeilen}, kommen alle Namen der Felder aus dem kartesischen Produkt \[\textsc{Spalten}\times\textsc{Zeilen}=\{(x,y)\mid x\in\textsc{Spalten},y\in\textsc{Zeilen}\}.\]
+    Schachspieler lassen die Klammern und das Komma weg, weil sie mit den Feldern ja keine Mathematik betreiben wollen. Deshalb schreiben sie etwa d5 statt $(d,5)$ und h8 statt $(h,8)$.
+\end{example}
+
+\begin{advanced}{Relationen}
+    Für Zahlen kannst du vergleichen, welche größer ist: Es gilt beispielsweise $-4<1$ und $2<11$. Die rechte Zahl besteht hier in einer bestimmten Beziehung zur linken: Sie ist größer. Wie eine solche Beziehung aussieht, kannst du mathematisch durch eine \textbf{Relation} beschreiben.
+
+    \begin{definition}{Relation}
+        Es sei $M$ eine Menge. Eine Menge $R\subseteq M \times M$ heißt \textbf{Relation} auf $M$.
+    \end{definition}
+
+    Die Menge $R_<\,=\{(a,b)\mid a,b\in\Real~\text{und}~a<b\}$ ist eine Relation auf \Real. In der Menge $R_<$ stecken bereits alle Informationen, die du benötigst, um das Symbol $<$ zu beschreiben. Es gilt $a<b$ genau dann, wenn $(a,b)\in R_<$ gilt.
+
+    Dadurch, dass sich solche Beziehungen durch Mengen beschreiben lassen, sind wir in der Lage, beliebige Beziehungen zwischen den Zahlen einer Menge zu definieren. Wir müssen dafür lediglich eine passende Relation (also eine Menge) definieren.
+
+    \begin{advexample}{}
+        Mithilfe der Relation \[\textsc{istNachfolgerVon}=\{(a,b)\mid a,b\in\Real\text{~und~}b+1=a\}\]
+        wollen wir ausdrücken, dass die rechte Zahl ein Nachfolger von der linken ist. Es gilt $5~\textsc{istNachfolgerVon}~4$, denn weil $4+1=5$ gilt, wissen wir natürlich auch, dass $(5,4)\in\textsc{istNachfolgerVon}$ gilt.
+    \end{advexample}
+    Mithilfe von Relationen kannst du so etwas wie das Symbol $<$ auch auf Mengen definieren, die keine Zahlen enthalten. Du kannst aber auch beliebig komplizierte Zusammenhänge mit ihnen festhalten. Beispiele dafür findest du auf Seite \pageref{relationen}.
+\end{advanced}
+
+\if 0
+\begin{advanced}{Potenz einer Menge}
+    Wenn wir das kartesische Produkt einer Menge mit sich selbst bilden -- ggf. auch sehr oft -- dann können wir, ähnlich wie bei der wiederholten Multiplikation eine Potenzschreibweise verwenden.
+
+    \begin{definition}{Potenz einer Menge}
+        Es sei $M$ eine Menge. Dann schreiben wir statt $\underbrace{M\times \dots\times M}_{n-\text{mal}}$ auch $M^n$.
+    \end{definition}
+
+    Die Punkte im Koordinatensystem können, wie du bereits weißt, mit Tupeln aus der menge $\Real\times\Real$ dargestellt werden. Oft werden die Punkte im Koordinatensystem als Elemente der Menge $\Real^2$ aufgefasst. Dadurch lassen sich auch Punkte in höherdimensionalen Koordinatensystemen beschreiben. Du wirst später ein 3D-Koordinatensystem kennenlernen, dessen Punkte Tupel aus $\Real^3$ sind. Tatsächlich ergibt es aber auch Sinn, mit noch viel höheren Dimensionen zu arbeiten. Das Rechnen mit Punkten der Menge $\Real^n$ für große $n\in\Natural$ ist beispielsweise eine wichtige Voraussetzung für moderne künstliche Intelligenz.
+\end{advanced}
+\fi
+\begin{nutshell}{Tupel und das kartesische Produkt}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \fill[grayset] (0,0.5) -- (2,0.5) -- (2,0.5) arc (90:-90:0.5) -- (2,-0.5) -- (0,-0.5) -- (0,-0.5) arc (270:90:0.5) -- cycle;
+            \foreach \x in {0.5,1.5}{
+                \fill[black!25!white] (\x,0) circle[radius=0.25];
+                \draw[line width=0.025cm] (\x,0) circle[radius=0.25];
+            }
+            \node[maincolor] at (1,0.75) {Komponenten};
+            \draw[maincolor,->] (0.5,0.55) -- (0.5,0.25);
+            \draw[maincolor,->] (1.5,0.55) -- (1.5,0.25);
+        \end{tikzpicture}
+    }
+    Bei einem \textbf{Tupel} werden mehrere Objekte oder Informationen \emph{geordnet} in einer Liste zusammengefasst. Die Einträge einer solchen Liste werden die \textbf{Komponenten} des Tupels genannt. Ein \textbf{\emph{n}-Tupel} ist eine Liste mit $n$ Komponenten $x_1,\dots,x_n$ und wird mit \[(x_1,\dots,x_n)\] 
+    notiert. Im Gegensatz zu Mengen ist die Reihenfolge der Komponenten bei Tupeln relevant. Zwei Mengen $M$ und $N$ lassen sich mithilfe des \textbf{kartesischen Produkts} kombinieren, um die Menge 
+    \[M\times N:=\{(m,n)~|~m\in M, n\in N\}\]
+    zu erhalten, die aus Tupeln besteht, deren erste Komponente aus $M$ und deren zweite Komponente aus $N$ kommt.
+\end{nutshell}
+
+\end{document}

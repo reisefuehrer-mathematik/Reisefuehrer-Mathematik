@@ -25,6 +25,7 @@
 \usepackage{picins}
 \usepackage{clipboard}
 \usepackage{xifthen}
+\usepackage{skak}
 
 \newclipboard{chapters}
 
@@ -85,7 +86,7 @@
 \title{}%Sehenswürdigkeiten \& Wanderrouten}
 \begin{document}
     \frontmatter
-    \maketitle
+    %\maketitle
     \setcounter{tocdepth}{1}
     \tableofcontents
     
@@ -101,7 +102,7 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % GRUNDLAGEN
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \part{Grundlagen}
+    %\part{Grundlagen}
     
     \begin{wip}
     \declchapter{grundrechnen}{Grundrechenarten}
@@ -120,30 +121,40 @@
     
     \declchapter{vars}{Variablen}
     \ldsection{Einführung}
-    
+    \ldsection{Ausklammern}
+    \ldsection{Ausmultiplizieren}
+    \ldadvsection{Weiterführendes Wissen}
+
     \declchapter{aussagenlogik}{Aussagenlogik}
-    \ldsection{Einführung}
-    \ldsection{Aussagen in der Mathematik}
+    %\ldsection{Einführung}
+    %\ldsection{Aussagen in der Mathematik}
     
-    \declchapter{menge}{Mengen}
+    \declchapter{mengen}{Mengen}
+    \ldsection{Einführung}
+    \ldsection{Mengendiagramme}
+    \ldsection{Teilmengen}
+    \ldsection{Zahlenmengen}
+    \ldsection{Intervalle}
+    \ldsection{Das kartesische Produkt}
+    \ldadvsection{Weiterführendes Wissen}
     \end{wip}
     
-    \declchapter{abbildungen}{Abbildungen}
+    \declchapter{funktionen}{Funktionen}
     \ldsection{Einführung}
     \ldsection{Abbildungsvorschriften beschreiben}
-    \ldsection{Abbildungsgraphen}
-    \ldsection{Verkettung von Abbildungen}
-    \ldsection{Umkehrabbildung und identische Abbildung}
+    \ldsection{Funktionsgraphen}
+    \ldsection{Verkettung von Funktionen}
+    \ldsection{Umkehrfunktion und Identität}
     \ldsection{Nullstellen und Achsenabschnitt}
-    \ldsection{Symmetrien von Abbildungsgraphen}
-    \ldsection{Abbildungsgraphen verschieben}
-    \ldsection{Abbildungsgraphen strecken und stauchen}
+    \ldsection{Symmetrien von Funktionsgraphen}
+    \ldsection{Funktionsgraphen verschieben}
+    \ldsection{Funktionsgraphen strecken und stauchen}
     \ldadvsection{Weiterführendes Wissen}
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % MITTELSTUFE
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \part{Mittelstufenmathematik}
+    %\part{Mittelstufenmathematik}
     
     \begin{wip}
     \declchapter{statistik}{Beschreibende Statistik}
@@ -157,7 +168,6 @@
     
     \declchapter{wkeitstheorie}{Wahrscheinlichkeitstheorie}
     
-    
     \declchapter{lingleichungen}{Lineare Gleichungen}
     \ldsection{Einführung}
     \ldsection{Äquivalenzumformungen}
@@ -166,7 +176,6 @@
     \ldsection{Geradengleichungen}
     \ldsection{Punkte auf Funktionsgeraden}
     \ldadvsection{Weiterführendes Wissen}
-    
     \declchapter{lgs}{Lineare Gleichungssysteme}
     
     \declchapter{quadgleichungen}{Quadratische Gleichungen}
@@ -182,10 +191,11 @@
     \declchapter{trig}{Trigonometrie}
     \end{wip}
     
+    \if 0
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % OBERSTUFE
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \part{Oberstufenmathematik}
+    %\part{Oberstufenmathematik}
     
     \begin{wip}
     \declchapter{folgenundreihen}{Folgen und Reihen}
@@ -198,7 +208,7 @@
     \declchapter{interpol}{Interpolation}
     
     \declchapter{integrale}{Integralrechnung}
-    \ldsection{Einführung}
+    %\ldsection{Einführung}
     
     \declchapter{vektoren}{Vektorrechnung}
     
@@ -211,4 +221,5 @@
     \begin{wip}
     \subfile{formulary}
     \end{wip}
+    \fi
 \end{document}

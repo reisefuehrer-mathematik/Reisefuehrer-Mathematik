@@ -2,7 +2,7 @@
 
 \begin{document}
 \label{sec:abbildungen_explizite_schreibweise}
-Wie im letzten Abschnitt erklärt wurde, formen Abbildungen Elemente einer Definitionsmenge in Elemente einer Bildmenge um. Dabei folgen sie einer gewissen Abbildungsvorschrift. Sie beschreibt, welches Element der Definitionsmenge welches Bild erhält.
+Wie im letzten Abschnitt erklärt wurde, formen Funktionen Elemente einer Definitionsmenge in Elemente einer Zielmenge um. Dabei folgen sie einer gewissen Abbildungsvorschrift. Sie beschreibt, welches Element der Definitionsmenge welches Bild erhält.
 
 Die Abbildungsvorschrift kann auf verschiedenen Wegen beschrieben werden. Im letzten Abschnitt hast du die Abbildungsvorschrift aufgeschrieben, indem du für jedes Element der Definitionsmenge explizit aufgeschrieben hast, welches Bild es erhält. Wie man das außerdem noch machen kann, lernst du in diesem Abschnitt.
 
@@ -34,9 +34,9 @@ Du kannst eine Abbildungsvorschrift durch das Hintereinanderschreiben von Abbild
     Kurz vor oder nach den Nachrichten in Fernsehen oder Radio gibt es einen Wetterbericht, damit man sich auf die nächsten Tage einstellen kann und keine Radtour bei heftigem Gewitter plant.
     
     \picskip{2}
-    Oftmals gibt es eine Vorschau über mehrere Tage mit dem wahrscheinlichsten Wetter für jeden Tag. Nachdem du eine solche Vorschau gesehen hast, weißt du beispielsweise, dass es am nächsten Montag Schauer geben wird, während es am Donnerstag trocken bleibt. Die Zuordnung von Wochentagen zum vorhergesagten Wetter, die du dann kennst, ist natürlich aus mathematischer Sicht eine Abbildung.
+    Oftmals gibt es eine Vorschau über mehrere Tage mit dem wahrscheinlichsten Wetter für jeden Tag. Nachdem du eine solche Vorschau gesehen hast, weißt du beispielsweise, dass es am nächsten Montag Schauer geben wird, während es am Donnerstag trocken bleibt. Die Zuordnung von Wochentagen zum vorhergesagten Wetter, die du dann kennst, ist natürlich aus mathematischer Sicht eine Funktion.
     
-    An welchem Wochentag es welches Wetter gibt, kann durch eine Abbildung von den Wochentagen auf das entsprechende Wetter dargestellt werden, die wir \textsc{Vorhersage} nennen wollen. Wir arbeiten also mit den Mengen \[\textsc{Wochentag}\coloneqq\{\text{Montag},\text{Dienstag},\text{Mittwoch},\text{Donnerstag},\text{Freitag}\}\] und \[\textsc{Wetter}\coloneqq\{\text{Trocken},\text{Schauer},\text{Gewitter}\}.\]
+    An welchem Wochentag es welches Wetter gibt, kann durch eine Funktion von den Wochentagen auf das entsprechende Wetter dargestellt werden, die wir \textsc{Vorhersage} nennen wollen. Wir arbeiten also mit den Mengen \[\textsc{Wochentag}\coloneqq\{\text{Montag},\text{Dienstag},\text{Mittwoch},\text{Donnerstag},\text{Freitag}\}\] und \[\textsc{Wetter}\coloneqq\{\text{Trocken},\text{Schauer},\text{Gewitter}\}.\]
     Die Abbildungsvorschrift (zu sehen im Bild) lässt sich dann durch Auflisten der Vorhersagen auflisten und sieht so aus:
     \begin{align*}
         \textsc{Vorhersage}(\text{Montag})&=\text{Schauer},\\ \textsc{Vorhersage}(\text{Dienstag})&=\text{Gewitter},\\ \textsc{Vorhersage}(\text{Mittwoch})&=\text{Schauer},\\ \textsc{Vorhersage}(\text{Donnerstag})&=\text{Trocken},\\ \textsc{Vorhersage}(\text{Freitag})&=\text{Gewitter}.
@@ -45,7 +45,7 @@ Du kannst eine Abbildungsvorschrift durch das Hintereinanderschreiben von Abbild
 \end{example}
 
 Die Abbildungsvorschrift ist auf diese Weise eine (möglicherweise sehr lange) Liste von einzelnen Regeln -- je eine Regel pro möglichem Argument (also Element der Definitionsmenge).
-Mithilfe der mathematischen Notation aus dem letzten Abschnitt schreibst du alle Paare aus Urbild und Bild entweder als \mbox{$\text{Urbild}\mapsto\text{Bild}$} oder, wenn du eine Abbildung mit dem Namen $f$ beschreibst, \mbox{$f(\text{Urbild})=\text{Bild}$}. Weil du zu jedem Argument explizit aufschreibst, welches Bild es bekommt, kann man dies auch eine \emph{explizite} Abbildungsvorschrift nennen.
+Mithilfe der mathematischen Notation aus dem letzten Abschnitt schreibst du alle Paare aus Urbild und Bild entweder als \mbox{$\text{Urbild}\mapsto\text{Bild}$} oder, wenn du eine Funktion mit dem Namen $f$ beschreibst, \mbox{$f(\text{Urbild})=\text{Bild}$}. Weil du zu jedem Argument explizit aufschreibst, welches Bild es bekommt, kann man dies auch eine \emph{explizite} Abbildungsvorschrift nennen.
 
 Der größte Nachteil dieser sehr einfachen Möglichkeit ist, dass eine solche Liste sehr unübersichtlich wird, wenn du mit großen Definitionsmengen arbeitest. Darüber hinaus kennst du bereits unendliche Mengen (wie beispielsweise die Menge \Natural{} der natürlichen Zahlen). Für unendliche Definitionsmengen ist es sogar unmöglich, allen Elementen explizit ein Bild zuzuordnen.
 
@@ -73,7 +73,7 @@ Du hast bereits die explizite Schreibweise für das Notieren von Abbildungsvorsc
 
 Wenn es darum geht, Daten übersichtlich und strukturiert darzustellen, kommen häufig Tabellen zum Einsatz. Auf sehr einfache Weise können Tabellen auch Abbildungsvorschriften darstellen.
 
-In \textbf{Wertetabellen}, die eine Abbildung beschreiben, findest du normalerweise zwei Spalten: Die linke Spalte enthält alle Urbilder, also alle Elemente der Definitionsmenge \emph{vor der Anwendung} der Abbildung. In der rechten Spalte ist das gleiche Element \emph{nach der Anwendung} der Abbildung zu sehen. Die gleichen Urbild-Bild-Paare, die sonst durch $\text{Urbild}\mapsto\text{Bild}$ notiert wurden, stehen jetzt also einfach nebeneinander in derselben Zeile.
+In \textbf{Wertetabellen}, die eine Funktion beschreiben, findest du normalerweise zwei Spalten: Die linke Spalte enthält alle Urbilder, also alle Elemente der Definitionsmenge \emph{vor der Anwendung} der Funktion. In der rechten Spalte ist das gleiche Element \emph{nach der Anwendung} der Funktion zu sehen. Die gleichen Urbild-Bild-Paare, die sonst durch $\text{Urbild}\mapsto\text{Bild}$ notiert wurden, stehen jetzt also einfach nebeneinander in derselben Zeile.
 
 \parpic[r]{
     \begin{tabular}{cc}\toprule
@@ -84,15 +84,15 @@ In \textbf{Wertetabellen}, die eine Abbildung beschreiben, findest du normalerwe
     \end{tabular}
 }
 
-Allgemein sieht die Wertetabelle für eine Abbildung namens $f$ ungefähr so aus wie rechts abgebildet. Zu lesen ist das folgendermaßen: Auf der linken Seite stehen alle Werte (hier mit der Variablen $x$ bezeichnet), die sich potentiell mit der Abbildung auf andere Dinge abbilden lassen. Schaust du in die linke Spalte und findest dort beispielsweise die $0$, dann siehst rechts davon das Bild der $0$, also $f(0)$. 
+Allgemein sieht die Wertetabelle für eine Funktion namens $f$ ungefähr so aus wie rechts abgebildet. Zu lesen ist das folgendermaßen: Auf der linken Seite stehen alle Werte (hier mit der Variablen $x$ bezeichnet), die sich potentiell mit der Funktion auf andere Dinge abbilden lassen. Schaust du in die linke Spalte und findest dort beispielsweise die $0$, dann siehst rechts davon das Bild der $0$, also $f(0)$. 
 
 In der Zeile mit der $0$ stehen die Werte $0$ und $f(0)$ nebeneinander. Dass die $0$ und die $1$ in der abgebildeten Tabelle in derselben Zeile stehen, bedeutet also, dass $f(0)=1$ gilt. Jede Zeile einer Wertetabelle kannst du deshalb so lesen, dass der linke Wert auf den rechten abgebildet wird.
 
-Weil Tabellen einfacher zu verwenden sind als mathematische Vorschriften, wirst du häufig sehen, dass Abbildungen durch Tabellen beschrieben werden statt -- wie im letzten Abschnitt -- formal mathematisch. Ergebnisse von Versuchen, Informationen in Büchern oder im Internet und viele weitere Zusammenhänge sind in Tabellen organisiert.
+Weil Tabellen einfacher zu verwenden sind als mathematische Vorschriften, wirst du häufig sehen, dass Funktionen durch Tabellen beschrieben werden statt -- wie im letzten Abschnitt -- formal mathematisch. Ergebnisse von Versuchen, Informationen in Büchern oder im Internet und viele weitere Zusammenhänge sind in Tabellen organisiert.
 
-Letztendlich schreibt man mit Tabellen immer noch für jedes einzelne Element der Definitionsmenge auf, welches Bild es erhält. In jeder solchen Wertetabelle steckt also eine explizite Abbildungsvorschrift (auch wenn sie nicht direkt aufgeschrieben ist -- man könnte aus der Tabelle eine explizite Abbildungsvorschrift produzieren). Wichtig ist, dass du dir über diesen Zusammenhang bewusst bist und mit beiden Darstellungen umgehen kannst. Insbesondere solltest du also im Hinterkopf haben, wie du aus einer Tabelle herauslesen kannst, welche Abbildung sie beschreibt.
+Letztendlich schreibt man mit Tabellen immer noch für jedes einzelne Element der Definitionsmenge auf, welches Bild es erhält. In jeder solchen Wertetabelle steckt also eine explizite Abbildungsvorschrift (auch wenn sie nicht direkt aufgeschrieben ist -- man könnte aus der Tabelle eine explizite Abbildungsvorschrift produzieren). Wichtig ist, dass du dir über diesen Zusammenhang bewusst bist und mit beiden Darstellungen umgehen kannst. Insbesondere solltest du also im Hinterkopf haben, wie du aus einer Tabelle herauslesen kannst, welche Funktion sie beschreibt.
 
-Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit einer gegebenen Wertetabelle herausfindest, welche Abbildung man mit ihr beschreibt.
+Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit einer gegebenen Wertetabelle herausfindest, welche Funktion man mit ihr beschreibt.
 
 \begin{example}{}
     \parpic[r]{
@@ -111,9 +111,9 @@ Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit ein
     Auf der rechten Seite siehst du eine Tabelle von europäischen Ländern mit ihren Hauptstädten. Als erstes solltest du versuchen, als Satz formulieren, was die Tabelle aussagt, etwa \enquote{Die Tabelle ordnet europäischen Ländern ihre Hauptstädte zu.} Versuche am besten, den Satz so umzuordnen, dass er \enquote{Die Tabelle ordnet zu} enthält.
     
     \picskip{3}
-    Wenn du das machst, siehst du bereits die Definitions- und Bildmenge in deinem Satz. Mit genau solchen Sätzen haben wir nämlich auch schon mathematische Abbildungen beschrieben.
+    Wenn du das machst, siehst du bereits die Definitions- und Bildmenge in deinem Satz. Mit genau solchen Sätzen haben wir nämlich auch schon mathematische Funktionen beschrieben.
     
-    Nachdem du verstanden hast, welche Abbildung in der Tabelle versteckt ist, kannst du sie mit der expliziten mathematischen Schreibweise darstellen. Überlege dir dafür zunächst einen Namen für die Abbildung -- in diesem Fall ist \textsc{Hauptstadt} eine naheliegende Wahl. Anschließend lässt sich die Definitionsmenge als die Menge aller Einträge der linke Spalte beschreiben, also
+    Nachdem du verstanden hast, welche Funktion in der Tabelle versteckt ist, kannst du sie mit der expliziten mathematischen Schreibweise darstellen. Überlege dir dafür zunächst einen Namen für die Funktion -- in diesem Fall ist \textsc{Hauptstadt} eine naheliegende Wahl. Anschließend lässt sich die Definitionsmenge als die Menge aller Einträge der linke Spalte beschreiben, also
     \[\textsc{Länder}\coloneqq\{\text{Italien},\text{Spanien},\text{Belgien},\text{Norwegen},\text{Frankreich},\text{Finnland},\text{Dänemark}\}.\]
     
     Auf die gleiche Weise enthält die Bildmenge alle Einträge der rechten Spalte:
@@ -121,11 +121,11 @@ Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit ein
     \[\textsc{Städte}\coloneqq\{\text{Rom},\text{Madrid},\text{Brüssel},\text{Oslo},\text{Paris},\text{Helsinki},\text{Kopenhagen}\}.\]
     
     \sloppy
-    Die formal notierte Abbildungsvorschrift besteht nun aus den Regeln \[\textsc{Hauptstadt}(\text{Italien})=\text{Rom}, \textsc{Hauptstadt}(\text{Spanien})=\text{Madrid}\] und so weiter -- für jede Zeile der Tabelle eine Regel. Damit ist die Abbildung fertig beschrieben.
+    Die formal notierte Abbildungsvorschrift besteht nun aus den Regeln \[\textsc{Hauptstadt}(\text{Italien})=\text{Rom}, \textsc{Hauptstadt}(\text{Spanien})=\text{Madrid}\] und so weiter -- für jede Zeile der Tabelle eine Regel. Damit ist die Funktion fertig beschrieben.
     \fussy
 \end{example}
 
-In diesem Beispiel hat die Abbildung einen Namen bekommen, der sich aus dem Sachzusammenhang ergeben hat. Fällt dir kein solcher Name ein, verwende einfach $f, g$ oder $h$. Dies sind die Buchstaben, mit denen standardmäßig Abbildungen beschrieben werden, denen sich nicht so einfach ein Name wie im letzten Beispiel zuordnen lässt. Wenn in der Tabelle zum Beispiel nur Zahlen stehen, ist es sinnvoll, auf solche Namen auszuweichen.
+In diesem Beispiel hat die Funktion einen Namen bekommen, der sich aus dem Sachzusammenhang ergeben hat. Fällt dir kein solcher Name ein, verwende einfach $f, g$ oder $h$. Dies sind die Buchstaben, mit denen standardmäßig Funktionen beschrieben werden, denen sich nicht so einfach ein Name wie im letzten Beispiel zuordnen lässt. Wenn in der Tabelle zum Beispiel nur Zahlen stehen, ist es sinnvoll, auf solche Namen auszuweichen.
 
 \begin{example}{}
     \parpic[r]{
@@ -139,22 +139,22 @@ In diesem Beispiel hat die Abbildung einen Namen bekommen, der sich aus dem Sach
         \end{tabular}
     }
     
-    Die abgebildete Tabelle lässt sich als Beschreibung einer Abbildung interpretieren. Leider lässt nicht sofort durch einen Satz beschreiben, was die Abbildung tut. Trotzdem kann man wie vorher vorgehen und als Definitionsmenge die Einträge der linken Spalte wählen.
+    Die abgebildete Tabelle lässt sich als Beschreibung einer Funktion interpretieren. Leider lässt nicht sofort durch einen Satz beschreiben, was die Funktion tut. Trotzdem kann man wie vorher vorgehen und als Definitionsmenge die Einträge der linken Spalte wählen.
     
     \picskip{4}
-    Da die linke Spalte mit $x$ überschrieben ist, nennen wir die Definitionsmenge $X$. Dann ist $X=\{1,2,3,4,5\}$. Die Bildmenge besteht aus allen Zahlen, die in der rechten Spalte stehen, also $Y=\{2,3,5,7,11\}$. Weil nicht klar ist, was die Abbildung genau tut, erhält sie einfach den Namen $f$.
+    Da die linke Spalte mit $x$ überschrieben ist, nennen wir die Definitionsmenge $X$. Dann ist $X=\{1,2,3,4,5\}$. Die Bildmenge besteht aus allen Zahlen, die in der rechten Spalte stehen, also $Y=\{2,3,5,7,11\}$. Weil nicht klar ist, was die Funktion genau tut, erhält sie einfach den Namen $f$.
     
-    Folglich ist $f$ eine Abbildung von $X$ nach $Y$, geschrieben also $f\colon X\rightarrow Y$. Dabei gilt $f(1)=2, f(2)=3, f(3)=5, f(4)=7$ und $f(5)=11$ (wieder sind das jeweils die Werte, die in den Zeilen nebeneinander stehen).
+    Folglich ist $f$ eine Funktion von $X$ nach $Y$, geschrieben also $f\colon X\rightarrow Y$. Dabei gilt $f(1)=2, f(2)=3, f(3)=5, f(4)=7$ und $f(5)=11$ (wieder sind das jeweils die Werte, die in den Zeilen nebeneinander stehen).
 \end{example}
 
 \subsection{Berechnungsvorschriften\index{Berechnungsvorschrift}}
 \label{sec:abbildungen_berechnungsvorschriften}
 
-Mit der expliziten Schreibweise für Abbildungsvorschriften, die du in den letzten Abschnitten kennengelernt hast, lassen sich alle möglichen Abbildungen beschreiben, bei denen die Definitionsmenge klein genug ist, damit das Notieren der Abbildungsvorschrift nicht in stundenlangem Schreibaufwand ausartet. Stelle dir zum Beispiel vor, du müsstest eine Abbildungsvorschrift explizit für eine Definitionsmenge, die 100 Elemente enthält, aufschreiben. Abgesehen davon, dass dies extrem viel Aufwand bedeutet, ist das Ergebnis außerdem nicht hilfreich, weil es viel zu lang ist.
+Mit der expliziten Schreibweise für Abbildungsvorschriften, die du in den letzten Abschnitten kennengelernt hast, lassen sich alle möglichen Funktionen beschreiben, bei denen die Definitionsmenge klein genug ist, damit das Notieren der Abbildungsvorschrift nicht in stundenlangem Schreibaufwand ausartet. Stelle dir zum Beispiel vor, du müsstest eine Abbildungsvorschrift explizit für eine Definitionsmenge, die 100 Elemente enthält, aufschreiben. Abgesehen davon, dass dies extrem viel Aufwand bedeutet, ist das Ergebnis außerdem nicht hilfreich, weil es viel zu lang ist.
 
-Aus diesem Grund lernst du nun, Abbildungen so zu analysieren, dass du nicht für jedes Element der Definitionsmenge einzeln das Bild aufschreiben musst, sondern nach einer \emph{Regel} suchst, die beschreibt, was die Abbildung mit ihren Argumenten macht, ohne für jedes Element einzeln aufzuschreiben, welches Ergebnis genau herauskommt. 
+Aus diesem Grund lernst du nun, Funktionen so zu analysieren, dass du nicht für jedes Element der Definitionsmenge einzeln das Bild aufschreiben musst, sondern nach einer \emph{Regel} suchst, die beschreibt, was die Funktion mit ihren Argumenten macht, ohne für jedes Element einzeln aufzuschreiben, welches Ergebnis genau herauskommt. 
 
-Es gibt -- vor allem im Alltag -- viele Abbildungen, die man tatsächlich nur dadurch beschreiben kann, welches Urbild welches Bild hat. Dazu gehören zum Beispiel Vokabeln, Hauptstädte oder Wettervorhersagen.
+Es gibt -- vor allem im Alltag -- viele Funktionen, die man tatsächlich nur dadurch beschreiben kann, welches Urbild welches Bild hat. Dazu gehören zum Beispiel Vokabeln, Hauptstädte oder Wettervorhersagen.
 
 Aus mathematischer Sicht interessant sind aber vor allem Abbildungen, bei denen es genau so eine Regel gibt.
 

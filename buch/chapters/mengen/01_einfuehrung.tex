@@ -1,0 +1,126 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+Die Welt ist voller Ansammlungen von Dingen, die wir mit Oberbegriffen zusammenfassen. Die Farben rot, blau und gelb sind dir beispielsweise unter dem Oberbegriff Grundfarben bekannt und Messer, Gabel und Löffel nennst du auch einfach Besteck. In diesem Kapitel lernst du, warum es sinnvoll ist, solche Oberbegriffe auch in der Mathematik zur Verfügung zu haben und wie du sie verwenden kannst.
+
+\begin{example}{}
+    \parpic[r]{
+        \includegraphics[width=.19\textwidth]{images/grundfarben.pdf}
+    }
+    Unter den Oberbegriff \textsc{Grundfarben} fallen die Farben rot, blau und gelb. Währenddessen ist grün selbstverständlich keine Grundfarbe, ebenso wenig wie braun oder rosa.
+
+    \picskip{3}
+    Zu den Grundfarben gehören also bestimmte, genau festgelegte Farben. Nachdem einmal jemand festgelegt hat, welche drei Farben Grundfarben sind, weißt du bei jeder Farbe, ob sie eine Grundfarbe ist oder nicht. Das macht die Grundfarben zu einer sogenannten \textbf{Menge}, dem mathematischen Wort für Oberbegriffe, die bestimmte Dinge wie eben Farben zusammenfassen.
+\end{example}
+
+Wenn wir mehrere Dinge unter einem Oberbegriff zusammenfassen, dann haben wir es aus mathematischer Sicht mit einer \textbf{Menge} zu tun. Eine Menge ist eigentlich nichts anderes als eine Ansammlung von verschiedenen Dingen, die zusammengefasst werden soll, damit wir einen Oberbegriff haben. Das hat vor allem den Vorteil, dass es Unterhaltungen einfacher macht (oder, wie wir später sehen werden, das Aufschreiben von Zusammenhängen in der Mathematik). 
+
+Da du beispielsweise weißt, dass Besteck ein Oberbegriff für Messer, Gabel und Löffel ist, kannst du im Alltag etwa beim Tisch decken jedes Mal ein wenig Zeit sparen, wenn du sagst: \enquote{Kannst du noch Besteck mitbringen?} anstatt einzeln aufzuzählen \enquote{Kannst du noch Messer, Gabeln und Löffel mitbringen?}.
+
+Damit ein solcher Oberbegriff sinnvoll ist, sollte jedem klar sein, \emph{wofür} er ein Oberbegriff ist, also welche Dinge unter den Oberbegriff fallen und welche nicht. Wenn du in der Mathematik einer Menge begegnest oder selbst eine kreierst, dann ist es also immer wichtig, genau anzugeben, welche Objekte Teil der Menge sind (also anschaulich unter den Oberbegriff fallen) und welche nicht. Weil das etwas ist, was dir sehr oft passieren wird, gibt es dafür auch eine besondere Schreibweise:
+\[\text{Name der Menge}=\{\text{Objekte, die zur Menge gehören}\}\]
+Mit dieser Schreibweise meinst du, dass du den Namen auf der linken Seite ab sofort als Oberbegriff für die Wörter zwischen den geschweiften Klammern auf der rechten Seite verwenden möchtest. Die Wörter auf der rechten Seite, also die Dinge, die zur Menge gehören, werden auch als die \textbf{Elemente} der Menge bezeichnet.
+
+\begin{example}[ex:grundfarben-elemente]{}
+    \parpic[r]{
+        \tikz{
+            \node at (0,0) {\includegraphics[height=3cm]{images/set_diagram.png}};
+            \node[blue] at (0,0.4) {\scriptsize blau};
+            \node[red] at (0.3,-0.8) {\scriptsize rot};
+            \node[yellow!70!black] at (-0.2,-0.1) {\scriptsize gelb};
+            \draw[<-] (0.35,0.95) to[bend right] (0.8,1.45) node[above] {\scriptsize Grundfarben};
+        }
+    }
+
+    Die Menge der Grundfarben können wir mathematisch notieren, indem wir mit der Schreibweise
+    \[\colorbrace{\textsc{Grundfarben}}{\text{Name der Menge}}=\{\colorbrace{\text{rot},\text{blau},\text{gelb}}{\text{Elemente der Menge}}\}\]
+    \picskip{3}
+    ausdrücken, dass es genau drei Dinge gibt, die wir als Grundfarben bezeichnen, nämlich die drei Farben rot, blau und gelb, die wir zwischen den geschweiten Klammern aufgelistet haben. Die Farben rot, blau und gelb sind die \emph{Elemente} der Menge der Grundfarben. Wenn wir von nun an über Grundfarben sprechen, ist eindeutig festgelegt, was wir damit meinen. Das wirkt hier noch sehr überflüssig, da das auch bereits vorher klar war, aber in komplizierteren Fällen wird das sehr hilfreich sein.
+
+    Vorstellen kannst du dir eine Menge, indem du ein Gefäß aufzeichnest, in den du alles zeichnest, was dazugehört. Der Sack auf der rechten Seite stellt die Menge mit dem Namen \textsc{Grundfarben} dar, die wir gerade eingeführt haben. Du siehst im Sack die drei Elemente der Menge.
+\end{example}
+
+Jede Menge wird allein dadurch ausgemacht, welche Elemente zu ihr gehören. Die folgende Definition fasst unsere bisherigen Erkenntnisse zusammen. Außerdem führt sie eine weitere Schreibweise ein, die wir uns gleich genauer ansehen werden.
+
+\begin{definition}{Menge}
+    Eine \textbf{Menge} $M$ ist eine Zusammenfassung von unterscheidbaren Objekten, die die \textbf{Elemente} der Menge genannt werden. Ein Objekt $x$ heißt in der Menge $M$ enthalten, wenn es zu den Elementen der Menge $M$ gehört. In diesem Fall schreiben wir $x\in M$, ansonsten $x\notin M$.
+
+    Zwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten. Eine Menge, die keine Elemente enthält, wird als \textbf{leere Menge} bezeichnet und mit dem Symbol $\emptyset$ notiert.
+\end{definition}
+
+Es passiert oft, dass wir darüber sprechen wollen, ob ein bestimmtes Objekt zu einer bestimmten Menge gehört. Beispielsweise ist eine Gabel zwar Besteck, ein Radiergummi jedoch nicht. Die obige Definition gibt uns dafür eine abkürzende Schreibweise an die Hand:
+\[x\in M.\]
+Diese Schreibweise kann gelesen werden als \enquote{$x$ ist ein Element von $M$} und besagt lediglich, dass das Objekt links vom Symbol \enquote{$\in$} zur Menge auf der rechten Seite des Symbols gehört. Alternativ kannst du das Symbol auch durchstreichen, um damit auszudrücken, dass das Objekt auf der linken Seite \emph{nicht} zur Menge auf der rechten Seite gehört.
+
+\begin{example}{}
+    Die Farbe rot ist eine Grundfarbe. Sie gehört also zur Menge \textsc{Grundfarben} aus Beispiel \ref{ex:grundfarben-elemente}. Deshalb kannst du auch
+    \[\text{rot}\in\textsc{Grundfarben}\]
+    schreiben. Selbstverständlich sind aber sowohl schwarz als auch orange keine Grundfarben. Das kannst du mit
+    \[\text{schwarz}\notin\textsc{Grundfarben}~\text{und}~\text{orange}\notin\textsc{Grundfarben}\]
+    notieren.
+\end{example}
+
+Während Grundfarben ein vollkommen korrektes Beispiel für eine Menge sind, siehst du in der Mathematik natürlich meistens Mengen, die Zahlen enthalten. Solchen Mengen kann man zwar meistens nicht ganz so schöne Namen geben (daher verwendet man oft einfach Buchstaben wie $M$ oder $N$), aber abgesehen davon funktionieren sie auf die gleiche Art und Weise. Du legst fest, was zur Menge gehört, indem du eine Liste aller Elemente zwischen den geschweiften Klammern \textbf{explizit} aufschreibst.
+
+\begin{example}[ex:alphabet]{}
+    Das deutsche Alphabet besteht aus 26 Buchstaben von A bis Z. Als Menge lässt es sich wie folgt aufschreiben:
+    \[\textsc{Alphabet}=\{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z\}.\]
+    Du siehst wieder sofort, welches die Elemente der Menge sind, da wir sie alle einzeln aufgeschrieben haben -- wir haben die Menge \emph{explizit} als Liste aufgeschrieben. Dass das $R$ ein Teil des Alphabets ist, kannst du anhand dieser Liste schnell überprüfen. Dennoch wirst du vermutlich zustimmen, dass es einfacher wäre, dieselbe Menge als
+    \[\textsc{Alphabet}=\{A,B,C,\dots,Z\}\]
+    aufzuschreiben. Das ist deutlich kürzer und es ist vollkommen klar, was hier gemeint ist, obwohl nicht jeder einzelne Buchstabe auftaucht.
+\end{example}
+
+Es ist nicht immer sinnvoll möglich, bei Mengen all ihre Elemente aufzulisten. Manchmal werden es einfach zu viele, sodass die Liste mehrere Seiten lang wäre. Wenn du die Elemente einer Menge auflistest, dann ist es manchmal schon sehr schnell klar, wie die Liste weitergeht, ohne dass du sie noch ewig fortsetzen musst. Es ist deshalb vollkommen ausreichend, irgendwann mit dem Aufschreiben der Elemente aufzuhören, wenn klar ist, wie die Liste weitergeht.
+
+\begin{example}[ex:even-numbers]{}
+    Wir schauen uns die Menge
+    \[M=\{2,4,6,8,10,12,\dots\}\]
+    an. In der Liste stehen bereits ein paar Elemente der Menge, allerdings symbolisieren die Punkte auf der rechten Seite, dass sich die Liste noch viel weiter fortsetzen ließe. Allein vom Hinsehen weißt du, dass etwa die $2$ oder die $4$ zu den Elementen der Menge gehören. Vermutlich hast du aber auch schon bemerkt, dass dies alles gerade Zahlen sind. Dir ist also sofort klar, dass $M$ wohl die Menge aller geraden Zahlen sein wird, obwohl du nur den Anfang der Liste gesehen hast.
+\end{example}
+
+In einfachen Fällen reicht es also, den Anfang der Liste der Elemente aufzuschreiben. Manchmal ist es allerdings nicht so einfach, durch ein paar Beispiele sofort zu erkennen, was die Regel ist. Was ist zum Beispiel die Regel, wann eine Zahl zu der folgenden Menge gehört?
+\[\{6,28,496,8128,33\,550\,336,8\,589\,869\,056,\dots\}\]
+Die Regel, wann eine Zahl zu dieser Menge gehört, ist so kompliziert, dass sie sich nicht sofort erkennen lässt, wenn du ein paar Beispiele siehst. Hier genügt der Anfang einer Liste also nicht aus, um klar zu vermitteln, wie die Elemente der Menge aussehen.
+
+In solchen Fällen gibt es eine bestimmte Regel, die uns verrät, wann ein Objekt zur Menge gehört und wann nicht. Um genau solche Regeln sinnvoll und übersichtlich aufschreiben zu können, gibt es die \textbf{implizite Schreibweise} für Mengen. Statt explizit alle Elemente der Menge aufzulisten, schreibst du nur eine Eigenschaft auf, die ein Objekt erfüllen muss, damit es Teil der Menge ist.
+
+Beim Aufschreiben der Menge lässt sich das ausdrücken, indem du einen Namen für einen möglichen Kandidaten für ein Element der Menge auswählst (zum Beispiel $x$) und hinter einem senkrechten Strich aufschreibst, welche Eigenschaft dein Kandidat $x$ haben muss, um tatsächlich ein Element deiner Menge zu sein.
+\[M=\{x\mid \text{Eigenschaft,~die}~x~\text{haben~muss,~um~zur~Menge~zu~gehören}\}\]
+Mit dieser Zeile haben wir ausgedrückt, wie wir für ein beliebiges Objekt $x$ prüfen können, ob es zur Menge gehört. Dadurch ist ebenfalls klar, welche Elemente zur Menge gehören, wir mussten sie aber nicht alle einzeln aufzählen.
+
+\begin{example}{}
+    Die Menge \textsc{Alphabet} aus Beispiel \ref{ex:alphabet} lässt sich mithilfe der impliziten Schreibweise als
+    \[\textsc{Alphabet}=\{x\mid x~\text{ist~ein~Buchstabe~des~Alphabets}\}\]
+    aufschreiben.
+\end{example}
+
+\begin{example}{}
+    Die Menge $M=\{2,4,6,8,10,12,\dots\}$ aus Beispiel \ref{ex:even-numbers} enthält alle geraden Zahlen. Statt die Liste aufzuschreiben, kannst du auch einfach direkt die Regel angeben, wann eine Zahl zu dieser Menge gehört:
+    \[M=\{x\mid x~\text{ist~eine~gerade~Zahl~und~}x>0\}.\]
+\end{example}
+
+\begin{nutshell}{Mengen}
+    \parpic[r]{
+        \tikz{
+            \node at (0,0) {\includegraphics[height=2.8cm]{images/set_diagram.png}};
+            \node[maincolor] at (0,0.4) {\scriptsize 4};
+            \node[maincolor] at (0.3,-0.8) {\scriptsize 9};
+            \node[maincolor] at (-0.3,-0.9) {\scriptsize 8};
+            \node[maincolor] at (-0.2,-0.1) {\scriptsize 13};
+            \draw[<-] (0.35,0.95) to[bend right] (0.8,1.4) node[above] {\scriptsize Menge};
+        }
+    }
+
+    \textbf{Mengen} sind eine Zusammenfassung von bestimmten Objekten und können als Oberbegriff für diese Objekte verwendet werden. Die Objekte, die zu einer Menge gehören, nennen wir die \textbf{Elemente} der Menge. Vorstellen kann man sich eine Menge als den Inhalt eines Sacks. Bei dieser Vorstellung sind die Elemente der Menge die Gegenstände im Sack.
+
+    \picskip{2}
+    Um zu schreiben, dass ein Objekt $x$ zu den Elementen der Menge $M$ gehört, schreibt man $x\in M$. Falls $x$ nicht zu $M$ gehört, dann schreibt man $x\notin M$.
+
+    Die Elemente einer Menge können \textbf{explizit} durch eine Liste in geschweiten Klammern angegeben werden, z.B. $\{2,3,5,7,11\}$,
+    oder \textbf{implizit}, indem du eine Regel angibst, die bestimmt, wann ein bestimmtes Objekt $x$ zur Menge gehört:
+    \[\{x\mid \text{Regel,~wann~}x\text{~zur~Menge~gehört}\}\]
+    Wenn eine Menge gar keine Elemente hat, dann heißt sie die \textbf{leere Menge} und wird mit $\emptyset$ notiert.
+\end{nutshell}
+
+\end{document}
