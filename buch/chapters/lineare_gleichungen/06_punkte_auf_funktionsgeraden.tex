@@ -9,7 +9,7 @@ Du weißt aus dem letzten Abschnitt, dass sich Geraden im Koordinatensystem mith
 \begin{example}[ex:points-on-lines]{}
     \parpic[r]{
         \tikz{
-            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},yticklabels={-5,-4,-3,~,-1,~,1,...,5},ymin=-5,ymax=5,xmin=-2,xmax=2, samples=2]
+            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},ymin=-5,ymax=5,xmin=-2,xmax=2, samples=2,yticklabels={-5,-4,-3,,-1,,1,...,5}]
                 \addplot[color=violet] expression{4*x-1};
                 \addplot[mark=*, only marks, fill=violet] coordinates {(2,1)};
                 \node[above,violet] at (2,1) {$P$};
