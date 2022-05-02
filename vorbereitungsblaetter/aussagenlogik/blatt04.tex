@@ -1,0 +1,48 @@
+\def\pathToMain{../../buch/}
+\documentclass{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+
+\sheet{Vorbereitungsblatt 9.4}
+\title{Äquivalenzumformungen}
+\topic{\getchaptername{aussagenlogik}}
+\chapternum{\getchapternum{aussagenlogik}}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Semantische Äquivalenz, Äquivalenzumformungen, Involution, Kontraposition, De Morgansche Gesetze, Auflösen von Implikation und Äquivalenz
+\end{contents}
+
+\video{Semantisch äquivalente Aussagen}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{definition}
+    Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für jede Belegung ihrer atomaren Unteraussagen, den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
+\end{definition}
+
+\begin{theorem}
+    Sind $A$ und $B$ Aussagen, dann gilt:
+    \begin{align*}
+        \tag{Involution}
+        \lnot \lnot A \equiv& A\\
+        \tag{1. De Morgansches Gesetz}
+        \lnot (A \land B) \equiv& (\lnot A) \lor (\lnot B)\\
+        \tag{2. De Morgansches Gesetz}
+        \lnot (A \lor B) \equiv& (\lnot A) \land (\lnot B)\\
+        \tag{Kontraposition}
+        A \implies B \equiv& (\lnot B) \implies (\lnot A)\\
+        \tag{Auflösen der Implikation}
+        A \implies B \equiv & \lnot (A \land (\lnot B))\\
+        \tag{Auflösen der Äquivalenz}
+        A \iff B \equiv & (A \implies B) \land (B \implies A)
+    \end{align*}
+\end{theorem}
+
+\subsection*{Aufgabenteil}
+
+\mandala{mandala/mandala01}
+
+\end{document}
