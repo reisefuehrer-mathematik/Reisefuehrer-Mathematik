@@ -81,16 +81,16 @@
     
     Eine erste Äquivalenzumformung haben wir bereits im Eingangsbeispiel gesehen. Negieren wir eine Aussage doppelt, dann ist diese Aussage äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
 
-    \begin{lemma}{Involution}
+    \begin{theorem}{Involution}
     Ist $A$ eine Aussage, dann gilt:
         \[\lnot \lnot A \equiv A\]
-    \end{lemma}
+    \end{theorem}
      
     Die Äquivalenz, die wir jetzt vorstellen werden, ist etwas komplexer, als die vorherige.
     Es ist aber auch durchaus möglich, dass du diese Äquivalenz bereits unbewusst im Alltag
     verwendet hast. Zunächst ein Beispiel.
     
-    \begin{example}{De-Morgansche Gesetze}
+    \begin{example}{De Morgansche Gesetze}
             In den vorherigen Kapiteln waren wir öfters damit konfrontiert, 
             dass uns ein Zauberer einen Zaubertrank anbietet, der entweder giftig ist 
             oder Superkräfte verleiht. Wir sind der Meinung, 
@@ -124,15 +124,15 @@
      statt dem $\land$ ein $\lor$ haben. Es gilt also auch:
      \[\lnot( A \lor B) \equiv (\lnot A) \land (\lnot B)\]
       Diese Regeln nennen sich 
-     die \textbf{De-Morganschen Gesetze} und werden im nächsten Satz festgehalten.
+     die \textbf{De Morganschen Gesetze} und werden im nächsten Satz festgehalten.
      
-    \begin{lemma}{De-Morgansche Gesetze}
+    \begin{theorem}{De Morgansche Gesetze}
         Sind $A,B$ zwei Aussagen, dann gilt:
         \begin{enumerate}
             \item $\lnot( A \land B) \equiv (\lnot A) \lor (\lnot B)$
             \item $\lnot( A \lor B) \equiv (\lnot A) \land (\lnot B)$
         \end{enumerate}
-    \end{lemma}
+    \end{theorem}
     
     Die nächsten beiden Äquivalenzumformungen beschäftigten sich speziell damit, wie 
     man eine Implikation umformen kann. Insbesondere diese Äquivalenzumformungen werden
@@ -186,11 +186,11 @@
     und wird im nächsten Satz noch einmal präzisiert.  Der Name kommt dabei aus dem Lateinischen, wo 'contra, 'gegen'
     und 'positio', 'Stellung' bedeutet. 
     
-    \begin{lemma}{Kontraposition}
+    \begin{theorem}{Kontraposition}
 
     Sind $A,B$ zwei Aussagen, dann gilt:
         \[A \implies B  \equiv (\lnot B) \implies (\lnot A)\]
-    \end{lemma}
+    \end{theorem}
 
     Es ist bei der Kontraposition noch äußerst wichtig klarzustellen, dass wir die Negationen bei der Umkehrung
     nicht einfach weglassen können. 
@@ -266,10 +266,10 @@
     
     Diese Äquivalenzumformung nennt sich auch das \textbf{Auflösen der Implikation}, da wir hier die Implikation darstellen durch eine Aussage ohne Implikationszeichen. Wir haben sozusagen die Implikation \enquote{aufgelöst}. Der nächste Satz formalisiert dies nun.
     
-    \begin{lemma}{Auflösen der Implikation}
+    \begin{theorem}{Auflösen der Implikation}
         Sind $A,B$ zwei Aussagen, dann gilt:
         \[A \implies B \equiv \lnot (A \land (\lnot B))\]
-    \end{lemma}
+    \end{theorem}
     
     Wenn wir nicht nur die letzte Äquivalenzumformung betrachten, sondern auch die davor, 
     dann stellt sich heraus, 
@@ -343,10 +343,10 @@
     Diese Aufteilung einer Äquivalenz in zwei Implikationen nennt sich auch \textbf{Auflösen der Äquivalenz}.
     Der nächste Satz fasst das nochmal zusammen.
     
-    \begin{lemma}{Auflösen der Äquivalenz}
+    \begin{theorem}{Auflösen der Äquivalenz}
     Sind $A,B$ zwei Aussagen, dann gilt:
         \[ A \iff B \equiv (A \implies B) \land (B \implies A)\]
-    \end{lemma}
+    \end{theorem}
 
     Die Äquivalenzumformungen, die wir hier vorgestellt haben, sind bei weitem nicht alle, die es gibt. Es gibt
     noch eine riesige Menge weiterer Umformungen, die wir hier aus Zeit/Platzgründen nicht vorstellen können.
@@ -365,7 +365,7 @@
                 \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
                 \textrm{Start}   &   & A \implies B  \\
                 1   & \textrm{Auflösen der Implikation} & \lnot (A \land (\lnot B))\\
-                2 & \textrm{1. De-Morgansches Gesetz}   & (\lnot A) \lor (\lnot \lnot B)\\
+                2 & \textrm{1. De Morgansches Gesetz}   & (\lnot A) \lor (\lnot \lnot B)\\
                 3 & \textrm{Involution} &  (\lnot A) \lor B\\\bottomrule
             \end{array}\]
             Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \implies B$
@@ -426,8 +426,8 @@
         \[\begin{array}{c s ccc}\toprule
         \textrm{Name} & & \textrm{Äquivalenz}\\\midrule
         \textrm{Involution} & \lnot \lnot A &\equiv& A\\
-        \textrm{1. De-Morgansches Gesetz} & \lnot (A \land B) &\equiv& (\lnot A) \lor (\lnot B)\\
-        \textrm{2. De-Morgansches Gesetz} & \lnot (A \lor B) &\equiv& (\lnot A) \land (\lnot B) \\   
+        \textrm{1. De Morgansches Gesetz} & \lnot (A \land B) &\equiv& (\lnot A) \lor (\lnot B)\\
+        \textrm{2. De Morgansches Gesetz} & \lnot (A \lor B) &\equiv& (\lnot A) \land (\lnot B) \\   
         \textrm{Kontraposition} & A \implies B &\equiv& (\lnot B) \implies (\lnot A) \\
         \textrm{Auflösen der Implikation} & A \implies B & \equiv & \lnot (A \land (\lnot B))\\
         \textrm{Auflösen der Äquivalenz} & A \iff B & \equiv & (A \implies B) \land (B \implies A) \\

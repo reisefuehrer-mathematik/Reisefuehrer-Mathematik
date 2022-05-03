@@ -1,0 +1,60 @@
+\def\pathToMain{../../buch/}
+\documentclass{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\sheet{Vorbereitungsblatt 9.3}
+\title{Wahrheitstabellen}
+\topic{\getchaptername{aussagenlogik}}
+\chapternum{\getchapternum{aussagenlogik}}
+
+\begin{document}
+\def\wahr{\text{\color{green!50!black}wahr}}
+\def\falsch{\text{\color{red!80!black}falsch}}
+
+\maketitle
+\begin{contents}
+    Atomare Aussagen, Wahrheitstabellen, Wahrheitswerte von $\land, \lor, \implies, \iff, \lnot$
+\end{contents}
+
+\video{Wahrheitswerte aussagenlogischer Konnektoren}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{definition}
+    Eine \textbf{Atomare Aussage} ist eine Aussage, die keine Konnektoren enthält.
+\end{definition}
+
+\begin{definition}
+    \label{whw}
+    Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswerte der Aussagen $A \land B$, $A \lor B$, $A \implies B$, $A \iff B$ und $\lnot A$ sind dann wie folgt definiert.
+    
+    \[\begin{array}{cc s ccccc}\toprule
+        A & B & A \land B & A\lor B & A\implies B & A\iff B & \lnot A\\\midrule
+        \falsch & \falsch & \falsch & \falsch & \wahr & \wahr & \multirow{2}{*}{\wahr}\\
+        \falsch & \wahr & \falsch & \wahr & \wahr & \falsch &  \\
+            \wahr & \falsch & \falsch & \wahr & \falsch & \falsch & \multirow{2}{*}{\falsch}
+        \\
+        \wahr & \wahr & \wahr & \wahr & \wahr & \wahr & 
+            \\\bottomrule
+    \end{array}\]
+\end{definition}
+
+\subsection*{Aufgabenteil}
+
+\newpage
+
+\video{Wahrheitstabellen}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{definition}
+    Ist $A$ eine Aussage und kommen in $A$ die atomaren Unteraussagen $x_1,\dots,x_n$ vor, dann nennen wir eine Tabelle, die für alle möglichen Kombinationen der Wahrheitswerte von $x_1,\dots,x_n$ den Wahrheitswert von $A$ angibt, eine \textbf{Wahrheitstabelle} für $A$.
+\end{definition}
+
+\subsection*{Aufgabenteil}
+
+\mandala{mandala/mandala01}
+
+\end{document}
