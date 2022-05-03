@@ -1,13 +1,13 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Abbildungsgraphen in \texorpdfstring{$y$}{y}-Richtung strecken und stauchen}
+\subsection{Funktionsgraphen in \texorpdfstring{$y$}{y}-Richtung strecken und stauchen}
 \label{sec:abbildungen_strecken_y}
 
-Wir beschäftigen uns nun damit, wie wir den Graphen einer Abbildung zusammendrücken und auseinanderziehen können. Ein Graph wird dadurch nicht verschoben, sondern schmaler oder breiter, beziehungswiese steiler oder flacher.
+Wir beschäftigen uns nun damit, wie wir den Graphen einer Funktion zusammendrücken und auseinanderziehen können. Ein Graph wird dadurch nicht verschoben, sondern schmaler oder breiter, beziehungswiese steiler oder flacher.
 
 \begin{example}{}
-    Wir möchten den folgenden Abbildungsgraphen auseinanderziehen. Das kann in zwei verschiedene Richtungen passieren: Als eine Möglichkeit nimmst du den Graphen und ziehst ihn wie einen elastischen Faden nach links und rechts auseinander. Alternativ kannst du den Graphen aber auch nach oben und unten auseinanderziehen.
+    Wir möchten den folgenden Funktionsgraphen auseinanderziehen. Das kann in zwei verschiedene Richtungen passieren: Als eine Möglichkeit nimmst du den Graphen und ziehst ihn wie einen elastischen Faden nach links und rechts auseinander. Alternativ kannst du den Graphen aber auch nach oben und unten auseinanderziehen.
     \begin{multicols}{2}\centering
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-3:3, y=1cm, x=1cm, ymin=-2,ymax=2,xtick={-4,...,4}, ytick={-2,...,2},samples=\ifdraft{5}{40}]
@@ -31,7 +31,7 @@ Wir beschäftigen uns nun damit, wie wir den Graphen einer Abbildung zusammendr�
             \end{axis}
         \end{tikzpicture}
     \end{multicols}
-    Im linken Bild wurde der violette Abbildungsgraph genommen und nach links und rechts auseinandergezogen. Als Ergebnis ist der graue Graph entstanden, der eigentlich wie der ursprüngliche Graph aussieht, jedoch breiter ist: Du kannst dir das so vorstellen, dass du den Graphen an den beiden eingezeichneten Punkten (grau und weiß) angefasst und wie einen Faden auseinandergezogen hast. Du siehst im Bild auch, wo die beiden Punkte nach dem Auseinanderziehen liegen.
+    Im linken Bild wurde der violette Funktionsgraph genommen und nach links und rechts auseinandergezogen. Als Ergebnis ist der graue Graph entstanden, der eigentlich wie der ursprüngliche Graph aussieht, jedoch breiter ist: Du kannst dir das so vorstellen, dass du den Graphen an den beiden eingezeichneten Punkten (grau und weiß) angefasst und wie einen Faden auseinandergezogen hast. Du siehst im Bild auch, wo die beiden Punkte nach dem Auseinanderziehen liegen.
     
     Zieht man denselben Graphen stattdessen nach oben und unten auseinander, dann wird der Graph steiler und sieht so aus wie der graue Graph im rechten Bild. So wurde zum Beispiel der weiß eingezeichnete Punkt, der besonders weit oben lag, genommen und noch weiter nach oben gezogen. Der ganze Graph ist in diesem Beispiel nicht breiter oder schmaler geworden, da er hier ausschließlich nach oben und unten auseinander gezogen wurde, nicht aber nach links und rechts.
 \end{example}
@@ -49,23 +49,23 @@ Es wird nun untersucht, wie Stauchungen und Streckungen in $y$-Richtung funktion
   \pgfmathparse{2 * #1 * (#1 + 1.5) * (#1 - 1)}%
 }
 
-\begin{figure}[ht]
-    \centering
+\begin{center}
     \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=2cm, ymin=-2,ymax=2,xtick={-2,...,2}, ytick={-2,...,2},samples=\ifdraft{5}{40}]
-                \addplot[color=violet] expression{x*(x-1)*(x+1.5)};
-                \addplot[color=black!30] expression{2*x*(x-1)*(x+1.5)};
-                \pgfplotsinvokeforeach{-1.25,-1,-0.75,-0.5,-0.25,0.25,0.5,0.75,1.25}{
-                    \addplot[dashed, -latex] coordinates{(#1,{cubic(#1)}) (#1,{ccubic(#1)})};
-                }
-            \end{axis}
-        \end{tikzpicture}
-    \caption{Einen Graphen in $y$-Richtung zu strecken, bedeutet, die Punkte unterhalb der $x$-Ache noch weiter nach unten zu ziehen und die Punkte oberhalb der $x$-Achse nach oben zu ziehen. Dadurch bewegen sich die Punkte insgesamt auseinander und der Graph wird gestreckt.}
-\end{figure}
+        \begin{axis}[defgrid, domain=-2:2, y=1cm, x=2cm, ymin=-2,ymax=2,xtick={-2,...,2}, ytick={-2,...,2},samples=\ifdraft{5}{40}]
+            \addplot[color=violet] expression{x*(x-1)*(x+1.5)};
+            \addplot[color=black!30] expression{2*x*(x-1)*(x+1.5)};
+            \pgfplotsinvokeforeach{-1.25,-1,-0.75,-0.5,-0.25,0.25,0.5,0.75,1.25}{
+                \addplot[dashed, -latex] coordinates{(#1,{cubic(#1)}) (#1,{ccubic(#1)})};
+            }
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Einen Graphen in $y$-Richtung zu strecken, bedeutet, die Punkte unterhalb der $x$-Ache noch weiter nach unten zu ziehen und die Punkte oberhalb der $x$-Achse nach oben zu ziehen. Dadurch bewegen sich die Punkte insgesamt auseinander und der Graph wird gestreckt.
 
 Das Auseinanderziehen von Punkten gelingt, wenn wir den Abstand aller Punkte zur $x$-Achse beispielsweise verdoppeln (das ist auch im letzten Bild passiert). Das Verdoppeln des Abstandes erreichst du, indem du alle $y$-Werte von Punkten auf dem Graphen verdoppelst. Lag also $\coord{x}{f(x)}$ auf dem ursprünglichen Graphen von $f$, so liegt auf dem gestreckten Graphen zum Beispiel der Punkt $\coord{x}{2\cdot f(x)}$.
 
-Um nun herauszufinden, welche Berechnungsvorschrift eine Abbildung $g$ haben muss, die den gleichen Graphen wie $f$ hat, jedoch gestreckt, schauen wir uns also wieder einen Punkt $\coord{x}{f(x)}$ auf dem Graphen von $f$ an. Dieser stellt die Regel dar, dass $x$ auf den Wert $f(x)$ abgebildet wird. Auf dem neuen Graphen liegt stattdessend er Punkt $\coord{x}{2\cdot f(x)}$, der die Regel $x\mapsto 2\cdot f(x)$ darstellt. Es muss also $g(x)=2\cdot f(x)$ gelten.
+Um nun herauszufinden, welche Berechnungsvorschrift eine Funktion $g$ haben muss, die den gleichen Graphen wie $f$ hat, jedoch gestreckt, schauen wir uns also wieder einen Punkt $\coord{x}{f(x)}$ auf dem Graphen von $f$ an. Dieser stellt die Regel dar, dass $x$ dem Wert $f(x)$ zugeordnet wird. Auf dem neuen Graphen liegt stattdessend er Punkt $\coord{x}{2\cdot f(x)}$, der die Regel $x\mapsto 2\cdot f(x)$ darstellt. Es muss also $g(x)=2\cdot f(x)$ gelten.
 
 \begin{example}{}
     \parpic[r]{
@@ -76,7 +76,7 @@ Um nun herauszufinden, welche Berechnungsvorschrift eine Abbildung $g$ haben mus
             \end{axis}
         \end{tikzpicture}
     }
-    Rechts siehst du den violetten Graphen der Abbildung $f(x)=1-x^2$. Dieser Graph soll nun nach oben und unten auseinandergezogen werden (das Ergebnis soll der graue Graph sein). Das bedeutet, dass wir eine Streckung in $y$-Richtung durchführen, weil wir die $y$-Koordinaten der Punkte auf dem Graphen ändern.
+    Rechts siehst du den violetten Graphen der Funktion $f(x)=1-x^2$. Dieser Graph soll nun nach oben und unten auseinandergezogen werden (das Ergebnis soll der graue Graph sein). Das bedeutet, dass wir eine Streckung in $y$-Richtung durchführen, weil wir die $y$-Koordinaten der Punkte auf dem Graphen ändern.
     
     Wir verdoppeln dashalb alle $y$-Werte, indem wir für den grauen Graphen die Berechnungsvorschrift $g(x)=2\cdot f(x)=2\cdot(1-x^2)$ verwenden.
     
@@ -109,7 +109,7 @@ Es gibt keinen Grund dafür, dass man die Abstände zur $x$-Achse ausgerechnet v
 
 Letztendlich bedeutet eine Streckung oder Stauchung in $y$-Richtung also, dass man alle $y$-Werte mit einer Zahl $a>0$ multiplizieren muss (wäre $a$ negativ, so würden sich auch die Vorzeichen der Funktionswerte ändern und wir hätten den Graphen gespiegelt). Das bringt uns die neue Berechnungsvorschrift $g(x)=af(x)$. Je nachdem, ob $a>1$ gilt, wird der Graph dadurch entweder auseinander gezogen (also gestreckt, bei $a>1$) oder zusammengedrückt (also gestaucht, bei $a<1$).
 
-\subsection{Abbildungsgraphen in \texorpdfstring{$x$}{x}-Richtung strecken und stauchen}
+\subsection{Funktionsgraphen in \texorpdfstring{$x$}{x}-Richtung strecken und stauchen}
 \label{sec:abbildungen_strecken_x}
 
 Wir haben bereits gesehen, dass wir Graphen in $y$-Richtung strecken oder stauchen können, wenn wir alle $y$-Werte von Punkten auf dem Graphen von $f$ mit einer Zahl $a>0$ multiplizieren. Dadurch wird das Graph auseinandergezogen oder zusammengedrückt.
@@ -133,7 +133,7 @@ Um einen Graphen in $x$-Richtung zu strecken oder zu stauchen, gehen wir sehr ä
 Diese Veränderung des Abstands können wir erreichen, indem wie alle $x$-Koordinaten beispielsweise verdoppeln. Aus jedem Punkt $\coord{x}{f(x)}$ auf dem Graphen wird nach der Verdoppelung der $x$-Koordinate der Punkt $\coord{2x}{f(x)}$. Wir wissen bereits, dass dieser Punkt die Regel $2x\mapsto f(x)$ darstellt.
 
 \begin{example}{}
-   Der nachfolgende Abbildungsgraph soll um den Faktor $2$ in $x$-Richtung gestreckt werden, sodass sich alle $x$-Koordinaten von Punkten auf dem Graphen verdoppeln. Dabei nehmen wir exemplarisch für die Punkte $\coord{\frac{1}{2}}{0}$ (weiß eingezeichnet), $\coord{-\frac{1}{2}}{0}$ (gelb) und $\coord{1}{-1}$ (grau) unter die Lupe, wohin sie bei der Streckung wandern.
+   Der nachfolgende Funktionsgraph soll um den Faktor $2$ in $x$-Richtung gestreckt werden, sodass sich alle $x$-Koordinaten von Punkten auf dem Graphen verdoppeln. Dabei nehmen wir exemplarisch für die Punkte $\coord{\frac{1}{2}}{0}$ (weiß eingezeichnet), $\coord{-\frac{1}{2}}{0}$ (gelb) und $\coord{1}{-1}$ (grau) unter die Lupe, wohin sie bei der Streckung wandern.
    \begin{center}
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-3:3, y=1cm, x=1cm, xtick={-3,...,3}, ytick={-1, 1},samples=\ifdraft{26}{150}]
@@ -145,7 +145,7 @@ Diese Veränderung des Abstands können wir erreichen, indem wie alle $x$-Koordi
         \end{tikzpicture}
     \end{center}
     
-    Wir können jetzt den grauen Punkt $\coord{1}{-1}$ festhalten (man hätte hier auch einen beliebigen anderen Punkt des Abbildungsgraphen rechts von der $y$-Achse wählen können) und diesen parallel zur $x$-Achse nach rechts ziehen. Weil wir hier mit dem Faktor 2 strecken, ziehen wir ihn so weit, bis sich seine $x$-Koordinate verdoppelt hat, also bis zum Punkt $\coord{2}{-1}$.
+    Wir können jetzt den grauen Punkt $\coord{1}{-1}$ festhalten (man hätte hier auch einen beliebigen anderen Punkt des Funktionsgraphen rechts von der $y$-Achse wählen können) und diesen parallel zur $x$-Achse nach rechts ziehen. Weil wir hier mit dem Faktor 2 strecken, ziehen wir ihn so weit, bis sich seine $x$-Koordinate verdoppelt hat, also bis zum Punkt $\coord{2}{-1}$.
     
     Den Punkt $\coord{-1}{1}$ links von der $y$-Achse halten wir fest und ziehen diesen parallel zur $x$-Achse nach link -- bis wir bei $\coord{-2}{1}$ ankommen. Der Graph, den wir nach diesem Streckvorgang erhalten, könnte wie folgt aussehen:
     
@@ -173,7 +173,7 @@ Diese Veränderung des Abstands können wir erreichen, indem wie alle $x$-Koordi
     \end{center}
 \end{example}
 
-Wie muss nun also die neue Berechnungsvorschrift aussehen, wenn wir eine Abbildung $g$ suchen, die den Graphen von $f$ streckt? Da wir wissen, dass der Punkt $\coord{2x}{f(x)}$, der die Regel $2x\mapsto f(x)$ darstellt, auf dem Graphen liegt, wissen wir auch, dass $g(2x)=f(x)$ gelten muss. 
+Wie muss nun also die neue Berechnungsvorschrift aussehen, wenn wir eine Funktion $g$ suchen, die den Graphen von $f$ streckt? Da wir wissen, dass der Punkt $\coord{2x}{f(x)}$, der die Regel $2x\mapsto f(x)$ darstellt, auf dem Graphen liegt, wissen wir auch, dass $g(2x)=f(x)$ gelten muss. 
 
 Wie bereits beim Verschieben nach links und rechts erhalten wir $g(2x)$ also, indem wir einfach einen Funktionswert von $f$ berechnen -- allerdings nicht an der Stelle $2x$, sondern an einer anderen. Wir versuchen nun, herauszufinden, an welcher.
 
@@ -193,7 +193,7 @@ Zum Strecken von $f$ mit dem Faktor $2$ (also zum Verdoppeln der Breite des Grap
         \end{tikzpicture}
     }
 
-    Die Abbildung $f(x)=x+1$ soll um den Faktor $2$ in $x$-Richtung gestreckt werden. Dazu stellen wir eine neue Abbildung $g$ auf und nutzen $g(x)=f(\frac{x}{2})$ als Berechnungsvorschrift für $g$.
+    Die Funktion $f(x)=x+1$ soll um den Faktor $2$ in $x$-Richtung gestreckt werden. Dazu stellen wir eine neue Funktion $g$ auf und nutzen $g(x)=f(\frac{x}{2})$ als Berechnungsvorschrift für $g$.
     
     \picskip{5}
     Wir erhalten also $g(x)=f(\frac{x}{2})=\frac{x}{2}+1$. Nun überzeugen wir uns, dass dies auch tatsächlich die gewünschte Streckung verursacht: Wir wissen, dass wegen $f(1)=1+1=2$ der Punkt $\coord{1}{2}$ (weiß eingezeichnet) auf dem Graphen von $f$ liegt. Durch die Streckung muss sich die $x$-Koordinate dieses Punktes verdoppeln, das heißt, der Punkt $\coord{2\cdot 1}{2}=\coord{2}{2}$ muss auf dem gestreckten Graphen liegen. Dieser ist im Bild gelb dargestellt.
@@ -203,7 +203,7 @@ Zum Strecken von $f$ mit dem Faktor $2$ (also zum Verdoppeln der Breite des Grap
     berechnen. Für $x=2$ liegt also derjenige Punkt auf dem neuen Graphen, der vorher nur halb so weit rechts lag. Das funktioniert natürlich auf dieselbe Art auch für jeden anderen Punkt, den wir uns aussuchen können.
 \end{example}
 
-Die Zahl $2$, mit der wir bisher die $x$-Komponenten multipliziert haben, heißt \textbf{Streckungsfaktor}. Dieser kann beliebig gewählt werden. Im Prinzip beschreibt der Streckungsfaktor, wie stark der Abbildungsgraph auseinandergezogen wird. Als Streckungsfaktor lässt sich prinzipiell jede beliebige Zahl $a$ wählen. Um den Graphen um den Faktor $a$ auseinanderzuziehen, müssen wir in seiner Abbildungsvorschrift jedes Vorkommen von $x$ durch $\frac{x}{a}$ ersetzen. Eine um den Faktor $a$ gestreckte Abbildungsvorschrift ist also $g(x)=f(\frac{x}{a})$.
+Die Zahl $2$, mit der wir bisher die $x$-Komponenten multipliziert haben, heißt \textbf{Streckungsfaktor}. Dieser kann beliebig gewählt werden. Im Prinzip beschreibt der Streckungsfaktor, wie stark der Funktionsgraph auseinandergezogen wird. Als Streckungsfaktor lässt sich prinzipiell jede beliebige Zahl $a$ wählen. Um den Graphen um den Faktor $a$ auseinanderzuziehen, müssen wir in seiner Zuordnungsvorschrift jedes Vorkommen von $x$ durch $\frac{x}{a}$ ersetzen. Eine um den Faktor $a$ gestreckte Zuordnungsvorschrift ist also $g(x)=f(\frac{x}{a})$.
 
 Damit wir wirklich eine Streckung durchführen, ist es allerdings wichtig, dass der Streckungsfaktor stets größer als 1 ist, da wir ja beim Strecken nach außen ziehen und nicht nach innen drücken (das würde etwa für den Streckungsfaktor $\frac{1}{2}$ passieren, weil wir dann die $x$-Komponenten halbieren und den Graph auf diese Weise schmaler machen). Durch das Verwenden eines Streckungsfaktors $a<1$ erhalten wir stattdessen eine Stauchung.
 
@@ -218,19 +218,19 @@ Strecken und Stauchen sind also im Kern genau das gleiche. Um einen Graphen zusa
             \end{axis}
         \end{tikzpicture}
     }
-    Rechts in violett dargestellt ist der Graph der Abbildung $f(x)=x^2-1$.
+    Rechts in violett dargestellt ist der Graph der Funktion $f(x)=x^2-1$.
     Wir möchten nun den Graphen von $f$ stauchen, indem wir den Streckungsfaktor $a=\frac{1}{2}$ verwenden, der kleiner als 1 ist. Alle Punkte auf dem Graphen von $f$ werden hierbei auf die halbe Entfernung an die $y$-Achse herangedrückt. 
     
     Eine Streckung mit dem Faktor $\frac{1}{2}$ bedeutet, dass wir alle Vorkommen von $x$ in der Berechnungsvorschrift durch $\frac{x}{(\frac{1}{2})}=2x$ ersetzen. Es gilt also, dass \[g(x) = f(2x) = (2x)^2 - 1.\]
     
     \picskip{1}
-    Der graue Graph der Abbildung $g$ ist nun gestaucht, weil wir zum Berechnen eines Funktionswerts $g(1)$ beispielsweise $f(2)$ auswerten müssen: \[g(1)=\colorbrace{(2\cdot 1)^2-1}{f(2\cdot 1)}=\colorbrace{2^2-1}{f(2)}=3.\]
+    Der graue Graph der Funktion $g$ ist nun gestaucht, weil wir zum Berechnen eines Funktionswerts $g(1)$ beispielsweise $f(2)$ auswerten müssen: \[g(1)=\colorbrace{(2\cdot 1)^2-1}{f(2\cdot 1)}=\colorbrace{2^2-1}{f(2)}=3.\]
     
     Der Funktionswert $f(2)$ wird jetzt also bereits weiter innen für die Berechnung benötigt. Der Graph wird schmaler, die Punkte nach innen verschoben und insgesamt erhalten wir eine Stauchung.
 \end{example}
 
-\begin{nutshell}{Abbildungsgraphen stauchen und strecken}
-    Wir können den Abbildungsgraphen von $f(x)$ in $x$-Richtung oder in $y$-Richtung stauchen oder strecken, also den Graphen von $f$ in eine dieser beiden Richtungen zusammendrücken oder auseinanderziehen.
+\begin{nutshell}{Funktionsgraphen stauchen und strecken}
+    Wir können den Funktionsgraphen einer Funktion $f$ in $x$-Richtung oder in $y$-Richtung stauchen oder strecken, also den Graphen von $f$ in eine dieser beiden Richtungen zusammendrücken oder auseinanderziehen, indem wir die Berechnungsvorschrift von $f$ anpassen.
     \begin{description}
         \item[Stauchen und Strecken in $y$-Richtung] ist möglich, indem zu $f(x)$ mit dem Streckungsfaktor $a>0$ multiplizierst: $g(x) = a\cdot f(x)$.
         \item[Stauchen und Strecken in $x$-Richtung] ist möglich, indem jedes Vorkommen von $x$ in der Berechnungsvorschrift durch $\frac{x}{a}$ ersetzt wird: $g(x)=f(\frac{x}{a})$.
