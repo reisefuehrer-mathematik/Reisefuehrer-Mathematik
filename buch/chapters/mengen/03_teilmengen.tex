@@ -1,1 +1,71 @@
+\documentclass[../../main.tex]{subfiles}
 
+\begin{document}
+
+Im letzten Abschnitt hast du eine ganze Reihe von Mengendiagrammen gesehen. Die Mengen haben sich dabei hin und wieder überlappt, nämlich dann, wenn es Objekte gab, die in beiden Mengen gleichzeitig enthalten waren. Wir sehen uns zunächst ein weiteres Beispiel an, in dem sich die Mengen überlappen.
+
+\begin{example}{}
+\end{example}
+
+Teil des Diagramms bleibt leer, jedes ELement der einen Menge ist in anderer enthalten. Sowas nennt man Teilmengen
+
+Dann kann man auch ein Teilmengendiagramm zeichnen
+
+\begin{example}{}
+    \begin{tikzpicture}
+        \draw[grayset] (0,0) ellipse[10mm and 15mm];
+        \draw[grayset] (0,-0.6) ellipse[8mm and 8mm];
+        \node (setName) at (0,2) {\textsc{Definitionsmenge}};
+        \node[label={[blue!70]below:groß}, blue!60] (x1) at (-1.1,0.9) {\LARGE $\bullet$};
+        \node[label={[orange]below:klein}, orange] (x2) at (-1.8,-0.4) {$\bullet$};
+        \node (x3) at (-1.5,-1.85) {$\bullet$};
+        \node[label=above:1.50 \euro] (y1) at (1.2,0.6) {$\bullet$};
+        \node[label=above:1.00 \euro] (y2) at (1.2,-0.6) {$\bullet$};
+        \node[red] (y3) at (1.2,-1.6) {\textbf{?}};
+        \draw[->] (setName) to[bend right] (-2.7,0.5);
+        \draw[blue,->] (x1) -- (y1);
+        \draw[orange,->] (x2) -- (y2);
+        \draw[->] (x3) -- (y3);
+    \end{tikzpicture}
+\end{example}
+
+Blabla
+
+\begin{definition}{Teilmenge}
+    Eine Menge $M$ ist eine \textbf{Teilmenge} einer Menge $N$, falls jedes $x\in M$ auch in $N$ enthalten ist. Ist $M$ eine Teilmenge von $N$, dann schreiben wir $M\subseteq N$.
+
+    Ist zusätzlich $M\neq N$, dann heißt $M$ eine \textbf{echte Teilmenge} von $N$ und man schreibt $M\subset N$.
+\end{definition}
+
+Wir können alle Teilmengen auflisten
+
+\begin{example}{}
+    Alle Teilmengen einer einfachen Menge auflisten
+\end{example}
+
+Das heißt Potenzmenge
+
+\begin{example}{}
+    Die Menge der Grundfarben aus den letzten Abschnitten hat die Potenzmenge
+    \[\mathcal{P}(\textsc{Grundfarben})=\{\emptyset,\{\text{gelb}\},\{\text{blau}\},\{\text{rot}\},\{\text{gelb},\text{blau}\},,\{\text{gelb},\text{rot}\},,\{\text{blau},\text{rot}\},\textsc{Grundfarben\}\}\]
+\end{example}
+
+\begin{definition}{Potenzmenge}
+    Es sei $M$ eine Menge. Die \textbf{Potenzmenge} von $M$ ist die Menge 
+    \[\{N\mid N\subseteq M\}\]
+    aller Teilmengen von $M$. Für die Potenzmenge von $M$ schreiben wir auch $\mathcal{P}(M)$.
+\end{definition}
+
+\begin{nutshell}{Teilmengen}
+    \parpic[r]{
+        Teilmengendiagram
+    }
+
+    Eine Menge $M$ heißt eine \textbf{Teilmenge} der Menge $N$, geschrieben $M\subseteq N$, falls jedes Element von $M$ auch ein Element von $N$ ist.
+
+    Falls zusätzlich $M\neq N$ gilt, dann heißt $M$ eine \textbf{echte Teilmenge} von $N$. Man kann alle Teilmengen einer Menge $M$ auflisten. Die Menge, die man erhält, wenn man alle Teilmengen auflistet, ist die \textbf{Potenzmenge}
+    \[\mathcal{P}(M)=\{N\mid N\subseteq M\}\]
+    von $M$. Die Potenzmenge einer Menge $M$ enthält immer die Menge $M$ selbst und die leere Menge.
+\end{nutshell}
+
+\end{document}
