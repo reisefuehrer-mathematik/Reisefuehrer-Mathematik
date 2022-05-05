@@ -57,7 +57,7 @@
 \newtcolorbox{contents}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=blue!10,colframe=blue!30, coltitle=black, title={Inhalte des Vorbereitungsblattes}, attach title to upper=\vspace*{.5em}\par}
 \newtcolorbox{definition}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=red!5!white,colframe=red!75!black, title={Definition}}
 \newtcolorbox{theorem}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!black, title={Satz}}
-\newtcolorbox{remark}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!10, coltitle=black, colframe=yellow!80!black, title=Bemerkung, attach title to upper=\vspace*{.5em}\par}
+\newtcolorbox{remark}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!10, coltitle=black, colframe=yellow!80!black}%, title=Bemerkung, attach title to upper=\vspace*{.5em}\par}
 %\newmdenv[roundcorner=5pt,linewidth=1pt,backgroundcolor=black!10,linecolor=black!30]{literature}
 \newtcolorbox{literature}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=black!10,colframe=black!30, boxsep=0pt}
 \newcommand{\video}[4]{
