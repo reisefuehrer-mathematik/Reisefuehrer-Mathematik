@@ -1,0 +1,75 @@
+\def\pathToMain{../../buch/}
+\documentclass[solution]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+
+\sheet{Vorbereitungsblatt 8.1}
+\title{Einführung: Variablen}
+\topic{\getchaptername{variablen}}
+\chapternum{\getchapternum{variablen}}
+
+\usepackage{multicol}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Auswerten von Termen mit Variablen, Aufstellen von Termen für Sachzusammenhänge
+\end{contents}
+
+\video{Was ist eine Variable?}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+Idee: Lückentext --- Einsetzen mit einer Variable, mehrere Werte --- Einsetzen mit mehreren Variablen --- Entscheiden, ob Terme gleich sind --- Terme selbst aufstellen (bzw. entscheiden, welcher passt)
+
+\subsection*{Aufgabenteil}
+\begin{exercise}
+    Irgendein besonders intelligenter Lückentext vielleicht
+\end{exercise}
+\begin{exercise}
+    Setze in den Term $15+3\cdot x+y^2$ für $x$ den Wert $4$ und für $y$ den Wert $8$ ein und rechne den Term anschließend aus.
+    \begin{answerbox}[0.4in]
+        $15+3x+y^2=15+3\cdot 4+8^2=15+12+64=91$
+    \end{answerbox}
+\end{exercise}
+\begin{exercise}
+    Berechne den Wert $(371\cdot x)\cdot y+42$ möglichst geschickt, wenn $x=25$ und $y=4$ ist.
+    \begin{answerbox}[0.4in]
+        $(371\cdot x)\cdot y+42=(371\cdot 25)\cdot 4+42=371\cdot (25\cdot 4)+42=371\cdot 100+42=37100+42=37142$
+    \end{answerbox}
+\end{exercise}
+\begin{exercise}
+    Kreuze alle Terme an, die unabhängig davon, welchen Wert du für $x$ einsetzt, denselben Wert wie $6\cdot x+2$ haben. Probiere, wenn du dir nicht sicher bist, ein paar Werte für $x$ aus, für die du die Terme jeweils ausrechnest.
+    \begin{multicols}{3}
+        \begin{multiplechoice}
+            \citem $10+6\cdot x-8$
+            \item $6\cdot (x+2)$
+            \item $12-3\cdot (3-2\cdot x)$
+        \end{multiplechoice}
+    \end{multicols}
+    \begin{answerbox}[1.2in]
+        Die erste Antwortmöglichkeit ist richtig, denn $10+6\cdot x-8=+6\cdot x+10-8=6\cdot x+2$.
+
+        Wir setzen für $x$ den Wert $0$ ein, um zu sehen, dass der zweite und dritte Term dann andere Werte annehmen als der Term $6\cdot x+2$. Mit $x=0$ ist $6\cdot x+2=6\cdot 0+2=2$.
+        
+        Allerdings ist $6\cdot (x+2)=6\cdot (0+2)=12$. Also ist die zweite Antwortmöglichkeit falsch.
+
+        Die dritte Antwortmöglichkeit ist falsch, denn $12-3\cdot (3-2\cdot 0)=12-3\cdot 3=12-9=3$.
+    \end{answerbox}
+\end{exercise}
+
+\video{Terme mit Variablen aufstellen}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\subsection*{Aufgabenteil}
+
+\begin{exercise}
+    Sachbeispiel, das formalisiert werden soll. Variablen sind vorgegeben und die richtige Antwort soll per Multiple Choice gewählt werden.
+\end{exercise}
+\begin{exercise}
+    Sachbeispiel, das formalisiert werden soll. Variablen sind vorgegeben und die richtige Antwort soll per Multiple Choice gewählt werden. (zweites Beispiel)
+\end{exercise}
+
+\mandala{mandala/mandala01}
+
+\end{document}
