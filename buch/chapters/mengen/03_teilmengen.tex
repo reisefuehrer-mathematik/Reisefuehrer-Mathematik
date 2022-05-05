@@ -2,34 +2,117 @@
 
 \begin{document}
 
-Im letzten Abschnitt hast du eine ganze Reihe von Mengendiagrammen gesehen. Die Mengen haben sich dabei hin und wieder überlappt, nämlich dann, wenn es Objekte gab, die in beiden Mengen gleichzeitig enthalten waren. Wir sehen uns zunächst ein weiteres Beispiel an, in dem sich die Mengen überlappen.
+Im letzten Abschnitt hast du eine ganze Reihe von Mengendiagrammen gesehen. Allgemein können wir zwei Mengen immer so nebeneinander zeichnen, dass sie sich ein wenig überlappen. Dadurch haben wir für jedes Objekt einen passenden Bereich, in dem wir es einzeichnen können -- egal, ob es zu beiden Mengen oder nur zu einer gehört. 
 
-\begin{example}{}
-\end{example}
-
-Teil des Diagramms bleibt leer, jedes ELement der einen Menge ist in anderer enthalten. Sowas nennt man Teilmengen
-
-Dann kann man auch ein Teilmengendiagramm zeichnen
-
-\begin{example}{}
+\parpic[r]{
     \begin{tikzpicture}
-        \draw[grayset] (0,0) ellipse[10mm and 15mm];
-        \draw[grayset] (0,-0.6) ellipse[8mm and 8mm];
-        \node (setName) at (0,2) {\textsc{Definitionsmenge}};
-        \node[label={[blue!70]below:groß}, blue!60] (x1) at (-1.1,0.9) {\LARGE $\bullet$};
-        \node[label={[orange]below:klein}, orange] (x2) at (-1.8,-0.4) {$\bullet$};
-        \node (x3) at (-1.5,-1.85) {$\bullet$};
-        \node[label=above:1.50 \euro] (y1) at (1.2,0.6) {$\bullet$};
-        \node[label=above:1.00 \euro] (y2) at (1.2,-0.6) {$\bullet$};
-        \node[red] (y3) at (1.2,-1.6) {\textbf{?}};
-        \draw[->] (setName) to[bend right] (-2.7,0.5);
-        \draw[blue,->] (x1) -- (y1);
-        \draw[orange,->] (x2) -- (y2);
-        \draw[->] (x3) -- (y3);
+        \fill[grayset] (-1.5,0) circle (15mm);
+        \node[label={[red]above:rot}, red] at (-1.5,0.7) {\textbullet};
+        \node[label={[blue]above:blau}, blue] at (-2.5,0) {\textbullet};
+        \node[label={[yellow!70!black]above:gelb}, yellow!70!black] at (-1.5,-1.1) {\textbullet};
+        \node (setName) at (1.2,1.5) {\textsc{Grundfarben}};
+        \draw[->] (setName) to[bend left] (-0.3,0.5);
+        %
+        \fill[grayset] (1.5,0) circle (6mm);
+        \node[label={[green!70!black]above:grün}, green!70!black] at (1.5,-0.3) {\textbullet};
+        \node (greenName) at (0.7,-1) {\textsc{Grün}};
+        \draw[->] (greenName) to (1.1,-0.2);
     \end{tikzpicture}
+}
+
+Je nachdem, welche Mengen wir darstellen, bleiben manchmal einige dieser Bereiche leer. Du siehst rechts nochmal das Venn-Diagramm aus Beispiel \ref{ex:venn-ohne-schnitt}. Die beiden Mengen haben keine gemeinsamen Elemente, ihr Schnitt ist also leer. Für zwei Mengen $M$ und $N$ gilt in diesem Fall 
+\[M\cap N=\emptyset.\]
+Zwei Mengen mit dieser Eigenschaft heißen \textbf{disjunkt}.
+\begin{example}{}
+    Die Mengen $\textsc{Grün}$ und $\textsc{Grundfarben}$ sind \emph{disjunkt}, denn sie haben keine gemeinsamen Elemente. Es gilt
+    \[\textsc{Grün}\cap\textsc{Grundfarben}=\emptyset.\]
+\end{example}
+\begin{example}{}
+    Die Mengen $A=\{1,2\}$ und $B=\{3,4\}$ sind disjunkt, denn es gilt $A\cap B=\emptyset$. Wenn wir zusätzlich die Menge $C=\{2,3\}$ betrachten, dann sind weder $A$ und $C$ disjunkt (denn $A\cap C=\{2\}\neq\emptyset$) noch $B$ und $C$ (denn $B\cap C=\{3\}\neq\emptyset$).
 \end{example}
 
-Blabla
+\begin{definition}{Disjunkte Mengen}
+    Zwei Mengen $M$ und $N$ heißen \textbf{disjunkt}, falls $M\cap N=\emptyset$ gilt.
+\end{definition}
+
+Neben dem Schnitt zweier Mengen können auch die Bereiche leer bleiben, in denen wir die Objekte einzeichnen, die nur zu einer der beiden Mengen gehören, aber nicht zu beiden Mengen gleichzeitig.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=0.8]
+            \fill[grayset] (-1.5,0) circle (15mm);
+            \fill[grayset] (0,0) circle (15mm);
+            \draw (-1.5,0) circle (15mm);
+            \node[maincolor] at (0.6,0.8) {0};
+            \node[maincolor] at (0.5,-0.9) {1};
+            \node[maincolor] at (0.25,0) {2};
+            \node[maincolor] at (0,1.2) {3};
+            \node[maincolor] at (1.2,-0.3) {4};
+            \node[maincolor] at (-0.2,0.2) {5};
+            \node[maincolor] at (-0.3,-0.4) {6};
+            \node[maincolor] at (-1,-0.2) {7};
+            \node[maincolor] at (-0.7,-0.9) {8};
+            \node[maincolor] at (-0.75,1) {9};
+            \node (setName) at (-1,1.9) {\scriptsize\textsc{Ziffern}};
+            \draw[->] (setName) to (-0.3,1.2);
+            \node (aufrunden) at (-1.4,-2) {\scriptsize\textsc{Aufrunden}};
+            \draw[->] (aufrunden) to (-1.8,-1.2);
+        \end{tikzpicture}
+    }
+
+    Wenn du eine Zahl wie $3.141$ auf eine Nachkommastelle Runden musst, dann musst du dir die zweite Nachkommastelle anschauen. Dort wirst du irgendeine Ziffer finden, also ein Element der Menge
+    \[\textsc{Ziffern}=\{0,1,2,3,4,5,6,7,8,9\}.\]
+    Jetzt musst du entscheiden, ob du auf- oder abrundest. Du musst aufrunden, falls die Ziffer, die du siehst, eine 5 oder größer ist. Aufrunden musst  du also bei den Elementen der Menge
+    \[\textsc{Aufrunden}=\{5,6,7,8,9\}\]
+    und bei allen anderen Ziffern musst du abrunden. Wenn wir die beiden Mengen wieder in einem Venn-Diagramm darstellen, dann bleibt die linke Seite leer. Das liegt daran, dass die Menge $\textsc{Aufrunden}$ keine Elemente enthält, die nicht schon in der Menge aller Ziffern enthalten sind. Die Menge \textsc{Aufrunden} enthält nichts außer einem Teil der Menge \textsc{Ziffern}. Wir nennen sie deshalb eine \textbf{Teilmenge} der Menge \textsc{Ziffern}.
+\end{example}
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \draw[grayset] (0,0) ellipse (10mm and 15mm);
+        \draw[grayset] (0,-0.6) ellipse (8mm and 8mm);
+        \node at (0,0.9) {$N$};
+        \node at (0,-0.6) {$M$};
+    \end{tikzpicture}
+}
+Manche Mengen enthalten nur Elemente, die bereits in einer anderen Menge enthalten sind. Sie enthalten also nur einen Teil der Elemente einer anderen Menge und sonst nichts. Wenn $M$ eine solche Menge ist, die nur Elemente enthält, die auch schon in $N$ enthalten sind, dann ist $M$ eine \textbf{Teilmenge} von $N$. Wir notieren das mit $M\subseteq N$. 
+
+Dieses Zeichen ist vergleichbar mit dem Symbol \enquote{$\leq$}, mit dem du Zahlen vergleichst. Es besagt, dass die linke Zahl kleiner \emph{oder gleich} der linken ist. So ist das auch bei Teilmengen. Wenn $M$ eine Teilmenge von $N$ ist, dann schließt das nicht aus, dass $M=N$ gilt. Denn wenn zwei Mengen gleich sind, dann ist natürlich jedes Element der einen auch ein Element der anderen.
+
+Wenn eine Menge tatsächlich mehr Elemente als die andere enthält, also $M\neq N$ gilt, dann spricht man davon, dass $M$ eine \textbf{echte Teilmenge} von $N$ ist. Dafür schreiben wir dann $M\subset N$ (wieder in Anlehnung an das Symbol \enquote{$<$}, das ja auch besagt, dass die linke Zahl wirklich kleiner als die rechte ist).
+
+Weil alle Elemente von $M$ auch zu $N$ gehören, wenn $M\subseteq N$ gilt, ist $M$ in $N$ enthalten. Zeichnet man die beiden Mengen nämlich als Venn-Diagramm, dann liegt $M$ vollständig in der (ggf. größeren) Menge $N$. Darum werden Teilmengen in der Regel wie rechts dargestellt.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \draw[grayset] (0,0) ellipse (10mm and 15mm);
+            \draw[grayset] (0,-0.6) ellipse (8mm and 8mm);
+            \node[maincolor] at (0.3,0.8) {\scriptsize 0};
+            \node[maincolor] at (0.5,0.5) {\scriptsize 1};
+            \node[maincolor] at (-0.7,0.7) {\scriptsize 2};
+            \node[maincolor] at (0,1.2) {\scriptsize 3};
+            \node[maincolor] at (-0.3,0.4) {\scriptsize 4};
+            \node[maincolor] at (0,-0.1) {\scriptsize 5};
+            \node[maincolor] at (0.5,-0.4) {\scriptsize 6};
+            \node[maincolor] at (-0.4,-0.2) {\scriptsize 7};
+            \node[maincolor] at (-0.2,-0.7) {\scriptsize 8};
+            \node[maincolor] at (0.2,-1.1) {\scriptsize 9};
+        \end{tikzpicture}
+    }
+
+    Rechts siehst du die gleichen Mengen wie im letzten Beispiel. Alle Elemente der Menge $\textsc{Aufrunden}$ sind auch in der Menge $\textsc{Ziffern}$ enthalten. 
+    
+    Weil damit die ganze Menge $\textsc{Aufrunden}$ in der Menge $\textsc{Ziffern}$ enthalten ist, kann sie wie rechts in die Menge $\textsc{Ziffern}$ hineingezeichnet werden. $\textsc{Aufrunden}$ ist eine \emph{Teilmenge} der Menge $\textsc{Ziffern}$, also
+    \[\textsc{Aufrunden}\subseteq \textsc{Ziffern}.\]
+
+    \picskip{0}
+    Weil $\textsc{Aufrunden}\neq \textsc{Ziffern}$ gilt, ist die Menge \textsc{Aufrunden} sogar eine \emph{echte Teilmenge} der Menge \textsc{Ziffern}. Wir können $\textsc{Aufrunden}\subset \textsc{Ziffern}$ schreiben.
+\end{example}
+
+\begin{example}{}
+    Jede beliebige Menge ist eine Teilmenge von sich selbst, denn jede Menge enthält sich selbst.
+\end{example}
 
 \begin{definition}{Teilmenge}
     Eine Menge $M$ ist eine \textbf{Teilmenge} einer Menge $N$, falls jedes $x\in M$ auch in $N$ enthalten ist. Ist $M$ eine Teilmenge von $N$, dann schreiben wir $M\subseteq N$.
@@ -37,17 +120,35 @@ Blabla
     Ist zusätzlich $M\neq N$, dann heißt $M$ eine \textbf{echte Teilmenge} von $N$ und man schreibt $M\subset N$.
 \end{definition}
 
-Wir können alle Teilmengen auflisten
+Fast alle Mengen haben mehrere verschiedene Teilmengen. Wir erhalten eine Teilmenge einer Menge $M$, indem wir uns einfach einige der Elemente von $M$ aussuchen.
 
 \begin{example}{}
-    Alle Teilmengen einer einfachen Menge auflisten
+    \parpic[r]{
+        \begin{tikzpicture}
+            \fill[grayset] (-1.5,0) circle (15mm);
+            \fill[grayset] (-1.2,-0.8) circle (6mm);
+            \fill[grayset, rotate=40] (-1,1.55) ellipse (10mm and 8mm);
+            \node[label={[red]above:rot}, red] at (-1.5,0.7) {\textbullet};
+            \node[label={[blue]above:blau}, blue] at (-2.2,0) {\textbullet};
+            \node[label={[yellow!70!black]above:gelb}, yellow!70!black] at (-1.2,-1.1) {\textbullet};
+        \end{tikzpicture}
+    }
+    Du siehst rechts die Menge der Grundfarben. In das Venn-Diagramm aus Beispiel \ref{ex:first_venn-diagram} haben wir nun zusätzlich einige Teilmengen eingezeichnet. Du kannst im Bild die Teilmengen
+    \[\{\text{blau},\text{rot}\}\subseteq\textsc{Grundfarben}\]
+    und
+    \[\{\text{gelb}\}\subseteq\textsc{Grundfarben}\]
+    erkennen. Diese Teilmengen enthalten jeweils eine bestimmte Auswahl der Elemente der Menge \textsc{Grundfarben}. Stattdessen hätten wir auch nur die Farbe rot auswählen können, um die Teilmenge $\{\text{rot}\}\subseteq\textsc{Grundfarben}$ zu erhalten -- jede Auswahl erzeugt eine Teilmenge.
 \end{example}
 
-Das heißt Potenzmenge
+Obwohl die Menge aus dem letzten Beispiel relativ klein ist, gibt es bereits eine große Anzahl von Teilmengen. Wir können auch eine Liste mit \emph{allen} Teilmengen einer Menge $M$ aufschreiben. Die Menge, die all solche Teilmengen einer Menge $M$ enthält, heißt die \textbf{Potenzmenge} von $M$, geschrieben $\mathcal{P}(M)$. Es gilt also
+\[\mathcal{P}(M)=\{N\mid N\subseteq M\}.\]
 
 \begin{example}{}
-    Die Menge der Grundfarben aus den letzten Abschnitten hat die Potenzmenge
-    \[\mathcal{P}(\textsc{Grundfarben})=\{\emptyset,\{\text{gelb}\},\{\text{blau}\},\{\text{rot}\},\{\text{gelb},\text{blau}\},,\{\text{gelb},\text{rot}\},,\{\text{blau},\text{rot}\},\textsc{Grundfarben\}\}\]
+    Die Menge der Grundfarben hat die \emph{Potenzmenge}
+    \begin{align*}
+        \mathcal{P}(\textsc{Grundfarben})=\{&\emptyset,\{\text{gelb}\},\{\text{blau}\},\{\text{rot}\},\{\text{gelb},\text{blau}\},\{\text{gelb},\text{rot}\},\\
+        &\{\text{blau},\text{rot}\},\textsc{Grundfarben}\}.
+    \end{align*}
 \end{example}
 
 \begin{definition}{Potenzmenge}
@@ -55,6 +156,21 @@ Das heißt Potenzmenge
     \[\{N\mid N\subseteq M\}\]
     aller Teilmengen von $M$. Für die Potenzmenge von $M$ schreiben wir auch $\mathcal{P}(M)$.
 \end{definition}
+
+\begin{advanced}{Größe der Potenzmenge}
+    Wie wir bereits gesehen haben, enthält die Potenzmenge einer kleinen Menge $M$ bereits relativ viele Elemente.
+    \begin{theorem}{Größe der Potenzmenge}
+        Für eine Menge $M$ mit $|M|=n$ gilt $|\mathcal{P}(M)|=2^n$.
+    \end{theorem}
+    \begin{proof}
+        Wir beweisen die Aussage mithilfe von vollständiger Induktion (siehe Seite \ref{induktion}) über die Größe von $M$.
+        \begin{enumerate}
+            \item[(I.A.)] Aus $|M|=0$ folgt $M=\emptyset$, also ist $\emptyset$ die einzige Teilmenge von $M$. Es gilt also
+                \[|\mathcal{P}(M)|=|\{\emptyset\}|=1=2^0.\]
+            \item[(I.S.)] Es sei $M=\{a_1,a_2,\dots,a_{n+1}\}$. Die Anzahl der Teilmengen von $M$, in denen $a_{n+1}$ enthalten ist, entspricht genau der Anzahl der Teilmengen von $M=\{a_1,\dots,a_n\}$. Diese ist nach Induktionsvoraussetzung $2^n$. Auf die gleiche Weise gibt es auch $2^n$ Teilmengen von $M$, in denen $a_{n+1}$ nicht enthalten ist. Wir erhalten insgesamt $2\cdot 2^n=2^{n+1}$ Teilmengen.
+        \end{enumerate}
+    \end{proof}
+\end{advanced}
 
 \begin{nutshell}{Teilmengen}
     \parpic[r]{
