@@ -28,6 +28,8 @@
 
 \RequirePackage{imakeidx}
 
+\RequirePackage{qrcode}
+
 
 %indexing
 \begin{filecontents}{idxstyle.ist}
@@ -251,6 +253,16 @@ suffix_3p "\\,ff."
 }{
     \end{tcolorbox}
     \arrayrulecolor{black}
+}
+\DeclareTColorBox{goal}{ o m m }{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    sharp corners,
+    boxrule=0pt, colframe=#3,
+    coltitle=black, colback=black!5,
+    borderline west={3pt}{0pt}{#3},
+    title={#2},
+    %attach title to upper=\vspace*{.5em}\par,
+    step=sample
 }
 
 \makeatletter
