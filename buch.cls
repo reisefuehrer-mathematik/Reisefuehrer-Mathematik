@@ -26,6 +26,8 @@
 
 \RequirePackage{tabularx}
 
+\RequirePackage{enumitem}
+
 \RequirePackage{imakeidx}
 
 \RequirePackage{qrcode}
