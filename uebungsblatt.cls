@@ -13,6 +13,7 @@
 \RequirePackage{csquotes}
 \RequirePackage{picins}
 \RequirePackage[gen]{eurosym}
+\RequirePackage{xstring}
 %\usepackage{soul}
 
 \pagestyle{empty}
@@ -47,6 +48,34 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength\parindent{0pt}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structural commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tosnakecase}[2]{
+    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
+    \StrSubstitute{#2}{ä}{ae}[#2]
+    \StrSubstitute{#2}{ö}{oe}[#2]
+    \StrSubstitute{#2}{ü}{ue}[#2]
+    \StrSubstitute{#2}{ }{_}[#2]
+}
+\newcommand{\tosheetnum}[2]{
+    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
+    \StrSubstitute{#2}{blatt0}{}[#2]
+    \StrSubstitute{#2}{blatt}{}[#2]
+}
+\makeatletter
+\newcommand\ldtasks[1]{
+    \tosheetnum{#1}{\sheetnum}
+    \section*{Aufgaben zu Vorbereitungsblatt \@chapternum.\sheetnum}
+    \tosnakecase{\@topic}{\chaptername}
+    \subfile{\chaptername/#1}
+}
+\newcommand{\makesolutions}{
+    \tosnakecase{\@topic}{\chaptername}    
+    \begin{solutions}
+        \subfile{\chaptername/solutions}
+    \end{solutions}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Boxes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
