@@ -1,5 +1,5 @@
 \def\pathToMain{../../buch/}
-\documentclass{uebungsblatt}
+\documentclass[solution]{uebungsblatt}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -42,6 +42,38 @@
 
 \subsection*{Aufgabenteil}
 
+\begin{exercise}{}
+    Welches der Zeichen $\Rightarrow, \Leftarrow$ und $\Leftrightarrow$ gehört jeweils in die Mitte?
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item[a)]
+            \begin{multiplechoice}
+                \item $x=4 \Rightarrow x+3=7$
+                \item $x=4 \Leftarrow x+3=7$
+                \citem $x=4 \Leftrightarrow x+3=7$
+            \end{multiplechoice}
+            \item[b)]
+            \begin{multiplechoice}
+                \citem $x=0 \Rightarrow x\cdot 0=0$
+                \item $x=0 \Leftarrow x\cdot 0=0$
+                \item $x=0 \Leftrightarrow x\cdot 0=0$
+            \end{multiplechoice}
+            \item[c)]
+            \begin{multiplechoice}
+                \item $x^2=16 \Rightarrow x=4$
+                \citem $x^2=16 \Leftarrow x=4$
+                \item $x^2=16 \Leftrightarrow x=4$
+            \end{multiplechoice}
+            \item[d)]
+            \begin{multiplechoice}
+                \citem $x=5 \Rightarrow |x|=5$
+                \item $x=5 \Leftarrow |x|=5$
+                \item $x=5 \Leftrightarrow |x|=5$
+            \end{multiplechoice}
+        \end{enumerate}
+    \end{multicols}
+\end{exercise}
+\if 0
 \begin{exercise}
     Sind die beiden Gleichungen äquivalent? Falls ja, gib die verwendete Äquivalenzumformung an.
     \begin{multicols}{3}
@@ -50,7 +82,7 @@
             3x&=9
         \end{align*}
         \begin{multiplechoice}
-            \item Ja, Umformung: \answerfield{1cm}{}
+            \citem Ja, Umformung: \answerfield{1cm}{$-7$}
             \item Nein
         \end{multiplechoice}
 
@@ -73,7 +105,7 @@
         \end{multiplechoice}
     \end{multicols}
 \end{exercise}
-
+\fi
 \mandala{mandala/mandala01}
 
 \end{document}
