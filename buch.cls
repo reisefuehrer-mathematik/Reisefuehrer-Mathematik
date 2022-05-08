@@ -323,6 +323,22 @@ suffix_3p "\\,ff."
 }
 \renewcommand\chapterlineswithprefixformat[3]{\chapterlinesformat{#1}{#2}{#3}}
 
+% Setting the default enumerate environment to circled numbers
+\RequirePackage{circledsteps}
+\RequirePackage{enumitem}
+\def\@circlelblcolor@text{white}
+\def\@circlelblcolor@draw{black!50!white}
+\def\@circlelblcolor@fill{black!50!white}
+\newcommand{\circlelbl}[1]{%
+    \Circled[
+        inner color=\@circlelblcolor@text,
+        outer color=\@circlelblcolor@border,
+        fill color=\@circlelblcolor@fill,
+        inner ysep=4pt,
+        inner xsep=4pt]{\textsf{#1}}%
+}
+\setlist[enumerate]{label=\circlelbl{\arabic*}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Todos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
