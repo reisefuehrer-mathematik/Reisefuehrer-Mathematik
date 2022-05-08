@@ -4,12 +4,12 @@
 
 \subsection{Punkte auf Funktionsgeraden}
 
-Du weißt, dass sich Geraden im Koordinatensystem mithilfe ihrer Steigung und ihres Achsenabschnitts beschreiben lassen. Beides kannst du sofort aus ihrer Berechnungsvorschrift $f(x)=ax+b$ ablesen. In diesem Abschnitt siehst du, wie du untersuchen kannst, ob bestimmte Punkte auf einer gegebenen Geraden liegen und wie du die Nullstellen einer Funktion bestimmen kannst, deren Graph eine Gerade ist.
+Du weißt aus dem letzten Abschnitt, dass sich Geraden im Koordinatensystem mithilfe ihrer Steigung und ihres Achsenabschnitts beschreiben lassen. Beides kannst du sofort aus ihrer Berechnungsvorschrift $f(x)=ax+b$ ablesen. In diesem Abschnitt siehst du, wie du untersuchen kannst, ob bestimmte Punkte auf einer gegebenen Geraden liegen und wie du die Nullstellen einer Funktion bestimmen kannst, deren Graph eine Gerade ist.
 
 \begin{example}[ex:points-on-lines]{}
     \parpic[r]{
         \tikz{
-            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},yticklabels={-5,-4,-3,~,-1,~,1,...,5},ymin=-5,ymax=5,xmin=-2,xmax=2, samples=2]
+            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},ymin=-5,ymax=5,xmin=-2,xmax=2, samples=2,yticklabels={-5,-4,-3,,-1,,1,...,5}]
                 \addplot[color=violet] expression{4*x-1};
                 \addplot[mark=*, only marks, fill=violet] coordinates {(2,1)};
                 \node[above,violet] at (2,1) {$P$};
@@ -23,25 +23,196 @@ Du weißt, dass sich Geraden im Koordinatensystem mithilfe ihrer Steigung und ih
 
 Wenn ein Punkt $\coord{x}{y}$ auf dem Funktionsgraphen liegt, dann muss $f(x)=y$ gelten, denn das ist die Regel, die der Punkt darstellt, wenn er auf dem Graphen liegt. Indem du die $x$-Koordinate des Punkts in die Funktion einsetzt, kannst du also herausfinden, ob er auf dem Graphen liegt. Und zwar liegt er genau dann auf dem Graphen, wenn du als Ergebnis die $y$-Koordinate des Punkts erhältst.
 
-Du weißt bereits, dass bei einer Nullstelle $x$ einer Funktion gelten muss, dass $f(x)=0$ ist. Um die Nullstellen einer Funktion $f(x)=ax+b$ zu finden, musst du also herausfinden, wann $ax+b=0$ gilt.
+Das Finden von Nullstellen hängt eng damit zusammen, zu schauen, welche Punkte auf einer Gerade liegen, denn Nullstellen sind Punkte mit den Koordinaten $\coord{x}{0}$. Um die Nullstellen einer Funktion $f(x)=ax+b$ zu finden, musst du also herausfinden, welchen Wert $x$ haben darf, damit $f(x)=0$ gilt. In diesem Fall bedeutet das, dass du ausrechnen musst, wann 
+\[ax+b=0\] 
+gilt. Das können wir auch anders formulieren, dann $ax+b=0$ ist ja eine lineare Gleichung: Eigentlich möchten wir einfach nur herausfinden, welche Lösungen diese Gleichung hat. Wir müssen die Gleichung also nach $x$ auflösen. Die Lösungen dieser Gleichung sind die Nullstellen von $f$.
 
 \begin{example}{}
     Um die Nullstellen der Funktion $f(x)=4x-1$ zu bestimmen, musst du herausfinden, für welche Wert von $x$ die Gleichung $f(x)=0$ erfüllt ist. Es muss also die Gleichung
-    \[4x-1=0\]
+    \[\colorbrace{4x-1}{f(x)}=0\]
     nach $x$ aufgelöst werden:
     \begin{align*}
         4x-1&=0\\
         4x&=1\\
         x&=\frac{1}{4}
     \end{align*}
-    Die Gleichung hat die Lösungsmenge $\Solutions=\{-\frac{1}{4}\}$, also hat die Funktion \mbox{$f(x)=4x-1$} die Nullstelle $-\frac{1}{4}$. Wenn du das Bild im Beispiel \ref{ex:points-on-lines} ansiehst, dann siehst du, dass $\frac{1}{4}$ ein sinnvoller Wert für eine Nullstelle ist und mit dem Bild übereinstimmt.
+    Die Gleichung hat die Lösungsmenge $\Solutions=\{\frac{1}{4}\}$, also hat die Funktion \mbox{$f(x)=4x-1$} die Nullstelle $\frac{1}{4}$. Wenn du das Bild im Beispiel \ref{ex:points-on-lines} ansiehst, dann siehst du, dass die Gerade die $x$-Achse tatsächlich bei $x=\frac{1}{4}$ schneidet. Das Ergebnis stimmt also mit dem Bild überein.
 \end{example}
 
-Zum Auffinden der Nullstelle einer Funktionsgeraden muss die lineare Gleichung aufgelöst werden, die sich durch $f(x)=0$ ergibt. [Auch Punkte können Geraden definieren]
+\parpic[r]{
+    \tikz{
+        \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},ymin=-1,ymax=3,xmin=-2,xmax=2, samples=2]
+            \addplot[color=violet] expression{0.75*x+1.3};
+            \node[blue] at (-2,1.5) {$y_0$};
+            \draw[dashed, very thick,blue] (-1.8,1.5) -- (2.2,1.5);
+        \end{axis}
+    }
+}
+Wenn du herausfinden möchtest, welche Punkte mit einer bestimmten $y$-Koordinate $y_0$ auf dem Graphen einer Funktion $f$ liegen, dann suchst du die Punkte auf dem Graphen, die auf einer vorgegebenen waagerechten Linie liegen (die Linie stellt die Punkte mit der gesuchten $y$-Koordinate dar). Dafür kannst du wie bei den Nullstellen (bei den Nullstellen war $y_0=0$) die lineare Gleichung $f(x)=y_0$ nach $x$ auflösen. Für jede Lösung $x_0$ dieser Gleichung weißt du dann, dass der Punkt $\coord{x_0}{y_0}$ auf dem Funktionsgraphen liegt.
 
-Interpolation
+\parpic[r]{
+    \tikz{
+        \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, xtick={-2,...,2}, ytick={-5,...,5},ymin=-1,ymax=3,xmin=-2,xmax=2, samples=2]
+            \addplot[color=violet] expression{0.75*x+1.3};
+            \node[red] at (1.4,-1) {$x_0$};
+            \draw[dashed, very thick,red] (1.4,-0.6) -- (1.4,3.2);
+        \end{axis}
+    }
+}
+Wenn stattdessen die $x$-Koordinate vorgegeben ist (d.h. du suchst Punkte auf einer Linie wie der roten), dann musst du den Wert für $x$ einfach nur in die Funktion einsetzen, um den Punkt auf dem Graphen zu bestimmen, der die vorgegebene $x$-Koordinate hat (in Beispiel \ref{ex:points-on-lines} wolltest du zum Beispiel einen Punkt $\coord{x}{y}$ mit $x=2$ finden, der auf dem Graphen liegt). In diesem Fall musst du also \emph{keine} lineare Gleichung lösen.
 
+Zu Beginn des letzten Abschnitts haben wir die Frage aufgeworfen, wie sich eine Funktion finden lässt, deren Graph eine Gerade durch die Punkte $\coord{2}{1}$ und $\coord{5}{2}$ ist. Der erste Schritt ist, dass wir einmal festhalten sollten, dass zwei Punkte ausreichen, um eine Gerade eindeutig zu beschreiben, denn es gibt nur eine Gerade, mit der man die beiden Punkte verbinden kann. Um eine Funktion zu finden, müssen wir eigentlich nur das $a$ und das $b$ aus der Beschreibung $ax+b$ von Geraden finden. Dafür müssen wir zwei Fragen beantworten:
+\begin{itemize}
+    \item Welche Steigung hat die gesuchte Gerade? \hfill \textcolor{black!40}{$\leadsto$ liefert $a$}
+    \item Welchen Achsenabschnitt hat die gesuchte Gerade? \hfill \textcolor{black!40}{$\leadsto$ liefert $b$}
+\end{itemize}
+
+Die erste Frage lässt sich beantworten, indem wir ein Steigungsdreieck zwischen den beiden Punkten einzeichnen.
+
+\begin{example}[ex:two-points-on-graph]{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xtick={1,...,5}, ytick={1,2,3},ymin=0,ymax=3,xmin=0,xmax=5, samples=2]
+                \addplot[mark=*, only marks, fill=violet] coordinates {(2,1)};
+                \addplot[mark=*, only marks, fill=violet] coordinates {(5,2)};
+                \node[above, violet] at (2,1) {$P$};
+                \node[above, violet] at (5,2) {$Q$};
+                \draw[dashed, very thick, ->] (2,1) -- node[below] {$+3$} (5,1);
+                \draw[dashed, very thick, ->] (5,1) -- node[left] {$+1$} (5,2);
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Wir suchen eine Gerade durch die Punkte $P=\coord{2}{1}$ und $Q=\coord{5}{2}$. Diese sind im rechts abgebildeten Koordinatensystem eingezeichnet. Mithilfe dieser beiden Punkte können wir bereits die Steigung der Gerade bestimmen, die wir suchen. Diese hängt natürlich davon ab, wie viel höher der rechte Punkte als der linke ist.
+
+    \picskip{0}
+    Diese Information liefert uns die $y$-Koordinate der Punkte: $P$ hat die $y$-Koordinate $1$, während $Q$ die $y$-Koordinate $2$ hat. Wir müssen also $2-1=1$ Schritt nach oben gehen, um von $P$ nach $Q$ zu kommen (und natürlich noch nach rechts).
+
+    Wie weit wir nach rechts gehen müssen, können wir auf die gleiche Weise bestimmen: $Q$ hat die $x$-Koordinate $5$ und $P$ hat die $x$-Koordinate $2$. Wir müssen also $5-2=3$ Einheiten nach rechts gehen, um zu $Q$ zu gelangen -- und damit $3$ Einheiten nach rechts gehen, um eine Einheit nach oben zu gelangen.
+
+    Zusammengefasst: Die Gerade muss $1$ Schritt nach oben \emph{pro $3$ Schritte nach rechts} machen. Wie weit muss sie also \emph{pro Schritt nach rechts} nach oben gehen? Wenn wir nur einen statt drei Schritte nach rechts gehen, dann legen wir nach oben natürlich auch nur $\frac{1}{3}$ der Distanz $1$ zurück, die vor vorher ausgerechnet haben, also $\frac{1}{3}$.
+
+    Wir suchen also eine Gerade mit der Steigung $\frac{1}{3}$, die durch die Punkte $P$ und $Q$ führt.
+\end{example}
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xtick={1,...,6}, ytick={1,2,3},ymin=0,ymax=3,xmin=0,xmax=6, samples=2]
+            \draw[<->, thick, dashed] (1,3) -- node[fill=white] {\scriptsize $x_Q-x_P$} (4,3);
+            \draw[<->, thick, dashed] (5.5,1) -- node[fill=white] {\scriptsize $y_Q-y_P$} (5.5,2);
+            \draw[dashed, thick,red] (1,-0.2) -- (1,3);
+            \draw[dashed, thick,red] (4,-0.2) -- (4,3);
+            \draw[dashed, thick,blue] (0,1) -- (6.2,1);
+            \draw[dashed, thick,blue] (0,2) -- (6.2,2);
+            \node[red,fill=white] at (1,2.5) {$x_P$};
+            \node[red,fill=white] at (4,2.5) {$x_Q$};
+            \node[blue,fill=white] at (6,1) {$y_P$};
+            \node[blue,fill=white] at (6,2) {$y_Q$};
+            \addplot[mark=*, only marks, fill=violet] coordinates {(1,1)};
+            \addplot[mark=*, only marks, fill=violet] coordinates {(4,2)};
+            \node[violet] at (0.75,0.75) {$P$};
+            \node[violet] at (3.75,1.75) {$Q$};
+        \end{axis}
+    \end{tikzpicture}
+}
+Wenn du zwei Punkte $P=\coord{x_P}{y_P}$ und $Q=\coord{x_Q}{y_Q}$ auf einer Geraden kennst, dann reicht das bereits, um die Steigung der Geraden zu bestimmen. Dafür berechnest du die Breite und die Höhe des Steigungsdreiecks zwischen $P$ und $Q$. Die Breite ist $x_Q-x_P$ und die Höhe $y_Q-y_P$. Die Steigung beschreibt, wie viele Schritte wir \emph{pro Schritt nach rechts} nach oben machen. Wir teilen die Höhe, die wir gefunden haben, durch die Breite und erhalten damit die Information, wie weit wir \emph{pro Schritt nach rechts} nach oben gehen müssen: $y_Q-y_P$ Schritte nach oben \emph{pro $x_Q-x_P$ Schritten nach rechts}. Die Steigung $a$ ist also
+\[a=\frac{y_Q-y_P}{x_Q-x_P}.\]
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xtick={1,...,5}, ytick={1,2,3},ymin=0,ymax=3,xmin=0,xmax=5, samples=2]
+                \addplot[color=violet] expression{x-1};
+                \addplot[mark=*, only marks, fill=violet] coordinates {(1,0)};
+                \addplot[mark=*, only marks, fill=violet] coordinates {(4,3)};
+                \node[above, violet] at (1,0) {$P$};
+                \node[right, violet] at (4,3) {$Q$};
+                \draw[dashed, very thick, ->] (1,0) -- (2,0);
+                \draw[dashed, very thick, ->] (2,0) -- node[right] {$+1$} (2,1);
+                \draw[dashed, very thick, ->] (2,1) -- (3,1);
+                \draw[dashed, very thick, ->] (3,1) -- node[right] {$+1$} (3,2);
+                \draw[dashed, very thick, ->] (3,2) -- (4,2);
+                \draw[dashed, very thick, ->] (4,2) -- node[right] {$+1$} (4,3);
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Eine Gerade durch die Punkte $P=\coord{1}{0}$ und $Q=\coord{4}{3}$ macht von $P$ nach $Q$ insgesamt $3-0=3$ Schritte nach oben und $4-1=3$ Schritte nach rechts. Pro Schritt nach rechts führt die Gerade
+    \[\frac{3}{3}=1\]
+    Schritte nach oben, also hat die gesuchte Gerade eine Steigung von $1$. Im Bild siehst du, wie sich der Anstieg von insgesamt $3$ auf die drei Schritte nach rechts aufteilt und dazu führt, dass wir eine Steigung von $1$ haben, obwohl $Q$ drei Einheiten höher als $P$ liegt.
+\end{example}
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xtick={1,...,5}, ytick={1,2,3},ymin=0,ymax=3,xmin=0,xmax=5, samples=2]
+            \addplot[color=violet] expression{x-2};
+            \addplot[color=orange] expression{2.5-0.5*x};
+            \addplot[color=green!50!black] expression{0.3333333*x};
+            \addplot[mark=*, only marks, fill=violet] coordinates {(3,1)};
+            \node[above, violet] at (3,1) {$P$};
+        \end{axis}
+    \end{tikzpicture}
+}
+Jetzt wissen wir zwar, wie wir mithilfe von zwei Punkten die Steigung bestimmen können, aber erstens fehlt uns noch der Achsenabschnitt und zweitens könnte es ja sein, dass wir nur einen Punkt bekommen. Falls wir nur einen Punkt kennen, ist es überhaupt nicht möglich, die Gerade eindeutig zu bestimmen. Im rechten Bild siehst du drei Beispielgeraden, die durch einen vorgegebenen Punkt $P$ führen. Natürlich könntest du dir noch beliebig viele weitere Geraden ausdenken, die ebenfalls durch $P$ führen.
+
+Wenn du nur einen Punkt kennst, benötigst du also eine Zusatzinformation über die Gerade: Entweder ihre Steigung oder ihren Achsenabschnitt. Hast du eines von beiden, kannst du mithilfe dieses Wissens eine lineare Gleichung aufstellen, um die zweite Information zu berechnen. Kennst du beispielsweise den Punkt $\coord{3}{1}$ aus dem rechten Beispiel sowie die Steigung $1$, dann weißt du zunächst einmal nur, dass die gesuchte Funktion die Berechnungsvorschrift $f(x)=1\cdot x+b$ haben muss. Weil der Punkt $P=\coord{3}{1}$ auf der Geraden liegt, weißt du aber auch, dass $f(3)=1$ gelten muss. Es gilt also 
+\[f(3)=\colorbrace{1\cdot 3+b=1}{\text{Lineare Gleichung}}.\]
+Du kannst nun die Gleichung nach $b$ auflösen und erhältst als Lösung den Achsenabschnitt. Genauso funktioniert das, wenn du statt der Steigung den Achsenabschnitt gekannt hättest. Dann hättest du eine Gleichung erhalten, die du nach $a$ auflösen musst.
+
+\begin{example}{}
+    Wir suchen eine Funktion $f$, deren Funktionsgraph eine Gerade durch den Punkt $P=\coord{3}{1}$ ist und den Achsenabschnitt $0$ hat (das ist genau die grüne Gerade aus dem letzten Bild). Wir wissen, dass der Achsenabschnitt $0$ ist, also muss das $b$ in $f(x)=ax+b$ den Wert $0$ haben. Wir suchen also eine Funktion
+    \[f(x)=ax+0=ax.\]
+    Außerdem wissen wir, dass $P=\coord{3}{1}$ auf der Gerade liegen muss, also ist $f(3)=1$. $f(3)$ erhalten wir, indem wir das $x$ in $f(x)=ax$ durch eine $3$ ersetzen:
+    \[f(3)=a\cdot 3.\]
+    Da wir wissen, dass $f(3)=1$ gilt, müssen wir also die lineare Gleichung $a\cdot 3=1$ nach $a$ auflösen, um die Steigung zu erhalten. Die Gleichung lässt sich zu $a=\frac{1}{3}$ umformen und hat deshalb die Lösungsmenge $\Solutions=\{\frac{1}{3}\}$. Damit haben wir die Steigung ermittelt und können nun die Berechnungsvorschrift von $f$ angeben:
+    \[f(x)=\frac{1}{3}x+0=\frac{1}{3}x.\]
+\end{example}
+\begin{example}{}
+    In Beispiel \ref{ex:two-points-on-graph} haben wir bereits herausgefunden, dass die Funktion, deren Graph eine Gerade durch $P=\coord{2}{1}$ und $Q=\coord{5}{2}$ ist, eine Steigung von $\frac{1}{3}$ hat. Sie hat also die Berechnungsvorschrift $f(x)=\frac{1}{3}x+b$, wobei $b$ der Achsenabschnitt ist, den wir noch herausfinden müssen.
+
+    Da zum Beispiel $P=\coord{2}{1}$ auf dem Graphen liegt, wissen wir, dass $f(2)=1$ gelten muss. Wir setzen also wieder $2$ für $x$ ein und erhalten die Gleichung
+    \[f(2)=\frac{1}{3}\cdot 2+b=\colorbrace{\frac{2}{3}+b=1}{\text{Lineare Gleichung}}.\]
+    Wir subtrahieren von der Gleichung auf beiden Seiten $\frac{2}{3}$ und erhalten $b=\frac{1}{3}$. Der Achsenabschnitt ist also $b=\frac{1}{3}$ und wir erhalten die Geradengleichung
+    \[f(x)=\frac{1}{3}x+\frac{1}{3}.\]
+\end{example}
+
+\newpage
 \begin{nutshell}{Geraden durch vorgegebene Punkte}
+    Wenn du herausfinden möchtest, ob ein Punkt auf dem Graphen einer Funktion $f(x)=ax+b$ liegt, dann musst du lediglich die $x$-Koordinate des Punkts in die Berechnungsvorschrift einsetzen und überprüfen, ob als Ergebnis die $y$-Koordinate des Punkts ist. Falls ja, liegt der Punkt auf der Gerade, ansonsten nicht.
+    
+    Auf die gleiche Weise kannst du auch herausfinden, welcher Punkt auf der Gerade eine \textbf{vorgegebene \emph{x}-Koordinate} hat: Du setzt den Wert für $x$ einfach in die Berechnungsvorschrift ein. Das Ergebnis ist die $y$-Koordinate des Punkts, den du suchst.
+
+    Möchtest du alle Punkte auf dem Graphen mit einer \textbf{vorgegebenen \emph{y}-Koordinate} $y_0$ finden, so musst du die lineare Gleichung $f(x)=y_0$ nach $x$ auflösen. Die Lösungsmenge enthält die $x$-Koordinaten der Punkte, die du suchst. Das bedeutet, dass du Nullstellen durch das Auflösen der linearen Gleichung $f(x)=0$ finden kannst.
+
+    \parpic[l]{
+        \begin{tikzpicture}[scale=0.7]
+            \begin{axis}[defgrid, domain=0:5, y=1cm, x=1cm, xtick={1,...,6}, ytick={1,2,3},ymin=0,ymax=3,xmin=0,xmax=6, samples=2]
+                \draw[<->, thick, dashed] (1,3) -- node[fill=brown!20] {\scriptsize $x_Q-x_P$} (4,3);
+                \draw[<->, thick, dashed] (5.5,1) -- node[fill=brown!20] {\scriptsize $y_Q-y_P$} (5.5,2);
+                \draw[dashed, thick,red] (1,-0.2) -- (1,3);
+                \draw[dashed, thick,red] (4,-0.2) -- (4,3);
+                \draw[dashed, thick,blue] (0,1) -- (6.2,1);
+                \draw[dashed, thick,blue] (0,2) -- (6.2,2);
+                \node[red,fill=brown!20] at (1,2.5) {$x_P$};
+                \node[red,fill=brown!20] at (4,2.5) {$x_Q$};
+                \node[blue,fill=brown!20] at (6,1) {$y_P$};
+                \node[blue,fill=brown!20] at (6,2) {$y_Q$};
+                \addplot[mark=*, only marks, fill=violet] coordinates {(1,1)};
+                \addplot[mark=*, only marks, fill=violet] coordinates {(4,2)};
+                \node[violet] at (0.75,0.75) {$P$};
+                \node[violet] at (3.75,1.75) {$Q$};
+            \end{axis}
+        \end{tikzpicture}
+    }
+
+    Wenn du \textbf{zwei Punkte} \mbox{$P=\coord{x_P}{y_P}$} und \mbox{$Q=\coord{x_Q}{y_Q}$} auf einer Gerade kennst, kannst du ihre Steigung $a$ berechnen, indem du die Differenz ihrer $y$-Koordinaten durch die Differenz ihrer $x$-Koordinaten teilst: $a=\frac{y_Q-y_P}{x_Q-x_P}$.
+
+    \picskip{1}
+    Kennst du \textbf{nur einen Punkt}, dann benötigst du zusätzlich die Steigung oder den Achsenabschnitt, um die Gerade eindeutig zu bestimmen. Dazu ersetzt du zunächst in der Berechnungsvorschrift $f(x)=ax+b$ das $a$ oder $b$ (je nachdem, was von beidem du kennst) durch den richtigen Wert. Anschließend befindet sich nur noch ein unbekannter Wert in der Berechnungsvorschrift. Wenn der Punkt $P=\coord{x_P}{y_P}$ auf der Gerade liegt, dann gilt $f(x_P)=y_P$. Dies ist eine lineare Gleichung, die du nach $a$ oder $b$ (je nachdem, was fehlt) auflösen kannst, um den fehlenden Wert zu erhalten.
+
+    Um eine Gerade zu beschreiben, benötigst du also entweder
+    \begin{itemize}
+        \item die Steigung und den Achsenabschnitt oder
+        \item zwei Punkte auf der Gerade oder
+        \item einen Punkt auf der Gerade und entweder die Steigung oder den Achsenabschnitt.
+    \end{itemize}
 \end{nutshell}
 
 \end{document}

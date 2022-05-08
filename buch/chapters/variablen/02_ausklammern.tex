@@ -1,19 +1,39 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-	\textcolor{red}{Hier entsteht Magie!}
-
 	In der Einleitung haben wir gesehen, dass wir dieselbe Rechnung durch verschiedene Terme darstellen können.
-	Denselben Effekt können wir auch für das Rechnen mit Zahlen betrachten: $2+3$ und $3+2$ sind derselbe Term
-	wegen des \enquote{Vertauschungsgesetzes} (Kommutativität der Addition \mayberef).
+	Denselben Effekt können wir auch für das Rechnen mit Zahlen betrachten: Die Terme $2+3$ und $3+2$ haben
+	wegen des \enquote{Vertauschungsgesetzes} (Kommutativität der Addition \mayberef) denselben Wert.
 
-	Betrachten wir das Distributivgesetz, dann sagt es uns, dass wir Terme der Form $a\cdot (b+c)$ auch
-	darstellen können als $a\cdot b + a\cdot c$ und umgekehrt. Bisher war diese Erkenntnis vielleicht noch nicht
-	besonders relevant, und hat das Kopfrechnen höchstens vereinfacht. $12\cdot 8 + 12\cdot 2$ ist wesentlich
-	einfacher im Kopf zu berechnen, wenn man sieht, dass
-	\[12\cdot 8 + 12\cdot 2 = 12\cdot(8+2) = 12\cdot 10 = 120.\]
+	Das Distributivgesetz, dass du im ersten Kapitel dieses Buchs kennengelernt hast, sagt aus, dass $a\cdot b+a\cdot c=a\cdot (b+c)$ für beliebige Zahlen $a,b,c$ gilt.
 
-	Wenn wir mit Variablen rechnen, ist das ähnlich.
+	\begin{example}{}
+		Mithilfe des Distributivgesetzes kannst du dir das Kopfrechnen vereinfachen. Zum Beispiel ist $12\cdot 8 + 12\cdot 2$ wesentlich
+		einfacher im Kopf zu berechnen, wenn du das Distributivgesetz verwendest und
+		\[12\cdot 8 + 12\cdot 2 = 12\cdot(8+2) = 12\cdot 10 = 120\]
+		rechnest.
+	\end{example}
+
+	Du kannst das Distributivgesetz also verwenden, um einen Term, der zunächst einmal schwer zu berechnen oder anderweitig kompliziert ist, so umzuformen, dass du besser mit ihm arbeiten kannst.
+
+	Wenn du es nun mit Termen zu tun hast, die Variablen enthalten, dann ändert sich überhaupt nichts daran. Denn das Distributivgesetz gilt für beliebige Zahlen, die du für $a,b$ und $c$ einsetzt. Jede Variable, die in einem Term wie
+	\[6x+3x\]
+	vorkommt, ist am Ende auch nur eine Zahl. Wir halten uns nur noch offen, welche Zahl wir am Ende einsetzen. Doch alle Teile des letzten Terms sind einfach nur Zahlen. $x$ ist ebenso wie $6x$ und $3x$ eine Zahl. Deshalb hält uns nichts davon ab, auch hier das Distributivgesetz anzuwenden:
+	\[6x+3x=(6+3)\cdot x=9x.\]
+
+	Die Erkenntnis, dass $6x+3x=9x$ gilt, funktioniert nicht nur, wenn du mit Variablen rechnest. In ganz alltäglichen Beispielen wie dem folgenden machst du genau das gleiche, ohne darüber nachzudenken.
+
+	\begin{example}{}
+		\parpic[r]{
+			\includegraphics[width=.2\textwidth]{images/apfel.png}
+		}
+		\picskip{3}
+		Stell dir vor, du hast einen Apfelbaum und konntest von diesem Baum $6$ Äpfel ernten. Am nächsten Tag kaufst du 3 weitere Äpfel.
+		Insgesamt hast du nun \[6\,\mtext{Äpfel}+3\,\mtext{Äpfel},\]
+		was natürlich nichts anderes ist als $9\,\mtext{Äpfel}$. Überraschend ist diese Erkenntnis natürlich nicht, aber sie zeigt, dass wir auch dann normal mit Zahlen rechnen können, wenn jeweils die gleiche Variable dahinter steht.
+	\end{example}
+
+	Im Beispiel stand dort, wo vorher in unserem Term ein $x$ stand, nun das Wört \enquote{Äpfel}. Wenn du also $6x+3x$ zu $9x$ zusammenfasst, dann machst du schwierigeres als Äpfel zusammenzuzählen. Es ist also vollkommen egal, ob du Äpfel zusammenzählst oder Dinge, die Namen wie $x$, $n$ oder andere Variablen haben.
 
 	\todo{\enquote{Einsetzen} von Werten für Variablen definieren}
 	
