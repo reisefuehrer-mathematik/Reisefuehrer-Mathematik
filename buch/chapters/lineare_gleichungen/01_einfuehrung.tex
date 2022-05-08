@@ -25,7 +25,7 @@ Eine Variable ist eine Art Platzhalter -- meistens für gewöhnliche Zahlen. Wir
     \picskip{8}
     Der Flächeninhalt eines Quadrats mit der Seitenlänge $a$ ist $a^2$. Die Variable $a$ bezeichnet hier die Seitenlänge, wird also als Platzhalter verwendet. Sie wird durch eine konkrete Zahl ersetzt, sobald ein konkreter Flächeninhalt ausgerechnet werden soll -- etwa des orangefarbenen Quadrats mit der Seitenlänge 5. Um den Flächeninhalt für ein bestimmtes Quadrat zu berechnen, musst du in der Formel das $a$ durch die Seitenlänge deines Quadrats ersetzen und dann alles ausrechnen.
     
-    Hat das Quadrat beispielsweise die Seitenlänge $5$, dann ist also $a=5$ und der Flächeninhalt ist laut Formel $5^2=25$. Außerdem hat das grüne Quadrat den Flächeninhalt 4 -- man ersetzt erneut in der Formel $a^2$ für den Flächeninhalt das $a$, erhält $2^2$ und somit den Flächeninhalt.
+    Hat das Quadrat beispielsweise die Seitenlänge $5$, dann ist also $a=5$ und der Flächeninhalt ist laut Formel $5^2=25$. Außerdem hat das grüne Quadrat den Flächeninhalt 4: Man setzt erneut in der Formel $a^2$ für den Flächeninhalt das $a$ ein und erhält den Flächeninhalt $2^2=4$.
 \end{example}
 
 Formeln wie die des Flächeninhalts von Quadraten sollen zunächst einmal allgemeingültig sein. Sie sollen nicht für bestimmte Werte aufgeschrieben werden, sondern so, dass man sie allgemein für beliebige Werte anwenden kann.
@@ -37,7 +37,7 @@ Mit anderen Worten: Wir verwenden Variablen, wenn wir aus irgendeinem Grund noch
     \item Du möchtest Rechnungen aufschreiben, in denen ein bestimmter Wert verwendet wird, den du noch nicht kennst. Diesen Wert kannst du in deinen Formeln durch eine Variable ersetzen, die in diesem Fall auch \emph{Unbekannte} genannt wird, weil ihr Wert unbekannt ist.
 \end{enumerate}
 
-Die erste Anwendung von Variablen, nämlich zum Aufschreiben von Formeln, ist dir schon häufiger begegnet (etwa bei der Formel des Flächeninhalts von Quadraten). Wenn eine Variable in dieser Weise als Platzhalter für einen konstanten Wert eingesetzt wird, heißt sie \textbf{Parameter}. In ihrer zweiten Funktion, nämlich als \textbf{Unbekannte}, hast du Variablen bisher noch nicht direkt erlebt. Du kannst dir das wie der Kasten in einer Aufgabe wie
+Die erste Anwendung von Variablen, nämlich zum Aufschreiben von Formeln, ist dir schon häufiger begegnet (etwa bei der Formel des Flächeninhalts von Quadraten). Wenn eine Variable in dieser Weise als Platzhalter für einen konstanten Wert eingesetzt wird, heißt sie \textbf{Parameter}. Das ist genau die Art und Weise, in der du sie im Kapitel \emph{Variablen} verwendet hast. In ihrer zweiten Funktion, nämlich als \textbf{Unbekannte}, hast du Variablen bisher noch nicht direkt erlebt. Du kannst dir das wie der Kasten in einer Aufgabe wie
 \[17-\Box=11\] 
 vorstellen. Hier möchtest du wissen, welche Zahl in den Kasten gehört, damit die Rechnung stimmt. Der Wert des Kastens ist in diesem Beispiel die \emph{Unbekannte}. Ziel einer Rechnung mit einer Unbekannten ist es, den Wert der Unbekannten zu bestimmen. Dass du einen Wert bestimmen möchtest, wenn du bestimmte Informationen über ihn hast, ist ein Problem, das dir in der Praxs oft begegnet. Wir schauen uns im folgenden Beispiel an, wie so ein Problem aussehen kann.
 
@@ -63,13 +63,13 @@ vorstellen. Hier möchtest du wissen, welche Zahl in den Kasten gehört, damit d
     
     \picskip{2}
     Nun stellt sich die Frage, wie viele Qualifikationsplätze Südddeutschland beispielsweise erhält. Wir wissen nun, dass alle Regionen zusammen 48 Plätze erhalten, also
-    \[\textsc{Plätze Süden}+\textsc{Plätze Mitte}+\textsc{Plätze Norden}=48.\]
+    \[\mtext{Plätze Süden}+\mtext{Plätze Mitte}+\mtext{Plätze Norden}=48.\]
     Diesen Zusammenhang können wir direkt aus den gegebenen Informationen aufschreiben und er wird uns im Folgenden helfen, das Problem zu lösen. Später in diesem Kapitel werden wir diese Gleichung lösen und bestimmen, wie viele Qualifikationsplätze welche Region verteilen darf.
 \end{example}
 
 Du hast im Beispiel gesehen, dass die Informationen, die dir zur Verfügung standen, direkt in die mathematische Sprache übersetzt wurden. Vielleicht wirkt es seltsam, klar verständliche Informationen in Formeln zu übersetzen, die möglicherweise viel verwirrender als der ursprüngliche Text aussehen. Allerdings ist dies sehr viel kompakter und übersichtlicher als wenn du dauerhaft mit dem Text arbeiten würdest. Formeln erlauben es, sich auf das Wesentliche zu konzentrieren und somit nicht von Nebensächlichkeiten ablenken zu lassen.
 
-Um einen Term aufzuschreiben, in dem ein Wert vorkommt, der dir unbekannt ist, wurden im Beispiel die Variablen \textsc{Plätze Süden}, \textsc{Plätze Mitte} und \textsc{Plätze Norden} verwendet. So kannst du den Term erstmal direkt aufschreiben und dir hinterher darüber Gedanken machen, was \textsc{Plätze Süden}, \textsc{Plätze Mitte} und \textsc{Plätze Norden} für Werte annehmen müssen. Wir geben unseren Unbekannten im Folgenden jedoch lieber Namen, die sich nicht nur für dieses eine Beispiel eignen, sondern die allgemein verwendet werden können, nämlich $x, y$ und $z$.
+Um einen Term aufzuschreiben, in dem ein Wert vorkommt, der dir unbekannt ist, wurden im Beispiel die Variablen \mtext{Plätze Süden}, \mtext{Plätze Mitte} und \mtext{Plätze Norden} verwendet. So kannst du den Term erstmal direkt aufschreiben und dir hinterher darüber Gedanken machen, was \mtext{Plätze Süden}, \mtext{Plätze Mitte} und \mtext{Plätze Norden} für Werte annehmen müssen. Wir geben unseren Unbekannten im Folgenden jedoch lieber Namen, die sich nicht nur für dieses eine Beispiel eignen, sondern die allgemein verwendet werden können, nämlich $x, y$ und $z$.
 
 Wenn es darum geht, den Wert einer Unbekannten zu ermitteln, werden dafür irgendwelche Informationen über die Unbekannte benötigt -- in der Regel bekommst du diese Informationen durch eine \textbf{Gleichung}, in der die Unbekannte vorkommt.
 
@@ -90,7 +90,7 @@ Eine Gleichung sagt über zwei verschiedene Terme aus, dass sie gleich sind, als
         \node[white] at (1,0.45) {$4$};
     \end{linearEquation}
 }
-Bei einer Gleichung ist es wichtig, dass links und rechts vom Gleichheitszeichen zwei gleichwertige Terme stehen. $2+2=4$ ist eine der einfachsten Gleichungen, die man sich vorstellen kann. Die Balkenwaage soll zeigen, dass der linke Teil der Gleichung (nämlich $2+2$, linke Waageschale) den gleichen Wert wie der rechte Teil der Gleichung (nämlich $4$, rechte Waagschale) haben muss. Die Balkenwaage befindet sich im Gleichgewicht.
+Bei einer Gleichung ist es wichtig, dass links und rechts vom Gleichheitszeichen zwei gleichwertige Terme stehen. $2+2=4$ ist eine der einfachsten Gleichungen, die man sich vorstellen kann. Die Balkenwaage soll zeigen, dass der linke Teil der Gleichung (nämlich $2+2$, linke Waagschale) den gleichen Wert wie der rechte Teil der Gleichung (nämlich $4$, rechte Waagschale) haben muss. Die Balkenwaage befindet sich im Gleichgewicht.
 
 Es kann manchmal helfen, sich Gleichungen als eine Balkenwaage vorzustellen, auf deren Waagschalen jeweils die Teile links und rechts vom Gleichheitszeichen liegen. Dadurch wird nämlich klar, dass links und rechts vom Gleichheitszeichen immer dasselbe stehen muss, damit die Waage im Gleichgewicht ist. Später in diesem Kapitel werden wir Gleichungen modifizieren und müssen dabei immer darauf achten, dass trotzdem noch dasselbe auf beiden Seiten steht -- oder, anschaulich gesprochen, die Balkenwaage nicht aus dem Gleichgewicht gerät.
 
@@ -154,6 +154,6 @@ Wenn bei einer Gleichung nur Zahlen vorkommen (also keine Variablen), dann kanns
 
 Um herauszufinden, welchen Wert eine Unbekannte haben muss, damit die Gleichung gilt (also auf beiden Seiten wirklich denselben Wert annimmt), musst du wie auf den letzten Seiten erklärt einen Wert finden, durch den du $x$ in der Gleichung überall ersetzen kannst. Möchtest du die Gleichung
 \[\Box+65-3\cdot(\Box+2)=4\cdot \Box-103\]
-lösen, also herausfinden, welcher Wert in die Box gehört, dann ist es manchmal nicht sinnvoll möglich, den Wert schnell durch Hinsehen zu bestimmen. Du müsstest in der obigen Gleichung beispielsweise überall den Wert 27 einsetzen (und das ist kein Wert, den man gern durch Ausprobieren suchen möchte). Wir entwickeln deshalb in diesem Kapitel Methoden, um diese Aufgaben auch zu lösen, wenn sie wesentlich komplizierter sind.
+lösen, also herausfinden, welcher Wert in die Box gehört, dann ist es manchmal nicht sinnvoll möglich, den Wert schnell durch Hinsehen zu bestimmen. Du müsstest in der obigen Gleichung beispielsweise überall den Wert 27 einsetzen (und das ist kein Wert, den man gern durch Ausprobieren suchen möchte). Wir entwickeln deshalb in diesem Kapitel Methoden, um diese Aufgaben auch zu lösen, wenn sie wesentlich komplexer sind.
 
 \end{document}
