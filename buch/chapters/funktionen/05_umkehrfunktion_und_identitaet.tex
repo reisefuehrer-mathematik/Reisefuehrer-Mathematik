@@ -2,98 +2,98 @@
 
 \begin{document}
 
-\subsection{Die Identische Abbildung}
+\subsection{Die Identische Funktion}
 \label{sec:abbildungen_identitaet}
 
-In der Regel verändern Abbildungen ihre Argumente, indem sie diese auf ihre Bilder abbilden. Eine solche Zuordnung von Elementen der Definitionsmenge zu Elementen der Bildmenge ist schließlich der Zweck von Abbildungen. 
+In der Regel verändern Funktionen ihre Argumente, indem sie diesen Bilder zuordnen. Eine solche Zuordnung von Elementen der Definitionsmenge zu Elementen der Zielmenge ist schließlich der Zweck von Funktionen. 
 
-Es ist jedoch nicht verboten, mit Abbildungen, die gar nichts tun, zu arbeiten. Damit sind Abbildungen gemeint, die ihr Argument nicht verändern. Das heißt, jedes Argument, das man in die Abbildung einsetzt, wird auf sich selbst abgebildet.
+Es ist jedoch nicht verboten, mit Funktionen, die gar nichts tun, zu arbeiten. Damit sind Funktionen gemeint, die ihr Argument nicht verändern. Das heißt, jedes Argument, das man in die Funktion einsetzt, wird sich selbst zugeordnet.
 
 \begin{example}{}
     \parpic[r]{\input{diagrams/mix_self}}
-    Wir hatten bereits die Abbildung $\textsc{MitGelbMischen}$ gesehen, die Grundfarben erhält und mit gelb mischt. Dadurch verändern sich die Farben blau zu grün und rot zu orange. Deutlich langweiliger ist es, eine Grundfarbe mit sich selbst zu mischen, also blau mit blau, rot mit rot und gelb mit gelb. Natürlich ändert eine Farbe sich nicht, wenn man sie mit sich selbst mischt.
+    Wir haben bereits die Funktion $\textsc{MitGelbMischen}$ gesehen, die Grundfarben erhält und mit gelb mischt. Dadurch verändern sich die Farben blau zu grün und rot zu orange. Deutlich langweiliger ist es, eine Grundfarbe mit sich selbst zu mischen, also blau mit blau, rot mit rot und gelb mit gelb. Natürlich ändert eine Farbe sich nicht, wenn man sie mit sich selbst mischt.
     
     \picskip{0}
-    Es lässt sich eine Abbildung $\textsc{MitSichSelbstMischen}$ definieren, bei der jede Grundfarbe auf die Farbe abgebildet wird, die entsteht, wenn man die Grundfarbe mit sich selbst mischt. Weil das wie bereits beschrieben die Farbe nicht ändert, erhält man dadurch eine Abbildung
+    Es lässt sich eine Funktion $\textsc{MitSichSelbstMischen}$ definieren, bei der jede Grundfarbe der Farbe zugeordnet wird, die entsteht, wenn man die Grundfarbe mit sich selbst mischt. Weil das wie bereits beschrieben die Farbe nicht ändert, erhält man dadurch eine Funktion
     \[\textsc{MitSichSelbstMischen}\colon\textsc{Grundfarben}\rightarrow\textsc{Grundfarben}\]
     mit
     \[\textsc{MitSichSelbstMischen}(x)=x.\]
 \end{example}
 
-Eine Abbildung mit dieser Eigenschaft wird \textbf{identische Abbildung} genannt. Der Name kommt daher, dass Urbild und Bild immer identisch sind. Eine identische Abbildung gibt es für jede Definitionsmenge (das ist dann immer die Abbildung, die alle Elemente dieser Menge auf sich selbst abbildet).
+Eine Funktion mit dieser Eigenschaft wird \textbf{identische Funktion} genannt. Der Name kommt daher, dass Urbild und Bild immer identisch sind. Eine identische Funktion gibt es für jede Definitionsmenge (das ist dann immer die Funktion, die allen Elementen dieser Menge sich selbst zuordnet).
 
-\begin{definition}{Identische Abbildung}
-    Es sei $M$ eine Menge. Dann heißt die Abbildung, die jedes Element von $M$ auf sich selbst abbildet, die \textbf{identische Abbildung} oder \textbf{Identität} auf $M$, geschrieben $\ident[M]$. Es gilt also \[\ident[M](x)=x\text{~für alle~}x\in M.\]
+\begin{definition}{Identische Funktion}
+    Es sei $M$ eine Menge. Dann heißt die Funktion, die jedes Element von $M$ auf sich selbst abbildet, die \textbf{identische Funktion} oder \textbf{Identität} auf $M$, geschrieben $\ident[M]$. Es gilt also \[\ident[M](x)=x\text{~für alle~}x\in M.\]
 \end{definition}
 
-Die identische Abbildung auf einer Menge $M$ notiert man also mit $\ident[M]$. Meistens lässt man die Menge im Index weg, schreibt also einfach nur $id$, wenn klar ist, um welche Menge es geht. Wir werden die Menge hier allerdings zur Klarheit weiterhin mit aufschreiben.
+Die identische Funktion auf einer Menge $M$ notiert man also mit $\ident[M]$. Meistens lässt man die Menge im Index weg, schreibt also einfach nur $\ident$, wenn klar ist, um welche Menge es geht. Wir werden die Menge hier allerdings zur Klarheit weiterhin mit aufschreiben.
 
-\subsection{Die Umkehrabbildung}
+\subsection{Die Umkehrfunktion}
 \label{sec:abbildungen_umkehrabbildung}
 
-Im letzten Abschnitt hast du gesehen, dass identische Abbildungen solche Abbildungen sind, die ihre Argumente nicht verändern, sondern einfach auf sich selbst abbilden. Eine solche Abbildung anzuwenden, hat keinen Effekt, denn sie verändert nichts.
+Im letzten Abschnitt hast du gesehen, dass identische Funktionen solche Funktionen sind, die ihre Argumente nicht verändern, sondern einfach sich selbst zuordnen. Eine solche Funktion anzuwenden, hat keinen Effekt, denn sie verändert nichts.
 
-Dieser Abschnitt thematisiert die Frage, ob es möglich ist, wenn man bereits eine Abbildung $f$ angewandt hat, anschließend eine andere Abbildung $g$ anzuwenden, die den Effekt von $f$ umkehrt. Das heißt, dass wenn man zuerst $f$ und dann $g$ anwendet, insgesamt nichts passiert. Ist $f$ eine Abbildung von $U$ nach $V$ ($U,V$ sind Mengen), dann ist also eine Abbildung $g\colon V\rightarrow U$ gesucht, sodass bei der Hintereinanderausführung von $f$ und $g$ die identische Abbildung herauskommt.
+Dieser Abschnitt thematisiert die Frage, ob es möglich ist, wenn man bereits eine Funktion $f$ angewandt hat, anschließend eine andere Funktion $g$ anzuwenden, die den Effekt von $f$ umkehrt. Das heißt, dass wenn man zuerst $f$ und dann $g$ anwendet, insgesamt nichts passiert. Ist $f$ eine Funktion von $U$ nach $V$ ($U,V$ sind Mengen), dann ist also eine Funktion $g\colon V\rightarrow U$ gesucht, sodass bei der Verkettung von $f$ und $g$ die identische Funktion herauskommt.
 
-\begin{figure}[ht]
-    \centering
+\parpic[r]{
     \input{diagrams/inverse_function}
-    \caption{In diesem Abbildungsdiagramm ist die Abbildung $f$ mit blauen Pfeilen dargestellt. Die gestrichelte Abbildung dreht alle Pfeile von $f$ um. Dadurch läuft man immer im Kreis, wenn man erst einem blauen und dann einem gestrichelten Pfeil folgt. Führt man die beiden Abbildungen hintereinander aus, bekommt man deshalb die identische Abbildung auf der linken Menge.}
-\end{figure}
+}
+
+Rechts ist die Funktion $f$ mit blauen Pfeilen dargestellt. Die gestrichelte Funktion dreht alle Pfeile von $f$ um. Dadurch läuft man immer im Kreis, wenn man erst einem blauen und dann einem gestrichelten Pfeil folgt. Führt man die beiden Funktionen hintereinander aus, bekommt man deshalb die identische Funktion auf der linken Menge.
 
 \begin{example}{}
-    Die Abbildung $f\colon\Real\rightarrow\Real$ mit der Abbildungsvorschrift $f(x)=x+1$ addiert zu jeder Zahl 1. Wenn man vom Ergebnis wieder $1$ subtrahiert, kommt man bei der Zahl an, bei der man angefangen hat. Für die Abbildung $g\colon\Real\rightarrow\Real$ mit $g(x)=x-1$ gilt also $(g\circ f)(x)=x$. Das lässt sich nachrechnen:
+    Die Funktion $f\colon\Real\rightarrow\Real$ mit der Zuordnungsvorschrift $f(x)=x+1$ addiert zu jeder Zahl 1. Wenn man vom Ergebnis wieder $1$ subtrahiert, kommt man bei der Zahl an, bei der man angefangen hat. Für die Funktion $g\colon\Real\rightarrow\Real$ mit $g(x)=x-1$ gilt also $(g\circ f)(x)=x$. Das lässt sich nachrechnen:
     \[g(f(x))=g(x+1)=(x+1)-1=x.\]
-    Die Abbildung $g$ kehrt die Abbildung $f$ daher um und es gilt $g\circ f=\ident[\Real]$.
+    Die Funktion $g$ kehrt die Funktion $f$ daher um und es gilt $g\circ f=\ident[\Real]$.
 \end{example}
 
-Eine Abbildung $g$, die eine Abbildung $f\colon U\rightarrow V$ rückgängig macht bzw. umkehrt, wird Umkehrabbildung von $f$ genannt. Wie eben erklärt, drückt sich das dadurch aus, dass bei der Hintereinanderausführung von $f$ und $g$ die identische Abbildung herauskommt, also $g\circ f=\ident[U]$. Dass $g$ eine Abbildung von $V$ nach $U$ sein muss, ist erzwungen: Die Definitionsmenge muss $V$ sein, damit die Abbildungen überhaupt hintereinander ausgeführt werden dürfen. Die Bildmenge von $g$ muss $U$ sein, weil man bei Elementen aus $U$ begonnen hat und entsprechend auch wieder zu Elementen aus $U$ zurück möchte.
+Eine Funktion $g$, die eine Funktion $f\colon U\rightarrow V$ rückgängig macht bzw. umkehrt, wird Umkehrfunktion von $f$ genannt. Wie eben erklärt, drückt sich das dadurch aus, dass bei der Hintereinanderausführung von $f$ und $g$ die identische Funktion herauskommt, also $g\circ f=\ident[U]$. Dass $g$ eine Funktion von $V$ nach $U$ sein muss, ist erzwungen: Die Definitionsmenge muss $V$ sein, damit die Funktionen überhaupt hintereinander ausgeführt werden dürfen. Die Zielmenge von $g$ muss $U$ sein, weil man bei Elementen aus $U$ begonnen hat und entsprechend auch wieder zu Elementen aus $U$ zurück möchte.
 
-\begin{definition}{Umkehrabbildung}
-    Es seien $U,V$ Mengen und $f\colon U\rightarrow V$ eine Abbildung. Eine Abbildung $g\colon V\rightarrow U$ mit $g\circ f=\ident[U]$ und $f\circ g=\ident[V]$ heißt \textbf{Umkehrabbildung} von $f$. In diesem Fall schreibt man $f^{-1}$ statt $g$.
+\begin{definition}{Umkehrfunktion}
+    Es seien $U,V$ Mengen und $f\colon U\rightarrow V$ eine Funktion. Eine Funktion $g\colon V\rightarrow U$ mit $g\circ f=\ident[U]$ und $f\circ g=\ident[V]$ heißt \textbf{Umkehrfunktion} von $f$. In diesem Fall schreibt man $f^{-1}$ statt $g$.
 \end{definition}
 
-Die Umkehrabbildung einer Abbildung $f$ notiert man mit $f^{-1}$. Im nächsten Beispiel wird noch einmal erläutert, warum $g$ im letzten Beispiel eine Umkehrabbildung von $f$ war. Anschließend werden zwei weitere Beispiele präsentiert.
+Die Umkehrfunktion einer Funktion $f$ notiert man mit $f^{-1}$. Im nächsten Beispiel wird noch einmal erläutert, warum $g$ im letzten Beispiel eine Umkehrfunktion von $f$ war. Anschließend werden zwei weitere Beispiele präsentiert.
 
 \begin{example}{}
-    Im letzten Beispiel haben wir gesehen, dass für $f\colon\Real\rightarrow\Real$ mit $f(x)=x+1$ die Umkehrabbildung durch $f^{-1}(x)=x-1$ bestimmt ist. Es gilt nämlich $g\circ f=\ident[\Real]$. Außerdem gilt $f\circ g=\ident[\Real]$, weil $f(g(x))=f(x-1)=(x-1)+1$ gilt.
+    Im letzten Beispiel haben wir gesehen, dass für $f\colon\Real\rightarrow\Real$ mit $f(x)=x+1$ die Umkehrfunktion durch $f^{-1}(x)=x-1$ bestimmt ist. Es gilt nämlich $g\circ f=\ident[\Real]$. Außerdem gilt $f\circ g=\ident[\Real]$, weil $f(g(x))=f(x-1)=(x-1)+1$ gilt.
 \end{example}
 
 \begin{example}{}
     Wenn ein mit Butter beschmiertes Toast von einem normalen Tisch nach unten fällt, landet es leider oft mit der beschmierten Seite unten. Während des Falls kann das Toast sich prinzipiell mehrmals drehen. Nach jedem Drehen zeigt entweder die Seite mit Butter oder die Seite ohne Butter nach oben.
     
-    Die Abbildung $\textsc{Umdrehen}\colon\textsc{Toastseiten}\rightarrow\textsc{Toastseiten}$ gibt nun an, welche Seite des Toasts nach dem Umdrehen oben ist, abhängig davon, welche vorher oben war (wobei $\textsc{Toastseiten}$ die Menge der Seiten ist, die sich prinzipiell oben befinden können, d.h. $\textsc{Toastseiten}=\{\text{Butter},\text{keine Butter}\}$). Es gilt (weil sich nach einmaligem Umdrehen jeweils die andere Seite oben befindet)
+    Die Funktion $\textsc{Umdrehen}\colon\textsc{Toastseiten}\rightarrow\textsc{Toastseiten}$ gibt nun an, welche Seite des Toasts nach dem Umdrehen oben ist, abhängig davon, welche vorher oben war (wobei $\textsc{Toastseiten}$ die Menge der Seiten ist, die sich prinzipiell oben befinden können, d.h. $\textsc{Toastseiten}=\{\text{Butter},\text{keine Butter}\}$). Es gilt (weil sich nach einmaligem Umdrehen jeweils die andere Seite oben befindet)
     \[\textsc{Umdrehen}(\text{Butter})=\text{keine Butter}\] und \[\textsc{Umdrehen}(\text{keine Butter})=\text{Butter}.\]
     Wenn sich das Toast zweimal umdreht, ist wieder die Seite oben, die vorher oben war, d.h. \[\textsc{Umdrehen}(\textsc{Umdrehen}(\text{keine Butter}))=\textsc{Umdrehen}(\text{Butter})=\text{keine Butter}\]
-    und auf die gleiche Weise liegt auch die Seite mit Butter oben, wenn vorher die Seite mit Butter oben war und sich das Toast zweimal umdreht. Damit ist das zweimalige Umdrehen des Toasts die identische Abbildung auf der Menge \textsc{Toastseiten}. Weil $\textsc{Umdrehen}\circ \text{Umdrehen}=\ident[\textsc{Toastseiten}]$ gilt, ist \textsc{Umdrehen} die Umkehrabbildung von sich selbst.
+    und auf die gleiche Weise liegt auch die Seite mit Butter oben, wenn vorher die Seite mit Butter oben war und sich das Toast zweimal umdreht. Damit ist das zweimalige Umdrehen des Toasts die identische Funktion auf der Menge \textsc{Toastseiten}. Weil $\textsc{Umdrehen}\circ \text{Umdrehen}=\ident[\textsc{Toastseiten}]$ gilt, ist \textsc{Umdrehen} die Umkehrfunktion von sich selbst.
 \end{example}
 
 \begin{example}{}
-    Die Abbildung $f\colon\Real\rightarrow\Real$ mit $f(x)=4x$ hat die Umkehrabbildung $f^{-1}\colon\Real\rightarrow\Real$ mit $f^{-1}(x)=\frac{1}{4}x$: Um eine Multiplikation mit $4$ rückgängig zu machen, muss man durch $4$ teilen (oder mit $\frac{1}{4}$ multiplizieren).
+    Die Funktion $f\colon\Real\rightarrow\Real$ mit $f(x)=4x$ hat die Umkehrfunktion $f^{-1}\colon\Real\rightarrow\Real$ mit $f^{-1}(x)=\frac{1}{4}x$: Um eine Multiplikation mit $4$ rückgängig zu machen, muss man durch $4$ teilen (oder mit $\frac{1}{4}$ multiplizieren).
     
     Zur Überprüfung lässt sich schnell nachrechnen, dass \[(f^{-1}\circ f)(x)=f^{-1}(f(x))=f^{-1}(4x)=\frac{1}{4}\cdot 4x=x.\] 
     Damit ist $f^{-1}\circ f=\ident[\Real]$. Natürlich kann ebenso gezeigt werden, dass $f\circ f^{-1}=\ident[\Real]$ ist.
 \end{example}
 
 \begin{advanced}{Injektionen, Surjektionen und Bijektionen}
-    Wenn man die Abbildungsvorschrift einer Abbildung weiter analysieren möchte, ist eine wichtige Eigenschaft, wie viele Urbilder die Elemente der Bildmenge jeweils haben. Man stellt sich in diesem Zusammenhang die Frage, ob
+    Wenn man die Funktionsvorschrift einer Funktion weiter analysieren möchte, ist eine wichtige Eigenschaft, wie viele Urbilder die Elemente der Zielmenge jeweils haben. Man stellt sich in diesem Zusammenhang die Frage, ob
     \begin{itemize}[noitemsep]
-        \item jedes Element der Bildmenge mindestens ein Urbild hat oder
-        \item jedes Element der Bildmenge maximal ein Urbild hat oder
-        \item jedes Element der Bildmenge genau ein Urbild hat.
+        \item jedes Element der Zielmenge mindestens ein Urbild hat oder
+        \item jedes Element der Zielmenge maximal ein Urbild hat oder
+        \item jedes Element der Zielmenge genau ein Urbild hat.
     \end{itemize}
     
-    Eine Abbildung heißt im ersten Fall \textbf{surjektiv}, im zweiten Fall \textbf{injektiv} und im dritten Fall (wenn die Abbildung also sowohl injektiv als auch surjektiv ist) heißt sie \textbf{bijektiv}.
+    Eine Funktion heißt im ersten Fall \textbf{surjektiv}, im zweiten Fall \textbf{injektiv} und im dritten Fall (wenn die Funktion also sowohl injektiv als auch surjektiv ist) heißt sie \textbf{bijektiv}.
     
-    Es ist auch möglich, dass eine Abbildung keine dieser Eigenschaften hat.
+    Es ist auch möglich, dass eine Funktion keine dieser Eigenschaften hat.
     Eine Erläuterung dieser Eigenschaften, eine formale Definition sowie Beispiele findest du am Ende dieses Kapitels auf Seite \pageref{advanced:bijektion}.
 \end{advanced}
 
-\begin{nutshell}{Identität und Umkehrabbildung}
+\begin{nutshell}{Identität und Umkehrfunktion}
     \sloppy
-    Eine \textbf{identische Abbildung} auf einer Menge $M$ (geschrieben $id_M$) ist eine Abbildung, die als Definitions- und Bildmenge $M$ hat und alle Argumente unverändert lässt, d.h. $f(x)=x$ für alle $x\in M$. Damit handelt es sich um eine Abbildung, die nichts tut.
+    Eine \textbf{identische Funktion} auf einer Menge $M$ (geschrieben $id_M$) ist eine Funktion, die als Definitions- und Zielmenge $M$ hat und alle Argumente unverändert lässt, d.h. $f(x)=x$ für alle $x\in M$. Damit handelt es sich um eine Funktion, die nichts tut.
     
-    Wenn es möglich ist, zu einer Abbildung $f\colon U\rightarrow V$ eine Abbildung $g\colon V\rightarrow U$ zu finden, sodass diese sich gegenseitig rückgängig machen (also $g\circ f=\ident[U]$ und $f\circ g=\ident[V]$), dann nennt man $g$ die \textbf{Umkehrabbildung} von $f$ und schreibt für $g$ auch $f^{-1}$.
+    Wenn es möglich ist, zu einer Funktion $f\colon U\rightarrow V$ eine Funktion $g\colon V\rightarrow U$ zu finden, sodass diese sich gegenseitig rückgängig machen (also $g\circ f=\ident[U]$ und $f\circ g=\ident[V]$), dann nennt man $g$ die \textbf{Umkehrfunktion} von $f$ und schreibt für $g$ auch $f^{-1}$.
 \end{nutshell}
 \fussy
 

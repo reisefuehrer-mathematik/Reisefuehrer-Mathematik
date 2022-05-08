@@ -37,24 +37,33 @@ Mit anderen Worten: Wir verwenden Variablen, wenn wir aus irgendeinem Grund noch
     \item Du möchtest Rechnungen aufschreiben, in denen ein bestimmter Wert verwendet wird, den du noch nicht kennst. Diesen Wert kannst du in deinen Formeln durch eine Variable ersetzen, die in diesem Fall auch \emph{Unbekannte} genannt wird, weil ihr Wert unbekannt ist.
 \end{enumerate}
 
-Die erste Anwendung von Variablen, nämlich zum Aufschreiben von Formeln, ist dir schon häufiger begegnet (etwa bei der Formel des Flächeninhalts von Quadraten). Wenn eine Variable in dieser Weise als Platzhalter für einen konstanten Wert eingesetzt wird, heißt sie \textbf{Parameter}. Das ist genau die Art und Weise, in der du sie im Kapitel \emph{Variablen} verwendet hast. In ihrer zweiten Funktion, nämlich als \textbf{Unbekannte}, hast du Variablen bisher noch nicht direkt erlebt. Du kannst dir das wie der Kasten in einer Aufgabe wie
+Die erste Anwendung von Variablen, nämlich zum Aufschreiben von Formeln, ist dir schon häufiger begegnet (etwa bei der Formel des Flächeninhalts von Quadraten). Wenn eine Variable in dieser Weise als Platzhalter für einen konstanten Wert eingesetzt wird, heißt sie \textbf{Parameter}. Das ist genau die Art und Weise, in der du sie im Kapitel \href{ch:variablen}{\emph{Variablen}} verwendet hast. In ihrer zweiten Funktion, nämlich als \textbf{Unbekannte}, hast du Variablen bisher noch nicht direkt erlebt. Du kannst dir das wie der Kasten in einer Aufgabe wie
 \[17-\Box=11\] 
 vorstellen. Hier möchtest du wissen, welche Zahl in den Kasten gehört, damit die Rechnung stimmt. Der Wert des Kastens ist in diesem Beispiel die \emph{Unbekannte}. Ziel einer Rechnung mit einer Unbekannten ist es, den Wert der Unbekannten zu bestimmen. Dass du einen Wert bestimmen möchtest, wenn du bestimmte Informationen über ihn hast, ist ein Problem, das dir in der Praxs oft begegnet. Wir schauen uns im folgenden Beispiel an, wie so ein Problem aussehen kann.
 
 \begin{example}[ex:handball-quali]{}
     \parpic[r]{
         \begin{tikzpicture}[scale=0.9]
-            \node (germay) at (0,5.5) {\includegraphics[height=4cm]{images/deutschland.pdf}};
-            \draw[fill=green!80!black] (-3,0) -- ++ (0:2) arc [start angle=180, end angle=108, radius=1] -- ++ (108:2) arc [start angle=108, end angle=180, radius=3];
-            \draw[fill=green!50!black] (1,0) -- ++ (0:2) arc [start angle=0, end angle=67.5, radius=3] -- ++ (247.5:2) arc [start angle=67.5, end angle=0, radius=1];
-            \draw[fill=green!65!black] (108:1) arc [start angle=108, end angle=67.5, radius=1] -- ++ (67.5:2) arc [start angle=67.5, end angle=108, radius=3] -- ++ (-72:2);
+            %Ringdiagramm
+            \draw[fill=green!80!black] (-3,0) -- ++ (0:2) arc [start angle=180, end angle=120, radius=1] -- ++ (120:2) arc [start angle=120, end angle=180, radius=3];
+            \draw[fill=green!50!black] (1,0) -- ++ (0:2) arc [start angle=0, end angle=30, radius=3] -- ++ (-150:2) arc [start angle=30, end angle=0, radius=1];
+            \draw[fill=green!65!black] (120:1) arc [start angle=120, end angle=30, radius=1] -- ++ (30:2) arc [start angle=30, end angle=120, radius=3] -- ++ (-60:2);
             \draw[fill=white] (180:1) arc [start angle=180, end angle=0, radius=1] -- cycle;
             \node at (90:0.3) {\small 48 Teams};
-            \node[text width=2cm, align=center] at (30:2) {Süd-deutsch-land};
-            \node[text width=2cm, align=center] at (84:2) {Mittel-deutsch-land};
-            \node[text width=2cm, align=center] at (145:2) {Nord-deutsch-land};
+            %Labels
+            \node[text width=1.5cm, align=center] at ($(15:2) + (0,0.3)$) {\scriptsize Süd-};
+            \node[text width=1.5cm, align=center] at (15:2) {\scriptsize deutsch-};
+            \node[text width=1.5cm, align=center] at ($(15:2) - (0,0.3)$) {\scriptsize land};
+            \node[text width=1.5cm, align=center] at ($(75:2) + (0,0.35)$) {\scriptsize Mittel-};
+            \node[text width=1.5cm, align=center] at (75:2) {\scriptsize deutsch-};
+            \node[text width=1.5cm, align=center] at ($(75:2) - (0,0.35)$) {\scriptsize land};
+            \node[text width=1.5cm, align=center] at ($(150:2) + (0,0.35)$) {\scriptsize Nord-};
+            \node[text width=1.5cm, align=center] at (150:2) {\scriptsize deutsch-};
+            \node[text width=1.5cm, align=center] at ($(150:2) - (0,0.35)$) {\scriptsize land};
+            %Deutschlandkarte und Pfeile
+            \node (germay) at (0,5.5) {\includegraphics[height=4cm]{images/deutschland.pdf}};
             \draw[thick, white, fill=green!65!black] (-0.2,5) -- (0.2,5) -- (0.2,3.2) -- (0,2.8) -- (-0.2,3.2) -- cycle;
-            \draw[thick, white, fill=green!50!black] (0.6,4) arc [start angle=90, end angle=-20, radius=1.2] -- ++ (-83.43:0.447) -- ++ (43.43:0.447) arc [start angle=-20, end angle=90, radius=1.6] -- cycle;
+            \draw[thick, white, fill=green!50!black] (0.6,4) arc [start angle=90, end angle=-20, radius=1.9] -- ++ (-83.43:0.447) -- ++ (43.43:0.447) arc [start angle=-20, end angle=90, radius=2.3] -- cycle;
             \draw[thick, white, fill=green!80!black] (-0.75,6) arc [start angle=120, end angle=200, radius=3.3] -- ++ (263.43:0.447) -- ++ (136.57:0.447) arc [start angle=200, end angle=120, radius=3.7] -- cycle;
         \end{tikzpicture}
     }
@@ -155,5 +164,31 @@ Wenn bei einer Gleichung nur Zahlen vorkommen (also keine Variablen), dann kanns
 Um herauszufinden, welchen Wert eine Unbekannte haben muss, damit die Gleichung gilt (also auf beiden Seiten wirklich denselben Wert annimmt), musst du wie auf den letzten Seiten erklärt einen Wert finden, durch den du $x$ in der Gleichung überall ersetzen kannst. Möchtest du die Gleichung
 \[\Box+65-3\cdot(\Box+2)=4\cdot \Box-103\]
 lösen, also herausfinden, welcher Wert in die Box gehört, dann ist es manchmal nicht sinnvoll möglich, den Wert schnell durch Hinsehen zu bestimmen. Du müsstest in der obigen Gleichung beispielsweise überall den Wert 27 einsetzen (und das ist kein Wert, den man gern durch Ausprobieren suchen möchte). Wir entwickeln deshalb in diesem Kapitel Methoden, um diese Aufgaben auch zu lösen, wenn sie wesentlich komplexer sind.
+
+\begin{nutshell}{Variablen als Unbekannte}
+    \parpic[r]{
+        \scalebox{0.65}{
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+                \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+                \node[white] at (-0.75,0.42) {$2$};
+                \fill (-1.45,0.25) -- (-1.05,0.25) -- (-1.1,0.6) -- (-1.4,0.6) -- cycle;
+                \draw[line width=0.75mm] (-1.25,0.66) circle[radius=0.06cm];
+                \node[white] at (-1.25,0.42) {$2$};
+                %Füllung rechte Waagschale
+                \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+                \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+                \node[white] at (1,0.45) {$4$};
+            \end{linearEquation}
+        }
+    }
+
+    Eine Variable kann als Platzhalter für einen konstanten Wert eingesetzt werden, um damit Formeln oder ähnliches zu notieren.
+
+    Darüber hinaus können Variablen auch dann verwendet werden, wenn ein bestimmter, unbekannter Zahlenwert ermittelt werden soll, über den du eine Information hast, die du als eine \textbf{Gleichung} wie
+    \[\Box+5=12\]
+    aufschreiben kannst. Eine Gleichung besteht aus einem Term auf der linken Seite und einem Term auf der rechten Seite, zwischen denen ein Gleichheitszeichen steht. Eine auf diese Weise eingesetzte Variable heißt \textbf{Unbekannte}. Unbekannte werden oft mit den Buchstaben $x,y$ oder $z$ bezeichnet.
+\end{nutshell}
 
 \end{document}

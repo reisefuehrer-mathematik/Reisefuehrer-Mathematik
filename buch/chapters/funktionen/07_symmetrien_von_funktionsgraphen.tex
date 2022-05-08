@@ -4,15 +4,15 @@
 
 \label{sec:abbildungen_symmetrie}
 
-Die wichtigsten Symmetrien, die du aus den Grundlagen der Geometrie kennst, sind Spiegelungen und Drehungen. Nachfolgend geht es darum, Spiegelungen bei Abbildungsgraphen zu suchen.
+Die wichtigsten Symmetrien, die du aus den Grundlagen der Geometrie kennst, sind Spiegelungen und Drehungen. Nachfolgend geht es darum, Spiegelungen bei Funktionsgraphen zu suchen.
 
-Wenn man davon spricht, dass der Graph einer Abbildung symmetrisch ist, dann meint man normalerweise \enquote{symmetrisch am Ursprung} oder \enquote{symmetrisch an der $y$-Achse}. Prinzipiell heißt das, dass der Graph links von der $y$-Achse auf die gleiche Weise verläuft wie rechts von der $y$-Achse.
+Wenn man davon spricht, dass der Graph einer Funktion symmetrisch ist, dann meint man normalerweise \enquote{symmetrisch am Ursprung} oder \enquote{symmetrisch an der $y$-Achse}. Prinzipiell heißt das, dass der Graph links von der $y$-Achse auf die gleiche Weise verläuft wie rechts von der $y$-Achse.
 
 \begin{advanced}{Symmetrien}
-    Man kann auch allgemeiner Symmetrien statt nur Spiegelungen bei Abbildungsgraphen suchen. Eine \textbf{Symmetrie} ist eine Abbildung, die die Punkte einer geometrischen Figur (also zum Beispiel die Punkte auf einem Abbildungsgraphen) umordnet und dabei Abstände beibehält. Zwei Punkte, die einen Abstand von 1 haben, müssen durch eine Symmetrie demnach auf zwei Punkte abgebildet werden, deren Abstand ebenfalls 1 ist.
+    Man kann auch allgemeiner Symmetrien statt nur Spiegelungen bei Funktionsgraphen suchen. Eine \textbf{Symmetrie} ist eine Funktion, die die Punkte einer geometrischen Figur (also zum Beispiel die Punkte auf einem Funktionsgraphen) umordnet und dabei Abstände beibehält. Zwei Punkte, die einen Abstand von 1 haben, müssen durch eine Symmetrie demnach zwei Punkten zugeordnet werden, deren Abstand ebenfalls 1 ist.
     
     \begin{definition}{Symmetrie}
-        Es sei $F$ eine geometrische Figur, dargestellt durch die Menge der Punkte, die zur Figur gehören. Dann heißt eine bijektive Abbildung $s\colon F\rightarrow F$ eine Symmetrie von $F$, falls beliebige $f_1,f_2\in F$ stets denselben Abstand wie $s(f_1)$ und $s(f_2)$ haben.
+        Es sei $F$ eine geometrische Figur, dargestellt durch die Menge der Punkte, die zur Figur gehören. Dann heißt eine bijektive Funktion $s\colon F\rightarrow F$ eine Symmetrie von $F$, falls beliebige $f_1,f_2\in F$ stets denselben Abstand wie $s(f_1)$ und $s(f_2)$ haben.
     \end{definition}
     
     \begin{advexample}{}
@@ -28,11 +28,11 @@ Wenn man davon spricht, dass der Graph einer Abbildung symmetrisch ist, dann mei
                 \draw[fill=orange] (-150:1.5) circle[radius=.5mm];
             \end{tikzpicture}
         }
-        Eine Symmetrie des rechts abgebildeten blauen Kreises ist die eingezeichnete Abbildung, die jeden Punkt des Kreises an der gestrichelt eingezeichneten Spiegelachse spiegelt.
+        Eine Symmetrie des rechts abgebildeten blauen Kreises ist die eingezeichnete Funktion, die jeden Punkt des Kreises an der gestrichelt eingezeichneten Spiegelachse spiegelt.
         
-        Nach der Anwendung der Spiegelung erhält man d\textbf{en gleichen Kreis wie vorher}. Außerdem haben zwei Punkte vor der Spiegelung immer den \textbf{gleichen Abstand} wie nach der Spiegelung. Diese beiden Eigenschaften machen die eingezeichnete Abbildung zu einer Symmetrie.
+        Nach der Anwendung der Spiegelung erhält man \textbf{den gleichen Kreis wie vorher}. Außerdem haben zwei Punkte vor der Spiegelung immer den \textbf{gleichen Abstand} wie nach der Spiegelung. Diese beiden Eigenschaften machen die eingezeichnete Funktion zu einer Symmetrie.
         
-        Eine weitere Symmetrie des Kreises ist eine Abbildung, die jeden Punkt auf sich selbst abbildet. Diese Symmetrie existiert bei jeder geometrischen Figur und behält natürlich auch die Abstände bei, weil sie die Punkte nicht verschiebt.
+        Eine weitere Symmetrie des Kreises ist eine Funktion, die jedem Punkt sich selbst zuordnet. Diese Symmetrie existiert bei jeder geometrischen Figur und behält natürlich auch die Abstände bei, weil sie die Punkte nicht verschiebt.
     \end{advexample}
 \end{advanced}
 
@@ -80,19 +80,19 @@ Das bedeutet auch, dass man die gleichen Funktionswerte erhält, egal ob man von
     Geht man im letzten Beispiel vom Ursprung einen Schritt auf der $x$-Achse nach links, so schneidet der Graph dort beim Punkt $\coord{-1}{0}$ die $x$-Achse (dargestellt durch weiße Punkte, es gilt $f(-1)=0$). Wenn du dir vorstellst, dass du den Punkt $\coord{-1}{0}$ nun nach rechts spiegelst, dann bekommst du den Punkt $\coord{1}{0}$, der ebenfalls auf dem Graphen liegt. Dieser Punkt stellt die Regel $f(1)=0$ dar.
     
     \picskip{0}
-    Wenn man zwei Schritte nach links oder rechts geht (also zu $x=-2$ oder $x=2$), dann findet man für jeden dieser $x$-Werte einen Punkt auf dem Graphen (dargestellt durch die gelben Punkte). Die Punkte haben die Koordinaten $\coord{-2}{3}$ und $\coord{2}{3}$, stellen also die Abbildungsregeln $f(-2)=3$ und $f(2)=3$ dar.
+    Wenn man zwei Schritte nach links oder rechts geht (also zu $x=-2$ oder $x=2$), dann findet man für jeden dieser $x$-Werte einen Punkt auf dem Graphen (dargestellt durch die gelben Punkte). Die Punkte haben die Koordinaten $\coord{-2}{3}$ und $\coord{2}{3}$, stellen also die Zuordnungsregeln $f(-2)=3$ und $f(2)=3$ dar.
 \end{example}
 
 Im letzten Beispiel konnte beobachtet werden, dass ein beliebiger Punkt $\coord{x}{y}$ auf dem Graphen bei der Achsenspiegelung an der $y$-Achse auf den Punkt $\coord{-x}{y}$ gespiegelt wird. Das heißt, dass zu einem Graphen, der achsensymmetrisch an der $y$-Achse ist und den Punkt $\coord{x}{y}$ enthält, auch immer der Punkt $\coord{-x}{y}$ gehören muss.
 
-Wenn der Punkt $\coord{x}{y}$ auf dem Graphen einer Abbildung liegt, dann steht das immer für die Abbildungsregel $f(x)=y$. Der gespiegelte Punkt steht also für die Regel $f(-x)=y$. Damit ist insgesamt $f(x)=f(-x)$ (denn beides hat denselben Wert, nämlich $y$). Abbildungen, deren Graph achsensymmetrisch an der $y$-Achse ist, haben also die Eigenschaft, dass $f(x)=f(-x)$ ist.
+Wenn der Punkt $\coord{x}{y}$ auf dem Graphen einer Funktion liegt, dann steht das immer für die Zuordnungsregel $f(x)=y$. Der gespiegelte Punkt steht also für die Regel $f(-x)=y$. Damit ist insgesamt $f(x)=f(-x)$ (denn beides hat denselben Wert, nämlich $y$). Funktionen, deren Graph achsensymmetrisch an der $y$-Achse ist, haben also die Eigenschaft, dass $f(x)=f(-x)$ ist.
 
 \begin{theorem}{}
-    Der Graph einer Abbildung $f$ ist genau dann achsensymmetrisch an der $y$-Achse, wenn $f(x)=f(-x)$ für alle $x\in\Real$ gilt.
+    Der Graph einer Funktion $f$ ist genau dann achsensymmetrisch an der $y$-Achse, wenn $f(x)=f(-x)$ für alle $x\in\Real$ gilt.
 \end{theorem}
 
 \begin{example}{}
-    Es lässt sich rechnerisch erklären, dass der Graph der Abbildung $f(x)=x^2-1$ achsensymmetrisch an der $y$-Achse ist: Es gilt \[f(-x)=(-x)^2-1=x^2-1=f(x),\] also insgesamt $f(x)=f(-x)$. Die Bedingung $f(x)=f(-x)$ ist nach den vorherigen Überlegungen genau die Voraussetzung für die Achsensymmetrie an der $y$-Achse.
+    Es lässt sich rechnerisch erklären, dass der Graph der Funktion $f(x)=x^2-1$ achsensymmetrisch an der $y$-Achse ist: Es gilt \[f(-x)=(-x)^2-1=x^2-1=f(x),\] also insgesamt $f(x)=f(-x)$. Die Bedingung $f(x)=f(-x)$ ist nach den vorherigen Überlegungen genau die Voraussetzung für die Achsensymmetrie an der $y$-Achse.
 \end{example}
 
 Anders als in den vorherigen Beispielen ist es auch möglich, dass der Graph nicht an der $y$-Achse achsengespiegelt ist, sondern stattdessen punktgespiegelt am Ursprung. Dabei wird der Graph nicht einfach von links nach rechts geklappt.
@@ -121,21 +121,21 @@ Das ist nun anders: Punkte werden hier auch nach oben (oder unten, falls sie ber
 
 Spiegeln wir etwa den Punkt $\coord{-2}{-2}$ am Ursprung, dann liegt der gespiegelte Punkt anschließend genauso weit rechts und oben wie der ursprüngliche Punkt links und unten lag. Mit anderen Worten: Bei der $x$- und der $y$-Koordinate ändert sich jeweils das Vorzeichen. Der neue Punkt lautet in diesem Fall $\coord{2}{2}$.
 
-Liegt nun ein Punkt $\coord{x}{y}$ auf dem Abbildungsgraphen (das stellt die Regel $f(x)=y$ dar), dann liegt ebenso sein gespiegelter Punkt auf dem Graphen. Dieser hat nach den vorherigen Überlegungen die Koordinaten $\coord{-x}{-y}$ und stellt damit die Abbildungsregel $f(-x)=-y$ dar. Für jede Abbildungsregel $f(x)=y$ lässt sich demnach sofort feststellen, dass auch $f(-x)=-y$ eine Regel sein muss (denn der entsprechende Punkt liegt auf dem Graphen). Formen wir diese Bedingung ein wenig um, dann erhalten wir \[f(x)=y=-(-y)=-f(-x),\]
-also hat eine Abbildung einen punktsymmetrischen Graphen, falls stets $f(x)=-f(-x)$ gilt.
+Liegt nun ein Punkt $\coord{x}{y}$ auf dem Funktionsgraphen (das stellt die Regel $f(x)=y$ dar), dann liegt ebenso sein gespiegelter Punkt auf dem Graphen. Dieser hat nach den vorherigen Überlegungen die Koordinaten $\coord{-x}{-y}$ und stellt damit die Zuordnungsregel $f(-x)=-y$ dar. Für jede Zuordnungsregel $f(x)=y$ lässt sich demnach sofort feststellen, dass auch $f(-x)=-y$ eine Regel sein muss (denn der entsprechende Punkt liegt auf dem Graphen). Formen wir diese Bedingung ein wenig um, dann erhalten wir \[f(x)=y=-(-y)=-f(-x),\]
+also hat eine Funktion einen punktsymmetrischen Graphen, falls stets $f(x)=-f(-x)$ gilt.
 
 \begin{theorem}{}
-    Der Graph einer Abbildung $f$ ist genau dann punktsymmetrisch am Ursprung, wenn $f(x)=-f(-x)$ für alle $x\in\Real$ gilt.
+    Der Graph einer Funktion $f$ ist genau dann punktsymmetrisch am Ursprung, wenn $f(x)=-f(-x)$ für alle $x\in\Real$ gilt.
 \end{theorem}
 
 \begin{example}{}
-    Der Graph der Abbildung $f(x)=x^3$ ist punktsymmetrisch am Ursprung. Um zu prüfen, ob der Graph punktsymmetrisch ist, muss geschaut werden, ob \mbox{$f(x)=-f(-x)$} gilt. Weil $f(x)$ nichts anderes als $x^3$ ist, muss hier lediglich geprüft werden, ob $x^3$ dasselbe ist wie $-\colorbrace{(-x)^3}{f(-x)}$. Wir können nun leicht nachrechnen, dass
+    Der Graph der Funktion $f(x)=x^3$ ist punktsymmetrisch am Ursprung. Um zu prüfen, ob der Graph punktsymmetrisch ist, muss geschaut werden, ob \mbox{$f(x)=-f(-x)$} gilt. Weil $f(x)$ nichts anderes als $x^3$ ist, muss hier lediglich geprüft werden, ob $x^3$ dasselbe ist wie $-\colorbrace{(-x)^3}{f(-x)}$. Wir können nun leicht nachrechnen, dass
     \[-(-x)^3=-(-x^3)=x^3\]
     gilt. Und das ist genau dasselbe wie $f(x)$. Der Graph der Funktion ist also punktsymmetrisch am Ursprung.
 \end{example}
 
-\begin{nutshell}{Symmetrie bei Abbildungsgraphen}
-    Einige Abbildungen haben Graphen, die entweder punkt-- oder achsensymmetrisch sind. Man unterscheidet zwischen Graphen, die achsensymmetrisch an der $y$-Achse sind und Graphen, die punktsymmetrisch am Ursprung sind.
+\begin{nutshell}{Symmetrie bei Funktionsgraphen}
+    Einige Funktionen haben Graphen, die entweder punkt-- oder achsensymmetrisch sind. Man unterscheidet zwischen Graphen, die achsensymmetrisch an der $y$-Achse sind und Graphen, die punktsymmetrisch am Ursprung sind.
     
     Bei einer \textbf{Spiegelung an der $y$-Achse} werden alle Punkte wagerecht von links nach rechts (oder andersrum) geklappt. Damit ein Graph achsensymmetrisch an der $y$-Achse ist, muss $f(x)=f(-x)$ gelten (d.h. er verläuft links der $y$-Achse ebenso wie rechts von der $y$-Achse).
     

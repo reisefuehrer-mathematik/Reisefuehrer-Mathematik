@@ -26,7 +26,11 @@
 
 \RequirePackage{tabularx}
 
+\RequirePackage{enumitem}
+
 \RequirePackage{imakeidx}
+
+\RequirePackage{qrcode}
 
 
 %indexing
@@ -252,6 +256,16 @@ suffix_3p "\\,ff."
     \end{tcolorbox}
     \arrayrulecolor{black}
 }
+\DeclareTColorBox{goal}{ o m m }{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    sharp corners,
+    boxrule=0pt, colframe=#3,
+    coltitle=black, colback=black!5,
+    borderline west={3pt}{0pt}{#3},
+    title={#2},
+    %attach title to upper=\vspace*{.5em}\par,
+    step=sample
+}
 
 \makeatletter
 \newtcolorbox{advanced}[1]{
@@ -308,6 +322,22 @@ suffix_3p "\\,ff."
     \rule{\textwidth}{.4pt}\par\nobreak
 }
 \renewcommand\chapterlineswithprefixformat[3]{\chapterlinesformat{#1}{#2}{#3}}
+
+% Setting the default enumerate environment to circled numbers
+\RequirePackage{circledsteps}
+\RequirePackage{enumitem}
+\def\@circlelblcolor@text{white}
+\def\@circlelblcolor@draw{black!50!white}
+\def\@circlelblcolor@fill{black!50!white}
+\newcommand{\circlelbl}[1]{%
+    \Circled[
+        inner color=\@circlelblcolor@text,
+        outer color=\@circlelblcolor@border,
+        fill color=\@circlelblcolor@fill,
+        inner ysep=4pt,
+        inner xsep=4pt]{\textsf{#1}}%
+}
+\setlist[enumerate]{label=\circlelbl{\arabic*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Todos

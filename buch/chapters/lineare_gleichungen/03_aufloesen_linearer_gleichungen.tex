@@ -12,7 +12,7 @@ Im Wesentlichen kann man sich lineare Gleichungen so vorstellen, dass sie eine D
 
 Jede Seite einer Waagschale kann durch einen Term der Form $ax+b$ dargestellt werden, wobei $a$ die Anzahl der Kugeln und $b$ die Summe der Gewichte ist. Sind beispielsweise $5$ Kugeln sowie Gewichte mit einer Summe von 12 auf der Waage, so ist das Gesamtgewicht in der Waagschale $5x+12$.
 
-Sinnvollerweise liegt nie eine negative Anzahl von Kugeln auf der Waage. Auch so etwas wie $\frac{7}{2}$ Kugeln scheint nicht besonders sinnvoll. Das ist der Punkt, an dem unsere Vorstellung mit der Waage nicht mehr besonders gut funktioniert. Wir wollen aber alle Gleichungen als linear bezeichnen, bei denen die linke und die rechte Seite jeweils die Form $ax+b$ mit beliebigen $a,b\in\Real$ haben. Im Wesentlichen sind das immer noch genau die Gleichungen, die sich (bis auf ein paar kleine Probleme) auf Waagen darstellen lassen.
+Auch wenn mit Balkenwaagen eine negative Anzahl von Kugeln, Bruchteile von Kugeln oder negative Gewichte nicht funktionieren, wollen wir alle Gleichungen als linear bezeichnen, bei denen die linke und die rechte Seite jeweils die Form $ax+b$ mit beliebigen $a,b\in\Real$ haben. Das ist der Punkt, an dem unsere Vorstellung mit der Waage nicht mehr besonders gut funktioniert. Im Wesentlichen sind das immer noch genau die Gleichungen, die sich (bis auf ein paar kleine Probleme) auf Waagen darstellen lassen.
 
 \begin{example}{}
     Die Gleichung 
@@ -22,7 +22,7 @@ Sinnvollerweise liegt nie eine negative Anzahl von Kugeln auf der Waage. Auch so
 \begin{example}{}
     Auch die Gleichung 
     \[5(x+4)=2\cdot (3+x)-8\] 
-    ist eine lineare Gleichung. Sie sieht zwar erstmal merkwürdig aus, aber sie lässt sich zu einer normal aussehenden Gleichung ausmultiplizieren. Auf der linken Seite steht $5(x+4)$. Das lässt sich umformen zu $5x+20$ (und damit haben wir wieder die Form $ax+b$). Auf der rechten Seite steht 
+    ist eine lineare Gleichung. Sie sieht zwar erstmal merkwürdig aus, aber beide Seiten lassen sich in die Form $ax+b$ umstellen. Auf der linken Seite steht $5(x+4)$. Das lässt sich umformen zu $5x+20$ (und damit haben wir wieder die Form $ax+b$). Auf der rechten Seite steht 
     \[2\cdot (3+x)-8=6+2x-8=2x-2\] 
     (und mit $2x-2$ haben wir wieder die Form $ax+b$). Deshalb ist auch die Gleichung $5(x+4)=2\cdot (3+x)-8$ linear.
 \end{example}
@@ -138,12 +138,12 @@ Um dieses Verfahren besser zu verstehen, schauen wir uns ein paar Beispiele für
     Schauen wir uns zunächst die linke Seite an: $4x+9$. Wir würden gern die $9$ loswerden. Die $9$ kannst du loswerden, indem du auf beiden Seiten $-9$ rechnest, denn $+9$ und $-9$ heben sich auf. Also machen wir das einmal:
     \begin{align*}
         4x+9-9&=34-x-9\\
-        4x&=25-x%|+5
+        4x&=25-x\commentLine{+5}
     \end{align*}
     Nun muss noch der Teil mit dem $x$ auf der rechten Seite verschwinden. Genau genommen stört uns das \enquote{$-x$}. Hier kannst du einfach auf beiden Seiten $+x$ rechnen, denn $-x$ und $+x$ heben sich auf. Also:
     \begin{align*}
         4x+x&=25-x+x\\
-        5x&=25%|:5
+        5x&=25\commentLine{\div 5}
     \end{align*}
     Schließlich haben wir Zwischenziel 3 erreicht. Wir wissen nun, dass $5x$ dasselbe wie $25$ ist. Das heißt, der Wert $25$ hängt schon eng mit der Lösung zusammen, ist aber um den Faktor $5$ zu groß. Auf einer Waage hätten wir gesagt: \enquote{5 Kugeln haben ein Gewicht von 25}. Jetzt wird die ganze Gleichung noch durch 5 geteilt, damit wir nicht erhalten, was 5 Kugeln wiegen, sondern, was eine einzige Kugel wiegt. Es ergibt sich
     \begin{align*}
@@ -185,10 +185,21 @@ Im zweiten Fall ist die Gleichung immer erfüllt. Welchen Wert du für $x$ wähl
 
 Im letzten Fall passiert genau das Gegenteil: Die Gleichung kann nicht erfüllt werden, weil sie einfach nicht stimmt -- und das kann auch nicht repariert werden, wenn wir irgendeinen Wert für $x$ einsetzen. Es gibt also keine Lösungen und die Lösungsmenge ist $\Solutions=\emptyset$.
 
+Auch wenn das Verfahren, das gerade beschrieben wurde, immer funktioniert, gibt es manchmal die Möglichkeit, durch geschicktes Umformen schneller zum Ergebnis zu kommen. Es kann sich daher lohnen, erstmal einen kurzen Blick auf die Gleichung zu werfen und zu überlegen, ob du die Lösung direkt herausfinden kannst, bevor du anfängst, die Gleichung mit dem allgemeinen Lösungsverfahren zu lösen.
+
+\begin{example}{}
+    Die Gleichung $x+(3x+4)=3+(3x+4)$ kannst du sofort lösen, wenn dir auffällt, dass der Term $3x+4$ auf beiden Seiten steht. Du kannst also sofort auf beiden Seiten $3x+4$ subtrahieren: 
+    \begin{align*}
+        x+(3x+4)&=3+(3x+4)\commentLine{-(3x+4)}\\
+        x&=3
+    \end{align*}
+    Damit bist du ohne Umwege bei der Lösung $x=3$ mit der dazugehörigen Lösungsmenge $\Solutions=\{3\}$ angekommen.
+\end{example}
+
 Zum Abschluss dieses Abschnitts wenden wir unser neues Wissen an, um die noch offene Frage aus Beispiel \ref{ex:handball-quali}, das in der Einführung vorkam, zu beantworten.
 \begin{example}{}
     Während der Einführung haben wir in Beispiel \ref{ex:handball-quali} die folgende Gleichung aufgestellt: 
-    \[\textsc{Plätze Süden}+\textsc{Plätze Mitte}+\textsc{Plätze Norden}=48.\]
+    \[\mtext{Plätze Süden}+\mtext{Plätze Mitte}+\mtext{Plätze Norden}=48.\]
     Darauf soll nun unser Wissen über lineare Gleichungen angewandt werden. Leider ist das nicht ohne weiteres möglich, da lineare Gleichungen den Vorteil haben, dass es nur eine Unbekannte (in der Regel $x$) gibt. Das ist hier nicht der Fall -- wir haben drei Unbekannte.
     
     Allerdings haben wir dafür ein paar Zusatzinformationen:
@@ -196,19 +207,19 @@ Zum Abschluss dieses Abschnitts wenden wir unser neues Wissen an, um die noch of
         \item Norddeutschland hat doppelt so viele Qualifikationsplätze wie Süddeutschland
         \item Mitteldeutschland hat dreimal so viele Qualifikationsplätze wie Süddeutschland
     \end{itemize}
-    Diese beiden Informationen können wir in unserer Gleichung nutzen, indem wir dort, wo von \textsc{Plätze Mitte} die Rede ist, stattdessen unser Wissen einsetzen, dass \textsc{Plätze Mitte} nichts anderes ist als $3\cdot \textsc{Plätze Süden}$. Auf die gleiche Weise können wir statt \textsc{Plätze Norden} auch $2\cdot \textsc{Plätze Süden}$ schreiben. Die Gleichung, die wir jetzt erhalten, sieht wie folgt aus:
-    \[\colorbrace{\textsc{Plätze Süden}}{x}+3\cdot \colorbrace{\textsc{Plätze Süden}}{x}+2\cdot \colorbrace{\textsc{Plätze Süden}}{x}=48.\]
-    Beim Weiterrechnen kürzen wir \textsc{Plätze Süden} ab sofort mit $x$ ab, um Schreibaufwand zu sparen. Es bleibt die Aufgabe übrig, wie gehabt die Gleichung $x+3x+2x=48$ zu lösen. Die linke Seite kann direkt zu $6x$ zusammengefasst werden. Wir haben also Zwischenziel 3 bereits erreicht und müssen zum Lösen der Gleichung
+    Diese beiden Informationen können wir in unserer Gleichung nutzen, indem wir dort, wo von \mtext{Plätze Mitte} die Rede ist, stattdessen unser Wissen einsetzen, dass \mtext{Plätze Mitte} nichts anderes ist als $3\cdot \mtext{Plätze Süden}$. Auf die gleiche Weise können wir statt \mtext{Plätze Norden} auch $2\cdot \mtext{Plätze Süden}$ schreiben. Die Gleichung, die wir jetzt erhalten, sieht wie folgt aus:
+    \[\colorbrace{\mtext{Plätze Süden}}{x}+3\cdot \colorbrace{\mtext{Plätze Süden}}{x}+2\cdot \colorbrace{\mtext{Plätze Süden}}{x}=48.\]
+    Beim Weiterrechnen kürzen wir \mtext{Plätze Süden} ab sofort mit $x$ ab, um Schreibaufwand zu sparen. Es bleibt die Aufgabe übrig, wie gehabt die Gleichung $x+3x+2x=48$ zu lösen. Die linke Seite kann direkt zu $6x$ zusammengefasst werden. Wir haben also Zwischenziel 3 bereits erreicht und müssen zum Lösen der Gleichung
     \[6x=48 \commentLine{:6}\]
     nur noch die Gleichung durch $6$ teilen. Als Ergebnis erhalten wir
-    \[x=8,\]
-    also haben wir die Lösungsmenge $\Solutions=\{8\}$. $x$ war ja nichts anderes als die Anzahl der Qualifikationsplätze für Süddeutschland. Wir wissen jetzt also, dass Süddeutschland $8$ Plätze bekommt. Die Plätze von Mittel- und Norddeutschland auszurechnen, ist damit einfach: Mitteldeutschland erhält $8\cdot 3=24$ Plätze und Norddeutschland $8\cdot 2=16$ Plätze.
+    \[x=8.\]
+    Also haben wir die Lösungsmenge $\Solutions=\{8\}$. $x$ war ja nichts anderes als die Anzahl der Qualifikationsplätze für Süddeutschland. Wir wissen jetzt also, dass Süddeutschland $8$ Plätze bekommt. Die Plätze von Mittel- und Norddeutschland auszurechnen, ist damit einfach: Mitteldeutschland erhält $8\cdot 3=24$ Plätze und Norddeutschland $8\cdot 2=16$ Plätze.
 \end{example}
 
 \begin{nutshell}{Lineare Gleichungen lösen}
     \textbf{Lineare Gleichungen} sind Gleichungen, deren linke und rechte Seite sich beide in die Gestalt $ax+b$ für Zahlen $a,b\in\Real$ umformen lassen. 
     
-    Um eine lineare Gleichung nach $x$ aufzulösen, müssen nach einander die folgenden Zwischenziele erreicht werden:
+    Du kannst eine lineare Gleichung nach $x$ aufzulösen, indem du nach einander die folgenden Zwischenziele erreichst:
     \vspace*{2mm}
     
     \textbf{Zwischenziel 1: Beliebige Lineare Gleichung}\\ 
