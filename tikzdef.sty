@@ -2,6 +2,7 @@
 \usepackage{pgfplots}
 
 \usetikzlibrary{decorations.pathreplacing,calligraphy}
+\usetikzlibrary{calc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Styles
@@ -22,6 +23,7 @@
     }
 }
 \tikzstyle{grayset}=[draw,fill=black!10]
+\tikzstyle{darkgrayset}=[draw,fill=black!15]
 \tikzstyle{onbase}=[baseline={([yshift=-.5ex]current bounding box.center)}]
 
 
@@ -82,8 +84,8 @@
     \draw[fill=brown!50!black, line width=.3mm] (-0.05,-0.45) rectangle (0.05, 1.8);
     
     \draw[fill=white] (0.3,1.4) -- (0.2,0.8) -- (-0.2,0.8) -- (-0.3,1.4) -- cycle;
-    
-    \fill (0.1,1.4) -- (-0.1,1.4) -- (0,1.1) -- cycle;
+
+    \fill ($(-10:0.1) + (0,1.4)$) -- ++ (170:0.2) -- ++ (-86.565:0.316227766) -- cycle;
     \foreach \phi in {-120,-105,-90,-75,-60}{
         \draw ($ (0,1.2) + (\phi:0.2) $) -- ($ (0,1.2) + (\phi:0.3) $);
     }
@@ -103,6 +105,21 @@
     \draw (rightanchor) -- ++ (0.45,-1.15) coordinate (rightbowlR);
     \shadedraw[top color=black!15,bottom color=black!60] (rightbowlL) to[out=270, in=270] (rightbowlR) -- cycle;
     \end{tikzpicture}
+}
+
+\newcommand{\bigarrow}[1]{
+    \tikz[
+        marble/.style={
+            shading=ball,
+            circle,
+            inner sep=.2cm,
+            draw
+        }
+    ]{
+        \fill[maincolor] (0,0.1) -- (1.2,0.1) -- (1.2,0) -- (1.45,0.2) -- (1.2,0.4) -- (1.2,0.3) -- (0,0.3) -- cycle;
+        \draw[black!5] (0,-1) circle[radius=1mm];
+        #1
+    }
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -23,6 +23,7 @@
 % Functions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\xor}{\ensuremath{\mathbin{\oplus}}}
+\renewcommand{\div}{\ensuremath{\mathbin{:}}}
 \newcommand{\corresponds}{\ensuremath{\mathbin{\widehat{=}}}}
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
@@ -32,6 +33,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Relations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\subsetneq}{\ensuremath{\subset}}
 \newcommand{\perdef}[1][=]{\mathbin{\overset{\text{def}}{#1}}}
 \newcommand{\axiom}[1]{
     \ensuremath{
@@ -86,6 +88,15 @@
     \zposx{\thepossaveslot}sp%
 }
 \newcommand{\commentLine}[1]{\makebox[0pt][l]{\pushxpos\hspace{\textwidth-\getxpos}\textcolor{maincolor}{$\bigl|\,#1$}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Propositional Logic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\statement}[1]{\textrm{\enquote{\textbf{#1}}}}
+\def\wahr{\text{\color{green!50!black}wahr}}
+\def\falsch{\text{\color{red!80!black}falsch}}
+\newcolumntype{s}{||}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Memes

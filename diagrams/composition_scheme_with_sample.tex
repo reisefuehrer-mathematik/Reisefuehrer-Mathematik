@@ -1,32 +1,31 @@
 \begin{tikzpicture}[scale=.75]
-\draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
-\draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
-\draw[grayset] (4.5,0) ellipse (0.7cm and 2cm);
+    \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+    \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+    \draw[grayset] (4.5,0) ellipse (0.7cm and 2cm);
 
-\node[red] (x1) at (-1.5,0.7) {$\bullet$};
-%\node (x2) at (-1.5,-0.2) {$\bullet$};
-\node (x3) at (-1.5,-1.1) {$\bullet$};
-\node (y1) at (1.5,0.7) {$\bullet$};
-\node (y2) at (1.5,-0.2) {$\bullet$};
-\node[violet] (y3) at (1.5,-1.2) {$\bullet$};
-\node (z1) at (4.5,1.2) {$\bullet$};
-\node (z2) at (4.5,0.4) {$\bullet$};
-\node (z3) at (4.5,-0.4) {$\bullet$};
-\node[blue] (z4) at (4.5,-1.2) {$\bullet$};
+    \node[red] (x1) at (-1.5,0.7) {$\bullet$};
+    %\node (x2) at (-1.5,-0.2) {$\bullet$};
+    \node (x3) at (-1.5,-1.1) {$\bullet$};
+    \node (y1) at (1.5,0.7) {$\bullet$};
+    %\node (y2) at (1.6, 0) {$\bullet$};
+    \node[violet] (y3) at (1.5,-1.2) {$\bullet$};
+    \node (z1) at (4.5,1.2) {$\bullet$};
+    \node (z2) at (4.5,0.4) {$\bullet$};
+    \node (z3) at (4.5,-0.4) {$\bullet$};
+    \node[blue] (z4) at (4.5,-1.2) {$\bullet$};
 
-\draw[->] (x1) -- (y3);
-%\draw[->] (x2) to[bend right] (y1);
-\draw[->] (x3) to[bend right] (y2);
+    \draw[red, ->] (x1) -- (y3);
+    %\draw[->] (x2) to[bend right] (y1);
+    \draw[red, ->] (x3) to[bend left] (y1);
 
-\draw[->] (y1) -- (z3);
-\draw[->] (y2) to[bend right] (z1);
-\draw[->] (y3) -- (z4);
+    \draw[blue, ->] (y1) to (z1);
+    \draw[blue, ->] (y3) -- (z4);
 
-\draw[black!30, ->] (x1) to[bend right] (z4);
-%\draw[black!30, ->] (x2) -- (z3);
-\draw[black!30, ->] (x3) -- (z1);
+    \draw[black!30, ->] (x1) to (z4);
+    %\draw[black!30, ->] (x2) -- (z3);
+    \draw[black!30, ->] (x3) -- (z1);
 
-\node at (0,1) {$f$};
-\node at (3,1) {$g$};
-%\node[black!30] at (3,-1.7) {$g\circ f$};
+    \node[red] at (0,-1) {$f$};
+    \node[blue] at (3,-1) {$g$};
+    %\node[black!30] at (3,-1.7) {$g\circ f$};
 \end{tikzpicture}

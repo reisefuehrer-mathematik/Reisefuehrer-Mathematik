@@ -1,0 +1,43 @@
+name: Vorschlag
+description: Einen Vorschlag machen
+title: "[Vorschlag]"
+labels: ["vorschlag"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wenn du einen Vorschlag für das Projekt hast, dann kannst du ihn hier eingeben.
+  - type: input
+    id: title
+    attributes:
+      label: Titel
+      description: Ein kurzer Titel, der deinen Vorschlag in wenigen Worten beschreibt.
+      placeholder: |
+        Z. B.: Eulersche Phi-Funktion in Kombinatorik behandeln
+    validations:
+      required: true
+  - type: dropdown
+    id: regarding
+    attributes:
+      label: Betroffener Projektteil
+      description: |
+        Welche Teile des Projektes betrifft der Vorschlag?
+        Wenn du nicht sicher bist, gibt es dafür auch eine Auswahl.
+      multiple: true
+      options:
+        - Buch
+        - Vorbereitungsblätter
+        - Aufgabenblöcke
+        - Videos
+        - Nicht sicher
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschreibung
+      description: Beschreib hier so kurz wie möglich deinen Vorschlag.
+        Wie sieht der Vorschlag aus? Welche Vorteile hat er für das Projekt?
+  - type: markdown
+    attributes:
+      value: |
+        Vielen Dank für dein Interesse an dem Projekt.
+        Wir wissen es sehr zu schätzen, dass Du Dir gedanken gemacht hast, wie man es weiter verbessern kann.

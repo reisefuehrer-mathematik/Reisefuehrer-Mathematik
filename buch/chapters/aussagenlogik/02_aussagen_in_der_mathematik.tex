@@ -2,28 +2,6 @@
 
 \begin{document}
 
-%\newcommand{\statement}[1]{\textrm{\enquote{\textbf{#1}}}}
-%\newcommand{\statement}[1]{\textrm{\fontencoding{T1}\fontsize{10}{12}\fontfamily{put}\itshape\selectfont#1}}
-\newcommand{\statement}[1]{\textrm{\enquote{\textbf{#1}}}}
-\def\wahr{\text{\color{green!50!black}wahr}}
-\def\falsch{\text{\color{red!80!black}falsch}}
-%\newcommand{\centralizedImage}[3]{
-%   \ifthenelse{\equal{#3}{}}
-%   {
-%   \begin{minipage}[c][][c]{#2cm}
-%       \includegraphics[height=1cm]{#1}
-%   \end{minipage}
-%   }
-%   {
-%   \begin{minipage}[c][][c]{#2cm}
-%    \begin{tikzpicture}
-%       \node at (0,0) {\includegraphics[height=1cm]{#1}};
-%       \draw[line width=2mm,red,opacity=0.6] (-.5,-.5) -- (.5,.5);
-%       \draw[line width=2mm,red,opacity=0.6] (.5,-.5) -- (-.5,.5);
-%    \end{tikzpicture}
-%   \end{minipage}
-%   }
-%}
 \newcommand{\statementIcon}[3]{
     \begin{tikzpicture}[onbase]
         \node at (0,0) {\includegraphics[height=1cm]{#1}};

@@ -105,7 +105,7 @@ geschrieben. Für uns bedeutet das hier, dass bei zwei äquivalenten Gleichungen
     
     Andersherum gilt dies allerdings nicht: Die zweite Gleichung hat auch die Lösung $-2$. Diese Zahl erfüllt die erste Gleichung jedoch nicht. Dass heißt, dass daraus, dass eine Zahl die Gleichung $x^2=4$ erfüllt, nicht unbedingt folgt, dass sie auch die Gleichung $x=2$ erfüllt. Wir können in diesem Fall
     \[x=2\implies x^2=4\]
-    schreiben, allerdings gilt die Umkehrung nicht.
+    schreiben, allerdings gilt die Umkehrung $x^2=4 \implies x=2$ nicht.
 \end{example}
 Wenn wir uns nun auf die Suche nach Äquivalenzumformungen machen, dann müssen wir also immer die Frage beantworten, ob jede Lösung der ursprünglichen Gleichung auch eine Lösung der umgeformten Gleichung sein muss und umgekehrt.
 
@@ -130,6 +130,12 @@ Wir stellen uns Gleichungen als Balkenwaagen im Gleichgewicht vor. Bei Balkenwaa
             \draw[line width=0.75mm] (0.8,0.71) circle[radius=0.06cm];
             \node[white] at (0.8,0.45) {$14$};
         \end{linearEquation}
+        \bigarrow{
+            \node at (0.4,0.2) {$-$};
+            \fill (0.95,0.03) -- (0.55,0.03) -- (0.6,0.38) -- (0.9,0.38) -- cycle;
+            \draw[line width=0.75mm] (0.75,0.44) circle[radius=0.06cm];
+            \node[white] at (0.75,0.2) {$3$};
+        }
         \begin{linearEquation}
             %Füllung linke Waagschale
             \node[white,marble,inner sep=.12cm] at (-1.15,0.35) {$x$};
@@ -141,15 +147,20 @@ Wir stellen uns Gleichungen als Balkenwaagen im Gleichgewicht vor. Bei Balkenwaa
         \end{linearEquation}
     \end{center}
     
-    Auf der links abgebildeten Balkenwaage ist die Gleichung $2x+3=17$ dargestellt. Weil $14+3=17$ gilt, haben wir uns entschieden, statt einem Gewicht mit dem Wert $17$ stattdessen zwei Gewichte mit den Werten $14$ und $3$ auf die rechte Seite zu legen. 
+    Auf der links abgebildeten Balkenwaage ist die Gleichung $2x+3=17$ dargestellt. Weil $14+3=17$ gilt, haben wir uns entschieden, statt einem Gewicht mit dem Wert $17$ zwei Gewichte mit den Werten $14$ und $3$ auf die rechte Seite zu legen. 
     
     Das Gewicht mit der Beschriftung 3 befindet sich hier sowohl in der linken als auch in der rechten Waagschale. Wir können es also einfach auf beiden Seiten von der Waage entfernen, ohne dass die Waage sich dadurch aus dem Gleichgewicht bewegt.
 
     Nachdem beide Gewichte von der Waage entfernt wurden, sieht sie aus wie im rechten Bild. Sie befindet sich immer noch im Gleichgewicht. Die Waage rechts stellt die neue Gleichung $2x=14$ dar. Diese Gleichung ist äquivalent zur vorherigen Gleichung $2x+3=17$.
     
-    Um die neue Gleichung rechnerisch zu erhalten, müssen wir auf beiden Seiten die gleiche Zahl subtrahieren. Wir haben jeweils 3 subtrahiert und bekommen deshalb auf der linken Seite 
-    \[\colorbrace{(2x+3)}{\text{linke Seite vorher}}-3=2x.\]
-    Auf der rechten Seite haben wir $17-3=14$ gerechnet und dadurch insgesamt die neue Gleichung $2x=14$ erhalten. Die Gleichung ist äquivalent zur ursprünglichen Gleichung $2x+3=17$, weil ein Wert für $x$, der die Gleichung vorher erfüllt (also die Waage ins Gleichgewicht gebracht) hätte, auch die neue Gleichung erfüllt, deren Wert sowohl links auch rechts einfach nur um 3 kleiner ist. Es gilt $17=17$, also natürlich auch $17-3=17-3$.
+    Um die neue Gleichung rechnerisch zu erhalten, müssen wir auf beiden Seiten die gleiche Zahl subtrahieren. Wir haben jeweils 3 subtrahiert und bekommen deshalb 
+    \begin{align*}
+        \tag{vorher}2x+3&=17\commentLine{-3}\\
+        \tag{nachher}2x&=14.
+    \end{align*}
+    Die orangefarbene \enquote{$|\,-3$} rechts von den Gleichungen weist wir darauf hin, dass wir die zweite Gleichung aus der ersten erhalten haben, indem wir auf beiden Seiten $-3$ gerechnet haben. Der Strich in dieser Schreibweise heißt \textbf{Befehlsstrich}. 
+    
+    Die neue Gleichung ist äquivalent zur ursprünglichen Gleichung $2x+3=17$, weil ein Wert für $x$, der die Gleichung vorher erfüllt (also die Waage ins Gleichgewicht gebracht) hätte, auch die neue Gleichung erfüllt, deren Wert sowohl links auch rechts einfach nur um 3 kleiner ist. Es gilt $17=17$, also natürlich auch \mbox{$17-3=17-3$}. Umgekehrt erfüllt jeder Wert, der die neue Gleichung erfüllt, natürlich auch die ursprüngliche.
 \end{example}
 
 Es ist also erlaubt, auf der linken und der rechten Seite einer Gleichung jeweils den gleichen Term zu subtrahieren, denn die dadurch neu entstehende Gleichung wird immer noch von genau denselben Werten für $x$ erfüllt wie die alte. Die neu entstehende Gleichung ist also \emph{äquivalent} zur ursprünglichen. Das Subtrahieren eines Terms auf beiden Seiten ist damit eine \emph{Äquivalenzumformung}. Wenn vorher auf beiden Seiten das gleiche stand, dann auch, wenn beide Seiten -- links und rechts -- um jeweils den gleichen Wert verkleinert wurden.
@@ -177,6 +188,15 @@ Wichtig ist, dass es \textbf{nicht ausreicht, den Term von nur einer Seite zu su
     Hätten wir stattdessen nur auf der linken Seite 3 subtrahiert, dann hätten wir die Gleichung $2x=17$ bekommen -- und die Waage zum Kippen gebracht, weil die linke Seite nun auf einmal leichter als die rechte ist.
 \end{example}
 
+Wenn wir es also richtig machen machen, dann verändern wir beide Seiten der Gleichung auf die gleiche Weise, zum Beispiel, indem wir auf beiden Seiten $-3$ rechnen. Um alles übersichtlich zu halten, schreiben wir eine neue Gleichung, die wir durch eine Äquivalenzumformung erhalten, nicht neben die alte Gleichung, sondern darunter. Außerdem solltest du darauf achten, dass die Gleichheitszeichen untereinander stehen.
+
+Wenn du darüber hinaus auch noch auf einen Blick sehen möchtest, wie du die Seiten der Gleichung verändert hast, um die untere zu bekommen, dann kannst du diese Rechnung rechts neben der ersten Gleichung noch zusätzlich aufschreiben. Wenn du
+\begin{align*}
+    \tag{vorher}2x+3&=17\commentLine{-3}\\
+    \tag{nachher}2x&=14.
+\end{align*}
+schreibst, dann kannst du später auf einen Blick sehen, dass du auf beiden Seiten der oberen Gleichung $3$ subtrahieren musst, um die untere Gleichung zu erhalten. Den Strich verwenden wir, damit es wirklich eindeutig ist, dass \enquote{$-3$} nicht mehr zur Gleichung gehört. Er heißt \textbf{Befehlsstrich}.
+
 Wir schauen uns ein weiteres Beispiel an, in dem sich durch das Entfernen von Gegenständen aus den Waagschalen eine neue, äquivalente Gleichung erzeugen lässt.
 
 \begin{example}{}
@@ -191,6 +211,10 @@ Wir schauen uns ein weiteres Beispiel an, in dem sich durch das Entfernen von Ge
             \node[white] at (0.8,0.45) {$9$};
             \node[white,marble,inner sep=.12cm] at (1.2,0.35) {$x$};
         \end{linearEquation}
+        \bigarrow{
+            \node at (0.4,0.2) {$-$};
+            \node[white,marble,inner sep=.1cm] at (0.8,0.2) {\scriptsize $x$};
+        }
         \begin{linearEquation}
             %Füllung linke Waagschale
             \node[white,marble,inner sep=.12cm] at (-1,0.35) {$x$};
@@ -203,7 +227,12 @@ Wir schauen uns ein weiteres Beispiel an, in dem sich durch das Entfernen von Ge
     
     Statt Gewichte zu entfernen, kann man auch Kugeln von der Waage entfernen. Die linke Waage stellt beispielsweise die Gleichung $2x=9+x$ dar. Sowohl auf der linken als auch auf der rechten Waagschale liegt eine Kugel. Wir können links und rechts jeweils eine Kugel entfernen. Da die Kugeln gleich schwer waren, bleibt die Waage dabei im Gleichgewicht.
     
-    Wir erhalten die Waage auf der rechten Seite (ohne die entfernten Kugeln). Was übrig bleibt, ist links eine einzelne Kugel (also $x$) und rechts das einzelne Gewicht mit der Beschriftung $9$. Wir erhalten durch Subtrahieren von $x$ auf beiden Seiten also die Gleichung $x=9$, die äquivalent zur vorherigen Gleichung $2x=9+x$ ist.
+    Wir erhalten die Waage auf der rechten Seite (ohne die entfernten Kugeln). Was übrig bleibt, ist links eine einzelne Kugel (also $x$) und rechts das einzelne Gewicht mit der Beschriftung $9$. 
+    \begin{align*}
+        \tag{vorher}2x&=9+x\commentLine{-x}\\
+        \tag{nachher}x&=9.
+    \end{align*}
+    Wir erhalten durch Subtrahieren von $x$ auf beiden Seiten also die Gleichung $x=9$, die äquivalent zur vorherigen Gleichung $2x=9+x$ ist.
 \end{example}
 
 Während wir in den letzten Beispielen vor allem Gewichte bzw. Kugeln entfernt haben, können wir natürlich auch genau das Gegenteil machen: Gewichte und Kugeln hinzufügen. Solange wir auf beiden Seiten das gleiche hinzufügen, bleibt die Waage im Gleichgewicht (wenn sie vorher schon im Gleichgewicht war).
@@ -212,6 +241,13 @@ Während wir in den letzten Beispielen vor allem Gewichte bzw. Kugeln entfernt h
     \begin{center}
         \begin{linearEquation}
         \end{linearEquation}
+        \bigarrow{
+            \node at (0.2,0.2) {$+$};
+            \node[white,marble,inner sep=.1cm] at (0.9,0.2) {\scriptsize $x$};
+            \fill (0.75,0.03) -- (0.35,0.03) -- (0.4,0.38) -- (0.7,0.38) -- cycle;
+            \draw[line width=0.75mm] (0.55,0.44) circle[radius=0.06cm];
+            \node[white] at (0.55,0.2) {$8$};
+        }
         \begin{linearEquation}
             %Füllung linke Waagschale
             \fill (-1.45,0.25) -- (-0.95,0.25) -- (-1,0.65) -- (-1.4,0.65) -- cycle;
@@ -227,7 +263,12 @@ Während wir in den letzten Beispielen vor allem Gewichte bzw. Kugeln entfernt h
     \end{center}
     Eine Balkenwaage, auf die wir nichts gelegt haben, befindet sich natürlich zunächst erst einmal im Gleichgewicht -- so wie die Waage auf dem linken Bild. Sie stellt die Gleichung $0=0$ dar.
     
-    Auch die rechte Waage befindet sich im Gleichgewicht. Wir haben einfach auf beiden Seiten das gleiche Gewicht und die gleiche Anzahl an Kugeln hinzugefügt. Dort steht die Gleichung $x+8=x+8$. Diese Veränderung bringt die Waage selbstverständlich nicht aus dem Gleichgewicht. Deshalb ist die neue Gleichung $x+8=x+8$ äquivalent zur Gleichung $0=0$. 
+    Auch die rechte Waage befindet sich im Gleichgewicht. Wir haben einfach auf beiden Seiten das gleiche Gewicht und die gleiche Anzahl an Kugeln hinzugefügt. 
+    \begin{align*}
+        \tag{vorher}0&=0\commentLine{+8+x}\\
+        \tag{nachher}8+x&=8+x
+    \end{align*}
+    Diese Veränderung bringt die Waage selbstverständlich nicht aus dem Gleichgewicht. Deshalb ist die neue Gleichung $8+x=8+x$ äquivalent zur Gleichung $0=0$. 
     
     Beide Gleichungen sind immer erfüllt (also unabhängig davon, welchen Wert wir für $x$ einsetzen).
     Der Wert von $x$ sollte allerdings sinnvollerweise eine Zahl sein. Die Menge aller uns bekannten Zahlen ist die Menge \Real der reellen Zahlen. Da alle reellen Zahlen die Gleichung lösen, haben die Gleichungen die Lösungsmenge $\Solutions=\Real$.
@@ -258,6 +299,9 @@ Bisher haben wir gesehen, dass das beiderseitige Hinzufügen bzw. Entfernen von 
             \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
             \node[white] at (1,0.45) {$11$};
         \end{linearEquation}
+        \bigarrow{
+            \node[circle, inner sep=1mm, fill=white] at (0.6,0.2) {$\cdot 2$};
+        }
         \begin{linearEquation}
             %Füllung linke Waagschale
             \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
@@ -275,9 +319,12 @@ Bisher haben wir gesehen, dass das beiderseitige Hinzufügen bzw. Entfernen von 
     
     Legen wir nun einfach jeden Gegenstand auf der linken Seite der Waage noch ein weiteres Mal dazu, so erhalten wir links den Term $2x+8$. Anschaulich wiegt dies doppelt so viel wie vorher, denn wir haben einfach alles, was bereits auf der Wage lag, noch ein zweites Mal auf die Waage gelegt.
     
-    Dadurch wäre die linke Seite nun aber erstmal doppelt so schwer wie die rechte. Um das auszugleichen, müssen wir auch das Gewicht der rechten Seite verdoppeln, das Gewicht mit der 11 also noch ein weiteres Mal auf die Waage legen. Dadurch verdoppelt sich das Gesamtgewicht auf der rechten Seite auf 22. Nun, da wir beide Seiten verdoppelt haben, befindet sich die Waage wieder im Gleichgewicht.
-    
-    Daraus, dass die Waage sich nach dem Verdoppeln im Gleichgewicht befindet, kannst du umgekehrt natürlich auch schließen, dass sie vorher schon im Gleichgewicht gewesen sein musste.
+    Dadurch wäre die linke Seite nun aber erstmal doppelt so schwer wie die rechte. Um das auszugleichen, müssen wir auch das Gewicht der rechten Seite verdoppeln, das Gewicht mit der 11 also noch ein weiteres Mal auf die Waage legen. Dadurch verdoppelt sich das Gesamtgewicht auf der rechten Seite auf 22. 
+    \begin{align*}
+        x+4&=11\commentLine{\cdot 2}\\
+        2x+8&=22
+    \end{align*}
+    Nun, da wir beide Seiten verdoppelt haben, befindet sich die Waage wieder im Gleichgewicht. Daraus, dass die Waage sich nach dem Verdoppeln im Gleichgewicht befindet, kannst du umgekehrt natürlich auch schließen, dass sie vorher schon im Gleichgewicht gewesen sein musste.
 \end{example}
 Im Beispiel haben wir, statt auf beiden Seiten dieselben Gegenstände zu entfernen oder hinzuzufügen, beide Seiten einzeln betrachtet und jeweils verdoppelt, also beide Seiten mit 2 multipliziert. Genauso wäre es auch möglich gewesen, alles zu verfünffachen oder mit (fast) jeder beliebigen anderen Zahl zu multiplizieren. Bei der Multiplikation mit 5 wären zum Beispiel beide Seiten danach fünfmal so schwer wie vorher, was die Waage auch nicht aus dem Gleichgewicht bringt.
 
@@ -297,6 +344,9 @@ Beim Multiplizieren ist jedoch Vorsicht geboten, weil sich Gleichungen durch unv
             \draw[line width=0.75mm] (1,0.53) circle[radius=0.06cm];
             \node[white] at (1,0.27) {$16$};
         \end{linearUnequal}
+        \bigarrow{
+            \node[circle, inner sep=1mm, fill=white] at (0.6,0.2) {$\cdot 0$};
+        }
         \begin{linearEquation}
         \end{linearEquation}
     \end{center}
@@ -304,12 +354,15 @@ Beim Multiplizieren ist jedoch Vorsicht geboten, weil sich Gleichungen durch unv
     
     Auch wenn wir die Gleichung mit einer Zahl wie 3 oder 7 multiplizieren, bleibt die rechte Seite schwerer als die linke. Das ist auch gut so, denn wenn die Waage auf einmal im Gleichgewicht wäre, dann hätte die Gleichung auf einmal eine Lösung (und wäre damit nicht äquivalent zur Gleichung $14=16$, die keine Lösung hat). 
     
-    Stattdessen multiplizieren wir die Gleichung nun aber mit 0, entfernen also effektiv alle Gegenstände von der Waage. Das Ergebnis ist eine leere Waage, die die Gleichung $0=0$ repräsentiert und sich wieder im Gleichgewicht befindet. Weil die Waage vorher aber nicht im Gleichgewicht war, zeigt dies, dass wir \emph{keine Äquivalenzumformung} vorgenommen haben: Die Gleichungen $14=16$ und $0=0$ verhalten sich vollkommen unterschiedlich, denn eine der beiden Aussagen ist offenbar immer wahr, die andere immer falsch.
+    Stattdessen multiplizieren wir die Gleichung nun aber mit 0, entfernen also effektiv alle Gegenstände von der Waage.
+    Das Ergebnis ist eine leere Waage, die die Gleichung $0=0$ repräsentiert und sich wieder im Gleichgewicht befindet. Weil die Waage vorher aber nicht im Gleichgewicht war, zeigt dies, dass wir \emph{keine Äquivalenzumformung} vorgenommen haben: Die Gleichungen $14=16$ und $0=0$ verhalten sich vollkommen unterschiedlich, denn eine der beiden Aussagen ist offenbar immer wahr, die andere immer falsch.
 \end{example}
 
 Im Beispiel haben wir gesehen, dass es unklug ist, eine Gleichung mit 0 zu multiplizieren. Das kann man zwar machen, aber die dann entstehende Gleichung ist nicht äquivalent zur ursprünglichen. Stattdessen erhält man die immer erfüllte Gleichung $0=0$, die ziemlich langweilig ist. Insbesondere sagt sie nichts über das gesuchte $x$ in der ursprünglichen Gleichung aus.
 
 Das Multiplizieren beider Seiten mit einer Zahl ist normalerweise eine Äquivalenzumformung, wie das vorletzte Beispiel gezeigt hat. Allerdings dürfen wir eine Gleichung \emph{niemals mit 0 multiplizieren}, weil wir dann immer die Gleichung $0=0$ erhalten, mit der wir nichts anfangen können.
+
+Wenn wir den Wert der Unbekannten $x$ suchen, die in einer Gleichung vorkommt, dann können wir erstmal nicht sagen, ob sie vielleicht den Wert $0$ hat. Da wir eine Gleichung aber nicht mit $0$ multiplizieren dürfen, können ist es auch nicht sinnvoll, eine Gleichung mit $x$ zu multiplizieren. Außerdem dürfen wir die Gleichung auch nicht durch $x$ teilen, denn es ist nicht möglich, durch $0$ zu teilen.
 
 Bevor wir zusammenfassen, welche Äquivalenzumformungen wir bisher gesehen haben, betrachten wir noch ein weiteres Beispiel. Es wird darauf hinauslaufen, dass wir beide Seiten einer Gleichung durch dieselbe Zahl dividieren.
 
@@ -325,6 +378,9 @@ Bevor wir zusammenfassen, welche Äquivalenzumformungen wir bisher gesehen haben
             \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
             \node[white] at (1,0.45) {$18$};
         \end{linearEquation}
+        \bigarrow{
+            \node[circle, inner sep=1mm, fill=white] at (0.6,0.2) {$\div 3$};
+        }
         \begin{linearEquation}
             %Füllung linke Waagschale
             \node[white,marble,inner sep=.12cm] at (-1,0.35) {$x$};
@@ -336,9 +392,15 @@ Bevor wir zusammenfassen, welche Äquivalenzumformungen wir bisher gesehen haben
     \end{center}
     Links sehen wir, wie die Gleichung $3x=18$ auf einer Balkenwaage dargestell ist. Wir können sofort sagen, dass das Gesamtgewicht auf der linken Seite dreimal so groß ist wie das einer einzelnen Kugel. Wir können nun beginnen und zwei der drei Kugeln entfernen, wodurch auf der linken Seite dann nur noch eine Kugel (also $x$) übrig bleibt. Natürlich verändert das aber das Gewicht auf der linken Seite und wir müssen irgendetwas mit der rechten Seite machen, damit die Waage nicht aus dem Gleichgewicht kommt.
     
-    Wie genau hat sich das Gewicht links also verändert? Im Wesentlichen ist das ganz einfach zu beantworten: Wir hatten vorher drei Kugeln, jetzt haben wir nur noch eine. Das Gewicht ist also nur noch ein Drittel vom ursprünglichen Gewicht. Dadurch ist auch klar, was auf der rechten Seite zu tun ist: Wir müssen das Gewicht auf der rechten Seite durch 3 teilen. Dort erhalten wir also $18:3=6$. Schließlich führt das zur Waage auf der rechten Seite, die die Gleichung $x=6$ darstellt. Mittlerweile liegt auf beiden Seiten nur noch ein Drittel des ursprünglichen Gewichts, aber da wir beide Seiten durch 3 geteilt haben, ist die Waage immer noch im Gleichgewicht.
+    Wie genau hat sich das Gewicht links also verändert? Im Wesentlichen ist das ganz einfach zu beantworten: Wir hatten vorher drei Kugeln, jetzt haben wir nur noch eine. Das Gewicht ist also nur noch ein Drittel vom ursprünglichen Gewicht. Dadurch ist auch klar, was auf der rechten Seite zu tun ist: Wir müssen das Gewicht auf der rechten Seite durch 3 teilen. Dort erhalten wir also $18:3=6$.
     
-    In diesem Beispiel haben wir also beide Seiten mit $\frac{1}{3}$ multipliziert (oder, weil das genau dasselbe ist: Wir haben beide Seiten durch 3 geteilt).
+    Schließlich führt das zur Waage auf der rechten Seite, die die Gleichung $x=6$ darstellt. Mittlerweile liegt auf beiden Seiten nur noch ein Drittel des ursprünglichen Gewichts, aber da wir beide Seiten durch 3 geteilt haben, ist die Waage immer noch im Gleichgewicht.
+    
+    In diesem Beispiel haben wir also beide Seiten mit $\frac{1}{3}$ multipliziert oder (weil das genau dasselbe ist) beide Seiten durch 3 geteilt.
+    \begin{align*}
+        3x&=18\commentLine{\div 3}\\
+        x&=6.
+    \end{align*}
 \end{example}
 
 Wir haben jetzt insgesamt vier verschiedene Äquivalenzumformungen gesehen:
