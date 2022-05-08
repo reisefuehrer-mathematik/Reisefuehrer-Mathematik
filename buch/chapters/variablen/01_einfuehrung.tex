@@ -34,7 +34,8 @@
         Hier müssen wir (genau wie immer, wenn der Variablenname nicht klar sagt, wofür die Variable steht) angeben, für welchen Sachverhalt die Variable steht
     \end{example}
 
-    Das nächste Beispiel führt uns auf eine interessante Beobachtung, wenn wir mit Variablen rechnen.\todo{vlt schon grob teasern?}
+    Das nächste Beispiel führt uns auf eine interessante Beobachtung, wenn wir mit Variablen rechnen.
+    Wir sehen nämlich, dass wir dieselbe Rechnung durch unterschiedliche Terme ausdrücken können.
     \begin{example}{}
         Im folgenden Bild siehst du zwei Rechtecke, die dieselbe Höhe haben und nebeneinander liegen. Wir möchten einen Term für ihre Gesamtfläche finden.
         \begin{center}
@@ -72,8 +73,7 @@
         \[h\cdot b_1 + h \cdot b_2 = h\cdot (b_1 + b_2).\]
     \end{example}
 
-    \todo{welche Beobachtung? (steht im Beispiel, kann hier aber nochmal genannt werden. Die Redundanz hilft vermutlich)}
-    Diese Beobachtung kann verwunderlich sein. Wenn wir mit Zahlen rechnen, dann bekommen wir immer ein eindeutiges Ergebnis (eine Zahl).
+    Diese Beobachtung, dass das Ergebnis unserer Rechnung zwei verschiebene Terme sein können, kann verwunderlich sein. Wenn wir mit Zahlen rechnen, dann bekommen wir immer ein eindeutiges Ergebnis (eine Zahl).
     Mit Variablen kommen wir aber auf unterschiedliche Terme, die dasselbe beschreiben.
     Insbesondere könnte uns
     \[h\cdot b_1 + h \cdot b_2 = h\cdot (b_1 + b_2)\]
@@ -90,4 +90,37 @@
     Der Rest dieses Kapitels wird zuletzt die Begriffe des \enquote{Ausklammerns} und \enquote{Ausmultiplizierens} einführen,
     (hierbei handelt es sich lediglich um neue Begriffe für bereits bekannte Sachen)
     sowie besprechen, wie man Terme über Variablen übersichtlich aufschreiben kann, indem man Terme zusammenfasst.
+
+    Da es auf Dauer mühselig ist, Terme wie $4\cdot a\cdot b$ auszuschreiben, führen wir zuletzt noch die Kurznotation ein,
+    dass Produkte aus einbuchstabigen Variablennamen auch ohne \enquote{$\cdot$} geschrieben werden dürfen.
+    Wir können (müssen aber auch nicht) also statt $4\cdot a\cdot b$ auch $4ab$ schreiben.
+    Bevor dadurch komplett merkwürdige Konstrukte entstehen, fordern wir, dass Zahlen, die in dem Produkt vorkommen,
+    nach vorne geschrieben werden. Aus $a\cdot b\cdot 4$ würde also nicht $ab4$ sondern auch wieder $4ab$.
+    In der Regel sieht man zudem, dass die Variablen sinnvoll (zum Beispiel alphabetisch) sortiert werden.
+    Dies dient aber alles lediglicht einer übersichtlichen Notation.
+    
+    \begin{example}{Notation}
+        \begin{tabularx}{\linewidth}{YY|YY}
+            \textbf{Term} & \textbf{Kurznotation} & \textbf{Term} & \textbf{Kurznotation}\\
+            $x_1\cdot x_2\cdot 12$ & $12x_1x_2$ &
+            $12\cdot x_2\cdot x_1$ & $12x_1x_2$\\
+            $2\cdot x\cdot 3$ & $6x$ &
+            $1\cdot x$ & $x$\\
+            $3\cdot a + 4\cdot b$ & $3a+4b$ &
+            $3\cdot \mtext{Breite} \cdot \mtext{Höhe}$ & $3\cdot \mtext{Breite} \cdot \mtext{Höhe}$
+        \end{tabularx}
+    \end{example}
+
+    \begin{nutshell}{Variablen}
+        Wenn wir einen allgemeinen Zusammenhang beschreiben möchten, können wir \textbf{Variablen als Platzhalter} für konkrete Werte verwenden.
+
+        So können wir zum Beispiel für ein Rechteck sagen, dass
+        \[\mtext{Fläche} = \mtext{Breite} \cdot \mtext{Höhe}.\]
+        Bevor wir für die Fläche aber einen konkreten Wert berechnen können, müssen wir für die Variablen erst konkrete Werte \textbf{einsetzen}.
+
+        Wir können denselben Sachverhalt mit verschiedenen Termen über Variablen ausdrücken.
+        Dann nennen wir die beiden Terme \textbf{äquivalent}.
+
+        Um uns die Notation von Variablentermen zu vereinfachen, darf das \enquote{$\cdot$} in Produkten mit Variablen weg gelassen werden.
+    \end{nutshell}
 \end{document}
