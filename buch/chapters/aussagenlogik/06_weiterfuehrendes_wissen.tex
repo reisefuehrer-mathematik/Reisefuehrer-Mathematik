@@ -3,6 +3,68 @@
 \begin{document}
     \textcolor{red}{Hier entsteht Magie!!!}
     \section*{Fortgeschrittene Beweistechniken}
+    
+    \subsection{Vollständige Induktion}
+    Wenn in einer Reihe aus Dominosteinen der erste Stein umkippt und jeder umkippende Stein außerdem den nächsten zum Umfallen bringt, dann fällt nach und nach die ganze Reihe um.
+
+    Es lässt sich also mithilfe von zwei Beobachtungen feststellen, dass die ganze Reihe umfällt:
+    \begin{enumerate}
+        \item Der erste Stein der Reihe fällt um.
+        \item Immer, wenn ein Stein umfällt, fällt auch der nächste um.
+    \end{enumerate}
+    Auf diesem Prinzip baut die Beweistechnik der \textbf{vollständigen Induktion} auf. Wenn gezeigt werden soll, dass eine Aussage für die Zahlen $1,2,3,4,\dots$ gilt, dann genügt es aufgrund des gerade erklärten Prinzips, Folgendes zu zeigen:
+    \begin{enumerate}
+        \item Die zu beweisende Aussage gilt für die Zahl $1$ (\textbf{Induktionsanfang})
+        \item Unter der Voraussetzung, dass die Aussage für alle Zahlen $\leq n$ gilt (\textbf{In\-duk\-tions\-voraus\-setzung}), gilt die Aussage auch für $n+1$ (\textbf{Induktionsschritt}).
+    \end{enumerate}
+    Wenn du den \emph{Induktionsanfang} und den \emph{Induktionsschritt} für eine Aussage beweisen kannst, dann folgt daraus, dass die Aussage für alle Zahlen $1,2,3,4,\dots$ gilt.
+    
+    Anschaulich kannst du dir das so vorstellen: Der erste Stein fällt durch den Induktionsanfang um. Aus dem Induktionsschritt folgt jetzt, dass die Aussage auch für die Zahl 2 gelten muss (denn sie gilt ja für die 1). Auf die gleiche Weise folgt daraus, dass die Aussage für die 2 gilt, dass sie auch für die 3 gelten muss. Dieses Prinzip setzt sich fort, sodass die Aussage schließlich für beliebig große Zahlen gilt.
+    
+    Mithilfe von vollständiger Induktion können Aussagen, die für die Zahlen $1,2,3,4$ usw. gelten sollen, meistens bequem bewiesen werden.
+
+    \begin{example}{}
+        Beim Addieren der ersten ungeraden Zahlen fällt auf, dass wir als Ergebnis immer eine Quadratzahl erhalten:
+        \begin{multicols}{3}\centering
+            1+3=4\\
+            1+3+5=9\\
+            1+3+5+7=16
+        \end{multicols}
+        Es lässt sich also vermuten, dass die Summe der ersten $n$ ungeraden Zahlen immer eine Quadratzahl ist. Wir könnten also vermuten, dass die folgende Formel gilt (falls du das Summenzeichen $\sum$ noch nie gesehen hast, kannst du seine Bedeutung auf Seite \ref{summenzeichen} nachlesen):
+        \[\sum_{i=1}^n2i-1=n^2\]
+        Diese Formel lässt sich gut mithilfe einer vollständigen Induktion beweisen.
+        \begin{proof}
+        Wir beweisen unsere Vermutung mit einer vollständigen Induktion.
+        \begin{enumerate}
+            \item \textbf{Induktionsanfang.}\\
+                Die Formel gilt für $n=1$:
+                \[\sum_{i=1}^1=1=1^2.\]
+            \item \textbf{Induktionsschritt.}\\
+                Wir beweisen nun, dass die Formel für $n+1$ gilt. Es muss also noch bewiesen werden, dass
+                \[\sum_{i=1}^{n+1}2i-1=(n+1)^2\]
+                gilt. Nachdem wir die Aussage zu
+                \[\sum_{i=1}^{n+1}2i-1=\biggl(\colorbrace{\sum_{i=1}^n2i-1}{n^2}\biggr)+2(n+1)-1\]
+                umgeformt haben, können wir die \emph{Induktionsvoraussetzung} verwenden, also annehmen, dass die Formel für alle Zahlen $\leq n$ gilt. Nach Induktionsvoraussetzung hat der Teil in der Klammer also den Wert $n^2$. Dadurch erhalten wir
+                \[\sum_{i=1}^{n+1}2i-1=\colorbrace{n^2}{\text{wegen~I.V.}}+2(n+1)-1=n^2+2n+2-1=n^2+2n+1=(n+1)^2.\]
+        \end{enumerate}
+        \end{proof}
+    \end{example}
+    Der Induktionsanfang wird in Beweisen meistens mit \enquote{I.A.} abgekürzt, der Induktionsschritt mit \enquote{I.S.}. Außerdem spricht man meist einfach nur von Induktion und lässt das Wort \emph{vollständig} weg.
+    
+    \subsection{Ringschluss}
+    \subsection{Beweis durch Kontraposition}
+    \subsection{Schubfachprinzip}
+    Das \textbf{Schubfachprinzip} beruht auf einer sehr einfachen Beobachtung: Wenn du Tauben in Taubenkäfige sperren möchtest, aber mehr Tauben als Käfige hast, dann müssen in mindestens einem Käfig mehrere Tauben landen.
+    
+    Obwohl dies eine wenig überraschende Erkenntnis ist, lässt sie sich oft als die Grundlage mathematischer Beweise verwenden.
+    
+    \begin{example}{}
+        Beispiel mit den Freunden
+        \begin{proof}
+            Bla
+        \end{proof}
+    \end{example}
+    
     \label{advanced-proofs}
     %#1: Name
     %#2: Logische Grundlage
