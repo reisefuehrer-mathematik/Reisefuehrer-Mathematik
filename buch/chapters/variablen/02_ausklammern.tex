@@ -2,10 +2,10 @@
 
 \begin{document}
 	In der Einleitung haben wir gesehen, dass wir dieselbe Rechnung durch verschiedene Terme darstellen können.
-	Denselben Effekt können wir auch für das Rechnen mit Zahlen betrachten: Die Terme $2+3$ und $3+2$ haben
+	Denselben Effekt können wir auch für das Rechnen mit Zahlen beobachten: Die Terme $2+3$ und $3+2$ haben
 	wegen des \enquote{Vertauschungsgesetzes} (Kommutativität der Addition \mayberef) denselben Wert.
 
-	Das Distributivgesetz, dass du im ersten Kapitel dieses Buchs kennengelernt hast, sagt aus, dass $a\cdot b+a\cdot c=a\cdot (b+c)$ für beliebige Zahlen $a,b,c$ gilt.
+	Das Distributivgesetz, das du im ersten Kapitel dieses Buchs kennengelernt hast, sagt aus, dass $a\cdot b+a\cdot c=a\cdot (b+c)$ für beliebige Zahlen $a,b,c$ gilt.
 
 	\begin{example}{}
 		Mithilfe des Distributivgesetzes kannst du dir das Kopfrechnen vereinfachen. Zum Beispiel ist $12\cdot 8 + 12\cdot 2$ wesentlich
@@ -18,7 +18,7 @@
 
 	Wenn du es nun mit Termen zu tun hast, die Variablen enthalten, dann ändert sich überhaupt nichts daran. Denn das Distributivgesetz gilt für beliebige Zahlen, die du für $a,b$ und $c$ einsetzt. Jede Variable, die in einem Term wie
 	\[6x+3x\]
-	vorkommt, ist am Ende auch nur eine Zahl. Wir halten uns nur noch offen, welche Zahl wir am Ende einsetzen. Doch alle Teile des letzten Terms sind einfach nur Zahlen. $x$ ist ebenso wie $6x$ und $3x$ eine Zahl. Deshalb hält uns nichts davon ab, auch hier das Distributivgesetz anzuwenden:
+	vorkommt, ist am Ende auch nur eine Zahl. Wir halten uns nur noch offen, \emph{welche} Zahl wir am Ende einsetzen. Doch alle Teile des letzten Terms sind einfach nur Zahlen. $x$ ist ebenso wie $6x$ und $3x$ eine Zahl. Deshalb hält uns nichts davon ab, auch hier das Distributivgesetz anzuwenden:
 	\[6x+3x=(6+3)\cdot x=9x.\]
 
 	Die Erkenntnis, dass $6x+3x=9x$ gilt, funktioniert nicht nur, wenn du mit Variablen rechnest. In ganz alltäglichen Beispielen wie dem folgenden machst du genau das gleiche, ohne darüber nachzudenken.
@@ -38,7 +38,7 @@
 	\todo{\enquote{Einsetzen} von Werten für Variablen definieren}
 	
 	\begin{example}{}
-		Wir betrachten wieder das Beispiel aus der Einführung. Du hast zwei Rechtecke, die nebeneinander gelegt
+		Wie in der Einführung hast du zwei Rechtecke, die nebeneinander gelegt
 		ein neues Rechteck bilden und möchtest nun einen Ausdruck für die Gesamtfläche angeben.
 		\begin{center}
             \begin{tikzpicture}
@@ -55,91 +55,65 @@
                     node[pos=0.5,above=10pt,black]{$b_2$};
             \end{tikzpicture}
         \end{center}
-		Wir erinnern uns, dass wir die beiden Formeln $(h\cdot b_1 + h\cdot b_2)$ und $h\cdot (b_1+b_2)$
-		bisher erarbeitet haben und bisher nicht sagen konnten, welche von beiden \enquote{besser} ist als die
-		andere.
-
-		Wir betrachten aber jetzt den Fall, dass wir für zwei der drei Variablen Werte bekommen haben und möchten
-		jetzt für diese Gegebene Werte eine Formel angeben für die Gesamtfläche:
+		Dafür haben wir bereits die beiden Formeln $h\cdot b_1 + h\cdot b_2$ und $h\cdot (b_1+b_2)$ gefunden. Wir wissen bereits, dass diese beiden Terme gleich sein müssen, weil sie beide die gleiche Fläche beschreiben. Alternativ können wir auch schnell mit dem Distributivgesetz sehen, dass die Terme gleich sind:
+		$h\cdot b_1+h\cdot b_2=h\cdot (b_1+b_2)$ ist genau die Aussage des Distributivgesetzes 
+		\[a\cdot b+a\cdot c=a\cdot (b+c),\] 
+		nur mit anderen Buchstaben.
+		Wenn wir uns die beiden Terme einmal anschauen, dann fällt natürlich auf, dass wir im rechten Term eine Klammer haben, die links noch nicht stand. Diese Klammer ist entstanden, weil wir bemerkt haben, dass in beiden Summanden auf der linken Seite der Faktor $h$ vorkommt. Dadurch konnten wir das Distributivgesetz anwenden und $h$ vor die Klammer ziehen. Dazu sagt man auch, dass wir $h$ \textbf{ausgeklammert} haben.
+		\if 0
+		Welcher der beiden Terme für den Flächeninhalt ist jetzt aber besser?
 		\begin{itemize}
-			\item Wir setzen $b_1=2$ und $b_2=3$ in beide Formeln ein. Dann bekommen wir die Terme:
-				\[(h\cdot 2 + h\cdot 3) \text{ bzw. } h\cdot(2+3).\]
+			\item Wir setzen $b_1=2$ und $b_2=3$ in beide Formeln ein. Dann bekommen wir die Terme
+				\[h\cdot 2 + h\cdot 3 \text{ bzw. } h\cdot(2+3).\]
 				Während wir im linken Term keine Teilterme mehr zusammenfassen können, wissen wir im rechten Term, dass $2+3=5$.
 				Somit können wir auch schreiben
-				\[(h\cdot 2 + h\cdot 3) \text{ bzw. } h\cdot 5.\]
-				Hier ist aber ganz klar der rechte Term besser weil wir $h$ nur noch an einer Stelle einsetzen müssen.
+				\[h\cdot 2 + h\cdot 3 \text{ bzw. } h\cdot 5.\]
+				Hier ist aber ganz klar der rechte Term besser, weil wir $h$ nur noch an einer Stelle einsetzen müssen.
 				Wir wissen ja, dass wir $h$ mit dem Distributivgesetz vor die Klammern ziehen können. Daher sagen wir
 				im zweiten Term, wir haben \enquote{$h$ ausgeklammert}.
 			\item Wir setzen $h=3$ und $b_1=2$ in beide Formeln ein. Dann bekommen wir die Terme:
-				\[(3\cdot2+3\cdot b_2) \text{ bzw. } 3\cdot(2+b_2).\]
+				\[3\cdot2+3\cdot b_2 \text{ bzw. } 3\cdot(2+b_2).\]
 				Hier sehen wir, dass der linke Term weiter vereinfacht werden kann:
 				\[6+3\cdot b_2 \text{ bzw. } 3\cdot(2+b_2).\]
 				Und in diesem Fall ist also der linke Term übersichtlicher.
 		\end{itemize}
+		\fi
 	\end{example}
 
-	Das Beispiel zeigt uns, dass wir bei Termen mit Formeln uns überlegen können, wie wir sie darstellen können, um sie übersichtlich
-	zu halten. Wir möchten an dieser Stelle aber nochmal betonen, dass diese beiden Terme, die wir betrachtet haben, immer durch das
-	Distributivgesetz ineinander überführt werden können, wenn wir die Teilterme nicht weiter ausgerechnet haben.
-
-	Konkret haben wir gesehen, dass wir Faktoren aus Termen rausziehen können:
+	Was machen wir also eigentlich, wenn wir das Distributivgesetz $a\cdot b+a\cdot b=a\cdot (b+c)$ verwenden? Im Grunde genommen ist es ganz einfach: 
+	\begin{enumerate}
+		\item Wir \textbf{suchen einen Faktor, der in jedem Summanden vorkommt}, hier also $a$ (denn er taucht sowohl im Summanden $a\cdot b$ als auch im Summanden $a\cdot c$ auf). 
+		\item Wir schreiben den \textbf{gemeinsamen Faktor vor die Klammer} und das, was von den Summanden übrig bleibt, wenn man den Faktor $a$ weglässt, in die Klammer.
+	\end{enumerate}
 	\[{\color{orange}a}\cdot b + {\color{orange}a}\cdot c = {\color{orange}a\cdot (}b+c{\color{orange})}.\]
-	Dasselbe gilt entsprechend auch für 4 Variablen
-	\[{\color{orange}a}\cdot b + {\color{orange}a}\cdot c + {\color{orange}a}\cdot d = {\color{orange}a\cdot (}b+c{\color{orange})} + {\color{orange}a}\cdot d = {\color{orange}a\cdot (}b+c+d{\color{orange})}\]
-	beziehungsweise nach demselben Prinzip für beliebig viele Variablen.
-
-	Wenn wir eine Variable, die in allen Summanden vorkommt, so aus einer Summe ziehen, dann bezeichnen wir das auch als \enquote{ausklammern}.
-	In die andere Richtung bezeichnen wir den Vorgang als \enquote{ausmultiplizieren}.
+	Nun befindet sich der Faktor $a$ also außerhalb der Klammer. Man sagt deswegen, dass wir $a$ hier \textbf{ausgeklammert} haben. Wir können einen Faktor also dann ausklammern, wenn er in mehreren Summanden vorkommt.
 
 	\begin{example}{}
-		Alice hat $n$ Freunde. Für jeden kauft sie ein kleines Geschenk im Wert von $5\,\euro{}$ und Schokolade im Wert von $1\,\euro{}$.
-		Da sie auch Hungrig ist auf Schokolade, kauft sie für sich selbst zusätzlich zwei Schokoladen. Um die Geschenke zu verpacken, kauft sie
-		nocht Geschenkpapier im Wert von $1\,\euro{}$. Wie viel Geld gibt Alice aus?\\[.5em]
-		Wir können den Aufgabentext direkt in einen Term übersetzen:
-		\[n\cdot 5\,\euro{}+(n+2)\cdot 1\,\euro{} + 1\,\euro{}.\]
-		Momentan sagt der Term damit aber leider nicht viel mehr aus als die Aufgabenstellung (lediglich etwas übersichtlicher dargestellt).
-		Um die Ausgaben von Alice darstellen zu können, möchten wir den Term so umformen, dass $n$ nur noch an einer Stelle vorkommt.
-		Dafür multiplizieren wir den Term $(n+2)\cdot 1\,\euro{}$ erstmal aus und können zuletzt $n$ aus den meisten Termen ausklammern.
-		\textbf{Achtung. Wir können n nicht aus allen Termen ausklammern.}
-		\begin{align*}
-			n\cdot 5\,\euro{} + \underbrace{(n+2)\cdot 1\,\euro{}}_{n\cdot 1\,\euro{}+2\cdot 1\,\euro{}} + 1\,\euro{} &= n\cdot 5\,\euro{}+n\cdot 1\,\euro{} + 2\,\euro{}+1\,\euro{}\\
-			 &= n\cdot(5\,\euro{}+1\,\euro{})+2\,\euro{}+1\,\euro{}\\
-			 &= n\cdot 6\,\euro{} + 3\,\euro{}.
-		\end{align*}
+		Im Term \[x^2+3x\] können wir den Faktor $x$ ausklammern, denn er kommt sowohl im Summanden $x^2$ als auch im Summanden $3x$ vor. In der Klammer bleibt dann $\frac{x^2}{x}+\frac{3x}{x}=x+3$ übrig. Wenn wir $x$ ausklammern, erhalten wir also den Term \[x\cdot (x+3).\]
 	\end{example}
-	\todo{Schwere Aufgabe: Gebe eine Linearfaktorisierung für $(x^3-xy^2+x^2y-y^3) = (x+y)^2(x-y)$ an.}
-
-	\begin{nutshell}{Variablen und Terme über Variablen}
-		Variablen kann man sich als \enquote{Platzhalter} oder \enquote{Schablone} vorstellen: ein Term mit Variablen gilt allgemein, egal, was wir einsetzen.
-
-		Zum Beispiel ist $A = b\cdot h$ die Rechenvorschrift, wie man aus der Breite $b$ und der Höhe $h$ eines Rechteckes dessen Fläche $A$ bestimmt.
-		Möchten wir für ein konkretes Rechteck (zum Beispiel $b=3$ und $h=2$) die Fläche berechnen, dann müsen wir die Werte für die Variablen \textbf{einsetzen}:
-		$A = 3\cdot 2 = 6$. Die Fläche dieses Rechteckes ist also $6$.
-
-		Häufig können wir denselben Term auf verschiedene Weisen darstellen. Wenn ein Term nur wenige Variablen besitzt, möchten wir ihn so formulieren,
-		dass er möglichst unverschachtelt ist:
-		\begin{center}
-			\begin{tabular}{r@{ statt }l}
-				$a\cdot b + b$ & $(a+1)\cdot b$\\
-				$4\cdot b$ & $3\cdot b + b$\\
-				$9+12\cdot a$ & $3\cdot (3 + 4\cdot a)$
-			\end{tabular}
-		\end{center}
-
-		Wenn wir eine Variable aus einem Teilterm rausziehen, nennen wir das \textbf{ausklammern}:\\
-		Zum Beispiel können wir $a$ aus dem Term $a\cdot 3+7\cdot a$ ausklammern und bekommen $a\cdot(3+7)$.
-
-		Wenn wir eine Variable, die mit einem Term multipliziert wird, stattdessen mit jedem Summanden in diesem Term multiplizieren, nennen wir das \textbf{ausmultiplizieren}:\\
-		Zum Beispiel können wir $a\cdot (3+7)$ ausmultiplizieren (in diesem Beispiel lediglich wenig sinnvoll) und bekommen wieder $a\cdot 3+ a\cdot 7$.
-	\end{nutshell}
-
-	Bisher haben wir immer nur von Addition und Multiplikation gesprochen. Wie sieht das aus, wenn wir subtrahieren und / oder dividieren?
-	Nicht anders! Weil eine Subtraktion mit $a$ dasselbe ist wie die Addition von $(-a)$ und die Division durch $a$ dasselbe ist wie die Multiplikation mit $\frac{1}{a}$.
+	
+	Gemeinsame Faktoren können wir auch dann ausklammern, wenn wir mehr als zwei Summanden haben:
+	\[{\color{orange}a}\cdot b + {\color{orange}a}\cdot c + {\color{orange}a}\cdot d = {\color{orange}a\cdot (}b+c{\color{orange})} + {\color{orange}a}\cdot d = {\color{orange}a\cdot (}b+c+d{\color{orange})}\]
+	Dabei ist es natürlich auch möglich, Summanden zu ignorieren, die unseren Faktor nicht enthalten und den Faktor einfach nur aus den restlichen Summanden auszuklammern.
 	\begin{example}{}
-		\begin{itemize}
-			\item Klammere aus: $\left(\frac{3}{a}+\frac{b}{a}\right)$. Wir können die Division mit $a$ als Multiplikation mit $\frac{1}{a}$ betrachten und diesen Bruch entsprechend rausziehen:
-			$(3+b)\cdot \frac{1}{a}$. Wir können dies natürlich auch hübscher schreiben als $\frac{3+b}{a}$.
-		\end{itemize}
+		Die ersten drei Summanden des Terms $4x+4y-4+3xy$ enthalten jeweils den Faktor $4$, der vierte allerdings nicht. Wir können den Faktor nun einfach nur aus den ersten drei Summanden ausklammern und den vierten Summand, also $3xy$, hinter das Ergebnis schreiben:
+		\[\colorbrace{4x+4y-4}{4\text{ ausklammern}}+3xy=4\cdot (x+y-1)+3xy\]
+	\end{example}
+
+	Bisher haben wir immer nur von Addition und Multiplikation gesprochen. Wie sieht das aus, wenn wir subtrahieren oder dividieren?
+	Weil eine Subtraktion von $a$ dasselbe ist wie die Addition von $(-a)$ und die Division durch $a$ dasselbe ist wie die Multiplikation mit $\frac{1}{a}$, können wir genauso ausklammern wie vorher.
+	\begin{example}{}
+		Wir starten mit dem Term $\left(\frac{3}{a}+\frac{b}{a}\right)$. In beiden Summanden teilen wir eine Zahl durch $a$. Wir können diese Division als Multiplikation mit $\frac{1}{a}$ betrachten und diesen Bruch entsprechend ausklammern:
+		\[\left(\frac{3}{a}+\frac{b}{a}\right)=(3+b)\cdot \frac{1}{a}.\] 
+		Dies können wir natürlich auch hübscher schreiben als $\frac{3+b}{a}$.
 	\end{example}
 	\todo{Schwere Aufgabe (?): Klammere aus: (3/{2a} + b/a) = (3/2+b)/a oder (3+2b)/{2a}}
+
+	\todo{Schwere Aufgabe: Gebe eine Linearfaktorisierung für $(x^3-xy^2+x^2y-y^3) = (x+y)^2(x-y)$ an.}
+
+	\begin{nutshell}{Ausklammern}
+		Wenn in mehreren Summanden eines Terms ein gemeinsamer Faktor vorkommt, dann können wir ihn mithilfe des Distributivgesetzes aus den Termen herausziehen und vor eine Klammer schreiben:
+		\[{\color{orange}a}\cdot b + {\color{orange}a}\cdot c = {\color{orange}a\cdot (}b+c{\color{orange})}.\]
+		Diese Umformung nennen wir \textbf{Ausklammern}. Das Distributivgesetz funktioniert in Termen mit Variablen also genauso wie bei Termen, in denen nur Zahlen vorkommen.
+	\end{nutshell}
 \end{document}
