@@ -167,14 +167,19 @@ Obwohl die Menge aus dem letzten Beispiel relativ klein ist, gibt es bereits ein
         \begin{enumerate}
             \item[(I.A.)] Aus $|M|=0$ folgt $M=\emptyset$, also ist $\emptyset$ die einzige Teilmenge von $M$. Es gilt also
                 \[|\mathcal{P}(M)|=|\{\emptyset\}|=1=2^0.\]
-            \item[(I.S.)] Es sei $M=\{a_1,a_2,\dots,a_{n+1}\}$. Die Anzahl der Teilmengen von $M$, in denen $a_{n+1}$ enthalten ist, entspricht genau der Anzahl der Teilmengen von $M=\{a_1,\dots,a_n\}$. Diese ist nach Induktionsvoraussetzung $2^n$. Auf die gleiche Weise gibt es auch $2^n$ Teilmengen von $M$, in denen $a_{n+1}$ nicht enthalten ist. Wir erhalten insgesamt $2\cdot 2^n=2^{n+1}$ Teilmengen.
+            \item[(I.S.)] Es sei $M=\{a_1,a_2,\dots,a_{n+1}\}$. Die Anzahl der Teilmengen von $M$, in denen $a_{n+1}$ enthalten ist, entspricht genau der Anzahl der Teilmengen von $M'=\{a_1,\dots,a_n\}$. Diese ist nach Induktionsvoraussetzung $2^n$. Auf die gleiche Weise gibt es auch $2^n$ Teilmengen von $M$, in denen $a_{n+1}$ nicht enthalten ist. Wir erhalten insgesamt $2\cdot 2^n=2^{n+1}$ Teilmengen.
         \end{enumerate}
     \end{proof}
 \end{advanced}
 
 \begin{nutshell}{Teilmengen}
     \parpic[r]{
-        Teilmengendiagram
+        \begin{tikzpicture}
+            \draw[grayset] (0,0) ellipse (10mm and 15mm);
+            \draw[grayset] (0,-0.6) ellipse (8mm and 8mm);
+            \node at (0,0.9) {$N$};
+            \node at (0,-0.6) {$M$};
+        \end{tikzpicture}
     }
 
     Eine Menge $M$ heißt eine \textbf{Teilmenge} der Menge $N$, geschrieben $M\subseteq N$, falls jedes Element von $M$ auch ein Element von $N$ ist.
