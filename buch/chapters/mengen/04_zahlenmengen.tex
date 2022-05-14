@@ -4,34 +4,34 @@
 
 	% Zum iterativen Aufbau des Inklusionsdiagramms. Parameter: 1 -> nur N/N_0; 2 -> bis Z; 3 -> bis Q; 4 -> bis R
 	\newcommand{\inclusionDiagram}[1]{
-		\begin{tikzpicture}[draw = blue!50!green, font = \small, scale = 0.8]
+		\begin{tikzpicture}[draw = black!50, font = \small, scale = 0.8]
 			\ifnum#1=4
-				\draw[fill = blue!50!green!20] (0, 2.75) ellipse (1.8 and 3.75);
-				\node[left] at (0, 5.8) {\Real};
+				\draw[fill = black!10] (0, 2.75) ellipse (1.8 and 3.75);
+				\node[left, maincolor] at (0, 5.8) {\Real};
 				\foreach \i/\j in {(-0.9, 5.2)/\sqrt{2}, (0.7, 5.5)/\pi, (1.1, 4.75)/\sqrt{3}} {
 					\node[font = \tiny] at \i {$\j$};
 				}
 			\fi	
 			\ifnum#1>2		
-				\draw[fill = blue!50!green!40] (0,2) ellipse (1.6 and 3);
-				\node[left] at (0,4) {\Rational};
+				\draw[fill = black!13] (0,2) ellipse (1.6 and 3);
+				\node[left, maincolor] at (0,4) {\Rational};
 				\foreach \i/\j in {(-0.9, 3.5)/\frac{2}{3}, (0.25, 4.25)/\frac{1}{2}, (1.1, 3.2)/\frac{7}{8}} {
 					\node[font = \tiny] at \i {$\j$};
 				}
 			\fi
 			\ifnum#1>1			
-				\draw[fill = blue!50!green!60] (0,1.2) ellipse (1.4 and 2.2);
-				\node[left] at (0, 2.6) {\Integer};
+				\draw[fill = black!16] (0,1.2) ellipse (1.4 and 2.2);
+				\node[left, maincolor] at (0, 2.6) {\Integer};
 				\foreach \i/\j in {(0,3)/-1, (-1, 2)/-2, (1, 1.75)/-3, (0.5,2.3)/-4} {
 					\node[font = \tiny] at \i {$\j$};
 				}
 			\fi
 			\ifnum#1>0			
-				\draw[fill = blue!50!green!80] (0,0.5) ellipse (1.2 and 1.5);
-				\node[left] at (0,1.4) {$\Natural_0$};
+				\draw[fill = black!19] (0,0.5) ellipse (1.2 and 1.5);
+				\node[left, maincolor] at (0,1.4) {$\Natural_0$};
 				\node[font = \tiny] at (0.5,1.25) {$0$};			
-				\draw[fill = blue!50!green] (0,0) circle[radius = 1];
-				\node[left] at (0,0) {\Natural};			
+				\draw[fill = black!22] (0,0) circle[radius = 1];
+				\node[left, maincolor] at (0,0) {\Natural};			
 				\foreach \i/\j in {(0.5,0.5)/1, (-0.75,-0.25)/2, (0.25,-0.25)/3, (-0.25,-0.75)/4, (-0.3,0.6)/5, (0.75,0)/6} {
 					\node[font = \tiny] at \i {$\j$};
 				}
@@ -154,7 +154,7 @@
 	
 	Die reellen Zahlen enthalten also die rationalen Zahlen. Wie wir gesehen haben, gibt es aber auch reelle Zahlen, die nicht rational sind (zum Beispiel $\sqrt{2}$). Diese Zahlen nennt man dann \textbf{irrational}. Dementsprechend können wir die Kette unserer Zahlenmengen wie folgt um die reellen Zahlen erweitern. 
 	
-	$$\Natural \subsetneq \Natural_0 \subsetneq \Integer \subsetneq \Rational \subsetneq \Real$$
+	$$\Natural \subset \Natural_0 \subset \Integer \subset \Rational \subset \Real$$
 		
 	\begin{nutshell}{Zahlenmengen}
 		Alle Zahlen, denen wir im Alltag begegnen, können wir mithilfe von Mengen klassifizieren.
@@ -167,16 +167,16 @@
 		\end{itemize}
 		Diese Mengen bilden eine Kette strikter Teilmengen. Diese Teilmengenbeziehung lässt sich am unteren Mengendiagramm ablesen.
 		\begin{center}
-			\begin{tikzpicture}[scale=1.3, draw = blue!50!green]
-				\draw[fill = blue!50!green!20]  (1.2,0) ellipse (1.6 and 0.8);
+			\begin{tikzpicture}[scale=1.3, draw = black!50]
+				\draw[fill = black!10]  (1.2,0) ellipse (1.6 and 0.8);
 				\node at (2.5,0) {$\mathbb{R}$};
-				\draw[fill = blue!50!green!40]  (0.9,0) ellipse (1.3 and 0.7);
+				\draw[fill = black!13]  (0.9,0) ellipse (1.3 and 0.7);
 				\node at (1.9,0) {$\mathbb{Q}$};
-				\draw[fill = blue!50!green!60]  (0.6,0) ellipse (1 and 0.6);
+				\draw[fill = black!16]  (0.6,0) ellipse (1 and 0.6);
 				\node at (1.3,0) {$\mathbb{Z}$};
-				\draw[fill = blue!50!green!80]  (0.3,0) ellipse (0.7 and 0.5);
+				\draw[fill = black!19]  (0.3,0) ellipse (0.7 and 0.5);
 				\node at (0.7,0) {$\mathbb{N}_0$};
-				\draw[fill = blue!50!green] (0,0) circle[radius=0.4];
+				\draw[fill = black!22] (0,0) circle[radius=0.4];
 				\node at (0,0) {$\mathbb{N}$};
 			\end{tikzpicture}
 		\end{center}
