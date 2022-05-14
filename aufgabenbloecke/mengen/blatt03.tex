@@ -1,0 +1,53 @@
+\documentclass[../abbildungen.tex]{subfiles}
+
+\begin{document}
+
+\begin{exercise}{easy}
+    Teilmengenbeziehungen für konkrete Mengen finden
+\end{exercise}
+
+\begin{exercise}{easy}
+    Gilt, wenn $A,B$ und $C$ Mengen mit $A\subset C$ und $B\subset C$ sind, auch $A\cup B\subset C$?
+\end{exercise}
+
+\begin{exercise}{easy}
+    Entscheide, ob für zwei Mengen $A$ und $B$ die folgenden Behauptungen stimmen. Gib ein Gegenbeispiel an, falls nicht.
+    \begin{multicols}{4}
+        \begin{enumerate}
+            \item $A\cap B\subseteq A\cup B$
+            \item $\overline{B}\subseteq A\setminus B$
+            \item $A\cap B\subseteq A$
+            \item $A\setminus B\subseteq \overline{B}$
+        \end{enumerate}
+    \end{multicols}
+\end{exercise}
+
+\begin{exercise}{difficult}
+    Wir nennen eine Menge $M$ \emph{abgeschlossen unter Addition}, falls für alle $a,b\in M$ auch $a+b\in M$ gilt. Zum Beispiel ist die Menge $A_0=\{0\}$ unter Addition abgeschlossen (denn $0+0=0\in A_0$), die Menge $A_1=\{1\}$ jedoch nicht (denn $1+1=2\notin A_1$).
+    
+    Es seien im Folgenden $A$ und $B$ Mengen, die unter Addition abgeschlossen sind.
+
+    \begin{enumerate}
+        \item Finde eine nichtleere unter Addition abgeschlossene Menge $M$ mit $M\neq \{0\}$.
+        \item $C$ sei die größte unter Addition abgeschlossene Menge mit $C\subseteq A\cap B$. Zeige, dass $C=A\cap B$ ist.
+        \item $D$ sei die kleinste unter Addition abgeschlossene Menge mit $A\cup B\subseteq D$. Ist $A\cup B=D$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{insolution}
+    \emph{Lösung.}
+    \begin{enumerate}
+    \item[a)] Zum Beispiel ist die Menge $\{1,2,3,4,5,\dots\}$ unter Addition abgeschlossen.
+
+    \item[b)] Es sei $[M]$ die kleinste unter Addition abgeschlossene Menge, in der $M$ enthalten ist. Wir zeigen, dass $A\cap B$ unter Addition abgeschlossen ist.
+    Da $C$ die größte unter Addition abgeschlossene Menge mit $C\subseteq A\cap B$ ist, folgt dann, dass $C=A\cap B$ ist.
+
+    Nach Definition von $[A\cap B]$ gilt $A\cap B\subseteq [A\cap B]$. Weiter gilt $A\cap B\subseteq A$. Jede unter Addition abgeschlossene Menge, die $A$ enthält, enthält also auch $A\cap B$. Es folgt $[A\cap B]\subseteq [A]$. Weil $A$ unter Addition abgeschlossen ist, gilt $A=[A]$, also insgesamt $[A\cap B]\subseteq A$.
+
+    Auf die gleiche Weise lässt sich auch $[A\cap B]\subseteq B$ zeigen. Insgesamt ist also $[A\cap B]\subseteq A\cap B$. Damit ist $A\cap B$ unter Addition abgeschlossen.\hfill$\Box$
+
+    \item[c)] Die Behauptung lässt sich durch $A=\{2,4,6,\dots\}$ und $B=\{3,6,9,\dots\}$ widerlegen. Es gilt beispielsweise $5\notin A\cup B$, aber da $2\in A\cup B$ und $3\in A\cup B$ gilt, muss $5$ in jeder unter Addition abgeschlossenen Menge $D$ mit $A\cup B\subseteq D$ liegen.
+    \end{enumerate}
+\end{insolution}
+
+\end{document}

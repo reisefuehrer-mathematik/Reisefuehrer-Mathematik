@@ -1,7 +1,102 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-    \textcolor{red}{Hier entsteht Magie!!!}
+    \section{Fortgeschrittene Beweistechniken}
+    \label{advanced-proofs}
+    
+    \subsection{Vollständige Induktion}
+    Wenn in einer Reihe aus Dominosteinen der erste Stein umkippt und jeder umkippende Stein außerdem den nächsten zum Umfallen bringt, dann fällt nach und nach die ganze Reihe um.
+
+    Es lässt sich also mithilfe von zwei Beobachtungen feststellen, dass die ganze Reihe umfällt:
+    \begin{enumerate}
+        \item Der erste Stein der Reihe fällt um.
+        \item Immer, wenn ein Stein umfällt, fällt auch der nächste um.
+    \end{enumerate}
+    Auf diesem Prinzip baut die Beweistechnik der \textbf{vollständigen Induktion} auf. Wenn gezeigt werden soll, dass eine Aussage für die Zahlen $1,2,3,4,\dots$ gilt, dann genügt es aufgrund des gerade erklärten Prinzips, Folgendes zu zeigen:
+    \begin{enumerate}
+        \item Die zu beweisende Aussage gilt für die Zahl $1$ (\textbf{Induktionsanfang})
+        \item Unter der Voraussetzung, dass die Aussage für alle Zahlen $\leq n$ gilt (\textbf{In\-duk\-tions\-voraus\-setzung}), gilt die Aussage auch für $n+1$ (\textbf{Induktionsschritt}).
+    \end{enumerate}
+    Wenn du den \emph{Induktionsanfang} und den \emph{Induktionsschritt} für eine Aussage beweisen kannst, dann folgt daraus, dass die Aussage für alle Zahlen $1,2,3,4,\dots$ gilt.
+    
+    Anschaulich kannst du dir das so vorstellen: Der erste Stein fällt durch den Induktionsanfang um. Aus dem Induktionsschritt folgt jetzt, dass die Aussage auch für die Zahl 2 gelten muss (denn sie gilt ja für die 1). Auf die gleiche Weise folgt daraus, dass die Aussage für die 2 gilt, dass sie auch für die 3 gelten muss. Dieses Prinzip setzt sich fort, sodass die Aussage schließlich für beliebig große Zahlen gilt.
+    
+    Mithilfe von vollständiger Induktion können Aussagen, die für die Zahlen $1,2,3,4$ usw. gelten sollen, meistens bequem bewiesen werden.
+
+    \begin{example}{}
+        Beim Addieren der ersten ungeraden Zahlen fällt auf, dass wir als Ergebnis immer eine Quadratzahl erhalten:
+        \begin{multicols}{3}\centering
+            1+3=4\\
+            1+3+5=9\\
+            1+3+5+7=16
+        \end{multicols}
+        Es lässt sich also vermuten, dass die Summe der ersten $n$ ungeraden Zahlen immer eine Quadratzahl ist. Wir könnten also vermuten, dass die folgende Formel gilt (falls du das Summenzeichen $\sum$ noch nie gesehen hast, kannst du seine Bedeutung auf Seite \ref{summenzeichen} nachlesen):
+        \[\sum_{i=1}^n2i-1=n^2\]
+        Diese Formel lässt sich gut mithilfe einer vollständigen Induktion beweisen.
+        \begin{proof}
+        Wir beweisen unsere Vermutung mit einer vollständigen Induktion.
+        \begin{enumerate}
+            \item \textbf{Induktionsanfang.}\\
+                Die Formel gilt für $n=1$:
+                \[\sum_{i=1}^1=1=1^2.\]
+            \item \textbf{Induktionsschritt.}\\
+                Wir beweisen nun, dass die Formel für $n+1$ gilt. Es muss also noch bewiesen werden, dass
+                \[\sum_{i=1}^{n+1}2i-1=(n+1)^2\]
+                gilt. Nachdem wir die Aussage zu
+                \[\sum_{i=1}^{n+1}2i-1=\biggl(\colorbrace{\sum_{i=1}^n2i-1}{n^2}\biggr)+2(n+1)-1\]
+                umgeformt haben, können wir die \emph{Induktionsvoraussetzung} verwenden, also annehmen, dass die Formel für alle Zahlen $\leq n$ gilt. Nach Induktionsvoraussetzung hat der Teil in der Klammer also den Wert $n^2$. Dadurch erhalten wir
+                \[\sum_{i=1}^{n+1}2i-1=\colorbrace{n^2}{\text{wegen~I.V.}}+2(n+1)-1=n^2+2n+2-1=n^2+2n+1=(n+1)^2.\]
+        \end{enumerate}
+        \end{proof}
+    \end{example}
+    Der Induktionsanfang wird in Beweisen meistens mit \enquote{I.A.} abgekürzt, der Induktionsschritt mit \enquote{I.S.}. Außerdem spricht man meist einfach nur von Induktion und lässt das Wort \emph{vollständig} weg.
+    
+    \subsection{Ringschluss}
+    Dass mehrere Aussagen äquivalent sind, lässt sich oft nicht einfach zeigen. Stattdessen ist es einfacher, nur zu zeigen, dass eine Aussage aus einer anderen folgt.
+
+    Bei einem \textbf{Ringschluss} werden Aussagen in einem Ring auseinander gefolgert, also etwa so:
+    \[A\implies B\implies C\implies A\]
+    Auf diese Weise lässt sich zeigen, dass die Aussagen $A,B$ und $C$ äquivalent sind. Beispielsweise folgt $B\implies A$ wegen $B\implies C$ und $C\implies A$. Diese Technik kommt am häufigsten zum Einsatz, wenn nur gezeigt werden soll, dass zwei Aussagen $A$ und $B$ äquivalent sind. Statt irgendwie direkt zu zeigen, dass sie äquivalent sind, zeigt man zwei Richtungen (in denen man im Zweifel auch vollkommen unterschiedlich argumentieren kann):
+    \[A\implies B~\text{und}~B\implies A\]
+    \begin{example}{}
+        
+    \end{example}
+
+    \subsection{Beweis durch Kontraposition}
+    \subsection{Schubfachprinzip}
+    Das \textbf{Schubfachprinzip} (\emph{auch Taubenschlagprinzip}) beruht auf einer sehr einfachen Beobachtung: Wenn du Tauben in Taubenschläge einteilen möchtest, aber mehr Tauben als Taubenschläge hast, dann müssen in mindestens einem Taubenschlag mehrere Tauben landen.
+    
+    Obwohl dies eine wenig überraschende Erkenntnis ist, lässt sie sich oft als die Grundlage mathematischer Beweise verwenden.
+    
+    \begin{example}{}
+        \parpic[r]{
+            \tikz{
+                \draw (0,0) -- (1,0);
+                \draw (1,0) -- (-0.4,0.8);
+                \draw (1.4,0.8) -- (0,1.6);
+                \draw (1.4,0.8) -- (0,1.6);
+                \draw (1.4,0.8) -- (-0.4,0.8);
+                \draw (-0.4,0.8) -- (1,1.6);
+                \draw (0,0) -- (0,1.6);
+                \draw (1,0) -- (1.4,0.8);
+                %
+                \node (anne) at (0,0) {\Circled[inner color=white, fill color=maincolor, outer color=maincolor]{\scriptsize Anne}};
+                \node (tobi) at (1,0) {\Circled[inner color=white, fill color=maincolor, outer color=maincolor]{\scriptsize Tobias}};
+                \node (tim) at (-0.4,0.8) {\Circled[inner color=white, fill color=maincolor, outer color=maincolor]{\scriptsize Tim}};
+                \node (robin) at (1.4,0.8) {\Circled[inner color=white, fill color=maincolor, outer color=maincolor]{\scriptsize Robin}};
+                \node (elisa) at (0,1.6) {\Circled[inner color=white, fill color=maincolor, outer color=maincolor]{\scriptsize Elisa}};
+                \node (paul) at (1,1.6) {\Circled[inner color=white, fill color=maincolor, outer color=maincolor]{\scriptsize Paul}};
+            }
+        }
+        \picskip{5}
+        In jeder Gruppe, bestehend aus mindestens zwei Menschen, sind einige mit einander befreundet und einige nicht. Beispielsweise könnte die Gruppe wie rechts aussehen (die Menschen, die durch eine Linie verbunden sind, sind befreundet). Mithilfe des Schubfachprinzips können wir beweisen, dass in jeder Gruppe dieser Art zwei Menschen existieren, die genau gleich viele Freunde in der Gruppe haben.
+
+        \begin{proof}
+            $n$ bezeichne die Anzahl der Menschen in der Gruppe. Jede Person in der Gruppe kann minimal mit niemandem befreundet sein (also $0$ Freunde) und maximal mit allen (also $n-1$ Freunde). Wenn es jedoch eine Person gibt, die mit allen befreundet ist, dann kann nicht gleichzeitig jemand mit niemandem befreundet sein (eine Person mit 0 Freunden und eine Person mit $n-1$ Freunden können also niemals gleichzeitig vorkommen). Es gibt in jeder bestimmten Menschengruppe also nur $n-1$ Möglichkeiten, wie viele Freunde eine Person haben kann.
+
+            Die Gruppe besteht aber aus $n$ Menschen. Es müssen also mindestens zwei Menschen in der Gruppe die gleiche Anzahl an Freunden haben.
+        \end{proof}
+    \end{example}
     
     %#1: Name
     %#2: Logische Grundlage
@@ -47,3 +142,4 @@
     
         
 \end{document}
+

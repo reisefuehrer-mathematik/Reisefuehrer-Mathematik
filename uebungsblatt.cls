@@ -9,10 +9,11 @@
 \RequirePackage{enumitem}
 \RequirePackage{amssymb}
 \RequirePackage{qrcode}
-\RequirePackage{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{csquotes}
 \RequirePackage{picins}
 \RequirePackage[gen]{eurosym}
+\RequirePackage{xstring}
 %\usepackage{soul}
 
 \pagestyle{empty}
@@ -48,6 +49,34 @@
 \setlength\parindent{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structural commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tosnakecase}[2]{
+    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
+    \StrSubstitute{#2}{ä}{ae}[#2]
+    \StrSubstitute{#2}{ö}{oe}[#2]
+    \StrSubstitute{#2}{ü}{ue}[#2]
+    \StrSubstitute{#2}{ }{_}[#2]
+}
+\newcommand{\tosheetnum}[2]{
+    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
+    \StrSubstitute{#2}{blatt0}{}[#2]
+    \StrSubstitute{#2}{blatt}{}[#2]
+}
+\makeatletter
+\newcommand\ldtasks[1]{
+    \tosheetnum{#1}{\sheetnum}
+    \section*{Aufgaben zu Vorbereitungsblatt \@chapternum.\sheetnum}
+    \tosnakecase{\@topic}{\chaptername}
+    \subfile{\chaptername/#1}
+}
+\newcommand{\makesolutions}{
+    \tosnakecase{\@topic}{\chaptername}    
+    \begin{solutions}
+        \subfile{\chaptername/solutions}
+    \end{solutions}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Boxes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[many]{tcolorbox}
@@ -57,7 +86,7 @@
 \newtcolorbox{contents}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=blue!10,colframe=blue!30, coltitle=black, title={Inhalte des Vorbereitungsblattes}, attach title to upper=\vspace*{.5em}\par}
 \newtcolorbox{definition}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=red!5!white,colframe=red!75!black, title={Definition}}
 \newtcolorbox{theorem}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=green!20,colframe=green!50!black, title={Satz}}
-\newtcolorbox{remark}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!10, coltitle=black, colframe=yellow!80!black, title=Bemerkung, attach title to upper=\vspace*{.5em}\par}
+\newtcolorbox{remark}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=yellow!10, coltitle=black, colframe=yellow!80!black}%, title=Bemerkung, attach title to upper=\vspace*{.5em}\par}
 %\newmdenv[roundcorner=5pt,linewidth=1pt,backgroundcolor=black!10,linecolor=black!30]{literature}
 \newtcolorbox{literature}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=black!10,colframe=black!30, boxsep=0pt}
 \newcommand{\video}[4]{
@@ -145,13 +174,6 @@
 % \answerfield{width}{solution}
 \newcommand{\answerfield}[2]{\underline{\text{\parbox{#1}{\centering \ifsolutionthenelse{#2}{~}}}}}
 
-%\RequirePackage[normalem]{ulem}
-%\RequirePackage{etoolbox}
-%\newcommand{\textchoice}[2][0]{
-%    \def\nextitem{\def\nextitem{$\,|\,$}}
-%    \renewcommand*{\do}[1]{\nextitem ##1}
-%    \uline{\docsvlist{#2}}
-%}
 \RequirePackage[normalem]{ulem}
 \RequirePackage{etoolbox}
 \makeatletter
@@ -162,20 +184,47 @@
 \else
     \newcommand{\@wrongtxtchoice}[1]{#1}
 \fi
-\newcommand{\textchoice}[2][0]{%
-    \setcounter{entrynum}{0}
-    \renewcommand*{\do}[1]{%
-        \unexpanded{\ifnum \theentrynum>0~| \fi}%
-        \ifnum\theentrynum=#1
+\usepackage{expl3,xparse}
+\ExplSyntaxOn
+\makeatletter
+\seq_new:N \l_choices_in_seq
+\seq_new:N \l_choices_out_seq
+\NewDocumentCommand\textchoice{ O{0} m }{%
+    \begingroup
+    \setcounter{entrynum}{0}%
+    \newcommand\markcorrect[1]{%
+        \unexpanded{\ifnum\theentrynum=#1%
             ##1%
         \else%
             \@wrongtxtchoice{##1}%
         \fi%
-        \unexpanded{\stepcounter{entrynum}}%
+        \stepcounter{entrynum}}%
     }%
-    \uline{\docsvlist{#2}}%
+    \seq_set_from_clist:Nn \l_choices_in_seq { #2 }%
+    \seq_set_map:NNn \l_choices_out_seq \l_choices_in_seq{%
+        \markcorrect{ \exp_not:n { ##1 } }%
+    }%
+    \uline{\seq_use:Nn \l_choices_out_seq {\  |\ }}%
+    \endgroup
+}
+
+\usepackage{environ}
+\seq_new:N \l_wordlist
+\newsavebox{\wordlistcontent}
+\NewEnviron{blanktext}{
+	\newcommand\phony[1]{\seq_gput_right:Nn\l_wordlist{##1}}%
+	\newcommand{\blank}[2]{\phony{##2}\answerfield{##1}{##2}}%
+	\sbox{\wordlistcontent}{\begin{minipage}{\linewidth}\BODY\end{minipage}}%
+	\seq_shuffle:N\l_wordlist%
+	\par\noindent\colorbox{gray!20!white}{%
+		\begin{minipage}{\linewidth-6pt}%
+			\seq_use:Nn\l_wordlist{\ |\ }%
+		\end{minipage}%
+	}\par%
+	\usebox{\wordlistcontent}
 }
 \makeatother
+\ExplSyntaxOff
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Allow referencing main and pasting from it.

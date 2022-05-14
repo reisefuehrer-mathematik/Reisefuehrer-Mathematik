@@ -122,17 +122,21 @@
     Aussage $Z$ doppelt, dann ist die Aussage $\lnot \lnot Z$ semantisch äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder
      Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
 
-    \begin{lemma}{Involution}
+    \begin{theorem}{Involution}
     Ist $A$ eine Aussage, dann gilt:
         \[\lnot \lnot A \equiv A\]
-    \end{lemma}
+    \end{theorem}
      
     Im nächsten Beispiel lernen wir nun eine neue semantische Äquivalenz kennen. Diese Äquivalenz
     ist etwas komplexer, als die vorherige. Es ist aber auch durchaus möglich, dass du diese
     Äquivalenz bereits unbewusst im Alltag verwendet hast.
     
     \begin{example}{De Morgansche Gesetze}
+<<<<<<< HEAD
             In den vorherigen Kapiteln waren wir oft damit konfrontiert, 
+=======
+            In den vorherigen Kapiteln waren wir öfters damit konfrontiert, 
+>>>>>>> origin/dev
             dass uns ein Zauberer einen Zaubertrank anbietet, der entweder giftig ist 
             oder Superkräfte verleiht. Wir sind der Meinung, 
             dass ein netter Zauberer uns niemals einen giftigen Zaubertrank andrehen würde. 
@@ -169,15 +173,21 @@
      statt dem $\land$ ein $\lor$ haben. Es gilt also auch:
      \[\lnot( A \lor B) \equiv (\lnot A) \land (\lnot B).\]
       Diese Regeln nennen sich 
+<<<<<<< HEAD
      die \textbf{De Morganschen Gesetze}.
      
     \begin{lemma}{De Morgansche Gesetze}
+=======
+     die \textbf{De Morganschen Gesetze} und werden im nächsten Satz festgehalten.
+     
+    \begin{theorem}{De Morgansche Gesetze}
+>>>>>>> origin/dev
         Sind $A,B$ zwei Aussagen, dann gilt:
         \begin{enumerate}
             \item $\lnot( A \land B) \equiv (\lnot A) \lor (\lnot B)$
             \item $\lnot( A \lor B) \equiv (\lnot A) \land (\lnot B)$
         \end{enumerate}
-    \end{lemma}
+    \end{theorem}
     
     Die nächsten beiden Äquivalenzumformungen beschäftigten sich speziell damit, wie 
     man eine Implikation umformen kann. Das wird uns ermöglichen,
@@ -224,11 +234,11 @@
     Diese Äquivalenzumformung nennt sich \textbf{Kontraposition} (lateinisch: \enquote{contra} = \enquote{gegen}, \enquote{positio} = \enquote{stellung})
     und wird im nächsten Satz noch einmal präzisiert.
     
-    \begin{lemma}{Kontraposition}
+    \begin{theorem}{Kontraposition}
 
     Sind $A,B$ zwei Aussagen, dann gilt:
         \[A \implies B  \equiv (\lnot B) \implies (\lnot A)\]
-    \end{lemma}
+    \end{theorem}
 
     Es ist bei der Kontraposition äußerst wichtig, dass wir die Negationen bei der Umkehrung
     nicht einfach weglassen können. 
@@ -301,10 +311,10 @@
     
     Diese Äquivalenzumformung nennt sich auch das \textbf{Auflösen der Implikation}, da wir hier die Implikation darstellen durch eine Aussage ohne Implikationszeichen. Wir haben sozusagen die Implikation \enquote{aufgelöst}. Der nächste Satz formalisiert dies nun.
     
-    \begin{lemma}{Auflösen der Implikation}
+    \begin{theorem}{Auflösen der Implikation}
         Sind $A,B$ zwei Aussagen, dann gilt:
         \[A \implies B \equiv \lnot (A \land (\lnot B))\]
-    \end{lemma}
+    \end{theorem}
     
     Wenn wir nicht nur die letzte Äquivalenzumformung betrachten, sondern auch die davor, 
     dann stellt sich heraus, 
@@ -376,10 +386,10 @@
     Im Grunde ist jede Äquivalenz also nichts anderes als zwei Implikationen und kann immer als solche geschrieben werden. 
     Diese Aufteilung einer Äquivalenz in zwei Implikationen nennt sich auch \textbf{Auflösen der Äquivalenz}.
     
-    \begin{lemma}{Auflösen der Äquivalenz}
+    \begin{theorem}{Auflösen der Äquivalenz}
     Sind $A,B$ zwei Aussagen, dann gilt:
         \[ A \iff B \equiv (A \implies B) \land (B \implies A)\]
-    \end{lemma}
+    \end{theorem}
 
     Die Äquivalenzumformungen, die wir hier vorgestellt haben, sind bei weitem nicht alle, die es gibt. Es gibt
     noch eine riesige Menge weiterer Umformungen, die wir hier aus Zeit/Platzgründen nicht vorstellen können.

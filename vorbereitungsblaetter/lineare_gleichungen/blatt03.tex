@@ -1,0 +1,67 @@
+\def\pathToMain{../../buch/}
+\documentclass[solution]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{multicol}
+
+\sheet{Vorbereitungsblatt 15.3}
+\title{Auflösen linearer Gleichungen}
+\topic{\getchaptername{lineare_gleichungen}}
+\chapternum{\getchapternum{lineare_gleichungen}}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Lineare Gleichungen, Verfahren zum Lösen von linearen Gleichungen
+\end{contents}
+
+\video{Was ist eine lineare Gleichung?}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{definition}
+    Eine \textbf{lineare Gleichung} ist eine Gleichung, deren Seiten durch Termumformung in die Form $ax+b$ mit $a,b\in\Real$ gebracht werden können.
+\end{definition}
+
+\subsection*{Aufgabenteil}
+
+\begin{exercise}
+    Forme den Term $4\cdot (x+2)-10\cdot (5+2x)$ um, um herauszufinden, welche Zahlen du in die Boxen einsetzen musst, damit $4\cdot (x+2)-10\cdot (5+2x)=\Box\cdot x+\Box$ gilt.
+    \begin{answerbox}[.5in]
+        $4\cdot (x+2)-10\cdot (5+2x)=4x+8-50-20x=-16x-42$. 
+        
+        In die erste Box gehört also eine $-16$ und in die zweite eine $-42$.
+    \end{answerbox}
+\end{exercise}
+
+\begin{exercise}
+    Welche der folgenden Gleichungen sind linear?
+    \begin{multicols}{3}
+        \begin{multiplechoice}
+            \citem $7x+1=4x+13$
+            \citem $0=0$
+            \item $\sqrt{4x}+3=x-5$
+            \item $3x(x+3)=4$
+            \citem $1=1$
+            \citem $3x=2$
+            \item $x^2-3x=4$
+            \citem $4\cdot (x+2)-30=15x$
+            \citem $4x=6x$
+        \end{multiplechoice}
+    \end{multicols}
+\end{exercise}
+
+\newpage
+
+\video{Lineare Gleichungen auflösem}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{remark}
+    Lösungsalgorithmus für lineare Gleichungen
+\end{remark}
+
+\subsection*{Aufgabenteil}
+
+\mandala{mandala/mandala01}
+
+\end{document}

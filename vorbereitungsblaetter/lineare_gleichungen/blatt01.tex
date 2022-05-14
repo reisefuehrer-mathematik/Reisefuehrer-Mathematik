@@ -1,0 +1,116 @@
+\def\pathToMain{../../buch/}
+\documentclass{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{multicol}
+
+\sheet{Vorbereitungsblatt 15.1}
+\title{Einführung: Lineare Gleichungen}
+\topic{\getchaptername{lineare_gleichungen}}
+\chapternum{\getchapternum{lineare_gleichungen}}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Unbekannte, Gleichungen
+\end{contents}
+
+\video{Variablen als Unbekannte}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{remark}
+    Unbekannte
+\end{remark}
+
+\begin{remark}
+    Gleichung (kann ggf mit der ersten Bemerkung gemerged werden)
+\end{remark}
+
+\subsection*{Aufgabenteil}
+
+\begin{exercise}
+    Welchen Wert musst du in die Box einsetzen, damit die Rechnung stimmt?
+    \begin{multicols}{4}
+        $4\cdot\Box=44$\\\emph{Antwort:} \answerfield{1cm}{11}\\
+        $9\cdot4=\Box$\\\emph{Antwort:} \answerfield{1cm}{36}\\
+        $15+\Box=25-\Box$\\\emph{Antwort:} \answerfield{1cm}{5}\\
+        $2\cdot\Box+3=13$\\\emph{Antwort:} \answerfield{1cm}{5}
+    \end{multicols}
+\end{exercise}
+
+\begin{exercise}
+    \begin{enumerate}
+        \item[a)] Welche Gleichungen stellen die linken beiden Balkenwaagen dar?
+        \item[b)] Male Gewichte und Kugeln in die Schalen der rechten Balkenwaage, damit sie die angegebene Gleichung darstellt.
+    \end{enumerate}
+    \begin{multicols}{3}\centering
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+            \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+            \node[white] at (-0.75,0.42) {$7$};
+            \fill (-1.45,0.25) -- (-1.05,0.25) -- (-1.1,0.6) -- (-1.4,0.6) -- cycle;
+            \draw[line width=0.75mm] (-1.25,0.66) circle[radius=0.06cm];
+            \node[white] at (-1.25,0.42) {$5$};
+            %Füllung rechte Waagschale
+            \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+            \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+            \node[white] at (1,0.45) {$12$};
+        \end{linearEquation}\\
+        \emph{Gleichung:} \answerfield{3cm}{$5+7=12$}\\
+
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+            \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+            \node[white] at (-0.75,0.42) {$4$};
+            \node[white,marble,inner sep=.12cm] at (-1.2,0.35) {$x$};
+            %Füllung rechte Waagschale
+            \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+            \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+            \node[white] at (1,0.45) {$25$};
+        \end{linearEquation}\\
+        \emph{Gleichung:} \answerfield{3cm}{$x+4=25$}\\
+
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            %Füllung rechte Waagschale
+        \end{linearEquation}\\
+        \emph{Gleichung:} $x+7=2x$\\
+    \end{multicols}
+\end{exercise}
+
+\begin{exercise}
+    Welche der folgenden Aussagen sind richtig?
+    \begin{multiplechoice}
+        \citem $x=7$ ist eine Lösung der Gleichung $4x+2=30$.
+        \item $x=10$ ist eine Lösung der Gleichung $12x=x^2$.
+        \citem $x=-2$ ist eine Lösung der Gleichung $x^2-4=0$.
+    \end{multiplechoice}
+\end{exercise}
+
+\begin{exercise}
+    In der Klassenklasse der Klasse 7d sind $160\euro$. Die Klasse geht von diesem Geld ins Kino. 
+    Eine Kinokarte kostet $6\euro$ und nach dem Besuch sind noch $22\euro$ übrig.
+    \begin{enumerate}
+        \item[a)] Die Variable $s$ steht für die Anzahl der Schüler, die ins Kino gegangen sind. Welche der folgenden Gleichungen beschreibt die Situation richtig?
+        \begin{multicols}{3}
+            \begin{multiplechoice}
+                \item $s=160\euro-6\euro+22\euro$
+                \item m
+                \citem $160\euro-s\cdot 6\euro=22\euro$
+            \end{multiplechoice}
+        \end{multicols} 
+        \item[b)] Prüfe mit dieser Gleichung, ob 25 Schüler ins Kino gegangen sind.
+        \begin{answerbox}[.5in]
+            $160\euro-25\cdot 6\euro=160\euro-150\euro=10\euro\neq 22\euro$. Bei 25 Schülern wäre weniger Geld übrig geblieben. Es sind also weniger als 25 Schüler ins Kino gegangen.
+        \end{answerbox}
+    \end{enumerate}
+\end{exercise}
+
+\mandala{mandala/mandala01}
+
+\end{document}

@@ -1,5 +1,167 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-    \textcolor{red}{Hier entsteht Magie!!!}
+
+Wie ganz zu Beginn dieses Kapitels erwähnt, wollen wir die Aussagenlogik für logische Schlussfolgerungen nutzen. Das bedeutet, dass wir aus Aussagen, die uns schon bekannt sind, neue Aussagen schließen wollen. 
+
+\begin{example}{}
+    In Beispiel \ref{ex:modus-ponens} ganz am Anfang dieses Kapitels hast du die folgende Schlussfolgerung angestellt:
+    \begin{align*}
+        \text{\emph{Voraussetzung~1:}}~&\text{Der~Zaubertrank~verleiht~Superkräfte~\textbf{oder}~er~ist~giftig}.\\
+        \text{\emph{Voraussetzung~2:}}~&\text{Der~Zaubertrank~verleiht~keine~Superkräfte}.\\
+        \text{\emph{Schlussfolgerung:}}~&\text{Der~Zaubertrank~ist~giftig}.
+    \end{align*}
+    Du weißt, dass eine der beiden Aussagen in der ersten Zeile gelten muss. Der Zaubertrank muss entweder Superkräfte verleihen oder giftig sein. In Zeile 2 erhältst du zusätzlich die Information, dass eine der beiden Aussagen aus der ersten Zeile nicht gilt: Der Zaubertrank verleiht keine Superkräfte.
+\end{example}
+
+Daraus, dass eine von zwei Aussagen $A$ und $B$ gelten muss und du zusätzlich weißt, dass eine von beiden nicht gilt, hast du also geschlossen, dass dann die zweite gelten muss:
+\begin{align*}
+    &\text{\emph{Voraussetzung~1:}}~&A\lor B\\
+    &\text{\emph{Voraussetzung~2:}}~&\lnot A\\
+    &\text{\emph{Schlussfolgerung:}}~&B
+\end{align*}
+
+Wenn wir eine neue Aussage aus einer Reihe von alten Aussagen schlussfolgern, dann nutzen wir dabei natürlich nicht immer die hier präsentierte Regel. In diesem Abschnitt wirst du noch ein paar ähnliche Schlussfolgerungsregeln kennenlernen. Solche Schlussfolgerungsregeln werden in der Mathematik verwendet, um neue Aussagen mithilfe von bereits bekannten Aussagen zu \emph{beweisen}. Ein Beweis einer Aussage ist also nichts anderes als logisches Schlussfolgern.
+
+Im Verlaufe dieses Buchs hast du bereits eine große Zahl von Beweisen und Herleitungen gesehen. Jeder \emph{Satz}, den du in diesem Buch findest, wird irgendwo hergeleitet oder bewiesen. Mit logischen Schlussfolgerungen hattest du es also schon die ganze Zeit zu tun. Wir wollen nun ein wenig genauer hinschauen, wie du Schlussfolgerungsregeln für solche Herleitungen oder Beweise verwenden kannst.
+
+\begin{example}{}
+    Wir betrachten eine Primzahl $p$, über die wir wissen, dass $p$ gerade ist. Mit diesem Wissen soll nun bewiesen werden, dass $p=2$ gilt. Es soll also die Aussage
+    \[B:p=2\]
+    mithilfe der Aussage
+    \[A:p~\text{ist~eine~gerade~Primzahl}\]
+    bewiesen werden. Dafür müssen wir beweisen, $B$ aus $A$ folgt, also $A\implies B$.
+
+    Weil $p$ eine Primzahl ist, gilt für jeden Teiler von $p$, dass dieser entweder $1$ oder $p$ ist. Da $p$ aber gerade ist, muss $2$ ein Teiler von $p$ sein. Daraus folgt, dass $2=1$ oder $2=p$ sein muss. Da $2\neq 1$ gilt, muss $2=p$ sein.
+
+    Daraus, dass $p$ eine gerade Primzahl ist, folgt also, dass $p=2$ gilt. Weil wir außerdem wissen, dass $p$ in der Tat eine gerade Primzahl ist (das war unsere Voraussetzung), können wir schlussfolgern, dass $p=2$ ist.
+    \begin{align*}
+        &\text{\emph{Voraussetzung~1:}}~&p~\text{ist~eine~gerade~Primzahl} \implies p=2\\
+        &\text{\emph{Voraussetzung~2:}}~&p~\text{ist~eine~gerade~Primzahl}\\
+        &\text{\emph{Schlussfolgerung:}}~&p=2
+    \end{align*}
+\end{example}
+
+Der Beweis, den du im letzten Beispiel gesehen hast, ist ein \textbf{direkter Beweis}. Dabei startest du mit einer Aussage $A$, von der du weißt, dass sie gilt und folgerst daraus eine neue Aussage $B$. Du hast dann (vielleicht mit Zwischenschritten) gezeigt, dass $A \implies B$ gilt. Weil $A$ nun aber einmal gilt, kann so geschlussfolgert werden, dass auch $B$ wahr ist:
+\begin{align*}
+    &\text{\emph{Voraussetzung~1:}}~&A \implies B\\
+    &\text{\emph{Voraussetzung~2:}}~&A\\
+    (\text{MP})~&\text{\emph{Schlussfolgerung:}}~&B
+\end{align*}
+Diese Schlussfolgerungsregel heißt \textbf{modus ponens} (latein für eine direkte Schlussfolgerung), abgekürzt \enquote{MP}. Der direkte Beweis ist die naheliegendste Beweistechnik, die es gibt. Fast jede Herleitung, die du bisher in diesem Buch gesehen hast, war ein direkter Beweis.
+
+Im letzten Abschnitt hast du die \emph{Involutionsregel} kennengelernt, die aussagt, dass die Aussagen $\lnot \lnot A$ und $A$ semantisch äquivalent sind. Wenn die Aussage $\lnot\lnot A$ wahr ist, dann muss also auch die Aussage $A$ wahr sein:
+\begin{align*}
+    &\text{\emph{Voraussetzung:}}~&\lnot\lnot A\\
+    \text{(RAA)}~&\text{\emph{Schlussfolgerung:}}~&A.
+\end{align*}
+Auch diese Schlussregel hat einen Namen. Sie heißt \textbf{reduction ad absurdum} (latein für einen \textbf{Widerspruchsbeweis}). Der Name \emph{Widerspruchsbeweis} kommt daher, dass wir zeigen, dass die Aussage $A$ wahr ist, indem wir für das Gegenteil dieser Aussage, also $\lnot A$, zeigen, dass es nicht gilt. Die Information, dass die Formel $\lnot A$ nicht gilt, steckt genau in der Aussage $\lnot\lnot A$ (\enquote{es gilt nicht, dass das Gegenteil von $A$ wahr ist}).
+
+Nachdem wir eben gelernt haben, dass sich neue Aussagen mithilfe eines \emph{direkten Beweises} beweisen lassen, haben wir nun eine zweite Beweistechnik kennengelernt: Den \emph{Widerspruchsbeweis}. Es ist manchmal einfacher, zu zeigen, dass das Gegenteil der Aussage, die wir eigentlich beweisen möchten, nicht gilt als die Aussage, die wir beweisen möchten, direkt zu beweisen.
+
+\begin{example}{}
+    \parpic[r]{
+        \tikz[scale=1.8]{
+            \draw (0,0) -- (0,1) -- (1,1) -- (1,0) -- cycle;
+            \draw[dashed] (0,0) -- (30:0.5);
+            \draw[dashed] (30:0.5) -- ++ (1,0);
+            \draw[dashed] (30:0.5) -- ++ (0,1);
+            \draw (1,1) -- ++ (30:0.5);
+            \draw (0,1) -- ++ (30:0.5) -- ++ (1,0) -- ++ (0,-1) -- ++ (210:0.5);
+            \fill[blue!40] (0,0) circle[radius=.5mm];
+            \fill[white] (0,1) circle[radius=.8mm];
+            \node at (0,1) {\tiny $P$};
+            \fill[red] (1,1) circle[radius=.5mm];
+            \fill[yellow!70!black] ($(0,1) + (30:0.5)$) circle[radius=.5mm];
+        }
+    }
+    \picskip{6}
+    Die acht Ecken eines Würfels sollen so eingefärbt werden, dass jede Ecke genau eine der Farben rot, blau oder gelb erhält. Außerdem sollen die drei Nachbarn jeder Ecke immer unterschiedliche Farben haben. Auf der rechten Seite ist diese Bedingung zum Beispiel für die mit $P$ markierte Ecke erfüllt, denn ihre drei Nachbarn haben jeweils verschiedene Farben.
+
+    Es soll nun bewiesen werden, dass diese Aufgabe unlösbar ist:
+    \begin{align*}
+    \tag {A}\text{Die~Aufgabe~ist~nicht~lösbar.}
+    \end{align*}
+
+    Wir nehmen an, dass die Aussage $\lnot A$ gilt, also dass es möglich ist, die Ecken wie beschrieben zu färben. Es muss nun gezeigt werden, dass diese Annahme falsch ist, dass also $\lnot\lnot A$ gilt.
+
+    Unter der Annahme, dass die Aufgabe lösbar ist, muss es also eine Färbung der Ecken geben, für die jede Ecke drei verschiedenfarbige Nachbarn erhält. Das bedeutet, dass jede Ecke einen roten, einen blauen und einen gelben Nachbarn hat. Jede Ecke hat also einen roten Nachbarn und alle acht Ecken zusammen haben somit $8$ rote Nachbarn (wobei jetzt jede rote Ecke dreimal gezählt wurde, denn sie grenzt ja an drei Ecken und ist damit nicht nur der Nachbar von einer Ecke, sondern für drei Ecken). 
+    
+    Weil wir jede rote Ecke dreimal gezählt haben, gibt es insgesamt nur $\frac{8}{3}$ rote Ecken. Es ist allerdings nicht möglich, $\frac{8}{3}$ Ecken rot zu färben, denn es können nur ganze Ecken gefärbt werden. Die Annahme, dass es eine Färbung gibt, die die Aufgabe erfüllt, muss also falsch gewesen sein.
+
+    Mit der gerade bewiesenen Aussage, dass die Annahme, dass die Aufgabe lösbar ist, falsch ist, können wir schlussfolgern, dass die Aufgabe unlösbar sein muss:
+    \begin{align*}
+        &\text{\emph{Voraussetzung:}}~&\lnot\lnot\text{Die~Aufgabe~ist~nicht~lösbar.}\\
+        \text{(RAA)}~&\text{\emph{Schlussfolgerung:}}~&\text{Die~Aufgabe~ist~nicht~lösbar.}
+    \end{align*}    
+\end{example}
+
+Schließlich schauen wir uns noch eine Schlussfolgerungsregel mit dem Namen \textbf{Fallunterscheidung} an. Unser Ziel ist es, eine Aussage $B$ herzuleiten. Das heißt, dass die Aussage $B$ unabhängig davon wahr sein sollte, ob eine andere Aussage $A$ auch noch gilt.
+
+\begin{example}{}
+    Du hast die Hausaufgaben nicht gemacht und sitzt nun im Unterricht. Der Lehrer fragt, wer die Hausaufgaben nicht gemacht hat und du weißt, dass er gleich durch die Klasse gehen wird, um die Hausaufgaben zu kontrollieren. Weil du die Hausaufgaben schon zweimal nicht erledigt hast und beim dritten Mal nachsitzen musst, möchtest du eigentlich nicht zugeben, dass du sie nicht gemacht hast. Was sind also deine Optionen?
+    \begin{enumerate}
+        \item \emph{Du gibst zu, dass du die Hausaufgaben nicht gemacht hast.} Dann hast du allerdings zum dritten Mal die Hausaufgaben nicht erledigt und musst nachsitzen. Das ist ein Problem.
+        \item \emph{Du gibst nicht zu, dass du die Hausaufgaben nicht gemacht hast.} Dann wird dein Lehrer beim Kontrollieren der Hausaufgaben bemerken, dass du sie nicht gemacht hast und es gibt Ärger. Das ist ebenfalls ein Problem.
+    \end{enumerate}
+    Du hast also in jedem Fall ein Problem.
+\end{example}
+
+Wenn eine Aussage $B$ unabhängig davon gilt, ob eine Aussage $A$ gilt, dann heißt das, dass $B$ in jedem Fall gilt. Dafür muss die Aussage $B$ also dann gelten, wenn $A$ gilt und auch dann, wenn $\lnot A$ gilt. Ist das beides der Fall, dann können wir $B$ schlussfolgern:
+\begin{align*}
+    &\text{\emph{Voraussetzung~1:}}~&A \implies B\\
+    &\text{\emph{Voraussetzung~2:}}~&\lnot A \implies B\\
+    \text{(FU)}~&\text{\emph{Schlussfolgerung:}}~&B
+\end{align*}
+Die Abkürzung \enquote{FU} auf der linken Seite steht für \emph{Fallunterscheidung}. Um eine Aussage $B$ zu zeigen, kannst du also eine weitere Aussage $A$ zur Hilfe nehmen. Du unterscheidest dann zwei Fälle:
+\begin{align*}
+    \text{\emph{Fall~1:}}~&A~\text{gilt}\\
+    \text{\emph{Fall~2:}}~&A~\text{gilt nicht}
+\end{align*}
+Für jeden dieser Fälle musst du dann die Aussage $B$ herleiten. Das ist zwar mehr Arbeit als wenn du einen direkten Beweis verwenden würdest, allerdings steht dir dafür auch in jedem Fall eine weitere Information zur Verfügung, die du im Beweis verwenden kannst.
+
+\begin{example}{}
+    Wir wollen beweisen, dass $x\leq |x|$ für alle $x$ gilt. Dafür unterscheiden wir die Fälle, ob $x$ kleiner als $0$ ist oder nicht. Wir haben also die Aussagen
+    \[A:x<0~\text{und}~B:x\leq |x|.\]
+    Nun müssen wir zeigen, dass $B$ aus $A$ folgt und dass $B$ aus $\lnot A$ folgt.
+    \begin{enumerate}
+         \item
+            Wir nehmen an, dass $A$ wahr ist, also dass $x<0$ gilt. In diesem Fall ist $|x|=-x$. Da $x<0$ ist, muss $-x>0$ gelten. Das heißt aber, dass $x<0<|x|$ gilt, also muss auch $x\leq |x|$ gelten. Wir haben also gezeigt, dass 
+         \item
+            Wir nehmen an, dass $A$ falsch ist, also dass $x<0$ nicht gilt. Daraus folgt, dass $x\geq 0$ gelten muss. Für $x\geq 0$ wissen wir, dass $|x|=x$ gilt. Das heißt natürlich auch, dass $x\leq |x|$ gilt.
+    \end{enumerate}
+    Mit der Fallunterscheidungsregel können wir nun schlussfolgern, dass $x\leq |x|$ gilt, denn wir haben die beiden Voraussetzungen bewiesen.
+    \begin{align*}
+        &\text{\emph{Voraussetzung~1:}}~&x<0 \implies x\leq |x|\\
+        &\text{\emph{Voraussetzung~2:}}~&\lnot (x<0) \implies x\leq |x|\\
+        \text{(FU)}~&\text{\emph{Schlussfolgerung:}}~&x\leq |x|.
+    \end{align*}
+\end{example}
+
+\begin{advanced}{Weitere Beweistechniken}
+    Die hier präsentierten Beweistechniken sind nur eine Auswahl von denen, die es gibt. Du hast gesehen, dass Widerspruchsbeweise und Fallunterscheidungen manchmal deutlich einfacher als direkte Beweise sein können. Fortgeschrittene Beweistechniken zu kennen, lohnt sich also, weil es das Herleiten von Aussagen vereinfacht.
+
+    Neben den hier präsentierten Beweistechniken gibt es unter anderem auch den \textbf{Beweis durch Kontraposition}, die \textbf{vollständige Induktion}, den \textbf{Ringschluss} und das \textbf{Schubfachprinzip}. Diese Beweistechniken findest du im weiterführenden Wissen im Abschnitt \emph{Fortgeschrittene Beweistechniken} auf Seite \pageref{advanced-proofs}.
+\end{advanced}
+
+Die Schlussfolgerungsregeln, die wir in den hier präsentierten Beweisen immer mit angegeben haben, werden normalerweise nicht mit aufgeschrieben. Sie dienen vor allem dazu, Beweistechniken zu entwickeln und zu verstehen. Sobald du eine Beweistechnik verstanden hast, kannst du sie einfach verwenden, ohne dir darüber Gedanken zu machen, welche Schlussfolgerungsregeln dahinter stecken.
+
+\begin{nutshell}{Logisches Schlussfolgern}
+    Um eine mathematische Aussage zu beweisen, ist es nötig, sie logisch aus bereits bekanntem Wissen zu folgern. Dafür gibt es mehrere Techniken, die auf logischen Schlussfolgerungsregeln basieren.
+
+    Die naheliegendste Möglichkeit, eine neue Aussage zu beweisen, ist der \textbf{direkte Beweis}. Dabei wird bekanntes Wissen verwendet, um Schritt für Schritt und ohne zusätzliche Annahmen die Aussage herzuleiten.
+
+    Bei einem \textbf{Widerspruchsbeweis} nimmt man hingegen an, dass die Aussage $A$, die bewiesen werden soll, nicht gilt. Anschließend zeigt man, dass diese Annahme falsch ist. Man beweist also $\lnot\lnot A$. Weil $\lnot\lnot A$ semantisch äquivalent zu $A$ ist, wurde auf diese Weise bewiesen, dass die Aussage $A$ gilt:
+    \begin{align*}
+        &\text{\emph{Voraussetzung:}}~&\lnot\lnot A\\
+        \text{(RAA)}~&\text{\emph{Schlussfolgerung:}}~&A
+    \end{align*}
+    Bei einem Beweis durch \textbf{Fallunterscheidung} wird eine weitere Aussage zur Hilfe genommen. Anschließend wird die Aussage $B$ sowohl für den Fall, dass die Hilfsaussage $A$ gilt als auch unter der Annahme, dass sie nicht gilt (also $\lnot A$) hergeleitet. Daraus kann gefolgert werden, dass $B$ in jedem Fall gilt und somit wahr sein muss:
+    \begin{align*}
+        &\text{\emph{Voraussetzung~1:}}~&A \implies B\\
+        &\text{\emph{Voraussetzung~2:}}~&\lnot A \implies B\\
+        \text{(FU)}~&\text{\emph{Schlussfolgerung:}}~&B
+    \end{align*}
+\end{nutshell}
+
 \end{document}

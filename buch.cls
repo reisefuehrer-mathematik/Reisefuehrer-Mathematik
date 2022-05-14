@@ -26,6 +26,8 @@
 
 \RequirePackage{tabularx}
 
+\RequirePackage{enumitem}
+
 \RequirePackage{imakeidx}
 
 \RequirePackage{qrcode}
@@ -101,11 +103,6 @@ suffix_3p "\\,ff."
     \clearpage
     \pagecolor{violet!30!white}
     \section{#2}
-    \begin{remark}{Für Fortgeschrittene}
-        Dieser Abschnitt baut stark auf dem Verständnis vorangegangener Kapitel auf. Die behandelte Thematik ist wesentlich schwieriger zu verstehen und geht über den Schulstoff hinaus. Sinn dieses Kapitels ist es, dem interessierten Schüler einen Einblick darein zu geben, was die Kombinatorik über den Schulstoff hinaus zu bieten hat.
-        
-        Die wichtigste Lektion, die man aus diesem Kapitel ziehen kann, ist, dass der in der Schule behandelte Stoff nur einen sehr kleinen Teil dessen ausmacht, was es zu wissen gibt. \textbf{Der Kaninchenbau geht wesentlich tiefer als es von oben scheint.}
-    \end{remark}
     \tosnakecase{\Chaptername}{\chapname}
     \tosnakecase{#2}{\filename}
     \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
@@ -320,6 +317,22 @@ suffix_3p "\\,ff."
     \rule{\textwidth}{.4pt}\par\nobreak
 }
 \renewcommand\chapterlineswithprefixformat[3]{\chapterlinesformat{#1}{#2}{#3}}
+
+% Setting the default enumerate environment to circled numbers
+\RequirePackage{circledsteps}
+\RequirePackage{enumitem}
+\def\@circlelblcolor@text{white}
+\def\@circlelblcolor@border{blue!40!white}
+\def\@circlelblcolor@fill{blue!40!white}
+\newcommand{\circlelbl}[1]{%
+    \Circled[%
+        inner color=white,%\@circlelblcolor@text,
+        outer color=blue!40,%\@circlelblcolor@border,
+        fill color=blue!40,%\@circlelblcolor@fill,
+        inner ysep=4pt,
+        inner xsep=4pt]{\textsf{#1}}%
+}
+\setlist[enumerate]{label=\circlelbl{\arabic*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Todos
