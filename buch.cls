@@ -332,6 +332,20 @@ suffix_3p "\\,ff."
         inner ysep=4pt,
         inner xsep=4pt]{\textsf{#1}}%
 }
+\newcommand{\mathmodecircle}[2]{%
+    \Circled[%
+        inner color=black,%\@circlelblcolor@text,
+        outer color=orange!#2,%\@circlelblcolor@border,
+        fill color=orange!#2,%\@circlelblcolor@fill,
+        inner ysep=4pt,%
+        inner xsep=4pt]{#1}%
+}
+\newcommand{\circlemath}[1]{%
+    \mathmodecircle{#1}{30}
+}
+\newcommand{\circlemathresult}[1]{%
+    \mathmodecircle{#1}{60}
+}
 \setlist[enumerate]{label=\circlelbl{\arabic*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

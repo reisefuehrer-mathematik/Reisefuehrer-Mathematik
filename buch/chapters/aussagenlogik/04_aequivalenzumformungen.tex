@@ -395,9 +395,9 @@
             Die nächste Tabelle zeigt Schritt für Schritt welche Umformungen wir angewendet haben:
             \[\begin{array}{cc s c}\toprule
                 \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-                \textrm{Start}   &   & A \implies B  \\
-                1   & \textrm{Auflösen der Implikation} & \lnot (A \land (\lnot B))\\
-                2 & \textrm{1. De Morgansches Gesetz}   & (\lnot A) \lor (\lnot \lnot B)\\
+                \textrm{Start}   &   & \circlemath{A \implies B}  \\
+                1   & \textrm{Auflösen der Implikation} & \circlemath{\lnot (A \land (\lnot B))}\\
+                2 & \textrm{1. De Morgansches Gesetz}   & (\lnot A) \lor (\circlemath{\lnot \lnot B})\\
                 3 & \textrm{Involution} &  (\lnot A) \lor B\\\bottomrule
             \end{array}\]
             Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \implies B$
@@ -417,13 +417,20 @@
         \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A))\]
 
         vereinfachen. Die folgende Tabelle zeigt schrittweise, welche Äquivalenzumformungen
-        wir anwenden. \circlelbl{test} Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
+        wir anwenden. Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
+
+        \begin{align*}
+            &\lnot ( (\circlemath{\lnot \lnot A}) \land (\lnot B) ) \land (B \implies A)\\
+            \equiv & \circlemath{\lnot ( \circlemathresult{A}\land (\lnot B))} \land (B \implies A)\\
+            \equiv & \circlemath{(\circlemathresult{A \implies B}) \land (B \implies A)}\\
+            \equiv & A \iff B
+        \end{align*}
 
         \[\begin{array}{cc s c}\toprule
             \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-            \textrm{Start}   &   & (\lnot ( \color{red}(\lnot \lnot A) \color{black}\land (\lnot B) ) \land (B \implies A))  \\
-            1   & \textrm{Involution} & \color{red}(\lnot ( A\land (\lnot B) ) \color{black} \land (B \implies A))\\
-            2 & \textrm{Auflösen der Implikation}   & \color{red}(A \implies B) \land (B \implies A))  \color{black}\\
+            \textrm{Start}   &   & (\lnot ( (\circlemath{\lnot \lnot A}) \land (\lnot B) ) \land (B \implies A))  \\
+            1   & \textrm{Involution} & (\circlemath{\lnot ( A\land (\lnot B)} ) \land (B \implies A))\\
+            2 & \textrm{Auflösen der Implikation}   & \circlemath{(A \implies B) \land (B \implies A)}\\
             3 & \textrm{Auflösen der Äquivalenz} &  A \iff B\\
         \end{array}\]
 
