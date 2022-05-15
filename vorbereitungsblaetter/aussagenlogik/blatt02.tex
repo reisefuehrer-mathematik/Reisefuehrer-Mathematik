@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
+\usepackage{multicol}
 \usepackage{mathdef}
 \usepackage{booktabs}
 
@@ -25,10 +26,52 @@
 \end{definition}
 
 \begin{definition}
-    Eine Aussage, die Teil einer Aussage ist, nennen wir \textbf{Unteraussage}.
-\end{definition}
+    Alle Aussagen, die in einer Aussage $A$ vorkommen, nennen wir \textbf{Unteraussagen} von $A$.
+    \end{definition}
 
 \subsection*{Aufgabenteil}
+
+\begin{exercise}
+
+    Unterstreiche alle Konnektoren in den folgenden Aussagen.
+
+        \begin{enumerate}[label=\alph*)]
+            \item Wenn ich eine 1 schreibe, dann erhalte ich 5 Euro.
+            \item Manner sind Menschen und Frauen sind Menschen.
+            \item Ich gehe nicht zum Fußballtraining.
+            \item Pizza schmeckt genau dann, wenn die Pizza nicht mit Ananas belegt ist.
+        \end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}
+
+    Liste alle Unteraussagen der folgenden Aussage auf.
+
+    \begin{center}
+        \emph{Wenn es mir nicht gut geht, dann bleib ich zuhause}
+    \end{center}
+
+    \begin{answerbox}[1in]
+
+    \end{answerbox}
+
+\end{exercise}
+
+\begin{exercise}
+
+    Wähle für die zwei Aussagen ein Symbol und verknüpfe diese Symbole mit einem Konnektor, sodass die verknüpfte Aussage \emph{wahr} wird.
+
+    \begin{enumerate}
+        \item Es regnet.
+        \item Die Straße wird nass.
+    \end{enumerate}
+
+    \begin{answerbox}[1in]
+
+    \end{answerbox}
+
+\end{exercise}
 
 \newpage
 
@@ -50,6 +93,54 @@
 \end{definition}
 
 \subsection*{Aufgabenteil}
+
+\begin{exercise}
+
+    Wir kürzen folgende drei Aussagen mit diesen Bildern ab.
+
+    \begin{enumerate}
+        \item Der Zauberer verwandelt dich in ein Kaninchen BILD
+        \item Du siehst eine Katze BILD
+        \item Du läufst weg BILD
+    \end{enumerate}
+
+    a) Ersetze in den folgenden Aussagen, den Konnektor durch sein Symbol
+    \\ \\
+        wenn WEGLAUFEN dan nicht VERWANDELT \ \ \ \ \ \ \ \ \ \ \ \  \ \ \
+         \ \ \  \ \ \ \ \ \   WEGLAUFEN oder KANINCHEN  
+    
+
+    \begin{answerbox}[1in]
+    \end{answerbox}
+
+
+    b) Formuliere folgende Aussage natürlichsprachlich.
+
+     VERWANDELT $\implies$ (katze $\implies$ weglaufen)
+
+    \begin{answerbox}[1in]
+    \end{answerbox}
+
+\end{exercise}
+
+\begin{exercise}
+
+    \emph{Du weißt, dass dein Kumpel Tim einen Wellensittich hat und du weißt, dass 
+    Tim noch ein weiteres Haustier besitzt. Du bist dir aber nicht sicher was für
+    eins. Du weißt nur, dass es entweder ein Hund oder eine Katze ist.}
+
+    Welche der zwei Aussagen ist \emph{wahr} bezügliches des Textes?
+
+    \begin{multicols}{2}
+        \begin{multiplechoice}
+            \citem formalisiert: Wellsensittich und (Katze oder Hund)
+            \item formalisiert: (Wellsensittich und Katze) oder Hund
+            \item formalisiert: (Wellensittich und Hund) oder Katze
+            \citem formalisiert: Wellsensittich und (Hund oder Katze)
+        \end{multiplechoice}
+    \end{multicols}
+
+\end{exercise}
 
 \mandala{mandala/mandala01}
 
