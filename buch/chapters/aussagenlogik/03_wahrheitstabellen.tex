@@ -3,56 +3,51 @@
 \begin{document}
 
 Wir wissen bereits, dass Aussagen entweder \wahr\  oder \falsch\  sind.
-In diesem Abschnitt widmen wir uns der Frage, wie man denn nun herausfinden kann, 
+Nun widmen wir uns der Frage, wie man denn nun herausfinden kann, 
 ob eine Aussage \wahr\  oder \falsch\  ist. 
 
-Leider ist das in manchen Fällen gar nicht so einfach oder manchmal sogar 
-überhaupt nicht möglich. Das nächste Beispiel zeigt Aussagen, für die es aus verschiedenen Gründen schwierig ist zu entscheiden, ob sie \wahr\  oder \falsch\  sind.
-
-\todo{Besseres Bild für den wütenden Zauberer}
-\begin{example}{Aussagen mit schwierig zu bestimmenden Wahrheitswert}
-        \parpic[r]{
-        \includegraphics[width=0.1\textwidth]{images/wizard_angry_tmp.png}
-    }
-
-    Der Wahrheitswert der Aussage \statement{Der Zauberer ist schlecht gelaunt} hängt davon ab, zu welchem Zeitpunkt diese Aussage getätigt wird. Es gibt nämlich Tage an denen der Zauberer gut gelaunt ist, es gibt aber auch welche an denen er schlecht gelaunt ist.
-    \\ \\
-    Den Wahrheitswert Aussage \statement{Der Bart vom Zauberer ist nicht echt} könnte man zwar prinzipiell bestimmen, indem man eine Probe seines Barthaares nimmt, jedoch würde der Zauberer dies nicht zulassen (sein Bart ist ihm heilig!).
-    \\ \\
-    Die Aussage \statement{Der Zaubertrank ist giftig} hat zwar einen Wahrheitswert, jedoch hängt dieser davon ab, auf welchen Zaubertrank sich die Aussage bezieht.
-\end{example}
-
-Wir stellen also fest, dass es Aussagen gibt, über die wir nicht ohne weiteres entscheiden können, ob sie \wahr\  oder \falsch\ \  sind. Das Problem ist, dass der Wahrheitswert von manchen Aussagen vom Zeitpunkt der Aufstellung der Aussage abhängt oder der Wahrheitswert vom Kontext abhängt in der die Aussage gestellt wurde. Der Wahrheitswert mancher Aussagen ist zwar im Prinzip bestimmbar, wäre jedoch viel zu aufwendig.
-
-Wir müssen uns also damit abfinden, dass wir im Allgemeinen nicht über den Wahrheitswert einer Aussage entscheiden können. Wir geben uns damit aber noch nicht zufrieden. Können wir zumindest herausfinden, welche Informationen wir mindestens benötigen, um den Wahrheitswert einer Aussage zu bestimmen?
-
 \begin{example}{Atomare Aussagen}
-Wir betrachten noch einmal zwei der Aussagen aus dem letzten Beispiel und verknüpfen diese mit \statement{und} zu einer neuen Aussage, die lautet:
-\[\statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig}\]
-Angenommen wir würden die Wahrheitswerte von den beiden kleineren Unteraussagen
-\begin{enumerate}
-    \item \statement{Der Zauberer ist schlecht gelaunt}
-    \item \statement{Der Zaubertrank ist giftig}
-\end{enumerate}
-kennen, dann könnten wir daraus den Wahrheitswert der gesamten Aussage ableiten. Wüssten wir zum Beispiel, dass der Zauberer schlecht gelaunt ist und, dass der Zaubertrank giftig ist, dann wüssten wir, dass unsere Aussage \statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig} \wahr\  ist.
-\\ \\
-Können wir mit dem gleichen Prinzip auch den Wahrheitswert der beiden Unteraussagen ermitteln? Nein, denn diese beiden Unteraussagen enthalten keine Konnektoren mehr. Sie sind also nicht aus kleineren Aussagen zusammengesetzt. Solche Aussagen, die keine Konnektoren enthalten, nennt man \textbf{atomare Aussagen}.
-\end{example}
-
-Tatsächlich sind die einzigen Informationen, die wir benötigen, 
-um den Wahrheitswert einer Aussage zu bestimmen, die Wahrheitswerte 
-gewisser Unteraussagen. Diese gewissen Unteraussagen sind die sogenannten 
-\textbf{atomaren Aussagen}. Das sind Aussagen, die keine Konnektoren enthalten. 
-\enquote{Atomar} kommt aus dem griechischen und heißt \enquote{unteilbar}.
+    Wir betrachten noch einmal zwei der Aussagen aus dem letzten Beispiel und verknüpfen diese mit \statement{und} zu einer neuen Aussage, die lautet:
+    \[\statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig}\]
+    Angenommen wir würden die Wahrheitswerte von den beiden kleineren Unteraussagen
+    \begin{enumerate}
+        \item \statement{Der Zauberer ist schlecht gelaunt}
+        \item \statement{Der Zaubertrank ist giftig}
+    \end{enumerate}
+    kennen, dann könnten wir daraus den Wahrheitswert der gesamten Aussage ableiten. Wüssten wir zum Beispiel, dass der Zauberer schlecht gelaunt ist und, dass der Zaubertrank giftig ist, dann wüssten wir, dass unsere Aussage \statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig} \wahr\  ist.
+    \\ \\
+    Können wir mit dem gleichen Prinzip auch den Wahrheitswert der beiden Unteraussagen ermitteln? Nein, denn diese beiden Unteraussagen enthalten keine Konnektoren mehr. Sie sind also nicht aus kleineren Aussagen zusammengesetzt. Solche Aussagen, die keine Konnektoren enthalten, nennt man \textbf{atomare Aussagen}.
+    \end{example}
 
 \begin{definition} {Atomare Aussage}
 Eine \textbf{Atomare Aussage} ist eine Aussage, die keine Konnektoren enthält.
 \end{definition}
 
-Im Folgenden lernst du, wie man für beliebige Aussagen den Wahrheitswert 
+Wir haben gerade gesehen, dass wenn wir die Wahrheitswerte von den atomaren
+Aussagen kennen, dann können wir auch den Wahrheitswert einer Aussage bestimmen,
+die aus den atomaren Aussagen zusammengesetzt ist.
+
+Können wir auch den Wahrheitswert von atomaren 
+Aussagen immer bestimmen? Leider ist das in manchen Fällen gar nicht so einfach 
+oder manchmal sogar 
+überhaupt nicht möglich. Das nächste Beispiel zeigt eine Aussage, für die es
+schwierig ist zu entscheiden, ob sie \wahr\  oder \falsch\  sind.
+
+\todo{Besseres Bild für den wütenden Zauberer}
+\begin{example}{Aussage mit schwierig zu bestimmenden Wahrheitswert}
+        \parpic[r]{
+        \includegraphics[width=0.1\textwidth]{images/wizard_angry_tmp.png}
+    }
+
+    Den Wahrheitswert Aussage \statement{Der Bart vom Zauberer ist nicht echt} könnte man zwar prinzipiell bestimmen, indem man eine Probe seines Barthaares nimmt, jedoch würde der Zauberer dies nicht zulassen (sein Bart ist ihm heilig!).
+\end{example}
+Wir müssen uns also damit zufrieden geben, dass wir nicht immer die
+Wahrheitswerte von atomaren Aussagen bestimmen können.
+
+Im Folgenden lernst du dafür aber, wie man für beliebige Aussagen den Wahrheitswert 
 bestimmen kann, falls man bereits die Wahrheitswerte aller atomaren Aussagen 
 dieser Aussage kennt. Wir gehen also davon aus, dass wir zumindest die 
-Wahrheitswerte von atomaren Aussagen immer bereits kennen.
+Wahrheitswerte von atomaren Aussagen immer bereits kennen. 
 
 Wir können schon mithilfe der Wahrheitswerte von zwei Aussagen $A$ und $B$ 
 auch den 
@@ -61,8 +56,9 @@ herausfinden, da wir bereits die Bedeutung der Konnektoren kennen. Das wollen
 wir uns jetzt genauer anschauen.
 
 \begin{example}{Wahrheitswerte von $\land$}
-    Sei $S$ eine Abkürzung für die Aussage \statement{Der Zauberer ist schlecht gelaunt} 
-    und $G$ eine Abkürzung für \statement{Der Zaubertrank ist giftig}. Ist der Zauberer 
+    Wir kürzen die Aussage \statement{Der Zauberer ist schlecht gelaunt} durch $S$
+    und \statement{Der Zaubertrank ist giftig} durch $G$ ab. Unser natürliches
+    Sprachgefühl sagt uns bereits: Ist der Zauberer 
     tatsächlich schlecht gelaunt ($S$ ist \wahr) und ist der Zaubertrank giftig 
     ($G$ ist auch \wahr), dann ist auch \statement{Der Zauberer ist schlecht gelaunt und
     der Zaubertrank ist giftig}
@@ -83,35 +79,44 @@ wir uns jetzt genauer anschauen.
     \end{array}\]
 \end{example}
 
-\textbf{Wahrheitswerte von dem Konnektor $\land$}:
-Seien $A,B$ zwei beliebige Aussagen (z.B. die aus letztem Beispiel). Angenommen, wir kennen die 
-Wahrheitswerte von $A$ und $B$, dann können wir daraus
+\parpic[r]{
+        \begin{array}{cc s c}\toprule
+            A & B & A \land B\\\midrule
+            \falsch   & \falsch   & \falsch  \\
+            \falsch   & \wahr & \falsch\\
+            \wahr & \falsch   & \falsch\\
+            \wahr & \wahr & \wahr\\\bottomrule
+        \end{array}
+}
+Angenommen, wir kennen die 
+Wahrheitswerte von zwei Aussagen $A$ und $B$ (z.B die aus letztem Beispiel), dann können wir daraus
 den Wahrheitswert für $A \land B$ folgern.  $A \land B$ ist nämlich genau dann \wahr, wenn sowohl $A$ als auch 
 $B$ \wahr\  ist. Ist also $A$ oder $B$ \falsch\  oder sind sogar beide \falsch\ ,
 dann ist auch $A \land B$ \falsch\ .
 
-Auf die gleiche Weise können wir auch bei Aussagen in denen die anderen Konnektoren
-aus dem letzten Abschnitt vorkommen, herausfinden, wann sie \wahr\ sind. Dies schauen wir
+Auf die gleiche Weise können wir auch bei Aussagen in denen die anderen, bereits bekannten Konnektoren vorkommen,
+herausfinden, wann sie \wahr\ sind. Dies schauen wir
 uns als nächstes für den Konnektor $\lor$ an.
 \begin{example}{Wahrheitswerte von $\lor$}
-    Sei $S$ wieder die Abkürzung für die Aussage \statement{Der Zauberer ist schlecht 
-    gelaunt} und $G$ wieder die Abkürzung für \statement{Der Zaubertrank ist giftig}. 
-    Ist mindestens eine Aussage der Aussagen $S, G$  \wahr, dann ist auch 
-    \statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig}
-    (kurz: $S \lor G$) \wahr. 
+    Wir kürzen die Aussage \statement{Der Zauberer ist munter} durch $M$
+    und \statement{Der Zaubertrank ist giftig} durch $G$ ab. Durch unser
+    Sprachgefühl wissen wir:
+    Ist mindestens eine Aussage der Aussagen $M$ und $G$  \wahr, dann ist auch 
+    \statement{Der Zauberer ist munter oder der Zaubertrank ist giftig}
+    (kurz: $M \lor G$) \wahr. 
     
-    Ist also zum Beispiel der Zauberer nicht schlecht gelaunt ($S$ ist \falsch\ ), aber 
-    der Zaubertrank ist giftig ($G$ ist \wahr), dann ist $S \lor G$ \wahr. 
+    Ist also zum Beispiel der Zauberer nicht munter ($M$ ist \falsch\ ), aber 
+    der Zaubertrank ist giftig ($G$ ist \wahr), dann ist $M \lor G$ \wahr. 
     
-    $S \lor G$ kann nur \falsch\  werden, wenn der Zauberer nicht schlecht gelaunt 
-    ist ($S$ ist \falsch) und der Zaubertrank nicht giftig ist ($G$ ist \falsch). 
+    $M \lor G$ kann nur \falsch\  werden, wenn der Zauberer nicht munter 
+    ist ($M$ ist \falsch) und der Zaubertrank nicht giftig ist ($G$ ist \falsch). 
     
     Für 
-    alle möglichen Fälle der Wahrheitswerte von $S$ und $G$
-    können wir nun in einer Tabelle den Wahrheitswert von $S \lor G$ angeben.
+    alle möglichen Fälle der Wahrheitswerte von $M$ und $G$
+    können wir nun in einer Tabelle den Wahrheitswert von $M \lor G$ angeben.
     
     \[\begin{array}{cc s c}\toprule
-        S & G & S \lor G\\\midrule
+        M & G & M \lor G\\\midrule
         \falsch   & \falsch   & \falsch  \\
         \falsch   & \wahr & \wahr\\
         \wahr & \falsch   & \wahr\\
@@ -119,9 +124,17 @@ uns als nächstes für den Konnektor $\lor$ an.
     \end{array}\]
 \end{example}
 
-\textbf{Wahrheitswerte von dem Konnektor $\lor$}: Seien nun $A,B$ zwei beliebige 
-Aussagen (z.B. die aus letztem Beispiel)). 
-Angenommen wir kennen die Wahrheitswerte von $A$ und $B$, 
+\parpic[r]{
+    \begin{array}{cc s c}\toprule
+        A & B & A \lor B\\\midrule
+        \falsch   & \falsch   & \falsch  \\
+        \falsch   & \wahr & \wahr\\
+        \wahr & \falsch   & \wahr\\
+        \wahr & \wahr & \wahr\\\bottomrule
+    \end{array}
+}
+Angenommen wir kennen die Wahrheitswerte von zwei Aussagen $A$ und $B$ (beispielsweise die aus
+letztem Beispiel), 
 dann können wir den Wahrheitswert von $A \lor B$ folgern. $A \lor B$ ist nämlich 
 genau dann \wahr, wenn 
 mindestens eine der Aussagen $A,B$ \wahr\  ist. Insbesondere ist $A \lor B$ auch 
@@ -131,7 +144,7 @@ mindestens eine der Aussagen $A,B$ \wahr\  ist. Insbesondere ist $A \lor B$ auch
  Wir stellen nun diesselben Überlegungen zu den Wahrheitswerten nun für den Konnektor
  $\lnot$ an.
 \begin{example}{Wahrheitswerte von $\lnot$}
-Sei $G$ noch einmal die Abkürzung für die Aussage \statement{Der Zaubertrank ist giftig}. 
+Wir kürzen die Aussage \statement{Der Zaubertrank ist giftig} nochmal mit $G$ ab. 
 Ist der Zaubertrank wirklich giftig ($G$ ist \wahr), dann ist die Negation \statement{Der Zaubertrank ist nicht giftig} (kurz: $\lnot G$) \falsch. Ist aber 
 andersherum $G$ \falsch, dann ist $\lnot G$ \wahr. 
 
@@ -144,7 +157,14 @@ können wir nun in einer Tabelle den Wahrheitswert von $\lnot G$ angeben.
     \end{array}\]
 \end{example}
 
-\textbf{Wahrheitswerte von $\lnot$}: Zur Erinnerung: Verneinen wir eine Aussage, 
+\parpic[r]{
+    \begin{array}{c s c}\toprule
+        A & \lnot A\\\midrule
+        \falsch & \wahr\\
+        \wahr & \falsch\\\bottomrule
+    \end{array}
+}
+Zur Erinnerung: Verneinen wir eine Aussage, 
 dann ist das die Negation der ursprünglichen Aussage. Ist $A$ eine beliebige  
 Aussage (z.B. die aus letztem Beispiel), dann notieren wir die Negation von $A$ durch $\lnot A$. Eine Negation 
 dreht den Wahrheitswert der Aussage um. Das heißt, wenn die Aussage \wahr\  ist, 
@@ -153,24 +173,33 @@ ihre Negation \wahr.
 
 Wir wiederholen die gleichen Überlegungen nun für den Konnektor $\iff$.
 \begin{example}{Wahrheitswerte von $\iff$}
-    Sei $F$ eine Abkürzung für die Aussage 
-    \statement{Der Zaubertrank verleiht Superkräfte} und $S$ wieder die Abkürzung 
-    für \statement{Der Zauberer ist schlecht gelaunt}. Verleiht zum Beispiel der 
-    Zaubertrank keine Superkräfte (also $F$ ist \falsch) und ist der Zauberer nicht 
-    gut gelaunt ($G$ ist \falsch), dann ist trotzdem \statement{Der Zaubertrank verleiht Superkräfte
-    genau dann wenn der Zauberer schlecht gelaunt ist}(kurz: $F \iff G$) \wahr, da $F$ und $G$ 
+    Wir kürzen die Aussage
+    \statement{Der Zaubertrank verleiht Superkräfte} durch $F$ 
+    und \statement{Der Zauberer ist munter} durch $M$ ab. 
+    Wir haben den Konnektor \statement{$\iff$}
+    eingeführt, um Gleichwertigkeit auszudrücken. 
+    Die Aussage $\statement{Der Zaubertrank verleiht Superkräfte
+    genau dann wenn der Zauberer munter ist}$ (kurz: $F \iff M$) ist \wahr\  in den Fällen,
+    in denen $F$ und $M$ den gleichen Wahrheitswert haben.
+
+    Verleiht zum Beispiel der 
+    Zaubertrank keine Superkräfte (also $F$ ist \falsch) und ist der Zauberer 
+    nicht 
+    munter ($M$ ist \falsch), dann ist trotzdem $F \iff M$
+     \wahr, da $F$ und 
+    $M$ 
     den gleichen Wahrheitswert besitzen. 
     
     Verleiht der Zaubertrank Superkräfte ($F$ ist \wahr) und ist der Zauberer 
-    schlecht gelaunt ($G$ ist \falsch), dann ist $F \iff G$ \falsch, da die 
-    Wahrheitswerte von $F$ und $G$ unterschiedlich sind. 
+    nicht munter ($M$ ist \falsch), dann ist $F \iff M$ \falsch, da die 
+    Wahrheitswerte von $F$ und $M$ unterschiedlich sind. 
     
     Für alle möglichen Fälle der 
-    Wahrheitswerte von $F$ und $G$
-    können wir nun in einer Tabelle den Wahrheitswert von $F \iff G$ angeben.
+    Wahrheitswerte von $F$ und $M$
+    können wir nun in einer Tabelle den Wahrheitswert von $F \iff M$ angeben.
     
     \[\begin{array}{cc s c}\toprule
-        F & G & F \iff G\\\midrule
+        F & M & F \iff M\\\midrule
         \falsch   & \falsch   & \wahr  \\
         \falsch   & \wahr & \falsch\\
         \wahr & \falsch   & \falsch\\
@@ -178,32 +207,47 @@ Wir wiederholen die gleichen Überlegungen nun für den Konnektor $\iff$.
     \end{array}\]
 \end{example}
 
-\textbf{Wahrheitswerte von dem Konnektor $\iff$}: Seien nun $A,B$ zwei beliebige 
-Aussagen (z.B. die aus letztem Beispiel) von denen wir den
-Wahrheitswert kennen. Wir können den Wahrheitswert von
+\parpic[r]{
+    \begin{array}{cc s c}\toprule
+            A & B & A \iff B\\\midrule
+            \falsch   & \falsch   & \wahr  \\
+            \falsch   & \wahr & \falsch\\
+            \wahr & \falsch   & \falsch\\
+            \wahr & \wahr & \wahr\\\bottomrule
+        \end{array}
+}
+Für jedes Paar von zwei beliebigen Aussagen $A,B$ (z.B. die aus letztem Beispiel) von denen
+wir den Wahrheitswert kennen, können wir 
+den Wahrheitswert von
  $A \iff B$ folgern. $A \iff B$ ist nämlich genau dann \wahr\  ist, wenn $A$ denselben Wahrheitswert 
  wie $B$ besitzt. 
 
  Zum Schluss müssen wir dieselben Überlegungen wie bisher noch für den Konnektor
  $\implies$ anstellen.
 \begin{example}{Wahrheitswerte von $\implies$}
-    Sei $G$ wieder die Abkürzung für die Aussage \statement{Der Zauberer ist schlecht 
-    gelaunt} und $F$ wieder die Abkürzung für \statement{Der Zaubertrank verleiht 
-    Superkräfte}. 
-    Ist beispielsweise der Zauberer nicht gut gelaunt ($G$ ist \falsch) und der 
-    Zaubertrank verleiht auch keine Superkräfte ($F$ ist \falsch), dann ist 
-    \statement{Wenn der Zauberer schlecht gelaunt ist, dann verleiht der Zaubertrank Superkräfte}
-    (kurz: $G \implies F$) \wahr.
+    Wir kürzen wieder die Aussage
+    \statement{Der Zauberer ist munter} durch $M$ und
+    \statement{Der Zaubertrank verleiht 
+    Superkräfte} durch $F$ ab. Die Aussage \statement{Wenn der Zauberer munter ist, 
+    dann verleiht der Zaubertrank Superkräfte}   (kurz: $M \implies F$)
+    können wir als ein Versprechen auffassen: Wenn der Zauberer munter ist,
+    dann muss der Zaubertrank Superkräfte verleihen. Nur wenn dieses 
+    Versprechen explizit gebrochen 
+    wird, ist die Aussage falsch.
+
+    Ist also beispielsweise der Zauberer nicht munter ($M$ ist \falsch) und der 
+    Zaubertrank verleiht auch keine Superkräfte ($F$ ist \falsch), dann ist das 
+    Versprechen nicht explizit gebrochen. Deshalb ist $M \implies F$ \wahr.
     
-    $G\implies F$ wird nur \falsch, wenn der Zauberer gut gelaunt 
-    ist ($G$ ist \wahr) aber trotzdem der Trank keine Superkräfte verleiht 
+    $M\implies F$ wird nur \falsch, wenn der Zauberer munter
+    ist ($M$ ist \wahr) aber trotzdem der Trank keine Superkräfte verleiht 
     ($F$ ist \falsch).
     
-    Für alle möglichen Fälle der Wahrheitswerte von $G$ und $F$
-    können wir nun in einer Tabelle den Wahrheitswert von $G \implies F$ angeben.
+    Für alle möglichen Fälle der Wahrheitswerte von $M$ und $F$
+    können wir nun in einer Tabelle den Wahrheitswert von $M \implies F$ angeben.
     
     \[\begin{array}{cc s c}\toprule
-        G & F & G \implies F\\\midrule
+        M & F & M \implies F\\\midrule
         \falsch   & \falsch   & \wahr  \\
         \falsch   & \wahr & \wahr\\
         \wahr & \falsch   & \falsch\\
@@ -211,9 +255,17 @@ Wahrheitswert kennen. Wir können den Wahrheitswert von
     \end{array}\]
 \end{example}
 
-\textbf{Wahrheitswerte von dem Konnektor $\implies$}: 
-Seien $A,B$ wieder zwei beliebige  Aussagen (z.B. die aus dem letztem Beispiel)
-. Kennen wir die Wahrheitswerte von $A$ und $B$, dann können
+\todo{parpic nach unten verschieben}
+\parpic[r]{
+    \begin{array}{cc s c}\toprule
+        A & B & A \implies B\\\midrule
+        \falsch   & \falsch   & \wahr  \\
+        \falsch   & \wahr & \wahr\\
+        \wahr & \falsch   & \falsch\\
+        \wahr & \wahr & \wahr\\\bottomrule
+    \end{array}
+}
+Seien $A,B$ wieder zwei beliebige  Aussagen (z.B. die aus dem letztem Beispiel). Kennen wir die Wahrheitswerte von $A$ und $B$, dann können
 wir daraus den Wahrheitswert von $A \implies B$ folgern. 
 Dazu interpretiert man die Aussage $A \implies B$ 
 als ein Versprechen. Nur wenn dieses Versprechen explizit gebrochen wird, wird
@@ -229,7 +281,7 @@ Die folgende Tabelle fasst nochmal alle vorangegangen Wahrheitswerte in einer Ta
 zusammen.
 \begin{definition}{Wahrheitswerte aller Konnektoren}
 \label{whw}
-Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswert aller möglichen Verknüpfungen dieser beiden Aussagen ist dann wie folgt definiert.
+Der Wahrheitswert aller möglichen Verknüpfungen von zwei beliebigen Aussagen $A,B$ ist wie folgt definiert:
 
     \[\begin{array}{cc s ccccc}\toprule
         A & B & A \land B & A\lor B & A\implies B & A\iff B & \lnot A\\\midrule
@@ -242,10 +294,8 @@ Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswert aller möglichen Verknüp
     \end{array}\]
 \end{definition}
 
-Zu Beginn dieses Kapitels wurde erwähnt, dass die Wahrheitswerte von atomaren 
-Unteraussagen einer völlig beliebigen Aussage die einzigen Informationen sind, die wir 
-benötigen, um den Wahrheitswert der Aussage zu ermitteln. Wie man das macht, lernst
-du jetzt kennen.
+Wie anfangs angekündigt, wirst du jetzt kennenlernen wie du den Wahrheitswert einer beliebigen Aussage ermitteln kannst,
+wenn du die Wahrheitswerte aller ihrer atomaren Unteraussagen kennst.
 
 Tatsächlich ist die Vorgehensweise, die wir gleich zeigen, nichts neues und funktioniert 
 ähnlich zu einem Verfahren, das man bereits im Schlaf beherrscht: 
@@ -261,11 +311,15 @@ du wie folgt vor:
     \item Du ersetzt die Variablen im Term durch ihre Werte:
     \[x \cdot (y - (z \cdot z)) \longmapsto 3 \cdot (7 - (2 \cdot 2)) \]
     
-    \item Anschließend ersetzt du solange einen Teilterm, den du direkt ausrechnen 
-    kannst, durch sein Ergebnis, bis nur noch das Gesamtergebnis übrig bleibt.
+    \item Ersetze nun einen Teilterm (den du direkt ausrechnen kannst) durch 
+    sein Ergebnis.
     
-    
-    Die nächste Abbildung zeigt genau dieses Vorgehen. Dabei ist in jeder Zeile blau markiert welcher Teilterm gewählt und dann ersetzt wurde.
+    \begin{center}
+        \includegraphics[width=0.275\textwidth]{images/TEMP_termalg_schritt_1.png}
+    \end{center}
+
+    Diesen Schritt wiederholst du bis nur noch eine Zahl übrig bleibt - Das Ergebnis.
+
     \begin{center}
         \includegraphics[width=0.275\textwidth]{images/TEMP_termalg.png}
     \end{center}
@@ -286,7 +340,7 @@ Es kommen nämlich genau dieselben Schritte vor. Möchte man nämlich den Wahrhe
     
 \todo{die abbildung tikzen}
 \begin{example}{Wahrheitswertbestimmung}
-Seien $A, B, C$ drei atomare Aussagen. Wenn wir wissen, dass $A$ \wahr\  ist, $B$ \wahr\  ist und $C$ \falsch\   ist, was ist dann der Wahrheitswert folgender Aussage?
+Wenn $A,B$ und $C$ Aussagen sind und wenn wir wissen, dass $A$ \wahr\  ist, $B$ \wahr\  ist und $C$ \falsch\   ist, was ist dann der Wahrheitswert folgender Aussage?
 \[A \land ( (\lnot B) \lor C)\]
 Wir wenden das eben beschriebene Verfahren an.
 \begin{enumerate}
@@ -468,7 +522,7 @@ der Einleitung systematisch zu lösen.
    
     Eine \textbf{Wahrheitstabelle} einer Aussage gibt für alle möglichen Kombinationen der Wahrheitswerte der atomaren Unteraussagen an, was der Wahrheitswert der Aussage ist.\bigskip
 
-    Seien $A,B$ beliebige Aussagen. Die folgende Tabelle definiert für alle Konnektoren den Wahrheitswert der Verknüpfung von $A,B$.
+    Wenn $A,B$ zwei beliebige Aussagen sind, dann definiert die folgende Tabelle für alle Konnektoren den Wahrheitswert der Verknüpfung von $A,B$.
     \[\begin{array}{cc s ccccc}\toprule
         A & B & A \land B & A\lor B & A\implies B & A\iff B & \lnot A\\\midrule
         \falsch & \falsch & \falsch & \falsch & \wahr & \wahr & \multirow{2}{*}{\wahr}\\
