@@ -4,7 +4,11 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
+\usepackage{multicol}
 \usepackage{mathdef}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{todonotes}
 
 \sheet{Vorbereitungsblatt 9.4}
 \title{Äquivalenzumformungen}
@@ -20,7 +24,8 @@
 \video{Semantisch äquivalente Aussagen}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
 
 \begin{definition}
-    Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für jede Belegung ihrer atomaren Unteraussagen, den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
+    Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für alle möglichen Wahrheitswerte ihrer
+        atomaren Unteraussagen den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
 \end{definition}
 
 \begin{theorem}
@@ -43,18 +48,77 @@
 
 \subsection*{Aufgabenteil}
 
--'lückentext' zu sem äquivalenz (straight forward)
+\begin{exercise}
+    Zwei Aussagen $A,B$ heißen \textchoice{syntaktisch,semantisch} äquivalent, 
+    wenn diese für
+    \textchoice{alle,einige,keine} Wahrheitswerte ihrer atomaren 
+    \textchoice{Überaussagen,Unteraussagen} 
+    \textchoice{den gleichen,einen unterschiedlichen} 
+    Wahrheitswert haben.
+\end{exercise}
 
--gegeben zwei aussagen, mit wahrheitstabellen sem äquivalenz zeigen, 
+\begin{exercise}
+    Wir haben zwei atomare Aussagen $X,Y$. Zeige mithilfe einer Wahrheitstabelle folgende semantische Äquivalenz: \[ (\lnot X) \implies Y \equiv X \lor Y\] 
+    
+    \begin{answerbox}[1in]
+    \end{answerbox}
+\end{exercise}
 
--eine reihe von äquivalenzumformungen zeigen, man soll den namen der regeln angeben,
-die verwendet wurden
+\todo{irgendwieder schöner formatieren}
+\begin{exercise}
 
--denn eigenständi zwei aussagen mit äquivalenzumformungen sem äquiv zeigen
+    Gezeigt ist eine Folge von semantischen Äquivalenzumformungen. Nenne die Namen der Äquivalenzen,
+    die angewendet wurden.
+        \\
+        \begin{center}
+        $\lnot (A \land (B \land \lnot C))$
 
--wieder zwei aussagen (wellensittich beispiel) mit whwtabelle zeigen, dass nicht
-sem äquivalent
+         $\equiv \lnot (A \land (\lnot \lnot (B \land \lnot C)))$ Regel: \answerfield{2cm}{9}
 
+       $\equiv A \implies (\lnot (B \land (\lnot C)))$ Regel: \answerfield{2cm}{9}
+
+        $\equiv A \implies (B \implies C)$ Regel: \answerfield{2cm}{9}
+        \end{center}
+    
+
+\end{exercise}
+
+\begin{exercise}
+    Zeige mithilfe von Äquivalenzumformungen, dass
+    \[ (\lnot A) \iff (\lnot B) \equiv A \iff B\]
+    \begin{answerbox}[1in]
+    \end{answerbox}
+\end{exercise}
+
+
+\begin{exercise}
+    Wir erinnern uns wieder an Tim und seine Haustiere. Wir haben
+    \enquote{Tim hat einen Wellensittich} durch $W$, \enquote{Tim hat eine Katze} durch $K$ und
+    \enquote{Tim hat einen Hund} durch $H$ abgekürzt.
+
+    Dann haben wir eine Wahrheitstabelle für die Aussagen $W \land (K \lor H)$ und $(W \land K) \lor H$
+    aufgestellt.
+
+    \begin{center}
+        \begin{tabular}{ccc cc}\toprule
+            $W$ &$K$ & $H$ & $W \land (K \lor H)$ & $(W \land K) \lor H$\\\midrule
+            falsch & falsch & falsch & falsch & falsch\\ 
+            falsch & falsch & wahr & falsch & wahr \\
+            falsch & wahr & falsch & falsch & falsch\\
+            falsch & wahr & wahr & falsch & wahr\\
+            wahr & falsch & falsch & falsch &  falsch \\
+            wahr & falsch & wahr & wahr & wahr\\
+            wahr & wahr & falsch & wahr & wahr\\
+            wahr & wahr & wahr & wahr & wahr \\\bottomrule
+        \end{tabular}
+    \end{center}
+
+    Entscheide mithilfe der Wahrheitstabelle ob die Aussagen $W \land (K \lor H)$ und $(W \land K) \lor H$ semantisch
+    äquivalent sind.
+
+    \begin{answerbox}[1in]
+    \end{answerbox}
+\end{exercise}
 
 \mandala{mandala/mandala01}
 

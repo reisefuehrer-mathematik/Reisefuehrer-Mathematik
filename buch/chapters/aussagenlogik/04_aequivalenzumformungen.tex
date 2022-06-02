@@ -4,7 +4,7 @@
 
     Im Alltag begegnet man immer wieder Aussagen, die zwar verschieden sind, im Kern 
     aber genau das gleiche aussagen. Zum Beispiel sind die Aussagen \statement{Der Zauberer ist alt} und \statement{Der Zauberer ist nicht nicht alt} zwar verschieden, sagen aber das Gleiche aus.
-    In diesem Abschnitt möchten wir einmal ganz genau unter die Lupe nehmen, was es 
+    Jetzt möchten wir einmal ganz genau unter die Lupe nehmen, was es 
     für Aussagen heißt die gleiche Bedeutung zu haben.
 
     \begin{example}{}
@@ -32,8 +32,8 @@
     und \enquote{äquivalent} können wir mit \enquote{gleichwertig} übersetzen.
     
     \begin{definition}{Semantische Äquivalenz}
-    Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für jede Belegung ihrer 
-    atomaren Unteraussagen den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
+        Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für alle möglichen Wahrheitswerte ihrer
+        atomaren Unteraussagen den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
     \end{definition}
     
     Wir schauen uns nun ein weiteres Beispiel für zwei semantisch äquivalente Aussagen an.
@@ -112,8 +112,8 @@
         \begin{array}{c s ccc}\toprule
             Z & Z & \lnot Z & \lnot \lnot Z\\\midrule
             \falsch & \falsch & \wahr & \falsch\\
-            \wahr & \wahr &\falsch & \wahr
-             \\\bottomrule
+            \wahr & \wahr &\falsch & \wahr\\
+            \bottomrule
         \end{array}
     }
 
@@ -132,7 +132,7 @@
     Äquivalenz bereits unbewusst im Alltag verwendet hast.
     
     \begin{example}{De Morgansche Gesetze}
-            In den vorherigen Kapiteln waren wir oft damit konfrontiert, 
+            Bisher waren wir oft damit konfrontiert, 
             dass uns ein Zauberer einen Zaubertrank anbietet, der entweder giftig ist 
             oder Superkräfte verleiht. Wir sind der Meinung, 
             dass ein netter Zauberer uns niemals einen giftigen Zaubertrank andrehen würde. 
@@ -315,22 +315,29 @@
     Ähnlich dazu, wie man eine Implikation auflösen kann, 
     kann man auch eine Äquivalenz ($\iff$) auflösen.
 
+    \todo{In der Wahrheitstabelle noch 2 Spalten für die Zwischenschritte anlegen. Dafür 
+    müsste aber die gesamte Wahrheitstabelle runterskaliert werden, aber ich hab tbh keinen Plan,
+    wie man das macht.}
     \begin{example}{Auflösen der Äquivalenz}
-        Der Zaubertrank vom Zauberer kann nicht gleichzeitig giftig sein (Abkürzung: $G$) 
-        und Superkräfte verleihen (Abkürzung: $S$). Der Trank ist also genau dann, giftig, wenn
+        Der Zaubertrank vom Zauberer kann nicht gleichzeitig giftig 
+        sein (Abkürzung: $G$) 
+        und Superkräfte verleihen (Abkürzung: $S$). Der Trank ist also genau dann, 
+        giftig, wenn
         der Trank keine Superkräfte verleiht.
         Dieser Sachverhalt als Aussage formuliert, lautet:
 
-        \statement{Der Zaubertrank ist giftig genau dann, wenn er keine Superkräfte verleiht}
+        \statement{Der Zaubertrank ist giftig genau dann, wenn er keine Superkräfte 
+        verleiht}
 
         Formalisieren wir diese Aussage, erhalten wir:
         \[G \iff (\lnot S)\]
         Wenn man genau hinschaut, sieht das Äquivalenzzeichen so aus wie zwei sich überlappende
-        Implikationszeichen ($\iff = \Longleftarrow + \implies$). Das ist kein Zufall,
+        Implikationszeichen ($\iff$$=$\  $\Longleftarrow$\  $+$$\implies$). Das ist kein Zufall,
         tatsächlich wurde das Zeichen mit Absicht so gewählt. Jede Äquivalenz kann auch durch zwei 
         Implikationen ausgedrückt werden.
         \\ \\
-        Wir drücken unsere Aussage jetzt semantisch äquivalent durch zwei Implikationen aus:
+        Wir probieren unsere Aussage jetzt semantisch äquivalent durch zwei 
+        Implikationen auszudrücken:
 
         \statement{Wenn der Trank giftig ist, verleiht er keine Superkräfte und wenn der Trank keine Superkräfte
         verleiht, ist er giftig}
@@ -340,7 +347,7 @@
 
         \[(G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
 
-        Dass diese und unsere ursprüngliche Aussage wirklich semantisch äquivalent sind, überprüfen wir
+        Unsere Vermutung, dass diese und unsere ursprüngliche Aussage wirklich semantisch äquivalent sind, überprüfen wir
         jetzt mit Wahrheitstabellen:
         \[\begin{array}{cc s cc}\toprule
             G & S &  G \iff (\lnot S) & (G \implies (\lnot S)) \land ((\lnot S) \implies G)\\\midrule
@@ -410,6 +417,7 @@
     nutzt, um Terme zu vereinfachen, kann man auch Äquivalenzumformungen benutzen, um Aussagen
     zu vereinfachen.
 
+    \todo{Wegen Farbblindheit, die rot markierten Stellen textmarkern.}
     \begin{example}{Eine Vereinfachung mit Äquivalenzumformungen}
 
         Wir wollen einmal mit Äquivalenzumformungen die Aussage 
@@ -418,13 +426,6 @@
 
         vereinfachen. Die folgende Tabelle zeigt schrittweise, welche Äquivalenzumformungen
         wir anwenden. Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
-
-        \begin{align*}
-            &\lnot ( (\circlemath{\lnot \lnot A}) \land (\lnot B) ) \land (B \implies A)\\
-            \equiv & \circlemath{\lnot ( \circlemathresult{A}\land (\lnot B))} \land (B \implies A)\\
-            \equiv & \circlemath{(\circlemathresult{A \implies B}) \land (B \implies A)}\\
-            \equiv & A \iff B
-        \end{align*}
 
         \[\begin{array}{cc s c}\toprule
             \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
@@ -457,7 +458,8 @@
     \end{example}
 
     \begin{nutshell}{Äquivalenzumformungen}
-        Zwei Aussagen $A,B$ sind \textbf{semantisch äquivalent}, wenn diese für jede Belegung ihrer atomaren Unteraussagen, den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
+        Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für alle möglichen Wahrheitswerte ihrer
+        atomaren Unteraussagen den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
         \\ \\
         Eine Umformung einer Aussage $A$ zu einer Aussage $A^{\prime}$, so dass $A \equiv A^{\prime}$ ist, nennt sich \textbf{(semantische) Äquivalenzumformung}.
         \\ \\
