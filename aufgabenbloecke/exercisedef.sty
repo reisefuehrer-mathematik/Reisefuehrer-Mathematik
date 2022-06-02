@@ -23,20 +23,20 @@
 \newcommand{\offerHint}[2]{
     \tikz[scale=0.7]{%
         \roundedicon{black!40}{black!10}{black!40}{\textsf{\textbf{#1}}};%
-        \node[black!75] at (1,0.2) {\small\textsf{\textbf{(#2)}}};%
+        \node[black!75,circle,draw=black!40, inner sep=.5mm, very thick, fill=white] at (1.05,0.2) {\small\textsf{\textbf{#2}}};%
     }%
 }
 \newcommand{\icon@advanced} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{red}{red!70}{white}{$\star\star$};}%
+    \tikz[scale=0.7, onbase]{\roundedicon{red}{red!70}{white}{$\star$};}%
 }
 \newcommand{\icon@difficult} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{red!50}{red!20}{red}{$\star$};}%
+    \tikz[scale=0.7, onbase]{\roundedicon{blue}{blue!80}{white}{\textsf{\textbf{T}}};}%
 }
 \newcommand{\icon@easy} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{blue!80}{blue!60}{white}{\textsf{\textbf{R}}}}%
+    \tikz[scale=0.7, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{Ü}}}}%
 }
 \newcommand{\icon@intro} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{blue!80}{blue!60}{white}{\textsf{\textbf{E}}}}%
+    \tikz[scale=0.7, onbase]{\roundedicon{blue!70}{blue!50}{white}{\textsf{\textbf{E}}}}%
 }
 \renewenvironment{exercise}[1]{%
     \renewcommand{\PrintHintOffers}{}%
