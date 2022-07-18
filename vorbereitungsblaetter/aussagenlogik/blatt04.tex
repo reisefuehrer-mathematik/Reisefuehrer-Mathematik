@@ -60,60 +60,73 @@
 \begin{exercise}
     Wir haben zwei atomare Aussagen $X,Y$. Zeige mithilfe einer Wahrheitstabelle folgende semantische Äquivalenz: \[ (\lnot X) \implies Y \equiv X \lor Y\] 
     
-    \begin{answerbox}[1in]
-    \end{answerbox}
+    Ergänze dafür die unausgefüllten Spalten in folgender Tabelle:
+
+    \begin{center}
+    \begin{tabular}{ccccc}\toprule
+        $X$ &$Y$ & $ \lnot X$ & $(\lnot X) \implies Y$ & $X \lor Y$\\\midrule
+        falsch & falsch &  &  & \\ 
+        falsch & wahr&  &  &   \\
+        wahr & falsch &  &  &  \\
+        wahr & wahr &  &  & \\
+        \bottomrule
+    \end{tabular}
+    \end{center}
+
 \end{exercise}
 
-\todo{irgendwieder schöner formatieren}
 \begin{exercise}
 
-    Gezeigt ist eine Folge von semantischen Äquivalenzumformungen. Nenne die Namen der Äquivalenzen,
-    die angewendet wurden.
+    Gezeigt ist eine Folge von semantischen Äquivalenzumformungen. 
+    Nenne die Namen der Äquivalenzen,
+    die angewendet wurden. Auf die rot markierten Unteraussagen wurden die jeweiligen 
+    Äquivalenzumformungen angewendet.
         \\
         \begin{center}
-        $\lnot (A \land (B \land \lnot C))$
-
-         $\equiv \lnot (A \land (\lnot \lnot (B \land \lnot C)))$ Regel: \answerfield{2cm}{9}
-
-       $\equiv A \implies (\lnot (B \land (\lnot C)))$ Regel: \answerfield{2cm}{9}
-
-        $\equiv A \implies (B \implies C)$ Regel: \answerfield{2cm}{9}
-        \end{center}
-    
+        \begin{tabular}{ccc}
+            & $\lnot (A \land \color{red}(B \land \lnot C)\color{black})$& Regel: \answerfield{3cm}{9} \\
+            $\equiv$ & \color{red} $\lnot (A \land (\lnot \lnot (B \land \lnot C)))$ \color{black} & Regel: \answerfield{3cm}{9} \\
+            $\equiv$ & $A \implies (\color{red}\lnot (B \land (\lnot C))\color{black})$ & Regel: \answerfield{3cm}{9}\\ 
+            $\equiv$ & $A \implies (B \implies C)$ &
+        \end{tabular}
+    \end{center}
 
 \end{exercise}
 
 \begin{exercise}
-    Zeige mithilfe von Äquivalenzumformungen, dass
-    \[ (\lnot A) \iff (\lnot B) \equiv A \iff B\]
+    Zeige mithilfe von Äquivalenzumformungen, dass die Aussagen $(\lnot A) \iff (\lnot B)$ und 
+    $A \iff B$ semantisch äquivalent sind.
     \begin{answerbox}[1in]
     \end{answerbox}
 \end{exercise}
 
 
 \begin{exercise}
-    Wir erinnern uns wieder an Tim und seine Haustiere. Wir haben
-    \enquote{Tim hat einen Wellensittich} durch $W$, \enquote{Tim hat eine Katze} durch $K$ und
-    \enquote{Tim hat einen Hund} durch $H$ abgekürzt.
+    Wir erinnern uns wieder an Tim und seine Haustiere:
+    \begin{itemize}
+        \item $W$ steht für die Aussage \enquote{Tim hat einen Wellensittich}
+        \item $K$ steht für die Aussage \enquote{Tim hat eine Katze}
+        \item $H$ steht für die Aussage \enquote{Tim hat einen Hund}
+    \end{itemize}
 
-    Dann haben wir eine Wahrheitstabelle für die Aussagen $W \land (K \lor H)$ und $(W \land K) \lor H$
-    aufgestellt.
+    Wir hatten dann eine Wahrheitstabelle für die Aussagen $W \land (K \lor H)$ und $(W \land K) \lor H$
+    aufgestellt. Ergänze hier zunächst die fehlenden Einträge:
 
     \begin{center}
         \begin{tabular}{ccc cc}\toprule
             $W$ &$K$ & $H$ & $W \land (K \lor H)$ & $(W \land K) \lor H$\\\midrule
-            falsch & falsch & falsch & falsch & falsch\\ 
-            falsch & falsch & wahr & falsch & wahr \\
-            falsch & wahr & falsch & falsch & falsch\\
-            falsch & wahr & wahr & falsch & wahr\\
+            falsch & falsch & falsch & falsch & \\ 
+            falsch & falsch & wahr & falsch &  \\
+            falsch & wahr & falsch &  & falsch\\
+            falsch & wahr & wahr &  & wahr\\
             wahr & falsch & falsch & falsch &  falsch \\
-            wahr & falsch & wahr & wahr & wahr\\
-            wahr & wahr & falsch & wahr & wahr\\
-            wahr & wahr & wahr & wahr & wahr \\\bottomrule
+            wahr & falsch & wahr & wahr & \\
+            wahr & wahr & falsch &  & wahr\\
+            wahr & wahr & wahr & wahr &  \\\bottomrule
         \end{tabular}
     \end{center}
 
-    Entscheide mithilfe der Wahrheitstabelle ob die Aussagen $W \land (K \lor H)$ und $(W \land K) \lor H$ semantisch
+    Entscheide nun mithilfe der Wahrheitstabelle, ob die Aussagen $W \land (K \lor H)$ und $(W \land K) \lor H$ semantisch
     äquivalent sind.
 
     \begin{answerbox}[1in]
