@@ -329,7 +329,7 @@ suffix_3p "\\,ff."
         inner color=white,%\@circlelblcolor@text,
         outer color=blue!40,%\@circlelblcolor@border,
         fill color=blue!40,%\@circlelblcolor@fill,
-        inner ysep=4pt,
+        inner ysep=4pt,%
         inner xsep=4pt]{\textsf{#1}}%
 }
 \setlist[enumerate]{label=\circlelbl{\arabic*}}

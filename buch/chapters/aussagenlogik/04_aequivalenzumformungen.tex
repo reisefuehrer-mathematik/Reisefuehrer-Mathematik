@@ -380,11 +380,11 @@
         \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A))\]
 
         vereinfachen. Die folgende Tabelle zeigt schrittweise, welche Äquivalenzumformungen
-        wir anwenden. Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
+        wir anwenden. \circlelbl{Rot} markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
 
         \[\begin{array}{cc s c}\toprule
             \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-            \textrm{Start}   &   & (\lnot ( \color{red}(\lnot \lnot A) \color{black}\land (\lnot B) ) \land (B \implies A))  \\
+            \textrm{Start}   &   & (\lnot ((\Circled{\lnot \lnot A}) \color{black}\land (\lnot B) ) \land (B \implies A))  \\
             1   & \textrm{Involution} & \color{red}(\lnot ( A\land (\lnot B) ) \color{black} \land (B \implies A))\\
             2 & \textrm{Auflösen der Implikation}   & \color{red}(A \implies B) \land (B \implies A))  \color{black}\\
             3 & \textrm{Auflösen der Äquivalenz} &  A \iff B\\
