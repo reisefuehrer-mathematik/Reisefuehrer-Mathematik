@@ -118,9 +118,8 @@
     }
 
     Eine erste Äquivalenzumformung haben wir bereits im Eingangsbeispiel gesehen. 
-    Negieren wir eine 
-    Aussage $Z$ doppelt, dann ist die Aussage $\lnot \lnot Z$ semantisch äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder
-     Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
+    Negieren wir eine Aussage $Z$ doppelt, dann ist die Aussage $\lnot \lnot Z$ semantisch äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder
+    Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
 
     \begin{theorem}{Involution}
     Ist $A$ eine Aussage, dann gilt:
@@ -195,10 +194,10 @@
         Wir wollen unsere Vermutung mit Wahrheitstabellen überprüfen. Zunächst formalisieren wir die beiden 
         Aussagen. Wir verwenden dafür die Abkürzungen $S$ (\statement{Man stirbt beim Trinken}) und $G$ (\statement{Der Trank ist giftig}). Die Formalisierungen lauten dann:
 
-        \[G \implies S \textrm{ und } \lnot S \implies \lnot G\]
+        \[G \limplies S \textrm{ und } \lnot S \limplies \lnot G\]
 
         \[\begin{array}{cc s cccc}\toprule
-            G & S & G \implies S & \lnot S & \lnot G &\lnot S \implies \lnot G\\\midrule
+            G & S & G \limplies S & \lnot S & \lnot G &\lnot S \limplies \lnot G\\\midrule
             \falsch   & \falsch   & \wahr & \wahr & \wahr &\wahr  \\
             \falsch   & \wahr & \wahr & \falsch & \wahr &\wahr\\
             \wahr & \falsch   & \falsch & \wahr & \falsch &\falsch\\
@@ -207,19 +206,19 @@
 
       Die Wahrheitstabellen bestätigen, dass die beiden Aussagen semantisch äquivalent sind.
       Es gilt also
-      \[G \implies S \equiv \lnot S \implies \lnot G.\]
+      \[G \limplies S \equiv \lnot S \limplies \lnot G.\]
         
     \end{example}
     
     Haben wir zwei Aussagen $A,B$, dann 
-    gilt immer \[A \implies B \equiv (\lnot B) \implies (\lnot A).\] Klar muss 
+    gilt immer \[A \limplies B \equiv (\lnot B) \limplies (\lnot A).\] Klar muss 
     diese Äquivalenz gelten:  Wir erinnern uns, dass man eine Implikation als ein 
     Versprechen auffassen kann, dass immer, wenn $A$ \wahr\ ist, auch $B$ \wahr\ ist. Und nur wenn dieses Versprechen explizit gebrochen wird,
      dann wird die Implikation \falsch. Das ist der Fall, wenn $A$ \wahr\ ist, $B$ 
      aber $\falsch$ ist. Und um auszudrücken, dass dieser Fall nicht eintritt, können wir 
      auch genauso gut sagen, dass immer, wenn $B$ \falsch\  ist, auch $A$ \falsch\  ist. Wir 
      stellen also sicher, dass das Versprechen nicht gebrochen wird. Formalisieren wir dies, 
-     wird daraus $(\lnot B) \implies (\lnot A)$.
+     wird daraus $(\lnot B) \limplies (\lnot A)$.
 
     Diese Äquivalenzumformung nennt sich \textbf{Kontraposition} (lateinisch: \enquote{contra} = \enquote{gegen}, \enquote{positio} = \enquote{stellung})
     und wird im nächsten Satz noch einmal präzisiert.
@@ -227,7 +226,7 @@
     \begin{theorem}{Kontraposition}
 
     Sind $A,B$ zwei Aussagen, dann gilt:
-        \[A \implies B  \equiv (\lnot B) \implies (\lnot A)\]
+        \[A \limplies B  \equiv (\lnot B) \limplies (\lnot A)\]
     \end{theorem}
 
     Es ist bei der Kontraposition äußerst wichtig, dass wir die Negationen bei der Umkehrung
@@ -235,16 +234,16 @@
 
     \begin{example}{Implikationen können nicht 'umgedreht' werden}
         Die Aussage \statement{Wenn der Trank giftig ist, 
-        dann stirbt man beim Trinken} (formalisiert: $G \implies S$) aus letztem Beispiel ist 
+        dann stirbt man beim Trinken} (formalisiert: $G \limplies S$) aus letztem Beispiel ist 
         keinesfalls semantisch äquivalent zu der 
-        Aussage \statement{Stirbt man beim Trinken, dann ist der Trank giftig} (formalisiert: $S \implies G$).
+        Aussage \statement{Stirbt man beim Trinken, dann ist der Trank giftig} (formalisiert: $S \limplies G$).
         Stirbt man beim Trinken, könnte das ja auch andere Ursachen gehabt haben (z.B. weil man sich verschluckt hat).
         \\ \\
-        Für dieses Beispiel ist also $G \implies S$ \textbf{nicht} semantisch äquivalent zu $S \implies G$.
+        Für dieses Beispiel ist also $G \limplies S$ \textbf{nicht} semantisch äquivalent zu $S \limplies G$.
 
     \end{example}
 
-    Im Allgemeinen ist $A \implies B$ also \textbf{nicht} semantisch äquivalent zu $B \implies A$.
+    Im Allgemeinen ist $A \limplies B$ also \textbf{nicht} semantisch äquivalent zu $B \limplies A$.
 
     Wir haben gerade gesehen, dass sich jede Implikation auch anders darstellen lässt, 
     nämlich mit der Kontraposition. Es gibt noch eine weitere, nützliche Äquivalenzumformung 
@@ -271,10 +270,10 @@
         Wir verwenden wieder die Abkürzungen $G$ (\statement{Der Trank ist giftig}) und
         $T$ (\statement{Beim Trinken stirbt man}). Die beiden Aussagen, die wir auf semantische 
         Äquivalenz überprüfen wollen, lauten dann:
-        \[G \implies T \textrm{ sowie } \lnot (G \land (\lnot T))\]
+        \[G \limplies T \textrm{ sowie } \lnot (G \land (\lnot T))\]
 
         \[\begin{array}{cc s cccc}\toprule
-            G & T & G \implies T & \lnot T& G \land (\lnot T) &\lnot (G \land (\lnot T))\\\midrule
+            G & T & G \limplies T & \lnot T& G \land (\lnot T) &\lnot (G \land (\lnot T))\\\midrule
             \falsch   & \falsch   & \wahr & \wahr &\falsch &\wahr  \\
             \falsch   & \wahr & \wahr & \falsch &\falsch &\wahr\\
             \wahr & \falsch   & \falsch & \wahr &\wahr &\falsch\\
@@ -283,14 +282,14 @@
 
       Die Wahrheitstabellen bestätigen, dass unsere Aussagen semantisch äquivalent sind. 
       Es gilt also
-      \[G \implies T \equiv \lnot (G \land (\lnot T)).\]
+      \[G \limplies T \equiv \lnot (G \land (\lnot T)).\]
 
 
     \end{example}
     
     Egal welche zwei Aussagen $A,B$ wir 
     gegeben haben, es gilt immer:
-    \[A \implies B \equiv \lnot (A \land (\lnot B))\] 
+    \[A \limplies B \equiv \lnot (A \land (\lnot B))\] 
     Man fasst die Implikation wieder als 
     ein Versprechen auf und nur wenn dieses Versprechen explizit gebrochen wird,
      wird die Implikation \falsch. Und dieses Versprechen wird nur in dem Fall 
@@ -303,17 +302,17 @@
     
     \begin{theorem}{Auflösen der Implikation}
         Sind $A,B$ zwei Aussagen, dann gilt:
-        \[A \implies B \equiv \lnot (A \land (\lnot B))\]
+        \[A \limplies B \equiv \lnot (A \land (\lnot B))\]
     \end{theorem}
     
     Wenn wir nicht nur die letzte Äquivalenzumformung betrachten, sondern auch die davor, 
     dann stellt sich heraus, 
     dass wir jetzt zwei verschiedene Möglichkeiten kennen eine Implikation alternativ 
     darzustellen bzw. umzuformen. Zusammengefasst wissen wir jetzt also, dass:
-     \[A \implies B \equiv \lnot B \implies \lnot A \equiv \lnot (A \land (\lnot B))\]
+     \[A \limplies B \equiv \lnot B \limplies \lnot A \equiv \lnot (A \land (\lnot B))\]
     
     Ähnlich dazu, wie man eine Implikation auflösen kann, 
-    kann man auch eine Äquivalenz ($\iff$) auflösen.
+    kann man auch eine Äquivalenz ($\liff$) auflösen.
 
     \todo{In der Wahrheitstabelle noch 2 Spalten für die Zwischenschritte anlegen. Dafür 
     müsste aber die gesamte Wahrheitstabelle runterskaliert werden, aber ich hab tbh keinen Plan,
@@ -330,9 +329,9 @@
         verleiht}
 
         Formalisieren wir diese Aussage, erhalten wir:
-        \[G \iff (\lnot S)\]
+        \[G \liff (\lnot S)\]
         Wenn man genau hinschaut, sieht das Äquivalenzzeichen so aus wie zwei sich überlappende
-        Implikationszeichen ($\iff$$=$\  $\Longleftarrow$\  $+$$\implies$). Das ist kein Zufall,
+        Implikationszeichen ($\liff$$=$\  $\Longleftarrow$\  $+$$\limplies$). Das ist kein Zufall,
         tatsächlich wurde das Zeichen mit Absicht so gewählt. Jede Äquivalenz kann auch durch zwei 
         Implikationen ausgedrückt werden.
         \\ \\
@@ -345,47 +344,47 @@
         Wenn wir diese Aussage formalisieren, wird deutlich, wie wir das Äquivalenzzeichen in zwei 
         Implikationszeichen \enquote{aufgeteilt} haben: 
 
-        \[(G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
+        \[(G \limplies (\lnot S)) \land ((\lnot S) \limplies G)\]
 
         Unsere Vermutung, dass diese und unsere ursprüngliche Aussage wirklich semantisch äquivalent sind, überprüfen wir
         jetzt mit Wahrheitstabellen:
         \[\begin{array}{cc s cc}\toprule
-            G & S &  G \iff (\lnot S) & (G \implies (\lnot S)) \land ((\lnot S) \implies G)\\\midrule
+            G & S &  G \liff (\lnot S) & (G \limplies (\lnot S)) \land ((\lnot S) \limplies G)\\\midrule
             \falsch   & \falsch    & \falsch & \falsch  \\
             \falsch   & \wahr  & \wahr &\wahr\\
             \wahr & \falsch    &\wahr & \wahr\\
             \wahr & \wahr & \falsch & \falsch\\\bottomrule
       \end{array}\]
       Unsere Aussagen sind also semantisch äquivalent.
-      \[G \iff (\lnot S) \equiv (G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
+      \[G \liff (\lnot S) \equiv (G \limplies (\lnot S)) \land ((\lnot S) \limplies G)\]
     \end{example}
     
     Wir verallgemeinern jetzt das, was wir im letzten Beispiel gesehen haben.
      Haben wir zwei beliebige Aussagen $A,B$ gegeben, können wir immer die Äquivalenz
      durch zwei Implikationen ausdrücken:
-    \[A \iff B \equiv (A \implies B) \land (B \implies A)\]
+    \[A \liff B \equiv (A \limplies B) \land (B \limplies A)\]
     Die Regel können wir uns leicht merken, indem wir uns einfach das Äquivalenzzeichen
-    ($\iff$) vorstellen, als zwei sich überlappende Implikationszeichen ($\iff = \Longleftarrow + \implies$).
+    ($\liff$) vorstellen, als zwei sich überlappende Implikationszeichen ($\liff = \Longleftarrow + \limplies$).
 
     Dass diese Äquivalenzumformung korrekt ist, können wir auch mithilfe der anderen, hier vorgestellten Äquivalenzumformungen 
     zeigen: Wir erinnern uns, dass zwei äquivalente Aussagen 
     immer denselben Wahrheitswert haben. Anders ausgedrückt heißt das:
     \begin{enumerate}
-        \item Ist $A$ \wahr, dann ist $B$ auch \wahr\  (Formal: $A \implies B$)
-        \item Ist $A$ \falsch, dann ist $B$ auch \falsch\  (Formal: $(\lnot A) \implies (\lnot B)$)
+        \item Ist $A$ \wahr, dann ist $B$ auch \wahr\  (Formal: $A \limplies B$)
+        \item Ist $A$ \falsch, dann ist $B$ auch \falsch\  (Formal: $(\lnot A) \limplies (\lnot B)$)
     \end{enumerate}
     Durch Kontraposition wissen wir, dass die 2. Aussage semantisch äquivalent dazu ist,
     dass aus $B$, $A$ folgt:
-    \[(\lnot A) \implies (\lnot B) \equiv B \implies A\]
+    \[(\lnot A) \limplies (\lnot B) \equiv B \limplies A\]
     Verknüpfung wir jetzt diese Aussagen mit einem \statement{und}, dann erhalten wir:
-    \[(A \implies B) \land (B \implies A)\]
+    \[(A \limplies B) \land (B \limplies A)\]
     
     Im Grunde ist jede Äquivalenz also nichts anderes als zwei Implikationen und kann immer als solche geschrieben werden. 
     Diese Aufteilung einer Äquivalenz in zwei Implikationen nennt sich auch \textbf{Auflösen der Äquivalenz}.
     
     \begin{theorem}{Auflösen der Äquivalenz}
     Sind $A,B$ zwei Aussagen, dann gilt:
-        \[ A \iff B \equiv (A \implies B) \land (B \implies A)\]
+        \[ A \liff B \equiv (A \limplies B) \land (B \limplies A)\]
     \end{theorem}
 
     Die Äquivalenzumformungen, die wir hier vorgestellt haben, sind bei weitem nicht alle, die es gibt. Es gibt
@@ -398,16 +397,16 @@
     \begin{example}{Anwendung von Äquivalenzumformungen}{
             Wir wollen mittels semantischer Äquivalenzumformungen zeigen, dass 
             folgende semantische Äquivalenz gilt:
-            \[A \implies B \equiv (\lnot A) \lor B\]
-            Die nächste Tabelle zeigt Schritt für Schritt welche Umformungen wir angewendet haben:
-            \[\begin{array}{cc s c}\toprule
-                \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-                \textrm{Start}   &   & \circlemath{A \implies B}  \\
-                1   & \textrm{Auflösen der Implikation} & \circlemath{\lnot (A \land (\lnot B))}\\
-                2 & \textrm{1. De Morgansches Gesetz}   & (\lnot A) \lor (\circlemath{\lnot \lnot B})\\
-                3 & \textrm{Involution} &  (\lnot A) \lor B\\\bottomrule
-            \end{array}\]
-            Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \implies B$
+            \[A \limplies B \equiv (\lnot A) \lor B\]
+            Dazu verwenden wir die folgenden Äquivalenzumformungen (der jeweils ersetzte Teil ist markiert):
+            \begin{align*}
+                & \circlemath{A \limplies B}\tag{Auflösen der Implikation}\\
+                \equiv & \circlemath{\lnot (A \land (\lnot B))}\tag{1. De Morgansches Gesetz}\\
+                \equiv & (\lnot A) \lor (\circlemath{\lnot \lnot B})\tag{Involution}\\
+                \equiv & (\lnot A) \lor B
+            \end{align*}
+
+            Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \limplies B$
             semantisch äquivalent zu der Aussage $(\lnot A) \lor B$ ist. Wir haben
             jetzt also noch eine neue Darstellung für die Implikation kennengelernt. 
 
@@ -417,26 +416,23 @@
     nutzt, um Terme zu vereinfachen, kann man auch Äquivalenzumformungen benutzen, um Aussagen
     zu vereinfachen.
 
-    \todo{Wegen Farbblindheit, die rot markierten Stellen textmarkern.}
     \begin{example}{Eine Vereinfachung mit Äquivalenzumformungen}
 
         Wir wollen einmal mit Äquivalenzumformungen die Aussage 
 
-        \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A))\]
+        \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \limplies A))\]
 
-        vereinfachen. Die folgende Tabelle zeigt schrittweise, welche Äquivalenzumformungen
-        wir anwenden. Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
+        vereinfachen. Obwohl die Aussage zunächst sehr kompliziert aussieht, können wir sie mit den folgenden Schritten vereinfachen (der Teil der Formel, auf den wir unsere Umformungsregel jeweils anwenden, ist dabei orange hinterlegt).
 
-        \[\begin{array}{cc s c}\toprule
-            \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-            \textrm{Start}   &   & (\lnot ( (\circlemath{\lnot \lnot A}) \land (\lnot B) ) \land (B \implies A))  \\
-            1   & \textrm{Involution} & (\circlemath{\lnot ( A\land (\lnot B)} ) \land (B \implies A))\\
-            2 & \textrm{Auflösen der Implikation}   & \circlemath{(A \implies B) \land (B \implies A)}\\
-            3 & \textrm{Auflösen der Äquivalenz} &  A \iff B\\
-        \end{array}\]
+        \begin{align*}
+            & \lnot ( (\circlemath{\lnot \lnot A}) \land (\lnot B) ) \land (B \limplies A) \tag{Involution}\\
+            \equiv & \circlemath{\lnot ( A\land (\lnot B) )} \land (B \limplies A) \tag{Auflösen der Implikation}\\
+            \equiv & \circlemath{(A \limplies B) \land (B \limplies A)} \tag{Auflösen der Äquivalenz}\\
+            \equiv & A \liff B
+        \end{align*}
 
         Durch Äquivalenzumformungen haben wir also Folgendes gezeigt:
-        \[(\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A)) \equiv A \iff B\]
+        \[\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \limplies A) \equiv A \liff B\]
         Wir haben die Aussage also deutlich vereinfacht.
 
     \end{example}
@@ -469,9 +465,9 @@
         \textrm{Involution} & \lnot \lnot A &\equiv& A\\
         \textrm{1. De Morgansches Gesetz} & \lnot (A \land B) &\equiv& (\lnot A) \lor (\lnot B)\\
         \textrm{2. De Morgansches Gesetz} & \lnot (A \lor B) &\equiv& (\lnot A) \land (\lnot B) \\   
-        \textrm{Kontraposition} & A \implies B &\equiv& (\lnot B) \implies (\lnot A) \\
-        \textrm{Auflösen der Implikation} & A \implies B & \equiv & \lnot (A \land (\lnot B))\\
-        \textrm{Auflösen der Äquivalenz} & A \iff B & \equiv & (A \implies B) \land (B \implies A) \\
+        \textrm{Kontraposition} & A \limplies B &\equiv& (\lnot B) \limplies (\lnot A) \\
+        \textrm{Auflösen der Implikation} & A \limplies B & \equiv & \lnot (A \land (\lnot B))\\
+        \textrm{Auflösen der Äquivalenz} & A \liff B & \equiv & (A \limplies B) \land (B \limplies A) \\
         \bottomrule
         \end{array}\]
     \end{nutshell}
