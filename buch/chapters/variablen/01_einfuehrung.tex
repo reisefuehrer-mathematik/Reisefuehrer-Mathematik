@@ -123,4 +123,86 @@
 
         Um uns die Notation von Variablentermen zu vereinfachen, darf das \enquote{$\cdot$} in Produkten mit Variablen weg gelassen werden.
     \end{nutshell}
+
+    \subsection*{Intuition: Einheiten als Variablen}
+    Ohne eine gute Intuition, fällt das Rechnen mit Einheiten häufig schwer. Fehler, die bei genauerer Überlegung
+    auffliegen, passieren schnell.
+    \begin{example}{}
+        Wenn ein Kilometer tausend Metern entspricht (in Zeichen: $1\,\text{km} \corresponds 1000\,\text{m}$), denkt man
+        leicht, dass dann auch $1\,\text{km}^2 \corresponds 1000\,\text{m}^2$.
+        Dass das aber nicht stimmt, sieht man schnell, wenn man sich überlegt, dass ein Quadrat mit einer Seitenlänge
+        von $1\,\text{km}$ also eine Seitenlänge von $1000\,\text{m}$ hat und somit eine Fläche von $1000^2\,\text{m}^2$.
+    \end{example}
+
+    Mit diesem kurzen Nachtrag möchten wir dir eine andere Perspektive auf Einheiten geben, indem wir Einheiten als eine
+    Form von Variablen interpretieren, um das Rechnen mit Einheiten intuitiv und einfach zu machen.
+    Wenn du bereits ein gutes Verständnis für das Rechnen mit Einheiten hast, kannst du diesen Abschnitt natürlich
+    überspringen. Vielleicht lohnt es sich aber auch, ihn zu lesen, um Einheiten aus einer anderen Perspektive zu
+    betrachten.
+
+    Einheiten folgen häufig einem bestimmten Schema.
+    \begin{example}{}
+        Längen können wir unter anderem in Millimeter, Centimeter, Meter oder Kilometer angeben. Analog verwenden wir
+        für Gewichte die Einheiten Milligramm, Gramm und Kilogramm und können Dateigrößen auf dem Computer in Byte,
+        Kilobyte, Megabyte, Gigabyte oder auch Terrabyte angeben.
+
+        Alle diese Einheiten haben etwas gemeinsam: Sie bestehen scheinbar aus einer Basiseinheit (Meter, Gramm, Byte),
+        der gegebenenfalls eine Präfix vorgestellt wird.
+        Dir ist sicher bekannt, dass \enquote{Kilo} Tausend, \enquote{Dezi} Zehntel, \enquote{Centi} Hundertstel, und
+        \enquote{Milli} Tausendstel bedeutet, usw.\footnote{Diese Namen werden auch \enquote{SI-Präfixe}
+        genannt}.
+
+        Auch wenn diese Einheiten selten verwendet werden, könnten wir auch Dezimeter oder Megameter als
+        Längeneinheiten, oder Gewichte beispielsweise in Centigramm angeben.
+    \end{example}
+
+    Wir können uns also vorstellen, dass das Präfix $\text{k}$ aus $\text{km}$ eine Art Variable ist mit
+    $\text{k} \corresponds 1000$. Ebenso gilt für Dezi $\text{d} \corresponds 0.1$ und so fort.
+
+    \begin{example}{}
+        An unserem einleitenden Beispiel bedeutet das also, dass wir auch rechnen können:
+        \[1\,\text{km}^2 = 1\,(\text{km})^2 \corresponds 1\,(1000\,\text{m})^2 = 1000^2\,\text{m}^2.\]
+    \end{example}
+
+    Interessant wird die Anschauung, wenn wir uns somit überlegen, dass wir in Einheiten kürzen können.
+
+    \begin{example}{Einheiten kürzen}
+        Zum Beispiel können wir in der Geschwindigkeit von einem Millimeter pro Millisekunde,
+        $1\,\frac{\text{mm}}{\text{ms}}$, das \enquote{Milli} kürzen
+        \[
+            1\frac{\text{mm}}{\text{ms}} \corresponds 1\frac{\cancel{0.001}\text{m}}{\cancel{0.001}\text{s}}
+            = 1\,\frac{\text{m}}{\text{s}}
+        \]
+        und bekommen eine Geschwindigkeit von einem Meter pro Sekunde.        
+    \end{example}
+
+    \textbf{Aber Achtung!} Man muss immer darauf achten, dass die Einheit, die man tatsächlich verwendet, dem
+    Entspricht, was man einsetzt.
+    \begin{example}
+        Zum Beispiel würde es keinen Sinn ergeben, aus Millimetern, also $\text{mm}$, sowas zu machen wie $\text{m}^2$
+        oder sogar
+        \[\text{mm} = 0.001\,\text{m} = 0.001\cdot 0.001.\]
+        Die Ersetzung $1\,\text{m} \corresponds 0.001$ geht nur da, wo $\text{m}$ tatsächlich für das SI-Präfix
+        \enquote{Milli} steht.
+        Ein anderes Beispiel wäre eine Konzentration, wie sie in der Chemie vorkommt, mit der Einheit
+        \enquote{Mol pro Milliliter}, $\frac{\text{mol}}{\text{ml}}$.
+        Das $\text{m}$ im Zähler ist Teil der Einheitenbezeichnung für Mol und kann damit nicht mit dem Präfix
+        $\text{m}$ im Nenner, das für \enquote{Milli} steht, gekürzt werden.
+
+        Wir können aber dennoch Umrechnungen vornehmen, wenn wir zum Beispiel eine Geschwindigkeit haben wie
+        $1\,\frac{\text{m}}{\text{ms}}$.
+        Indem wir für \enquote{Milli} einsetzen, bekommen wir
+        \[
+            1\,\frac{\text{m}}{\text{ms}} \corresponds 1\,\frac{\text{m}}{10^{-3}\,\text{s}}
+            = 1\,\frac{10^3\,\text{m}}{\text{s}} \corresponds 1\,\frac{\text{km}}{\text{s}}.
+        \]
+        Und wie schaut es aus, wenn wir gesagt bekommen, dass wir das in $\frac{\text{km}}{\text{h}}$ umrechnen sollen?
+        Wir wissen ja, dass $1\,\text{h} \corresponds 60\,\text{min} \corresponds 60\cdot 60\,\text{s} = 3600\,\text{s}$.
+        Wenn wir beide Seiten durch $3600$ dividieren, bekommen wir also: $1\,\text{s} \corresponds 3600^{-1}\,\text{h}$.
+        Diesen Wert können wir für $\text{s}$ in unserer Einheit einsetzen und bekommen:
+        \[
+            1\,\frac{\text{km}}{\text{s}} \corresponds 1\,\frac{\text{km}}{3600^{-1}\,\text{h}}
+            = 1\,\frac{3600\,\text{km}}{\text{h}} = 3600\,\frac{\text{km}}{\text{h}}.
+        \]
+    \end{example}
 \end{document}
