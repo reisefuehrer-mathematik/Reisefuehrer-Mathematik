@@ -13,13 +13,13 @@
     fonttitle=\sffamily\bfseries\Large,
     title={Beispiellösungen}, attach title to upper=\vspace*{.5em}\par}
 
-\newtcolorbox{task}{sharp corners, boxrule=1pt, colframe=black!30, colback=white, boxsep=0pt}
+\newtcolorbox{task}[1][]{sharp corners, boxrule=1pt, colframe=black!30, colback=white, boxsep=0pt, #1,}
 
 \makeatletter
 %\roundedicon{fg}{bg}{textcolor}{text}
 \newcommand\roundedicon[4]{%
     \fill[draw=#1, fill=#2, line width=.5mm] (0,0) [rounded corners=0mm] -- (0,1) [rounded corners=0mm] -- (1,1) [rounded corners=0mm] -- (1,0) [rounded corners=2mm] -- cycle;%
-    \node[#3] at (.5, .5) {#4};%
+    \node[#3, anchor=center] at (.5, .5) {#4};%
 }
 \newcommand{\knobelaufgaben}{
 	\noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
@@ -35,42 +35,29 @@
         \node[black!75] at (1.05,0.16) {\small\textsf{\textbf{\strut #2}}};%
     }%
 }
-\newcommand{\icon@advanced} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{red}{red!70}{white}{$\star$};}%
-}
-\newcommand{\icon@easy} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$|$}}};}%
-}
-\newcommand{\icon@normal} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$||$}}}}%
-}
-\newcommand{\icon@hard} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$|||$}}}}%
-}
+\usepackage{romanbar}
 
 \newcommand{\type@advanced} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{red}{red!70}{white}{$\star$};}%
+    \tikz[scale=0.8, onbase]{\roundedicon{red}{red!70}{white}{$\bigstar$};}%
 }
 \newcommand{\type@easy} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$|$}}};}%
+    \tikz[scale=0.8, onbase]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$\Romanbar{1}$}}};}%
 }
 \newcommand{\type@normal} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$||$}}}}%
+    \tikz[scale=0.8, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$\Romanbar{2}$}}}}%
 }
 \newcommand{\type@hard} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$|||$}}}}%
+    \tikz[scale=0.8, onbase]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$\Romanbar{3}$}}}}%
 }
 
 \renewenvironment{exercise}[2][]{%
     \renewcommand{\PrintHintOffers}{}%
     \stepcounter{exercisectr}%
-    \task%
+    \task[enhanced, colframe=gray!20, boxrule=1.2pt,interior code app={
+        \node[anchor=north east, inner sep=0pt] at (frame.north east) {\csname type@#2\endcsname};
+    }]  
         \renewcommand\labelenumi{\alph{enumi})}%
-        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}
-        \hfill\ifstrequal{#2}{advanced}{\icon@advanced}{%
-        \ifstrequal{#2}{easy}{\icon@easy}{%
-        \ifstrequal{#2}{normal}{\icon@normal}{%
-        \ifstrequal{#2}{hard}{\icon@hard}{}}}}\vspace*{1mm}\par
+        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}\par
 }{
         \PrintHintOffers
     \endtask
