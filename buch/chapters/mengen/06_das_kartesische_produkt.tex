@@ -238,22 +238,11 @@ Es enthält also alle Tupel, die wir erhalten können, wenn der erste Steckplatz
 
     \begin{advexample}{}
         Mithilfe der Relation \[\textsc{istNachfolgerVon}=\{(a,b)\mid a,b\in\Real\text{~und~}b+1=a\}\]
-        wollen wir ausdrücken, dass die rechte Zahl ein Nachfolger von der linken ist. Es gilt $5~\textsc{istNachfolgerVon}~4$, denn weil $4+1=5$ gilt, wissen wir natürlich auch, dass $(5,4)\in\textsc{istNachfolgerVon}$ gilt.
+        wollen wir ausdrücken, dass die linke Zahl ein Nachfolger von der rechten ist. Es gilt $5~\textsc{istNachfolgerVon}~4$, denn weil $4+1=5$ gilt, wissen wir natürlich auch, dass $(5,4)\in\textsc{istNachfolgerVon}$ gilt.
     \end{advexample}
     Mithilfe von Relationen kannst du so etwas wie das Symbol $<$ auch auf Mengen definieren, die keine Zahlen enthalten. Du kannst aber auch beliebig komplizierte Zusammenhänge mit ihnen festhalten. Beispiele dafür findest du auf Seite \pageref{relationen}.
 \end{advanced}
 
-\if 0
-\begin{advanced}{Potenz einer Menge}
-    Wenn wir das kartesische Produkt einer Menge mit sich selbst bilden -- ggf. auch sehr oft -- dann können wir, ähnlich wie bei der wiederholten Multiplikation eine Potenzschreibweise verwenden.
-
-    \begin{definition}{Potenz einer Menge}
-        Es sei $M$ eine Menge. Dann schreiben wir statt $\underbrace{M\times \dots\times M}_{n-\text{mal}}$ auch $M^n$.
-    \end{definition}
-
-    Die Punkte im Koordinatensystem können, wie du bereits weißt, mit Tupeln aus der menge $\Real\times\Real$ dargestellt werden. Oft werden die Punkte im Koordinatensystem als Elemente der Menge $\Real^2$ aufgefasst. Dadurch lassen sich auch Punkte in höherdimensionalen Koordinatensystemen beschreiben. Du wirst später ein 3D-Koordinatensystem kennenlernen, dessen Punkte Tupel aus $\Real^3$ sind. Tatsächlich ergibt es aber auch Sinn, mit noch viel höheren Dimensionen zu arbeiten. Das Rechnen mit Punkten der Menge $\Real^n$ für große $n\in\Natural$ ist beispielsweise eine wichtige Voraussetzung für moderne künstliche Intelligenz.
-\end{advanced}
-\fi
 \begin{nutshell}{Tupel und das kartesische Produkt}
     \parpic[r]{
         \begin{tikzpicture}

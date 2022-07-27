@@ -28,26 +28,30 @@
 \end{remark}
 \subsection*{Aufgabenteil}
 \begin{exercise}
-    Zeichne in die folgenden Koordinatensysteme jeweils einen Graphen ein, der im Vergleich zum bereits eingezeichneten Graphen eine Einheit nach oben verschoben ist. 
-    \begin{multicols}{2}\centering
-        \begin{tikzpicture}
-            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=40]
-                    \addplot[color=violet] expression{x^2*(x-1)};
-            \end{axis}
-        \end{tikzpicture}
+    \begin{enumerate}[label = \alph*)]
+        \item Zeichne in die folgenden Koordinatensysteme jeweils einen Graphen ein, der im Vergleich zum bereits eingezeichneten Graphen eine Einheit nach oben verschoben ist.
+        \begin{multicols}{2}\centering
+            \begin{tikzpicture}
+                \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=40]
+                        \addplot[color=violet] expression{x^2*(x-1)};
+                \end{axis}
+            \end{tikzpicture}
+        
+        Graph der Funktion $f$
         
         \begin{tikzpicture}
             \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, xtick={-4,...,4}, ytick={-2,...,2},xmin=-2,xmax=2,ymin=-2,ymax=2, samples=40]
                     \addplot[color=violet] expression{0.2*(x+2)*(x+0.5)*(x-1)*(x-3)};
             \end{axis}
         \end{tikzpicture}
+
+        Graph der Funktion $h$
     \end{multicols}
-\end{exercise}
-\begin{exercise}
-    \begin{enumerate}
-        \item[a)] Der im linken Koordinatensystem in Aufgabe 1 dargestellte Graph entsteht durch die Berechnungsvorschrift $f(x)=x^2\cdot (x-1)$. Die Abbildung $g$, deren Graph wie der von dir eingezeichnete aussieht, muss die Berechnungsvorschrift $g(x)=$\textchoice[2]{$f(x+1)$,$f(x-1)$,$f(x)+1$,$f(x+c)+1$} haben.
-        \item[b)] Es gilt $f(x+c)=$\textchoice[2]{$x^2\cdot (x-1)+c$,$x^2\cdot (x+c)$,$(x+c)^2\cdot (x+c-1)$} und $f(x)+c=$\textchoice[0]{$x^2\cdot (x-1)+c$,$x^2\cdot (x+c)$,$(x+c)^2\cdot (x+c-1)$}.
-        \item[c)] Es gilt deshalb $g(x)=$\answerfield{3cm}{$x^2\cdot (x-1)+1$}.
+
+    
+        \item Die Abbildung $g$, deren Graph wie der von dir eingezeichnete aussieht, muss die Berechnungsvorschrift $g(x)=$\textchoice[2]{$f(x+1)$,$f(x-1)$,$f(x)+1$,$f(x+c)+1$} haben.
+        \item Es gilt $f(x+c)=$\textchoice[2]{$x^2\cdot (x-1)+c$,$x^2\cdot (x+c)$,$(x+c)^2\cdot (x+c-1)$} und $f(x)+c=$\textchoice[0]{$x^2\cdot (x-1)+c$,$x^2\cdot (x+c)$,$(x+c)^2\cdot (x+c-1)$}.
+        \item Es gilt deshalb $g(x)=$\answerfield{3cm}{$x^2\cdot (x-1)+1$}.
     \end{enumerate}
 \end{exercise}
 \begin{exercise}
@@ -68,7 +72,7 @@
 }
 
 \begin{exercise}
-    In den folgenden drei Koordinatensystemen findest du jeweils den Graphen, den die Funktion \mbox{$f(x)=x^3-x$} beschreibt.
+    In den folgenden zwei Koordinatensystemen findest du jeweils den Graphen, den die Funktion \mbox{$f(x)=x^3-x$} beschreibt.
     \begin{multicols}{2}\centering
         \startingGraph
         
