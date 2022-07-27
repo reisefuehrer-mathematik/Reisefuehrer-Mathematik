@@ -6,10 +6,10 @@
 
 \usepackage{mathdef}
 
-\sheet{Vorbereitungsblatt 8.1}
+\sheet{Vorbereitungsblatt \getchapternum{vars}.1}
 \title{Einführung: Variablen}
-\topic{\getchaptername{variablen}}
-\chapternum{\getchapternum{variablen}}
+\topic{\getchaptername{vars}}
+\chapternum{\getchapternum{vars}}
 
 \usepackage{multicol}
 
@@ -64,7 +64,17 @@ Idee: Lückentext --- Einsetzen mit einer Variable, mehrere Werte --- Einsetzen 
 \subsection*{Aufgabenteil}
 
 \begin{exercise}
-    Sachbeispiel, das formalisiert werden soll. Variablen sind vorgegeben und die richtige Antwort soll per Multiple Choice gewählt werden.
+    {\itshape Es ist Frühlingsanfang und du möchtest deinen Garten pflegen, sodass er dieses Jahr wieder schön blühen kann.
+    \begin{itemize}[nosep]
+        \item Du brauchst eine halbe Stunde, um deine Garteninstrumente zusammenzusuchen.
+        \item Du brauchst ca. 3 Minuten pro Quadratmeter, um ihn zu Mähen, Harken und zu bepflanzen.
+        \item An drei der vier Seiten deines quadratischen Gartens sind Hecken, die du stutzen musst.
+        \item Um die Hecke zurechtzustutzen, brauchst du 5 Minuten für jeden Meter
+    \end{itemize}}
+    Gib' einen Term an, der die Gesamtzeit in Minuten beschreibt, die du an der Gartenarbeit sitzt, wenn dein Garten $x\times x$ Meter groß ist.
+    \begin{answerbox}
+        $30\,\text{min} + x^2\cdot 3\,\text{min} + 3x\cdot 5\,\text{min} = (3x^2+15x+30)\,\text{min}$
+    \end{answerbox}
 \end{exercise}
 \begin{exercise}
     Sachbeispiel, das formalisiert werden soll. Variablen sind vorgegeben und die richtige Antwort soll per Multiple Choice gewählt werden. (zweites Beispiel)
