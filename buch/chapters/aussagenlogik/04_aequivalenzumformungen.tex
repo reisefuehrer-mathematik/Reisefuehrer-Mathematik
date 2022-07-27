@@ -5,15 +5,14 @@
     Im Alltag begegnet man immer wieder Aussagen, die zwar verschieden sind, im Kern 
     aber genau das gleiche aussagen. Zum Beispiel sind die Aussagen \statement{Der Zauberer ist alt} und \statement{Der Zauberer ist nicht nicht alt} zwar verschieden, sagen aber das Gleiche aus.
     Jetzt möchten wir einmal ganz genau unter die Lupe nehmen, was es 
-    für Aussagen heißt die gleiche Bedeutung zu haben.
+    für Aussagen heißt, die gleiche Bedeutung zu haben.
 
-    \begin{example}{}
+    \begin{example}[ex:doppel-nicht]{}
 
-    Betrachten wir dazu nochmal die atomare Aussage \statement{Der Zauberer ist alt} und kürzen diese 
-    mit $Z$ ab. Die Aussage \statement{Der Zauberer ist nicht nicht alt} lässt sich dann 
-    durch $\lnot \lnot Z$ notieren. Wir haben bereits im Gefühl,
-    dass diese Aussagen im Kern genau das gleiche aussagen. Wir schauen uns als nächstes einmal die Wahrheitstabellen der 
-    beiden Aussagen an:
+    Die Aussagen \statement{Der Zauberer ist alt} und \statement{Der Zauberer ist nicht nicht alt} wirken recht ähnlich.
+    Wir kürzen \statement{Der Zauberer ist alt} mit $Z$ ab und \statement{Der Zauberer ist nicht nicht alt} lässt sich 
+    durch $\lnot \lnot Z$ notieren (wegen der beiden \enquote{nicht} im Satz haben wir die Aussage zweimal negiert). Wir haben bereits im Gefühl,
+    dass diese Aussagen im Kern genau das gleiche aussagen. Dieses Gefühl können wir mithilfe einer Wahrheitstabelle schnell überprüfen:
     \[\begin{array}{c s ccc}\toprule
         Z & Z & \lnot Z & \lnot \lnot Z\\\midrule
         \falsch & \falsch & \wahr & \falsch\\
@@ -21,15 +20,10 @@
          \\\bottomrule
     \end{array}\]
     
-    Es stellt sich also heraus, egal welchen Wahrheitswert die einzige atomare Unteraussage $Z$, der 
-    Aussagen $Z$ und $\lnot\lnot Z$ annimmt, die beiden Aussagen, haben immer den gleichen Wahrheitswert. 
-    Diese Eigenschaft nennen wir \textbf{semantische Äquivalenz}. 
+    Es stellt sich heraus, dass die beiden Aussagen immer den gleichen Wahrheitswert haben -- egal welchen Wahrheitswert die einzige atomare Unteraussage $Z$ annimmt. Die beiden Aussagen besagen also tatsächlich das gleiche, denn sie haben immer den selben Wahrheitswert.
     \end{example}
     
-    Wir nennen zwei Aussagen \textbf{semantisch äquivalent}, wenn sie immer denselben Wahrheitswert haben. Das 
-    entspricht intuitiv dem Konzept, dass die Aussagen die gleiche Bedeutung haben. Diese Intuition findet sich auch
-    im Namen dieses Begriffs wieder, denn \enquote{semantisch} ist ein Synonym für \enquote{von der Bedeutung her}
-    und \enquote{äquivalent} können wir mit \enquote{gleichwertig} übersetzen.
+    Zwei Aussagen, die wie im letzten Beispiel immer denselben Wahrheitswert haben, egal welche Werte wir für ihre atomaren Teilformeln wählen, besagen eigentlich genau das gleiche: Es gibt keinen Fall, in dem sie verschiedene Wahrheitswerte haben. Wir sagen deshalb, dass solche Aussagen \textbf{semantisch äquivalent} (Latein für \emph{von der Bedeutung her gleichwertig}) sind.
     
     \begin{definition}{Semantische Äquivalenz}
         Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für alle möglichen Wahrheitswerte ihrer
@@ -75,51 +69,44 @@
     Um herauszufinden, ob zwei Aussagen semantisch äquivalent sind, können wir einfach die Wahrheitstabellen der Aussagen aufstellen und überprüfen, ob diese übereinstimmen. Das ist eine Methode, die immer zum Ziel führt. Das kann jedoch sehr aufwendig werden. 
     Für eine Aussage mit nur fünf atomaren Aussagen hat die Wahrheitstabelle beispielsweise bereits 32 Zeilen, bei 10 atomaren Aussagen, sind es sogar 1024 Zeilen. 
     
-    Bekanntlich führen viele Wege nach Rom. So auch für den Fall, dass man herauszufinden möchte, 
-    ob zwei Aussagen semantisch äquivalent sind. Wir lernen gleich eine Methode kennen, mit der man ohne 
-    Wahrheitstabellen zeigen kann, dass Aussagen semantisch äquivalent sind. Um das Prinzip dieser 
-    Methode verstehen zu können, schauen wir an dieser Stelle einmal kurz, wie man bei Termen herausfinden 
-    kann, ob diese gleichwertig sind. Für Aussagen funktioniert das dann fast genauso.
+    Deshalb entwickeln wir jetzt eine weitere Methode, mit der wir ohne Wahrheitstabellen zeigen können, dass zwei Aussagen semantisch äquivalent sind.
+    Wenn wir im Kapitel über \mayberef{Variablen} herausfinden wollten, ob zwei Terme gleich sind, dann haben wir dafür Termumformungen (z.\,B. Ausklammern) verwendet.
     
     \begin{example}{Termumformungen}
         Stell dir vor, du sollst zeigen, dass die Terme $-(x \cdot (x - y))$ und $-x^2 + x\cdot y$ 
-        gleichwertig sind. Eine Möglichkeit ist es, zu zeigen, dass man mittels Terumformungen von 
-        einem Term zum anderen gelangen kann. Die nächste Tabelle zeigt Schritt für Schritt eine 
-        mögliche Abfolge von Termumformungen, um zu zeigen, dass die Terme $-(x \cdot (x - y))$ und $-x^2 + x\cdot y$
-        gleichwertig sind.
-        \[\begin{array}{cc s c}\toprule
-        \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-        \textrm{Start}   &   & -(x\cdot (x-y))  \\
-        1   & \textrm{Distributivgesetz} & -(x^2 -x\cdot y)\\
-        2 & \textrm{Distributivgesetz}   & -x^2 - (-x\cdot y)\\
-        3 & \textrm{Vorzeichenregel} &  -x^2 + x\cdot y\\\bottomrule
-        \end{array}\]
-
+        gleichwertig sind. Eine Möglichkeit ist es, zu zeigen, dass man mittels Termumformungen von 
+        einem Term zum anderen gelangen kann. Das kannst du mit den folgenden Umformungsschritten machen.
+        \begin{align*}
+            &-(\circlemath{x\cdot (x-y)})\tag{Distributivgesetz}\\
+            =&\circlemath{-(x^2-x\cdot y)}\tag{Distributivgesetz}\\
+            =&-x^2-(-x\cdot y)\tag{Vorzeichenregel}\\
+            =&-x^2+x\cdot y
+        \end{align*}
+        Ein sehr ähnliches Prinzip können wir auch verwenden, um zu zeigen, dass zwei Aussagen gleich sind.
     \end{example}
     
-    Um zu zeigen, dass zwei Terme gleichwertig sind, kann man also zeigen, dass man vom ersten 
-    zum zweiten Term mittels Termumformungen kommt. Und dieses Prinzip übertragen wir jetzt auf die 
-    Aussagenlogik: Um zu zeigen, dass zwei Aussagen semantisch äquivalent sind, zeigt man, 
-    dass man von der ersten Aussage durch \textbf{(semantische) Äquivalenzumformungen} zur zweiten
-    gelangt. Diese Äquivalenzumformungen quasi die Terumformungen der Aussagenlogik.
-    Termumformungen produzieren gleichwertige Terme, Äquivalenzumformungen produzieren semantisch 
+    Um zu zeigen, dass zwei Terme gleichwertig sind, kannst du also zeigen, dass du vom ersten Term mittels
+    Termumformungen zum zweiten Term kommst. Dieses Prinzip übertragen wir jetzt auf die 
+    Aussagenlogik: Um zu zeigen, dass zwei Aussagen semantisch äquivalent sind, kannst du zeigen, 
+    dass du von der ersten Aussage durch \textbf{(semantische) Äquivalenzumformungen} zur zweiten gelangen kannst. 
+    Äquivalenzumformungen sind also die Termumformungen der Aussagenlogik:
+    Termumformungen produzieren gleichwertige Terme und Äquivalenzumformungen produzieren semantisch 
     äquivalente Aussagen.
     
-    Im Folgenden lernen wir solche Äquivalenzumformungen kennen, um am Ende einen Werkzeugkasten zu haben, mit dem man Aussagen (semantisch äquivalent) umformen kann.
-    
-    
+    Im Folgenden lernen wir solche Äquivalenzumformungen kennen, um am Ende einen Werkzeugkasten zu haben, mit dem wir Aussagen (semantisch äquivalent) umformen kann.
+    %
     \parpic[r]{
-        \begin{array}{c s ccc}\toprule
+        $\begin{array}{c s ccc}\toprule
             Z & Z & \lnot Z & \lnot \lnot Z\\\midrule
             \falsch & \falsch & \wahr & \falsch\\
             \wahr & \wahr &\falsch & \wahr\\
             \bottomrule
-        \end{array}
+        \end{array}$
     }
-
-    Eine erste Äquivalenzumformung haben wir bereits im Eingangsbeispiel gesehen. 
+    %
+    Eine erste Äquivalenzumformung haben wir bereits zu Beginn dieses Abschnitts in Beispiel \ref{ex:doppel-nicht} gesehen. 
     Negieren wir eine Aussage $Z$ doppelt, dann ist die Aussage $\lnot \lnot Z$ semantisch äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder
-    Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
+    Entfernen von einer doppelten Negation nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
 
     \begin{theorem}{Involution}
     Ist $A$ eine Aussage, dann gilt:
