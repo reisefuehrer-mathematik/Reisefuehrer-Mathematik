@@ -3,6 +3,249 @@
 \begin{document}
 
 \subsection*{Rekursion}
+Im Kapitel \mayberef{Grundrechenarten} hast du gelernt, was eine Potenz ist: Sie ist eine Abkürzung für eine wiederholte Multiplikation und wir haben die Abkürzung
+\[a^n:=\colorbrace{a\cdot a\cdot \dots \cdot a}{n-\text{mal}}\]
+definiert. In der Mathematik bietet es sich manchmal an, neue Begriffe nicht so direkt wie in diesem Beispiel sondern \emph{rekursiv} zu definieren. Das bedeutet, dass wir zum Beispiel im obigen Fall nicht direkt definieren, was $a^n$ ist, sondern Potenzen etwa folgendermaßen definieren:
+\begin{align}
+    a^0&=1\\
+    a^n&=a\cdot a^{n-1}
+\end{align}
+Statt also direkt aufzuschreiben, was $a^n$ ist, geben wir eine Regel an, mit der wir $a^n$ mithilfe von $a^{n-1}$ berechnen können (\emph{Rekursionsvorschrift}). Wir wissen, dass wir bei $a^n$ noch einmal öfter mit $a$ multiplizieren müssen als bei $a^{n-1}$. Deshalb ist $a^n=a\cdot a^{n-1}$. 
+
+Die Frage, was $a^n$ ist, kann mithilfe dieser Definition auf die Frage zurückgeführt werden, was $a^{n-1}$ ist, diese wiederum darauf, was $a^{n-2}$ ist usw. Das Problem hierbei ist, dass wir so nie zum Ende kommen. Deshalb haben wir die Zusatzregel, dass $a^0=1$ gilt. Diese Zusatzregel (wir nennen sie den \emph{Rekursionsanfang}) ermöglicht uns, irgendwann aufzuhören. Schauen wir uns einmal genauer an, was diese neue Definition nun bedeutet, indem wir herausfinden, warum $a^3$ auch nach der neuen Definition noch $a\cdot a\cdot a$ ist. Wir müssen die Definition dafür mehrfach anwenden:
+\begin{align*}
+    a^3&=a\cdot a^{3-1}=a\cdot a^2\\
+    &=a\cdot a\cdot a^{2-1}=a\cdot a\cdot a^1\\
+    &=a\cdot a\cdot a\cdot a^0\\
+    &=a\cdot a\cdot a\cdot 1=a\cdot a\cdot a
+\end{align*}
+Hier fällt insbesondere auf, dass wir nach Anwendung der \emph{Rekursionsvorschrift} auf $a^3$ wieder einen Ausdruck (hier $a^2$) erhalten, der selbst wieder nach derselben Rekursionsvorschrift definiert ist. Die Definition von $a^n$ verwendet sich also selbst. Das geht nur deswegen gut, weil die noch einen \emph{Rekursionsanfang} haben. Wir verwenden die Rekursionsvorschrift also so lange, bis wir durch den Rekursionsanfang zu einem Ende kommen. Wenn bei der Definition kein Fehler passiert ist, dann passiert dies immer irgendwann.
+
+Im folgenden Beispiel siehst du eine weitere rekursive Definition und ihre dazugehörige \enquote{normale} Definition.
+\begin{advexample}[ex:factorial-recursive]{}
+    Die \textbf{Fakultät} einer Zahl $n$ ist wie folgt definiert:
+    \[n!:=n\cdot (n-1)\cdot (n-2)\cdot\dots\cdot2\cdot 1\]
+    Wir können dieselbe Definition mithilfe der folgenden rekursiven Definition ausdrücken:
+    \begin{align*}
+        0!&=1\\
+        n!&=n\cdot(n-1)!
+    \end{align*}
+\end{advexample}
+Zusätzlich dazu, dass rekursive Definitionen ein wenig komplizierter zu verstehen sind als normale Definitionen, müssen wir immer durch die ganze Rekursion gehen, bis wir den Rekursionsanfang erreichen, wenn wir beispielsweise $a^5$ berechnen wollen. Es ist deshalb oft schöner, explizit anzugeben, wie etwas definiert ist. Allerdings ist das nicht immer gut möglich, sodass rekursive Definitionen uns dann zumindest erlauben, etwas, was wir normal nicht definieren können, \emph{überhaupt} zu definieren.
+\begin{advexample}{}
+    Vielleicht hast du schon mal von den \textbf{Fibonacci-Zahlen} gehört. Sie sind rekursiv durch
+    \begin{align*}
+        f_1 &= 1\\
+        f_2 &= 1\\
+        f_n &= f_{n-1}+f_{n-2}
+    \end{align*}
+    definiert und es ist überhaupt nicht einfach, eine Definition für die Fibonacci-Zahlen zu finden, die keine Rekursion enthält. Obwohl rekursive Definitionen (zumindest wenn du sie noch nicht so oft gesehen hast) verwirrend sein können, sind sie also manchmal der beste Weg, etwas zu definieren bzw. aufzuschreiben.
+\end{advexample}
+
+\subsection*{Summen- und Produktzeichen}
+Du hast in diesem Kapitel gelernt, dass du Variablen als Platzhalter für Zahlen verwenden kannst -- vor allem dann, wenn du zum Beispiel eine allgemeine Regel (Schablone) für eine Rechnung aufschreiben willst, die mit beliebigen Zahlen funktioniert. Darüber hinaus kannst du Variablen auch geschickt einsetzen, um dir eine Menge Schreibaufwand zu sparen.
+
+\subsubsection*{Laufvariablen}
+Gehen wir beispielsweise davon aus, dass du $12$ Variablen $a_1,a_2,\dots,a_{12}$ als Platzhalter benötigst. Wenn diese Variablen für Längen stehen sollen, weil du mit ihnen etwas geometrisches berechnen möchtest, dann wäre es sinnvoll, wenn die Variablen keine negativen Werte haben. Es soll also 
+\[a_1\geq 0, a_2\geq 0,\dots,a_{12}\geq 0\] 
+gelten. Indem du eine weitere Variable $i$ als \textbf{Laufvariable} einführst, kannst du auch anders aufschreiben, dass die Variablen nicht negativ sein sollen: 
+\[a_i\geq 0 \text{ für } i=1,\dots,12.\]
+Die Variable $i$ ist hier eine \emph{Laufvariable}, weil sie selbst keinen im Zusammenhang nützlichen Wert repräsentiert. Sie ist nur dafür da, die Zahlen im Index der anderen Variablen (also $a_1,a_2$ usw.) zu durchlaufen. Dadurch steht \enquote{$a_i\geq 0$} sowohl für $a_1\geq 0$ (mit $i=1$), für $a_2\geq 0$ (mit $i=2$) usw. Du hast es also geschafft, alle zwölf Forderungen $a_1\geq 0, a_2\geq 0,\dots,a_{12}\geq 0$ in einer einzigen Forderung $a_i\geq 0$ aufzuschreiben, indem du dafür gesorgt hast, dass $i$ für jeden der Werte $1,2,\dots,12$ stehen kann. In der Mathematik nutzt man meistens die Buchstaben $i$ oder $j$ für Laufvariablen, seltener auch $k$ oder $n$.
+
+\subsubsection*{Summenzeichen}
+Mithilfe von Laufvariablen lassen sich noch weitere unübersichtlichere Terme kürzer aufschreiben. Interessierst du dich beispielsweise dafür, was die Summe der ersten $100$ Zahlen ist (also $1+2+3+\dots+100$), dann erhältst du immer einen sehr langen Term, den du nur aufschreiben kannst, indem du einen Teil auslässt und mit \enquote{$\dots$} abkürzt. Es gibt eine kürzere Schreibweise für solche langen Summen, die das \textbf{Summenzeichen} $\Sigma$ (das ist der griechische Buchstabe \emph{Sigma}) verwendet. Wenn du für die Summe der ersten 100 Zahlen ein Summenzeichen verwendest, sieht das Ergebnis folgendermaßen aus:
+\[\sum_{i=1}^{100}i\]
+Die Variable $i$ wird hier wieder als \emph{Laufvariable} verwendet. Diese Schreibweise sagt, dass du für das, was rechts vom Summenzeichen steht (also das $i$) nacheinander die Werte \[i=1 \text{ (der Startwert für $i$ steht unter dem }\Sigma),\]
+$i=2$, $i=3$ usw. bis \[i=100 \text{ (die 100 über dem }\Sigma\text{ besagt, dass du bei $100$ aufhören sollst)}\]
+einsetzen musst. Die Ergebnisse müssen anschließend noch addiert werden (du musst also ihre Summe berechnen, daher der Name \emph{Summenzeichen}). Den obigen Ausdruck liest du als \enquote{Summe von $i=1$ bis $100$ über $i$} und es gilt
+\[\sum_{i=1}^{100}i=1+2+3+\dots+100=5050.\]
+
+\subsubsection*{Produktzeichen}
+So wie du Summenzeichen zum kompakten Aufschreiben von Summen verwenden kannst, kannst du \textbf{Produktzeichen} zum kompakten Aufschreiben von Produkten verwenden. Das Produktzeichen ist der griechische Buchstabe $\Pi$ (\emph{Pi}). Es funktioniert genauso wie das Summenzeichen. Allerdings musst du die Ergebnisse, die du durch das Einsetzen von Werten für $i$ erhältst, nun nicht addieren, sondern multiplizieren. Du kannst $20!$ (siehe Beispiel \ref{ex:factorial-recursive}) beispielsweise mit der folgenden Schreibweise notieren:
+\[\prod_{i=1}^{20}i=1\cdot 2\cdot 3\cdot \dots \cdot 20=2\,432\,902\,008\,176\,640\,000\]
+Damit du ein Gefühl dafür bekommst, was sich alles mit Summen-- und Produktzeichen bewerkstelligen lässt, siehst du nun ein paar weitere Beispiele.
+\begin{advexample}{}
+    Wir können auf der rechten Seite anstelle von $i$ auch kompliziertere Ausdrücke aufschreiben, um interessantere Summen und Produkte zu erhalten:
+    \begin{align*}
+        &\sum_{i=1}^{5}1=1+1+1+1+1=5\\
+        &\sum_{i=1}^{50}2i-1=1+3+5+7+9+11+\dots+99=2500\\
+        &\sum_{i=1}^{10}i^2=1+4+9+16+\dots+100=385\\
+        &\sum_{i=0}^{5}x^i=1+x+x^2+x^3+x^4+x^5\\
+        &\prod_{i=1}^{100}(-1)^i=(-1)\cdot 1\cdot (-1)\cdot\dots\cdot 1=1
+    \end{align*}
+\end{advexample}
+
+\subsection*{Stellenwertsysteme}
+In der Geschichte der Menschheit wurde eine Vielzahl verschiedener Systeme verwendet, um Zahlen darzustellen. Jedes Jahr hat 12 Monate. Eine der einfachsten Möglichkeiten, die Zahl 12 aufzuschreiben, ist, entsprechend viele Striche zu machen:
+\[|||||\,|||||\,||\]
+Im Laufe der Zeit haben sich zehn Symbole für besonders kleine Zahlen entwickelt: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. Diese Zahlen notieren wir also alle durch ihr eigenes Symbol. Dadurch umgehen wir zumindest für kleine Zahlen unübersichtliche Strichlisten. Bis hier hin ist alles noch recht einfach. Die Herausforderung, die Zahlensysteme lösen müssen, ist, dass sie auch in der Lage sein müssen, große Zahlen noch sinnvoll darzustellen (wir können ja nicht für jede Zahl ein eigenes Zeichen verwenden). Im römischen Reich konnte eine Zahl durch mehrere Symbole dargestellt werden, zum Beispiel sieht die 12 römisch so aus:
+\[XII\]
+Wir können herausfinden, dass hier die Zahl 12 steht, indem wir die Werte der einzelnen Symbole addieren: $X=10$ und $I=1$, also ist $XII=10+1+1=12$. Mit diesem System lassen sich sehr große Zahlen darstellen. Zum Rechnen eignen sich römische Zahlen jedoch überhaupt nicht. Was ist zum Beispiel
+\[XLIII\cdot LXIV?\]
+Es ist eigentlich nur gut möglich, das auszurechnen, indem wir die Zahlen zunächst in unser System umrechnen, in dem wir deutlich besser rechnen können. Das bringt uns zur Frage, was \emph{unser System} eigentlich ist und wie es funktioniert.
+
+Wir verwenden heute ein sogenanntes \textbf{Stellenwertsystem}. Während im römischen System jedes Symbol immer denselben Wert hat, egal wo es steht, hängt der Wert eines Symbols bei uns davon ab, wo das Symbol steht. In der Zahl $12$ hat die Ziffer $1$ beispielsweise den Wert $10$, obwohl die Ziffer $1$ allein nur den Wert $1$ hat. Das liegt daran, dass wir den Wert der Ziffer an der vorletzten Stelle mit $10$ multiplizieren. Eine Ziffer an drittletzter Stelle hat den $100$-fachen Wert usw.
+
+Um unser Stellenwertsystem etwas besser untersuchen zu können, möchten wir es nun ein wenig mathematischer beschreiben. Die Zahl $12$ hat zwei Ziffern: Die $1$ und die $2$. Wir nennen sie (von rechts nach links) $a_0$ und $a_1$. 
+
+Die Zahl $12$, bestehend aus den Ziffern $a_1=1$ und $a_0=2$, hat nun den Wert
+\[12=1\cdot 10+2\cdot 1=a_1\cdot 10+a_0\cdot 1=a_1\cdot 10^1+a_0\cdot 10^0.\]
+Die allgeine Regel ist also, dass wir eine Ziffer, die an der letzten Stelle steht, mit $1$, also mit $10^0$ multiplizieren. Steht sie $n$ Stellen weiter links, multiplizieren wir sie mit $10^n$ (zum Beispiel steht die $1$ bei der $12$ eine Stelle weiter links und wird daher mit $10^1$ multipliziert). Es hat also einen besonderen Grund, warum wir mit $a_0$ und nicht mit $a_1$ anfangen: Die Zahl im Index gibt an, wie weit wir von der letzten Stelle entfernt sind (und damit, mit welcher Potenz von $10$ wir die jeweilige Ziffer multiplizieren müssen). Im folgenden Beispiel sehen wir uns dieses Prinzip für eine weitere Zahl an.
+\begin{advexample}{}
+    Die Zahl 263 besteht aus der $3$ an letzter Stelle (sie wird also mit $10^0$ multipliziert), eine Stelle davor steht eine $6$ (also wird sie mit $10^1$ multipliziert) und die davor stehende $2$ wird mit $10^2$ multipliziert. Wir erhalten
+    \[263=2\cdot 10^2+6\cdot 10^1+3\cdot 10^0.\]
+    Wir haben die Ziffern $a_2=2, a_1=6, a_0=3$ und können dann auch Folgendes schreiben:
+    \[263=a_2\cdot 10^2+a_1\cdot 10^1+a_0\cdot 10^0.\]
+\end{advexample}
+Wenn nun $a_0,a_1,\dots,a_n$ jeweils für Ziffern zwischen $0$ und $9$ stehen, dann erhalten wir durch das Hintereinanderschreiben der Ziffern eine Zahl $a_na_{n-1}\cdots a_2a_1a_0$ (hier meinen wir \emph{nicht} das Produkt der Ziffern, sondern wollen sie wirklich einfach hintereinander schreiben). Mit dieser Schreibweise ist $a_1a_0$ zum Beispiel $12$, wenn $a_1=1$ und $a_0=2$ gilt. Die Ziffernfolge $a_na_{n-1}\cdots a_2a_1a_0$ stellt nun die Zahl
+\[\sum_{i=0}^na_i\cdot 10^i\]
+dar. Dies ist die Regel, mit der das \textbf{Dezimalsystem}, also das Stellenwertsystem, mit dem wir für gewöhnlich rechnen, funktioniert.
+\begin{advexample}{}
+    Mit $a_2=2,a_1=6,a_0=3$ ist
+    \[a_2a_1a_0=\sum_{i=0}^2a_i\cdot 10^i=2\cdot 100+6\cdot 10+3=263.\]
+\end{advexample}
+Wir nutzen in der Summenschreibweise \enquote{$10^i$}, weil wir zehn Ziffern haben, die die Werte von $0$ bis $9$ abdecken. Das heißt, dass die $10$ nicht mehr durch eine Ziffer dargestellt werden kann. Wir multiplizieren die vorletzte Ziffer daher mit $10$. Dann können wir die $10$ durch die Ziffer $1$ an vorletzter Stelle beschreiben.
+
+Wenn wir besonders kreativ sind und uns noch weitere Symbole für Zahlen überlegen, können wir auch ein System verwenden, in dem die Ziffer $a_i$ statt mit $10^i$ zum Beispiel mit $16^i$ multipliziert wird (dann brauchen wir $16$ verschiedene Ziffern und erhalten das \textbf{Hexadezimalsystem}). Andersherum können wir mit weniger Ziffern auskommen, wenn wir zum Beispiel mit $2^i$ multiplizieren (dann erhalten wir das \textbf{Binärsystem}). Ein Stellenwertsystem, in dem wir $b$ Ziffern verwenden und die Ziffer $a_i$ mit $b^i$ multiplizieren, heißt \textbf{Zahlensystem zur Basis \emph{b}}. Wir können allgemein definieren, wie ein solches System funktioniert (und erhalten mit $b=10$ genau das System, das wir gewohnt sind).
+\begin{definition}{Zahlensystem zur Basis $b$}
+    Es seien $n,b$ und $k$ ganze Zahlen mit $n\geq 0, b\geq 2$ und $k\geq 1$. Eine Liste von ganzen Zahlen $a_0,a_1,\dots,a_{k-1}$ mit $0\leq a_i\leq b-1$ (für alle $i$) und
+    \[n=\sum_{i=0}^{k-1}a_ib^i\]
+    heißt eine \textbf{\emph{b}-adische Darstellung} von $n$. Wir schreiben dann
+    \[n=(a_{k-1}\cdots a_1a_0)_b.\]
+    Die Zahlen $0,1,\dots,b-1$ heißen die \textbf{Ziffern} des Zahlensystems zur Basis $b$. Für $b=10$ schreiben wir $a_{k-1}\cdots a_2a_1a_0$ statt $(a_{k-1}\cdots a_2a_1a_0)_b$.
+\end{definition}
+\begin{advexample}{}
+    Die Zahl $12$ lässt sich im Binärsystem durch $(1100)_2$ darstellen. Es gilt nämlich
+    \[1\cdot 2^3+1\cdot 2^2+0\cdot 2^1+0\cdot 2^0=1\cdot 8+1\cdot 4+0\cdot 2+0\cdot 1=8+4=12.\]
+    Um diese Darstellung zu berechnen, musst du die 12 (im Dezimalsystem) solange mit Rest durch $2$ teilen, bis nichts mehr übrig ist: 
+    \begin{align*}
+        12:2=6\text{ Rest }0\\
+        6:2=3\text{ Rest }0\\
+        3:2=1\text{ Rest }1\\
+        1:2=0\text{ Rest }1
+    \end{align*}
+    Die Darstellung im Binärsystem sind dann die Reste (von unten nach oben gelesen). Damit kommen wir auf die Darstellung $(1100)_2$, die wir bereits weiter oben gesehen haben.
+\end{advexample}
+\begin{advexample}[ex:hexadezimal]{}
+    Wir möchten die Zahl $(1234)_{16}$ ins Dezimalsystem umrechnen. Dafür müssen wir
+    \[1\cdot 16^3+2\cdot 16^2+3\cdot 16^1+4\cdot 16^0\]
+    ausrechnen. Es gilt $16^3=4096$ und $16^2=256$. Wir erhalten also
+    \[(1234)_{16}=4096+2\cdot 256+3\cdot 16+4=4096+512+48+4=4660.\]
+\end{advexample}
+Eine positive ganze Zahl $n$ kann für jede Basis $b$ mit $b\geq 2$ eindeutig $b$-adisch dargestellt werden. Diese Tatsache lässt sich auch beweisen, allerdings ist der Beweis sehr kompliziert und sprengt den Rahmen dieses Exkurses. Wenn du tiefer in das Thema einsteigen möchtest, empfehlen wir das Kapitel zu Zahlensystemen im Buch \emph{Elementare Zahlentheorie} \cite{todo}.
+
+Im Rest dieses Abschnitts beschäftigen wir uns mit Teilbarkeitsregeln für die eben definierten Stellenwertsysteme -- abhängig von der gewählten Basis $b$. Wir haben im Kapitel über Teilbarkeit $a\mid n$ geschrieben, wenn $a$ ein Teiler von $n$ ist. Diese Notation werden wir gleich wieder verwenden.
+
+Im Dezimalsystem sind dir vermutlich schon einige Teilbarkeitsregeln aus dem Kapitel über \mayberef\emph{Teilbarkeit} bekannt. Wenn du prüfen möchtest, ob eine Zahl durch $2, 5$ oder $10$ teilbar ist, reicht es aus, wenn du dir die letzte Stelle anschaust. Eine Zahl ist beispielsweise nur durch $5$ teilbar, wenn die letzte Stelle durch $5$ teilbar ist. Da wir nur auf die letzte Stelle schauen, heißt diese Teilbarkeitsregel \emph{Endstellenregel}. Diese Regel können wir nun beweisen und verallgemeinern.
+\begin{theorem}{Endstellenregel}
+    Es sei $n$ eine positive ganze Zahl mit der Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$. Für alle Zahlen $t$ mit $t\mid b$ gilt:
+    \[t\mid n\text{ genau dann, wenn }t\mid a_0.\]
+\end{theorem}
+Wenn $a\mid b$ gilt, dann ist der Quotioent $b:a$ wieder eine ganze Zahl (ansonsten würden wir einen Rest erhalten). Folglich können wir $b=ac$ für eine ganze Zahl $c$ schreiben. \todo{Das muss ins Teilbarkeitskapitel}
+\begin{proof}
+    Da $a_0$ durch $b$ teilbar ist, gibt es eine ganze Zahl $c$ mit $a_0=bc$. Weil $n$ die Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$ hat, gilt
+    \begin{align*}
+        n&=a_{k-1}b^{k-1}+a_{k-2}b^{k-2}+\dots+a_1b^1+a_0\tag{$a=bc$}\\
+        &=a_{k-1}b^{k-1}+a_{k-2}b^{k-2}+\dots+a_1b^1+bc\tag{$b$ ausklammern}\\
+        &=\colorbrace{b\cdot(a_{k-1}b^{k-2}+a_{k-2}b^{k-3}+\dots+a_1+c)}{\text{durch }b\text{ teilbar}}\tag{$*$}
+    \end{align*}
+    Dass der Term $(*)$ durch $b$ teilbar ist, liegt daran, dass wir den Ausdruck in der Klammer erhalten, wenn wir ihn durch $b$ teilen. Da wir wissen, dass in der Klammer eine ganze Zahl steht, lässt sich $n$ also durch $b$ teilen.
+\end{proof}
+\begin{advexample}{}
+    Die Zahl $(5044)_8$ ist durch $2$ und $4$ teilbar, da die letzte Stelle durch $2$ und $4$ teilbar ist und sowohl $2$ als auch $4$ Teiler der Basis $8$ sind. Sie ist jedoch nicht durch $8$ teilbar, weil $4$ nicht durch $8$ teilbar ist.
+\end{advexample}
+Wenn du prüfen möchtest, ob eine Zahl durch $3$ oder $9$ teilbar ist, kannst du das stattdessen auch für die Quersumme prüfen. Zum Beispiel ist $45$ durch $3$ und $9$ teilbar, denn $4+5=9$. Auch wenn die Zahl eine andere Basis als 10 hat, kann die Quersumme berechnet werden. Die Regel ist, einfach alle Ziffern zu addieren:
+\[\text{Quersumme von }(a_{k-1}\cdots a_1a_0)_b=a_{k-1}+a_{k-2}+\dots+a_1+a_0\]
+Auch die Quersummenregel, die du für die Zahlen $3$ und $9$ kennst, kann auf Zahlensysteme mit einer anderen Basis als 10 übertragen werden.
+\begin{theorem}{Quersummenregel}
+    Es sei $n$ eine positive ganze Zahl mit der Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$. Für alle Zahlen $t$ mit $t\mid (b-1)$ gilt:
+    \[t\mid n\text{ genau dann, wenn }t\mid (a_0+a_1+\dots+a_{k-1}).\]
+\end{theorem}
+\begin{proof}
+    Wir bezeichnen mit $Q(n)$ die Quersumme von $n$ in der Darstellung zur Basis $b$. Es gilt
+    \begin{align*}
+        n-Q(n)&=\colorbrace{a_{k-1}b^{k-1}+a_{k-2}b^{k-2}+\dots+a_1b+a_0}{n}\colorbrace{-a_{k-1}-a_{k-2}-a_1-a_0}{-Q(n)}\\
+        &=\colorbrace{a_{k-1}b^{k-1}-a_{k-1}}{a_{k-1}\text{ ausklammern}}+\colorbrace{a_{k-2}b^{k-2}-a_{k-2}}{a_{k-2}\text{ ausklammern}}+\dots+\colorbrace{a_1b-a_1}{a_1\text{ ausklammern}}+\colorbrace{a_0-a_0}{=0}\\
+        &=a_{k-1}(b^{k-1}-1)+a_{k-2}(b^{k-2}-1)+\dots+a_1(b-1)\tag{$*$}
+    \end{align*}
+    Wir müssen nun zeigen, dass alle Summanden aus $(*)$ durch $t$ teilbar sind. Es gilt
+    \begin{align*}
+        (b-1)(b^{k-1}+b^{k-2}+\cdots+b+1)
+        &=\colorbrace{b^k+b^{k-1}+\cdots+b}{b\cdot(b^{k-1}+\cdots+b+1)}\colorbrace{-b^{k-1}-b^{k-2}-\cdots-1}{-1\cdot(b^{k-1}+\cdots+b+1)}\\
+        &=b^k+\colorbrace{b^{k-1}-b^{k-1}+b^{k-2}-b^{k-2}+b-b}{=0}-1\\
+        &=b^k-1.
+    \end{align*}
+    Daraus folgt wegen
+    \begin{align*}
+        b^2-1&=(b-1)(b+1)\\
+        b^3-1&=(b-1)(b^2+b+1)\\
+        &~\,\vdots\\
+        b^{k-1}-1&=(b-1)(b^{k-2}+b^{k-3}+\cdots+b+1),\\
+    \end{align*}
+    dass alle Summanden aus $(*)$ durch $b-1$ teilbar sind. Weil $t\mid(b-1)$ gilt, müssen die Summanden aus $(*)$ also insbesondere auch durch $t$ teilbar sein (wenn sie nicht durch $t$ teilbar wären, dann könnten sie erst recht nicht durch $b-1$ teilbar sein). Wir wissen aus dem Kapitel über \emph{Teilbarkeit} (Satz \mayberef), dass Summen und Differenzen von zwei durch $t$ teilbaren Zahlen ebenfalls durch $t$ teilbar sind. Also muss der Term $(*)$ durch $t$ teilbar sein. 
+    
+    Wir wissen nun also, dass $n-Q(n)$ und $Q(n)$ beide durch $t$ teilbar sein müssen. Es gilt $n-Q(n)+Q(n)=n$. Weil die Summe zweier durch $t$ teilbarer Zahlen ebenfalls durch $t$ teilbar sein muss, ist also auch $n$ durch $t$ teilbar.
+\end{proof}
+\begin{advexample}{}
+    Im Hexadezimalsystem $(b=16)$ gilt $5\mid(b-1)$. Damit können wir in diesem System prüfen, ob eine Zahl durch 5 teilbar ist, indem wir schauen, ob die Quersumme durch $5$ teilbar ist. Die Zahl $(1234)_{16}$ aus Beispiel \ref{ex:hexadezimal} ist durch $5$ teilbar, denn es gilt
+    \[1+2+3+4=10\]
+    und wir wissen, dass $10$ durch $5$ teilbar ist.
+\end{advexample}
+Schließlich lernst du nun noch eine vermutlich neue Regel, nämlich die \emph{alternierende Quersummenregel}, kennen. Um die alternierende Quersumme einer Zahl zu berechnen, beginnst du bei der letzten Ziffer. Statt nun nacheinander alle Ziffern davor zu addieren, subtrahierst und addierst du abwechselnd.
+\begin{advexample}{}
+    Die alternierende Quersumme der Zahl $74529$ ist $9-2+5-4+7$. Sie berechnet sich, indem du mit der letzten Stelle beginnst, die vorletzte subtrahierst, die Stelle davor addierst und dann immer weiter abwechselnd subtrahierst und addierst.
+\end{advexample}
+\begin{definition}{Alternierende Quersumme}
+    Es sei $n$ eine positive ganze Zahl mit der Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$. Dann nennen wir
+    \[A(n)=\begin{cases}
+        a_0-a_1+a_2-a_3+\dots-a_{k-1}, &\text{für gerade }k\\
+        a_0-a_1+a_2-a_3+\dots+a_{k-1}, &\text{für ungerade }k
+    \end{cases}\]
+    die \textbf{alternierende Quersumme} von $n$ in der Darstellung zur Basis $b$.
+\end{definition}
+Die alternierende Quersumme ist zwar nicht ganz so leicht zu berechnen wie die normale Quersumme, jedoch liefert sie uns eine Regel, um zu prüfen, ob eine Zahl durch $11$ teilbar ist (im Dezimalsystem). Die Regel lässt sich wieder auf Systeme mit einer beliebigen Basis verallgemeinern und lautet folgendermaßen.
+\begin{theorem}{Alternierende Quersummenregel}
+    Es sei $n$ eine positive ganze Zahl mit der Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$. Für alle Zahlen $t$ mit $t\mid (b+1)$ gilt:
+    \[t\mid n\text{ genau dann, wenn }t\mid A(n).\]
+\end{theorem}
+\begin{proof}
+    Es gilt
+    \begin{align*}
+        n-A(n)&=\colorbrace{a_{k-1}b^{k-1}+a_{k-2}b^{k-2}+\cdots+a_1b+a_0}{n}\colorbrace{-a_0+a_1-a_2+\cdots\pm a_{k-1}}{-A(n)}\\
+        &=\colorbrace{a_{k-1}b^{k-1}\pm a_{k-1}}{a_{k-1}\text{ ausklammern}}+\dots+\colorbrace{a_2b^2-a_2}{\text{ausklammern}}+\colorbrace{a_1b+a_1}{\text{ausklammern}}+\colorbrace{a_0-a_0}{=0}\\
+        &=a_{k-1}(b^{k-1}-(-1)^{k-1})+\dots+a_2(b^2-1)+a_1(b^1+1)\tag{$*$}
+    \end{align*}
+    Wie bereits im Beweis der Quersummenregel müssen wir jetzt noch zeigen, dass der Term $(*)$ durch $t$ teilbar ist. Dafür zeigen wir wieder, dass alle Summanden durch $t$ teilbar sind, indem wir den Teil in der Klammer als Produkt von $b+1$ und einer weiteren ganzen Zahl schreiben. Jede zweite Klammer sieht folgendermaßen aus (immer für ungerade Exponenten):
+    \[b+1\text{ oder }b^3+1\text{ oder }b^5+1\text{ oder }\dots\]
+    In diesem Fall können wir durch Ausmultiplizieren zeigen, dass 
+    \begin{align*}
+        b^3+1&=(b+1)(b^2-b+1)\\
+        b^5+1&=(b+1)(b^4-b^3+b^2-b+1)\\
+        &~\,\vdots
+    \end{align*}
+    Im Produkt kommt jeder Summand einmal positiv und einmal negativ vor (mit Ausnahme der größten und kleinsten Potenz, die jeweils stehen bleibt). Ist der Exponent hingegen gerade, so steht in der Klammer
+    \[b^2-1\text{ oder }b^4-1\text{ oder }b^6-1\text{ oder }\dots\]
+    Mit der dritten binomischen Formel finden wir schnell heraus, dass $b^2-1=(b+1)(b-1)$ gilt, also ist der Term $b^2-1$ durch $b+1$ teilbar. Die weiteren Terme mit geradem Exponenten zerlegen wir nach folgendem Muster:
+    \begin{align*}
+        b^4-1&=(b^2-1)(b^2+1)\\
+        b^6-1&=(b^2-1)(b^4+b^2+1)\\
+        &~\,\vdots
+    \end{align*}
+    Das Ausmultiplizieren funktioniert in diesem Fall genauso wie auch schon im Beweis der Quersummenregel: Am Ende bleiben die größte und kleinste Potenz stehen, weil der Rest sich gegenseitig aufhebt.
+
+    Alls Klammern sind also durch $b+1$ teilbar. Dadurch ist mit der gleichen Argumentation wie im Beweis der Quersummenregel auch der Term $(*)$ durch $b+1$ teilbar, also auch durch $t$. Es sind also $n-A(n)$ und $A(n)$ durch $t$ teilbar. Also ist auch deren Summe, nämlich $n$, durch $t$ teilbar.
+\end{proof}
+Schließlich schauen wir uns noch ein paar Beispiele an, wie wir diese Regel anwenden können.
+\begin{advexample}{}
+    Wenn wir im Dezimalsystem rechnen ($b=10$), dann können wir die alternierende Quersummenregel verwenden, um Teilbarkeit durch $11$ zu überprüfen, denn es gilt $11\mid(10+1)$. Um zu prüfen, ob die Zahl $5621$ durch $11$ teilbar ist, müssen wir die alternierende Quersumme berechnen:
+    \[A(5621)=5-6+2-1=0.\]
+    Die alternierende Quersumme ist also durch $11$ teilbar. Damit muss auch $5621$ durch $11$ teilbar sein.
+\end{advexample}
+\begin{advexample}{}
+    Im Binärsystem ($b=2$) können wir die alternierende Quersummenregel verwenden, um Teilbarkeit durch $3$ zu prüfen, denn $3\mid(2+1)$. Ist beispielsweise die Zahl $(1101101)_2$ durch $3$ teilbar? Wir berechnen die alternierende Quersumme:
+    \[1-1+0-1+1-0+1=1\]
+    Weil $1$ nicht durch $3$ teilbar ist, kann auch die Zahl $(1101101)_2$ nicht durch $3$ teilbar sein.
+\end{advexample}
 
 \newpage
 \pagecolor{white}

@@ -2,21 +2,38 @@
 
 \begin{document}
 
-    Im Alltag begegnet man immer wieder Aussagen, die zwar verschieden sind, im Kern aber genau das Gleiche aussagen. Zum Beispiel sind die Aussagen \statement{Der Zauberer ist alt} und \statement{Der Zauberer ist nicht nicht alt} zwar verschieden, sagen aber das Gleiche aus.
-    In diesem Abschnitt möchten wir einmal ganz genau unter die Lupe nehmen, was es heißt für Aussagen, die gleiche Bedeutung zu haben.
+    Im Alltag begegnet man immer wieder Aussagen, die zwar verschieden sind, im Kern 
+    aber genau das gleiche aussagen. Zum Beispiel sind die Aussagen \statement{Der Zauberer ist alt} und \statement{Der Zauberer ist nicht nicht alt} zwar verschieden, sagen aber das Gleiche aus.
+    Jetzt möchten wir einmal ganz genau unter die Lupe nehmen, was es 
+    für Aussagen heißt die gleiche Bedeutung zu haben.
 
-    Betrachten wir dazu nochmal die atomare Aussage \statement{Der Zauberer ist alt} und kürzen diese mit $Z$ ab. Die Aussage \statement{Der Zauberer ist nicht nicht alt} lässt sich dann durch $\lnot \lnot Z$ notieren. Wir schauen uns als nächstes einmal die Wahrheitstabellen der beiden Aussagen an:
-    \[\begin{array}{c s cc}\toprule
-        Z & Z & \lnot \lnot Z\\\midrule
-        \falsch & \falsch & \falsch\\
-        \wahr & \wahr & \wahr
+    \begin{example}{}
+
+    Betrachten wir dazu nochmal die atomare Aussage \statement{Der Zauberer ist alt} und kürzen diese 
+    mit $Z$ ab. Die Aussage \statement{Der Zauberer ist nicht nicht alt} lässt sich dann 
+    durch $\lnot \lnot Z$ notieren. Wir haben bereits im Gefühl,
+    dass diese Aussagen im Kern genau das gleiche aussagen. Wir schauen uns als nächstes einmal die Wahrheitstabellen der 
+    beiden Aussagen an:
+    \[\begin{array}{c s ccc}\toprule
+        Z & Z & \lnot Z & \lnot \lnot Z\\\midrule
+        \falsch & \falsch & \wahr & \falsch\\
+        \wahr & \wahr &\falsch & \wahr
          \\\bottomrule
     \end{array}\]
     
-    Es stellt sich also heraus, egal welchen Wahrheitswert die einzige atomare Unteraussage $Z$, der Aussagen $Z$ und $\lnot\lnot Z$ annimmt, die beiden Aussagen, haben immer den gleichen Wahrheitswert. Diese Eigenschaft nennen wir \textbf{semantische Äquivalenz} und entspricht intuitiv dem Konzept, dass die beiden Aussagen die gleiche Bedeutung haben. Die nächste Definition formalisiert das gerade Beschriebene noch einmal.
+    Es stellt sich also heraus, egal welchen Wahrheitswert die einzige atomare Unteraussage $Z$, der 
+    Aussagen $Z$ und $\lnot\lnot Z$ annimmt, die beiden Aussagen, haben immer den gleichen Wahrheitswert. 
+    Diese Eigenschaft nennen wir \textbf{semantische Äquivalenz}. 
+    \end{example}
+    
+    Wir nennen zwei Aussagen \textbf{semantisch äquivalent}, wenn sie immer denselben Wahrheitswert haben. Das 
+    entspricht intuitiv dem Konzept, dass die Aussagen die gleiche Bedeutung haben. Diese Intuition findet sich auch
+    im Namen dieses Begriffs wieder, denn \enquote{semantisch} ist ein Synonym für \enquote{von der Bedeutung her}
+    und \enquote{äquivalent} können wir mit \enquote{gleichwertig} übersetzen.
     
     \begin{definition}{Semantische Äquivalenz}
-    Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für jede Belegung ihrer atomaren Unteraussagen, den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
+        Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für alle möglichen Wahrheitswerte ihrer
+        atomaren Unteraussagen den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
     \end{definition}
     
     Wir schauen uns nun ein weiteres Beispiel für zwei semantisch äquivalente Aussagen an.
@@ -35,9 +52,9 @@
         egal welche Wahrheitswerte die atomaren Unteraussagen haben.
         Die atomaren Unteraussagen sind \statement{Es regnet} (Abkürzung: $R$) und
          \statement{Der Zauberer ist gut gelaunt} (Abkürzung: $G$). Formalisiert lauten unsere
-         Aussagen dann:
-         \[ G \land R \textrm{ sowie } R \land G\]
-         Wir stellen jetzt die Wahrheitstabellen für diese beiden Aussagen auf.
+         Aussagen dann
+         \[ G \land R \textrm{ sowie } R \land G.\]
+        Wir erhalten für diese beiden Aussagen die folgenden Wahrheitstabellen.
  
          \[\begin{array}{cc s cc}\toprule
             G & R & G \land R &  R \land G\\\midrule
@@ -47,46 +64,74 @@
             \wahr & \wahr & \wahr & \wahr\\\bottomrule
         \end{array}\]
 
-        Die Wahrheitstabellen zeigen, dass für jede der 4 Kombinationen der Wahrheitswerte für $R,G$, die beiden Aussagen
+        Die Wahrheitstabellen zeigen, dass die beiden Aussagen für jede der vier Kombinationen der 
+        Wahrheitswerte für $R$ und $G$ die beiden Aussagen
         denselben Wahrheitswert annehmen. Die Aussagen sind also semantisch äquivalent. Das notieren wir
-        formal wie folgt:
+        wie folgt:
         \[G \land R \equiv R \land G\]
 
     \end{example}
     
-    Um herauszufinden, ob zwei Aussagen semantisch äquivalent sind, können wir einfach die Wahrheitstabellen der Aussagen aufstellen und überprüfen, ob diese übereinstimmen. Das ist eine Methode, die immer zum Ziel führt. Das kann jedoch sehr aufwendig werden. Für eine Aussage mit nur fünf atomaren Aussagen, hat die Wahrheitstabelle bereits 32 Zeilen, bei 10 atomaren Aussagen, sind es sogar 1024 Zeilen. 
+    Um herauszufinden, ob zwei Aussagen semantisch äquivalent sind, können wir einfach die Wahrheitstabellen der Aussagen aufstellen und überprüfen, ob diese übereinstimmen. Das ist eine Methode, die immer zum Ziel führt. Das kann jedoch sehr aufwendig werden. 
+    Für eine Aussage mit nur fünf atomaren Aussagen hat die Wahrheitstabelle beispielsweise bereits 32 Zeilen, bei 10 atomaren Aussagen, sind es sogar 1024 Zeilen. 
     
-    Bekanntlich führen viele Wege nach Rom. So auch für den Fall, dass man herauszufinden möchte, ob zwei Aussagen semantisch äquivalent sind. Es wird gleich eine Methode vorgestellt, mit der man ohne Wahrheitstabellen zeigen kann, dass Aussagen semantisch äquivalent sind. Um das Prinzip dieser Methode verstehen zu können, erinnern wir an dieser Stelle einmal kurz, wie man bei Termen herausfinden kann, ob diese gleichwertig sind. Für Aussagen funktioniert das dann völlig analog.
+    Bekanntlich führen viele Wege nach Rom. So auch für den Fall, dass man herauszufinden möchte, 
+    ob zwei Aussagen semantisch äquivalent sind. Wir lernen gleich eine Methode kennen, mit der man ohne 
+    Wahrheitstabellen zeigen kann, dass Aussagen semantisch äquivalent sind. Um das Prinzip dieser 
+    Methode verstehen zu können, schauen wir an dieser Stelle einmal kurz, wie man bei Termen herausfinden 
+    kann, ob diese gleichwertig sind. Für Aussagen funktioniert das dann fast genauso.
     
     \begin{example}{Termumformungen}
-        Stell dir vor du sollst zeigen, dass die Terme $-(x*(x - y))$ und $-x^2 + x*y$ gleichwertig sind. Eine Möglichkeit ist es zu zeigen, dass man mittels Terumformungen von einem Term zum Anderen gelangen kann. Die nächste Tabelle zeigt Schritt für Schritt eine mögliche Abfolge von Termumformungen, um die Gleichwertigkeit zu zeigen.
+        Stell dir vor, du sollst zeigen, dass die Terme $-(x \cdot (x - y))$ und $-x^2 + x\cdot y$ 
+        gleichwertig sind. Eine Möglichkeit ist es, zu zeigen, dass man mittels Terumformungen von 
+        einem Term zum anderen gelangen kann. Die nächste Tabelle zeigt Schritt für Schritt eine 
+        mögliche Abfolge von Termumformungen, um zu zeigen, dass die Terme $-(x \cdot (x - y))$ und $-x^2 + x\cdot y$
+        gleichwertig sind.
         \[\begin{array}{cc s c}\toprule
         \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-        \textrm{Start}   &   & -(x*(x-y))  \\
-        1   & \textrm{Distributivgesetz} & -(x^2 -x*y)\\
-        2 & \textrm{Distributivgesetz}   & -x^2 - (-x*y)\\
-        3 & \textrm{Vorzeichenregel} &  -x^2 + x*y\\\bottomrule
+        \textrm{Start}   &   & -(x\cdot (x-y))  \\
+        1   & \textrm{Distributivgesetz} & -(x^2 -x\cdot y)\\
+        2 & \textrm{Distributivgesetz}   & -x^2 - (-x\cdot y)\\
+        3 & \textrm{Vorzeichenregel} &  -x^2 + x\cdot y\\\bottomrule
         \end{array}\]
 
     \end{example}
     
-    Um zu zeigen, dass zwei Terme gleichwertig sind, kann man also zeigen, dass man vom ersten zum zweiten Term mittels Termumformungen kommt. Und dieses Prinzip übertragen wir jetzt auf die Aussagenlogik: Um zu zeigen, dass zwei Aussagen semantisch äquivalent sind, zeigt man, dass man von der ersten Aussage zur zweiten durch \textbf{(semantische) Äquivalenzumformungen} gelangt. Diese Äquivalenzumformungen sind das aussagenlogische Analogon zu den Termumformungen. Termumformungen produzieren gleichwertige Terme, Äquivalenzumformungen produzieren semantisch äquivalente Aussagen.
+    Um zu zeigen, dass zwei Terme gleichwertig sind, kann man also zeigen, dass man vom ersten 
+    zum zweiten Term mittels Termumformungen kommt. Und dieses Prinzip übertragen wir jetzt auf die 
+    Aussagenlogik: Um zu zeigen, dass zwei Aussagen semantisch äquivalent sind, zeigt man, 
+    dass man von der ersten Aussage durch \textbf{(semantische) Äquivalenzumformungen} zur zweiten
+    gelangt. Diese Äquivalenzumformungen quasi die Terumformungen der Aussagenlogik.
+    Termumformungen produzieren gleichwertige Terme, Äquivalenzumformungen produzieren semantisch 
+    äquivalente Aussagen.
     
-    Im Folgenden werden solche Äquivalenzumformungen vorgestellt, um am Ende einen Werkzeugkasten zu haben, mit dem man Aussagen (semantisch äquivalent) umformen kann.
+    Im Folgenden lernen wir solche Äquivalenzumformungen kennen, um am Ende einen Werkzeugkasten zu haben, mit dem man Aussagen (semantisch äquivalent) umformen kann.
     
-    Eine erste Äquivalenzumformung haben wir bereits im Eingangsbeispiel gesehen. Negieren wir eine Aussage doppelt, dann ist diese Aussage äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
+    
+    \parpic[r]{
+        \begin{array}{c s ccc}\toprule
+            Z & Z & \lnot Z & \lnot \lnot Z\\\midrule
+            \falsch & \falsch & \wahr & \falsch\\
+            \wahr & \wahr &\falsch & \wahr\\
+            \bottomrule
+        \end{array}
+    }
+
+    Eine erste Äquivalenzumformung haben wir bereits im Eingangsbeispiel gesehen. 
+    Negieren wir eine Aussage $Z$ doppelt, dann ist die Aussage $\lnot \lnot Z$ semantisch äquivalent zur ursprünglichen Aussage. Das Hinzufügen oder
+    Entfernen von einer doppelten Negation, nennt sich \textbf{Involution} und ist eine Äquivalenzumformung.
 
     \begin{theorem}{Involution}
     Ist $A$ eine Aussage, dann gilt:
         \[\lnot \lnot A \equiv A\]
     \end{theorem}
      
-    Die Äquivalenz, die wir jetzt vorstellen werden, ist etwas komplexer, als die vorherige.
-    Es ist aber auch durchaus möglich, dass du diese Äquivalenz bereits unbewusst im Alltag
-    verwendet hast. Zunächst ein Beispiel.
+    Im nächsten Beispiel lernen wir nun eine neue semantische Äquivalenz kennen. Diese Äquivalenz
+    ist etwas komplexer, als die vorherige. Es ist aber auch durchaus möglich, dass du diese
+    Äquivalenz bereits unbewusst im Alltag verwendet hast.
     
     \begin{example}{De Morgansche Gesetze}
-            In den vorherigen Kapiteln waren wir öfters damit konfrontiert, 
+            Bisher waren wir oft damit konfrontiert, 
             dass uns ein Zauberer einen Zaubertrank anbietet, der entweder giftig ist 
             oder Superkräfte verleiht. Wir sind der Meinung, 
             dass ein netter Zauberer uns niemals einen giftigen Zaubertrank andrehen würde. 
@@ -94,34 +139,38 @@
 
             Wenn man ein bisschen darüber nachdenkt, kann man merken, 
             dass dies gleichbedeutend damit ist, dass der Zauberer nicht nett oder 
-            der Trank nicht giftig ist. Das wollen wir einmal formalisieren. 
+            der Trank nicht giftig ist.  
              
-             Sei $N$ die Abkürzung für \statement{Der Zauberer ist nett} und $G$ die Abkürzung für \statement{Der Zaubertrank ist giftig}. Die beiden Aussagen, die wir getätigt haben sind:
+             Wir verwenden $N$ als die Abkürzung für \statement{Der Zauberer ist nett} 
+             und $G$ als die Abkürzung für \statement{Der Zaubertrank ist giftig}. 
+             Die beiden Aussagen sind dann:
              \[\lnot (N \land G) \textrm{ sowie } (\lnot N) \lor (\lnot G)\]
-             Wir wollen jetzt einmal formal unsere Vermutung bestätigen, dass diese beiden Aussage im Grunde dasselbe bedeuten. Formal heißt das:
+             Wir überprüfen jetzt unsere Vermutung, dass diese beiden Aussage im Grunde 
+             dasselbe bedeuten. Das heißt:
              \[\lnot (N \land G) \equiv (\lnot N) \lor (\lnot G)\]
              Dazu stellen wir eine Wahrheitstabelle auf:
-                 \[\begin{array}{cc s cc}\toprule
-                    N & G & \lnot (N \land G) & (\lnot N) \lor (\lnot G)\\\midrule
-                    \falsch   & \falsch   & \wahr & \wahr  \\
-                    \falsch   & \wahr & \wahr &\wahr\\
-                    \wahr & \falsch   & \wahr & \wahr\\
-                    \wahr & \wahr & \falsch & \falsch\\\bottomrule
+                 \[\begin{array}{cc s cccccc}\toprule
+                    N & G & \lnot N & \lnot G &N \land G &\lnot (N \land G) & (\lnot N) \lor (\lnot G)\\\midrule
+                    \falsch   & \falsch &  \wahr & \wahr &\falsch   & \wahr & \wahr  \\
+                    \falsch   & \wahr &  \wahr & \falsch &\falsch &\wahr &\wahr\\
+                    \wahr & \falsch   & \falsch & \wahr &\falsch & \wahr & \wahr\\
+                    \wahr & \wahr & \falsch & \falsch &\wahr &\falsch & \falsch\\\bottomrule
               \end{array}\]
-              Und tatsächlich bestätigen uns die Wahrheitstabellen. Die beiden Aussagen sind semantisch äquivalent.
+              Und tatsächlich bestätigen uns die Wahrheitstabellen: Die beiden Aussagen sind semantisch äquivalent.
     \end{example}
      
-     Das Beispiel lässt sich auf beliebige Aussagen verallgemeinern. Haben wir zwei Aussagen $A,B$ gegeben, dann gilt immer:
+     Das Beispiel lässt sich auf beliebige Aussagen verallgemeinern. 
+     Haben wir zwei Aussagen $A,B$ gegeben, dann gilt immer
      
-     \[\lnot( A \land B) \equiv (\lnot A) \lor (\lnot B)\]
+     \[\lnot( A \land B) \equiv (\lnot A) \lor (\lnot B).\]
      
-     Völlig analog, funktioniert dies auch, wenn wir 
+     Völlig gleich, funktioniert dies auch, wenn wir 
      statt dem $\land$ ein $\lor$ haben. Es gilt also auch:
-     \[\lnot( A \lor B) \equiv (\lnot A) \land (\lnot B)\]
-      Diese Regeln nennen sich 
-     die \textbf{De Morganschen Gesetze} und werden im nächsten Satz festgehalten.
+     \[\lnot( A \lor B) \equiv (\lnot A) \land (\lnot B).\]
+     Diese Regeln nennen sich die \textbf{De Morganschen Gesetze}.
      
     \begin{theorem}{De Morgansche Gesetze}
+
         Sind $A,B$ zwei Aussagen, dann gilt:
         \begin{enumerate}
             \item $\lnot( A \land B) \equiv (\lnot A) \lor (\lnot B)$
@@ -130,11 +179,8 @@
     \end{theorem}
     
     Die nächsten beiden Äquivalenzumformungen beschäftigten sich speziell damit, wie 
-    man eine Implikation umformen kann. Insbesondere diese Äquivalenzumformungen werden
-     uns neben
-    einem neuem Werkzeug zum Umformen von Aussagen,
-    einen neuen
-    Blickwinkel auf und ein besseres Verständnis für die Implikation liefern.
+    man eine Implikation umformen kann. Das wird uns ermöglichen,
+    die Implikation besser zu verstehen.
     
     \begin{example}{Kontraposition}
         Da uns Gift im Allgemeinen nicht so gut bekommt, stellen wir folgende Aussage auf:
@@ -143,115 +189,108 @@
         Gibt es eine alternative, gleichbedeutende Formulierung für diese Aussage? Ja:
         \statement{Stirbt man nicht beim Trinken, dann ist der Trank nicht giftig}
         \\ \\
-        Wenn man sich einmal die Zeit nimmt über diese beiden Aussagen nachzudenken, 
-        kann man vielleicht schon bemerken, dass 
-        diese Aussagen gleichbedeutend sind bzw. formal ausgedrückt semantisch äquivalent sind.
+        Wir vermuten, dass diese Aussagen semantisch äquivalent sind.
 
-        Nichtsdestotrotz wollen wir das jetzt einmal genau mit Wahrheitstabellen nachprüfen. Zunächst formalisieren wir die beiden 
+        Wir wollen unsere Vermutung mit Wahrheitstabellen überprüfen. Zunächst formalisieren wir die beiden 
         Aussagen. Wir verwenden dafür die Abkürzungen $S$ (\statement{Man stirbt beim Trinken}) und $G$ (\statement{Der Trank ist giftig}). Die Formalisierungen lauten dann:
 
-        \[G \implies S \textrm{ und } \lnot S \implies \lnot G\]
+        \[G \limplies S \textrm{ und } \lnot S \limplies \lnot G\]
 
-        \[\begin{array}{cc s cc}\toprule
-            G & S & G \implies S & \lnot S \implies \lnot G\\\midrule
-            \falsch   & \falsch   & \wahr & \wahr  \\
-            \falsch   & \wahr & \wahr &\wahr\\
-            \wahr & \falsch   & \falsch & \falsch\\
-            \wahr & \wahr & \wahr & \wahr\\\bottomrule
+        \[\begin{array}{cc s cccc}\toprule
+            G & S & G \limplies S & \lnot S & \lnot G &\lnot S \limplies \lnot G\\\midrule
+            \falsch   & \falsch   & \wahr & \wahr & \wahr &\wahr  \\
+            \falsch   & \wahr & \wahr & \falsch & \wahr &\wahr\\
+            \wahr & \falsch   & \falsch & \wahr & \falsch &\falsch\\
+            \wahr & \wahr & \wahr & \falsch & \falsch&\wahr\\\bottomrule
       \end{array}\]
 
       Die Wahrheitstabellen bestätigen, dass die beiden Aussagen semantisch äquivalent sind.
-      Es gilt also:
-      \[G \implies S \equiv \lnot S \implies \lnot G\]
+      Es gilt also
+      \[G \limplies S \equiv \lnot S \limplies \lnot G.\]
         
     \end{example}
     
-    Auch dieses Beispiel lässt sich wieder auf beliebige Aussagen verallgemeinern. 
     Haben wir zwei Aussagen $A,B$, dann 
-    gilt immer: \[A \implies B \equiv (\lnot B) \implies (\lnot A)\] Klar muss 
+    gilt immer \[A \limplies B \equiv (\lnot B) \limplies (\lnot A).\] Klar muss 
     diese Äquivalenz gelten:  Wir erinnern uns, dass man eine Implikation als ein 
-    Versprechen auffassen kann. Und nur wenn dieses Versprechen explizit gebrochen wird,
-     dann wird die Implikation \falsch\ . Das ist der Fall, wenn $A$ \wahr\ ist, $B$ 
+    Versprechen auffassen kann, dass immer, wenn $A$ \wahr\ ist, auch $B$ \wahr\ ist. Und nur wenn dieses Versprechen explizit gebrochen wird,
+     dann wird die Implikation \falsch. Das ist der Fall, wenn $A$ \wahr\ ist, $B$ 
      aber $\falsch$ ist. Und um auszudrücken, dass dieser Fall nicht eintritt, können wir 
-     auch genauso gut sagen, dass immer wenn $B$ \falsch\  ist auch $A$ \falsch\  ist. Wir 
+     auch genauso gut sagen, dass immer, wenn $B$ \falsch\  ist, auch $A$ \falsch\  ist. Wir 
      stellen also sicher, dass das Versprechen nicht gebrochen wird. Formalisieren wir dies, 
-     wird daraus $(\lnot B) \implies (\lnot A)$.
+     wird daraus $(\lnot B) \limplies (\lnot A)$.
 
-    Diese Äquivalenzumformung einer Implikation nennt sich \textbf{Kontraposition} 
-    und wird im nächsten Satz noch einmal präzisiert.  Der Name kommt dabei aus dem Lateinischen, wo 'contra, 'gegen'
-    und 'positio', 'Stellung' bedeutet. 
+    Diese Äquivalenzumformung nennt sich \textbf{Kontraposition} (lateinisch: \enquote{contra} = \enquote{gegen}, \enquote{positio} = \enquote{stellung})
+    und wird im nächsten Satz noch einmal präzisiert.
     
     \begin{theorem}{Kontraposition}
 
     Sind $A,B$ zwei Aussagen, dann gilt:
-        \[A \implies B  \equiv (\lnot B) \implies (\lnot A)\]
+        \[A \limplies B  \equiv (\lnot B) \limplies (\lnot A)\]
     \end{theorem}
 
-    Es ist bei der Kontraposition noch äußerst wichtig klarzustellen, dass wir die Negationen bei der Umkehrung
+    Es ist bei der Kontraposition äußerst wichtig, dass wir die Negationen bei der Umkehrung
     nicht einfach weglassen können. 
 
     \begin{example}{Implikationen können nicht 'umgedreht' werden}
-        Wir betrachten wieder die Aussage aus letztem Beispiel: \statement{Wenn der Trank giftig ist, 
-        dann stirbt man beim Trinken} (formalisiert: $G \implies S$). Diese Aussage ist aber 
+        Die Aussage \statement{Wenn der Trank giftig ist, 
+        dann stirbt man beim Trinken} (formalisiert: $G \limplies S$) aus letztem Beispiel ist 
         keinesfalls semantisch äquivalent zu der 
-        Aussage \statement{Stirbt man beim Trinken, dann ist der Trank giftig} (formalisiert: $S \implies G$).
+        Aussage \statement{Stirbt man beim Trinken, dann ist der Trank giftig} (formalisiert: $S \limplies G$).
         Stirbt man beim Trinken, könnte das ja auch andere Ursachen gehabt haben (z.B. weil man sich verschluckt hat).
         \\ \\
-        Für dieses Beispiel ist also $G \implies S$ \textbf{nicht} semantisch äquivalent zu $S \implies G$.
-        Weiterhin gilt aber sehr wohl (wie im letzten Beispiel), 
-        dass $G \implies S \equiv (\lnot S) \implies (\lnot G)$ ist.
+        Für dieses Beispiel ist also $G \limplies S$ \textbf{nicht} semantisch äquivalent zu $S \limplies G$.
 
     \end{example}
 
-    Im Allgemeinen ist $A \implies B$ also \textbf{nicht} semantisch äquivalent zu $B \implies A$.
+    Im Allgemeinen ist $A \limplies B$ also \textbf{nicht} semantisch äquivalent zu $B \limplies A$.
 
     Wir haben gerade gesehen, dass sich jede Implikation auch anders darstellen lässt, 
     nämlich mit der Kontraposition. Es gibt noch eine weitere, nützliche Äquivalenzumformung 
-    der Implikation, die einerseits ein Werkzeug zum Umformen von Implikationen ist, uns
-    andererseits aber wieder einen neuen Blickwinkel auf die Implikation ermöglicht.
-    Diese stellen wir jetzt vor.
+    der Implikation, die uns auch dabei weiter hilft die Implikation besser zu verstehen.
+    Diese schauen wir uns nun an.
     
     \begin{example}{Auflösen der Implikation}
         Wir überlegen uns eine weitere alternative Möglichkeit dafür, wie wir die Aussage
         \statement{Wenn der Trank giftig ist, 
         dann stirbt man beim Trinken} semantisch äquivalent formulieren können.
         \\ \\
-        Wir wissen, dass Implikationen, Versprechen sind und eine Implikation nur \falsch\ wird,
+        Wir wissen, dass Implikationen Versprechen sind und eine Implikation nur \falsch\ wird,
         wenn dieses Versprechen explizit gebrochen wird. Das Versprechen wird hier nur
         gebrochen, wenn der Trank zwar giftig ist, aber man trotzdem beim Trinken nicht stirbt.
 
-        Die Idee ist es nun ein einer Aussage zu formulieren, dass dieses Versprechen
-        nicht gebrochen wird, um somit eine semantisch äquivalente Aussage zu erhalten.
-        Diese Aussage lautet wie folgt:
+        Dass das Versprechen nicht gebrochen wird können wir mit der Aussage
         
         \statement{Es stimmt nicht, dass der Trank giftig ist und man beim Trinken nicht stirbt}
+        ausdrücken.
         \\ \\
-        Im nächsten Schritt wollen wir diese Aussage einmal formalisieren und unsere 
-        Vermutung formal überprüfen, dass diese Aussage zur ursprünglichen Aussage semantisch
-         äquivalent ist.
+        Diese Aussage formalisieren wir nun, um unsere 
+        Vermutung, dass diese Aussage zur ursprünglichen Aussage semantisch
+         äquivalent ist formal zu überprüfen.
         Wir verwenden wieder die Abkürzungen $G$ (\statement{Der Trank ist giftig}) und
         $T$ (\statement{Beim Trinken stirbt man}). Die beiden Aussagen, die wir auf semantische 
-        Äquivalenz überprüfen wollen lauten dann:
-        \[G \implies T \textrm{ sowie } \lnot (G \land (\lnot T))\]
+        Äquivalenz überprüfen wollen, lauten dann:
+        \[G \limplies T \textrm{ sowie } \lnot (G \land (\lnot T))\]
 
-        \[\begin{array}{cc s cc}\toprule
-            G & S & G \implies S & \lnot S \implies \lnot G\\\midrule
-            \falsch   & \falsch   & \wahr & \wahr  \\
-            \falsch   & \wahr & \wahr &\wahr\\
-            \wahr & \falsch   & \falsch & \falsch\\
-            \wahr & \wahr & \wahr & \wahr\\\bottomrule
+        \[\begin{array}{cc s cccc}\toprule
+            G & T & G \limplies T & \lnot T& G \land (\lnot T) &\lnot (G \land (\lnot T))\\\midrule
+            \falsch   & \falsch   & \wahr & \wahr &\falsch &\wahr  \\
+            \falsch   & \wahr & \wahr & \falsch &\falsch &\wahr\\
+            \wahr & \falsch   & \falsch & \wahr &\wahr &\falsch\\
+            \wahr & \wahr & \wahr & \falsch &\falsch &\wahr\\\bottomrule
       \end{array}\]
 
-      Die Wahrheitstabellen bestätigen, die semantische Äquivalenz. Es gilt also:
-      \[G \implies T \equiv \lnot (G \land (\lnot T))\]
+      Die Wahrheitstabellen bestätigen, dass unsere Aussagen semantisch äquivalent sind. 
+      Es gilt also
+      \[G \limplies T \equiv \lnot (G \land (\lnot T)).\]
 
 
     \end{example}
     
-    Dieses Beispiel lässt sich auch wieder verallgemeinern. Egal welche zwei Aussagen $A,B$ wir 
+    Egal welche zwei Aussagen $A,B$ wir 
     gegeben haben, es gilt immer:
-    \[A \implies B \equiv \lnot (A \land (\lnot B))\] 
-    Klar: Man fasst die Implikation wieder als 
+    \[A \limplies B \equiv \lnot (A \land (\lnot B))\] 
+    Man fasst die Implikation wieder als 
     ein Versprechen auf und nur wenn dieses Versprechen explizit gebrochen wird,
      wird die Implikation \falsch. Und dieses Versprechen wird nur in dem Fall 
      gebrochen, dass $A$ \wahr\ ist, aber $B$, \falsch\  ist. Um auszudrücken, 
@@ -263,107 +302,111 @@
     
     \begin{theorem}{Auflösen der Implikation}
         Sind $A,B$ zwei Aussagen, dann gilt:
-        \[A \implies B \equiv \lnot (A \land (\lnot B))\]
+        \[A \limplies B \equiv \lnot (A \land (\lnot B))\]
     \end{theorem}
     
     Wenn wir nicht nur die letzte Äquivalenzumformung betrachten, sondern auch die davor, 
     dann stellt sich heraus, 
     dass wir jetzt zwei verschiedene Möglichkeiten kennen eine Implikation alternativ 
     darzustellen bzw. umzuformen. Zusammengefasst wissen wir jetzt also, dass:
-     \[A \implies B \equiv \lnot B \implies \lnot A \equiv \lnot (A \land (\lnot B))\]
+     \[A \limplies B \equiv \lnot B \limplies \lnot A \equiv \lnot (A \land (\lnot B))\]
     
-    Ähnlich dazu wie man eine Implikation auflösen kann, 
-    kann man auch eine Äquivalenz ($\iff$) auflösen.
+    Ähnlich dazu, wie man eine Implikation auflösen kann, 
+    kann man auch eine Äquivalenz ($\liff$) auflösen.
 
+    \todo{In der Wahrheitstabelle noch 2 Spalten für die Zwischenschritte anlegen. Dafür 
+    müsste aber die gesamte Wahrheitstabelle runterskaliert werden, aber ich hab tbh keinen Plan,
+    wie man das macht.}
     \begin{example}{Auflösen der Äquivalenz}
-        Der Zaubertrank vom Zauberer kann nicht gleichzeitig giftig sein (Abkürzung: $G$) 
-        und Superkräfte verleihen (Abkürzung: $S$). Der Trank ist also genau dann, giftig, wenn
+        Der Zaubertrank vom Zauberer kann nicht gleichzeitig giftig 
+        sein (Abkürzung: $G$) 
+        und Superkräfte verleihen (Abkürzung: $S$). Der Trank ist also genau dann, 
+        giftig, wenn
         der Trank keine Superkräfte verleiht.
         Dieser Sachverhalt als Aussage formuliert, lautet:
 
-        \statement{Der Zaubertrank ist giftig genau dann, wenn er keine Superkräfte verleiht}
+        \statement{Der Zaubertrank ist giftig genau dann, wenn er keine Superkräfte 
+        verleiht}
 
         Formalisieren wir diese Aussage, erhalten wir:
-        \[G \iff (\lnot S)\]
+        \[G \liff (\lnot S)\]
         Wenn man genau hinschaut, sieht das Äquivalenzzeichen so aus wie zwei sich überlappende
-        Implikationszeichen ($\iff = \Longleftarrow + \implies$). Das ist kein Zufall,
+        Implikationszeichen ($\liff$$=$\  $\Longleftarrow$\  $+$$\limplies$). Das ist kein Zufall,
         tatsächlich wurde das Zeichen mit Absicht so gewählt. Jede Äquivalenz kann auch durch zwei 
         Implikationen ausgedrückt werden.
         \\ \\
-        Wir probieren unsere Aussage semantisch äquivalent durch zwei Implikationen auszudrücken. Wenn man 
-        wieder einmal über die folgende Aussage nachdenkt, kann man bemerken, dass diese gleichbedeutend, also semantisch
-        äquivalent zu unserer Ausgangsaussage ist:
+        Wir probieren unsere Aussage jetzt semantisch äquivalent durch zwei 
+        Implikationen auszudrücken:
 
         \statement{Wenn der Trank giftig ist, verleiht er keine Superkräfte und wenn der Trank keine Superkräfte
         verleiht, ist er giftig}
 
         Wenn wir diese Aussage formalisieren, wird deutlich, wie wir das Äquivalenzzeichen in zwei 
-        Implikationszeichen 'aufgeteilt' haben: 
+        Implikationszeichen \enquote{aufgeteilt} haben: 
 
-        \[(G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
+        \[(G \limplies (\lnot S)) \land ((\lnot S) \limplies G)\]
 
-        Dass diese und unsere ursprüngliche Aussage wirklich semantisch äquivalent sind, überprüfen wir
-        jetzt formal mit Wahrheitstabellen:
+        Unsere Vermutung, dass diese und unsere ursprüngliche Aussage wirklich semantisch äquivalent sind, überprüfen wir
+        jetzt mit Wahrheitstabellen:
         \[\begin{array}{cc s cc}\toprule
-            G & S &  G \iff (\lnot S) & (G \implies (\lnot S)) \land ((\lnot S) \implies G)\\\midrule
+            G & S &  G \liff (\lnot S) & (G \limplies (\lnot S)) \land ((\lnot S) \limplies G)\\\midrule
             \falsch   & \falsch    & \falsch & \falsch  \\
             \falsch   & \wahr  & \wahr &\wahr\\
             \wahr & \falsch    &\wahr & \wahr\\
             \wahr & \wahr & \falsch & \falsch\\\bottomrule
       \end{array}\]
-      Es stimmt also, dass: 
-      \[G \iff (\lnot S) \equiv (G \implies (\lnot S)) \land ((\lnot S) \implies G)\]
+      Unsere Aussagen sind also semantisch äquivalent.
+      \[G \liff (\lnot S) \equiv (G \limplies (\lnot S)) \land ((\lnot S) \limplies G)\]
     \end{example}
     
     Wir verallgemeinern jetzt das, was wir im letzten Beispiel gesehen haben.
      Haben wir zwei beliebige Aussagen $A,B$ gegeben, können wir immer die Äquivalenz
      durch zwei Implikationen ausdrücken:
-    \[A \iff B \equiv (A \implies B) \land (B \implies A)\]
+    \[A \liff B \equiv (A \limplies B) \land (B \limplies A)\]
     Die Regel können wir uns leicht merken, indem wir uns einfach das Äquivalenzzeichen
-    ($\iff$) vorstellen, als zwei sich überlappende Implikationszeichen ($\iff = \Longleftarrow + \implies$).
+    ($\liff$) vorstellen, als zwei sich überlappende Implikationszeichen ($\liff = \Longleftarrow + \limplies$).
 
-    Nun zur Intuition, weshalb diese semantische Äquivalenz stimmt: Wir erinnern uns, dass zwei äquivalente Aussagen 
+    Dass diese Äquivalenzumformung korrekt ist, können wir auch mithilfe der anderen, hier vorgestellten Äquivalenzumformungen 
+    zeigen: Wir erinnern uns, dass zwei äquivalente Aussagen 
     immer denselben Wahrheitswert haben. Anders ausgedrückt heißt das:
     \begin{enumerate}
-        \item Ist $A$ \wahr, dann ist $B$ auch \wahr\  (Formal: $A \implies B$)
-        \item Ist $A$ \falsch, dann ist $B$ auch \falsch\  (Formal: $(\lnot A) \implies (\lnot B)$)
+        \item Ist $A$ \wahr, dann ist $B$ auch \wahr\  (Formal: $A \limplies B$)
+        \item Ist $A$ \falsch, dann ist $B$ auch \falsch\  (Formal: $(\lnot A) \limplies (\lnot B)$)
     \end{enumerate}
     Durch Kontraposition wissen wir, dass die 2. Aussage semantisch äquivalent dazu ist,
     dass aus $B$, $A$ folgt:
-    \[(\lnot A) \implies (\lnot B) \equiv B \implies A\]
+    \[(\lnot A) \limplies (\lnot B) \equiv B \limplies A\]
     Verknüpfung wir jetzt diese Aussagen mit einem \statement{und}, dann erhalten wir:
-    \[(A \implies B) \land (B \implies A)\]
+    \[(A \limplies B) \land (B \limplies A)\]
     
     Im Grunde ist jede Äquivalenz also nichts anderes als zwei Implikationen und kann immer als solche geschrieben werden. 
     Diese Aufteilung einer Äquivalenz in zwei Implikationen nennt sich auch \textbf{Auflösen der Äquivalenz}.
-    Der nächste Satz fasst das nochmal zusammen.
     
     \begin{theorem}{Auflösen der Äquivalenz}
     Sind $A,B$ zwei Aussagen, dann gilt:
-        \[ A \iff B \equiv (A \implies B) \land (B \implies A)\]
+        \[ A \liff B \equiv (A \limplies B) \land (B \limplies A)\]
     \end{theorem}
 
     Die Äquivalenzumformungen, die wir hier vorgestellt haben, sind bei weitem nicht alle, die es gibt. Es gibt
     noch eine riesige Menge weiterer Umformungen, die wir hier aus Zeit/Platzgründen nicht vorstellen können.
     
-    Unsere Hauptmotivation für die Einführung von semantischen Äquivalenzumformungen war es, ohne
-    Wahrheitstabellen, überprüfen zu können, ob zwei Aussagen semantisch äquivalent sind. 
-    Wir zeigen jetzt an einem Beispiel wie man mit den hier gezeigten Äquivalenzumformungen, semantische Äquivalenz von 
-    Aussagen zeigen kann.
+    Der Hauptvorteil von semantischen Äquivalenzumformungen ist es, dass wir ohne
+    Wahrheitstabellen überprüfen können, ob zwei Aussagen semantisch äquivalent sind. 
+    Im nächsten Beispiel siehst du, wie wir das machen können.
 
     \begin{example}{Anwendung von Äquivalenzumformungen}{
             Wir wollen mittels semantischer Äquivalenzumformungen zeigen, dass 
             folgende semantische Äquivalenz gilt:
-            \[A \implies B \equiv (\lnot A) \lor B\]
-            Die nächste Tabelle zeigt Schritt für Schritt welche Umformungen wir angewendet haben:
-            \[\begin{array}{cc s c}\toprule
-                \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-                \textrm{Start}   &   & A \implies B  \\
-                1   & \textrm{Auflösen der Implikation} & \lnot (A \land (\lnot B))\\
-                2 & \textrm{1. De Morgansches Gesetz}   & (\lnot A) \lor (\lnot \lnot B)\\
-                3 & \textrm{Involution} &  (\lnot A) \lor B\\\bottomrule
-            \end{array}\]
-            Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \implies B$
+            \[A \limplies B \equiv (\lnot A) \lor B\]
+            Dazu verwenden wir die folgenden Äquivalenzumformungen (der jeweils ersetzte Teil ist markiert):
+            \begin{align*}
+                & \circlemath{A \limplies B}\tag{Auflösen der Implikation}\\
+                \equiv & \circlemath{\lnot (A \land (\lnot B))}\tag{1. De Morgansches Gesetz}\\
+                \equiv & (\lnot A) \lor (\circlemath{\lnot \lnot B})\tag{Involution}\\
+                \equiv & (\lnot A) \lor B
+            \end{align*}
+
+            Durch die Äquivalenzumformungen konnten wir also zeigen, dass die Implikation $A \limplies B$
             semantisch äquivalent zu der Aussage $(\lnot A) \lor B$ ist. Wir haben
             jetzt also noch eine neue Darstellung für die Implikation kennengelernt. 
 
@@ -377,55 +420,54 @@
 
         Wir wollen einmal mit Äquivalenzumformungen die Aussage 
 
-        \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A))\]
+        \[ (\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \limplies A))\]
 
-        vereinfachen. Die folgende Tabelle zeigt schrittweise, welche Äquivalenzumformungen
-        wir anwenden. Rot markiert ist jeweils die Unteraussage, auf die eine Umformung angewendet wurde.
+        vereinfachen. Obwohl die Aussage zunächst sehr kompliziert aussieht, können wir sie mit den folgenden Schritten vereinfachen (der Teil der Formel, auf den wir unsere Umformungsregel jeweils anwenden, ist dabei orange hinterlegt).
 
-        \[\begin{array}{cc s c}\toprule
-            \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
-            \textrm{Start}   &   & (\lnot ( \color{red}(\lnot \lnot A) \color{black}\land (\lnot B) ) \land (B \implies A))  \\
-            1   & \textrm{Involution} & \color{red}(\lnot ( A\land (\lnot B) ) \color{black} \land (B \implies A))\\
-            2 & \textrm{Auflösen der Implikation}   & \color{red}(A \implies B) \land (B \implies A))  \color{black}\\
-            3 & \textrm{Auflösen der Äquivalenz} &  A \iff B\\
-        \end{array}\]
+        \begin{align*}
+            & \lnot ( (\circlemath{\lnot \lnot A}) \land (\lnot B) ) \land (B \limplies A) \tag{Involution}\\
+            \equiv & \circlemath{\lnot ( A\land (\lnot B) )} \land (B \limplies A) \tag{Auflösen der Implikation}\\
+            \equiv & \circlemath{(A \limplies B) \land (B \limplies A)} \tag{Auflösen der Äquivalenz}\\
+            \equiv & A \liff B
+        \end{align*}
 
         Durch Äquivalenzumformungen haben wir also Folgendes gezeigt:
-        \[(\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \implies A)) \equiv A \iff B\]
+        \[\lnot ( (\lnot \lnot A)\land (\lnot B) ) \land (B \limplies A) \equiv A \liff B\]
         Wir haben die Aussage also deutlich vereinfacht.
 
     \end{example}
 
     Äquivalenzumformungen können auch im Alltag helfen. Versteht man eine Aussage nicht,
-    kann es helfen diese Aussage semantisch äquivalent umzuformen, um einen anderen
+    kann es helfen, diese Aussage semantisch äquivalent umzuformen, um einen anderen
     Blickwinkel auf die Aussage zu bekommen, um diese besser zu verstehen.
 
     \begin{example}{Vereinfachung einer Alltagsaussage}
-        Wir tun uns schwer damit viele Negationen im Kopf schnell zu verarbeiten.
+        Wir tun uns schwer damit, viele Negationen im Kopf schnell zu verarbeiten.
         Hören wir eine Implikation, deren atomare Aussagen negiert sind, dann bietet es sich
         an, Kontraposition anzuwenden. Die Aussage
         \statement{Wenn die Straße nicht nass ist, dann regnet es nicht}
         ist schwer zu verstehen. Dank Kontraposition wissen, dass sie
         semantisch äquivalent zu der Aussage
         \statement{Wenn es regnet, dann ist die Straße nass}
-        ist. Diese ist doch wesentlich einfacher zu verstehen.
+        ist. Diese ist wesentlich einfacher zu verstehen.
         
     \end{example}
 
     \begin{nutshell}{Äquivalenzumformungen}
-        Zwei Aussagen $A,B$ sind \textbf{semantisch äquivalent}, wenn diese für jede Belegung ihrer atomaren Unteraussagen, den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
+        Zwei Aussagen $A,B$ heißen \textbf{semantisch äquivalent}, wenn diese für alle möglichen Wahrheitswerte ihrer
+        atomaren Unteraussagen den gleichen Wahrheitswert haben. Wir notieren dies durch $A \equiv B$.
         \\ \\
         Eine Umformung einer Aussage $A$ zu einer Aussage $A^{\prime}$, so dass $A \equiv A^{\prime}$ ist, nennt sich \textbf{(semantische) Äquivalenzumformung}.
         \\ \\
-        Die folgende Tabelle zeigt (semantische) Äquivalenzumformungen. Sind $A,B$ Aussagen, dann gilt:
+        Die folgende Tabelle zeigt einige (semantische) Äquivalenzumformungen. Sind $A,B$ Aussagen, dann gilt:
         \[\begin{array}{c s ccc}\toprule
         \textrm{Name} & & \textrm{Äquivalenz}\\\midrule
         \textrm{Involution} & \lnot \lnot A &\equiv& A\\
         \textrm{1. De Morgansches Gesetz} & \lnot (A \land B) &\equiv& (\lnot A) \lor (\lnot B)\\
         \textrm{2. De Morgansches Gesetz} & \lnot (A \lor B) &\equiv& (\lnot A) \land (\lnot B) \\   
-        \textrm{Kontraposition} & A \implies B &\equiv& (\lnot B) \implies (\lnot A) \\
-        \textrm{Auflösen der Implikation} & A \implies B & \equiv & \lnot (A \land (\lnot B))\\
-        \textrm{Auflösen der Äquivalenz} & A \iff B & \equiv & (A \implies B) \land (B \implies A) \\
+        \textrm{Kontraposition} & A \limplies B &\equiv& (\lnot B) \limplies (\lnot A) \\
+        \textrm{Auflösen der Implikation} & A \limplies B & \equiv & \lnot (A \land (\lnot B))\\
+        \textrm{Auflösen der Äquivalenz} & A \liff B & \equiv & (A \limplies B) \land (B \limplies A) \\
         \bottomrule
         \end{array}\]
     \end{nutshell}
