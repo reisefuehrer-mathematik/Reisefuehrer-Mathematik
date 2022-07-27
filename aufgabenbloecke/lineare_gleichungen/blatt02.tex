@@ -1,5 +1,161 @@
-\documentclass[../abbildungen.tex]{subfiles}
+\documentclass[../lineare_gleichungen.tex]{subfiles}
 
 \begin{document}
+    \begin{exercise}{easy}
+        \parpic[r]{
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-1.05,0.25) -- (-1.45,0.25) -- (-1.4,0.6) -- (-1.1,0.6) -- cycle;
+                \draw[line width=0.75mm] (-1.25,0.66) circle[radius=0.06cm];
+                \node[white] at (-1.25,0.42) {$7$};
+                \node[white,marble,inner sep=.12cm] at (-0.95,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (-0.7,0.35) {$x$};
+                %Füllung rechte Waagschale
+                \fill (0.95,0.25) -- (0.55,0.25) -- (0.6,0.6) -- (0.9,0.6) -- cycle;
+                \draw[line width=0.75mm] (0.75,0.66) circle[radius=0.06cm];
+                \node[white] at (0.75,0.42) {$5$};
+                \node[white,marble,inner sep=.12cm] at (1.05,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.18,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.31,0.35) {$x$};
+            \end{linearEquation}
+        }
+        Du siehst rechts die Gleichung $7+2x=5+3x$. Welche der folgenden Gleichungen kannst du durch eine Äquivalenzumformung aus der abgebildeten Gleichung erhalten? Gib jeweils die verwendete Äquivalenzumformung an.
+        \begin{multicols}{2}
+            \begin{enumerate}
+                \item $7=5+x$
+                \hint{Gibt es einen Term, den du auf beiden Seiten subtrahieren kannst, damit du diese Gleichung erhältst?}
+                \item $9x+12=3x+30$
+                \hint{Wenn dir kein passender Term einfällt, den du auf beiden Seiten addieren oder subtrahieren kannst, versuch es mal mit Multiplikation.}
+                \item $0=0$
+                \hint{Nicht jede Multiplikation ist eine Äquivalenzumformung.}
+                \item $2+2x=3x$
+            \end{enumerate}
+        \end{multicols}
+    \end{exercise}
+    \begin{exercise}{easy}
+        \parpic[r]{
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+                \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+                \node[white] at (-0.75,0.42) {$4$};
+                \node[white,marble,inner sep=.12cm] at (-1,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (-1.18,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (-1.36,0.35) {$x$};
+                %Füllung rechte Waagschale
+                \fill (0.95,0.25) -- (1.45,0.25) -- (1.4,0.65) -- (1,0.65) -- cycle;
+                \draw[line width=0.75mm] (1.2,0.71) circle[radius=0.06cm];
+                \node[white] at (1.2,0.45) {$10$};
+                \node[white,marble,inner sep=.12cm] at (0.75,0.35) {$x$};
+            \end{linearEquation}
+        }
+        Im folgenden Bild siehst du die Gleichung $3x+4=x+10$ als Balkenwaage dargestellt. Gib jeweils die Gleichung an, die entsteht, wenn du auf der Waage
+        \begin{enumerate}
+            \item auf beiden Seiten eine Kugel entfernst
+            \hint{Wenn du einen Gegenstand entfernst, dann ist das eine Subtraktion.}
+            \hint{Die Kugel hast das Gewicht $x$. Du subtrahierst also $x$, wenn du sie entfernst.}
+            \item auf beiden Seiten 4\,g Gewicht entfernst
+            \item auf beiden zwei Kugeln hinzufügst
+        \end{enumerate}
+        Welche Äquivalenzumformung hast du jeweils verwendet?
+    \end{exercise}
+    \begin{exercise}{easy}
+        Wende auf die folgenden Gleichungen jeweils die angegebene Äquivalenzumformung an.
+        %\begin{multicols}{2}
+            \begin{enumerate}
+                \item $x^2+3=7$ (Äquivalenzumformung $-3$)
+                \hint{Du musst von beiden Seiten $3$ subtrahieren.}
+                \item $9=\frac{2x+5}{2}$ (Äquivalenzumformung $\cdot 2$)
+                \hint{Du musst beiden Seiten mit $2$ multiplizieren.}
+                \item $-x=12$ (Äquivalenzumformung $:2$)
+                \hint{Du musst beiden Seiten durch $2$ teilen.}
+                \item $7x-x^2=7-x^2$ (Äquivalenzumformung $+x^2$)
+                \hint{Du musst zu beiden Seiten $x^2$ addieren.}
+            \end{enumerate}
+        %\end{multicols}
+    \end{exercise}
+    \begin{exercise}{easy}
+        Gib für die folgenden Gleichungen jeweils die Lösungsmenge \Solutions an.
+        \begin{multicols}{3}
+        \begin{enumerate}
+            \item $x=10$
+            \hint{Die Lösungsmenge dieser Gleichung enthält alle Werte, die du für $x$ einsetzen kannst, damit $x=10$ erfüllt ist.}
+            \hint{Das Symbol für die Lösungsmenge ist \Solutions. Wenn eine Gleichung zum Beispiel die Lösungen 4 und 7 hat, dann ist ihre Lösungsmenge $\Solutions=\{4,7\}$.}
+            \item $4=2$
+            \item $27+16=x$
+        \end{enumerate}
+    \end{multicols}
+    \end{exercise}
+    \begin{exercise}{easy}
+        Die linke der beiden Balkenwaagen befindet sich gerade im Gleichgewicht. Das Gewicht der Kugel ist auf beiden Waagen gleich.
+        \begin{center}
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+                \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+                \node[white] at (-0.75,0.42) {$6$};
+                \node[white,marble,inner sep=.12cm] at (-1.2,0.35) {$x$};
+                %Füllung rechte Waagschale
+                \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+                \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+                \node[white] at (1,0.45) {$15$};
+            \end{linearEquation}
+            \bigarrow{
+                \node[circle, inner sep=1mm, fill=white,draw=maincolor] at (0.6,0.2) {\textbf{?}};
+            }
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \node[white,marble,inner sep=.12cm] at (-1,0.35) {$x$};
+                %Füllung rechte Waagschale
+            \end{linearEquation}
+        \end{center}
+        \begin{enumerate}[label=\alph*)]
+            \item Welches Gewicht musst du in die freie Waagschale der rechten Waage legen, damit sich auch die rechte Balkenwaage im Gleichgewicht befindet?
+            \item Gib für jede der beiden Waagen an, welche Gleichung sie darstellt.
+            \item Mit welcher Äquivalenzumformung kommst du von der Gleichung der linken Waage zur Gleichung der rechten Waage?
+            \item Gib die Lösungsmenge rechten Gleichung an. Welche Lösungsmenge hat die linke Gleichung?
+        \end{enumerate}
+    \end{exercise}
+    \begin{exercise}{normal}
+        Sind die beiden Gleichungen äquivalent? Falls ja, gib die verwendete Äquivalenzumformung an und bestimme die Lösungsmenge.
+        \begin{enumerate}
+        \begin{multicols}{3}
+            \item
+            \begin{align*}
+                2x&=x+7\\
+                x&=7
+            \end{align*}
 
+            \item
+            \begin{align*}
+                4x&=5x\\
+                4&=5
+            \end{align*}
+
+            \item
+            \begin{align*}
+                5x&=40\\
+                x&=8
+            \end{align*}
+        \end{multicols}
+    \end{enumerate}
+    \end{exercise}
+    \begin{exercise}{hard}
+        Welches der Zeichen $\Rightarrow, \Leftarrow$ und $\Leftrightarrow$ gehört jeweils in die Mitte?
+        \begin{multicols}{2}
+            \begin{enumerate}
+                \item $x=4 ~\Box~ x+3=7$
+                \hint{$x=4\Rightarrow x+3=7$ bedeutet, dass für jeden Wert für $x$, für den $x=4$ gilt, auch $x+3=7$ gelten muss.}
+                \hint{$x=4\Leftarrow x+3=7$ bedeutet, dass für jeden Wert für $x$, für den $x+3=7$ gilt, auch $x=4$ gelten muss.}
+                \hint{$x=4\Leftrightarrow x+3=7$ bedeutet, dass die beiden Gleichungen äquivalent sind. Sie müssen dann also die gleiche Lösungsmenge haben.}
+                \item $x=0 ~\Box~ x\cdot 0=0$
+                \item $x^2=16 ~\Box~ x=4$
+                \item $x=5 ~\Box~ |x|=5$
+            \end{enumerate}
+        \end{multicols}
+    \end{exercise}
+    \knobelaufgaben
+    \begin{exercise}[Alle Basen]{advanced}
+        Aufgabe
+    \end{exercise}
 \end{document}

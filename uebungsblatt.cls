@@ -116,8 +116,8 @@
     \newcolumntype{L}{>{\raggedright\arraybackslash}X}
     \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
     \noindent\begin{tabularx}{\linewidth}{@{}L@{}R@{}}
-        Grundbegriffe der Mathematik & Gymnasialmathematik\\
-        Themenblock \textit{\@topic} & Kapitel \@chapternum\\
+        Reiseführer Mathematik & Themenblock \textit{\@topic}\\
+        Kapitel \@chapternum & Übungsmaterial\\
     \end{tabularx}
     
     \begin{center}
@@ -241,3 +241,8 @@
 \externaldocument[ext:]{\pathToMain main}
 \newcommand\getchapternum[1]{\ref*{ext:chap:#1}}
 \newcommand\getchaptername[1]{\Paste{chap:lbl_#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\colorlet{maincolor}{orange}

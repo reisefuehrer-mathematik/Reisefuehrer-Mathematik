@@ -2,7 +2,8 @@
 \usepackage{randomlist}
 \usepackage[many]{tcolorbox}
 \usepackage{picins}
-
+\usepackage{xifthen}
+\usepackage{circledsteps}
 
 %\newmdenv[linewidth=1pt,backgroundcolor=yellow!10,linecolor=black!30,frametitle=\textbf{\textsf{\Large Beispiellösungen}}]{solutions}
 \newtcolorbox{solutions}{
@@ -17,37 +18,59 @@
 \makeatletter
 %\roundedicon{fg}{bg}{textcolor}{text}
 \newcommand\roundedicon[4]{%
-    \fill[draw=#1, fill=#2,rounded corners=2mm, line width=.5mm] (0,0) rectangle (1,1);%
+    \fill[draw=#1, fill=#2, line width=.5mm] (0,0) [rounded corners=0mm] -- (0,1) [rounded corners=0mm] -- (1,1) [rounded corners=0mm] -- (1,0) [rounded corners=2mm] -- cycle;%
     \node[#3] at (.5, .5) {#4};%
+}
+\newcommand{\knobelaufgaben}{
+	\noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
+	\vspace{-0.5cm}
+	\begin{center}\textcolor{red}{\sffamily Knobelaufgaben}\end{center}
+    \vspace{-0.5cm}
+    \noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
 }
 \newcommand{\offerHint}[2]{
     \tikz[scale=0.7]{%
         \roundedicon{black!40}{black!10}{black!40}{\textsf{\textbf{#1}}};%
-        \node[black!75,circle,draw=black!40, inner sep=.5mm, very thick, fill=white] at (1.05,0.2) {\small\textsf{\textbf{#2}}};%
+        \node[black!75,circle,draw=black!40, inner sep=.5mm, minimum size=5mm, very thick, fill=white] at (1.05,0.2) {};%
+        \node[black!75] at (1.05,0.16) {\small\textsf{\textbf{\strut #2}}};%
     }%
 }
 \newcommand{\icon@advanced} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{red}{red!70}{white}{$\star$};}%
-}
-\newcommand{\icon@difficult} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{blue}{blue!80}{white}{\textsf{\textbf{T}}};}%
+    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{red}{red!70}{white}{$\star$};}%
 }
 \newcommand{\icon@easy} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{Ü}}}}%
+    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$|$}}};}%
 }
-\newcommand{\icon@intro} {%
-    \tikz[scale=0.7, onbase]{\roundedicon{blue!70}{blue!50}{white}{\textsf{\textbf{E}}}}%
+\newcommand{\icon@normal} {%
+    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$||$}}}}%
 }
-\renewenvironment{exercise}[1]{%
+\newcommand{\icon@hard} {%
+    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$|||$}}}}%
+}
+
+\newcommand{\type@advanced} {%
+    \tikz[scale=0.8, onbase]{\roundedicon{red}{red!70}{white}{$\star$};}%
+}
+\newcommand{\type@easy} {%
+    \tikz[scale=0.8, onbase]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$|$}}};}%
+}
+\newcommand{\type@normal} {%
+    \tikz[scale=0.8, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$||$}}}}%
+}
+\newcommand{\type@hard} {%
+    \tikz[scale=0.8, onbase]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$|||$}}}}%
+}
+
+\renewenvironment{exercise}[2][]{%
     \renewcommand{\PrintHintOffers}{}%
     \stepcounter{exercisectr}%
     \task%
         \renewcommand\labelenumi{\alph{enumi})}%
-        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}
-        \hfill\ifstrequal{#1}{advanced}{\icon@advanced}{%
-        \ifstrequal{#1}{difficult}{\icon@difficult}{%
-        \ifstrequal{#1}{easy}{\icon@easy}{%
-        \ifstrequal{#1}{intro}{\icon@intro}{}}}}\vspace*{1mm}\par
+        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}
+        \hfill\ifstrequal{#2}{advanced}{\icon@advanced}{%
+        \ifstrequal{#2}{easy}{\icon@easy}{%
+        \ifstrequal{#2}{normal}{\icon@normal}{%
+        \ifstrequal{#2}{hard}{\icon@hard}{}}}}\vspace*{1mm}\par
 }{
         \PrintHintOffers
     \endtask
@@ -78,33 +101,41 @@
 \newcommand{\makepreamble}{
     \begin{contents}\parskip=2mm
     Dieser Aufgabenblock enthält eine große Anzahl von Aufgaben zum Themenblock \emph{\@topic}.
-    Die Anzahl der Aufgaben ist bewusst sehr groß gewählt, um ausreichend Möglichkeiten für Wiederholung und verschiedene Lerntempos zu bieten. \emph{Es ist allerdings keineswegs erforderlich, alle Aufgaben zu bearbeiten}. Stattdessen ist es am sinnvollsten, sich diejenigen Aufgaben herauszusuchen, die am besten zum eigenen Lernstand passen. Um das zu ermöglichen, sind die Aufgaben in verschiedene Kategorien unterteilt.
+    \emph{Es ist allerdings keineswegs erforderlich, alle Aufgaben zu bearbeiten}. Stattdessen ist es am sinnvollsten, dir diejenigen Aufgaben herauszusuchen, die am besten zu deinem Lernstand passen. Um das zu ermöglichen, sind die Aufgaben in verschiedene Kategorien unterteilt.
     
-    \parpic[l]{\icon@intro}
-    Mit einem E gekennzeichnete Aufgaben sind \textbf{Einstiegsaufgaben}, die dazu gedacht sind, ein Grundverständnis zu den Definitionen vom Vorbereitungsblatt aufzubauen. Einstiegsaufgaben solltest du direkt nach dem Bearbeiten des Vorbereitungsblatts lösen können.
+    \parpic[l]{\type@easy}
+    \textbf{Einstiegsaufgaben}. Mit diesen Aufgaben kannst du sofort, nachdem du das Vorbereitungsblatt bearbeitet hast, anfangen. Sie geben dir viele Hilfestellungen und Hinweise, sodass du gut in das Thema einsteigen kannst. Wenn du das Gefühl hast, dass du das Thema schon einigermaßen verstanden hast, kannst du auch sofort mit den normalen \emph{Übungsaufgaben} anfangen.
     
-    \parpic[l]{\icon@easy}
-    Mit einem blauen R gekennzeichnete Aufgaben sind \textbf{Rechenaufgaben}, in denen die Definitionen für Beispiele angewandt werden sollen. In diesen Aufgaben soll eine Routine im Umgang mit den aktuellen Themen entwickelt werden.
+    \parpic[l]{\type@normal}
+    \textbf{Übungsaufgaben}. In diesen Aufgaben gibt es weniger Hilfestellungen und Hinweise als in den Einstiegsaufgaben. Ansonsten sind sie sehr ähnlich und du solltest sie nach dem Bearbeiten der Einstiegsfragen lösen können. Wenn du dir das zutraust, kannst du auch direkt mit diesen Aufgaben anfangen und die Einstiegsaufgaben überspringen.
     
-    \parpic[l]{\icon@difficult}
-    Mit einem Stern gekennzeichnete Aufgaben sind \textbf{Knobelaufgaben}. Sie sind schwieriger als die restlichen Rechenaufgaben und richten sich an Schüler, die die Rechenaufgaben bereits gut verstanden haben. Sie laden zum Weiterdenken ein und bereiten auf die Expertenaufgaben vor.
+    \parpic[l]{\type@hard}
+    \textbf{Vertiefungsaufgaben}. Diese Aufgaben löst du am besten erst, wenn du gut mit den Übungsaufgaben zurechtkommst und keine Probleme mehr dabei hast. Die Beispiele, die in Vertiefungsaufgaben vorkommen, sind etwas komplizierter und du benötigst manchmal eine kreative Idee, um die Aufgaben gut lösen zu können.
     
-    \parpic[l]{\icon@advanced}
-    Bei mit diesem Symbol gekennzeichneten Aufgaben handelt es sich um sehr schwierige \textbf{Expertenaufgaben}, die ein großes Maß an kreativem Denken erfordern und als besondere Herausforderung für sehr gute Schüler gedacht sind. Aufgaben, die mit diesem Symbol gekennzeichnet sind, solltest du deshalb nur bearbeiten, wenn du die Knobelaufgaben bearbeitet und verstanden hast und diese keine ausreichende Herausforderung für dich waren.
+    \parpic[l]{\type@advanced}
+    \textbf{Knobelaufgaben}. Diese Aufgaben sind deutlich komplizierter als alle anderen Aufgaben. Oft setzen sie voraus, dass du einen bestimmten Abschnitt im \emph{Weiterführenden Wissen} für das aktuelle Kapitel gelesen hast (der entsprechende Abschnitt ist dann angegeben). Diese Aufgaben erfordern teilweise komplizierte Lösungswege, die . Bearbeite diese Aufgaben nur, wenn du den entsprechenden Abschnitt im weiterführenden Wissen gelesen hast und wenn du dich für das Thema wirklich interessierst. Lass dich außerdem nicht entmutigen, wenn du länger nicht auf die Lösung kommst. Die Aufgaben sollen auch für besonders gute Schüler eine Herausforderung sein.
     \picskip{0}
-    
-    Solltest du dich an die Expertenaufgaben wagen, lass dich nicht entmutigen, wenn du beim Lösen dieser Aufgaben nicht weiterkommst -- die Aufgaben sind extra so gestellt, dass dir nicht sofort eine Lösung einfällt!
     
     \vspace*{2mm}
     \textbf{Beispiellösungen und Hinweise}
     
-    Zu den Aufgaben jedes Vorbereitungsblatts gibt es Beispielaufgaben mit Lösungen. Diese Lösungen sind sehr ausführlich gestaltet und sollen dir Material, das über Mitschriften aus dem Unterricht hinausgeht, an die Hand geben, um die Bearbeitung ähnlicher Aufgaben zu vereinfachen. Sie enthalten außerdem ein Kochrezept, wie du ähnliche Aufgaben lösen kannst.
-    
-    Darüber hinaus gibt es zu einigen Aufgaben zusätzliche Hinweise, die dir helfen sollen, weiterzukommen, wenn du gerade nicht weiter weißt. Versuche aber immer erstmal, eine Aufgabe ohne Hinweise zu lösen! Ist zu einer Aufgabe ein Hinweis vorhanden, dann siehst du unter der Aufgabenstellung das nachfolgend abgebildete Symbol. Das Symbol zeigt dir die Nummer des relevanten Hinweises und die Teilaufgabe, bei der dieser Hinweis helfen soll.
+    Zu allen Einstiegs-- und Übungsaufgaben gibt es ähnliche Beispielaufgaben mit Lösungen. Die Lösungen enthalten ein Kochrezept, das dich Schritt für Schritt durch den Lösungsweg führt und zu jeder Lösung gehört ein Video, das dir die Lösung erklärt, damit du ähnliche Aufgaben anschließend mit diesem Rezept selbst lösen kannst. Die Beispiellösungen befinden sich am Ende des Aufgabenblocks.
     
     \parpic[r]{\offerHint{5}{a}}
-    Bei Einführungsaufgaben werden dir immer Hinweise zur mathematischen Notation gegeben, die du benötigst, um deine Lösung aufzuschreiben. Diese Hinweise fallen bei späteren Aufgaben weg, da du nach den Einstiegsaufgaben mit der Notation vertraut sein solltest.
+    Zu vielen Aufgaben gibt es zusätzliche Hinweise, die dir helfen sollen, weiterzukommen, wenn du gerade nicht weiter weißt. Bei Einstiegsaufgaben bekommst du oft auch Hinweise, wie du deine Lösung richtig aufschreiben kannst. Versuche aber immer erstmal, eine Aufgabe ohne Hinweise zu lösen! Ist zu einer Aufgabe ein Hinweis vorhanden, dann siehst du unter der Aufgabenstellung das nachfolgend abgebildete Symbol. Das Symbol zeigt dir die Nummer des relevanten Hinweises und die Teilaufgabe, bei der dieser Hinweis helfen soll.
     \end{contents}
     \newpage
 }
+% Allow printing of warnings about required knowledge
+\newcommand{\circlelbl}[1]{%
+    \tikz[overlay, xshift=20mm, yshift=1.5mm]{%
+    \node at (0,0) {\Circled[%
+        inner color=white,%\@circlelblcolor@text,
+        outer color=red!70,%\@circlelblcolor@border,
+        fill color=red!70,%\@circlelblcolor@fill,
+        inner ysep=5pt,
+        inner xsep=7pt]{\textsf{#1}}%
+    }}%
+}
+
 \makeatother

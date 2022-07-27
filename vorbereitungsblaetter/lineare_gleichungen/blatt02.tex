@@ -5,6 +5,7 @@
 \usepackage[ngerman]{babel}
 
 \usepackage{mathdef}
+\usepackage{tikzdef}
 \usepackage{multicol}
 
 \sheet{Vorbereitungsblatt 15.2}
@@ -25,17 +26,64 @@
     \[\Solutions:=\{x\:|\:x~\text{erfüllt die Gleichung~}G\},\]
     also die Menge aller Werte, die für die vorkommenden Unbekannten eingesetzt werden können, sodass die Gleichung erfüllt ist.
 \end{definition}
-
+%
 \subsection*{Aufgabenteil}
+%
+\begin{exercise}
+    Die Lösungsmenge der Gleichung $x+4=10-x$ enthält \textchoice[0]{alle Werte,einen Wert}, durch \textchoice[0]{die,den} wir das $x$ überall ersetzen können, sodass die Gleichung stimmt. Wenn wir für $x$ den Wert \answerfield{1cm}{3} einsetzen, erhalten wir $3+4=10-3$. Diese Gleichung ist \textchoice[0]{erfüllt,nicht erfüllt}, also ist \textchoice[0]{$3$,$x$} eine Lösung der Gleichung $x+3=10-x$. Alle anderen Werte, die wir für $x$ einsetzen könnten, erfüllen die Gleichung nicht. Die Lösungsmenge der Gleichung ist also $\Solutions=\{\answerfield{1cm}{3}\}$.
+\end{exercise}
+\begin{exercise}
+    Wenn wir sagen, dass zwei Gleichungen \emph{äquivalent} sind, dann meinen wir damit, dass sie \textchoice[1]{eine beliebige,die gleiche,keine} Lösungsmenge haben. Wenn wir einen Wert für $x$ in eine der beiden Gleichungen einsetzen und die Gleichung dann erfüllt ist, dann erfüllt \textchoice[3]{kein,mindestens ein,ein anderer,der gleiche} Wert für $x$ auch die andere Gleichung.
+\end{exercise}
+\begin{exercise}
+    Kreuze jeweils an, welche Aussagen über die Lösungsmenge der gegebenen Gleichungen stimmen.
+    \begin{multicols}{4}
+        \begin{enumerate}[label=\alph*)]
+        \item $2x+5=9$
+        \begin{multiplechoice}
+            \citem $2\in\Solutions$
+            \item $4\in\Solutions$
+            \item $6\in\Solutions$
+        \end{multiplechoice}
 
--lückentext zu äquivalenz + lösungsmenge
+        \item $2x+3x=5x$
+        \begin{multiplechoice}
+            \citem $3\in\Solutions$
+            \citem $7\in\Solutions$
+            \item $\Solutions=\{7\}$
+        \end{multiplechoice}
 
--ein gleichung aufstellen und mit multiple choice abfragen,
-welche elemente in der lösungmenge der gleichung sind 
-    -eine gleichung mit einer lösung 
-    -dann gleichung 2x+3x = 5x mit nur richtigen lösungen 
+        \item $x^2=4$
+        \begin{multiplechoice}
+            \citem $2\in\Solutions$
+            \citem $-2\in\Solutions$
+            \item $\Solutions=\{2\}$
+        \end{multiplechoice}
 
--
+        \item $2x+4=1+2x$
+        \begin{multiplechoice}
+            \citem $0\in\Solutions$
+            \item $\Solutions=\{0\}$
+            \citem $\Solutions=\emptyset$
+        \end{multiplechoice}
+    \end{enumerate}
+    \end{multicols}
+\end{exercise}
+\begin{exercise}
+    \begin{enumerate}[label=\alph*)]
+        \item Bestimme die Lösungsmenge der Gleichung $11-x=9$.\\
+            \emph{Lösungsmenge:} $\Solutions=$\answerfield{1cm}{$\{3\}$}
+        \item Zu welcher Gleichung aus der letzten Aufgabe ist diese Gleichung äquivalent?
+        \begin{multicols}{4}
+            \begin{multiplechoice}
+                \item Gleichung a)
+                \item Gleichung b)
+                \item Gleichung c)
+                \item Gleichung d)
+            \end{multiplechoice}
+        \end{multicols}
+    \end{enumerate}
+\end{exercise}
 
 \newpage
 
@@ -50,77 +98,94 @@ welche elemente in der lösungmenge der gleichung sind
 \end{theorem}
 
 \subsection*{Aufgabenteil}
-
--zwei balkenwaagen: einzeichnen was man bei der linken hinzufügen muss, um auf die rechte zu kommen
-    -dann aufschreiben welche gleichungen zu den balkenwaagen gehören
-    -dann sagen welche äquivalenzumformung man anwenden muss um von gleichung 1 zu 2 zu kommen
-
--negativbeispiel
-
-\begin{exercise}{}
-    Welches der Zeichen $\Rightarrow, \Leftarrow$ und $\Leftrightarrow$ gehört jeweils in die Mitte?
-    \begin{multicols}{2}
-        \begin{enumerate}
-            \item[a)]
-            \begin{multiplechoice}
-                \item $x=4 \Rightarrow x+3=7$
-                \item $x=4 \Leftarrow x+3=7$
-                \citem $x=4 \Leftrightarrow x+3=7$
-            \end{multiplechoice}
-            \item[b)]
-            \begin{multiplechoice}
-                \citem $x=0 \Rightarrow x\cdot 0=0$
-                \item $x=0 \Leftarrow x\cdot 0=0$
-                \item $x=0 \Leftrightarrow x\cdot 0=0$
-            \end{multiplechoice}
-            \item[c)]
-            \begin{multiplechoice}
-                \item $x^2=16 \Rightarrow x=4$
-                \citem $x^2=16 \Leftarrow x=4$
-                \item $x^2=16 \Leftrightarrow x=4$
-            \end{multiplechoice}
-            \item[d)]
-            \begin{multiplechoice}
-                \citem $x=5 \Rightarrow |x|=5$
-                \item $x=5 \Leftarrow |x|=5$
-                \item $x=5 \Leftrightarrow |x|=5$
-            \end{multiplechoice}
-        \end{enumerate}
-    \end{multicols}
-\end{exercise}
-\if 0
+\parpic[r]{
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+            \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+            \node[white] at (-0.75,0.42) {$8$};
+            \node[white,marble,inner sep=.12cm] at (-1.05,0.35) {$x$};
+            \node[white,marble,inner sep=.12cm] at (-1.35,0.35) {$x$};
+            %Füllung rechte Waagschale
+            \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+            \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+            \node[white] at (1,0.45) {$14$};
+        \end{linearEquation}
+    }
 \begin{exercise}
-    Sind die beiden Gleichungen äquivalent? Falls ja, gib die verwendete Äquivalenzumformung an.
+    \begin{minipage}{.6\textwidth}
+        Die rechts dargestellte Balkenwaage befindet sich gerade im Gleichgewicht. 
+        \begin{enumerate}
+            \item[a)] Welche der folgenden Waagen befinden sich dann ebenfalls im Gleichgewicht und welche kippen nach links oder rechts?
+            \item[b)] Begründe jeweils, warum die Waage im Gleichgewicht geblieben ist oder in eine Richtung gekippt ist.
+        \end{enumerate}
+    \end{minipage}
     \begin{multicols}{3}
-        \begin{align*}
-            3x+7&=16\\
-            3x&=9
-        \end{align*}
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+            \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+            \node[white] at (-0.75,0.42) {$3$};
+            \node[white,marble,inner sep=.12cm] at (-1.05,0.35) {$x$};
+            \node[white,marble,inner sep=.12cm] at (-1.35,0.35) {$x$};
+            %Füllung rechte Waagschale
+            \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+            \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+            \node[white] at (1,0.45) {$9$};
+        \end{linearEquation}
         \begin{multiplechoice}
-            \citem Ja, Umformung: \answerfield{1cm}{$-7$}
-            \item Nein
+            \citem ist im Gleichgewicht
+            \item kippt nach links
+            \item kippt nach rechts
         \end{multiplechoice}
+        \vspace{4mm}
+        \emph{Begründung}:
+        \begin{answerbox}[.75in]
+            Auf beiden Seiten wurde das gleiche Gewicht entfernt.
+        \end{answerbox}
 
-        \begin{align*}
-            3x+7&=16\\
-            3x&=9
-        \end{align*}
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            \node[white,marble,inner sep=.12cm] at (-1.15,0.35) {$x$};
+            \node[white,marble,inner sep=.12cm] at (-0.85,0.35) {$x$};
+            %Füllung rechte Waagschale
+            \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+            \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+            \node[white] at (1,0.45) {$14$};
+        \end{linearEquation}
         \begin{multiplechoice}
-            \item Ja, Umformung: \answerfield{1cm}{}
-            \item Nein
+            \item ist im Gleichgewicht
+            \item kippt nach links
+            \citem kippt nach rechts
         \end{multiplechoice}
+        \vspace{4mm}
+        \emph{Begründung}:
+        \begin{answerbox}[.75in]
+            Auf der linken Seite wurde ein Gewicht entfernt, auf der rechten aber nicht.
+        \end{answerbox}
 
-        \begin{align*}
-            3x+7&=16\\
-            3x&=9
-        \end{align*}
+        \begin{linearEquation}
+            %Füllung linke Waagschale
+            \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+            \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+            \node[white] at (-0.75,0.42) {$4$};
+            \node[white,marble,inner sep=.12cm] at (-1.2,0.35) {$x$};
+            %Füllung rechte Waagschale
+            \fill (0.75,0.25) -- (1.25,0.25) -- (1.2,0.65) -- (0.8,0.65) -- cycle;
+            \draw[line width=0.75mm] (1,0.71) circle[radius=0.06cm];
+            \node[white] at (1,0.45) {$7$};
+        \end{linearEquation}
         \begin{multiplechoice}
-            \item Ja, Umformung: \answerfield{1cm}{}
-            \item Nein
+            \citem ist im Gleichgewicht
+            \item kippt nach links
+            \item kippt nach rechts
         \end{multiplechoice}
+        \vspace{4mm}
+        \emph{Begründung}:
+        \begin{answerbox}[.75in]
+            Das Gewicht wurde auf beiden Seiten halbiert.
+        \end{answerbox}
     \end{multicols}
 \end{exercise}
-\fi
-\mandala{mandala/mandala01}
 
 \end{document}
