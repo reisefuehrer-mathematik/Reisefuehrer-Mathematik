@@ -40,7 +40,16 @@ Wenn wir an die explizite Notation einer Zuordnungsvorschrift zurückdenken, dan
 Darauf aufbauend wollen wir die Koordinaten eines Punkts ab sofort nutzen, um eine Regel aus der Zuordnungsvorschrift darzustellen. Jeder Punkt soll für ein bestimmtes Element der Definitionsmenge darstellen, wohin es abgebildet wird.
 
 \parpic[r]{
-    \input{diagrams/graph_singlepoint}
+    \begin{tikzpicture}
+        \draw[->] (-0.2,0) -- (3.2,0) node[right] {$x$};
+        \draw[->] (0,-0.2) -- (0,3.2) node[above] {$y$};
+        \draw[dashed,black!40] (2,0) -- (2,3.2);
+        \draw[dashed,black!40] (0,2) -- (3.2,2);
+        
+        \fill[red] (2,0) circle[radius=0.75mm] node[below] {Urbild};
+        \fill[blue] (0,2) circle[radius=0.75mm] node[left] {Bild};
+        \fill[violet] (2,2) circle[radius=0.75mm] node[above] {$P=\coord{\text{Urbild}}{\text{Bild}}$};
+    \end{tikzpicture}
 }
 
 Im Bild ist zu sehen, wie die Position des entsprechenden Punktes von Urbild und Bild abhängt: Wie weit rechts der Punkt ist, hängt davon ab, wie weit rechts das \emph{Argument} aus der Definitionsmenge auf der $x$-Achse liegt. Wie weit oben oder unten er ist, hängt davon ab, welches \emph{Bild} das Argument hat.
