@@ -56,5 +56,6 @@
 		}
 	],
 	"latex-workshop.latex.rootFile.doNotPrompt": true,
-	"latex-workshop.latex.autoBuild.run": "onSave"
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"editor.rulers": [120],
 }
