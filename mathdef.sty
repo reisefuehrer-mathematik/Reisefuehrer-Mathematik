@@ -43,6 +43,30 @@
         \stackrel{\textcolor{orange!75!black}{\text{#1}}}{=}
     }
 }
+% The definition of \divides and \ndivides is taken from
+% https://tex.stackexchange.com/a/117035
+\makeatletter
+\def\localbig#1#2{%
+  \sbox\z@{$\m@th#1
+    \sbox\tw@{$#1()$}%
+    \dimen@=\ht\tw@\advance\dimen@\dp\tw@
+    \nulldelimiterspace\z@\left#2\vcenter to1.2\dimen@{}\right.
+  $}\box\z@}
+
+\newcommand{\divides}{\mathrel{\mathpalette\dividesaux\relax}}
+\newcommand{\ndivides}{\mathrel{\mathpalette\ndividesaux\relax}}
+
+\newcommand{\dividesaux}[2]{\mbox{$\m@th#1\localbig{#1}|$}}
+\newcommand{\ndividesaux}[2]{%
+  \mkern.5mu
+  \ooalign{%
+    \hidewidth$\m@th#1\localbig{#1}|$\hidewidth\cr
+    $\m@th#1\nmid$\cr%
+  }%
+}
+\makeatother
+%%% END \divides and \ndivides
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

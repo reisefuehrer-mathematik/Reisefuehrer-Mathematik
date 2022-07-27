@@ -10,7 +10,35 @@ In der Regel verändern Funktionen ihre Argumente, indem sie diesen Bilder zuord
 Es ist jedoch nicht verboten, mit Funktionen, die gar nichts tun, zu arbeiten. Damit sind Funktionen gemeint, die ihr Argument nicht verändern. Das heißt, jedes Argument, das man in die Funktion einsetzt, wird sich selbst zugeordnet.
 
 \begin{example}{}
-    \parpic[r]{\input{diagrams/mix_self}}
+    \parpic[r]{
+        %\begin{center}
+            \begin{tikzpicture}[scale=.6]
+                \fill[black!10] (-1.5,0) ellipse (2.4cm and 2cm);
+                \fill[black!10] (4,0) ellipse (2.4cm and 2cm);
+                %
+                \draw (-1.5,0) ellipse (2.4cm and 2cm);
+                \draw (4,0) ellipse (2.4cm and 2cm);
+                %
+                \node[blue] (x1) at (-1,0.7) {$\bullet$}; 
+                \node[blue,left=1mm of x1] {blau};
+                \node[red] (x2) at (-1,-0.2) {$\bullet$}; 
+                \node[red,left=1mm of x2] {rot};
+                \node[yellow!70!black] (x3) at (-1,-1.1) {$\bullet$}; 
+                \node[yellow!70!black,left=1mm of x3] {gelb};
+                %
+                \node[blue] (y1) at (3.5,0.7) {$\bullet$}; 
+                \node[blue,right=1mm of y1] {blau};
+                \node[red] (y2) at (3.5,-0.2) {$\bullet$}; 
+                \node[red,right=1mm of y2] {rot};
+                \node[yellow!70!black] (y3) at (3.5,-1.1) {$\bullet$}; 
+                \node[yellow!70!black,right=1mm of y3] {gelb};
+                %
+                \draw[->] (x1) to[bend left] (y1);
+                \draw[->] (x2) -- (y2);
+                \draw[->] (x3) to[bend right] (y3);
+            \end{tikzpicture}
+        %\end{center}
+    }
     Wir haben bereits die Funktion $\textsc{MitGelbMischen}$ gesehen, die Grundfarben erhält und mit gelb mischt. Dadurch verändern sich die Farben blau zu grün und rot zu orange. Deutlich langweiliger ist es, eine Grundfarbe mit sich selbst zu mischen, also blau mit blau, rot mit rot und gelb mit gelb. Natürlich ändert eine Farbe sich nicht, wenn man sie mit sich selbst mischt.
     
     \picskip{0}
@@ -36,7 +64,25 @@ Im letzten Abschnitt hast du gesehen, dass identische Funktionen solche Funktion
 Dieser Abschnitt thematisiert die Frage, ob es möglich ist, wenn man bereits eine Funktion $f$ angewandt hat, anschließend eine andere Funktion $g$ anzuwenden, die den Effekt von $f$ umkehrt. Das heißt, dass wenn man zuerst $f$ und dann $g$ anwendet, insgesamt nichts passiert. Ist $f$ eine Funktion von $U$ nach $V$ ($U,V$ sind Mengen), dann ist also eine Funktion $g\colon V\rightarrow U$ gesucht, sodass bei der Verkettung von $f$ und $g$ die identische Funktion herauskommt.
 
 \parpic[r]{
-    \input{diagrams/inverse_function}
+    \begin{tikzpicture}[scale=.75]
+        \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
+        \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
+    
+        \node (x1) at (-1.5,0.7) {$\bullet$};
+        \node (x2) at (-1.5,-0.2) {$\bullet$};
+        \node (x3) at (-1.5,-1.1) {$\bullet$};
+        \node (y1) at (1.5,0.7) {$\bullet$};
+        \node (y2) at (1.5,-0.2) {$\bullet$};
+        \node (y3) at (1.5,-1.2) {$\bullet$};
+    
+        \draw[blue,->] (x1) -- (y3);
+        \draw[blue,->] (x2) to[bend right] (y1);
+        \draw[blue,->] (x3) to[bend right] (y2);
+        
+        \draw[dashed,->] (y3) to[bend right] (x1);
+        \draw[dashed,->] (y1) to[bend right] (x2);
+        \draw[dashed,->] (y2) to[bend right] (x3);
+    \end{tikzpicture}
 }
 
 Rechts ist die Funktion $f$ mit blauen Pfeilen dargestellt. Die gestrichelte Funktion dreht alle Pfeile von $f$ um. Dadurch läuft man immer im Kreis, wenn man erst einem blauen und dann einem gestrichelten Pfeil folgt. Führt man die beiden Funktionen hintereinander aus, bekommt man deshalb die identische Funktion auf der linken Menge.
