@@ -67,18 +67,18 @@ Dieser Abschnitt thematisiert die Frage, ob es möglich ist, wenn man bereits ei
     \begin{tikzpicture}[scale=.75]
         \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
         \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
-    
+        %
         \node (x1) at (-1.5,0.7) {$\bullet$};
         \node (x2) at (-1.5,-0.2) {$\bullet$};
         \node (x3) at (-1.5,-1.1) {$\bullet$};
         \node (y1) at (1.5,0.7) {$\bullet$};
         \node (y2) at (1.5,-0.2) {$\bullet$};
         \node (y3) at (1.5,-1.2) {$\bullet$};
-    
+        %
         \draw[blue,->] (x1) -- (y3);
         \draw[blue,->] (x2) to[bend right] (y1);
         \draw[blue,->] (x3) to[bend right] (y2);
-        
+        %
         \draw[dashed,->] (y3) to[bend right] (x1);
         \draw[dashed,->] (y1) to[bend right] (x2);
         \draw[dashed,->] (y2) to[bend right] (x3);
