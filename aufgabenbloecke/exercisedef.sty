@@ -37,27 +37,27 @@
 }
 \usepackage{romanbar}
 
-\newcommand{\type@advanced} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{red}{red!70}{white}{$\bigstar$};}%
+%{<name>}{<bg>}{<fg>}{<frame>}{icon}
+\newcommand{\newdifficulty}[5]{%
+    \expandafter\def\csname type@#1\endcsname{%
+        \tikz[scale=0.8, onbase]{\roundedicon{#4}{#2}{#3}{#5};}%
+    }%
 }
-\newcommand{\type@easy} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$\Romanbar{1}$}}};}%
-}
-\newcommand{\type@normal} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$\Romanbar{2}$}}}}%
-}
-\newcommand{\type@hard} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$\Romanbar{3}$}}}}%
-}
+\newdifficulty{easy}{blue!45}{white}{blue}{\textsf{\textbf{$\Romanbar{1}$}}}
+\newdifficulty{normal}{blue!65}{white}{blue!85}{\textsf{\textbf{$\Romanbar{2}$}}}
+\newdifficulty{hard}{blue!90!black}{white}{blue!70}{\textsf{\textbf{$\Romanbar{3}$}}}
+\newdifficulty{advanced}{red!70}{white}{red}{$\bigstar$}
 
 \renewenvironment{exercise}[2][]{%
     \renewcommand{\PrintHintOffers}{}%
     \stepcounter{exercisectr}%
     \task[enhanced, colframe=gray!20, boxrule=1.2pt,interior code app={
         \node[anchor=north east, inner sep=0pt] at (frame.north east) {\csname type@#2\endcsname};
-    }]  
-        \renewcommand\labelenumi{\alph{enumi})}%
-        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}\par
+    }]
+        \setlist[enumerate,1]{label=\alph{enumi})}
+        \setlist[enumerate]{topsep=2pt, noitemsep, itemsep=1pt}
+        \setlength{\multicolsep}{2pt}
+        \vspace*{1mm}\textsf{\textbf{\large Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}\\[2pt]
 }{
         \PrintHintOffers
     \endtask
