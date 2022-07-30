@@ -116,6 +116,16 @@
 }
 \newcommand{\commentLine}[1]{\makebox[0pt][l]{\pushxpos\hspace{\textwidth-\getxpos}\textcolor{maincolor}{$\bigl|\,#1$}}}
 
+%%%
+% Used in tables to draw a brace  
+\def\drawbrace{\color{blue!60!black}\upbracefill}
+\newcommand{\braceline}[2]{%
+    \ifnum#1>0%
+        \multicolumn{#1}{c}{}&%
+    \fi%
+    \multicolumn{#2}{c}{\drawbrace}\\%
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Propositional Logic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

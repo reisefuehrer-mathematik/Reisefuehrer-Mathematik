@@ -1,5 +1,7 @@
 \documentclass[../../main.tex]{subfiles}
 
+%\usepackage{tabularray}
+
 \begin{document}
 
 Wir wissen bereits, dass Aussagen entweder \wahr\  oder \falsch\  sind.
@@ -14,10 +16,12 @@ ob eine Aussage \wahr\  oder \falsch\  ist.
         \item \statement{Der Zauberer ist schlecht gelaunt}
         \item \statement{Der Zaubertrank ist giftig}
     \end{enumerate}
-    kennen, dann könnten wir daraus den Wahrheitswert der gesamten Aussage ableiten. Wüssten wir zum Beispiel, dass der Zauberer schlecht gelaunt ist und, dass der Zaubertrank giftig ist, dann wüssten wir, dass unsere Aussage \statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig} \wahr\  ist.
-    \\ \\
+    kennen, dann könnten wir daraus den Wahrheitswert der gesamten Aussage ableiten.
+    Wüssten wir zum Beispiel, dass der Zauberer schlecht gelaunt ist und, dass der Zaubertrank giftig ist, dann wüssten
+    wir, dass unsere Aussage \statement{Der Zauberer ist schlecht gelaunt und der Zaubertrank ist giftig} \wahr{} ist.
+    
     Können wir mit dem gleichen Prinzip auch den Wahrheitswert der beiden Unteraussagen ermitteln? Nein, denn diese beiden Unteraussagen enthalten keine Konnektoren mehr. Sie sind also nicht aus kleineren Aussagen zusammengesetzt. Solche Aussagen, die keine Konnektoren enthalten, nennt man \textbf{atomare Aussagen}.
-    \end{example}
+\end{example}
 
 \begin{definition} {Atomare Aussage}
 Eine \textbf{Atomare Aussage} ist eine Aussage, die keine Konnektoren enthält.
@@ -167,29 +171,23 @@ können wir nun in einer Tabelle den Wahrheitswert von $\lnot G$ angeben.
 }
 Zur Erinnerung: Verneinen wir eine Aussage, 
 dann ist das die Negation der ursprünglichen Aussage. Ist $A$ eine beliebige  
-Aussage (z.B. die aus letztem Beispiel), dann notieren wir die Negation von $A$ durch $\lnot A$. Eine Negation 
-dreht den Wahrheitswert der Aussage um. Das heißt, wenn die Aussage \wahr\  ist, 
-dann ist ihre Negation \falsch\  und ist eine Aussage \falsch\ , dann ist 
-ihre Negation \wahr.
+Aussage (z.\,B. die aus letztem Beispiel), dann notieren wir die Negation von $A$ durch $\lnot A$. Eine Negation 
+dreht den Wahrheitswert der Aussage um. Das heißt, wenn die Aussage \wahr{} ist, 
+dann ist ihre Negation \falsch{} und ist eine Aussage \falsch{}, dann ist 
+ihre Negation \wahr{}.
 
 Wir wiederholen die gleichen Überlegungen nun für den Konnektor $\liff$.
 \begin{example}{Wahrheitswerte von $\liff$}
-    Wir kürzen die Aussage
-    \statement{Der Zaubertrank verleiht Superkräfte} durch $F$ 
-    und \statement{Der Zauberer ist munter} durch $M$ ab. 
-    Wir haben den Konnektor \statement{$\liff$}
-    eingeführt, um Gleichwertigkeit auszudrücken. 
+    Wir kürzen die Aussage \statement{Der Zaubertrank verleiht Superkräfte} durch $F$ und
+    \statement{Der Zauberer ist munter} durch $M$ ab. 
+    Wir haben den Konnektor \statement{$\liff$} eingeführt, um Gleichwertigkeit auszudrücken. 
     Die Aussage $\statement{Der Zaubertrank verleiht Superkräfte
-    genau dann wenn der Zauberer munter ist}$ (kurz: $F \liff M$) ist \wahr\  in den Fällen,
+    genau dann, wenn der Zauberer munter ist}$ (kurz: $F \liff M$) ist \wahr{} in den Fällen,
     in denen $F$ und $M$ den gleichen Wahrheitswert haben.
 
-    Verleiht zum Beispiel der 
-    Zaubertrank keine Superkräfte (also $F$ ist \falsch) und ist der Zauberer 
-    nicht 
-    munter ($M$ ist \falsch), dann ist trotzdem $F \liff M$
-     \wahr, da $F$ und 
-    $M$ 
-    den gleichen Wahrheitswert besitzen. 
+    Verleiht zum Beispiel der Zaubertrank keine Superkräfte (also $F$ ist \falsch) und ist der Zauberer nicht 
+    munter ($M$ ist \falsch), dann ist trotzdem $F \liff M$ \wahr, da $F$ und $M$ den gleichen Wahrheitswert
+    besitzen. 
     
     Verleiht der Zaubertrank Superkräfte ($F$ ist \wahr) und ist der Zauberer 
     nicht munter ($M$ ist \falsch), dann ist $F \liff M$ \falsch, da die 
@@ -217,7 +215,7 @@ Wir wiederholen die gleichen Überlegungen nun für den Konnektor $\liff$.
         \wahr & \wahr & \wahr\\\bottomrule
     \end{array}$
 }
-Für jedes Paar von zwei beliebigen Aussagen $A,B$ (z.B. die aus letztem Beispiel) von denen
+Für jedes Paar von zwei beliebigen Aussagen $A,B$ (z.\,B. die aus letztem Beispiel) von denen
 wir den Wahrheitswert kennen, können wir 
 den Wahrheitswert von
  $A \liff B$ folgern. $A \liff B$ ist nämlich genau dann \wahr\  ist, wenn $A$ denselben Wahrheitswert 
@@ -301,7 +299,6 @@ Tatsächlich ist die Vorgehensweise, die wir gleich zeigen, nichts neues und fun
 ähnlich zu einem Verfahren, das man bereits im Schlaf beherrscht: 
 Dem Auswerten von Termen. Das nächste Beispiel wiederholt dies und dröselt die Schritte, die man dabei vornimmt, auf.
 
-\todo{abbildung tikzen}
 \begin{example}{Termauswertung}
 Stell dir vor, deine Aufgabe ist es, den Term $x \cdot (y - (z \cdot z))$ auszuwerten
  und du weißt, dass $x = 3$, $y = 7$ und  $z = 2$ ist.
@@ -315,13 +312,25 @@ du wie folgt vor:
     sein Ergebnis.
     
     \begin{center}
-        \includegraphics[width=0.275\textwidth]{images/TEMP_termalg_schritt_1.png}
+        \setlength\tabcolsep{0pt}
+        \setlength\extrarowheight{-6pt}
+        \begin{tabular}{*{3}{c}}
+            $3\cdot(7-\null$ & $(2\cdot 2)$ & $)$\\\braceline{1}{1}
+            & $4$
+        \end{tabular}
     \end{center}
 
-    Diesen Schritt wiederholst du bis nur noch eine Zahl übrig bleibt - Das Ergebnis.
+    Diesen Schritt wiederholst du bis nur noch eine Zahl übrig bleibt -- das Ergebnis.
 
     \begin{center}
-        \includegraphics[width=0.275\textwidth]{images/TEMP_termalg.png}
+        \setlength\tabcolsep{0pt}
+        \setlength\extrarowheight{-6pt}
+        \begin{tabular}{*{4}{c}}
+            $3\cdot\null$ & $(7-\null$ & $(2\cdot 2)$ & $)$\\\braceline{2}{1}
+            $3\cdot\null$ & $(7-\null$ & $4$ & $)$\\\braceline{1}{3}
+            $3\cdot\null$ & \multicolumn{3}{c}{$3$}\\\braceline{0}{4}
+            \multicolumn{4}{c}{$9$}
+        \end{tabular}
     \end{center}
 \end{enumerate}
     Es bleibt am Ende nur noch 9 übrig. Wir haben damit herausgefunden, 
@@ -338,33 +347,46 @@ Es kommen nämlich genau dieselben Schritte vor. Möchte man nämlich den Wahrhe
         verknüpft sind aus, bis nur noch ein Wahrheiswert übrig bleibt.
     \end{enumerate}
     
-\todo{die abbildung tikzen}
 \begin{example}{Wahrheitswertbestimmung}
-Wenn $A,B$ und $C$ Aussagen sind und wenn wir wissen, dass $A$ \wahr\  ist, $B$ \wahr\  ist und $C$ \falsch\   ist, was ist dann der Wahrheitswert folgender Aussage?
-\[A \land ( (\lnot B) \lor C)\]
-Wir wenden das eben beschriebene Verfahren an.
-\begin{enumerate}
-    \item Zunächst ersetzen wir alle atomaren Aussagen durch ihren Wahrheitswert:
-    \[A \land ( (\lnot B) \lor C) \longmapsto  \wahr \land ((\lnot \wahr) \lor \falsch)\]
-    \item Jetzt werten wir Paare oder einzelne Wahrheitswerte, 
-    die direkt mit einem Konnektor verknüpft sind aus, bis nur noch ein einzelner Wahrheitswert
-    übrig bleibt.
-    
-    Die nächste Abbildung zeigt wie dieses Vorgehen für die 
-    Aussage 
-    
-    $A \land ( (\lnot B) \lor C)$ aussieht:
+    Wenn $A,B$ und $C$ Aussagen sind und wenn wir wissen, dass $A$ \wahr\  ist, $B$ \wahr\  ist und $C$ \falsch\   ist, was ist dann der Wahrheitswert folgender Aussage?
+    \[A \land ( (\lnot B) \lor C)\]
+    Wir wenden das eben beschriebene Verfahren an.
+    \begin{enumerate}
+        \item Zunächst ersetzen wir alle atomaren Aussagen durch ihren Wahrheitswert:
+        \[A \land ( (\lnot B) \lor C) \longmapsto  \wahr \land ((\lnot \wahr) \lor \falsch)\]
+        \item Jetzt werten wir Paare oder einzelne Wahrheitswerte, 
+        die direkt mit einem Konnektor verknüpft sind aus, bis nur noch ein einzelner Wahrheitswert
+        übrig bleibt.
+        
+        Die nächste Abbildung zeigt wie dieses Vorgehen für die 
+        Aussage 
+        
+        $A \land ( (\lnot B) \lor C)$ aussieht:
 
-\begin{center}
-\includegraphics[width=0.4\textwidth]{images/TEMP_wahrheitsalg.png}
-\end{center}
+    \begin{center}
+        \setlength\tabcolsep{0pt}
+        \setlength\extrarowheight{-6pt}
+        \begin{tabular}{*{10}{c}}
+            $\wahr \land\null$ & ( & $(\lnot\wahr)$ & $\null\lor \falsch )$\\\braceline{2}{1}
+            $\wahr \land\null$ & ( & $\falsch$ & $\null\lor \falsch)$\\\braceline{1}{3}
+            $\wahr \land\null$ & \multicolumn{3}{c}{$\falsch$}\\\braceline{0}{4}
+            \multicolumn{4}{c}{$\falsch$}\\
+        \end{tabular}
 
-In jeder Zeile ist 
-    dabei blau gekennzeichnet, welcher Wahrheitswert bzw. welches Paar von 
-    Wahrheitswerten gewählt und dann ersetzt wurde. 
-\end{enumerate}
-Es bleibt nur noch \falsch\  übrig. Unsere Aussage $A \land ( (\lnot B) \lor C)$ ist also
-\falsch, wenn $A$ und $B$ \wahr\ sind und $C$ \falsch\ ist.
+        %\begin{tblr}[expand=\braceline]{*{10}{c}}
+        %    $\wahr \land\null$ & ( & $(\lnot\wahr)$ & $\null\lor \falsch )$\\\braceline{2}{1}
+        %    $\wahr \land\null$ & ( & $\falsch$ & $\null\lor \falsch)$\\\braceline{1}{3}
+        %    $\wahr \land\null$ & \multicolumn{3}{c}{$\falsch$}\\\braceline{0}{4}
+        %    \multicolumn{4}{c}{$\falsch$}\\
+        %\end{tblr}
+    \end{center}
+
+    In jeder Zeile ist 
+        dabei blau gekennzeichnet, welcher Wahrheitswert bzw. welches Paar von 
+        Wahrheitswerten gewählt und dann ersetzt wurde. 
+    \end{enumerate}
+    Es bleibt nur noch \falsch{} übrig. Unsere Aussage $A \land ( (\lnot B) \lor C)$ ist also
+    \falsch, wenn $A$ und $B$ \wahr{} sind und $C$ \falsch{} ist.
 \end{example}
 Wenn wir von einer Aussage $A$ die Wahrheitswerte ihrer atomaren Unteraussagen
 kennen, wissen wir jetzt also, wie wir den Wahrheitswert von $A$ ermitteln können. 
