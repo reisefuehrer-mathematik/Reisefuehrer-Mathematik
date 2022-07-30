@@ -6,20 +6,26 @@
 \usepackage{circledsteps}
 
 %\newmdenv[linewidth=1pt,backgroundcolor=yellow!10,linecolor=black!30,frametitle=\textbf{\textsf{\Large Beispiellösungen}}]{solutions}
-\newtcolorbox{solutions}{
-    code={\pgfkeysalsofrom{\tcmathenvopt}},
-    sharp corners,
-    colback=yellow!10,colframe=yellow!30, coltitle=black,
-    fonttitle=\sffamily\bfseries\Large,
-    title={Beispiellösungen}, attach title to upper=\vspace*{.5em}\par}
+%\newtcolorbox{solutions}{
+%    code={\pgfkeysalsofrom{\tcmathenvopt}},
+%    sharp corners,
+%    colback=yellow!10,colframe=yellow!30, coltitle=black,
+%    fonttitle=\sffamily\bfseries\Large,
+%    title={Beispiellösungen}, attach title to upper=\vspace*{.5em}\par}
+\newenvironment{solutions}{
+    \section*{Beispiellösungen}
+    Du kommst mit einem Aufgabentyp nicht weiter? In diesem Abschnitt findest du eine Reihe Bei\-spiel\-auf\-ga\-ben und
+    unsere Lösungen für diese Aufgaben gepaart mit Hinweisen, wie man an die Aufgabe herantreteten kann, um auf die
+    Lösung zu kommen.
+}{}
 
-\newtcolorbox{task}{sharp corners, boxrule=1pt, colframe=black!30, colback=white, boxsep=0pt}
+\newtcolorbox{task}[1][]{sharp corners, boxrule=1pt, colframe=black!30, colback=white, boxsep=0pt, #1,}
 
 \makeatletter
 %\roundedicon{fg}{bg}{textcolor}{text}
 \newcommand\roundedicon[4]{%
     \fill[draw=#1, fill=#2, line width=.5mm] (0,0) [rounded corners=0mm] -- (0,1) [rounded corners=0mm] -- (1,1) [rounded corners=0mm] -- (1,0) [rounded corners=2mm] -- cycle;%
-    \node[#3] at (.5, .5) {#4};%
+    \node[#3, anchor=center] at (.5, .5) {#4};%
 }
 \newcommand{\knobelaufgaben}{
 	\noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
@@ -35,46 +41,54 @@
         \node[black!75] at (1.05,0.16) {\small\textsf{\textbf{\strut #2}}};%
     }%
 }
-\newcommand{\icon@advanced} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{red}{red!70}{white}{$\star$};}%
-}
-\newcommand{\icon@easy} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$|$}}};}%
-}
-\newcommand{\icon@normal} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$||$}}}}%
-}
-\newcommand{\icon@hard} {%
-    \tikz[scale=0.8, onbase, overlay, xshift=-5.3mm, yshift=-4.2mm]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$|||$}}}}%
-}
+\usepackage{romanbar}
 
-\newcommand{\type@advanced} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{red}{red!70}{white}{$\star$};}%
+%{<name>}{<bg>}{<fg>}{<frame>}{icon}
+\newcommand{\newdifficulty}[5]{%
+    \expandafter\def\csname type@#1\endcsname{%
+        \tikz[scale=0.8, onbase]{\roundedicon{#4}{#2}{#3}{#5};}%
+    }%
 }
-\newcommand{\type@easy} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue}{blue!45}{white}{\textsf{\textbf{$|$}}};}%
-}
-\newcommand{\type@normal} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue!85}{blue!65}{white}{\textsf{\textbf{$||$}}}}%
-}
-\newcommand{\type@hard} {%
-    \tikz[scale=0.8, onbase]{\roundedicon{blue!70}{blue!90!black}{white}{\textsf{\textbf{$|||$}}}}%
-}
+\newdifficulty{easy}{blue!45}{white}{blue}{\textsf{\textbf{$\Romanbar{1}$}}}
+\newdifficulty{normal}{blue!65}{white}{blue!85}{\textsf{\textbf{$\Romanbar{2}$}}}
+\newdifficulty{hard}{blue!90!black}{white}{blue!70}{\textsf{\textbf{$\Romanbar{3}$}}}
+\newdifficulty{advanced}{red!70}{white}{red}{$\bigstar$}
 
 \renewenvironment{exercise}[2][]{%
     \renewcommand{\PrintHintOffers}{}%
     \stepcounter{exercisectr}%
-    \task%
-        \renewcommand\labelenumi{\alph{enumi})}%
-        \vspace*{1mm}\textsf{\textbf{Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}
-        \hfill\ifstrequal{#2}{advanced}{\icon@advanced}{%
-        \ifstrequal{#2}{easy}{\icon@easy}{%
-        \ifstrequal{#2}{normal}{\icon@normal}{%
-        \ifstrequal{#2}{hard}{\icon@hard}{}}}}\vspace*{1mm}\par
+    \task[enhanced, colframe=gray!20, boxrule=1.2pt,interior code app={
+        \node[anchor=north east, inner sep=0pt] at (frame.north east) {\csname type@#2\endcsname};
+    }]
+        \setlist[enumerate,1]{label=\alph{enumi})}
+        \setlist[enumerate]{topsep=2pt, noitemsep, itemsep=1pt}
+        \setlength{\multicolsep}{2pt}
+        \vspace*{1mm}\textsf{\textbf{\large Aufgabe \theexercisectr}}\ifthenelse{\equal{#1}{}}{}{~\circlelbl{#1}}\\[2pt]
 }{
         \PrintHintOffers
     \endtask
 }
+
+\RequirePackage{amsthm}
+\newcounter{sampleexercisectr}
+\setcounter{sampleexercisectr}{0}
+% Task Title
+\newenvironment{sampleexercise}[1]{
+    \stepcounter{sampleexercisectr}
+    \task[enhanced, colframe=yellow!30,colback=yellow!10, boxrule=1.2pt]
+        \setlist[enumerate,1]{label=\alph{enumi})}
+        \setlist[enumerate]{topsep=2pt, noitemsep, itemsep=1pt}
+        \setlength{\multicolsep}{2pt}
+        \vspace*{1mm}\textsf{\textbf{\large Beispielaufgabe \thesampleexercisectr: #1}}\\[2pt]
+}{
+    \endtask
+}
+\newenvironment{solution}{%
+    \setlist[enumerate,1]{label=\alph{enumi})}%
+    \setlist[enumerate]{topsep=2pt, noitemsep, itemsep=2pt}%
+    \setlength{\multicolsep}{2pt}%
+    \textit{Lösung:}\quad%
+}{}
 
 \newcounter{hint}
 \newcommand{\PrintHintOffers}{}

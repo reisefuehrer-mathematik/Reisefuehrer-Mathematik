@@ -8,13 +8,13 @@ Ganz zu Beginn dieses Buchs hast du dich mit den Grundrechenarten beschäftigt -
 
 Du weißt, dass für die Addition und die Multiplikation das \textbf{Kommutativgesetz} und das \textbf{Assoziativgesetz} gilt. Es gibt noch ein paar weitere Dinge, die vermutlich ziemlich selbstverständlich für dich sind: Wenn du 0 zu irgendeiner anderen Zahl addierst, veränderst du die Zahl dadurch nicht: Es gilt $a+0=a$ für alle Zahlen $a$. Auch für die Multiplikation gilt so etwas ähnliches: $a\cdot 1=a$. Die Zahl 0 wird daher auch das \textbf{neutrale Element der Addition} genannt -- und die 1 ist das \textbf{neutrale Element der Multiplikation}. Die Bezeichnung \emph{neutral} kommt daher, dass die Auswirkung der Addition von 0 neutral für den Wert des Terms ist (da es ihn ja nicht verändert). Seitdem du Brüche kennst, kannst du auch mit dem Begriff des Kehrwerts etwas anfangen. Für einen Bruch $\frac{a}{b}$ ($a$ und $b$ seien hier ganze Zahlen) ist der Kehrwert $\frac{b}{a}$. Multiplizierst du die beiden Brüche, kannst du das Ergebnis letztlich zu 1 kürzen -- also zum neutralen Element der Multiplikation. Natürlich kannst du zu jedem Bruch den Kehrwert bilden (denn du musst einfach immer nur den Zähler und Nenner vertauschen). Folglich findest du zu jedem Bruch $p$ einen zweiten Bruch $q$, sodass deren Produkt $pq=1$ ist. Ein ähnliches Phänomen kennst du auch für die Addition: Für eine Zahl $a$ ist die Gegenzahl $-a$ und es gilt $a+(-a)=a-a=0$ (also erhältst du auch hier wieder das neutrale Element). Der Kehrwert bzw. die Gegenzahl werden auch als \textbf{inverse Elemente} bezeichnet, weil sie genau das Gegenteil einer Zahl darstellen und weil sie sich gegenseitig aufheben.
 
-\begin{advexample}{}
+\begin{example}{}
     Die Zahl $7$ wird mit $6$ multipliziert, um $42$ zu erhalten. Um von der $42$ zur $7$ zurück zu kommen, muss die Multiplikation mit $6$ rückgängig gemacht werden. Das inverse Element zur $6$ ist ihr Kehrwert, also $\frac{1}{6}$. Tatsächlich gilt $42\cdot \frac{1}{6}=\frac{42}{6}=7$. Ansonsten hättest du vermutlich einfach $42:6$ gerechnet. Die Idee an dieser Stelle ist es, dass wir auf dem Hinweg die gleiche Rechenart wie auf dem Rückweg verwenden wollen.
-\end{advexample}
+\end{example}
 
-\begin{advexample}{}
+\begin{example}{}
     Der Term $x+18$ soll so verändert werden, dass nur noch $x$ übrig bleibt. Dass auf das $x$ der Wert 18 addiert wird, lässt sich mit dem \emph{inversen Element} der 18, also der $-18$, wieder rückgängig machen: $x+18+(-18)=x+0=x$. Das Addieren von $-18$ macht das Addieren von $18$ also rückgängig.
-\end{advexample}
+\end{example}
 
 Tatsächlich brauchen wir also eigentlich überhaupt keine Subtraktion oder Division. Alles, was wir je gerechnet haben, können wir ausschließlich mithilfe der Addition und Multiplikation ausdrücken, wenn wir die beiden folgenden Regeln anwenden:
 \begin{align*}
@@ -25,9 +25,9 @@ Die Idee der Gruppentheorie ist es, dass wir solche Zusammenhänge (also, dass s
 
 Bevor wir uns anschauen, was eine Gruppe in der Mathematik ist, schauen wir uns einmal an, was die Addition eigentlich genau macht. Das ist nicht weiter schwierig: Wir haben zwei Zahlen, addieren sie und erhalten als Ergebnis die Summe. Genauer gesagt bekommen wir zwei Zahlen aus einer bestimmten Menge, etwa zwei ganze Zahlen. Und natürlich sollte auch die Summe dann wieder eine ganze Zahl sein. Wir könnten nun also eine Funktion $f$ definieren, die zwei ganze Zahlen erhält und sie addiert:
 \[f\colon \Integer\times\Integer, f(a,b)=a+b.\]
-\begin{advexample}{}
+\begin{example}{}
     Es gilt $5+9=14$. Die Funktion $f$ erhält als Argument zwei Zahlen, also beispielsweise die 5 und die 9, und es gilt $f(5,9)=5+9$, also $f(5,9)=14$. Damit macht die Funktion $f$ genau dasselbe wie die normale Addition. Theoretisch ließe sich eine Rechnung wie $1+2+3$ auch als $(1+2)+3=f(1,2)+3=f(f(1,2),3)$ schreiben.
-\end{advexample}
+\end{example}
 Um sofort zu sehen, dass die Funktion eigentlich nur zwei Zahlen addiert, könnten wir sie auch $+$ nennen, denn Funktionen können ja beliebig benannt werden. In diesem Fall erhalten wir die Funktion $+$ und schreiben $+(a,b)=a+b$. Für die Multiplikation könnten wir eine Funktion $*$ mit $*(a,b)=ab$ definieren. Wir fassen einmal zusammen, was wir gerade gemacht haben:
 \begin{itemize}
     \item Wir haben eine Menge (die ganzen Zahlen \Integer) gewählt, deren Elemente wir addieren möchten.
@@ -49,20 +49,20 @@ Die hier genannten Eigenschaften sind genau das, was wir allgemein von einer Gru
         \item[(G3)] Zu jedem Element $g\in G$ existiert ein \emph{inverses Element} $g^{-1}\in G$, sodass $g*g^{-1}=g^{-1}*g=e$ gilt.
     \end{enumerate}
 \end{definition}
-\begin{advexample}{}
+\begin{example}{}
     Die ganzen Zahlen \Integer{} sind eine Gruppe bezüglich der Addition. Wie bereits bekannt ist, gilt für die Addition nämlich das Assoziativgesetz. Außerdem ist 0 das neutrale Element der Addition und $-a$ ist das inverse Element zu einem beliebigen $a\in\Integer$.
     
     Weil damit alle Axiome abgedeckt sind, ist $(\Integer,+)$ mit $+(a,b)=a+b$ eine Gruppe.
-\end{advexample}
+\end{example}
 Der wesentliche Unterschied zwischen etwas wie der Addition auf den dir bekannten Zahlen und dem Begriff der Gruppe ist, dass eine Gruppe viel allgemeiner ist. Zu Beginn ist das vermutlich sehr verwirrend, weil du dir darunter nicht wirklich etwas vorstellen kannst. Am besten denkst du beim Umgang mit Gruppen daher einfach, du hättest es mit der Addition in den ganzen Zahlen zu tun. Wie im letzten Beispiel erläutert, bilden die ganzen Zahlen nämlich eine Gruppe, wenn man die herkömmliche Addition als seine Verknüpfung auswählt. Doch auch die folgenden Beispiele, die teilweise überhaupt nichts mit der Addition zu tun haben, sind Gruppen.
 
-\begin{advexample}{}
+\begin{example}{}
     Wenn wir über die Uhrzeit sprechen, beginnen wir nach Ablauf eines Tages immer wieder von vorn mit dem Zählen der Stunden: Wenn um 23 Uhr noch zwei Stunden vergehen, ist es nicht 25 Uhr, sondern 1 Uhr. Die Uhrzeiten, die wir kennen, lassen sich durch die Zahlen $0,1,2,\dots,23$ darstellen. Statt die Reihe mit $24$ fortzusetzen, fangen wir nach der $23$ wieder bei $0$ an.
     
     Bei der Uhrzeit verwendet man eine sogenannte \textbf{Modulo-Arithmetik}. Das bedeutet, dass man zunächst normal rechnet (etwa $20+7=27$), anschließend aber das Ergebnis solange verkleinert, bis es wieder kleiner als eine Zahl (hier $24$) ist. Das machen wir, indem wir die $27$ mit Rest durch $24$ teilen. Es gilt nämlich $27=1\cdot 24\,R\,3$. Wir nun nur mit dem Rest weiter.
-\end{advexample}
+\end{example}
 
-\begin{advexample}{}
+\begin{example}{}
     \parpic[r]{
         \begin{tikzpicture}
             \draw (0:1) -- (1200:1) -- (240:1) -- cycle;
@@ -124,7 +124,7 @@ Der wesentliche Unterschied zwischen etwas wie der Addition auf den dir bekannte
         \item[(G3)] Angenommen, wir haben das Dreieck mithilfe von $D_L, D_R$ oder $D_0$ gedreht. Jetzt müssen wir eine Drehung finden, die wir danach ausführen können, um die Drehung rückgängig zu machen. Das funktioniert ganz einfach: Für $D_0$ müssen wir nichts rückgängig machen, also können wir mithilfe von $D_0$ einfach ein zweites Mal nichts machen (d.h. $D_0^{-1}=D_0$). Haben wir das Dreieck nach links gedreht ($D_L$), dann können wir es anschließend nach rechts drehen $(D_R)$ und haben die Drehung rückgängig gemacht. Also ist $D_L^{-1}=D_R$ und $D_R^{-1}=D_L$.
     \end{enumerate}
     Damit haben wir gezeigt, dass $(D,\circ)$ die Gruppenaxiome erfüllt.
-\end{advexample}
+\end{example}
 
 \begin{theorem}{Kürzungsregel}
     Es seien $G$ eine Gruppe und $a,b,c \in G$. Dann gilt $a=b$ genau dann, wenn $ac=bc$.

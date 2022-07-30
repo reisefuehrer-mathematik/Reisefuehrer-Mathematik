@@ -1,77 +1,85 @@
-\documentclass[../abbildungen.tex]{subfiles}
+\documentclass[../funktionen.tex]{subfiles}
 
 \begin{document}
     \colorlet{highlight}{violet}
-    %\colorlet{highlight}{black!90}
-    \textcolor{highlight}{\textbf{Beispielaufgabe 1 -- Formale Beschreibung einer Abbildung}}
-    
-    Ein Haustierzüchter züchtet Katzen, Kaninchen, Hamster und Wellensittiche. In der letzten Woche hat er je ein Tier jeder dieser Tierarten verkauft: Einen Wellensittich namens Martin, ein Kaninchen namens Andy und zwei Tiere namens Traxx und Naja. Es soll nun eine Abbildung \textsc{Tierart} definiert werden, die zu den Namen dieser vier verkauften Tiere die jeweilige Tierart angibt.
-    
-    \begin{enumerate}[label=\textcolor{highlight}{\alph*)}]
-        \item Welche Definitions- und Bildmenge hat die Abbildung \textsc{Tierart}?
-        \item Was bedeutet die Schreibweise $\textsc{Tierart}(\text{Naja})=\text{Katze}$?
-        \item Beschreibe Abbildung und Abbildungsvorschrift formal.
-        \item Beschreibe die Abbildung als Diagramm.
-    \end{enumerate}
-    
-    \textcolor{highlight}{\emph{Lösung.}} 
-    \begin{enumerate}[label=\textcolor{highlight}{\alph*)}]
-        \item Um Definitions- und Bildmenge herauszufinden, musst du in der Aufgabenstellung nach der Information suchen, welche Information die Abbildung in eine andere zuordnet. In der Aufgabenstellung steht, dass die Abbildung zu den Namen die jeweilige Tierart angibt. Man nimmt also einen der vier Namen aus der Aufgabenstellung und die Abbildung macht daraus die entsprechende Tierart. Dadurch ergibt sich schnell die \textbf{Definitionsmenge}: Dies ist die Menge aller Dinge, die die Abbildung in andere übersetzt -- hier also die Menge aller Namen, die die Abbildung in Tierarten übersetzt:
-        \[\textsc{Definitionsmenge}=\textsc{Namen}\coloneqq\{\text{Martin}, \text{Andy}, \text{Traxx}, \text{Naja}\}.\]
-        Die \textbf{Bildmenge} enthält nun alle Namen, die potentiell herauskommen können, wenn man einen der vier Namen aus der Definitionsmenge in die Abbildung \textsc{Tierart} einsetzt. Da der Züchter nur vier Tierarten verkauft, können sich auch nur vier verschiedene Tierarten hinter dem eingesetzten Namen verstecken: Katze, Kaninchen, Hamster oder Wellensittich. Die Bildmenge ist also
-        \[\textsc{Bildmenge}=\textsc{Arten}\coloneqq\{\text{Katze}, \text{Kaninchen}, \text{Hamster}, \text{Wellensittich}\}.\]
-        
-        \item Mit der Schreibweise $\textsc{Tierart}(\text{Naja})=\text{Katze}$ gibt man an, dass die Abbildung namens \textsc{Tierart} den Namen \emph{Naja} auf die Tierart \emph{Katze} abbildet, d.h. wir sagen, dass das Tier mit dem Namen Naja eine Katze ist: \enquote{Die Tierart von Naja ist Katze}.
-        
-        \item Um \textbf{Abbildung} und \textbf{Abbildungsvorschrift} formal zu notieren, benötigst du zwei Dinge. Zunächst musst du festlegen, wie die Abbildung heißt, die du notieren möchtest. Dazu schreibst du auch direkt, welches die Definitions- und Bildmenge der Abbildung sind. Aus der Aufgabenstellung geht hervor, dass die Abbildung hier \textsc{Tierart} heißen soll. Definitions- und Bildmenge haben wir in Aufgabe \textcolor{violet}{a)} festgelegt. Formal schreibt man nun also auf, dass die Abbildung \textsc{Tierart} von der Menge \textsc{Namen} in die Menge \textsc{Arten} abbildet. Die Schreibweise dafür ist
-        \[\textsc{Tierart}\colon\textsc{Namen}\rightarrow\textsc{Arten}.\]
-        Die Abbildungsregeln schreibst du auf, indem du für jedes Element aus der Definitionsmenge aufschreibst, welches Element der Bildmenge ihm zugeordnet wird. Martin ist ein Wellensittich, also schreibst du $\textsc{Tierart}(\text{Martin})=\text{Wellensittich}$. Da Andy ein Kaninchen ist, fügt man die Regel $\textsc{Tierart}(\text{Andy})=\text{Kaninchen}$ hinzu.
-        
-        Nun kennen wir aus Aufgabenteil \textcolor{violet}{b)} bereits die Regel $\textsc{Tierart}(\text{Naja})=\text{Katze}$. Damit ist klar, dass Traxx ein Hamster sein muss, also schreibt man $\textsc{Tierart}(\text{Traxx})=\text{Hamster}$. Insgesamt erhält man also die vier Regeln
-        \begin{align*}
-            \textsc{Tierart}(\text{Andy})&=\text{Kaninchen},\\
-            \textsc{Tierart}(\text{Martin})&=\text{Wellensittich},\\
-            \textsc{Tierart}(\text{Naja})&=\text{Katze},\\
-            \textsc{Tierart}(\text{Traxx})&=\text{Hamster}.
-        \end{align*}
-        
-        \item Um die Abbildung als Diagramm darzustellen, zeichnest du die Definitions- und die Bildmenge nebeneinander auf. Für jede dieser Mengen zeichnest du also ein separates Mengendiagramm, in dem du jeweils alle Elemente der Menge durch einen Punkt einzeichnest.
-        
-        Hier kommt also die Menge \textsc{Namen} auf die linke Seite, weil es sich um die Definitionsmenge handelt. Alle vier Elemente der Menge zeichnest du als Punkte ein, die beschriftet werden.
-        
-        Auf die rechte Seite kommt dann das Mengendiagramm für \textsc{Arten}, da dies die Bildmenge beschreibt.
-        
-        Schließlich zeichnest du einen Pfeil vom Punkt, der den Namen \emph{Martin} darstellt, auf den Punkt der rechten Menge, der \emph{Wellensittich} darstellt, weil das Tier mit dem Namen Martin ein Wellensittich ist. Die restlichen drei Pfeile zeichnest du nach derselben Regel ein.
-        \begin{center}
-            \begin{tikzpicture}[scale=.6] fit/.style={ellipse,draw,inner sep=-2pt}]
-                \fill[grayset] (-1.7,0) ellipse (2.6cm and 2cm);
-                \fill[grayset] (4.4,0) ellipse (3cm and 2cm);
+    \begin{sampleexercise}{Formale Beschreibung einer Abbildung}
+        Ein Haustierzüchter züchtet Katzen, Kaninchen, Hamster und Wellensittiche. In der letzten Woche hat er je ein Tier jeder dieser Tierarten verkauft: Einen Wellensittich namens Martin, ein Kaninchen namens Andy und zwei Tiere namens Traxx und Naja. Es soll nun eine Abbildung \textsc{Tierart} definiert werden, die zu den Namen dieser vier verkauften Tiere die jeweilige Tierart angibt.
+        \begin{enumerate}
+            \item Welche Definitions- und Bildmenge hat die Abbildung \textsc{Tierart}?
+            \item Was bedeutet die Schreibweise $\textsc{Tierart}(\text{Naja})=\text{Katze}$?
+            \item Beschreibe Abbildung und Abbildungsvorschrift formal.
+            \item Beschreibe die Abbildung als Diagramm.
+        \end{enumerate}
+    \end{sampleexercise}
+    \begin{solution}
+        \begin{enumerate}
+            \item Um Definitions- und Bildmenge herauszufinden, musst du in der Aufgabenstellung nach der Information suchen, welche Information die Abbildung in eine andere zuordnet. In der Aufgabenstellung steht, dass die Abbildung zu den Namen die jeweilige Tierart angibt. Man nimmt also einen der vier Namen aus der Aufgabenstellung und die Abbildung macht daraus die entsprechende Tierart. Dadurch ergibt sich schnell die \textbf{Definitionsmenge}: Dies ist die Menge aller Dinge, die die Abbildung in andere übersetzt -- hier also die Menge aller Namen, die die Abbildung in Tierarten übersetzt:
+            \[\textsc{Definitionsmenge}=\textsc{Namen}\coloneqq\{\text{Martin}, \text{Andy}, \text{Traxx}, \text{Naja}\}.\]
+            Die \textbf{Bildmenge} enthält nun alle Namen, die potentiell herauskommen können, wenn man einen der vier Namen aus der Definitionsmenge in die Abbildung \textsc{Tierart} einsetzt. Da der Züchter nur vier Tierarten verkauft, können sich auch nur vier verschiedene Tierarten hinter dem eingesetzten Namen verstecken: Katze, Kaninchen, Hamster oder Wellensittich. Die Bildmenge ist also
+            \[\textsc{Bildmenge}=\textsc{Arten}\coloneqq\{\text{Katze}, \text{Kaninchen}, \text{Hamster}, \text{Wellensittich}\}.\]
             
-                \node[label=left:Martin] (x1) at (-0.7,1.35) {$\bullet$};
-                \node[label=left:Andy] (x2) at (-0.7,0.45) {$\bullet$};
-                \node[label=left:Traxx] (x3) at (-0.7,-0.45) {$\bullet$};
-                \node[label=left:Naja] (x4) at (-0.7,-1.35) {$\bullet$};
+            \item Mit der Schreibweise $\textsc{Tierart}(\text{Naja})=\text{Katze}$ gibt man an, dass die Abbildung namens \textsc{Tierart} den Namen \emph{Naja} auf die Tierart \emph{Katze} abbildet, d.h. wir sagen, dass das Tier mit dem Namen Naja eine Katze ist: \enquote{Die Tierart von Naja ist Katze}.
+            
+            \item Um \textbf{Abbildung} und \textbf{Abbildungsvorschrift} formal zu notieren, benötigst du zwei Dinge. Zunächst musst du festlegen, wie die Abbildung heißt, die du notieren möchtest. Dazu schreibst du auch direkt, welches die Definitions- und Bildmenge der Abbildung sind. Aus der Aufgabenstellung geht hervor, dass die Abbildung hier \textsc{Tierart} heißen soll. Definitions- und Bildmenge haben wir in Aufgabe \textcolor{violet}{a)} festgelegt. Formal schreibt man nun also auf, dass die Abbildung \textsc{Tierart} von der Menge \textsc{Namen} in die Menge \textsc{Arten} abbildet. Die Schreibweise dafür ist
+            \[\textsc{Tierart}\colon\textsc{Namen}\rightarrow\textsc{Arten}.\]
+            Die Abbildungsregeln schreibst du auf, indem du für jedes Element aus der Definitionsmenge aufschreibst, welches Element der Bildmenge ihm zugeordnet wird. Martin ist ein Wellensittich, also schreibst du $\textsc{Tierart}(\text{Martin})=\text{Wellensittich}$. Da Andy ein Kaninchen ist, fügt man die Regel $\textsc{Tierart}(\text{Andy})=\text{Kaninchen}$ hinzu.
+            
+            Nun kennen wir aus Aufgabenteil \textcolor{violet}{b)} bereits die Regel $\textsc{Tierart}(\text{Naja})=\text{Katze}$. Damit ist klar, dass Traxx ein Hamster sein muss, also schreibt man $\textsc{Tierart}(\text{Traxx})=\text{Hamster}$. Insgesamt erhält man also die vier Regeln
+            \begin{align*}
+                \textsc{Tierart}(\text{Andy})&=\text{Kaninchen},\\
+                \textsc{Tierart}(\text{Martin})&=\text{Wellensittich},\\
+                \textsc{Tierart}(\text{Naja})&=\text{Katze},\\
+                \textsc{Tierart}(\text{Traxx})&=\text{Hamster}.
+            \end{align*}
+            
+            \item Um die Abbildung als Diagramm darzustellen, zeichnest du die Definitions- und die Bildmenge nebeneinander auf. Für jede dieser Mengen zeichnest du also ein separates Mengendiagramm, in dem du jeweils alle Elemente der Menge durch einen Punkt einzeichnest.
+            
+            Hier kommt also die Menge \textsc{Namen} auf die linke Seite, weil es sich um die Definitionsmenge handelt. Alle vier Elemente der Menge zeichnest du als Punkte ein, die beschriftet werden.
+            
+            Auf die rechte Seite kommt dann das Mengendiagramm für \textsc{Arten}, da dies die Bildmenge beschreibt.
+            
+            Schließlich zeichnest du einen Pfeil vom Punkt, der den Namen \emph{Martin} darstellt, auf den Punkt der rechten Menge, der \emph{Wellensittich} darstellt, weil das Tier mit dem Namen Martin ein Wellensittich ist. Die restlichen drei Pfeile zeichnest du nach derselben Regel ein.
+            \begin{center}
+                \begin{tikzpicture}[scale=.6] fit/.style={ellipse,draw,inner sep=-2pt}]
+                    \fill[grayset] (-1.7,0) ellipse (2.6cm and 2cm);
+                    \fill[grayset] (4.4,0) ellipse (3cm and 2cm);
                 
-                \node[label=right:Hamster] (y1) at (3.1,1.35) {$\bullet$};
-                \node[label=right:Kaninchen] (y2) at (3.1,0.45) {$\bullet$};
-                \node[label=right:Wellensittich] (y3) at (3.1,-0.45) {$\bullet$};
-                \node[label=right:Katze] (y4) at (3.1,-1.35) {$\bullet$};
-            
-                \draw[blue,->] (x1) -- (y3);
-                \draw[blue,->] (x2) -- (y2);
-                \draw[blue,->] (x3) to[bend left] (y1);
-                \draw[blue,->] (x4) -- (y4);
-            \end{tikzpicture}
-        \end{center}
-    \end{enumerate}
+                    \node[label=left:Martin] (x1) at (-0.7,1.35) {$\bullet$};
+                    \node[label=left:Andy] (x2) at (-0.7,0.45) {$\bullet$};
+                    \node[label=left:Traxx] (x3) at (-0.7,-0.45) {$\bullet$};
+                    \node[label=left:Naja] (x4) at (-0.7,-1.35) {$\bullet$};
+                    
+                    \node[label=right:Hamster] (y1) at (3.1,1.35) {$\bullet$};
+                    \node[label=right:Kaninchen] (y2) at (3.1,0.45) {$\bullet$};
+                    \node[label=right:Wellensittich] (y3) at (3.1,-0.45) {$\bullet$};
+                    \node[label=right:Katze] (y4) at (3.1,-1.35) {$\bullet$};
+                
+                    \draw[blue,->] (x1) -- (y3);
+                    \draw[blue,->] (x2) -- (y2);
+                    \draw[blue,->] (x3) to[bend left] (y1);
+                    \draw[blue,->] (x4) -- (y4);
+                \end{tikzpicture}
+            \end{center}
+        \end{enumerate}
+    \end{solution}
+
+    \begin{sampleexercise}{Wertetabellen für Abbildungen erstellen}
+        
+    \end{sampleexercise}
     
-    %\textcolor{highlight}{\textbf{Beispielaufgabe 2 -- Wertetabellen für Abbildungen erstellen}}
+    \begin{sampleexercise}{Ablesen von Abbildungsvorschriften aus Wertetabellen}
+        
+    \end{sampleexercise}
     
-    %\textcolor{highlight}{\textbf{Beispielaufgabe 3 -- Ablesen von Abbildungsvorschriften aus Wertetabellen}}
+    \begin{sampleexercise}{Aufstellen von Berechnungsvorschriften}
+        
+    \end{sampleexercise}
+
+    \begin{sampleexercise}{Informationen von einem Abbildungsgraphen ablesen}
+        
+    \end{sampleexercise}
     
-    %\textcolor{highlight}{\textbf{Beispielaufgabe 4 -- Aufstellen von Berechnungsvorschriften}}
-    
-    %\textcolor{highlight}{\textbf{Beispielaufgabe 5 -- Informationen von einem Abbildungsgraphen ablesen}}
-    
-    %\textcolor{highlight}{\textbf{Beispielaufgabe 6 -- Zeichnen eines Abbildungsgraphen}}
+    \begin{sampleexercise}{Zeichnen eines Abbildungsgraphen}
+        
+    \end{sampleexercise}
 \end{document}
