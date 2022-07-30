@@ -31,7 +31,7 @@ Zwei Funktionen zu verketten, klappt nur dann, wenn die zweite Funktion etwas mi
         \draw[grayset] (-1.5,0) ellipse (0.7cm and 2cm);
         \draw[grayset] (1.5,0) ellipse (0.7cm and 2cm);
         \draw[grayset] (4.5,0) ellipse (0.7cm and 2cm);
-    
+        %
         \node[red] (x1) at (-1.5,0.7) {$\bullet$};
         %\node (x2) at (-1.5,-0.2) {$\bullet$};
         \node (x3) at (-1.5,-1.1) {$\bullet$};
@@ -42,18 +42,18 @@ Zwei Funktionen zu verketten, klappt nur dann, wenn die zweite Funktion etwas mi
         \node (z2) at (4.5,0.4) {$\bullet$};
         \node (z3) at (4.5,-0.4) {$\bullet$};
         \node[blue] (z4) at (4.5,-1.2) {$\bullet$};
-    
+        %
         \draw[red, ->] (x1) -- (y3);
         %\draw[->] (x2) to[bend right] (y1);
         \draw[red, ->] (x3) to[bend left] (y1);
-    
+        %
         \draw[blue, ->] (y1) to (z1);
         \draw[blue, ->] (y3) -- (z4);
-    
+        %
         \draw[black!30, ->] (x1) to (z4);
         %\draw[black!30, ->] (x2) -- (z3);
         \draw[black!30, ->] (x3) -- (z1);
-    
+        %
         \node[red] at (0,-1) {$f$};
         \node[blue] at (3,-1) {$g$};
         %\node[black!30] at (3,-1.7) {$g\circ f$};
