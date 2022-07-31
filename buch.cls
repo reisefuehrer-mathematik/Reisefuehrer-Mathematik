@@ -224,7 +224,14 @@ suffix_3p "\\,ff."
     colback=definition@bg,colframe=definition@frame,
     title={Definition~\thedef\ifstrempty{#2}{}{~--~#2}},
     step=def,
-    IfValueT={#1}{label=#1}
+    IfValueT={#1}{label=#1},
+    before upper={
+        % Configure the colors of circled enumerate labels
+        \colorlet{circlelblcolor@text}{definition@bg}
+        \colorlet{circlelblcolor@border}{definition@frame}
+        \colorlet{circlelblcolor@fill}{definition@frame}
+        \setlist[itemize]{label=\textcolor{circlelblcolor@fill}{\textbullet}}
+    }
 }
 \DeclareTColorBox{lemma}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
@@ -238,7 +245,14 @@ suffix_3p "\\,ff."
     colback=theorem@bg,colframe=theorem@frame,
     title={Satz~\thetheo\ifstrempty{#2}{}{~--~#2}},
     step=theo,
-    IfValueT={#1}{label=#1}
+    IfValueT={#1}{label=#1},
+    before upper={
+        % Configure the colors of circled enumerate labels
+        \colorlet{circlelblcolor@text}{theorem@bg!20!white}
+        \colorlet{circlelblcolor@border}{theorem@frame}
+        \colorlet{circlelblcolor@fill}{theorem@frame}
+        \setlist[itemize]{label=\textcolor{circlelblcolor@fill}{\textbullet}}
+    }
 }
 \DeclareTColorBox{corollary}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
