@@ -270,9 +270,14 @@ suffix_3p "\\,ff."
 %\newtcolorbox{nutshell}[1]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=brown!20,colframe=brown!40, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par}
 \newenvironment{nutshell}[1]{
     \begin{tcolorbox}[code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=nutshell@bg,colframe=nutshell@frame, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par]
+    % Configure table lines
     \setlength\heavyrulewidth{2pt}
     \setlength{\lightrulewidth}{1.5pt}%
     \arrayrulecolor{brown!40}
+    % Configure the colors of circled enumerate labels
+    \colorlet{circlelblcolor@text}{nutshell@bg!20!white}
+    \colorlet{circlelblcolor@border}{brown!70}
+    \colorlet{circlelblcolor@fill}{brown!70}
 }{
     \end{tcolorbox}
     \arrayrulecolor{black}
@@ -346,14 +351,17 @@ suffix_3p "\\,ff."
 % Setting the default enumerate environment to circled numbers
 \RequirePackage{circledsteps}
 \RequirePackage{enumitem}
-\def\@circlelblcolor@text{white}
-\def\@circlelblcolor@border{blue!40!white}
-\def\@circlelblcolor@fill{blue!40!white}
+%\def\@circlelblcolor@text{white}
+%\def\@circlelblcolor@border{blue!40!white}
+%\def\@circlelblcolor@fill{blue!40!white}
+\colorlet{circlelblcolor@text}{white}
+\colorlet{circlelblcolor@border}{blue!40!white}
+\colorlet{circlelblcolor@fill}{blue!40!white}
 \newcommand{\circlelbl}[1]{%
     \Circled[%
-        inner color=white,%\@circlelblcolor@text,
-        outer color=blue!40,%\@circlelblcolor@border,
-        fill color=blue!40,%\@circlelblcolor@fill,
+        inner color=circlelblcolor@text,
+        outer color=circlelblcolor@border,
+        fill color=circlelblcolor@fill,
         inner ysep=4pt,
         inner xsep=4pt]{\textsf{#1}}%
 }
