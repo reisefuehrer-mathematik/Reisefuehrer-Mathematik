@@ -130,8 +130,28 @@
     \begin{example}{}
         Wenn ein Kilometer tausend Metern entspricht (in Zeichen: $1\,\text{km} \corresponds 1000\,\text{m}$), denkt man
         leicht, dass dann auch $1\,\text{km}^2 \corresponds 1000\,\text{m}^2$.
-        Dass das aber nicht stimmt, sieht man schnell, wenn man sich überlegt, dass ein Quadrat mit einer Seitenlänge
-        von $1\,\text{km}$ also eine Seitenlänge von $1000\,\text{m}$ hat und somit eine Fläche von $1000^2\,\text{m}^2$.
+        Dass stimmt allerding nicht: Wenn du dir überlegst, dass ein Quadrat mit einer Seitenlänge von $1\,\text{km}$
+        eine Seitenlänge von $1000\,\text{m}$ hat, dann hat es eine Fläche von $(1\,\text{km})^2 = 1\,\text{km}^2$
+        beziehungsweise $(1000\,\text{m})^2 = 1000^2\,\text{m}^2$.
+        \begin{center}
+            \begin{tikzpicture}
+                \fill[orange!10, draw=orange, text=orange] (0,0) rectangle (4,4) node[pos=.5, align=center]{$1000\,\text{m}\times 1000\,\text{m}$\\$= 1000^2\,\text{m}^2$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,0) -- (0,4)
+                    node[pos=0.5,left=10pt,black]{$1000\,\text{m}$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (0,4) -- (4,4)
+                    node[pos=0.5,above=10pt,black]{$1000\,\text{m}$};
+
+                \fill[blue!10, draw=blue, text=blue] (6,1.5) rectangle +(4,1) node[pos=.5, align=center]{$1000\,\text{m}\times 1\,\text{m}$\\$= 1000\,\text{m}^2$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (6,1.5) -- +(0,1)
+                    node[pos=0.5,left=10pt,black]{$1\,\text{m}$};
+                \draw[decorate, decoration = {calligraphic brace, raise=5pt, amplitude=5pt}]
+                    (6,2.5) -- +(4,0)
+                    node[pos=0.5,above=10pt,black]{$1000\,\text{m}$};
+            \end{tikzpicture}
+        \end{center}
     \end{example}
 
     Mit diesem kurzen Nachtrag möchten wir dir eine andere Perspektive auf Einheiten geben, indem wir Einheiten als eine
@@ -178,7 +198,7 @@
 
     \textbf{Aber Achtung!} Man muss immer darauf achten, dass die Einheit, die man tatsächlich verwendet, dem
     Entspricht, was man einsetzt.
-    \begin{example}
+    \begin{example}{}
         Zum Beispiel würde es keinen Sinn ergeben, aus Millimetern, also $\text{mm}$, sowas zu machen wie $\text{m}^2$
         oder sogar
         \[\text{mm} = 0.001\,\text{m} = 0.001\cdot 0.001.\]

@@ -281,20 +281,27 @@ suffix_3p "\\,ff."
     IfValueT={#1}{label=#1}
 }
 \newtcolorbox{reminder}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=reminder@bg,colframe=reminder@frame, title={\color{gray} Erinnerung}, attach title to upper=\vspace*{.5em}\par}
-%\newtcolorbox{nutshell}[1]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=brown!20,colframe=brown!40, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par}
-\newenvironment{nutshell}[1]{
-    \begin{tcolorbox}[code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=nutshell@bg,colframe=nutshell@frame, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par]
-    % Configure table lines
-    \setlength\heavyrulewidth{2pt}
-    \setlength{\lightrulewidth}{1.5pt}%
-    \arrayrulecolor{brown!40}
-    % Configure the colors of circled enumerate labels
-    \colorlet{circlelblcolor@text}{nutshell@bg!20!white}
-    \colorlet{circlelblcolor@border}{brown!70}
-    \colorlet{circlelblcolor@fill}{brown!70}
-}{
-    \end{tcolorbox}
-    \arrayrulecolor{black}
+\DeclareTColorBox{nutshell}{ m }{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=nutshell@bg, colframe=nutshell@frame,
+    %title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}},
+    %attach title to upper=\vspace*{.5em}\par,
+    before upper={
+        % We repeat the title here since "before upper" actually overrides "attach title to upper"
+        {\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}
+        \vspace*{.5em}\par
+        % Configure table lines
+        \setlength\heavyrulewidth{2pt}
+        \setlength{\lightrulewidth}{1.5pt}%
+        \arrayrulecolor{brown!40}
+        % Configure the colors of circled enumerate labels
+        \colorlet{circlelblcolor@text}{nutshell@bg!20!white}
+        \colorlet{circlelblcolor@border}{brown!70}
+        \colorlet{circlelblcolor@fill}{brown!70}
+    },
+    after upper={
+        \arrayrulecolor{black} % we have to manually reset this :(
+    }
 }
 \DeclareTColorBox{goal}{ o m m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
@@ -348,26 +355,23 @@ suffix_3p "\\,ff."
     innerskip=0pt,
     afterskip=1.725\baselineskip plus .115\baselineskip minus .192\baselineskip
 ]{chapter}
+\usetikzlibrary{backgrounds}
 \renewcommand\raggedchapter{\raggedleft}
-\renewcommand\chapterformat{{\textcolor{chaptercolor}{\bfseries\thechapter}}}
+\renewcommand\chapterformat{\bfseries\thechapter}
 \renewcommand{\chapterlinesformat}[3]{%
-    \ifthenelse{\equal{#2}{\empty}}{}{
-    \tikz[remember picture, overlay]{
-        \node[anchor=south east, inner sep=0pt, transform shape, scale=8, text=chaptercolor!40!black!20!white] at ($(pic cs:A)-(0,.5cm)-(-.25cm, .25cm)$) {\bfseries\thechapter};
-        \node[anchor=south east, inner sep=0pt, transform shape, scale=8] at ($(pic cs:A)-(0,.5cm)$) {#2};
-    }}%
-    \bfseries#3\tikzmark{A}
-    \vspace*{-.5\baselineskip}%
-    \rule{\textwidth}{.4pt}\par\nobreak
+    \tikz[baseline=(A.base)]{
+        \node[inner sep=0pt, anchor=base] (A) {\bfseries#3};
+        \begin{scope}[on background layer]
+            \node[anchor=east, inner sep=0pt, scale=8, text=chaptercolor!40!black!20!white] at ($(A.east)-(-.25cm, .25cm)$) {#2};
+            \node[anchor=east, inner sep=0pt, scale=8, text=chaptercolor] at (A.east) {#2};
+        \end{scope}
+    }\par
 }
 \renewcommand\chapterlineswithprefixformat[3]{\chapterlinesformat{#1}{#2}{#3}}
 
 % Setting the default enumerate environment to circled numbers
 \RequirePackage{circledsteps}
 \RequirePackage{enumitem}
-%\def\@circlelblcolor@text{white}
-%\def\@circlelblcolor@border{blue!40!white}
-%\def\@circlelblcolor@fill{blue!40!white}
 \colorlet{circlelblcolor@text}{white}
 \colorlet{circlelblcolor@border}{blue!40!white}
 \colorlet{circlelblcolor@fill}{blue!40!white}
