@@ -64,9 +64,16 @@
     \StrSubstitute{#2}{blatt}{}[#2]
 }
 \makeatletter
+\newcommand\separator[1]{
+    \noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
+	\vspace{-0.5cm}
+	\begin{center}\textcolor{red}{\sffamily #1}\end{center}
+    \vspace{-0.5cm}
+    \noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
+}
 \newcommand\ldtasks[1]{
     \tosheetnum{#1}{\sheetnum}
-    \section*{Aufgaben zu Vorbereitungsblatt \@chapternum.\sheetnum}
+    \separator{Aufgaben zu Vorbereitungsblatt \@chapternum.\sheetnum}
     \tosnakecase{\@topic}{\chaptername}
     \subfile{\chaptername/#1}
 }

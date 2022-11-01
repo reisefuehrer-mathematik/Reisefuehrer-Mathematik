@@ -34,7 +34,9 @@ Im Verlaufe dieses Buchs hast du bereits eine große Zahl von Beweisen und Herle
 
     Weil $p$ eine Primzahl ist, gilt für jeden Teiler von $p$, dass dieser entweder $1$ oder $p$ ist. Da $p$ aber gerade ist, muss $2$ ein Teiler von $p$ sein. Daraus folgt, dass $2=1$ oder $2=p$ sein muss. Da $2\neq 1$ gilt, muss $2=p$ sein.
 
-    Daraus, dass $p$ eine gerade Primzahl ist, folgt also, dass $p=2$ gilt. Weil wir außerdem wissen, dass $p$ in der Tat eine gerade Primzahl ist (das war unsere Voraussetzung), können wir schlussfolgern, dass $p=2$ ist.
+    Daraus, dass $p$ eine gerade Primzahl ist, folgt also, dass $p=2$ gilt:
+    \[p~\text{ist~eine~gerade~Primzahl} \limplies p=2\]
+    Der linke Teil der Implikation (\enquote{$p$ ist eine gerade Primzahl}) ist unsere Voraussetzung, also gilt er. Es muss also auch der rechte Teil \enquote{$p=2$} gelten. Wir haben damit die obige Aussage bewiesen:
     \begin{align*}
         &\text{\emph{Voraussetzung~1:}}~&p~\text{ist~eine~gerade~Primzahl} \limplies p=2\\
         &\text{\emph{Voraussetzung~2:}}~&p~\text{ist~eine~gerade~Primzahl}\\
@@ -96,7 +98,7 @@ Nachdem wir eben gelernt haben, dass sich neue Aussagen mithilfe eines \emph{dir
     \end{align*}    
 \end{example}
 
-Schließlich schauen wir uns noch eine Schlussfolgerungsregel mit dem Namen \textbf{Fallunterscheidung} an. Unser Ziel ist es, eine Aussage $B$ herzuleiten. Das heißt, dass die Aussage $B$ unabhängig davon wahr sein sollte, ob eine andere Aussage $A$ auch noch gilt.
+Schließlich schauen wir uns noch eine Schlussfolgerungsregel mit dem Namen \textbf{Fallunterscheidung} an. Unser Ziel ist es, eine Aussage $B$ herzuleiten. Das heißt, dass die Aussage $B$ unabhängig davon wahr sein sollte, ob eine \emph{beliebige} andere Aussage $A$ auch noch gilt.
 
 \begin{example}{}
     Du hast die Hausaufgaben nicht gemacht und sitzt nun im Unterricht. Der Lehrer fragt, wer die Hausaufgaben nicht gemacht hat und du weißt, dass er gleich durch die Klasse gehen wird, um die Hausaufgaben zu kontrollieren. Weil du die Hausaufgaben schon zweimal nicht erledigt hast und beim dritten Mal nachsitzen musst, möchtest du eigentlich nicht zugeben, dass du sie nicht gemacht hast. Was sind also deine Optionen?
@@ -126,7 +128,7 @@ Für jeden dieser Fälle musst du dann die Aussage $B$ herleiten. Das ist zwar m
     Nun müssen wir zeigen, dass $B$ aus $A$ folgt und dass $B$ aus $\lnot A$ folgt.
     \begin{enumerate}
          \item
-            Wir nehmen an, dass $A$ wahr ist, also dass $x<0$ gilt. In diesem Fall ist $|x|=-x$. Da $x<0$ ist, muss $-x>0$ gelten. Das heißt aber, dass $x<0<|x|$ gilt, also muss auch $x\leq |x|$ gelten. Wir haben also gezeigt, dass 
+            Wir nehmen an, dass $A$ wahr ist, also dass $x<0$ gilt. In diesem Fall ist $|x|=-x$. Da $x<0$ ist, muss $-x>0$ gelten. Das heißt aber, dass $x<0<|x|$ gilt, also muss auch $x\leq |x|$ gelten.
          \item
             Wir nehmen an, dass $A$ falsch ist, also dass $x<0$ nicht gilt. Daraus folgt, dass $x\geq 0$ gelten muss. Für $x\geq 0$ wissen wir, dass $|x|=x$ gilt. Das heißt natürlich auch, dass $x\leq |x|$ gilt.
     \end{enumerate}

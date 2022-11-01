@@ -120,7 +120,7 @@ suffix_3p "\\,ff."
         \colorlet{nutshell@bg}{brown!70!white}%
         \colorlet{nutshell@frame}{brown!70!black}%
         %
-        \pagecolor{violet!30!white}
+        \pagecolor{violet!20!white}
         \section{#2}
         \tosnakecase{\Chaptername}{\chapname}
         \tosnakecase{#2}{\filename}

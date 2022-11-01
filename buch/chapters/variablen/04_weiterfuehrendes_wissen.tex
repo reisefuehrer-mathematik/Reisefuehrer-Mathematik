@@ -136,12 +136,12 @@ Eine positive ganze Zahl $n$ kann für jede Basis $b$ mit $b\geq 2$ eindeutig $b
 
 Im Rest dieses Abschnitts beschäftigen wir uns mit Teilbarkeitsregeln für die eben definierten Stellenwertsysteme -- abhängig von der gewählten Basis $b$. Wir haben im Kapitel über Teilbarkeit $a\mid n$ geschrieben, wenn $a$ ein Teiler von $n$ ist. Diese Notation werden wir gleich wieder verwenden.
 
-Im Dezimalsystem sind dir vermutlich schon einige Teilbarkeitsregeln aus dem Kapitel über \mayberef\emph{Teilbarkeit} bekannt. Wenn du prüfen möchtest, ob eine Zahl durch $2, 5$ oder $10$ teilbar ist, reicht es aus, wenn du dir die letzte Stelle anschaust. Eine Zahl ist beispielsweise nur durch $5$ teilbar, wenn die letzte Stelle durch $5$ teilbar ist. Da wir nur auf die letzte Stelle schauen, heißt diese Teilbarkeitsregel \emph{Endstellenregel}. Diese Regel können wir nun beweisen und verallgemeinern.
+Im Dezimalsystem sind dir vermutlich schon einige Teilbarkeitsregeln aus dem Kapitel über \emph{Teilbarkeit} bekannt. Wenn du prüfen möchtest, ob eine Zahl durch $2, 5$ oder $10$ teilbar ist, reicht es aus, wenn du dir die letzte Stelle anschaust. Eine Zahl ist beispielsweise nur durch $5$ teilbar, wenn die letzte Stelle durch $5$ teilbar ist. Da wir nur auf die letzte Stelle schauen, heißt diese Teilbarkeitsregel \emph{Endstellenregel}. Diese Regel können wir nun beweisen und verallgemeinern.
 \begin{theorem}{Endstellenregel}
     Es sei $n$ eine positive ganze Zahl mit der Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$. Für alle Zahlen $t$ mit $t\mid b$ gilt:
     \[t\mid n\text{ genau dann, wenn }t\mid a_0.\]
 \end{theorem}
-Wenn $a\mid b$ gilt, dann ist der Quotioent $b:a$ wieder eine ganze Zahl (ansonsten würden wir einen Rest erhalten). Folglich können wir $b=ac$ für eine ganze Zahl $c$ schreiben. \todo{Das muss ins Teilbarkeitskapitel}
+Wenn $a\mid b$ gilt, dann ist der Quotioent $\frac{b}{a}$ wieder eine ganze Zahl (ansonsten würden wir einen Rest erhalten). Folglich können wir der ganzen Zahl $\frac{b}{a}$ den neuen Namen $c$ geben und $b=a\cdot\frac{b}{a}=ac$ schreiben. Wir werden im folgenden Beweis von dieser Beobachtung Gebrauch machen.\todo{Das muss ins Teilbarkeitskapitel}
 \begin{proof}
     Da $a_0$ durch $b$ teilbar ist, gibt es eine ganze Zahl $c$ mit $a_0=bc$. Weil $n$ die Darstellung $(a_{k-1}\cdots a_1a_0)_b$ im Zahlensystem zur Basis $b$ hat, gilt
     \begin{align*}
@@ -182,7 +182,9 @@ Auch die Quersummenregel, die du für die Zahlen $3$ und $9$ kennst, kann auf Za
         &~\,\vdots\\
         b^{k-1}-1&=(b-1)(b^{k-2}+b^{k-3}+\cdots+b+1),\\
     \end{align*}
-    dass alle Summanden aus $(*)$ durch $b-1$ teilbar sind. Weil $t\mid(b-1)$ gilt, müssen die Summanden aus $(*)$ also insbesondere auch durch $t$ teilbar sein (wenn sie nicht durch $t$ teilbar wären, dann könnten sie erst recht nicht durch $b-1$ teilbar sein). Wir wissen aus dem Kapitel über \emph{Teilbarkeit} (Satz \mayberef), dass Summen und Differenzen von zwei durch $t$ teilbaren Zahlen ebenfalls durch $t$ teilbar sind. Also muss der Term $(*)$ durch $t$ teilbar sein. 
+    dass alle Summanden aus $(*)$ durch $b-1$ teilbar sind. Weil $t\mid(b-1)$ gilt, müssen die Summanden aus $(*)$ also insbesondere auch durch $t$ teilbar sein (wenn sie nicht durch $t$ teilbar wären, dann könnten sie erst recht nicht durch $b-1$ teilbar sein). Wir wissen aus dem Kapitel über \emph{Teilbarkeit}, dass Summen und Differenzen von zwei durch $t$ teilbaren Zahlen ebenfalls durch $t$ teilbar sind:
+    \[t\mid a\text{ und }t\mid b\implies t\mid a\pm b.\] 
+    Also muss der Term $(*)$ durch $t$ teilbar sein. 
     
     Wir wissen nun also, dass $n-Q(n)$ und $Q(n)$ beide durch $t$ teilbar sein müssen. Es gilt $n-Q(n)+Q(n)=n$. Weil die Summe zweier durch $t$ teilbarer Zahlen ebenfalls durch $t$ teilbar sein muss, ist also auch $n$ durch $t$ teilbar.
 \end{proof}

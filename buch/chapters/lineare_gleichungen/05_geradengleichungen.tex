@@ -2,7 +2,7 @@
 
 \begin{document}
 
-Im Kapitel über \emph{Abbildungen} hast du gelernt, dass sich Funktionen mithilfe von Graphen anschaulicher darstellen lassen. Vermutlich hast du aber keine wirkliche Vorstellung davon, wie der Graph einer Funktion aussieht, nur weil du die Abbildungsvorschrift kennst. Du hast schon gesehen, wie Nullstellen, Symmetrie und der Achsenabschnitt mit der Berechnungsvorschrift zusammenhängen:
+Im Kapitel über \emph{Funktionen} hast du gelernt, dass sich Funktionen mithilfe von Graphen anschaulicher darstellen lassen. Vermutlich hast du aber keine wirkliche Vorstellung davon, wie der Graph einer Funktion aussieht, nur weil du die Berechnungsvorschrift kennst. Du hast schon gesehen, wie Nullstellen, Symmetrie und der Achsenabschnitt mit der Berechnungsvorschrift zusammenhängen:
 \begin{itemize}
     \item für Nullstellen müssen Werte für $x$ gesucht werden, sodass $f(x)=0$ gilt
     \item für den Achsenabschnitt muss $f(0)$ berechnet werden
@@ -20,14 +20,11 @@ Während du die letzten beiden Punkte auch vor diesem Kapitel schon schnell übe
     \end{tikzpicture}
 }
 
+\picskip{8}
 Wenn du von einer Funktion weißt, welche Nullstellen und welchen Achsenabschnitt sie hat, dann ist das natürlich ein guter Anfang. Aber diese Informationen verraten dir natürlich nur einen kleinen Teil vom Aussehen des Graphen. 
-Wie sieht beispielsweise der Graph der Funktion $f(x)=3x-5$ aus und welche Abbildungsvorschrift hat eine Funktion, deren Graph die rechts abgebildete Gerade durch die Punkte $\coord{2}{1}$ und $\coord{5}{2}$ ist? Wann ist der Graph eine Gerade, wann ist er gebogen und wie steil ist er?
+Wie sieht beispielsweise der Graph der Funktion $f(x)=3x-5$ aus und welche Berechnungsvorschrift hat eine Funktion, deren Graph die rechts abgebildete Gerade durch die Punkte $\coord{2}{1}$ und $\coord{5}{2}$ ist? Wann ist der Graph eine Gerade, wann ist er gebogen und wie steil ist er?
 
-Die folgenden Abschnitte erklären, wie die Abbildungsvorschrift einer Funktion mit dem Aussehen ihres Graphen zusammenhängt -- also auch, welche Form er hat und wie steil er ist. Wir schauen uns in diesem Kapitel nur Funktionen an, deren Graph eine Gerade ist, weil sich diese Fragen dann mithilfe von linearen Gleichungen beantworten lassen. Die Kapitel über \emph{Quadratische Gleichungen} bzw. \emph{Differentialrechnung} bauen das hier präsentierte Wissen weiter aus.
-
-\begin{center}
-    \includegraphics[height=4.7cm]{images/slope.png}
-\end{center}
+Die folgenden Abschnitte erklären, wie die Berechnungsvorschrift einer Funktion mit dem Aussehen ihres Graphen zusammenhängt -- also auch, welche Form er hat und wie steil er ist. Wir schauen uns in diesem Kapitel nur Funktionen an, deren Graph eine Gerade ist, weil sich diese Fragen dann mithilfe von linearen Gleichungen beantworten lassen. Die Kapitel über \emph{Quadratische Gleichungen} bzw. \emph{Differentialrechnung} bauen das hier präsentierte Wissen weiter aus.
 
 \subsection{Die Steigung einer Geraden}
 
@@ -40,11 +37,16 @@ Die folgenden Abschnitte erklären, wie die Abbildungsvorschrift einer Funktion 
         \end{axis}
     \end{tikzpicture}
 }
+
 Eine wenig überraschende Eigenschaft von Geraden ist, dass sie immer in dieselbe Richtung führen. Sie biegen nicht zwischendurch ab und eine Gerade ist an jeder Stelle gleich steil.
 
 Stelle dir also einmal vor, dass du auf der Geraden entlang gehst, und zwar immer in gleich großen Schritten nach rechts. Wenn du auf der Gerade auf der rechten Seite beim Punkt $\coord{1}{1}$ beginnst und der Gerade solange nach rechts folgst, bis du einen Schritt weiter rechts bist als zu Beginn, dann kommst du beim Punkt $\coord{2}{2}$ an. Während eines Schritts nach rechts hat sich die $y$-Koordinate also um $1$ vergrößert.
 
 Weil Geraden an jeder Stelle in die gleiche Richtung führen, sind sie natürlich auch an jeder Stelle gleich steil. Wie weit du \emph{pro Schritt nach rechts} nach oben kommst, ändert sich also nicht, wenn du weiter links oder rechts anfängst.
+
+\begin{center}
+    \includegraphics[height=5cm]{images/slope.png}
+\end{center}
 
 \begin{example}[ex:slope-always-equal]{}
     \parpic[r]{
@@ -102,7 +104,7 @@ Die Information, wie stark die Gerade \emph{pro Schritt nach rechts} ansteigt, g
     Das Steigungsdreieck der rechten Gerade hat zwar eine Höhe von $1.5$ bzw. $\frac{3}{2}$, aber die Gerade hat eine negative Steigung von $-\frac{3}{2}$, denn der Pfeil zeigt nach unten.
 \end{example}
 
-Die Steigung jeder Geraden lässt sich also durch eine einzelne Zahl angeben. Nun liegt die Frage nahe, wie sich eine Gerade mit einer vorgegebenen Steigung durch eine Abbildungsvorschrift erzeugen lässt. 
+Die Steigung jeder Geraden lässt sich also durch eine einzelne Zahl angeben. Nun liegt die Frage nahe, wie sich eine Gerade mit einer vorgegebenen Steigung durch eine Berechnungsvorschrift erzeugen lässt. 
 
 \parpic[r]{
     \tikz{
@@ -120,7 +122,7 @@ Die Steigung jeder Geraden lässt sich also durch eine einzelne Zahl angeben. Nu
     }
 }
 
-Der Ausgangspunkt des Steigungsdreiecks hat jeweils eine bestimmte Koordinate $\coord{x}{y}$ und stellt die Abbildungsregel $f(x)=y$ dar. Wenn wir jetzt auf einer Geraden mit der Steigung $a$ einen Schritt nach rechts gehen, dann erhalten wir einen Punkt, der die $x$-Koordinate $x+1$ hat (einen Schritt weiter rechts) und die $y$-Koordinate $y+a$ ($a$ Schritte weiter oben). Insgesamt ergibt das den Punkt $\coord{x+1}{y+a}$. Wir wissen nun also, dass
+Der Ausgangspunkt des Steigungsdreiecks hat jeweils eine bestimmte Koordinate $\coord{x}{y}$ und stellt die Zuordnungsregel $f(x)=y$ dar. Wenn wir jetzt auf einer Geraden mit der Steigung $a$ einen Schritt nach rechts gehen, dann erhalten wir einen Punkt, der die $x$-Koordinate $x+1$ hat (einen Schritt weiter rechts) und die $y$-Koordinate $y+a$ ($a$ Schritte weiter oben). Insgesamt ergibt das den Punkt $\coord{x+1}{y+a}$. Wir wissen nun also, dass
 \[f(x)=y~\text{und}~f(x+1)=y+a\]
 gelten muss. Wenn wir auf der rechten Seite $y$ durch $f(x)$ ersetzen, dann sehen wir, dass $f(x+1)=f(x)+a$ gelten muss. Weil eine Gerade immer gleich steil ist, legen wir die doppelte Distanz in $y$-Richtung zurück, wenn wir doppelt so weit nach rechts gehen -- bzw. die halbe Distanz, wenn wir halb so weit nach rechts gehen. Das bedeutet, dass wir nicht $a$, sondern $d\cdot a$ Schritte nach oben gehen, wenn wir $d$ Schritte statt einem nach rechts gehen. Es gilt also nicht nur $f(x+1)=f(x)+a$, sondern allgemeiner auch 
 \[f(x+d)=f(x)+a\cdot d.\] Dies ist die zentrale Eigenschaft einer Gerade mit der Steigung $a$. Mit welchen Berechnungsvorschriften lässt sich das erreichen?
@@ -173,9 +175,9 @@ Wenn wir Funktionen haben, deren Graph eine Gerade ist, dann können wir die Ste
 }
 Dennoch wissen wir noch nicht genau, wie der Graph von $f$ denn nun aussieht. Es gibt nämlich leider nicht nur eine Gerade mit der Steigung $\frac{3}{2}$. Die im rechten Bild dargestellten Geraden haben alle dieselbe Steigung. Ganz offensichtlich siehst du aber trotzdem drei unterschiedliche Geraden. Sie sind alle parallel zu einander, aber um eine von ihnen zu beschreiben, benötigen wir neben der Steigung noch eine weitere Information, die beschreibt, wie weit oben oder unten die Gerade liegt. 
 
-Du siehst, dass alle Geraden die $y$-Achse an einem anderen Punkt schneiden: Die grüne Gerade bei $2$, die violette bei $1$ und die orangefarbene irgendwo im negativen Bereich. Wüsstest du über eine Gerade zusätzlich zur Steigung noch, wo sie die $y$-Achse schneidet, dann könntest du auch sagen, wie weit oben die Gerade im Koordinatensystem liegt. Diese Information liefert der \emph{Achsenabschnitt}, den du bereits im Kapitel über \emph{Abbildungen} kennengelernt hast.
+Du siehst, dass alle Geraden die $y$-Achse an einem anderen Punkt schneiden: Die grüne Gerade bei $2$, die violette bei $1$ und die orangefarbene irgendwo im negativen Bereich. Wüsstest du über eine Gerade zusätzlich zur Steigung noch, wo sie die $y$-Achse schneidet, dann könntest du auch sagen, wie weit oben die Gerade im Koordinatensystem liegt. Diese Information liefert der \emph{Achsenabschnitt}, den du bereits im Kapitel über \emph{Funktionen} kennengelernt hast.
 
-Aus dem Kapitel über \emph{Abbildungen} weißt du bereits, dass der Achsenabschnitt einer Funktion die Zahl ist, die du erhältst, wenn du $f(0)$ ausrechnest. Für $f(x)=ax+b$ können wir $f(0)$ leicht ausrechnen. Es gilt
+Aus dem Kapitel über \emph{Funktionen} weißt du bereits, dass der Achsenabschnitt einer Funktion die Zahl ist, die du erhältst, wenn du $f(0)$ ausrechnest. Für $f(x)=ax+b$ können wir $f(0)$ leicht ausrechnen. Es gilt
 \[f(0)=a\cdot 0+b=b.\]
 Die Funktion $f(x)=ax+b$ hat also den Achsenabschnitt $b$. Damit wissen wir jetzt genau, wie der Graph einer Funktion aussieht, die die Berechnungsvorschrift $f(x)=ax+b$ hat:
 \begin{itemize}
