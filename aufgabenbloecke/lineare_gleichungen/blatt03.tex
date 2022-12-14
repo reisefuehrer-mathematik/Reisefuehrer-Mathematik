@@ -1,0 +1,164 @@
+\documentclass[../lineare_gleichungen.tex]{subfiles}
+
+\begin{document}
+    \begin{exercise}{easy}
+        Die folgenden Balkenwaagen zeigen, wie Gewichte und Kugeln nach und nach gleichmäßig von der linken Waagschale entfernt wurden, um die Gleichung $2x+8=4+4x$ aufzulösen.
+        \begin{center}
+            \scalebox{0.8}{
+                \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-0.95,0.25) -- (-0.55,0.25) -- (-0.6,0.6) -- (-0.9,0.6) -- cycle;
+                \draw[line width=0.75mm] (-0.75,0.66) circle[radius=0.06cm];
+                \node[white] at (-0.75,0.42) {$8$};
+                \node[white,marble,inner sep=.12cm] at (-1.05,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (-1.3,0.35) {$x$};
+                %Füllung rechte Waagschale
+                \fill (0.88,0.25) -- (0.48,0.25) -- (0.53,0.6) -- (0.83,0.6) -- cycle;
+                \draw[line width=0.75mm] (0.68,0.66) circle[radius=0.06cm];
+                \node[white] at (0.68,0.42) {$4$};
+                \node[white,marble,inner sep=.12cm] at (1,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.12,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.24,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.36,0.35) {$x$};
+            \end{linearEquation}
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-1.2,0.25) -- (-0.8,0.25) -- (-0.85,0.6) -- (-1.15,0.6) -- cycle;
+                \draw[line width=0.75mm] (-1,0.66) circle[radius=0.06cm];
+                \node[white] at (-1,0.42) {$8$};
+                %Füllung rechte Waagschale
+                \fill (0.92,0.25) -- (0.52,0.25) -- (0.57,0.6) -- (0.87,0.6) -- cycle;
+                \draw[line width=0.75mm] (0.72,0.66) circle[radius=0.06cm];
+                \node[white] at (0.72,0.42) {$4$};
+                \node[white,marble,inner sep=.12cm] at (1.05,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.34,0.35) {$x$};
+            \end{linearEquation}
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-1.2,0.25) -- (-0.8,0.25) -- (-0.85,0.6) -- (-1.15,0.6) -- cycle;
+                \draw[line width=0.75mm] (-1,0.66) circle[radius=0.06cm];
+                \node[white] at (-1,0.42) {$4$};
+                %Füllung rechte Waagschale
+                \node[white,marble,inner sep=.12cm] at (0.85,0.35) {$x$};
+                \node[white,marble,inner sep=.12cm] at (1.15,0.35) {$x$};
+            \end{linearEquation}
+            \begin{linearEquation}
+                %Füllung linke Waagschale
+                \fill (-1.2,0.25) -- (-0.8,0.25) -- (-0.85,0.6) -- (-1.15,0.6) -- cycle;
+                \draw[line width=0.75mm] (-1,0.66) circle[radius=0.06cm];
+                \node[white] at (-1,0.42) {$2$};
+                %Füllung rechte Waagschale
+                \node[white,marble,inner sep=.12cm] at (1,0.35) {$x$};
+            \end{linearEquation}
+            }
+        \end{center}
+        \begin{enumerate}
+            \item Welche Äquivalenzumformung musst du jeweils verwenden, um von einem Bild zum nächsten zu gelangen?
+            \item Löse die Gleichung $2x+8=4+4x$ wie in den Bildern dargestellt nach $x$ auf.
+            \item Gib die Lösungsmenge der Gleichung $2x+8=4+4x$ an, indem du bestimmst, wie viel die blaue Kugel wiegt.
+        \end{enumerate}
+    \end{exercise}
+    \begin{exercise}{easy}
+        Bestimme jeweils die Lösungsmenge der folgenden Gleichungen, indem du die Gleichung nach $x$ auflöst.
+        \begin{multicols}{3}
+            \begin{enumerate}
+                \item $x=39$
+                \item $3x=72$
+                \item $44=-x$
+                \item $13x=13x$
+                \item $0=16$
+                \item $59=28+x$
+            \end{enumerate}
+        \end{multicols}
+        \generalhint{Gesucht ist jeweils eine Antwort \enquote{$\Solutions=\dots$}.}
+        \generalhint{Zum Beispiel hat die Gleichung $x=15$ die Lösungsmenge $\Solutions=\{15\}$. Wenn die Gleichung nicht erfüllt werden kann, ist die Lösungsmenge $\Solutions=\emptyset$ und wenn die Gleichung immer erfüllt ist, ist die Lösungsmenge $\Solutions=\Real$.}
+    \end{exercise}
+    \begin{exercise}{easy}
+        Für die Gleichung $21(x+1)=10\cdot(x+14)-15-8x$ soll die Lösungsmenge bestimmt werden. Gehe dazu wie folgt vor.
+        \begin{enumerate}
+            \item Verwende das Distributivgesetz, um die Klammern auszumultiplizieren.
+            \item Vereinfache die linke und rechte Seite jeweils so weit wie möglich, indem du gleichartige Terme zusammenfasst.
+            \hint{Zum Beispiel kannst du den Term $x+5+2x$ zu $3x+5$ vereinfachen, indem du $x+2x$ zu $3x$ zusammenfasst.}
+            \item Führe eine geeignete Äquivalenzumformung durch, um alle Terme mit $x$ auf die linke Seite zu bekommen.
+            \hint{Wenn du auf der rechten Seite einen Term loswerden möchtest, kannst du ihn dafür als Äquivalenzumformung auf beiden Seiten subtrahieren.}
+            \item Führe eine geeignete Äquivalenzumformung durch, um alle Terme ohne $x$ auf die rechte Seite zu bekommen.
+            \hint{Wenn du auf der rechten Seite einen Term loswerden möchtest, kannst du ihn dafür als Äquivalenzumformung auf beiden Seiten subtrahieren.}
+            \item Teile die Gleichung durch den Vorfaktor von $x$, damit das $x$ auf der linken Seite isoliert steht.
+            \hint{Wenn $4x=20$ gilt, dann kannst du die Gleichung durch $4$ teilen (indem du die entsprechende Äquivalenzumformung nutzt), um $x=5$ zu erhalten. Dadurch steht das $x$ nun allein.}
+            \item Lese die Lösungsmenge ab und schreibe sie auf.
+            \hint{Zum Beispiel hat die Gleichung $x=15$ die Lösungsmenge $\Solutions=\{15\}$. Wenn die Gleichung nicht erfüllt werden kann, ist die Lösungsmenge $\Solutions=\emptyset$ und wenn die Gleichung immer erfüllt ist, ist die Lösungsmenge $\Solutions=\Real$.}
+            \item Überprüfe deine Lösung, indem du den gefundenen Wert für $x$ in die ursprüngliche Gleichung einsetzt.
+            \hint{Ersetze $x$ überall durch die Zahl, die du als Lösung gefunden hast. Rechne beide Seiten einzeln aus und schaue, ob zweimal der gleiche Wert herauskommt.}
+        \end{enumerate}
+    \end{exercise}
+    \begin{exercise}{easy}
+        Bild mit Balkenwaage. Frage: Wie viel wiegt die Kugel?
+    \end{exercise}
+    \begin{exercise}{normal}
+        Löse die folgenden Gleichungen nach $x$ auf und bestimme die Lösungsmenge.
+        \begin{multicols}{3}
+            \begin{enumerate}
+                \item $4x+5=73$
+                \item $12x-11=121$
+                \item $3x+18=6x$
+                \item $5=19x-14$
+                \item $9x+17=77-11x$
+                \item $2x+6=21x-108$
+            \end{enumerate}
+        \end{multicols}
+    \end{exercise}
+    \begin{exercise}{normal}
+        Beispiele mit unendl. und leerer Lösungsmenge\\
+        Beispiele, in denen Teilen durch x sinnvoll aussieht\\
+        Gleichung, die mit $-1$ multipliziert werden muss\\
+        Beispiel, in dem zunächst Termumformung benötigt wird\\
+        Die letzten beiden zusammen in einer Textaufgabe
+    \end{exercise}
+    \begin{exercise}{normal}
+    \end{exercise}
+    \begin{exercise}{normal}
+        Bestimme die Lösungsmenge der folgenden Gleichungen.
+        \begin{enumerate}
+            \begin{multicols}{2}
+                \item $\frac{x}{3}:\frac{2}{3}+\frac{9}{2}=\frac{1}{2}\cdot (9+2x)$
+                \item $x-\frac{1}{5}(-22+4x)=\frac{5}{4}+\frac{43}{10}-\frac{3}{20}$
+                \item $-2(x+12)=-((74x-24\cdot(1+3x)))$
+                \item $-(x-35)+40x=(-17+12)^2+13\cdot(3x-1)$
+                \item $-(12x-(-3)^2)=23-(7\cdot(-5)+1)$
+                \item $37\cdot(3-2x)=-(25x+101)$
+            \end{multicols}
+        \end{enumerate}
+    \end{exercise}
+    \begin{exercise}{hard}
+        Löse die folgenden Gleichungen auf und bestimme die Lösungsmenge.
+        \vspace{2mm}
+
+        \begin{enumerate}
+            \begin{multicols}{3}
+                \item $\frac{12x+6}{4}+\frac{x-3}{4}=\frac{x+1}{4}$
+                \item $\frac{4x}{3}+\frac{2}{5}=\frac{11x}{15}$
+                \item $(2x+3)^2=4x^2+15x-6$
+            \end{multicols}
+        \end{enumerate}
+        \generalhint{Vereinfache die Gleichung zunächst so weit wie möglich. Dabei können auch Äquivalenzumformungen helfen. Beginne erst danach, die Gleichung aufzulösen.}
+    \end{exercise}
+    \begin{exercise}{hard}
+        Bestimme jeweils die von $a$ abhängige Lösungsmenge $\Solutions_a$ (es gilt jeweils $a\in\Real$).\\
+        \emph{Beispiel:} Die Gleichung $x+1=a$ die Lösungsmenge $\Solutions_a=\{a-1\}$.
+        \vspace{2mm}
+
+        \begin{enumerate}
+            \begin{multicols}{3}
+                \item $-3x+6a=42$
+                \item $10ax-15=15a$
+                \item $29x-3-47a=11a+26$
+                \item $10ax-15=15a$
+                \item $\sqrt{4a}=\frac{3+4(x+6)-27}{\sqrt{4a}}$
+                \item $\frac{83+x}{a}=a$
+            \end{multicols}
+        \end{enumerate}
+    \end{exercise}
+    \begin{exercise}{advanced}
+        Gleichungen, in denen Fallunterscheidungen nötig sind
+    \end{exercise}
+\end{document}

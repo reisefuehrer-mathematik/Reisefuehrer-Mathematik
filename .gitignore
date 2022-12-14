@@ -1,4 +1,5 @@
 out/
+*.cpy
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/latex,windows,linux,macos
@@ -123,7 +124,7 @@ acs-*.bib
 *.sls
 
 # uncomment this for glossaries-extra (will ignore makeindex's style files!)
-# *.ist
+*.ist
 
 # gnuplot
 *.gnuplot

@@ -123,6 +123,51 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Number-Systems
+% Roman numbers
+\usepackage{romanbar}
+
+% Tallys
+\newcommand{\StrokeOne}{\tikz{
+    \draw (0,0) -- +(0,1em);
+    \draw (-0.1,0) -- +(0.2,1em);
+    \draw (-0.1,1em) -- +(0.2,0em);
+}}
+\newcommand{\StrokeTwo}{\tikz{
+    \draw (0,0) -- +(0,1em);
+    \draw (.1,0) -- +(0,1em);
+}}
+\newcommand{\StrokeThree}{\tikz{
+    \draw (0,0) -- +(0,1em);
+    \draw (.1,0) -- +(0,1em);
+    \draw (.2,0) -- +(0,1em);
+}}
+\newcommand{\StrokeFour}{\tikz{
+    \draw (0,0) -- +(0,1em);
+    \draw (.1,0) -- +(0,1em);
+    \draw (.2,0) -- +(0,1em);
+    \draw (.3,0) -- +(0,1em);
+}}
+\newcommand{\StrokeFive}{\tikz{
+    \draw (0,0) -- +(0,1em);
+    \draw (.1,0) -- +(0,1em);
+    \draw (.2,0) -- +(0,1em);
+    \draw (.3,0) -- +(0,1em);
+    \draw (-.1,0) -- ++(.5,1em);
+}}
+\newcounter{tallycount}
+\newcommand{\tally}[1]{
+    \setcounter{tallycount}{#1}
+    \loop\ifnum\thetallycount>4\relax%
+        \StrokeFive\,%
+        \addtocounter{tallycount}{-5}%
+    \repeat%
+    \ifcase \thetallycount\or\StrokeOne\or\StrokeTwo\or\StrokeThree\or\StrokeFour \fi%
+    \unskip
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Balls
 \newcommand{\ball}[3]{\fill[#1] (#2) circle (.2) node[text=white]{#3};}
 \newcommand{\tikzball}[2]{\tikz[onbase]{\ball{#1}{0,0}{#2}}}

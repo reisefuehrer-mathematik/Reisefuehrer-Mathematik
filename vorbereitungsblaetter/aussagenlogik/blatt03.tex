@@ -4,9 +4,11 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
+\usepackage{multicol}
 \usepackage{mathdef}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{todonotes}
 
 \sheet{Vorbereitungsblatt 9.3}
 \title{Wahrheitstabellen}
@@ -25,12 +27,11 @@
 \video{Wahrheitswerte aussagenlogischer Konnektoren}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
 
 \begin{definition}
-    Eine \textbf{Atomare Aussage} ist eine Aussage, die keine Konnektoren enthält.
+    Eine \textbf{atomare Aussage} ist eine Aussage, die keine Konnektoren enthält.
 \end{definition}
 
 \begin{definition}
-    \label{whw}
-    Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswerte der Aussagen $A \land B$, $A \lor B$, $A \implies B$, $A \iff B$ und $\lnot A$ sind dann wie folgt definiert.
+    Seien $A,B$ zwei beliebige Aussagen. Der Wahrheitswert der Aussagen $A \land B$, $A \lor B$, $A \implies B$, $A \iff B$ und $\lnot A$ ist dann wie folgt definiert.
     
     \[\begin{array}{cc s ccccc}\toprule
         A & B & A \land B & A\lor B & A\implies B & A\iff B & \lnot A\\\midrule
@@ -45,6 +46,73 @@
 
 \subsection*{Aufgabenteil}
 
+\begin{exercise}
+
+    Kreuze an, welche Aussagen atomar sind. 
+
+    $A$ ist eine Abkürzung für \enquote{Es regnet} und $B$ für \enquote{Die Sonne scheint nicht}.
+
+    \begin{multicols}{2}
+        \begin{multiplechoice}
+            \item $B$
+            \citem Schildkröten sind die schnellsten Tiere.
+            \citem In Wäldern gibt es Bäume.
+            \item Es schneit oder es schneit nicht.
+            \citem $A$
+            \item $A \implies B$
+        \end{multiplechoice}
+    \end{multicols}
+
+\end{exercise}
+
+\begin{exercise}
+
+    Liste alle atomaren Aussagen der folgenden Aussage auf.
+    \\ 
+
+    \enquote{Delfine sind Säugetiere und Delfine leben nicht an Land}
+
+    \begin{answerbox}[0.5in]
+    \end{answerbox}
+
+\end{exercise}
+
+\todo{spacing}
+\begin{exercise}
+
+    Wir gehen davon aus, dass die atomare Aussage \enquote{Tobias ist hungrig} (abgekürzt: $H$)
+    \emph{wahr} ist und die atomare Aussage \enquote{Tobias hat gefrühstückt} (abgekürzt: $F$)
+    \emph{falsch} ist.
+    \\
+
+    Gib den Wahrheitswert dieser Aussagen an.
+    
+    \begin{center}
+    \enquote{Wenn Tobias gefrühstückt hat, dann ist Tobias nicht hungrig}
+    \end{center}
+
+    
+    \begin{multicols}{2}
+        \begin{multiplechoice}
+            \citem Wahr
+            \item Falsch
+        \end{multiplechoice}
+    \end{multicols}
+
+    \begin{center}
+        $H \land \lnot F$
+    \end{center}
+    
+        
+        \begin{multicols}{2}
+            \begin{multiplechoice}
+                \citem Wahr
+                \item Falsch
+            \end{multiplechoice}
+        \end{multicols}
+
+\end{exercise}
+
 \newpage
 
 \video{Wahrheitstabellen}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
@@ -54,6 +122,68 @@
 \end{definition}
 
 \subsection*{Aufgabenteil}
+
+\begin{exercise}
+    Gib Wahrheitswerte der atomaren Aussagen $A,B$ an, sodass folgende Aussage \emph{wahr} wird
+    und weitere Wahrheitswerte, sodass die Aussage \emph{falsch} wird.
+
+    \begin{center}
+     $\lnot (A \lor \lnot B)$
+    \end{center}
+    \[
+        \textrm{Wahrheitswerte für \emph{falsch}:}\answerfield{2cm}{9},
+        \textrm{Wahrheitswerte für \emph{wahr}:}\answerfield{2cm}{12},
+    \]
+\end{exercise}
+
+
+\begin{exercise}
+
+    Dies ist die Wahrheitstabelle zu der Aussage $\lnot (A \iff B)$ ($A,B$ sind atomar).
+
+    \begin{center}
+        \begin{tabular}{cc c}\toprule
+            $A$ & $B$ & $\lnot (A \iff B)$\\\midrule
+            falsch & falsch & falsch\\
+            falsch & wahr & wahr \\
+            wahr & falsch & wahr\\
+            wahr & wahr & falsch \\\bottomrule
+        \end{tabular}
+    \end{center}
+
+    Lies aus der Wahrheitstabelle ab, welchen Wahrheitswert 
+    die Aussage $\lnot (A \iff B)$ hat, wenn $A$ \emph{falsch} ist und $B$ \emph{wahr}
+    ist.
+    \begin{center}
+    Wahrheitswert = \answerfield{2cm}{9}
+    \end{center}
+
+\end{exercise}
+
+\todo{zwei parallele tabellen drausmachen?}
+\begin{exercise}
+    Wir erinnern uns an Tim und seine Haustiere. Wir kürzen jetzt
+    \enquote{Tim hat einen Wellensittich} durch $W$, \enquote{Tim hat eine Katze} durch $K$ und
+    \enquote{Tim hat einen Hund} durch $H$ ab.
+
+    Vervollständige die Wahrheitstabelle.
+
+    \begin{center}
+        \begin{tabular}{ccc cc}\toprule
+            $W$ &$K$ & $H$ & $W \land (K \lor H)$ & $(W \land K) \lor H$\\\midrule
+            falsch & falsch & falsch & falsch & falsch\\
+            falsch & falsch & wahr \\
+            falsch & wahr & falsch & falsch & falsch\\
+            falsch & wahr & wahr\\
+            wahr & falsch & falsch\\
+            wahr & falsch & wahr & wahr & wahr\\
+            wahr & wahr & falsch\\
+            wahr & wahr & wahr & wahr & wahr\\\bottomrule
+        \end{tabular}
+    \end{center}
+
+
+\end{exercise}
 
 \mandala{mandala/mandala01}
 

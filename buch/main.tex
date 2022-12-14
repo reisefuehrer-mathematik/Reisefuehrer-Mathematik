@@ -5,6 +5,7 @@
 \makeatother
 
 \documentclass{buch}
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
 \usepackage{formulary}
@@ -12,8 +13,6 @@
 \usepackage{tikzdef}
 
 \usepackage{collcell}
-
-\usepackage[T1]{fontenc}
 
 \usepackage{amsthm}
 \usepackage[]{todonotes}
@@ -25,6 +24,8 @@
 \usepackage{clipboard}
 \usepackage{xifthen}
 \usepackage{skak}
+\usepackage{cancel}
+\usepackage{xfrac}
 
 \newclipboard{chapters}
 
@@ -77,9 +78,6 @@
 
 \newcommand{\declchapter}[2]{\chapter{#2}\label{chap:#1}\vphantom{\Copy{chap:lbl_#1}{#2}}}
 
-%\bookseries{Zahlen, Formeln\\\& ganz viel Magie}
-%\volume{1}
-%\title{Mathematik für Uneingeweihte}
 \bookseries{Reiseführer\\Mathematik}
 \volume{1}
 \title{}%Sehenswürdigkeiten \& Wanderrouten}
@@ -87,6 +85,24 @@
     \frontmatter
     %\maketitle
     \setcounter{tocdepth}{1}
+    {
+      \makeatletter
+      \renewcommand{\chapterlinesformat}[3]{%
+        \tikz{
+            \newcommand{\tikzlinghookbelly}{
+              \node[
+                anchor=south,
+                fill=\thing@signback,
+                draw=\thing@signcolour,
+                rounded corners=\scalingfactor*1,
+                text=white,
+                line width=\scalingfactor*1.8pt,
+                yshift=-.2cm] {\bfseries#3};
+            }
+            \bee;
+        }\par
+        \makeatother
+    }
     \tableofcontents
     
     %\chapter{\prefacename}
@@ -94,29 +110,29 @@
     
     \chapter{Unser Konzept}
     \subfile{chapters/concept}
+    }
     %\end{train}
     
     \mainmatter
+
     
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % GRUNDLAGEN
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %\part{Grundlagen}
-    
-    \begin{wip}
     \declchapter{grundrechnen}{Grundrechenarten}
     
     \declchapter{teilbarkeit}{Teilbarkeit}
+    \ldsection{Einführung}
+    \ldsection{Teilbarkeitsregeln}
+    \ldsection{Primzahlen}
+    \ldsection{ggT und kgV}
     
-    \declchapter{einheiten}{Rechnen mit Einheiten}
-    
-    \declchapter{geominebene}{Geometrie in der Ebene}
+    \declchapter{geominebene}{Geometrische Konstruktionen}
     
     \declchapter{ganzzahl}{Ganze Zahlen}
     
     \declchapter{koords}{Koordinatensysteme}
     
     \declchapter{bruche}{Bruchrechnung}
+
+    \declchapter{einheiten}{Rechnen mit Einheiten}
     
     \declchapter{vars}{Variablen}
     \ldsection{Einführung}
@@ -140,8 +156,7 @@
     \ldsection{Intervalle}
     \ldsection{Das kartesische Produkt}
     \ldadvsection{Weiterführendes Wissen}
-    \end{wip}
-    
+
     \declchapter{funktionen}{Funktionen}
     \ldsection{Einführung}
     \ldsection{Zuordnungsvorschriften beschreiben}
@@ -154,12 +169,29 @@
     \ldsection{Funktionsgraphen strecken und stauchen}
     \ldadvsection{Weiterführendes Wissen}
     
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % MITTELSTUFE
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %\part{Mittelstufenmathematik}
+    \declchapter{lingleichungen}{Lineare Gleichungen}
+    \ldsection{Einführung}
+    \ldsection{Äquivalenzumformungen}
+    \ldsection{Auflösen linearer Gleichungen}
+    \ldsection{Auflösen linearer Ungleichungen}
+    \ldsection{Geradengleichungen}
+    \ldsection{Punkte auf Funktionsgeraden}
+    \ldadvsection{Weiterführendes Wissen}
+
+    \declchapter{lgs}{Lineare Gleichungssysteme}
     
-    \begin{wip}
+    \declchapter{quadgleichungen}{Quadratische Gleichungen}
+    
+    \declchapter{geomkonstr}{Geometrische Konstruktionen}
+    
+    \declchapter{geomraum}{Flächen und Volumen}
+    
+    \declchapter{kreise}{Kreise}
+    
+    \declchapter{potulog}{Potenz- und Logarithmenrechnung}
+    
+    \declchapter{trig}{Trigonometrie}
+
     \declchapter{statistik}{Beschreibende Statistik}
     
     \declchapter{kombinatorik}{Kombinatorik}
@@ -171,36 +203,6 @@
     
     \declchapter{wkeitstheorie}{Wahrscheinlichkeitstheorie}
     
-    \declchapter{lingleichungen}{Lineare Gleichungen}
-    \ldsection{Einführung}
-    \ldsection{Äquivalenzumformungen}
-    \ldsection{Auflösen linearer Gleichungen}
-    \ldsection{Auflösen linearer Ungleichungen}
-    \ldsection{Geradengleichungen}
-    \ldsection{Punkte auf Funktionsgeraden}
-    \ldadvsection{Weiterführendes Wissen}
-    \declchapter{lgs}{Lineare Gleichungssysteme}
-    
-    \declchapter{quadgleichungen}{Quadratische Gleichungen}
-    
-    \declchapter{geomkonstr}{Geometrische Konstruktionen}
-    
-    \declchapter{geomraum}{Geometrie im Raum}
-    
-    \declchapter{kreise}{Kreise}
-    
-    \declchapter{potulog}{Potenz- und Logarithmenrechnung}
-    
-    \declchapter{trig}{Trigonometrie}
-    \end{wip}
-    
-    \if 0
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % OBERSTUFE
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %\part{Oberstufenmathematik}
-    
-    \begin{wip}
     \declchapter{folgenundreihen}{Folgen und Reihen}
     
     \declchapter{diff}{Differentialrechnung in \Real}
@@ -216,13 +218,9 @@
     \declchapter{vektoren}{Vektorrechnung}
     
     \declchapter{zufallsvars}{Zufallsvariablen und Verteilungen}
-    \end{wip}
     
     \backmatter
     \printindex
     
-    \begin{wip}
     \subfile{formulary}
-    \end{wip}
-    \fi
 \end{document}

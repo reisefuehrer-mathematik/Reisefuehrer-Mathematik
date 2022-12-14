@@ -1,7 +1,7 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-    %
+    \label{chap:aussagenlogik}
 
     An vielen Stellen im alltäglichen Leben ziehst du irgendwelche Schlussfolgerungen -- die meisten davon, ohne wirklich darüber nachzudenken. Dauernd leitest du aus deinen Beobachtungen Informationen ab. Alleine schon die Erkenntnis, dass du Hunger hast, weil du hörst, dass dein Magen knurrt, ist eine Schlussfolgerung. Ähnlich dazu ist es in der Mathematik wichtig, dass du ausgehend von Beobachtungen oder gegebenen Aussagen auf neue Aussagen schließen kannst. Du lernst in diesem Kapitel die \emph{Aussagenlogik} kennen, die systematisch an das Schlussfolgern herangeht und damit ein wichtiges Werkzeug für Schlussfolgerungen in der Mathematik ist.
     
@@ -62,11 +62,17 @@
         Mithilfe von aussagenlogischen Überlegungen wirst du im Laufe des Kapitels in der Lage sein, systematisch herauszufinden, was du den Zauberer fragen musst.
     \end{example}
     
-    Die Aussagenlogik beschäftigt sich mit Aussagen. Das sind Sätze, die zwar 
-    keine Fragen sind, die man aber trotzdem entweder 
-    mit  \statement{Ja, das ist \wahr} bejahen oder mit 
-     \statement{Nein, das ist \falsch} verneinen könnte. Ergeben beide diese 
-    Antwortmöglichkeiten auf einen Satz keinen Sinn, dann ist dieser Satz keine 
+    Die Aussagenlogik beschäftigt sich mit Aussagen. 
+        
+    \begin{definition}{Aussage}
+        Eine \textbf{Aussage} ist ein Satz, der keine Frage ist, den man aber entweder mit 
+        \statement{Ja, das ist \wahr} bejahen oder mit \statement{Nein, das ist \falsch} 
+        verneinen kann.
+    \end{definition}
+    
+    Ergeben die beiden Sätze  \statement{Ja, das ist \wahr} und \statement{Nein, das ist \falsch}
+    als 
+    Antwortmöglichkeit auf einen Satz keinen Sinn, dann ist dieser Satz keine 
     Aussage.
     \begin{example}{Aussagen}
         Stell dir vor du hast wieder einen giftigen Zaubertrank gefunden. Dann ist der Satz
@@ -81,15 +87,17 @@
         ist ebenfalls eine Aussage. Der Zaubertrank ist giftig, also keineswegs harmlos. Man kann deshalb auf diesen Satz passend mit  \statement{Nein, das ist  \falsch} antworten. 
         Die Aussage ist demnach \falsch.
     \end{example}
-    
-    Aussagen sind also genau die Sätze, abgesehen von Fragen, auf die man entweder 
-    mit  \statement{Ja, das ist  \wahr} oder mit  \statement{Nein, das ist 
-     \falsch} antworten kann. Kann man auf eine Aussage passend bzw. stimmig 
-    mit  \statement{Ja, das ist  \wahr} antworten, dann ist die Aussage 
-    \wahr. Ist nur  \statement{Nein, das ist  \falsch} eine passende 
-    Antwort, dann ist die Aussage \falsch. Die Wörter \falsch\  und \wahr\  nennt
+
+    \begin{definition}{Wahrheitswerte}
+        Eine Aussage ist \wahr, falls die Antwortmöglichkeit \statement{Ja, das ist \wahr}
+        passend ist. Ist jedoch \statement{Nein, das ist \falsch} die passende
+        Antwortmöglichkeit, dann ist die Aussage \falsch.
+    \end{definition}
+
+    Die Wörter \falsch\  und \wahr\  nennt
     man auch \textbf{Wahrheitswerte}. Man sagt dann zum Beispiel, dass der Wahrheitswert einer wahren
     Aussage, \wahr\  ist.
+    
 
     \begin{example}{Sätze, die keine Aussagen sind}
         Wir schauen uns einmal Beispiele für Sätze an, die keine Aussagen sind. Das sind zum einen Aufforderungen wie
@@ -102,7 +110,6 @@
          \statement{Der Zaubertrank ist giftig}.
     \end{example}
 
-
     Es gibt auch Aussagen, deren Wahrheitswert du nicht kennst. 
     Das, was einen Satz zu einer Aussage macht, 
     ist, dass dieser mit  \statement{Ja, das ist  \wahr} oder 
@@ -113,16 +120,16 @@
         Der Satz 
         \[\textrm{ \statement{Der Zauberer ist 1024 Jahre alt}}\]
         ist eine Aussage. Zwar wissen wir eventuell nicht, ob der Zauberer tatsächlich 1024 
-        Jahre alt ist (Der Zauberer verrät uns sein Alter nicht), nichtsdestotrotz ist 
+        Jahre alt ist (der Zauberer verrät uns sein Alter nicht), nichtsdestotrotz ist 
         dieser Satz eine Aussage. Das liegt daran, dass 
          \statement{Ja, das ist  \wahr} und   \statement{Nein, das ist  \falsch} 
         Antwortmöglichkeiten sind. Welche dieser Antwortmöglichkeiten die passende ist, also 
         was der Wahrheitswert der Aussage ist, kann uns dabei egal sein.
    \end{example}
 
-    Im Verlaufe dieses Kapitels werden wir Aussagen genauer untersuchen. Im nächsten 
-    Abschnitt nehmen wir die Struktur von Aussagen unter die Lupe und schauen wie 
-    diese aufgebaut sind. Im darauf folgenden Abschnitt beschäftigten wir uns damit 
+    Im Verlaufe dieses Kapitels werden wir Aussagen genauer untersuchen. Zunächst 
+    nehmen wir die Struktur von Aussagen unter die Lupe und schauen, wie 
+    diese aufgebaut sind. Danach beschäftigten wir uns damit, 
     wie man bei Aussagen den Wahrheitswert bestimmen kann, 
     also wie man entscheiden kann, ob diese \wahr\  oder \falsch\  sind. Am Ende 
     kommen wir auf das Logikrätsel mit dem Zauberer zurück und nutzen das neu 

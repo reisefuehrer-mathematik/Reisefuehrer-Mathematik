@@ -64,9 +64,16 @@
     \StrSubstitute{#2}{blatt}{}[#2]
 }
 \makeatletter
+\newcommand\separator[1]{
+    \noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
+	\vspace{-0.5cm}
+	\begin{center}\textcolor{red}{\sffamily #1}\end{center}
+    \vspace{-0.5cm}
+    \noindent \cleaders\hbox{\textcolor{red}{- }}\hfill\kern0pt \par
+}
 \newcommand\ldtasks[1]{
     \tosheetnum{#1}{\sheetnum}
-    \section*{Aufgaben zu Vorbereitungsblatt \@chapternum.\sheetnum}
+    \separator{Aufgaben zu Vorbereitungsblatt \@chapternum.\sheetnum}
     \tosnakecase{\@topic}{\chaptername}
     \subfile{\chaptername/#1}
 }
@@ -116,8 +123,8 @@
     \newcolumntype{L}{>{\raggedright\arraybackslash}X}
     \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
     \noindent\begin{tabularx}{\linewidth}{@{}L@{}R@{}}
-        Grundbegriffe der Mathematik & Gymnasialmathematik\\
-        Themenblock \textit{\@topic} & Kapitel \@chapternum\\
+        Reiseführer Mathematik & Themenblock \textit{\@topic}\\
+        Kapitel \@chapternum & Übungsmaterial\\
     \end{tabularx}
     
     \begin{center}
@@ -241,3 +248,8 @@
 \externaldocument[ext:]{\pathToMain main}
 \newcommand\getchapternum[1]{\ref*{ext:chap:#1}}
 \newcommand\getchaptername[1]{\Paste{chap:lbl_#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\colorlet{maincolor}{orange}

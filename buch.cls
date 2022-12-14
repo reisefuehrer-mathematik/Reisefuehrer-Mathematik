@@ -101,12 +101,32 @@ suffix_3p "\\,ff."
 }
 \newcommand\ldadvsection[2][]{
     \clearpage
-    \pagecolor{violet!30!white}
-    \section{#2}
-    \tosnakecase{\Chaptername}{\chapname}
-    \tosnakecase{#2}{\filename}
-    \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
-    \clearpage
+    \begingroup%
+        % Redefine the colors of the environments while in an advanced section
+        \colorlet{definition@bg}{red!5!white}%
+        \colorlet{definition@frame}{red!75!black}%
+        \colorlet{lemma@bg}{yellow!20}%
+        \colorlet{lemma@frame}{yellow!50!orange}%
+        \colorlet{theorem@bg}{green!20}%
+        \colorlet{theorem@frame}{green!50!black}%
+        \colorlet{corollary@bg}{green!20}%
+        \colorlet{corollary@frame}{green!50!gray}%
+        \colorlet{example@bg}{violet!30!white!95!black}%
+        \colorlet{example@frame}{violet!70}%
+        \colorlet{remark@bg}{blue!20}%
+        \colorlet{remark@frame}{blue!40}%
+        \colorlet{reminder@bg}{gray!20}%
+        \colorlet{reminder@frame}{gray!40}%
+        \colorlet{nutshell@bg}{brown!70!white}%
+        \colorlet{nutshell@frame}{brown!70!black}%
+        %
+        \pagecolor{violet!20!white}
+        \section{#2}
+        \tosnakecase{\Chaptername}{\chapname}
+        \tosnakecase{#2}{\filename}
+        \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
+        \clearpage
+    \endgroup
     \pagecolor{white}%\restorepagecolor
 }
 \newenvironment{wip}{%
@@ -144,7 +164,6 @@ suffix_3p "\\,ff."
     \newpage%
     \endgroup%
 }
-\makeatother
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mathematical environments
@@ -179,33 +198,65 @@ suffix_3p "\\,ff."
 \renewcommand{\thecor}{\arabic{chapter}.\arabic{cor}}
 \renewcommand{\thesample}{\arabic{chapter}.\arabic{sample}}
 
-\tcbuselibrary{breakable}
+%% Default Colors
+\colorlet{definition@bg}{red!5!white}
+\colorlet{definition@frame}{red!75!black}
+\colorlet{lemma@bg}{yellow!20}
+\colorlet{lemma@frame}{yellow!50!orange}
+\colorlet{theorem@bg}{green!20}
+\colorlet{theorem@frame}{green!50!black}
+\colorlet{corollary@bg}{green!20}
+\colorlet{corollary@frame}{green!50!gray}
+\colorlet{example@bg}{black!5}
+\colorlet{example@frame}{gray}
+\colorlet{remark@bg}{blue!20}
+\colorlet{remark@frame}{blue!40}
+\colorlet{reminder@bg}{gray!20}
+\colorlet{reminder@frame}{gray!40}
+\colorlet{nutshell@bg}{brown!20}
+\colorlet{nutshell@frame}{brown!40}
 
+
+\tcbuselibrary{breakable}
 \def\tcmathenvopt{breakable, enhanced jigsaw, pad at break=2mm, fonttitle=\bfseries, boxrule=2pt}
 \DeclareTColorBox{definition}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
-    colback=red!5!white,colframe=red!75!black,
+    colback=definition@bg,colframe=definition@frame,
     title={Definition~\thedef\ifstrempty{#2}{}{~--~#2}},
     step=def,
-    IfValueT={#1}{label=#1}
+    IfValueT={#1}{label=#1},
+    before upper={
+        % Configure the colors of circled enumerate labels
+        \colorlet{circlelblcolor@text}{definition@bg}
+        \colorlet{circlelblcolor@border}{definition@frame}
+        \colorlet{circlelblcolor@fill}{definition@frame}
+        \setlist[itemize]{label=\textcolor{circlelblcolor@fill}{\textbullet}}
+    }
 }
 \DeclareTColorBox{lemma}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
-    colback=yellow!20,colframe=yellow!50!orange,
+    colback=lemma@bg,colframe=lemma@frame,
     title={Satz~\thelem\ifstrempty{#2}{}{~--~#2}},
     step=lem,
     IfValueT={#1}{label=#1}
 }
 \DeclareTColorBox{theorem}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
-    colback=green!20,colframe=green!50!black,
+    colback=theorem@bg,colframe=theorem@frame,
     title={Satz~\thetheo\ifstrempty{#2}{}{~--~#2}},
     step=theo,
-    IfValueT={#1}{label=#1}
+    IfValueT={#1}{label=#1},
+    before upper={
+        % Configure the colors of circled enumerate labels
+        \colorlet{circlelblcolor@text}{theorem@bg!20!white}
+        \colorlet{circlelblcolor@border}{theorem@frame}
+        \colorlet{circlelblcolor@fill}{theorem@frame}
+        \setlist[itemize]{label=\textcolor{circlelblcolor@fill}{\textbullet}}
+    }
 }
 \DeclareTColorBox{corollary}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
-    colback=green!20,colframe=green!50!gray,
+    colback=corollary@bg,colframe=corollary@frame,
     title={Korollar~\thecor\ifstrempty{#2}{}{~--~#2}},
     step=cor,
     IfValueT={#1}{label=#1}
@@ -213,20 +264,9 @@ suffix_3p "\\,ff."
 \DeclareTColorBox{example}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
     sharp corners,
-    boxrule=0pt, colframe=black!5,
-    coltitle=black, colback=black!5,
-    borderline west={3pt}{0pt}{gray},
-    title={Beispiel~\thesample\ifstrempty{#2}{}{~--~#2}},
-    attach title to upper=\vspace*{.5em}\par,
-    step=sample,
-    IfValueT={#1}{label=#1}
-}
-\DeclareTColorBox{advexample}{ o m }{
-    code={\pgfkeysalsofrom{\tcmathenvopt}},
-    sharp corners,
-    boxrule=0pt, colframe=violet!30,
-    coltitle=black, colback=violet!30,
-    borderline west={3pt}{0pt}{violet!70},
+    boxrule=0pt, colframe=example@bg,
+    coltitle=black, colback=example@bg,
+    borderline west={3pt}{0pt}{example@frame},
     title={Beispiel~\thesample\ifstrempty{#2}{}{~--~#2}},
     attach title to upper=\vspace*{.5em}\par,
     step=sample,
@@ -234,22 +274,34 @@ suffix_3p "\\,ff."
 }
 \DeclareTColorBox{remark}{ o m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
-    colback=blue!20,colframe=blue!40,
+    colback=remark@bg,colframe=remark@frame,
     title={\color{blue} Anmerkung: #2\hfill\tikz[overlay, scale=.5]{\squirrel}},
     attach title to upper=\vspace*{.5em}\par,
     step=rem,
     IfValueT={#1}{label=#1}
 }
-\newtcolorbox{reminder}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=gray!20,colframe=gray!40, title={\color{gray} Erinnerung}, attach title to upper=\vspace*{.5em}\par}
-%\newtcolorbox{nutshell}[1]{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=brown!20,colframe=brown!40, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par}
-\newenvironment{nutshell}[1]{
-    \begin{tcolorbox}[code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=brown!20,colframe=brown!40, title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}, attach title to upper=\vspace*{.5em}\par]
-    \setlength\heavyrulewidth{2pt}
-    \setlength{\lightrulewidth}{1.5pt}%
-    \arrayrulecolor{brown!40}
-}{
-    \end{tcolorbox}
-    \arrayrulecolor{black}
+\newtcolorbox{reminder}{code={\pgfkeysalsofrom{\tcmathenvopt}}, colback=reminder@bg,colframe=reminder@frame, title={\color{gray} Erinnerung}, attach title to upper=\vspace*{.5em}\par}
+\DeclareTColorBox{nutshell}{ m }{
+    code={\pgfkeysalsofrom{\tcmathenvopt}},
+    colback=nutshell@bg, colframe=nutshell@frame,
+    %title={\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}},
+    %attach title to upper=\vspace*{.5em}\par,
+    before upper={
+        % We repeat the title here since "before upper" actually overrides "attach title to upper"
+        {\color{brown} Kurz und knapp: #1\hfill\tikz[overlay, scale=.5]{\sloth}}
+        \vspace*{.5em}\par
+        % Configure table lines
+        \setlength\heavyrulewidth{2pt}
+        \setlength{\lightrulewidth}{1.5pt}%
+        \arrayrulecolor{brown!40}
+        % Configure the colors of circled enumerate labels
+        \colorlet{circlelblcolor@text}{nutshell@bg!20!white}
+        \colorlet{circlelblcolor@border}{brown!70}
+        \colorlet{circlelblcolor@fill}{brown!70}
+    },
+    after upper={
+        \arrayrulecolor{black} % we have to manually reset this :(
+    }
 }
 \DeclareTColorBox{goal}{ o m m }{
     code={\pgfkeysalsofrom{\tcmathenvopt}},
@@ -262,7 +314,6 @@ suffix_3p "\\,ff."
     step=sample
 }
 
-\makeatletter
 \newtcolorbox{advanced}[1]{
     %breakable,
     attach title to upper=\par,
@@ -304,33 +355,47 @@ suffix_3p "\\,ff."
     innerskip=0pt,
     afterskip=1.725\baselineskip plus .115\baselineskip minus .192\baselineskip
 ]{chapter}
+\usetikzlibrary{backgrounds}
 \renewcommand\raggedchapter{\raggedleft}
-\renewcommand\chapterformat{{\textcolor{chaptercolor}{\bfseries\thechapter}}}
+\renewcommand\chapterformat{\bfseries\thechapter}
 \renewcommand{\chapterlinesformat}[3]{%
-    \ifthenelse{\equal{#2}{\empty}}{}{
-    \tikz[remember picture, overlay]{
-        \node[anchor=south east, inner sep=0pt, transform shape, scale=8, text=chaptercolor!40!black!20!white] at ($(pic cs:A)-(0,.5cm)-(-.25cm, .25cm)$) {\bfseries\thechapter};
-        \node[anchor=south east, inner sep=0pt, transform shape, scale=8] at ($(pic cs:A)-(0,.5cm)$) {#2};
-    }}%
-    \bfseries#3\tikzmark{A}
-    \vspace*{-.5\baselineskip}%
-    \rule{\textwidth}{.4pt}\par\nobreak
+    \tikz[baseline=(A.base)]{
+        \node[inner sep=0pt, anchor=base] (A) {\bfseries#3};
+        \begin{scope}[on background layer]
+            \node[anchor=east, inner sep=0pt, scale=8, text=chaptercolor!40!black!20!white] at ($(A.east)-(-.25cm, .25cm)$) {#2};
+            \node[anchor=east, inner sep=0pt, scale=8, text=chaptercolor] at (A.east) {#2};
+        \end{scope}
+    }\par
 }
 \renewcommand\chapterlineswithprefixformat[3]{\chapterlinesformat{#1}{#2}{#3}}
 
 % Setting the default enumerate environment to circled numbers
 \RequirePackage{circledsteps}
 \RequirePackage{enumitem}
-\def\@circlelblcolor@text{white}
-\def\@circlelblcolor@border{blue!40!white}
-\def\@circlelblcolor@fill{blue!40!white}
+\colorlet{circlelblcolor@text}{white}
+\colorlet{circlelblcolor@border}{blue!40!white}
+\colorlet{circlelblcolor@fill}{blue!40!white}
 \newcommand{\circlelbl}[1]{%
     \Circled[%
-        inner color=white,%\@circlelblcolor@text,
-        outer color=blue!40,%\@circlelblcolor@border,
-        fill color=blue!40,%\@circlelblcolor@fill,
-        inner ysep=4pt,%
+        inner color=circlelblcolor@text,
+        outer color=circlelblcolor@border,
+        fill color=circlelblcolor@fill,
+        inner ysep=4pt,
         inner xsep=4pt]{\textsf{#1}}%
+}
+\newcommand{\mathmodecircle}[2]{%
+    \Circled[%
+        inner color=black,%\@circlelblcolor@text,
+        outer color=orange!#2,%\@circlelblcolor@border,
+        fill color=orange!#2,%\@circlelblcolor@fill,
+        inner ysep=4pt,%
+        inner xsep=4pt]{#1}%
+}
+\newcommand{\circlemath}[1]{%
+    \mathmodecircle{#1}{30}
+}
+\newcommand{\circlemathresult}[1]{%
+    \mathmodecircle{#1}{60}
 }
 \setlist[enumerate]{label=\circlelbl{\arabic*}}
 

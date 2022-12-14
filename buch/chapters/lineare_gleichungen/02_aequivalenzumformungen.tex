@@ -93,11 +93,12 @@ An das Wort \emph{äquivalent} erinnerst du dich vielleicht noch aus dem Kapitel
 geschrieben. Für uns bedeutet das hier, dass bei zwei äquivalenten Gleichungen jede Lösung der ersten Gleichung auch eine Lösung der zweiten Gleichung sein soll und umgekehrt. Das ist genau dann der Fall, wenn beide Lösungsmengen gleich sind.
 
 \begin{example}{}
-    Die Gleichung $x=5$ hat genau eine Lösung, nämlich $5$. Die Gleichung $x+4=9$ hat ebenfalls genau eine Lösung -- auch die Zahl $5$. Wenn wir nun eine Zahl für $x$ gefunden haben, die die erste Gleichung erfüllt, dann wissen wir sofort, dass $x=5$ sein muss. Und dann wissen wir, dass dieses $x$ auch die zweite Gleichung erfüllt, denn die hatte ebenfalls die Lösung $5$.
+    Jede Zahl, die die Gleichung $x+4=9$ erfüllt, erfüllt auch die Gleichung $x=5$, denn beide Gleichungen werden nur erfüllt, wenn wir für $x$ den Wert $5$ einsetzen. Andersrum gilt dies natürlich genauso: Jede Zahl, die die Gleichung $x=5$ erfüllt, erfüllt auch die Gleichung $x+4=9$. Ein Wert für $x$ erfüllt die Gleichung $x+4=9$ also genau dann, wenn er die Gleichung $x=5$ erfüllt. Die Aussage 
+    \[\glqq x\text{ erfüllt die Gleichung }x=5\grqq\] 
+    ist somit äquivalent zu der Aussage 
+    \[\glqq x\text{ erfüllt die Gleichung }x+4=9\grqq.\]
     
-    Umgekehrt geht das natürlich genauso: Für eine Zahl $x$, die die Gleichung $x+4=9$ erfüllt, muss $x=5$ gelten, denn das ist die einzige Lösung. Und wenn $x=5$ ist, dann erfüllt dieses $x$ auch die erste Gleichung.
-    
-    Es folgt in diesem Beispiel, dass die Aussage, dass eine Zahl die erste Gleichung erfüllt, äquivalent dazu ist, dass diese Zahl die zweite Gleichung erfüllt. Die Gleichungen sind daher äquivalent. Man kann auch schreiben:
+    Die Gleichungen sind daher äquivalent. Man kann auch schreiben:
     \[x=5\iff x+4=9.\]
 \end{example}
 \begin{example}[ex:sqrt-umformung]{}
@@ -167,6 +168,13 @@ Es ist also erlaubt, auf der linken und der rechten Seite einer Gleichung jeweil
 
 Wichtig ist, dass es \textbf{nicht ausreicht, den Term von nur einer Seite zu subtrahieren}. Bei der Waage würde dadurch eine Seite leichter als die andere werden und sie würde aus dem Gleichgewicht geraten. Werte für $x$, die die ursprüngliche Gleichung erfüllt hätten, würden die neue Gleichung dann nicht mehr erfüllen.
 
+\vfill
+\begin{center}    
+    \includegraphics[height=4cm]{images/faultier-balkenwaage.jpg}
+\end{center}
+\newpage
+
+\vbox{
 \begin{example}{}
     \parpic[r]{
         \begin{linearUnequal}
@@ -187,6 +195,7 @@ Wichtig ist, dass es \textbf{nicht ausreicht, den Term von nur einer Seite zu su
     
     Hätten wir stattdessen nur auf der linken Seite 3 subtrahiert, dann hätten wir die Gleichung $2x=17$ bekommen -- und die Waage zum Kippen gebracht, weil die linke Seite nun auf einmal leichter als die rechte ist.
 \end{example}
+}
 
 Wenn wir es also richtig machen machen, dann verändern wir beide Seiten der Gleichung auf die gleiche Weise, zum Beispiel, indem wir auf beiden Seiten $-3$ rechnen. Um alles übersichtlich zu halten, schreiben wir eine neue Gleichung, die wir durch eine Äquivalenzumformung erhalten, nicht neben die alte Gleichung, sondern darunter. Außerdem solltest du darauf achten, dass die Gleichheitszeichen untereinander stehen.
 
@@ -420,6 +429,13 @@ Damit haben wir die wichtigsten Werkzeuge beisammen, um Gleichungen so umzuforme
         \item jede Seite mit einer Zahl $a\neq 0$ multipliziert.
     \end{itemize}
 \end{theorem}
+
+\vfill
+\begin{center}    
+    \includegraphics[height=7cm]{images/faultier-balkenwaage.jpg}
+\end{center}
+\newpage
+
 \begin{advanced}{Kürzungsregel}
     Dass sich die Lösungsmenge einer Gleichung bei den Äquivalenzumformungen, die im obigen Satz beschrieben sind, nicht ändert, haben wir uns auf den letzten Seiten anschaulich mithilfe von Balkenwaagen überlegt. Formal lässt sich die Korrektheit von Äquivalenzumformungen mit der Kürzungsregel für die Addition und Multiplikation beweisen.
     

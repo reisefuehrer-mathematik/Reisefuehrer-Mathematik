@@ -1,10 +1,746 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-    \section{Fortgeschrittene Beweistechniken}
+    \section*{Syntax der Aussagenlogik}
+    In den ersten beiden Abschnitten vom Zusatzwissen wollen wir Teile von 
+    dem was du bereits in den vorherigen Abschnitten gesehen hast, präzisieren.
+    Dir wird also vieles bereits bekannt vorkommen. Wir beschäftigen uns zunächst 
+    damit, wie Aussagen formal definiert sind danach lernen wir eine 
+    leicht abgewandelte Definition der Wahrheitswerte von Aussagen kennen. 
+    Der letzte Abschnitt kann unabhängig
+    von den vorherigen gelesen werden und handelt unter Anderem von Aussagen mit einer besonderen Struktur.
+
+
+    Du hast bereits zu Anfang dieses Kapitels kennengelernt was Aussagen sind und wie man Aussagen zu neuen
+    Aussagen verknüpfen kann. 
+
+    \begin{example}{Aussagen}
+        Sind $A$ und $B$ Abkürzungen für atomare Aussagen, dann wissen wir bereits,
+        dass $A \land B$ eine Aussage ist aber $A \land $ keine Aussage ist.
+        Aber was sind die konkreten Regel mit denen wir genau belegen
+        können, dass der Ausdruck $A\land B$ eine Aussage ist,
+        der Ausdruck $A \land $ aber nicht? 
+        Diese Regeln lernen wir gleich kennen und sie nennen sich 
+        die \textbf{Syntax der Aussagenlogik}.
+    \end{example}
+
+    Wir wollen präzise werden und einmal ganz
+    genau festhalten, was in der Mathematik eine Aussage ist und was nicht.
+    Dazu werden wir ein Regelwerk kennenlernen, das eindeutig
+    definiert, was eine Aussage ist. Dieses Regelwerk nennt man auch die \textbf{Syntax der
+    Aussagenlogik}.
+
+    Die Syntax der Aussagenlogik ist mit Klemmbausteinen vergleichbar. Wir haben 
+    eine Hand voll Grundbausteine und Muster nach denen wir die Grundbausteine
+    kombinieren können. 
+
+    \textbf{Erste Regel der Syntax der Aussagenlogik:}
+    Unsere erste Regel bezieht sich auf die Grundbausteine der Aussagenlogik. Die Grundbausteine
+    der Syntax der Aussagenlogik nennen sich \textbf{aussagenlogische Variablen}.
+    Die erste Regel sagt aus, dass aussagenlogische Variablen, Aussagen sind.
+    \\ \textit{Aussagenlogische Variablen sind konzeptionell genau das gleiche, wie atomare Aussagen,
+    wie wir sie bereits kennengelernt haben. Sie haben jetzt nur einen anderen Namen.}
+
+    %\todo{Wie sind AL-Form zu erklären? Problem: Wie Verwirrung zu dem Begriff atomare Aussagen
+    %vorbeugen? Atomare Aussagen dürfen nicht verwenden werden, weil in der Def. einer
+    %atomaren Aussage, bereits das Wort Aussage vorkommt.}
+    %\todo{Idee: Auch Konstanten 0,1 einführen (sagen vorher weggelassen), dann 
+    %wird Unterschied deutlich}
+
+    \textbf{Zweite Regel der Syntax der Aussagenlogik:}
+    Genauso wie man Klemmbausteine nach festen Mustern zusammenstecken 
+    kann (Die Noppen eines Steins müssen in die Löcher des anderen gesetzt werden) 
+    kann man auch Aussagen verknüpfen.
+
+    \begin{example}{}
+        Zwei Muster nach denen wir Aussagen zu komplexeren Aussagen verknüpfen
+        können sind, dass $(X \land Y)$ sowie $(X \lor Y)$ wieder Aussagen sind,
+        falls bereits $X,Y$ Aussagen sind.
+        
+        Nehmen wir mal an, dass $A,B$ zwei aussagenlogische Variablen sind. Da aussagenlogische Variablen,
+        Aussagen sind, können wir diese also nach den beiden obigen
+        Mustern verknüpfen.
+        Wir wollen $A,B$ nun zu einer komplexeren Aussagen 
+        nach diesen zwei Mustern kombinieren.
+
+        \[\begin{array}{ccc s c}\toprule
+            \textrm{Muster} & X & Y & \textrm{Verknüpfung} \\\midrule
+            (X \lor Y) & A & B & (A \lor B)\\
+            (X \land Y) & A & (A \lor B) & (A \land (A \lor B)) \\
+            (X \lor Y) & (A \land (A \lor B)) & B & ((A \land (A \lor B)) \lor B)\\\bottomrule
+        \end{array}\]
+
+        Wir haben also nur nach zwei Mustern die aussagenlogische Variablen $A,B$
+        zu der Aussage $((A \land (A \lor B)) \lor B)$ verknüpft.
+    \end{example}
+
+    Die zweite Regel der Syntax der Aussagenlogik sagt aus, dass wir Aussagen zu 
+    neuen Aussagen nach fest vorgeschriebenen 
+    Mustern verknüpfen können. Sind $A,B$ Aussagen, dann sind die 
+    folgenden Ausdrücke auch wieder Aussagen:
+
+    \begin{enumerate}
+        \item $(\lnot A)$
+        \item $(A \lor B)$
+        \item $(A \land B)$
+        \item $(A \limplies B)$
+        \item $(A \liff B)$
+    \end{enumerate}
+
+    Wir haben jetzt zwei Regeln kennengelernt, nämlich dass aussagenlogische Variablen,
+    Aussagen sind und dass Verknüpfungen, wie $A \land B$ wieder Aussagen sind.
+    Diese zwei Regeln
+    bilden bereits die Syntax der Aussagenlogik.
+    Wir können jetzt nur anhand dieser beiden Regeln genau begründen, ob
+    ein Ausdruck eine Aussage ist.
+
+    \begin{example}{}
+        Wir wollen anhand der beiden Regeln der Syntax der Aussagenlogik schlussfolgern,
+        dass $(A \land (B \lor C))$ eine Aussage ist, falls $A,B,C$ 
+        aussagenlogische Variablen sind. Wir ziehen folgende Schlüsse:
+        \begin{enumerate}
+            \item $B,C$ sind aussagenlogische Variablen, also sind $B,C$ Aussagen
+            \item Weil $B,C$ Aussagen sind, ist auch $(B \land C)$ eine Aussage
+            \item $A$ ist eine aussagenlogische Variable, also ist $A$ eine Aussage
+            \item Weil $A$ eine Aussage ist und $(B \land C)$ eine Aussage 
+            ist, ist auch $(A \land (B \lor C))$ eine Aussage
+        \end{enumerate}
+    \end{example}
+
+    Genauso gut können wir auch begründen, falls ein Ausdruck keine Aussage ist.
+
+    \begin{example}{}
+        Wir wollen diesmal anhand der Regeln der Syntax der Aussagenlogik zeigen,
+        dass der Ausdruck $(A \land )$ aus dem Eingangsbeispiel 
+        keine Aussage ist, auch 
+        wenn $A$ eine aussagenlogische Variable ist. Wir beobachten folgendes:
+        \begin{enumerate}
+            \item $(A \land )$ ist keine aussagenlogische Variable
+            \item $(A \land )$ ist keine Verknüpfung von 
+            Aussagen nach den festgelegten Mustern (wie z.B. $(A \land B)$)
+        \end{enumerate}
+        Folglich ist $(A \land )$ keine Aussage, weil $(A \land )$ durch keine 
+        der zwei Regeln der Syntax der Aussagenlogik begründet werden kann.
+    \end{example}
+
+    Wie am Anfang erwähnt, nennen sich die hier vorgestellten Regeln, die 
+    Syntax der Aussagenlogik. Dies wird in der nächsten Definition festgehalten.
+
+    \begin{definition}{Syntax der Aussagenlogik}
+        \begin{enumerate}
+            \item Aussagenlogische Variablen sind Aussagen 
+            \item Sind $A,B$ Aussagen, dann sind folgende Ausdrücke auch wieder Aussagen:
+                \begin{itemize}
+                    \item $(\lnot A)$
+                    \item $(A \lor B)$
+                    \item $(A \land B)$
+                    \item $(A \limplies B)$
+                    \item $(A \liff B)$
+                \end{itemize}
+        \end{enumerate}
+    \end{definition}
+
+    Du hast bereits den Begriff Variable in einem vorherigen Kapitel kennengelernt: Variablen sind 
+    Platzhalter für irgendeine Art von Werten. Wie man dem Namen schon entnehmen 
+    kann, handelt es sich bei aussagenlogischen Variablen auch um Variablen, wie 
+    du sie bereits kennst. In diesem Falle sind die aussagenlogischen Variablen 
+    Platzhalter für beliebige Aussagen. Es sind also Variablen mit einem anderen 
+    Wertebereiche als Zahlen. Der Wertebereich besteht hier nämlich aus Aussagen.
+
+    \section*{Semantik der Aussagenlogik}
+    Wir haben uns bis eben mit dem Aufbau von Aussagen beschäftigt. 
+    Jetzt wirst du eine neue, etwas andere Definition von Wahrheitswerten 
+    kennenlernen, die uns unter Anderem ermöglichen wird Aussagen in zwei Kategorien zu unterteilen.
+
+
+    Genau wie bei den atomaren Aussagen interessieren wir uns auch bei 
+    aussagenlogischen Variablen 
+    nicht dafür, welche 
+    konkrete Aussage hinter einer aussagenlogischen Variable steckt, 
+    sondern nur welchen Wahrheitswert die Aussage hinter der Variable besitzt. 
+    Deswegen spricht man auch von dem Wahrheitswert einer 
+    aussagenlogischen Variable.
+    Sagt man beispielsweise, die Variable $x$ ist \wahr, bedeutet dies, 
+    dass $x$ irgendeine wahre Aussage ist. \\
+    In der Aussagenlogik würde man hierzu auch sagen, dass 
+    $x$ mit dem Wahrheitswert \wahr\ \textbf{belegt} ist und wir notieren 
+    dies durch $\mathfrak{I}(x) = \wahr$. 
+    Statt zu sagen, dass eine Variable einen Wahrheitswert hat, spricht 
+    man also in der Aussagenlogik davon, dass eine Variable mit einem Wahrheitswert 
+    \textbf{belegt} ist. 
+
+    \begin{definition}{Belegung}
+        Nehmen die Variablen $x_1,\dots,x_n$ konkrete Wahrheitswerte an, dann
+        nennt man diese Wahrheitswerte eine \textbf{Belegung} $\mathfrak{I}$ 
+        dieser Variablen. Ist $x_i$ mit
+        \wahr\ bzw. \falsch\  belegt, dann notieren 
+        wir dies durch $\mathfrak{I}(x_i) = \wahr$ bzw. $\mathfrak{I}(x_i) = \falsch$.
+    \end{definition}
+
+    Genauso wie es ein Regelwerk zum Aufbau von Aussagen gibt, 
+    nämlich die Syntax der Aussagenlogik, gibt es auch so ein Regelwerk mit der
+    wir genau festlegen können, wie die Wahrheitswerte von Aussagen definiert sind.
+    Dieses Regelwerk nennt sich die \textbf{Semantik der Aussagenlogik} und definiert 
+    den Wahrheitswert von Verknüpfungen von Aussagen bezüglich einer 
+    konkreten Belegung. Dieser Formalismus unterscheidet sich zu dem, was du im 
+    vorherigen Abschnitt gesehen hast insofern, dass der Wahrheitswert einer Aussage 
+    nun abhängig von einer konkreten Belegung ist und so gesehen keinen festen 
+    Wahrheitswert hat. \\ 
+    Zum Beispiel wirst du mit der gleich folgenden Definition der Semantik 
+    sehen, dass die Aussage 
+    \[A \land B\] 
+    einerseits \wahr\ ist bezüglich der 
+    Belegung $\mathfrak{I}_1$ mit $\mathfrak{I}_1(A) = \wahr, \mathfrak{I}_1(B) = \wahr$
+    aber andereseits \falsch\ ist bezüglich der Belegung 
+    $\mathfrak{I}_2$ mit $\mathfrak{I}_2(A) = \falsch, \mathfrak{I}_2(B) = \wahr$.
+
+    \begin{definition}{Semantik der Aussagenlogik}
+        Ist $X$ eine Aussage und $\mathfrak{I}$ eine Belegung, dann notieren 
+        wir den Wahrheitswert von $X$ bezüglich $\mathfrak{I}$ durch $\mathfrak{I}(X)$.
+
+        Sind $A,B$ zwei Aussagen und ist $\mathfrak{I}$ eine Belegung der in $A,B$ vorkommenden 
+        Variablen, dann definiert folgende Tabelle den
+        Wahrheitswert aller möglichen Verknüpfungen von $A,B$:
+
+        \[\begin{array}{cc s ccccc}\toprule
+            \mathfrak{I}(A) & \mathfrak{I}(B) & \mathfrak{I}(A \land B) & \mathfrak{I}(A\lor B) & \mathfrak{I}(A\limplies B) & \mathfrak{I}(A\liff B) & \mathfrak{I}(\lnot A) \\\midrule
+            \falsch & \falsch & \falsch & \falsch & \wahr & \wahr & \multirow{2}{*}{\wahr}\\
+            \falsch & \wahr & \falsch & \wahr & \wahr & \falsch &  \\
+            \wahr & \falsch & \falsch & \wahr & \falsch & \falsch & \multirow{2}{*}{\falsch}
+            \\
+            \wahr & \wahr & \wahr & \wahr & \wahr & \wahr & 
+            \\\bottomrule
+        \end{array}\]
+    \end{definition}
+
+    Wir können nun Aussagen in zwei Kategorien einteilen:
+    \begin{example}{}
+        Bezüglich der Belegung $\mathfrak{I}$ mit 
+        $\mathfrak{I}(A) = \wahr, \mathfrak{I}(B) = \wahr$ ist die Aussage 
+        $A \land B$ \wahr. Es gibt also mindestens eine Belegung für die 
+        $A \land B$ \wahr  wird. Man spricht dann davon, 
+        dass $A \land B$ \textbf{erfüllbar}
+        ist.
+    \end{example}
+    In der ersten Kategorie befinden sich Aussagen zu welchen 
+    es mindestens eine Belegung gibt, sodass die Aussage \wahr\ ist. Aussagen in 
+    dieser Kategorie nennen sich \textbf{erfüllbar}.
+
+    \begin{example}{}
+        Die Aussage $A \land (\lnot A)$ ist bezüglich keiner Belegung 
+        $\mathfrak{I}$ \wahr. In beiden möglichen Fällen, nämlich 
+        $\mathfrak{I}(A) = \wahr$ oder $\mathfrak{I}(A) = \falsch$ ist die 
+        Aussage $A \land (\lnot A)$ nämlich \falsch. Solche Aussagen nennt man \textbf{unerfüllbar}.
+    \end{example}
+    In der zweiten Kategorien befinden sich Aussagen, die nie \wahr\ werden, egal 
+    welche Belegung man wählt. Solche Aussagen nennen wir \textbf{unerfüllbar}.
+
+    \begin{definition}{Erfüllbarkeit}
+        Wir nennen eine Aussage $A$ \textbf{erfüllbar}, falls es eine 
+        Belegung $\mathfrak{I}$, der in $A$ vorkommenden Variablen gibt, 
+        sodass $A$ \wahr\ ist, also $\mathfrak{I}(A) = \wahr$.
+    \end{definition}
+
+    \newpage
+
+    \todo{Kein Erfüllbarkeits/Belegungsvokabular verwenden, damit die Abschnitte unabhängig voneinander gelesen werden können}
+
+    \todo{@Tobias: Finde hierzu mal eine gute Überleitung oder Motivation :D}
+    \section*{Normalformen}
+    Manchmal ist es vorteilhaft sich nur mit Aussagen zu beschäftigen, 
+    die eine ganz bestimmte Form besitzen.
+
+    \begin{example}{}
+        Wir betrachten einmal die Aussage $X$, welche wie folgt definiert ist:
+        \[X = ((\lnot A) \land B \land C) \lor ((\lnot B) \land  C) 
+        \lor (A \land (\lnot A))\]
+        wobei $A,B,C$ aussagenlogische Variablen sind.
+        Der Aufbau dieser Aussage entspricht einem bestimmten Schema:
+
+        Grob betrachtet ist diese Aussage $X$ eine Veroderung von 
+        mehreren (in diesem Fall 3) Unteraussagen.
+        \[\underbrace{((\lnot A) \land B \land C)}_{D_1} \lor \underbrace{((\lnot B) \land 
+        C)}_{D_2} \lor \underbrace{(A \land (\lnot A))}_{D_3}\]
+        Diese 3 Unteraussagen $D_1,D_2,D_3$ haben selber auch wieder eine besondere Struktur.
+        Um diese Struktur besser verstehen sie können brauchen wir erstmal einen neuen Begriff:
+        Wir nennen alle Aussagen, die entweder eine aussagenlogische Variable 
+        oder die Negation einer
+        aussagenlogischen Variable sind, \textbf{Literale}.       
+        In $D_1,D_2,D_3$ kommen Literale vor, die wir jetzt
+        einmal alle markieren und bennenen:
+
+        \[\begin{array}{cc}
+            D_1 = & (\underbrace{(\lnot A)}_{L_1} \land \underbrace{B}_{L_2} \land 
+            \underbrace{C}_{L_3})  \\
+            \\
+            D_2 = & (\underbrace{(\lnot B)}_{L_4} \land \underbrace{C}_{L_5}) \\ \\
+            D_3 = & (\underbrace{A}_{L_6} \land \underbrace{(\lnot A)}_{L_7}) \\
+        \end{array}\]
+        Es stellt sich also heraus, dass 
+        $D_1,D_2,D_3$ Verundungen von Literalen sind.
+
+        Zusammengefasst ist also unsere ursprüngliche Aussage $X$
+        eine Veroderung von Verundungen von
+        Literalen. Wir können das wie folgt notieren:
+        \[X = D_1 \lor D_2 \lor D_3\]
+        \[\textrm{wobei: }D_1 = (L_1 \land L_2 \land L_3),\  D_2 = (L_4 
+        \land L_5),\  D_3 = (L_6 \land L_7)\]
+        Aussagen, die in dieses Schema passen, nennen wir 
+        Aussagen in \textbf{disjunktiver Normalform}.
+
+        Was ist nun der Vorteil daran, dass sich $X$ in
+        \textbf{disjunktiver Normalform}
+        befindet? Der Vorteil ist, dass wir sofort eine oder mehrere Kombinationen der 
+        Wahrheitswerte der
+        aussagenlogischen Variablen $A,B,C$ ablesen können, für 
+        die $X$ \wahr\ wird. 
+
+        Wir gehen wie folgt vor:
+        \begin{enumerate}
+            \item Wähle beliebig zwischen $D_1,D_2$:
+
+                Wir entscheiden uns hier willkürlich für $D_1$. Wir wollen nun 
+                Wahrheitswerte finden, sodass $D_1$ \wahr\  wird. Deswegen stand 
+                hier auch nicht $D_3$ zur Auswahl, da $D_3$ ohnehin nie \wahr\  
+                werden könnte, da 
+                $A$ negiert als auch unnegiert in $D_3$ vorkommt.
+            \item Wähle Wahrheitswerte der aussagenlogischen Variablen $A,B,C$, 
+            so dass $D_1$ \wahr\ wird:
+                \[ D_1 = ((\lnot \underbrace{A}_{\falsch}) \land \underbrace{B}_{\wahr} \land \underbrace{C}_{\wahr})\] 
+            Mit $A$ \falsch\  sowie $B$ und $C$ \wahr, ist $D_1$ \wahr. $A$ hat den Wahrheitswert
+            \falsch\ bekommen, weil $(\lnot A)$ in $D_1$ vorkommt. $B$ und $D$ kommen nicht negiert 
+            vor, deshalb bekommen sie den Wahrheitswert \wahr.
+        \end{enumerate}
+        Wir haben also herausgefunden, dass durch $A$ \falsch\  sowie $B$ 
+        und $C$ \wahr\ 
+        $D_1$ \wahr\ ist und damit auch $X$. 
+        Wir könnten auch noch andere Wahrheitswerte für $A,B,C$ finden für die $X$ \wahr\ 
+        wird, indem wir im ersten Schritt $D_2$ gewählt hätten.
+    \end{example}
+
+    Eine häufig zu sehende Form, in der Aussagen sein können ist die 
+    \textbf{disjunktive Normalform}. Um diese Form zu verstehen wird ein neuer 
+    Aussagentyp benötigt: das \textbf{Literal}.
+
+    \begin{definition}{Literal}
+        Wir nennen aussagenlogische Variablen oder Negationen von aussagenlogischen Variablen, Literale.
+    \end{definition}
+
+    Aussagen in disjunktiver Normalform sind Aussagen, die Verorderungen von Verundungen von
+    Literalen sind.
+
+    \begin{definition}{Disjunktive Normalform}
+        Eine Aussage $A$ ist in disjunktiver Normalform, falls $A$ folgende Form hat:
+        \[A = D_1 \lor \dots \lor D_n\]
+        wobei jedes $D_i$ folgende Form hat:
+        \[D_i = L_1 \land \dots \land L_m \]
+        wobei jedes $L_j$ ein Literal ist.
+    \end{definition}
+
+    Ein Grund, weshalb es von Vorteil ist Aussagen in disjunktiver Normalform
+    vorliegen zu haben, ist es, dass man sofort, falls vorhanden, 
+    eine Kombination der Wahrheitswerte der aussagenlogischen
+    Variablen ablesen kann, für die die Aussage \wahr\ wird. 
+    Dazu geht man wie folgt vor, falls man 
+    die Aussage
+    \[X= D_1 \lor \dots \lor D_n\]
+    in disjunktiver Normalform vorliegen hat.
+    \begin{enumerate}
+        \item Wähle beliebig ein $D_1,\dots,D_n$, in welchem keine 
+        aussagenlogische Variable sowohl negiert als auch nicht negiert vorkommt. 
+        Ist dies nicht möglich, wissen wir bereits, dass $X$ nie \wahr\ werden kann 
+        und wir brechen ab.
+        
+        Gehen wir davon aus, wir haben unsere Wahl getroffen und nennen sie $D_i$.
+        \item Wähle Wahrheitswerte für die aussagenlogischen 
+        Variablen in $D_i$ so, dass $D_i$ \wahr\  wird.
+        
+        Dies funktioniert wie folgt: Ist $A$ eine aussagenlogische Variable, die in $D_i$ vorkommt, dann:
+            \begin{itemize}
+                \item setzen wir $A$ \falsch, falls auch $(\lnot A)$ in $D_i$ vorkommt
+                \item setzen wir $A$ \wahr, falls $(\lnot A$) nicht in $D_i$ vorkommt
+            \end{itemize}
+        
+    \end{enumerate}
+
+    Für die gewählten Wahrheitswerte der aussagenlogischen Variablen durch die zwei 
+    Schritte ist das gewählte $D_i$ \wahr\ und damit dann auch $X$. Welche 
+    Wahrheitswerte wir für die aussagenlogischen Variablen finden, hängt davon ab
+    welches $D_i$ wir im ersten Schritt wählen. Andere Wahlen können zu anderen 
+    Wahrheitswertkombinationen führen.
+
+    Man kann dieses Vorgehen auch umdrehen. Wir haben gerade gesehen, 
+    wie wir Wahrheitswerte für aussagenlogische Variablen
+    aus einer disjunktiven Normalform ablesen können, sodass die Aussage \wahr\ wird. Andererseits können wir auch 
+    aus einer gegebenen Wahrheitstabelle eine Aussage in disjunktiver Normalform ablesen,
+    die genau diese Wahrheitstabelle besitzt.
+
+    \begin{example}{}
+        Stell dir vor wir haben diese Wahrheitstabelle mit den
+        3 aussagenlogischen Variablen $a,b,c$ gegeben.
+
+        \[\begin{array}{cccc s c}\toprule
+            & a & b & c & \\\midrule
+            1& \falsch & \falsch & \falsch & \falsch \\ 
+            2& \falsch & \falsch & \wahr & \wahr \\ 
+            3& \falsch & \wahr & \falsch & \falsch \\ 
+            4& \falsch & \wahr & \wahr & \falsch \\ 
+            5& \wahr & \falsch & \falsch & \falsch \\ 
+            6& \wahr & \falsch & \wahr & \falsch \\ 
+            7& \wahr & \wahr & \falsch & \wahr \\ 
+            8& \wahr & \wahr & \wahr &\falsch \\ \bottomrule
+        \end{array}\]
+
+        Unser Ziel ist es eine Aussage $X$ zu finden, sodass $X$ genau diese Wahrheitstabelle 
+        besitzt. Unsere Aussage $X$ muss nur in zwei Fällen \wahr\ werden, nämlich 
+        in den Fällen:
+
+        \[\begin{array}{cccc s c}\toprule
+            \textrm{Zeile} & a & b & c\\\midrule
+
+            2& \falsch & \falsch & \wahr & \wahr \\ 
+
+            7&\wahr & \wahr & \falsch & \wahr \\ 
+            \bottomrule
+        \end{array}\]
+        \[\]
+        $X$ soll also nur \wahr\  sein, wenn der Fall in Zeile zwei oder 
+        der Fall in Zeile sieben eintritt. 
+        Dass der Fall in Zeile zwei eintritt nennen wir $D_1$. $D_1$
+        soll also aussagen: $a$ ist \falsch\ und $b$ ist \falsch\  und $c$ ist \wahr. 
+        Als Aussage formalisiert lautet dies:
+        \[ D_1 = ((\lnot a) \land (\lnot b) \land c) \]
+        Dass der Fall in Zeile sieben eintritt nennen wir $D_2$.$D_2$ sagt also 
+        aus: $a$ ist \wahr\ und $b$ ist \wahr\ und $c$ ist \falsch. Formalisiert:
+        \[ D_2 = (a \land b \land (\lnot c)) \]
+        
+        Dass mindestens einer dieser beiden Fälle eintritt ist genau die gesuchte 
+        Aussage $X$:
+        \[X = D_1 \lor D_2\]
+
+        $X$ besitzt genau die geforderte Wahrheitstabelle und $X$ ist 
+        eine Aussage in disjunktiver Normalform.
+
+    \end{example}
+
+
+    %Möchte man aus einer Wahrheitstabelle mit den aussagenlogischen
+    %Variablen $a_1, \dots, a_n$ eine Aussage $X$ in disjunktiver Normalform ablesen, dann
+    %betrachtet man dafür die Zeilen der Wahrheitstabelle in der die Aussage \wahr\ werden soll.
+    %Nehmen wir an die Aussage ist in der Zeile $i$ \wahr. Die Zeile $i$ gibt für jede 
+    %der $n$ aussagenlogischen Variablen einen Wahrheitswert an.
+    %Für jede Zeile $i$ in der die Aussage \wahr\ wird, erstellen wir dann die Aussage 
+    %\[D_i = L_1 \land 
+    %\dots \land L_n\]
+    %Das Literal $L_j$ ist die dabei aussagenlogische Variable 
+    %$a_j$, falls die Variable $a_j$ in der Zeile \wahr\ ist. Ist die Variable $a_j$ in der Zeile 
+    %\falsch\ , dann ist $L_j = (\lnot a_j)$.
+    %Um die gesuchte Aussage in $X$ in disjunktiver Normalform zu erhalten, verodern wir alle erstellen
+    %$D_i$.
+    %\[X = D_1 \lor \dots \lor D_m\]
+
+
+    Möchte man aus einer Wahrheitstabelle eine Aussage $X$ in disjunktiver Normalform 
+    ablesen, die dieselbe Wahrheitstabelle besitzt,
+    betrachtet man dafür die Zeilen der Wahrheitstabelle in der die 
+    Aussage $X$ \wahr\ werden soll.
+
+    Für jede Zeile $i$ in der die Aussage \wahr\ werden soll 
+    erstellen wir eine Aussage
+    $D_i$, die genau dann \wahr\  wird wenn der Fall  
+    aus Zeile $i$ eintritt. 
+
+    Ist Beispielsweise Zeile $i$ wie folgt:
+
+    \[\begin{array}{ccccc}\toprule
+        Zeile & a & b & c & d\\\midrule
+        i &\wahr & \falsch & \wahr & \falsch \\ 
+        \bottomrule
+    \end{array}\]
+
+    Dann wählen wir:
+    \[D_i = a \land (\lnot b) \land c \land (\lnot d)\]
+
+    Das Muster dahinter ist das Folgende:
+    Wenn $x$ eine beliebige aussagenlogische Variable ist, 
+    die in der Wahrheitstabelle auftaucht, dann
+    \begin{enumerate}
+        \item kommt $x$ ohne Veränderung in $D_i$ vor, falls in der Zeile $i$, $x$ den Wahrheitswert \wahr\ hat 
+        \item kommt die Negation $(\lnot x)$ in $D_i$ vor, falls in der Zeile $i$, $x$ den Wahrheitswert \falsch\ hat
+    \end{enumerate}
+
+    Die gesuchte Aussage $X$ erhalten wir dann indem wir alle $D_i$ verodern, also
+    ausdrücken, dass ein Fall eintritt indem die entsprechende Zeile in der 
+    Wahrheitstabelle \wahr\  anzeigt. Also ergibt sich:
+    \[X = D_1 \lor \dots \lor D_n\]
+
+
+    Mit dem Wissen wie wir zu einer Wahrheitstabelle eine Aussage in disjunktiver Normalform
+    aufstellen können, können wir jetzt sogar zu jeder Aussage eine semantisch äquivalente
+    Aussage in disjunktiver Normalform bestimmen.
+
+    \begin{example}{}
+        Stell dir vor du hast die Aussage $A$
+        \[A = (x \lor (\lnot y)) \limplies (x \land (\lnot y)) \]
+        vorliegen, wobei $x$ und $y$ aussagenlogische Variablen sind. Wir wollen 
+        nun systematisch eine semantisch äquivalente Aussage in disjunktiver Normalform
+        bestimmen. Wir gehen dabei in zwei Schritten vor.
+        \begin{enumerate}
+            \item Bestimmte Wahrheitstabelle von $A$
+            \[\begin{array}{ccc s c}\toprule
+                & x & y & A \\\midrule
+                1 & \falsch & \falsch  & \falsch \\ 
+                2  & \falsch & \wahr  & \wahr \\ 
+                3 & \wahr & \falsch  & \wahr \\ 
+                4 & \wahr & \wahr  & \falsch \\  \bottomrule
+            \end{array}\]
+            \item Lese eine Aussage $X$ in disjunktiver Normalform aus der Wahrheitstabelle ab
+            
+            Mit dem Vorgehen, was wir bereits kennengelernt haben, können wir nun aus dieser 
+            Wahrheitstabelle eine 
+            Aussage $X$ in disjunktiver Normalform ablesen. Wir betrachten wieder dazu 
+            die Zeilen mit \wahr. Das sind die Zeilen 2,3, die für die Fälle ($x$ \falsch\ und $y$ \wahr) sowie
+            ($x$ \falsch\ und $y$ \wahr) stehen. $X$ ist also:
+            \[X = ((\lnot x) \land y) \lor (x \land (\lnot y))\]
+        \end{enumerate}
+
+        Weil $X$ und $A$ dieselbe Wahrheitstabelle besitzen, haben wir nun 
+        eine Aussage $X$ in disjunktiver Normalform bestimmt, die semantisch äquivalent 
+        zu unser Ausgangsaussage $A$ ist.
+
+    \end{example}
+
+    Möchten wir zu einer Aussage $A$ eine semantisch äquivalente Aussage $X$ in disjunktiver Normalform
+    finden, dann gehen wir dabei wie folgt vor:
+    \begin{enumerate}
+        \item Stelle Wahrheitstabelle zu $A$ auf
+        \item Lese aus Wahrheitstabelle von $A$ die Aussage $X$ in disjunktiver Normalform ab
+    \end{enumerate}
+
+    Neben der disjunktiven Normalform gibt es noch eine 
+    weitere sehr ähnlich Normalform, die sogenannte \textbf{konjunktive Normalform}.
+    Eine konjunkive Normalform ist die Veroderung von Verundungen von Literalen. 
+    Die konjunktive Normalform ist also sehr ähnlich zur disjunktiven Normalform. Es 
+    wurden quasi nur die Rollen der Verundungen und Veroderungen getauscht.
+
+    \begin{definition}{Konjunktive Normalform}
+        Eine Aussage $A$ ist in konjunktiver Normalform, falls $A$ folgende Form hat:
+        \[A = K_1 \land \dots \land K_n\]
+        wobei jedes $K_i$ folgende Form hat:
+        \[K_i = L_1 \lor \dots \lor L_m \]
+        wobei jedes $L_j$ ein Literal ist.
+    \end{definition}
+
+    \section*{Vollständige Basen}
+    Wir wissen, dass wir zu jeder Aussage eine semantisch äquivalente
+    Aussage in 
+    disjunktiver Normalform bestimmen können. Und wir stellen dabei fest,
+    dass in einer Aussage in disjunktiver Normalform die Konnektoren 
+    $\limplies,\liff$ gar nicht vorkommen.
+    Wir können also jede Aussage semantisch äquivalent nur mit den Konnektoren 
+    $\lnot,\lor,\land$ schreiben.
+
+    \begin{example}{}
+        Wir können also vorallem die Konnektoren $\limplies$ und $\liff$ nur durch
+        $\lnot, \lor, \land$ semantisch äquivalent ausdrücken:
+        \begin{enumerate}
+            \item $\limplies$:
+            
+            Wir kennen bereits die Äquivalenzumformung \enquote{Auflösen der Implikation} 
+            aus dem Abschnitt zu Wahrheitstabellen. Wir wissen daher, dass 
+            $a \limplies b \equiv \lnot (a \land (\lnot b))$ gilt. Wir können 
+            die Implikation also nur mit den Konnektoren $\lnot,\lor,\land$ schreiben.
+            \item $\liff$:
+            
+            Wir stellen zunächst die Wahrheitstabelle zu $a \liff b$ auf:
+            \[\begin{array}{cc s c}\toprule
+                a & b & a \liff b \\\midrule
+                \falsch & \falsch  & \wahr \\ 
+                \falsch & \wahr  & \falsch \\ 
+                \wahr & \falsch  & \falsch \\ 
+                \wahr & \wahr  & \wahr \\  \bottomrule
+            \end{array}\]
+            Wir können nun hieraus eine Aussage $X$ in disjunktiver Normalform ablesen, nämlich:
+            \[X = ( (\lnot a) \land (\lnot b)) \lor (a \land b)\]
+            $X$ ist semantisch äquivalent zu $a \liff b$ und enthält nur die Konnektoren $\lnot,\lor,\land$
+
+        \end{enumerate}
+    \end{example}
+
+    Dadurch, dass wir semantisch äquivalent jede Aussage
+    nur mit Hilfe von $\lnot,\lor,\land$
+    ausdrücken können, nennen sich diese Konnektoren eine \textbf{vollständige Basis}.
+
+    \begin{definition}{Vollständige Basis}
+        Kombinationen von Konnektoren für die es für jede Aussage eine 
+        semantisch äquivalente Aussage 
+        gibt, in der nur diese Konnektoren vorkommen, nennen wir 
+        eine \textbf{vollständige Basis}.
+    \end{definition}
+
+    Wir haben gesehen, dass $\limplies, \liff$ gar nicht benötigt werden, um 
+    alle Aussagen semantisch äquivalent auszudrücken. Wir brauchen nur 
+    $\lnot,\lor,\land$. Aber geht das noch besser? Können wir noch einen Konnektor 
+    loswerden? Erstaunlicherweise ja: Schon $\lnot,\land$ ist eine vollständige
+    Basis, denn wir können nur mit diesen beiden Konnektoren bereits $\lor$ ausdrücken.
+
+    \begin{example}{}
+        Wir wollen zunächst $A \lor B$ nur mit $\lnot,\land$ ausdrücken.
+        Dazu formen wir jetzt die Aussage $A \lor B$ sukkzessiv mit semantischen Äquivalenzumformungen
+        um, bis die Aussage nur noch aus $\lnot$ sowie $\land$ besteht:
+        \[\begin{array}{cc s c}\toprule
+            \textrm{Schritt} & \textrm{Umformung} & \textrm{Resultat}\\\midrule
+            \textrm{Start}   &   & A \lor B  \\
+            1   & \textrm{Involution} & \lnot \lnot (A \lor B)\\
+            2 & \textrm{1. De Morgansches Gesetz}   & 
+            \lnot ((\lnot A) \land (\lnot B))\\
+            \bottomrule
+        \end{array}\]
+
+        Wir haben also gezeigt, dass $A \lor B$ semantisch äquivalent zu  $\lnot ((\lnot A) \land (\lnot B))$
+        ist.
+    \end{example}
+
+    Wir bemerken 
+    zunächst, dass $A \lor B \equiv \lnot ((\lnot A) \land (\lnot B))$ ist. Dabei 
+    sind $A,B$ beliebige Aussagen. Veroderungen 
+    können wir also bereits nur durch die Konnektoren $\lnot,\land$ ausdrücken.
+
+    Daraus können wir bereits folgern, dass sich jede Aussage semantisch 
+    äquivalent durch $\lnot,\land$ schreiben lässt.
+
+    \begin{example}{}
+        Nehmen wir uns als Ziel mit System eine semantisch 
+        äquivalente Aussage zu der Aussage
+        \[a \liff b\]
+        aus letztem Beispiel zu finden, die nur die Konnektoren $\lnot,\land$
+        enthält.
+        Wir gehen dabei in zwei Schritten vor.
+        \begin{enumerate}
+            \item Wir bestimmen zunächst die disjunktive Normalform:
+            
+                Wir wissen aus letzten Beispiel, dass $a \liff b \equiv ( (\lnot a) \land (\lnot b)) \lor (a \land b)$
+
+                Die disjunktive Normalform enthält die Konnektoren $\lnot,\lor,\land$. Wir 
+                müssen jetzt nur noch das $\lor$ loswerden.
+            
+            \item Wir können das $\lor$ entfernen, indem wir die Äquivalenz 
+            $A \lor B \equiv \lnot ((\lnot A) \land (\lnot B))$ benutzen.
+            Die folgende Markierung zeigt, was in unserem Fall 
+            $A$ und was $B$ ist.
+            \[\underbrace{((\lnot a) \land (\lnot b))}_{A} 
+            \lor \underbrace{(a \land b)}_{B} \]
+            Also ist $( (\lnot a) \land (\lnot b)) \lor (a \land b)$ semantisch 
+            äquivalent zu 
+            \[\lnot (   \underbrace{(\lnot ( (\lnot a) \land (\lnot b)))}_{\lnot A} 
+                \land \underbrace{(\lnot (a \land b))}_{\lnot B}
+            )\] 
+            
+            Wir haben also alle $\lor$ (hier nur ein einziges) entfernt, indem wir 
+            Unteraussagen der Form $A \lor B$ durch $\lnot((\lnot A) \land (\lnot B))$
+            ersetzt haben.
+
+        \end{enumerate}
+
+    Wir haben es also in zwei Schritten geschafft $a \liff b$ semantisch äquivalent 
+    nur durch $\lnot,\land$ zu schreiben:
+    \[ a \liff b \equiv \lnot ((\lnot ( (\lnot a) \land (\lnot b))) \land (\lnot (a \land b)))\]
+    \end{example}
+
+    Um zu einer beliebigen Aussage eine semantisch äquivalente Aussage 
+    zu finden, die nur die Konnektoren $\lnot,\land$ enthält, geht man wie 
+    folgt vor:
+
+    \begin{enumerate}
+        \item Bestimme disjunktive Normalform
+        
+            Nach diesem Schritt enthält unsere Aussage nur noch die Konnektoren 
+            $\lnot,\lor,\land$. Der nächste Schritt hat das Ziel noch die $\lor$ loszuwerden.
+        \item Ersetze Unteraussagen der Form $A \lor B$ durch 
+                $\lnot ((\lnot A) \land (\lnot B))$ bis die Aussage kein $\lor$ mehr enthält
+    \end{enumerate}
+
+    Nach den Schritten 1 und 2 haben wir eine Aussage konstruiert, die nur auch 
+    den Konnektoren $\lnot,\land$ besteht und semantisch äquivalent zu der 
+    Ausgangsaussage ist.
+
+    Wir haben damit also gezeigt, dass $\lnot,\land$ eine vollständige Basis ist.
+
+    \begin{theorem}{}
+    $\lnot,\land$ ist eine vollständige Basis.
+    \end{theorem}
+
+    Es gibt noch viele weitere vollständige Basen. Zum Beispiel ist auch 
+    $\lnot,\lor$ eine vollständige Basis. Findest du 
+    weitere Beispiele für vollständige Basen?
+
+    \todo{Titel der Nutshellbox anders nennen?}
+    \begin{nutshell}{Weiterführendes Wissen}
+    Aussagen können wir präsize Anhand von einem Regelwerk definieren, welches 
+    man \textbf{Syntax der Aussagenlogik} nennt und aus zwei Regeln besteht:
+    \begin{enumerate}
+
+        \item Aussagenlogische Variablen sind Aussagen 
+        \item Sind $A,B$ Aussagen, dann sind folgende Ausdrücke auch wieder Aussagen:
+            \begin{itemize}
+                \item $(\lnot A)$
+                \item $(A \lor B)$
+                \item $(A \land B)$
+                \item $(A \limplies B)$
+                \item $(A \liff B)$
+            \end{itemize}
+
+    \end{enumerate}
+
+    Hat eine Variable $x$ einen konkreten Wahrheitswert angenommen, 
+    nennen wir diesen auch \textbf{Belegung} von $x$ und notieren ihn 
+    durch $\mathfrak{I}(x)$.
+
+    Mithilfe des Begriffs der Belegung können wir nun auch ein Regelwerk zu 
+    den Wahrheitswerten von Aussagen definieren, welches sich 
+    \textbf{Semantik der Aussagenlogik} nennt. Dabei ist der Wahrheitswert 
+    einer Aussage abhängig von einer Belegung $\mathfrak{I}$ und wir notieren 
+    den Wahrheitswert einer Aussage $X$ bezüglich $\mathfrak{I}$ 
+    durch $\mathfrak{I}(X)$.
+
+    Sind $A,B$ zwei Aussagen und ist $\mathfrak{I}$ eine Belegung der in $A,B$ 
+    vorkommenden 
+    Variablen, dann definiert folgende Tabelle den
+    Wahrheitswert aller möglichen Verknüpfungen von $A,B$:
+    \[\begin{array}{cc s ccccc}\toprule
+        \mathfrak{I}(A) & \mathfrak{I}(B) & \mathfrak{I}(A \land B) & \mathfrak{I}(A\lor B) & \mathfrak{I}(A\limplies B) & \mathfrak{I}(A\liff B) & \mathfrak{I}(\lnot A) \\\midrule
+        \falsch & \falsch & \falsch & \falsch & \wahr & \wahr & \multirow{2}{*}{\wahr}\\
+        \falsch & \wahr & \falsch & \wahr & \wahr & \falsch &  \\
+        \wahr & \falsch & \falsch & \wahr & \falsch & \falsch & \multirow{2}{*}{\falsch}
+        \\
+        \wahr & \wahr & \wahr & \wahr & \wahr & \wahr & 
+        \\\bottomrule
+    \end{array}\]
+
+    Wir nennen Aussagen, die entweder eine Variable oder die Negation 
+    einer Variable sind,
+    \textbf{Literale}. Aussagen der Form 
+    \[D_1 \lor \dots \lor D_n\]
+    wobei alle $D_i$ Verundungen von Literalen sind, befinden sich in \textbf{disjunktiver Normalform}.
+    Andersherum nennen wir Aussagen der Form 
+    \[K_1 \land \dots \land K_n\]
+    wobei alle $K_i$ Veroderungen von Literalen sind, in \textbf{konjunktiver Normalform}.
+    \\ \\
+    Wir können zu jeder Aussage eine semantisch äquivalente Aussage in disjunktiver
+    Normalform finden und in einer disjunktiven Normalform kommen 
+    nur die Konnektoren 
+    $\lnot,\lor,\land$ vor. Diese drei Konnektoren bilden also eine 
+    \textbf{vollständige Basis}, was eine Kombination von Konnektoren ist mit denen 
+    man jede Aussage semantisch äquivalent formulieren kann. 
+    Auch $\lnot,\land$ ist eine vollständige
+    Basis.
+
+    \end{nutshell}
+
+    \section*{Fortgeschrittene Beweistechniken}
     \label{advanced-proofs}
     
-    \subsection{Vollständige Induktion}
+    \subsection*{Vollständige Induktion}
     Wenn in einer Reihe aus Dominosteinen der erste Stein umkippt und jeder umkippende Stein außerdem den nächsten zum Umfallen bringt, dann fällt nach und nach die ganze Reihe um.
 
     Es lässt sich also mithilfe von zwei Beobachtungen feststellen, dass die ganze Reihe umfällt:
@@ -49,9 +785,9 @@
         \end{enumerate}
         \end{proof}
     \end{example}
-    Der Induktionsanfang wird in Beweisen meistens mit \enquote{I.A.} abgekürzt, der Induktionsschritt mit \enquote{I.S.}. Außerdem spricht man meist einfach nur von Induktion und lässt das Wort \emph{vollständig} weg.
+    Der Induktionsanfang wird in Beweisen meistens mit \enquote{I.A.} abgekürzt, der Induktionsschritt mit \enquote{I.S.}. Außerdem spricht man meist einfach nur von Induktion und lässt das Wort \enquote{vollständig} weg.
     
-    \subsection{Ringschluss}
+    \subsection*{Ringschluss}
     Dass mehrere Aussagen äquivalent sind, lässt sich oft nicht einfach zeigen. Stattdessen ist es einfacher, nur zu zeigen, dass eine Aussage aus einer anderen folgt.
 
     Bei einem \textbf{Ringschluss} werden Aussagen in einem Ring auseinander gefolgert, also etwa so:
@@ -62,8 +798,8 @@
         
     \end{example}
 
-    \subsection{Beweis durch Kontraposition}
-    \subsection{Schubfachprinzip}
+    \subsection*{Beweis durch Kontraposition}
+    \subsection*{Schubfachprinzip}
     Das \textbf{Schubfachprinzip} (\emph{auch Taubenschlagprinzip}) beruht auf einer sehr einfachen Beobachtung: Wenn du Tauben in Taubenschläge einteilen möchtest, aber mehr Tauben als Taubenschläge hast, dann müssen in mindestens einem Taubenschlag mehrere Tauben landen.
     
     Obwohl dies eine wenig überraschende Erkenntnis ist, lässt sie sich oft als die Grundlage mathematischer Beweise verwenden.
@@ -97,43 +833,5 @@
             Die Gruppe besteht aber aus $n$ Menschen. Es müssen also mindestens zwei Menschen in der Gruppe die gleiche Anzahl an Freunden haben.
         \end{proof}
     \end{example}
-    
-    %#1: Name
-    %#2: Logische Grundlage
-    %#3: Beispiel
-    \newcommand{\dispProof}[3]{
-        \begin{tcolorbox}[title=#1, fonttitle=\fontfamily{pbk}\selectfont\bfseries\large, sharp corners]%
-            \arrayrulecolor{tcbcolframe}%
-            \begin{tabularx}{\linewidth}{@{}>{\fontfamily{pbk}\selectfont}lX@{}}
-                Prinzip & #2\\\midrule
-                Beispiel & #3
-            \end{tabularx}
-        \end{tcolorbox}
-    }
-    
-    \dispProof{Direkter Beweis}
-        {}
-        {Zeige: $x\text{ gerade} \implies x^2\text{ gerade}$. $x\text{ gerade} \implies x=2\cdot y \text{ für ein }y \implies x^2=(2y)^2=4y^2 \implies x^2 \text{ gerade}$.}
-%\todo{Übungsaufgabe: Zeige durch einen direkten Beweis, dass $x \text{ ungerade} \implies x^2 \text{ ungerade}$}
-    
-    \dispProof{Vollständige Induktion}
-        {Sei $A(x)$ die zu beweisende Aussage. Man zeigt, dass $A(0)$ gilt (Induktionsanfang) und, dass $A(i) \implies A(i+1)$. Also: wenn $A$ für einen Wert gilt, dann auch für dessen Nachfolger. Weil man $A(0)$ zeigt, ergibt sich eine unendliche Implikationskette $A(0) \implies A(1) \implies A(2) \implies \dots$.}
-        {Die Klasse hat eine Telefonkette eingerichtet: Wenn die Lehrerin benachrichtigt wird, ruft sie den ersten Schüler auf der Klassenliste an und jeder Schüler ruft den nächsten Schüler auf der Klassenliste an. Wenn die Lehrerin benachrichtigt wird, werden also alle Schüler angerufen.}
-    
-    \dispProof{Widerspruchsbeweis}
-        {Wir wissen $A \implies B$ und $\lnot B$. Um zu zeigen, dass $\lnot A$, nehmen wir an, dass $A$ gelte und zeigen, dass dann auch $B$ gelten müsste. Da wir aber wissen, dass $B$ nicht gilt, haben wir einen Widerspruch, sodass $A$ nicht gelten kann.}
-        {Angenommen, es hätte nicht geschneit, dann hätte ich auch keinen Schneemann bauen können. Ich habe aber einen Schneemann gebaut, also muss es geschneit haben.}
-        
-    \dispProof{Kontraposition}
-        {Wir zeigen $A \implies B$ indem wir zeigen, dass $\lnot B \implies \lnot A$.}
-        {}
-    
-    \dispProof{Ringschluss}
-        {Eine Kette von Implikationen $A \implies B \implies \dots \implies C$, in der das Ende wieder den Anfang impliziert ($C \implies A$), ist äquivalent dazu, dass $A \iff B \iff \dots \iff C$.}
-        {}
-    
-    \dispProof{Kettenschluss}
-        {In einer Kette von Implikationen $A \implies B \implies \dots \implies C$ impliziert das erste Element auch das letzte: $A \implies C$.}
-        {%Wenn die Sonne scheint, dann ist es warm. Wenn es warm ist, dann esse ich Eis. Damit folgt: Wenn die Sonne scheint, dann esse ich Eis.
-        Alle Menschen sind sterblich. Alle Griechen sind Menschen. Daraus folgt, dass alle Griechen sterblich sind.}
 \end{document}
+
