@@ -43,7 +43,7 @@ Ob eine Abbildung bijektiv ist, steht im direkten Zusammenhang damit, ob zu ihr 
     Zu einer Abbildung $f\colon U\rightarrow V$ existiert genau dann eine Umkehrabbildung, wenn $f$ bijektiv ist.
 \end{theorem}
 
-Der Beweis zu diesem Satz befindet sich auf Seite \pageref{proof:existenceOfInverseMap}.
+Der Beweis zu diesem Satz befindet sich am Ende dieses Kapitels auf Seite \pageref{proof:existenceOfInverseMap}.
 
 Wenn zwischen zwei Mengen eine Abbildung $f\colon U\rightarrow V$ existiert, dann lässt sich die Kardinalität von $U$ und $V$ vergleichen -- abhängig davon, ob $f$ eine Injektion, Surjektion oder Bijektion ist. In diesen Fällen lässt sich eine Aussage darüber treffen, welche Menge mehr Elemente enthält.
 
@@ -57,6 +57,40 @@ Wenn zwischen zwei Mengen eine Abbildung $f\colon U\rightarrow V$ existiert, dan
 \end{theorem}
 
 Das bedeutet insbesondere, dass das Definieren einer Bijektion zwischen zwei Mengen $U$ und $V$ eine Methode ist, um zu zeigen, dass die beiden Mengen gleich viele Elemente besitzen. Damit können bijektive Abbildungen zu einer Methode werden, die Elemente einer Menge zu zählen: Man gibt zwischen einer Menge $U$, deren Elemente man zählen möchte, und einer Menge $V$, von der man weiß, wie viele Elemente sie enthält, eine Bijektion an. Dadurch ist sofort klar, wie viele Elemente $V$ besitzt (nämlich genauso viele wie $U$).
+
+\subsection*{Isomorphie}
+Sowohl in der Mathematik als auch an vielen anderen Stellen kommen häufig verschiedene Objekte vor, die zwar erst einmal unterschiedlich sind, aber wenn man genauer hinsieht viele gemeinsame Eigenschaften haben. Zum Beispiel sind die Hauptgottheiten in der römischen und griechischen Mythologie recht ähnlich zu einander und entsprechen sich größtenteils. Etwa ist Zeus der Göttervater bei den Griechen, während Jupiter dies bei den Römern ist. Obwohl Jupiter und Zeus erst einmal verschiedene Gottheiten sind, könnte man also sagen, dass sie einander entsprechen, weil sie die gleiche Rolle in der Religion einnehmen.
+
+Auch in der Mathematik lassen sich solche Fälle antreffen. Im weiterführenden Wissen auf Seite \ref{graphs} haben wir erklärt, wie Graphen (\emph{nicht} gemeint sind hier Funktionsgraphen!) definiert sind. Sie bestehen aus verschiedenen Knoten, die durch Kanten miteinander verbunden sein können. Beispielsweise stellen die folgenden Abbildungen Graphen dar.
+\begin{center}
+\begin{multicols}{3}
+    \tikz{
+        \node (v1) at (0:2) {$v_1$};
+        \node (v2) at (72:2) {$v_2$};
+        \node (v3) at (144:2) {$v_3$};
+        \node (v4) at (216:2) {$v_4$};
+        \node (v5) at (288:2) {$v_5$};
+        \draw[-latex] (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- (v1);
+    }
+    \tikz{
+        \node (v1) at (0:2) {$a$};
+        \node (v2) at (72:2) {$b$};
+        \node (v3) at (144:2) {$c$};
+        \node (v4) at (216:2) {$d$};
+        \node (v5) at (288:2) {$e$};
+
+        \draw[-latex] (v1) -- (v3) -- (v5) -- (v2) -- (v4) -- (v1);
+    }
+    \tikz{
+        \node (v1) at (-2,2) {$v_1$};
+        \node (v2) at (0,2) {$v_2$};
+        \node (v3) at (2,2) {$v_3$};
+        \node (v4) at (-1,0) {$v_4$};
+        \node (v5) at (1,0) {$v_5$};
+        \draw[-latex] (v1) -- (v4) -- (v2) -- (v5) -- (v3) to[in=90,out=90] (v1);
+    }
+\end{multicols}
+\end{center}
 
 \subsection*{Beweis zu Satz 1.1 -- Existenz der Umkehrabbildung}
 \begin{proof}
