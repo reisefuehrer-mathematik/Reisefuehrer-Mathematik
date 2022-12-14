@@ -1,0 +1,79 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \newcommand{\km}{\ensuremath{\,\mathrm{km}}}
+    \newcommand{\minute}{\ensuremath{\,\mathrm{min}}}
+    \newcommand{\s}{\ensuremath{\,\mathrm{s}}}
+
+    \label{chap:einheiten}
+    Wie weit ist es von hier bis Berlin? Wie viel Mehl gehört in den Kuchenteig und wie lange muss der Kuchen in den Ofen? 
+    Um für solche Fragen sinnvolle Antworten zu finden, benötigen wir Einheiten. Wir schauen uns in diesem Kapitel 
+    zunächst die wichtigsten Einheiten an und klären anschließend die Frage, wie du damit rechnen kannst.
+
+    \begin{example}{Geburtstagskuchen-Beispiel}
+        \parpic[r]{
+            \tikz{
+                \node[align=center] at (0,0) {
+                    \small 250g Mehl\\
+                    \small 210g Butter\\
+                    \small 100g Mandeln\\
+                    \small 80g Zucker\\
+                    \small 2 Pck. Vanillezucker\\
+                    \small Puder- und Vanillezucker};
+            }
+        }
+        Stell dir vor, du möchtest Kekse nach deinem Lieblingsrezept backen. In deinem Lieblingsrezept findest du die rechts abgebildete Zutatenliste.
+        
+    \end{example}
+
+    \begin{example}{Streckenaddition}
+        Stell dir vor, du 
+    \end{example}
+
+    Zahlenterm vs. gleicher Term mit Einheiten
+
+    Werfen wir als zunächst einmal einen Blick darauf, welche Einheiten es überhaupt gibt. Die Einheit \textbf{Gramm} für das
+    Messen oder Vergleichen von Gewichten kennen wir jetzt bereits. Wenn wir angeben möchten, \emph{wie schwer} etwas ist, verwenden wir also
+    die Einheit \emph{Gramm}. Du hast vermutlich auch schon häufiger gesehen, dass das Gewicht von schwereren Gegenständen in \emph{Kilogramm} oder \emph{Tonnen} angegeben wird. 
+
+    \begin{center}
+        \begin{tabular}{cccc}\toprule
+            \textbf{Messgröße} & \textbf{Einheit} & \textbf{Abkürzung}\\\midrule
+            Masse/Gewicht & Gramm & g\\
+            Länge & Meter & m\\
+            Zeit & Sekunde/Minute/Stunde & s/min/h\\
+            Volumen & Liter & l\\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+
+    Diese Liste werden wir in diesem Kapitel noch ein wenig erweitern
+    % Volumen, Fläche, Geld, Prozent
+
+    Wenn wir hingegen Längen beschreiben wollen, kommen wir mit der Einheit Gramm selbstverständlich nicht mehr weiter. Stattdessen könnten wir zum Beispiel sagen, dass der Schulrekord im Weitsprung bei 5 Metern liegt.
+
+    \begin{advanced}{SI-Basiseinheiten}
+        Beginnend mit einem Auftrag der französischen Nationalversammlung wurde im Jahr 1790 damit begonnen, ein einheitliches Einheitensystem zu entwickeln, das für eine einfachere weltweite Zusammenarbeit sorgen sollte. Das dadurch entstandene SI-Einheiten-System (\emph{Système international d'unités}) ist heute das am weitesten verbreitete Einheitensystem. Die Idee dieses Systems ist es, dass nur sieben \textbf{Basiseinheiten} benötigt werden, von denen sich alle weiteren Einheiten ableiten lassen:
+        \begin{center}
+            \begin{tabular}{cccc}\toprule
+                \textbf{Messgröße} & \textbf{Basiseinheit} & \textbf{Abkürzung}\\\midrule
+                Masse/Gewicht & Kilogramm & kg\\
+                Länge & Meter & m\\
+                Zeit & Sekunde & s\\
+                Temperatur & Kelvin & K\\
+                Lichtstärke & Candela & cd\\
+                Stoffmenge & Mol & mol\\
+                Elektrische Stromstärke & Ampère & A\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        Zum Beispiel kommt in dieser Tabelle die Einheit \emph{Minute} nicht vor, denn es gilt
+        $1\minute=60\s$, sodass wir immer, wenn wir $1\minute$ schreiben würden, stattdessen auch $60\s$ schreiben könnten und somit auch ohne die Einheit \emph{Minute} auskommen können. Wie wird nun aber festgelegt, wie viel genau eine Sekunde oder ein Kilogramm ist? Die durchaus kuriosen Methoden dafür stellen wir auf Seite \pageref{si-units-history} vor (ebenso wie die Methodik, mit der das heute gemacht wird).
+    \end{advanced}
+
+    Zusammenfassen von Termen nur bei gleicher Einheit
+
+    \begin{example}{Nur gleichartige Einheiten zusammenfassen}
+    \end{example}
+
+\end{document}

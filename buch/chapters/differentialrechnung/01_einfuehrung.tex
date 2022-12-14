@@ -1,70 +1,51 @@
-%\documentclass[../../main.tex]{subfiles}
-%
-%\begin{document}
-%
-%Für viele der Gleichungen, die du in den vorangegangenen Kapiteln kennengelernt hast, haben wir uns gefragt, wie die Graphen von Funktionen aussehen, die diese Gleichungen als Berechnungsvorschrift verwenden.
-%
-%Beispielsweise hast du im Kapitel über lineare Gleichungen gelernt, dass lineare Gleichungen zur Funktionsgraphen führen, die wie eine Gerade aussehen.
-%
-%\begin{example}{}
-%    \parpic[r]{
-%        \begin{tikzpicture}
-%            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, ymin=-4, ymax=6, samples=2, xtick={-2,...,2}, ytick={-4,-2,0,2,4,6}]
-%                 \addplot[color=violet] {2*x+1};
-%            \end{axis}
-%        \end{tikzpicture}
-%    }
-%    Die rechts abgebildete Funktion $f(x)=2x+1$ hat eine Gerade als Graphen. Aufgrund der Berechnungsvorschrift von $f$ lässt sich sofort ablesen, wie die Gerade aussieht, zu der $f$ gehört:
-%    
-%    Vor dem $x$ steht der Faktor 2. Wir hatten im Kapitel über lineare Gleichungen hergeleitet, dass dies die Steigung der Geraden beschreibt. Dafür hatten wir mit Steigungsdreiecken argumentiert. Außerdem folgt am Ende noch \enquote{$+1$}. Dies ist der $y$-Achsenabschnitt von $f$.
-%    
-%    \picskip{3}
-%    Insgesamt wissen wir nun also, dass $f$ eine Steigung von 2 hat und die $y$-Achse bei 1 schneidet. Damit haben wir eine gute Vorstellung davon, wie der Graph von $f$ aussieht und können ihn wie rechts zeichnen.
-%\end{example}
-%
-%Auch bei quadratischen Gleichungen haben wir analysiert, wie die dazugehörigen Funktionsgraphen aussehen. Dazu haben wir uns ausführlich mit Parabeln beschäftigt und viel Zeit in das Auffinden von Scheitelpunkten und anderen Merkmalen investiert.
-%
-%All diese Überlegungen mussten durch das aufwändige Umformen von Gleichungen erarbeitet werden. Für jede Art von Abbildungsvorschrift (linear, quadratisch usw.) mussten wir von vorn starten und uns Gedanken machen, wie die Funktionsgraphen aussehen. Darüber hinaus sind die Erkenntnisse, die wir gewonnen haben, schwer zu verallgemeinern: Zwar haben wir jetzt Geradengleichungen und Parabelgleichungen untersucht, aber wenn wir beispielsweise wissen möchten, wie der Graph der Funktion $f(x)=x^3-2x+5$ aussieht, müssen wir wieder komplett von vorn anfangen -- und es ist zunächst nicht so klar, wie.
-%
-%Wir sind deshalb in diesem Kapitel daran interessiert, Methoden zu entwickeln, um so etwas wie Scheitelpunkte bei Parabeln (diese werden wir \textbf{Extrempunkte} nennen, weil eine Funktion dort einen extrem hohen oder extrem kleinen Wert annimmt) oder die Steigung bei Geraden bei jeder beliebigen Funktion systematisch zu bestimmen.
-%
-%Um auch bei Graphen, die keine Gerade sind, die Steigung zu bestimmen, werden wir versuchen, die Steigung nicht global für den gesamten Graphen, sondern stattdessen abhängig davon, wo wir hinschauen, zu beschreiben -- etwa so wie dies bei der Parabel im nächsten Beispiel zu sehen ist.
-%
-%
-%\begin{example}{}
-%    \parpic[r]{
-%        \begin{tikzpicture}
-%            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, samples=20, xtick={-2,...,2}, ytick={1,...,3}]
-%                \fill[opacity=0.5,orange!30] (1.8,-1.5) -- (1.2,-1.5) -- (1.2,3) -- (1.8,3) -- cycle;
-%                \addplot[color=violet] {x^2-1};
-%            \end{axis}
-%        \end{tikzpicture}
-%    }
-%    
-%    Der rechts abgebildeten Parabel $f(x)=x^2-1$ lässt sich nicht global eine Steigung zuordnen, denn sie steigt überall unterschiedlich stark -- sie ist keine Gerade, sondern eine Kurve. 
-%    
-%    Im orangenen Bereich ist ihre Steigung beispielsweise positiv. Wir wissen zwar nicht, wie stark, weil wir keine Gerade vorliegen haben, aber wir wissen, dass die Parabel ansteigt. Einen Anstieg verbinden wir mit einer positiven Steigung. 
-%    
-%    \picskip{1}
-%    Währenddessen fällt die Parabel links von der $y$-Achse. Dort ist die Steigung deshalb definitiv nicht positiv, sondern negativ. Die Steigung der Parabel hängt somit davon ab, \emph{wo} man sie betrachtet.
-%\end{example}
-%
-%Es wird sich in diesem Kapitel herausstellen, dass die Kenntnis der Steigung einer Funktion ausreichend ist, um viele weitere Eigenschaften zu finden. So wird es beispielsweise möglich sein, Funktionen systematisch zu minimieren oder zu maximieren. Das bedeutet, dass du so in der Lage bist, einen Wert für $x$ zu bestimmen, den du in die Funktion einsetzen musst, sodass der Funktionswert minimal (oder maximal) wird.
-%
-%Flugzeuge: Warum langsam? Warum ex. Maximum? Finden: Funktion maximieren (Treibstoff min. oder Reichweite max.)
-%
-%\end{document}
-%
-%\documentclass[../../main.tex]{subfiles}
-%
-%\begin{document}
-%Die Steigung einer Kurve an einem bestimmten Punkt zu kennen ist in vielen Anwendungen von Vorteil. Stellen wir uns zum Beispiel ein Auto vor, welches auf einer Straße höchstens eine Steigung von $20\%$, also 20 Meter Höhenzunahme auf 100 Meter horizontal zurückgelegter Strecke, bewältigen kann. Wenn vor dem Auto nun aber keine gerade Straße liegt, sondern eine mit teils größerer und teils geringerer Steigung, wie kann der Fahrer des Autos dann bewerten, ob die Steigung eventuell an einem Punkt des Weges zu Steil für sein Fahrzeug sein wird? Die Antwort lautet: Er kann die Ableitung, also die lokale Steigung an einem beliebigen Punkt der Straße berechnen.\\
-%
-%\end{document}
-
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-Die Steigung einer Kurve an einem bestimmten Punkt zu kennen ist in vielen Anwendungen von Vorteil. Stellen wir uns zum Beispiel ein Auto vor, welches auf einer Straße höchstens eine Steigung von $20\%$, also 20 Meter Höhenzunahme auf 100 Meter horizontal zurückgelegter Strecke, bewältigen kann. Wenn vor dem Auto nun aber keine gerade Straße liegt, sondern eine mit teils größerer und teils geringerer Steigung, wie kann der Fahrer des Autos dann bewerten, ob die Steigung eventuell an einem Punkt des Weges zu Steil für sein Fahrzeug sein wird? Die Antwort lautet: Er kann die Ableitung, also die lokale Steigung an einem beliebigen Punkt der Straße berechnen.\\
+
+Für viele der Gleichungen, die du in den vorangegangenen Kapiteln kennengelernt hast, haben wir uns gefragt, wie die Graphen von Funktionen aussehen, die diese Gleichungen als Berechnungsvorschrift verwenden.
+
+Beispielsweise hast du im Kapitel über lineare Gleichungen gelernt, dass lineare Gleichungen zu Funktionsgraphen führen, die wie eine Gerade aussehen.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=0.5cm, x=1cm, ymin=-4, ymax=6, samples=2, xtick={-2,...,2}, ytick={-4,-2,0,2,4,6}]
+                 \addplot[color=violet] {2*x+1};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Die rechts abgebildete Funktion $f(x)=2x+1$ hat eine Gerade als Graphen. Wir haben im Kapitel über lineare Gleichungen gelernt, dass diese Funktion zu einer Geraden mit der Steigung 2 und dem $y$-Achsenabschnitt 1 gehört (vgl. Kapitel \ref{sec:steigung-von-geraden}). Wir haben nun also eine gute Vorstellung davon, wie der Graph von $f$ aussieht und können die Funktion problemlos zeichnen.
+\end{example}
+
+Auch bei quadratischen Gleichungen haben wir analysiert, wie die dazugehörigen Funktionsgraphen aussehen. Dazu haben wir uns ausführlich mit Parabeln beschäftigt und viel Zeit in das Auffinden von Scheitelpunkten und anderen Merkmalen investiert.
+
+All diese Überlegungen mussten durch das aufwändige Umformen von Gleichungen erarbeitet werden. Für jede Art von Abbildungsvorschrift (linear, quadratisch usw.) mussten wir von vorn starten und uns Gedanken machen, wie die Funktionsgraphen aussehen. Darüber hinaus sind die Erkenntnisse, die wir gewonnen haben, schwer zu verallgemeinern: Zwar haben wir jetzt Geradengleichungen und Parabelgleichungen untersucht, aber wenn wir beispielsweise wissen möchten, wie der Graph der Funktion $f(x)=x^3-2x+5$ aussieht, müssen wir wieder komplett von vorn anfangen -- und es ist zunächst nicht so klar, wie.
+
+Wir sind deshalb in diesem Kapitel daran interessiert, Methoden zu entwickeln, um so etwas wie Scheitelpunkte bei Parabeln (diese werden wir \textbf{Extrempunkte} nennen, weil eine Funktion dort einen extrem hohen oder extrem kleinen Wert annimmt) oder die Steigung bei Geraden bei jeder beliebigen Funktion systematisch zu bestimmen.
+
+Um auch bei Graphen, die keine Gerade sind, die Steigung zu bestimmen, werden wir versuchen, die Steigung nicht global für den gesamten Graphen, sondern stattdessen abhängig davon, wo wir hinschauen, zu beschreiben -- etwa so wie dies bei der Parabel im nächsten Beispiel zu sehen ist.
+
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=-2:2, y=1cm, x=1cm, samples=20, xtick={-2,...,2}, ytick={1,...,3}]
+                \fill[opacity=0.5,orange!30] (2,-1.5) -- (1,-1.5) -- (1,3) -- (2,3) -- cycle;
+                \addplot[color=violet] {x^2-1};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    
+    Der rechts abgebildeten Parabel $f(x)=x^2-1$ lässt sich nicht global eine Steigung zuordnen, denn sie steigt überall unterschiedlich stark -- sie ist keine Gerade, sondern eine Kurve. 
+    
+    Im orangenen Bereich ist ihre Steigung beispielsweise positiv. Wir wissen zwar nicht, wie stark, weil wir keine Gerade vorliegen haben, aber wir wissen, dass die Parabel ansteigt. Einen Anstieg verbinden wir mit einer positiven Steigung. 
+    
+    \picskip{1}
+    Währenddessen fällt die Parabel links von der $y$-Achse. Dort ist die Steigung deshalb negativ. Die Steigung der Parabel hängt somit davon ab, \emph{wo} man sie betrachtet.
+\end{example}
+
+Es wird sich in diesem Kapitel herausstellen, dass die Kenntnis der Steigung einer Funktion ausreichend ist, um viele weitere Eigenschaften zu finden. So wird es beispielsweise möglich sein, Funktionen systematisch zu minimieren oder zu maximieren. Das bedeutet, dass du so in der Lage bist, einen Wert für $x$ zu bestimmen, den du in die Funktion einsetzen musst, sodass der Funktionswert minimal (oder maximal) wird.
+
+Flugzeuge: Warum langsam? Warum ex. Maximum? Finden: Funktion maximieren (Treibstoff min. oder Reichweite max.)
 
 \end{document}
