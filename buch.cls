@@ -21,6 +21,7 @@
 \RequirePackage{tikz}
 \RequirePackage{tikzlings}
 \usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
 
 \RequirePackage{longtable, tabu}
 
@@ -120,8 +121,9 @@ suffix_3p "\\,ff."
         \colorlet{nutshell@bg}{brown!70!white}%
         \colorlet{nutshell@frame}{brown!70!black}%
         %
-        \pagecolor{violet!20!white}
-        \section{#2}
+        \pagecolor{violet!15!white}
+        \section*{#2}
+        \stepcounter{section}
         \tosnakecase{\Chaptername}{\chapname}
         \tosnakecase{#2}{\filename}
         \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}

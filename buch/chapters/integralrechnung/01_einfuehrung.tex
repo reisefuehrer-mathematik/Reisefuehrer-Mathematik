@@ -2,14 +2,153 @@
 
 \begin{document}
 
-Flächenberechnung -- easy? Nein!
+\parpic[r]{
+    \tikz{
+        \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,4}]
+            \filldraw[opacity=0.5,violet!20, draw=violet] (1,0) -- (3,2) -- (0,3) -- cycle;
+            \filldraw[opacity=0.5,orange!20, draw=orange] (3,1) -- (3,4) -- (4,4) -- (4,1) -- cycle;
+        \end{axis}    
+    }
+}
+
+Die hast bereits gelernt, wie du den Flächeninhalt von Quadraten, Dreiecken, Trapezen, Kreisen und einigen weiteren
+Flächen ausrechnen kannst -- etwa von den Flächen, die rechts im Koordinatensystem eingezeichnet sind.
+
+\picskip{4}
+Das funktioniert, weil wir uns dafür früher einmal Formeln für den Flächeninhalt überlegt haben, die wir nun anwenden 
+können. Im Falle des orangefarbenen Rechtecks ist der Flächeninhalt $A_R$ etwa das Produkt aus seiner Breite und seiner
+Höhe, also
+\[A_R=1\cdot 3=3.\]
+
+\parpic[l]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,4}
+            ]
+            \addplot[name path=poly, domain=1:4, violet] {0.33333*(x-1)*(x-4)*(x-6)};
+            \addplot[name path=line, domain=1:4, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=1:4},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+}
+Mit unseren Formeln haben wir aber bei weitem nicht alle Flächen abgedeckt, die es gibt. Zum Beispiel hat die linke
+Fläche oben eine seltsame Krümmung, die uns nicht erlaubt, sie mit uns bekannten Formeln auszurechnen. Was wir allerdings
+wissen, ist, dass die obere Begrenzung der Fläche zur Funktion
+\[f(x)=\frac{(x-1)(x-4)(x-6)}{3}\] 
+gehört. In diesem Kapitel wollen untersuchen, wie wir beliebige Flächen berechnen können, wenn wir zumindest wissen,
+durch welche Funktionen sie begrenzt sind.
 
 \begin{example}{}
-    
+    \parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=0.15cm, x=1cm, ymin=0, ymax=25, xmin=0, xmax=4, xtick={1,...,4}, ytick={5,10,15,20,25}
+            ]
+            \addplot[name path=f, domain=0:4, violet] {20};
+            \addplot[name path=g, domain=0:4, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = f and g,
+            soft clip={domain=0:4},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+    }
+    Wir kennen aus der Physik die Formel $v=\frac{s}{t}$, wobei $v$ die Geschwindigkeit zum Beispiel eines Fahrrades ist,
+    das sich bewegt, $s$ die zurückgelegte Strecke und $t$ die dafür benötigte Zeit.
+
+    \picskip{6}
+    Indem wir die Gleichung mit $t$ multiplizieren, erhalten wir die Formel $v\cdot t=s$. Wenn du zum Beispiel weißt, 
+    dass du auf dem Fahrrad normalerweise mit $20\,\frac{\text{km}}{\text{h}}$ (dargestellt auf der $y$-Achse) unterwegs 
+    bist und eine Radtour für 4 Stunden planst, dann kannst du nun ausrechnen, welche Strecke du in der Zeit schaffen
+    wirst, wenn du keine Pausen machst und die Radtour entsprechend planen. Dafür setzt du Zeit und Geschwindigkeit in
+    die Gleichung $s=v\cdot t$ sein und erhältst
+    \[s=20\,\frac{\text{km}}{\text{h}}\cdot 4\,\text{h}=80\,\text{km}.\]
+    Dies ist auch genau die Fläche des rechts markierten Rechtecks, also der Fläche unter der Funktion 
+    $v(t)=20\,\frac{\text{km}}{\text{h}}$, die deine Geschwindigkeit beschreibt. Es gibt einige weitere Zusammenhänge
+    (nicht nur in der Physik), die sich durch das Berechnen der Fläche unter einer Funktion ausdrücken lassen.
 \end{example}
 
-Das Kapitel zu Differentialrechnung hat uns mit der Ableitung ein mächtiges Werkzeug gegeben, um Funktionen zu analysieren. Du hast gelernt, die Steigung einer Funktion ermitteln und daraus eine Vorstellung vom Aussehen von Funktionen bekommen.
+Flächen wie im letzten Beispiel oder in der Abbildung weiter oben links werden wir in Zukunft als \textbf{Integral} 
+bezeichnen. Ein Integral ist also (meistens) die Fläche zwischen einer Funktion und der $x$-Achse. Wenn wir ein Integral
+berechnen wollen, müssen wir das Integral zunächst einmal beschreiben:
+\begin{enumerate}
+    \item Welche Funktion begrenzt die Fläche, die wir berechnen wollen?
+    \item In welchem Bereich möchten wir das Integral berechnen?
+\end{enumerate}
+\begin{example}{}
+    \parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=0.15cm, x=0.5cm, ymin=0, ymax=25, xmin=-5, xmax=5, xtick={-4,-2,...,4}, ytick={5,10,15,20,25}
+            ]
+            \addplot[name path=f, domain=-5:5, violet] {20};
+            \addplot[name path=g, domain=-5:5, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = f and g,
+            soft clip={domain=0:4},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+    }
+    Als wir im letzten Beispiel die Fläche zwischen dem Graphen $v(t)$ und der $x$-Achse berechnet haben, haben wir
+    als linke Grenze $0$ und als rechte Grenze $4\,\text{h}$ festgelegt. Das sieht man besser, wenn wir einmal einen 
+    größeren Bereich im Koordinatensystem darstellen (siehe rechts). Offensichtlich haben wir nicht die \emph{gesamte} 
+    Fläche unter dem Graphen ausgerechnet, denn die geht nach links und rechts noch beliebig weiter. Wir haben uns
+    stattdessen auf einen bestimmten Bereich festgelegt.
+\end{example}
+Die Fläche zwischen einem Funktionsgraphen und der $x$-Achse lässt sich in der Regel nach links und rechts beliebig
+fortsetzen. Deshalb ist es wichtig, eine linke und eine rechte Grenze des Integrals anzugeben, um eine ganz bestimmte
+Fläche festzulegen, die ausgerechnet werden kann. Haben wir eine Funktion $f$ festgelegt, deren Integral wir berechnen
+möchten sowie eine linke Grenze $a$ und eine rechte Grenze $b$ festgelegt, so schreiben wir das entsprechende Integral 
+als
+\[\int_a^bf(x)\diff x.\]
+(\enquote{\emph{das Integral im Bereich von $a$ bis $b$ über $f(x)$ dx}}). Das \enquote{$x$} bei der Schreibweise 
+\enquote{$dx$} am Ende beschreibt vereinfacht gesagt den Namen 
+der Achse, die unsere Fläche nach unten beschränkt (unsere Fläche wird von der $x$-Achse beschränkt). Das Zeichen $\int$
+ist das Zeichen für Integrale.
 
-Bogen zu Fläche schlagen
+\begin{example}{}
+    Wenn wir im letzten Beispiel einmal die Einheiten ignorieren, so haben wir das Integral
+    \[\int_0^4v(t)\diff t=\int_0^420\diff t=80\]
+    ausgerechnet. Dass hier am Ende ein \enquote{$dt$} steht, kommt daher, dass in unserem Beispiel die $x$-Achse die
+    Zeit beschreibt, die vergeht -- und diese wird in der Regel mit $t$ statt mit $x$ beschrieben. Wir haben hier also
+    eigentlich eine $t$-Achse und keine $x$-Achse. Abgesehen davon
+    ändert dies aber überhaupt nichts an unserem Integral.
+\end{example}
+
+Damit du ein besseres Gefühl dafür bekommst, welche Integrale zu welchen Flächen gehören, schauen wir uns zum Ende dieses
+Abschnitts ein weiteres Beispiel für eine Fläche an, die wir als Integral aufschreiben und berechnen können.
+\begin{example}{}
+    \parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=0, ymax=4, xmin=-3, xmax=3, xtick={-3,...,3}, ytick={1,...,4}
+            ]
+            \addplot[name path=f, domain=-3:3, violet] {0.5*x+1};
+            \addplot[name path=g, domain=-3:3, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = f and g,
+            soft clip={domain=0:2},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+    }
+    Rechts zu sehen ist der Graph der Funktion $f(x)=\frac{1}{2}x+1$. Wir möchten die markierte Fläche berechnen. Zu
+    welchem Integral gehört diese Fläche?
+
+    \picskip{6}
+    Zunächst einmal siehst du, dass die Fläche links bei der $0$ und rechts bei der $2$ endet. Damit kennen wir schon
+    mal die linke und die rechte Grenze des Integrals. Das sind die Zahlen, die wir unten und oben an das Integralzeichen
+    schreiben müssen: $\displaystyle \int_0^2$ (die linke Grenze steht unten, die rechte oben). Nun fehlt noch die Information,
+    welche Funktion unsere Fläche beschränkt, also $f$. Wir können das eingezeichnete Integral also als
+    \[\int_0^2f(x)\diff x=\int_0^2\frac{1}{2}x+1\diff x\]
+    beschreiben. Um diese Fläche zu berechnen, können wir sie zum Beispiel in das Rechteck aus den unteren beiden 
+    Kästchen und das Dreieck darüber aufteilen. Dann hat das Dreieck eine Fläche von 
+    $\frac{g\cdot h}{2}=\frac{2\cdot 1}{2}=1$ und das Rechteck hat eine Fläche von $2\cdot 1=2$. Es gilt also
+    \[\int_0^2\frac{1}{2}x+1\diff x=3.\]
+\end{example}
 
 \end{document}

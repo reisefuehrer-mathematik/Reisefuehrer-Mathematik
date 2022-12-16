@@ -1,0 +1,49 @@
+\def\pathToMain{../../buch/}
+\documentclass[solution]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{multicol}
+
+\sheet{Vorbereitungsblatt 25.1}
+\title{Einführung: Integralrechnung}
+\topic{\getchaptername{integralrechnung}}
+\chapternum{\getchapternum{integralrechnung}}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Unbekannte, Gleichungen
+\end{contents}
+
+\video{Was ist ein Integral?}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{remark}
+    Wir können Variablen verwenden, wenn ein bestimmter, unbekannter Zahlenwert ermittelt werden soll, über den du eine Information hast, die du als eine \textbf{Gleichung} wie
+    \[\Box+5=12\]
+    aufschreiben kannst. Eine Gleichung besteht aus einem Term auf der linken Seite und einem Term auf der rechten Seite, zwischen denen ein Gleichheitszeichen steht. Eine auf diese Weise eingesetzte Variable heißt \textbf{Unbekannte}. Unbekannte werden oft mit den Buchstaben $x,y$ oder $z$ bezeichnet.
+\end{remark}
+
+\subsection*{Aufgabenteil}
+
+\begin{exercise}
+    Vollziehe die folgenden Rechnungen nach, überlege dir, was in die Boxen gehört und schreibe die Rechnungen dann 
+    mit gefüllten Lücken auf.
+    \begin{enumerate}
+        \item[a)] \[\int_0^\pi\sin(x)\,dx=[-\cos(x)]_\Box^\Box=-\cos(\Box)-(-\cos(0))=-(-1)-(-1)=\Box\]
+            \begin{answerbox}[0.5in]
+                \[\int_0^\pi\sin(x)\,dx=[-\cos(x)]_0^\pi=-\cos(\pi)-(-\cos(0))=-(-1)-(-1)=1+1=2\]
+            \end{answerbox}
+        \item[b)] \[\int_\Box^\Box\Box\,dx=[x^4]_0^\Box=1^4-0^4=\Box\]
+            \begin{answerbox}[0.5in]
+                \[\int_0^14x^3\,dx=[x^4]_0^1=1^4-0^4=1-0=1\]
+            \end{answerbox}
+\end{enumerate}
+\end{exercise}
+
+\mandala{mandala/mandala01}
+
+\end{document}

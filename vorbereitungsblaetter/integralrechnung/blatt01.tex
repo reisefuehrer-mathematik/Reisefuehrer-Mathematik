@@ -1,0 +1,99 @@
+\def\pathToMain{../../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{mathdef}
+\usepackage{tikzdef}
+\usepackage{multicol}
+
+\sheet{Vorbereitungsblatt 25.1}
+\title{Einführung: Integralrechnung}
+\topic{\getchaptername{integralrechnung}}
+\chapternum{\getchapternum{integralrechnung}}
+
+\begin{document}
+\maketitle
+\begin{contents}
+    Unbekannte, Gleichungen
+\end{contents}
+
+\video{Was ist ein Integral?}{4}{Kapitel \ref{ext:sec:abbildungen_intuition} (ab Seite \pageref{ext:sec:abbildungen_intuition})}{https://www.google.de}
+
+\begin{remark}
+    Wir können Variablen verwenden, wenn ein bestimmter, unbekannter Zahlenwert ermittelt werden soll, über den du eine Information hast, die du als eine \textbf{Gleichung} wie
+    \[\Box+5=12\]
+    aufschreiben kannst. Eine Gleichung besteht aus einem Term auf der linken Seite und einem Term auf der rechten Seite, zwischen denen ein Gleichheitszeichen steht. Eine auf diese Weise eingesetzte Variable heißt \textbf{Unbekannte}. Unbekannte werden oft mit den Buchstaben $x,y$ oder $z$ bezeichnet.
+\end{remark}
+
+\subsection*{Aufgabenteil}
+
+\begin{exercise}
+    In den folgenden Koordinatensystemen sind jeweils die Funktionen $f,g$ und $h$ eingezeichnet.
+    \begin{enumerate}
+        \item[a)] Welches Integral gehört zur Fläche, die im linken Koordinatensystem eingezeichnet ist? Berechne das Integral.
+            \begin{answerbox}[0.55in]
+                $\displaystyle \int_{-4}^4f(x)\,dx=3+2\cdot 2+1+2\cdot 3=14$
+            \end{answerbox}
+        \item[b)] Bestimme $\displaystyle \int_{-4}^3g(x)\,dx$.
+            \begin{answerbox}[0.55in]
+                $\displaystyle \int_{-4}^3g(x)\,dx=4\cdot 2+3+2=13$
+            \end{answerbox}
+        \item[c)] Gib ein Integral wie in Aufgabe b) an, dessen Wert negativ ist. Begründe, warum das von dir gewählte 
+        Integral einen negativen Wert annimmt.
+            \begin{answerbox}[0.75in]
+                Beispiele: $\displaystyle \int_{3}^4g(x)\,dx$ oder $\displaystyle \int_{0}^2h(x)\,dx$, da die Fläche 
+                dort jeweils unter der $x$-Achse liegt und vom Integral deshalb negativ gewichtet wird.
+            \end{answerbox}
+        \item[d)] Bestimme $\displaystyle \int_{-4}^4h(x)\,dx$.
+            \begin{answerbox}[0.55in]
+                $\displaystyle \int_{-4}^4h(x)\,dx=1+2\cdot 3-2\cdot 2+\frac{2\cdot 2}{2}=5$
+            \end{answerbox}
+    \end{enumerate}
+    \begin{multicols}{3}
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:4, y=0.5cm, x=0.5cm, ymin=-3, ymax=3, xmin=-4, xmax=4.5, xtick={-4,...,4}, ytick={-3,...,3}, samples=10]
+                \fill[opacity=0.5, violet!20] (-4,1) -- (-1,1) -- (-1,0) -- (-4,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (-1,2) -- (1,2) -- (1,0) -- (-1,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (1,1) -- (2,1) -- (2,0) -- (1,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (2,3) -- (4,3) -- (4,0) -- (2,0) -- cycle;
+                \draw[violet] (-4,1) -- (-1,1);
+                \draw[violet] (-1,2) -- (1,2);
+                \draw[violet] (1,1) -- (2,1);
+                \draw[violet] (2,3) -- (4,3) node[right] {$f$};
+            \end{axis}
+        \end{tikzpicture}
+
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:4, y=0.5cm, x=0.5cm, ymin=-3, ymax=3, xmin=-4, xmax=4.5, xtick={-4,...,4}, ytick={-3,...,3}, samples=10]
+                \fill[opacity=0.5, violet!20] (-4,2) -- (0,2) -- (0,0) -- (-4,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (0,3) -- (1,3) -- (1,0) -- (0,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (1,1) -- (3,1) -- (3,0) -- (1,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (3,-1) -- (4,-1) -- (4,0) -- (3,0) -- cycle;
+                \draw[violet] (-4,2) -- (0,2);
+                \draw[violet] (0,3) -- (1,3);
+                \draw[violet] (1,1) -- (3,1);
+                \draw[violet] (3,-1) -- (4,-1) node[right] {$g$};
+            \end{axis}
+        \end{tikzpicture}
+
+        \begin{tikzpicture}
+            \begin{axis}[defgrid, domain=0:4, y=0.5cm, x=0.5cm, ymin=-3, ymax=3, xmin=-4, xmax=4.5, xtick={-4,...,4}, ytick={-3,...,3}, samples=10]
+                \fill[opacity=0.5, violet!20] (-4,1) -- (-3,1) -- (-3,0) -- (-4,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (-2,3) -- (0,3) -- (0,0) -- (-2,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (0,-2) -- (2,-2) -- (2,0) -- (0,0) -- cycle;
+                \fill[opacity=0.5, violet!20] (2,0) -- (4,2) -- (4,0) -- cycle;
+                \draw[violet] (-4,1) -- (-3,1);
+                \draw[violet] (-3,0) -- (-2,0);
+                \draw[violet] (-2,3) -- (0,3);
+                \draw[violet] (0,-2) -- (2,-2);
+                \draw[violet] (2,0) -- (4,2) node[right] {$h$};
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+\end{exercise}
+
+\mandala{mandala/mandala01}
+
+\end{document}
