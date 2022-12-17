@@ -57,5 +57,8 @@
 	],
 	"latex-workshop.latex.rootFile.doNotPrompt": true,
 	"latex-workshop.latex.autoBuild.run": "onSave",
-	"editor.rulers": [120],
+	"editor.rulers": [
+		120
+	],
+	"ltex.language": "de-DE",
 }

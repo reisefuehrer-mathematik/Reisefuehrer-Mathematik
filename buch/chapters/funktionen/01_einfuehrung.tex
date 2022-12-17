@@ -74,7 +74,7 @@ Wenn du die Definitions- und die Zielmenge nebeneinander zeichnest, dann kannst 
         \end{tikzpicture}
     }
     Im obigen Beispiel ist die \textbf{Definitionsmenge} die Menge bestehend aus den Größen \emph{groß} und \emph{klein}, also 
-    \[\textsc{Kugeln}\coloneqq\{\text{große Kugel},\text{kleine Kugel}\}.\]
+    \[\textsc{Kugeln}\defas\{\text{große Kugel},\text{kleine Kugel}\}.\]
     Während es sinnvoll ist, zu fragen, wie viel eine große oder kleine Kugel kostet, wird das Schild beispielsweise keine Auskunft darüber geben, wie teuer ein Autoreifen, ein Notizblock oder eine Kartoffel ist -- ganz einfach, weil das Schild vor einer Eisdiele steht und ausschließlich dafür gemacht ist, den Preis von Eis anzugeben.
 \end{example}
 
@@ -120,7 +120,7 @@ Eine Funktion liefert grundsätzlich Bilder aus der Zielmenge. Welches Element s
             \draw[orange,->] (x2) -- (y2);
         \end{tikzpicture}
     }
-    Das Preisschild an der Eisdiele hat wie jede Funktion eine ganz bestimmte \textbf{Zielmenge}: Sie besteht aus den Preisen 1.00 \euro{} und 1.50 \euro, also ist die Zielmenge \[\textsc{MöglichePreise}\coloneqq\{\text{1.00\,\euro},\text{1.50\,\euro}\}.\]
+    Das Preisschild an der Eisdiele hat wie jede Funktion eine ganz bestimmte \textbf{Zielmenge}: Sie besteht aus den Preisen 1.00 \euro{} und 1.50 \euro, also ist die Zielmenge \[\textsc{MöglichePreise}\defas\{\text{1.00\,\euro},\text{1.50\,\euro}\}.\]
     Die Funktion, die vom Schild beschrieben wird, ist somit insgesamt eine Funktion von der Definitionsmenge \textsc{Kugeln} zur Zielmenge \textsc{MöglichePreise}. Man sagt auch oft kürzer, sie ist eine Funktion von \textsc{Kugeln} nach \textsc{MöglichePreise}. Das dementsprechende vollständige Diagramm zu dieser Funktion ist rechts zu sehen.
     
     \picskip{0}Wertet man die Funktion beispielsweise für das \textbf{Argument} \emph{große Kugel} aus, so erhält man das \textbf{Bild} 1.50\,\euro. Umgekehrt ist \emph{große Kugel} ein \textbf{Urbild} von 1.50\,\euro.
@@ -203,8 +203,8 @@ Wie die gerade eingeführten Schreibweisen nun bei weiteren konkreten Funktionen
     \begin{center}
         \input{diagrams/mix_with_yellow}%also used by abbildungen/03_abbildungen_beschreiben
     \end{center}
-    Dieser Vorgang beschreibt eine Funktion \textsc{MitGelbMischen}. Zu Beginn kann man eine beliebige Grundfarbe haben, also ist die Definitionsmenge der Funktion die Menge der Grundfarben -- oder mathematisch \[\textsc{Grundfarben}\coloneqq\{\text{blau},\text{rot},\text{gelb}\}.\]
-    Nachdem man eine Grundfarbe mit gelb gemischt hat, bekommt man eine Mischfarbe. Die drei Mischfarben, die wir hier erhalten können, sind die Zielmenge der Funktion \textsc{MitGelbMischen}. Formal ist die Zielmenge demnach die Menge \[\textsc{Mischfarben}\coloneqq\{\text{grün},\text{orange},\text{gelb}\}.\]
+    Dieser Vorgang beschreibt eine Funktion \textsc{MitGelbMischen}. Zu Beginn kann man eine beliebige Grundfarbe haben, also ist die Definitionsmenge der Funktion die Menge der Grundfarben -- oder mathematisch \[\textsc{Grundfarben}\defas\{\text{blau},\text{rot},\text{gelb}\}.\]
+    Nachdem man eine Grundfarbe mit gelb gemischt hat, bekommt man eine Mischfarbe. Die drei Mischfarben, die wir hier erhalten können, sind die Zielmenge der Funktion \textsc{MitGelbMischen}. Formal ist die Zielmenge demnach die Menge \[\textsc{Mischfarben}\defas\{\text{grün},\text{orange},\text{gelb}\}.\]
     Grundfarben mit der Farbe gelb zu mischen, erklärt also eine Funktion \[\textsc{MitGelbMischen}\colon\textsc{Grundfarben}\rightarrow\textsc{Mischfarben}\] mit der Zuordnungsvorschrift $\text{blau}\mapsto\text{grün}$, $\text{rot}\mapsto\text{orange}$ und $\text{gelb}\mapsto\text{gelb}$. Alternativ kann man auch die Schreibweise nutzen, bei der man das Argument in Klammern setzt. Dieselbe Zuordnungsvorschrift kann man dann durch $\textsc{MitGelbMischen}(\text{blau})=\text{grün}$, $\textsc{MitGelbMischen}(\text{rot})=\text{orange}$ und $\textsc{MitGelbMischen}(\text{gelb})=\text{gelb}$ notieren. Es lohnt sich, noch einmal zu betonen, dass diese beiden Schreibweisen tatsächlich dasselbe meinen.
 \end{example}
 

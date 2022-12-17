@@ -86,16 +86,28 @@ suffix_3p "\\,ff."
 \let\Chaptermark\chaptermark
 \def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
 %\newcommand{\ldsection}[2]{\section{#1}\subfile{#2}}
+%% This version works in TexLive 2021 and before
+%\newcommand{\tosnakecase}[2]{
+%    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
+%    \StrSubstitute{#2}{ä}{ae}[#2]
+%    \StrSubstitute{#2}{ö}{oe}[#2]
+%    \StrSubstitute{#2}{ü}{ue}[#2]
+%    \StrSubstitute{#2}{ }{_}[#2]
+%}
+%% This version works in TexLive 2022 and later
 \newcommand{\tosnakecase}[2]{
-    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
+    \begingroup\edef\x{\MakeLowercase{\endgroup\def\noexpand#2{#1}}}\x
     \StrSubstitute{#2}{ä}{ae}[#2]
     \StrSubstitute{#2}{ö}{oe}[#2]
     \StrSubstitute{#2}{ü}{ue}[#2]
     \StrSubstitute{#2}{ }{_}[#2]
 }
+
 \makeatletter
 \newcommand\ldsection[2][]{
     \section{#2}
+    \let\chapname\undefined
+    \let\filename\undefined
     \tosnakecase{\Chaptername}{\chapname}
     \tosnakecase{#2}{\filename}
     \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}
@@ -124,6 +136,8 @@ suffix_3p "\\,ff."
         \pagecolor{violet!15!white}
         \section*{#2}
         \stepcounter{section}
+        \let\chapname\undefined
+        \let\filename\undefined
         \tosnakecase{\Chaptername}{\chapname}
         \tosnakecase{#2}{\filename}
         \subfile{chapters/\chapname/\two@digits{\arabic{section}}_\filename}

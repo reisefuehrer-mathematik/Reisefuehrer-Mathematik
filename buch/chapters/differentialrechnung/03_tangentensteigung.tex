@@ -69,7 +69,7 @@
     \subsection{Graphisches Ableiten}
     Für gewöhnlich beinhalten Funktionen verschiedene Extrema, Wende- und Sattelpunkte, sodass eine qualitative Ableitung anhand der im vorigen Abschnitt gewonnenen Ergenntnisse \enquote{zusammengesetzt} werden kann.
     Betrachten wir zum Beispiel einmal das Polynom
-    $$f(x) = \frac{1}{2}\left( x^3 + (x-1)^2 - 2x\right)+1,$$
+    \[f(x) = \frac{1}{2}\left( x^3 + (x-1)^2 - 2x\right)+1,\]
     so müssen wir uns eingestehen nicht zu wissen, wie die Ableitung genau aussieht, da wir (noch) nichteinmal genau wissen, wo die Extrema und Wendepunkte liegen. Wir können uns aber die Funktion plotten und aus den erkennbaren lokalen Extrema und dem Wendepunkt die Ableitung grob beschreiben: Dazu legen wir den Plot der Funktion über ein zunächst leeres Koordinatensystem, in das wir dann die Nullstellen und grobe Lage der Maxima eintragen. Die Höhe der Maxima ist dabei natürlich nur abschätzbar, da wir noch keine quantitative Methode kennengelernt haben. Man muss sich dabei aber dennoch daran halten, dass eine große Steigung einen hohen Wert in der Ableitung zur Folge hat.\\
     Unter den Plot der Funktion zeihen wir dann vertikale Linien in das Koordinatensystem darunter um dort die Nullstellen (für Extrema) oder das Extremum (für Wendepunkte) zu zeichnen. Anhand der Betrachtung der Steigung um diese Punkte herum kann außerdem die Steigung der Ableitung in diesen Punkten beschrieben werden, wie es in dem vorigen Teilkapitel getan wurde. Durch verbinden der entstandenen Punkte kann so eine qualtitative Ableitung konstruiert werden. Am Beispiel von $f(x)$ ist das im Folgenden präsentiert:
     \begin{center}\normalsize
@@ -113,7 +113,7 @@
         \end{tikzpicture}
     \end{center}
     Dadurch, dass wir an die Punkte einer Kurve eine Tangende anlegen, können wir also die Steigung an der entsprechenden Stelle bestimmen. Wir haben also das Problem die Steigung einer Kurve zu bestimmen reduziert auf die Bestimmung der Steigung einer Geraden, welche für beliebige Punkte $\coord{x_1}{f(x_1)}$ und $\coord{x_2}{f(x_2)}$ als
-    $$m = \frac{y_2 - y_1}{x_2 - x_1}$$
+    \[m = \frac{y_2 - y_1}{x_2 - x_1}\]
     bekannt ist. Noch ist allerdings nicht klar, wie wir an die Kurve eine Tangente anlegen, das müssen wir also nun betrachten.\\
     Die Schwierigkeit eine Tangente anzulegen liegt darin, dass nur ein einziger Punkt bekannt ist. Dieser eine Punkt ist die Funktion $f$ am Ort $x$ ausgewertet. Leider brauchen wir aber zwei Punkte um durch sie eine Gerade zu legen, sodass dieser eine Punkt nicht ausreicht.\\
     Wo kriegen wir also einen weiteren Datenpunkt her? Wir könnten eine Näherungslösung betrachten, das wir als zweiten Punkt einen weiteren Punkt aus der Kurve nutzen. Damit können wir also eine Gerade durch $\coord{x}{f(x)}$ nach $\coord{x+h}{f(x+h)}$ ziehen. $h$ ist dabei zunächst irgendeine reelle Zahl. Damit verändern wir aber die Steigung unserer Tangente, und das sorgt ja dafür, dass es sich gar nicht wirklich um eine Tangente handelt. Das ist auch (noch) der Fall, allerdings stellt man fest, dass für kleine $h$ diese Betrachtung ziemlich genau eine Tangente beschreibt, wie man an der folgenden Abbildung erkennen kann.
@@ -129,12 +129,12 @@
     \end{center}
              
     Wir stellen also fest, dass für $h\neq 0$ also eine Näherungslösung vorliegt, die für $h\to 0$ aber immer genauer wird. Für $h=0$ ist die Tangentensteigung aber nicht direkt berechenbar, weil bekanntermaßen die Steigung einer Gerade durch
-    $$m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{f(x+h) - f(x)}{(x+h)-x} \stackrel{h=0}{=} \frac{f(x) - f(x)}{x-x} = \frac{0}{0}$$
+    \[m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{f(x+h) - f(x)}{(x+h)-x} \stackrel{h=0}{=} \frac{f(x) - f(x)}{x-x} = \frac{0}{0}\]
     wegen der Null im Nenner nicht berechenbar ist. Was wir aber machen können ist den Grenzwert für $h\to 0$ zu berechnen und dieser Grenzwert beschreibt, wenn er existiert, die Steigung der Tangente. Die Grenzwertbildung würde uns außerdem die \enquote{korrekte} Steigung einer Tangente geben, da eine Linie mit dieser Steigung die Kurve an der Stelle $x$ nicht schneiden würde, da $h$ unendlich klein wäre.\\
     Die Steigung der Tangente lässt sich also schreiben als
-    $$m = \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{(x+h) - x} = \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{h}$$
+    \[m = \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{(x+h) - x} = \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{h}\]
     Die rechte Seite dieser Gleichung ist als \textbf{Differenzenquotient} bekannt. Sofern er existiert wird die Funktion $f$ im Punkt $x$ als \textbf{differenzierbar} bezeichnet. Weil die Steigung $m$ im Allgemeinen von der Stelle $x$ abhängt, definieren wir uns eine neue Funktion $f'(x)$, indem wir $x$ nun als Variable verstehen als
-    $$\boxed{f'(x) \coloneqq \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{h}}.$$
+    \[\boxed{f'(x) \defas \lim\limits_{\stackrel{h\to 0}{h\neq 0}} \frac{f(x+h) - f(x)}{h}}.\]
     Diese Funktion gibt für eine beliebige Stelle $x$ die Steigung der Funktion $f$ wieder und wird als \textbf{Ableitung von} $\boldsymbol{f}$ bezeichnet.\\
     Weil der \textbf{Differenzenquotienten} in der Praxis meist unhandlich zu nutzen ist, wird er meist nicht zu Berechnung der \textbf{Ableitung} genutzt. Stattdessen gibt es \textbf{Ableitungsregeln}, welche aus den \textbf{Differenzenquotienten} herleitbar sind, welche für Berechnungen herangezogen werden.\\
     
@@ -165,9 +165,13 @@
         \begin{itemize}
         \item Klassische Physik:
             \begin{itemize}
-                \item Geschwindigkeiten $v$ in Abhängigkeit der Zeit $t$ sind aus dem Ort $x(t)$ beschrieben durch $$v(t) = x'(t).$$ Die Steigung im $x$-$t$-Diagramm gibt also die Geschwindigkeit wieder. Das erkennt man auch an der Einheit der Geschwindigkeit als Meter pro Sekunde.
+                \item Geschwindigkeiten $v$ in Abhängigkeit der Zeit $t$ sind aus dem Ort $x(t)$ beschrieben durch
+                    \[v(t) = x'(t).\]
+                    Die Steigung im $x$-$t$-Diagramm gibt also die Geschwindigkeit wieder. Das erkennt man auch an der Einheit der Geschwindigkeit als Meter pro Sekunde.
                 \item Die Beschleunigung $a$ ist wiederum die Ableitung aus der Geschwindigkeit. Deshalb ist auch die Ableitung des Impulses $p(t) = mv(t)$ gleich der wirkenden Kraft $F(t) = ma(t)$.
-                \item Eine Kraft $F$ im Abhängigkeit des Ortes $x$ kann anhand der potentiellen Energie $E_\text{pot}(x)$ anhand von $$F(x)=-E_\text{pot}'(x)$$ berechnet werden. Dieses Gesetz gilt für viele Felder in der klassischen Physik, wie Gravitationsfelder und elektrostatische Felder. Deshalb ist auch die Gravitationskraft $F_G(x)=-mg$ und die Höhenenergie $E_\text{pot}(x)=mgx$, wobei $x$ die Höhe ist (vgl. Beispiel \ref{bsp:geradenAbleitungBeispiel}).
+                \item Eine Kraft $F$ im Abhängigkeit des Ortes $x$ kann anhand der potentiellen Energie $E_\text{pot}(x)$ anhand von
+                    \[F(x)=-E_\text{pot}'(x)\]
+                    berechnet werden. Dieses Gesetz gilt für viele Felder in der klassischen Physik, wie Gravitationsfelder und elektrostatische Felder. Deshalb ist auch die Gravitationskraft $F_G(x)=-mg$ und die Höhenenergie $E_\text{pot}(x)=mgx$, wobei $x$ die Höhe ist (vgl. Beispiel \ref{bsp:geradenAbleitungBeispiel}).
                 \item Phänomene, wie Wellen, Wärmeleitung, plastische Verformungen, Flüssigkeitsverhalten etc. werden durch Differentialgleichungen und damit Ableitungen beschrieben.
             \end{itemize}
         \item Elektrodynamik:
@@ -177,7 +181,9 @@
         \end{itemize}
         \item Quantenmechanik:
         \begin{itemize}
-            \item Für eine sog. Wellenfunktion $\Psi(x)$, wobei $x$ der Ort ist, gilt die Schrödingergleichung $$C\Psi''(x) = E\Psi,$$ wobei $C$ eine Konstante und $E$ die Energie des Zustands ist. Aus dieser Gleichung sind alle weiteren Eigenschaften vollständig bestimmt.
+            \item Für eine sog. Wellenfunktion $\Psi(x)$, wobei $x$ der Ort ist, gilt die Schrödingergleichung
+                \[C\Psi''(x) = E\Psi,\]
+                wobei $C$ eine Konstante und $E$ die Energie des Zustands ist. Aus dieser Gleichung sind alle weiteren Eigenschaften vollständig bestimmt.
             \item Der Impuls eines Teilchens ist proportional zu der Ableitung der Wellenfunktion.
         \end{itemize}
         \item allg. Relativitätstheorie:

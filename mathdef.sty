@@ -8,11 +8,17 @@
 \newcommand{\Integer}{\ensuremath{\mathbb{Z}}\xspace}
 \newcommand{\Rational}{\ensuremath{\mathbb{Q}}\xspace}
 \newcommand{\Real}{\ensuremath{\mathbb{R}}\xspace}
-\newcommand{\R}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand{\Complex}{\ensuremath{\mathbb{C}}\xspace}
 \newcommand{\Prime}{\ensuremath{\mathbb{P}}\xspace}
 \newcommand{\Solutions}{\ensuremath{\mathbb{L}}\xspace}
 \renewcommand{\epsilon}{\varepsilon}
+
+% Use \calA, \calB, ..., \calZ for the caligraphic alphabet
+\ExplSyntaxOn
+\foreach\x in {A,...,Z}{
+    \cs_new:cpx{cal\x}{\noexpand\ensuremath{\noexpand\mathcal{\x}}\noexpand\xspace}
+}
+\ExplSyntaxOff
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Constants
@@ -39,6 +45,7 @@
 % Relations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\subsetneq}{\ensuremath{\subset}}
+\newcommand{\defas}{\mathbin{\coloneqq}}
 \newcommand{\perdef}[1][=]{\mathbin{\overset{\text{def}}{#1}}}
 \newcommand{\axiom}[1]{
     \ensuremath{

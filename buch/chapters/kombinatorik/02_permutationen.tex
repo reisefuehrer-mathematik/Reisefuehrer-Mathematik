@@ -3,7 +3,11 @@
 \begin{document}
 Wir möchten im Folgenden \enquote{Umordnungen} wie zum Beispiel das Mischen von Spielkarten mathematisch beschreiben. Wir können uns überlegen, dass wir die Karten durch Zahlen darstellen können. Um die Beispiele kurz zu halten, betrachten wir erst mal nur das Mischen von den 4 Assen.
 \begin{example}[ex:perm_cards_01]{}
-    Wir betrachten nun das (geordnete) Deck aus \AceDiamond{}, \AceHeart{}, \AceSpade{} und \AceClub. Die aktuelle Ordnung des Deckes wollen wir darstellen, indem wir eine beliebige Funktion $$\{1,\dots, 4\} \to \{\AceDiamond,\AceHeart,\AceSpade,\AceClub\}$$ definieren, die für eine Position im Deck angibt, welche Karte dort zu finden ist. Jede Karte darf dabei nur an genau einer Position im Deck sein (die Funktion soll also \emph{bijektiv} sein). Das Mischen des Decks ist anschließend lediglich eine ebenso bijektive Abbildung $$\{1,\dots, 4\} \to \{1,\dots,4\},$$ die für jede Position im Deck angibt, wo die Karte nach dem Mischen zu finden ist. \emph{Bijektiv} bedeutet hier intuitiv, dass durch das Mischen keine zwei Karten am Ende an derselben Stelle im Deck positioniert sein dürfen. Wäre die Funktion nicht bijektiv, dann könnten zum Beispiel die Karten, die zuvor an Position 3 und 4 lagen, nun beide auf Position 2 abgebildet werden. 
+    Wir betrachten nun das (geordnete) Deck aus \AceDiamond{}, \AceHeart{}, \AceSpade{} und \AceClub. Die aktuelle Ordnung des Deckes wollen wir darstellen, indem wir eine beliebige Funktion
+    \[\{1,\dots, 4\} \to \{\AceDiamond,\AceHeart,\AceSpade,\AceClub\}\]
+    definieren, die für eine Position im Deck angibt, welche Karte dort zu finden ist. Jede Karte darf dabei nur an genau einer Position im Deck sein (die Funktion soll also \emph{bijektiv} sein). Das Mischen des Decks ist anschließend lediglich eine ebenso bijektive Abbildung
+    \[\{1,\dots, 4\} \to \{1,\dots,4\},\]
+    die für jede Position im Deck angibt, wo die Karte nach dem Mischen zu finden ist. \emph{Bijektiv} bedeutet hier intuitiv, dass durch das Mischen keine zwei Karten am Ende an derselben Stelle im Deck positioniert sein dürfen. Wäre die Funktion nicht bijektiv, dann könnten zum Beispiel die Karten, die zuvor an Position 3 und 4 lagen, nun beide auf Position 2 abgebildet werden. 
     
     Mischen könnte mit so einer Funktion dann beispielsweise wie folgt aussehen (das Deck ist anfangs aufsteigend sortiert):
     \begin{center}
@@ -15,17 +19,17 @@ Wir möchten im Folgenden \enquote{Umordnungen} wie zum Beispiel das Mischen von
         \end{tikzpicture}
     \end{center}
     Das Mischen selbst ist also die Abbildung $\sigma = \{1\mapsto 2, 2\mapsto 3, 3\mapsto 1, 4\mapsto 4\}$ und bedeutet so viel wie, dass an 1ter Stelle nun die Karte steht, die zuvor an der 2ten Position im Deck war, an 2ter Stelle steht die Karte, die zuvor an Position 3 war, \dots. Anschließend schauen wir uns nur an, welche Karte durch die jeweilige Zahl vertreten wird. Wir könnten $\sigma$ also auch darstellen als
-    $$\sigma = \{\AceDiamond\mapsto \AceHeart, \AceHeart\mapsto \AceSpade, \AceSpade\mapsto \AceDiamond, \AceClub\mapsto \AceClub\}.$$
+    \[\sigma = \{\AceDiamond\mapsto \AceHeart, \AceHeart\mapsto \AceSpade, \AceSpade\mapsto \AceDiamond, \AceClub\mapsto \AceClub\}.\]
     Diese Schreibweise mutet wahrscheinlich etwas merkwürdig an. Das Mischen der Karten ist hier viel mehr eine Umbenennung der Karten: aus dem \AceDiamond{} wird das \AceHeart, das \AceHeart{} wird das \AceSpade, \dots. Allerdings können wir schnell sehen, dass die beiden Funktionen äquivalent sind, da die Zahlen lediglich für entsprechende Karten stehen.
 \end{example}
 
 Eine Funktion wie $\sigma$ aus dem Beispiel, die bijektiv (keine zwei Elemente werden auf dasselbe Bild abgebildet) von einer Menge auf dieselbe Menge abbildet, bezeichnet man als \enquote{Permutation}. Sie kann als die Umordnung von den Elementen verstanden werden: $\sigma(a) = b$ heißt, dass $b$ nun an der Position steht, an der zuvor das $a$ stand ($a$ wird zu $b$).
 
 Wir definieren zuletzt noch die Menge aller Permutationen über einer $n$-Elementigen Menge als die \enquote{symmetrische Gruppe} $S_n$:
-$$S_n = \{\sigma \mid \sigma\text{ ist eine Permutation über $n$ Elementen}\}.$$
+\[S_n = \{\sigma \mid \sigma\text{ ist eine Permutation über $n$ Elementen}\}.\]
 \begin{advanced}{Symmetrische Gruppe}
     Formal definieren wir die symmetrische Gruppe als
-    $$S_n \coloneqq \{\sigma\colon \{1,\dots, n\}\to\{1,\dots, n\} \mid \sigma\text{ ist bijektiv}\}.$$
+    \[S_n \defas \{\sigma\colon \{1,\dots, n\}\to\{1,\dots, n\} \mid \sigma\text{ ist bijektiv}\}.\]
     \textit{Erinnerung: bijektiv bedeutet, das keine zwei Elemente auf dasselbe Element abgebildet werden.}
 \end{advanced}
 Das bedeutet, dass die Permutation aus dem Beispiel von oben ein Element von $S_4$ ist, da sie 4 Elemente (die 4 Asse) vertauscht (\enquote{permutiert}). Wenn wir also $N$ Karten mischen, wählen wir effektiv eine zufällige Permutation aus $S_N$, die wir auf die Karten anwenden.
@@ -57,10 +61,10 @@ Mathematikern ist dieses Phänomen natürlich nicht fremd und wir werden im Verl
     Eine Permutation von \blueball\redball\greenball\orangeball\violetball{} ist zum Beispiel \redball\blueball\orangeball\violetball\greenball.
     
     Permutationen werden häufig als bijektive Funktionen mit griechischem Kleinbuchstaben ($\pi, \sigma, \tau$) notiert. Die Permutation von oben ist also die Funktion
-    $$\sigma = \{1\mapsto 2, 2 \mapsto 1, 3\mapsto 4, 4\mapsto 5, 5\mapsto 3\}.$$
+    \[\sigma = \{1\mapsto 2, 2 \mapsto 1, 3\mapsto 4, 4\mapsto 5, 5\mapsto 3\}.\]
     
     Die \emph{symmetrische Gruppe}\index{Symmetrische Gruppe} $S_n$ ist die Menge aller Permutationen über $n$-Elementigen Mengen:
-    $$S_n \coloneqq \{\sigma\colon \{1,\dots,n\}\to\{1,\dots, n\} \mid \sigma\text{ ist bijektiv}\}.$$
+    \[S_n \defas \{\sigma\colon \{1,\dots,n\}\to\{1,\dots, n\} \mid \sigma\text{ ist bijektiv}\}.\]
 \end{nutshell}
 
 \subsection{Notation}
@@ -74,25 +78,27 @@ Wir haben uns bisher für Funktionen insbesondere überlegt, dass wir sie als Ta
     \end{tabular}
 \end{center}
 Analog dazu definieren wir die \emph{Zweizeilen-Form} für eine Permutation $\sigma\in S_n$ (\emph{Erinnerung: $\sigma \in S_n$ heißt \enquote{$\sigma$ ist eine Permutation über $n$ Elementen}}) lediglich mit einer leicht anderen Notation für die Tabelle:
-$$\sigma = \begin{pmatrix}1 & 2 & \dots & n\\ \sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.$$
+\[\sigma = \begin{pmatrix}1 & 2 & \dots & n\\ \sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.\]
 Die obere Zeile muss in dieser Notation nicht geordnet sein. Wir können sie aber natürlich immer ordnen. Wenn wir davon ausgehen, dass die oberste Zeile geordnet ist, dann bietet sie uns keine neuen Informationen, sodass wir sie auch weg lassen können. Diese Notation bezeichnet dann die \emph{Einzeilen-Notation}:
-$$\sigma = \begin{pmatrix}\sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.$$
+\[\sigma = \begin{pmatrix}\sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.\]
 
 \begin{example}{}
     Die Permutation
-    $$\sigma = \{\blueball\mapsto \redball, \redball\mapsto \blueball, \greenball\mapsto \orangeball, \orangeball\mapsto \violetball, \violetball\mapsto \greenball\}$$
+    \[\sigma = \{\blueball\mapsto \redball, \redball\mapsto \blueball, \greenball\mapsto \orangeball, \orangeball\mapsto \violetball, \violetball\mapsto \greenball\}\]
     ist in Zweizeilen-Notation geschrieben
-    $$\sigma = \begin{pmatrix}\blueball & \redball & \greenball & \orangeball & \violetball\\ \redball & \blueball & \orangeball & \violetball & \greenball\end{pmatrix}.$$
+    \[\sigma = \begin{pmatrix}\blueball & \redball & \greenball & \orangeball & \violetball\\ \redball & \blueball & \orangeball & \violetball & \greenball\end{pmatrix}.\]
     Die erste Zeile muss allerdings nicht sortiert sein, sodass alle möglichen Vertauschungen der Zeilen weiterhin eine gültige Zweizeilen-Notation ist. Zum Beispiel also auch
-    $$\sigma = \begin{pmatrix}\blueball & \greenball & \orangeball & \redball & \violetball\\ \redball& \orangeball & \violetball & \blueball & \greenball\end{pmatrix}.$$
+    \[\sigma = \begin{pmatrix}\blueball & \greenball & \orangeball & \redball & \violetball\\ \redball& \orangeball & \violetball & \blueball & \greenball\end{pmatrix}.\]
     Nehmen wir aber an, dass die erste Zeile sortiert ist, dann können wir sie auch weg lassen und erhalten die Einzeilen-Notation
-    $$\sigma = \begin{pmatrix}\redball & \blueball & \orangeball & \violetball & \greenball\end{pmatrix}.$$
+    \[\sigma = \begin{pmatrix}\redball & \blueball & \orangeball & \violetball & \greenball\end{pmatrix}.\]
 \end{example}
 
 Alternativ zur Zweizeilen- und Einzeilen-Notation, die jeweils lediglich alternative Notationen der Wertetabelle der Permutation sind, können wir eine Permutation auch vollständig charakterisieren, indem wir die einzelnen Zykel angeben.
 \begin{example}{}
-    Die Permutation $$\sigma = \{\blueball\mapsto \redball, \redball\mapsto \blueball, \greenball\mapsto \orangeball, \orangeball\mapsto \violetball, \violetball\mapsto \greenball\}$$ hat die Zykel $\blueball \to \redball \to\blueball\to\dots$ und $\greenball\to\orangeball\to\violetball\to\greenball\to\dots$. $\sigma$ können wir also auch beschreiben, indem wir lediglich die Zykel angeben:
-    $$\sigma = \begin{pmatrix}\blueball & \redball\end{pmatrix}\begin{pmatrix}\greenball&\orangeball&\violetball\end{pmatrix}.$$
+    Die Permutation
+    \[\sigma = \{\blueball\mapsto \redball, \redball\mapsto \blueball, \greenball\mapsto \orangeball, \orangeball\mapsto \violetball, \violetball\mapsto \greenball\}\]
+    hat die Zykel $\blueball \to \redball \to\blueball\to\dots$ und $\greenball\to\orangeball\to\violetball\to\greenball\to\dots$. $\sigma$ können wir also auch beschreiben, indem wir lediglich die Zykel angeben:
+    \[\sigma = \begin{pmatrix}\blueball & \redball\end{pmatrix}\begin{pmatrix}\greenball&\orangeball&\violetball\end{pmatrix}.\]
 \end{example}
 In der Zykelschreibweise können wir $\sigma(x)$ ablesen, indem wir den Zykel von $x$ suchen und das nächste Element im Zykel anschauen. Für $\sigma(\violetball)$ schauen wir uns an dem Beispiel also den Zykel $\begin{pmatrix}\greenball&\orangeball&\violetball\end{pmatrix}$ an. Nach der $\violetball$ folgt die $\greenball$, sodass wir ablesen können: $\sigma(\violetball) = \greenball$. Das Urbild von $y$ (also das $x$, sodass $\sigma(x)=y$) können wir ebenso einfach finden, indem wir den Zykel von $y$ suchen und das Element links von $y$ wählen. Wenn wir also zum Beispiel das Urbild von $\redball$ suchen, dann schauen wir uns den Zykel $\begin{pmatrix}\blueball & \redball\end{pmatrix}$ an und wählen das Element links der $\redball$, die $\blueball$. Wir wissen also, dass $\sigma(\blueball) = \redball$ oder, anders geschrieben, $\sigma^{-1}(\redball) = \blueball$.
 
@@ -100,17 +106,17 @@ In der Zykelschreibweise können wir $\sigma(x)$ ablesen, indem wir den Zykel vo
     Wir wissen, dass Permutationen bijektive Funktionen mit gleicher Definitions- und Bildmenge sind. Wir können sie also wie jede andere Funktion notieren. Meist ist das aber umständlich, sodass sich verschiedene kürzere Notationen durchgesetzt haben:
     \begin{description}
         \item[Zweilzeilen-Form] Die Permutation $\sigma \in S_n$ kann beschrieben werden durch
-        $$\sigma = \begin{pmatrix}1 & 2 & \dots & n\\ \sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.$$
+        \[\sigma = \begin{pmatrix}1 & 2 & \dots & n\\ \sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.\]
         Die erste Zeile enthält die Bilder und die zweite Zeile die Abbildungen, wenn $\sigma$ auf das jeweilige Bild angewendet wird.
         \item[Einzeilen-Form] Wir können die erste Zeile der Zweizeilen-Form auch weglassen, da sie keine neue Information darstellt, wenn wir davon ausgehen, dass sie immer von $1$ bis $n$ zählt. Damit erhalten wir die Einzeilen-Form:
-        $$\sigma = \begin{pmatrix}\sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.$$
+        \[\sigma = \begin{pmatrix}\sigma(1) & \sigma(2) & \dots & \sigma(n)\end{pmatrix}.\]
         \item[Zyklenschreibweise] Alternativ zu den beiden oberen Darstellungen, kann man die Zykel der Permutation notieren:
-        $$\sigma = \begin{pmatrix}1 & \sigma^1(1) & \sigma^2(1) & \dots & \sigma^k(1)\end{pmatrix}~\begin{pmatrix}m & \sigma^1(m) & \sigma^2(m) & \dots & \sigma^l(m)\end{pmatrix} \dots.$$
+        \[\sigma = \begin{pmatrix}1 & \sigma^1(1) & \sigma^2(1) & \dots & \sigma^k(1)\end{pmatrix}~\begin{pmatrix}m & \sigma^1(m) & \sigma^2(m) & \dots & \sigma^l(m)\end{pmatrix} \dots.\]
         Dabei ist jede der Zahlenfolgen in den Klammern ein eigener Zykel ($k$ ist die kleinste Zahl, sodass $\sigma^{k+1}(1) = 1$).
     \end{description}
     \begin{example}{}
         Die Permutation
-        $$\sigma = \{\blueball\mapsto \redball, \redball \mapsto \blueball, \greenball\mapsto \orangeball, \orangeball\mapsto \violetball, \violetball\mapsto \greenball\}$$
+        \[\sigma = \{\blueball\mapsto \redball, \redball \mapsto \blueball, \greenball\mapsto \orangeball, \orangeball\mapsto \violetball, \violetball\mapsto \greenball\}\]
         sieht dann wie folgt in den einzelnen Notationen aus:\\
         \begin{tabularx}{\linewidth}{@{}Y@{}Y@{}Y@{}}
             $\begin{pmatrix}\blueball & \redball & \greenball & \orangeball & \violetball\\ \redball & \blueball & \orangeball & \violetball & \greenball\end{pmatrix}$ &
@@ -130,7 +136,7 @@ In der Zykelschreibweise können wir $\sigma(x)$ ablesen, indem wir den Zykel vo
     Zwei Permutationen können hinter einander ausgeführt werden ($\tau = \pi \circ \sigma$). $\tau$ heißt die \emph{Komposition von $\pi$ und $\sigma$}\index{Permutation!Komposition}.
     
     Eine Permuation $\sigma$ hat ein Inverses $\sigma^{-1}$, sodass $\sigma\circ\sigma^{-1} = \sigma^{-1}\circ\sigma = \ident[]$ wobei $\ident[]$ die Identitätsfunktion
-    $$\begin{pmatrix}1 & 2 & \dots & n\\1 & 2 & \dots & n\end{pmatrix}$$
+    \[\begin{pmatrix}1 & 2 & \dots & n\\1 & 2 & \dots & n\end{pmatrix}\]
     ist.\index{Permutation!Inverse}
 \end{nutshell}
 \todocomment{

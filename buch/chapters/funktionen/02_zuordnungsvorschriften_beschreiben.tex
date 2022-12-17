@@ -36,7 +36,7 @@ Du kannst eine Zuordnungsvorschrift durch das Hintereinanderschreiben von Zuordn
     \picskip{2}
     Oftmals gibt es eine Vorschau über mehrere Tage mit dem wahrscheinlichsten Wetter für jeden Tag. Nachdem du eine solche Vorschau gesehen hast, weißt du beispielsweise, dass es am nächsten Montag Schauer geben wird, während es am Donnerstag trocken bleibt. Die Zuordnung von Wochentagen zum vorhergesagten Wetter, die du dann kennst, ist aus mathematischer Sicht eine Funktion.
     
-    An welchem Wochentag es welches Wetter gibt, kann durch eine Funktion von den Wochentagen auf das entsprechende Wetter dargestellt werden, die wir \textsc{Vorhersage} nennen wollen. Wir arbeiten also mit den Mengen \[\textsc{Wochentag}\coloneqq\{\text{Montag},\text{Dienstag},\text{Mittwoch},\text{Donnerstag},\text{Freitag}\}\] und \[\textsc{Wetter}\coloneqq\{\text{Trocken},\text{Schauer},\text{Gewitter}\}.\]
+    An welchem Wochentag es welches Wetter gibt, kann durch eine Funktion von den Wochentagen auf das entsprechende Wetter dargestellt werden, die wir \textsc{Vorhersage} nennen wollen. Wir arbeiten also mit den Mengen \[\textsc{Wochentag}\defas\{\text{Montag},\text{Dienstag},\text{Mittwoch},\text{Donnerstag},\text{Freitag}\}\] und \[\textsc{Wetter}\defas\{\text{Trocken},\text{Schauer},\text{Gewitter}\}.\]
     Die Zuordnungsvorschrift (zu sehen im Bild) lässt sich dann durch Auflisten der Vorhersagen aufschreiben und sieht so aus:
     \begin{align*}
         \textsc{Vorhersage}(\text{Montag})&=\text{Schauer},\\ \textsc{Vorhersage}(\text{Dienstag})&=\text{Gewitter},\\ \textsc{Vorhersage}(\text{Mittwoch})&=\text{Schauer},\\ \textsc{Vorhersage}(\text{Donnerstag})&=\text{Trocken},\\ \textsc{Vorhersage}(\text{Freitag})&=\text{Gewitter}.
@@ -114,11 +114,11 @@ Im nächsten Beispiel siehst du noch einmal Schritt für Schritt, wie du mit ein
     Wenn du das machst, siehst du bereits die Definitions- und Zielmenge in deinem Satz. Mit genau solchen Sätzen haben wir nämlich auch schon mathematische Funktionen beschrieben.
     
     Nachdem du verstanden hast, welche Funktion in der Tabelle versteckt ist, kannst du sie mit der expliziten mathematischen Schreibweise darstellen. Überlege dir dafür zunächst einen Namen für die Funktion -- in diesem Fall ist \textsc{Hauptstadt} eine naheliegende Wahl. Anschließend lässt sich die Definitionsmenge als die Menge aller Einträge der linke Spalte beschreiben, also
-    \[\textsc{Länder}\coloneqq\{\text{Italien},\text{Spanien},\text{Belgien},\text{Norwegen},\text{Frankreich},\text{Finnland},\text{Dänemark}\}.\]
+    \[\textsc{Länder}\defas\{\text{Italien},\text{Spanien},\text{Belgien},\text{Norwegen},\text{Frankreich},\text{Finnland},\text{Dänemark}\}.\]
     
     Auf die gleiche Weise enthält die Zielmenge alle Einträge der rechten Spalte:
     
-    \[\textsc{Städte}\coloneqq\{\text{Rom},\text{Madrid},\text{Brüssel},\text{Oslo},\text{Paris},\text{Helsinki},\text{Kopenhagen}\}.\]
+    \[\textsc{Städte}\defas\{\text{Rom},\text{Madrid},\text{Brüssel},\text{Oslo},\text{Paris},\text{Helsinki},\text{Kopenhagen}\}.\]
     
     \sloppy
     Die formal notierte Zuordnungsvorschrift besteht nun aus den Regeln \[\textsc{Hauptstadt}(\text{Italien})=\text{Rom}, \textsc{Hauptstadt}(\text{Spanien})=\text{Madrid}\] und so weiter -- für jede Zeile der Tabelle eine Regel. Damit ist die Funktion fertig beschrieben.
