@@ -5,7 +5,7 @@
 \subsection*{Rekursion}
 Im Kapitel \mayberef{Grundrechenarten} hast du gelernt, was eine Potenz ist: Sie ist eine Abkürzung für eine wiederholte
 Multiplikation und wir haben die Abkürzung
-\[a^n:=\colorbrace{a\cdot a\cdot \dots \cdot a}{n-\text{mal}}\]
+\[a^n\defas\colorbrace{a\cdot a\cdot \dots \cdot a}{n-\text{mal}}\]
 definiert. In der Mathematik bietet es sich manchmal an, neue Begriffe nicht so direkt wie in diesem Beispiel sondern
 \emph{rekursiv} zu definieren. Das bedeutet, dass wir zum Beispiel im obigen Fall nicht direkt definieren, was $a^n$ ist,
 sondern Potenzen etwa folgendermaßen definieren:
@@ -38,7 +38,7 @@ kein Fehler passiert ist, dann passiert dies immer irgendwann.
 Im folgenden Beispiel siehst du eine weitere rekursive Definition und ihre dazugehörige \enquote{normale} Definition.
 \begin{example}[ex:factorial-recursive]{}
     Die \textbf{Fakultät} einer Zahl $n$ ist wie folgt definiert:
-    \[n!:=n\cdot (n-1)\cdot (n-2)\cdot\dots\cdot2\cdot 1\]
+    \[n!\defas n\cdot (n-1)\cdot (n-2)\cdot\dots\cdot2\cdot 1\]
     Wir können dieselbe Definition mithilfe der folgenden rekursiven Definition ausdrücken:
     \begin{align*}
         0!&=1\\

@@ -156,7 +156,8 @@
     Wir möchten aber nicht immer nur Würfel betrachten sondern allgemeine Urnenexperimente aus $n$ Bällen, von denen wir $k$ Mal ziehen und sie wieder zurück legen. Wir betrachten das Problem aber analog zu Alice im Beispiel: wir können $k$-Mal einen von $n$-Bällen auswählen. Da wir nach jedem Zug den Ball wieder zurück legen, haben wir in jedem Zug $n$ Optionen. Entsprechend gibt es $n^k$ verschiedene Permutationen mit Wiederholung.
     
     \begin{lemma}
-        Die Anzahl $N$ verschiedener Permutationen mit Wiederholung aus $n$ Kugeln mit $k$ Zügen beträgt $$N = n^k.$$
+        Die Anzahl $N$ verschiedener Permutationen mit Wiederholung aus $n$ Kugeln mit $k$ Zügen beträgt
+        \[N = n^k.\]
     \end{lemma}
     
     Im Folgenden betrachten wir den Fall, dass wir die Bälle nicht zurücklegen.
@@ -219,7 +220,7 @@
         \end{tabularx}
         
         Der erste Ball, den Alice zieht ist einer von 5 Möglichen, der zweite einer von 4 Möglichen, und so weiter:
-        $$N = 5\cdot 4 \cdot 3 \cdot 2 \cdot 1.$$
+        \[N = 5\cdot 4 \cdot 3 \cdot 2 \cdot 1.\]
         Würde Alice nur eine Karte ziehen wollen, dann gäbe es also 5 Möglichkeiten. Wenn sie zwei ziehen möchte, dann gibt es $5\cdot 4$ Möglichkeiten, und so weiter.
     \end{example}
     
@@ -227,26 +228,27 @@
     
     \begin{definition}{Fakultät\index{Fakultät}}
         Die \emph{Fakultät} von $k$ (für $k\in\Natural$) wird $k!$ geschrieben und bezeichnet das Produkt aller natürlichen Zahl kleiner oder gleich $k$ (außer der 0):
-        $$k! = k\cdot (k-1) \cdot \ldots \cdot 2 \cdot 1.$$
+        \[k! = k\cdot (k-1) \cdot \ldots \cdot 2 \cdot 1.\]
         Die Fakultät von $0$ ist per Definition $1$: $0! = 1$.
     \end{definition}
     \todocomment{Wieviele mögliche Tic Tac Toe-Feldkonfigurationen gibt es?}
     
     Betrachten wir die Formeln im Beispiel mit der neuen Notation, dann ist die Anzahl Möglichkeiten, diese 5 Bälle in 5 Zügen zu ziehen, $5!$. Wie sieht das aber aus, wenn $k < 5$? In dem Fall haben wir $N = 5\cdot 4 \cdot \ldots \cdot (5-k+1)$ Möglichkeiten. Wir können uns also vorstellen, dass wir die Fakultät berechnet haben und den Teil, den wir \enquote{zuviel} multipliziert haben, wieder dividieren:
-    $$N = \frac{5!}{(5-k) \cdot (5-k-1) \cdot \ldots \cdot 1}.$$
+    \[N = \frac{5!}{(5-k) \cdot (5-k-1) \cdot \ldots \cdot 1}.\]
     Der untere Term kommt uns bekannt vor, da es sich lediglich um die Fakultät $(5-k)!$ handelt. Für eine beliebige Anzahl an Kugeln, $n$ ergibt sich also:
     \begin{lemma}{}
-        Die Anzahl verschiedener Permutationen, $k$ Kugeln aus einer Urne mit $n$ Kugeln zu ziehen, ohne Kugeln zurückzulegen, ist $$N = \frac{n!}{(n-k)!}.$$
+        Die Anzahl verschiedener Permutationen, $k$ Kugeln aus einer Urne mit $n$ Kugeln zu ziehen, ohne Kugeln zurückzulegen, ist
+        \[N = \frac{n!}{(n-k)!}.\]
     \end{lemma}
     
     Mit Hilfe dieser Formel können wir nun insbesondere auch die Anzahl verschiedener Permutationsfunktionen einer $n$-Elementigen Menge zählen. Wir können uns überlegen, dass jede Permutation $\sigma \in S_n$ gebildet werden kann, indem wir die Einzeilen-Form durch wiederholtes Ziehen ohne zurücklegen aus der Urne mit $n$-Elementen darstellen. Wir müssen also $n$ Bällen ohne zurücklegen aus einer Urne mit $n$ Bällen ziehen. Gemäß der Formel oben gibt es also
-    $$N = \frac{n!}{(n-n)!} = n!$$
+    \[N = \frac{n!}{(n-n)!} = n!\]
     mögliche Permutationsfunktionen über einer $n$-Elementige Menge: $\abs{S_n} = n!$.
     
     Bisher haben wir immer betrachtet, dass die Reihenfolge, in der Alice die Bälle zieht, relevant ist. Dass sie zuerst den blauen und dann den roten Ball ziehen könnte und umgekehrt, haben wir bisher als zwei unterschiedliche Fälle gezählt. Alice hätte zum Beispiel also insgesamt 2 Möglichkeiten, 2 Bälle mit zurücklegen zu ziehen:
-    $$\redball\blueball, \blueball\redball$$
+    \[\redball\blueball, \blueball\redball\]
     Wir könnten noch betrachten, dass uns die Reihenfolge, in der Alice die Bälle zieht, egal ist. Relevant ist dann lediglich, \emph{wie oft} Alice einen Ball gezogen hat. An dem Beispiel bedeutet das, dass Alice nur drei Möglichkeit hat, 2 Bälle aus einer Urne mit zwei Bällen zu ziehen:
-    $$\blueball\blueball, \blueball\redball, \redball\redball$$
+    \[\blueball\blueball, \blueball\redball, \redball\redball\]
     Wenn die Reihenfolge relevant wäre, dann gäbe es 4 Fälle, da $\redball\blueball$ noch möglich ist.
     
     \begin{example}{}
@@ -254,26 +256,26 @@
         Für dieses Beispiel ist egal, in welcher Reihenfolge Alice die Süßigkeiten zieht. Es geht nur darum, welche Süßigkeiten sie auswählt. Wenn sie zudem eine Süßigkeit ausgewählt hat, dann kann sie sie nicht nochmal wählen. Wir betrachten also \emph{Kombinationen ohne Wiederholung}. In der Modellierung als Urnenexperiment sind nun die einzelnen Süßigkeiten die Bälle. Wenn Alice eine Süßigkeit nimmt, dann wird der entsprechende Ball aus der Urne entfernt und kann nicht nochmal genommen werden.
         
         Um zu zählen, wie viele Möglichkeiten Alice hat, $k$ der Süßigkeiten auszuwählen, betrachtet wir zuerst, wie viele Permutationen ohne Wiederholungen sie beispielsweise mit $k=2$ Zügen bilden kann. Wir wissen bereits, dass sie $\frac{3!}{(3-2)!} = 6$ Permutationen der Süßigkeiten ziehen kann:
-        $$\begin{array}{*{6}{l@{\,}c}}
+        \[\begin{array}{*{6}{l@{\,}c}}
             1. & \bluebonbon\,\redbonbon & 2. & \bluebonbon\,\greenbonbon & 3. & \redbonbon\,\bluebonbon & 4. & \redbonbon\,\greenbonbon & 5. & \greenbonbon\,\bluebonbon & 6. & \greenbonbon\,\redbonbon
-        \end{array}$$
+        \end{array}\]
         Da die Reihenfolge für die Kombinationen aber irrelevant ist, zählen wir damit jede Kombination mehrfach, da verschiedenen Umordnungen (Permutationen) einer Kombination immer mitgezählt werden. So zählen wir zum Beispiel \bluebonbon{}\,\redbonbon{} und \redbonbon{}\,\bluebonbon{} getrennt. Wir müssen also durch die Anzahl der Permutationen in $S_k$ dividieren, um auf die korrekte Lösung zu kommen. An dem Beispiel ergibt sich für $k=2$:
-        $$N = \frac{3!}{(3-2)!} / \abs{S_2} = 3.$$
+        \[N = \frac{3!}{(3-2)!} / \abs{S_2} = 3.\]
         Denselben Wert bekommen wir, wenn wir uns die Permutationen von oben anschauen und Umordnungen manuell streichen:
-        $$\begin{array}{*{6}{l@{\,}c}}
+        \[\begin{array}{*{6}{l@{\,}c}}
             1. & \bluebonbon\,\redbonbon & 2. & \bluebonbon\,\greenbonbon & 3. & \redbonbon\,\greenbonbon
-        \end{array}$$
+        \end{array}\]
     \end{example}
     
     Die Überlegung aus dem Beispiel können wir wieder für allgemeine Ballmengen $n$ und Anzahlen an Ziehungen $k$ ausweiten, indem wir mit derselben Idee sagen, dass es
-    $$\frac{\frac{n!}{(n-k)!}}{\abs{S_k}} = \frac{n!}{(n-k)! \cdot \abs{S_n}} = \frac{n!}{(n-k)!\cdot k!}$$
+    \[\frac{\frac{n!}{(n-k)!}}{\abs{S_k}} = \frac{n!}{(n-k)! \cdot \abs{S_n}} = \frac{n!}{(n-k)!\cdot k!}\]
     mögliche Konfigurationen gibt. Der Zähler des Doppelbruches beschreibt die Anzahl der Reihenfolgen, $k$ von $n$ Bällen zu ziehen. Dieser zählt aber jede Permutation dieser $k$ gezogenen Bälle einzeln, sodass wir durch die Anzahl der $k$-Permutationen ($\abs{S_k}$) teilen. Im nächsten Schritt lösen wir den Doppelbruch auf.
     
     Die Formel $\frac{n!}{(n-k)!\cdot k!}$ wird uns in der Kombinatorik auch so häufig begegnen, dass wir dafür eine eigene Notation einführen.
     
     \begin{definition}{Binomialkoeffizient\index{Binomialkoeffizient}}
         Der Binomialkoeffizient \enquote{$n$ über $k$} ist definiert mit
-        $$\binom{n}{k} \coloneqq \frac{n!}{(n-k)! \cdot k!}.$$
+        \[\binom{n}{k} \defas \frac{n!}{(n-k)! \cdot k!}.\]
     \end{definition}
     
     \begin{advanced}{Kombinationen mit Zurücklegen}
@@ -282,13 +284,13 @@
         Die Reihenfolge, in der Alice die Süßigkeiten zieht, ist nicht relevant. Außerdem kann sie wiederholt von demselben Süßigkeitenautomaten nehmen. Wir zählen also die \emph{Kombinationen mit Wiederholung}.
         
         Eine mögliche Kombination mit Wiederholung, die Alice ziehen könnte ist zum Beispiel
-        $$\bluebonbon{}, \bluebonbon{}, \greenbonbon{}.$$
+        \[\bluebonbon{}, \bluebonbon{}, \greenbonbon{}.\]
         Um die Kombinationen besser zählen zu können, wählen wir allerdings eine andere Darstellung:
-        $$\bluebonbon{+}{+}\redbonbon\greenbonbon{+}\orangebonbon\violetbonbon.$$
+        \[\bluebonbon{+}{+}\redbonbon\greenbonbon{+}\orangebonbon\violetbonbon.\]
         Wir schreiben also jede der Süßigkeiten ein Mal hin und schreiben dahinter so viele Plusse, wie oft Alice die Süßgikeiten zieht. Dies erleichtert uns das Abzählen, da wir die Kombinationen nun immer durch $n+k$ Zeichen darstellen können (an dem Beispiel: $5+3=8$ Zeichen). Das erste Zeichen darf kein ${+}$ sein, da die Plusse \emph{hinter} den Süßigkeiten stehen, die sie zählen. Damit brauchen wir nun lediglich zählen, wie viele Möglichkeiten es gibt, $k$ von $n+k-1$ Stellen der Kodierung auszuwählen, an denen ein ${+}$ stehen soll.
         
         Das ist aber genau die Anzahl der verschiedenen Kombinationen ohne Wiederholung über $n+k-1$ Bällen:
-        $$\binom{n+k-1}{k}.$$
+        \[\binom{n+k-1}{k}.\]
     \end{advanced}
     
     \todocomment{Mögliche Übungsaufgabe: Jeder Süßigkeitenautomat hat nur 4 Süßigkeiten. Wieviele Kombinationen kann Alice mit 5 Zügen und mit Wiederholung bilden?}
@@ -315,10 +317,10 @@
         \end{center}
         
         Die Notation $k!$ (gesprochen \enquote{k Fakultät} oder \enquote{Fakultät von k}) bezeichnet das Produkt aller Zahlen von $1$ bis $k$:
-        $$k! = k \cdot (k-1) \cdot \ldots \cdot 1. \hspace{2cm}\text{\footnotesize\textcolor{brown!70}{\emph{beachte den Sonderfall $0! \coloneqq 1$}}}$$
+        \[k! = k \cdot (k-1) \cdot \ldots \cdot 1. \hspace{2cm}\text{\footnotesize\textcolor{brown!70}{\emph{beachte den Sonderfall $0! \defas 1$}}}\]
         
         Der \emph{Binomialkoeffizient} \enquote{$n$ über $k$} ist definiert mit
-        $$\binom{n}{k} \coloneqq \frac{n!}{(n-k)!\cdot k!}.$$
+        \[\binom{n}{k} \defas \frac{n!}{(n-k)!\cdot k!}.\]
         Er gibt die Anzahl der $k$-elementigen Teilmengen einer $n$-elementigen Menge.
     \end{nutshell}
 \end{document}

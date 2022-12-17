@@ -30,7 +30,8 @@ In den bisherigen Beispielen waren die Elemente von Mengen Objekte wie Farben od
 	\picskip{6}
 	Bert ist ein sehr organisierter Mensch. Aus diesem Grund führt er über alles mögliche Listen. So hat er etwa eine Einkaufsliste, eine Vorratsliste, eine Kontaktliste mit Telefonnummern und Adressen seiner Freunde, eine Liste mit seinen Lieblingsfilmen und so weiter. Wir können jede dieser Listen als Mengen auffassen, indem wir ihre Einträge als unterschiedliche Elemente deklarieren.\\
 	
-	Stehen auf Berts Einkaufsliste zum Beispiel	Äpfel, Tomaten und Brot, so besteht die zugehörige Menge aus genau diesen Einträgen, das heißt $$\textsc{Einkaufsliste} = \{\text{Äpfel, Tomaten, Brot}\}.$$
+	Stehen auf Berts Einkaufsliste zum Beispiel	Äpfel, Tomaten und Brot, so besteht die zugehörige Menge aus genau diesen Einträgen, das heißt
+	\[\textsc{Einkaufsliste} = \{\text{Äpfel, Tomaten, Brot}\}.\]
 	
 	Da Bert so ordentlich ist, fasst er all die Listen, die er geschrieben hat, in eine große Masterliste zusammen. Die Menge \textsc{Masterliste} enthält als Elemente also die anderen Mengen (bzw. Listen), die Bert besitzt. Sie ist eine Menge von Mengen.	
 \end{example}
@@ -41,14 +42,14 @@ In den bisherigen Beispielen waren die Elemente von Mengen Objekte wie Farben od
 \picskip{7}
 Mengen als Elemente zu wählen scheint erst mal unproblematisch. Wie jedoch schon angedeutet, bekommen wir in Extremfällen Probleme. Schauen wir uns dazu die Situation im obigen Beispiel nochmal genauer an. Bert hat mit der Masterliste die Liste all seiner Listen geschaffen. Da die Masterliste aber selber natürlich auch wieder eine Liste ist, muss er sie auch als Element aufführen. Die Masterliste enthält also sich selbst als Eintrag. Mathematisch gesprochen heißt das:
 
-$$\textsc{Masterliste} \in \textsc{Masterliste}$$
+\[\textsc{Masterliste} \in \textsc{Masterliste}\]
 
 
 Wir sind also in der Situation, in der eine Menge sich selbst enthält. Versucht man solche Mengen aufzuschreiben, dreht man sich ziemlich schnell im Kreis, man kann so eine Menge nie komplett notieren. Solche sich selbst enthaltenden Mengen scheinen auch eher Sonderfälle zu sein. Aus diesem Grund schauen wir uns nun einmal \enquote{gewöhnlichere} Mengen, also solche, die sich \textbf{nicht} selbst enthalten. Wir können diese Mengen natürlich wieder in einer Obermenge zusammenfassen und schreiben:
 
-$$\R = \left\{ M \mid M \notin M \right\}$$
+\[\calR = \left\{ M \mid M \notin M \right\}\]
 
-So ziemlich alle Mengen, mit denen wir bislang zu tun hatten, enthalten sich nicht selbst. Sie sind also Elemente von \R.
+So ziemlich alle Mengen, mit denen wir bislang zu tun hatten, enthalten sich nicht selbst. Sie sind also Elemente von \calR.
 
 \begin{example}{}
 	Die Mengen
@@ -62,15 +63,15 @@ So ziemlich alle Mengen, mit denen wir bislang zu tun hatten, enthalten sich nic
 	enthalten sich allesamt nicht selber. Damit liegen sie in der Menge \R.
 \end{example}
 
-Wir können uns beliebig viele Beispiele für Elemente aus \R überlegen. Aber was ist mit der Menge \R selber? Ist sie selbst ein Element von \R oder nicht?
+Wir können uns beliebig viele Beispiele für Elemente aus \calR überlegen. Aber was ist mit der Menge \calR selber? Ist sie selbst ein Element von \calR oder nicht?
 
-Angenommen, \R liegt in \R, also $\R \in \R = \left\{ M \mid M \notin M \right\}$. Nach der Mengendefinition auf der 
-rechten Seite bedeutet dies, dass \R eine Menge ist, die sich nicht selbst enthält. Es gilt also $\R \notin \R$. Wir sind 
-so zu einem Widerspruch gelangt, da \R natürlich nicht gleichzeitig ein Element von \R und kein Element von \R sein kann.
+Angenommen, \calR liegt in \calR, also $\calR \in \calR = \left\{ M \mid M \notin M \right\}$. Nach der Mengendefinition auf der 
+rechten Seite bedeutet dies, dass \calR eine Menge ist, die sich nicht selbst enthält. Es gilt also $\calR \notin \calR$. Wir sind 
+so zu einem Widerspruch gelangt, da \calR natürlich nicht gleichzeitig ein Element von \calR und kein Element von \calR sein kann.
 
-Nehmen wir also an, dass $\R \notin \R$ gilt. Die Menge \R darf also nicht die Mengendefintion $\left\{ M \mid M \notin M \right\}$ erfüllen, es muss also $\R \in \R$ gelten. Wir sind nun in einer ähnlichen Situation wie im ersten Fall. Die Annahme $\R \notin \R$ kann demnach ebenfalls nicht wahr sein.
+Nehmen wir also an, dass $\calR \notin \calR$ gilt. Die Menge \calR darf also nicht die Mengendefintion $\left\{ M \mid M \notin M \right\}$ erfüllen, es muss also $\calR \in \calR$ gelten. Wir sind nun in einer ähnlichen Situation wie im ersten Fall. Die Annahme $\calR \notin \calR$ kann demnach ebenfalls nicht wahr sein.
 
-Egal welche der beiden Fälle wir betrachten, wir gelangen zu einem Widerspruch. Da \R nun entweder in \R liegt oder nicht, es also nicht noch weitere Fälle geben kann, haben wir ein Paradoxon erreicht -- die Russelsche Antinomie. 
+Egal welche der beiden Fälle wir betrachten, wir gelangen zu einem Widerspruch. Da \calR nun entweder in \calR liegt oder nicht, es also nicht noch weitere Fälle geben kann, haben wir ein Paradoxon erreicht -- die Russelsche Antinomie. 
 
 \subsubsection{Axiomatische Mengenlehre}
 Beispiele wie die Russelsche Antinomie zeigen, dass wir es uns mit unserer naiven Mengendefinition etwas zu einfach gemacht haben. Mathematiker und Mathematikerinnen des frühen zwanzigsten Jahrhunderts haben versucht, dieses Problem zu lösen, indem sie die bisherige Mengenlehre weiter präzisierten. Dazu haben sie einige \textbf{Axiome} aufgestellt, aus denen sie eine widerspruchsfreie Mengenlehre ableiten wollten.
@@ -79,7 +80,9 @@ Ein Axiom ist im Wesentlichen eine Aussage, von der wir ohne Beweis ausgehen, da
 
 Im Falle der Mengenlehre ist eines der bekanntesten Axiomsysteme das \textbf{ZFC}, die \textbf{Z}ermelo-\textbf{F}raenkel-Mengenlehre mit Auswahlaxiom (\textbf{C}hoice). Das ZFC besteht aus insgesamt zehn aussagenlogisch formulierten Axiomen, von denen wir an dieser Stelle nur eine kleine Auswahl präsentieren. Für eine ausführliche Übersicht siehe auch (ref: Einführung in das mathematische Arbeiten von Schichl, Steinbauer, Kap. 4.5). Beachte aber, dass es mehrere äquivalente Formulierungen dieser Axiome gibt, sodass ihre Angabe von Quelle zu Quelle unterschiedlich sein kann. In jedem Fall implizieren sie das bereits genannte Auswahlaxiom, nach dem es möglich ist aus einer gegebenen Sammlung von Mengen je ein Element pro Menge auszuwählen.
 
-Die meisten der ZFC-Axiome formalisieren Eigenschaften von Mengen, die wir bislang auch angenommen haben. Zum Beispiel sagt das \textbf{Extensionalitätsaxiom} aus, dass zwei Mengen genau dann gleich sind, wenn sie die selben Elemente enthalten. Im \textbf{Aussonderungsaxiom} wird gefordert, dass wir stets Mengen von Elementen bilden können, indem wir diese Elemente auf bestimmte Eigenschaften überprüfen. Dies entspricht gerade der impliziten Mengenschreibweise, also Mengen der Bauart $$M = \{x \mid x \text{ erfüllt eine bestimmte Eigenschaft}\}.$$ Aus dem Axiom der \textbf{Vereinigung} können wir die Existenz der Vereinigung zweier Mengen folgern und aus dem \textbf{Potenzmengenaxiom} die Existenz von Potenzmengen. 
+Die meisten der ZFC-Axiome formalisieren Eigenschaften von Mengen, die wir bislang auch angenommen haben. Zum Beispiel sagt das \textbf{Extensionalitätsaxiom} aus, dass zwei Mengen genau dann gleich sind, wenn sie die selben Elemente enthalten. Im \textbf{Aussonderungsaxiom} wird gefordert, dass wir stets Mengen von Elementen bilden können, indem wir diese Elemente auf bestimmte Eigenschaften überprüfen. Dies entspricht gerade der impliziten Mengenschreibweise, also Mengen der Bauart
+\[M = \{x \mid x \text{ erfüllt eine bestimmte Eigenschaft}\}.\]
+Aus dem Axiom der \textbf{Vereinigung} können wir die Existenz der Vereinigung zweier Mengen folgern und aus dem \textbf{Potenzmengenaxiom} die Existenz von Potenzmengen. 
 
 Das für uns interessanteste Axiom ist das Axiom der \textbf{Fundierung}. Dieses verbietet nämlich, dass Mengen sich selbst enthalten können und verhindert somit die Russelsche Antinomie. 
 
