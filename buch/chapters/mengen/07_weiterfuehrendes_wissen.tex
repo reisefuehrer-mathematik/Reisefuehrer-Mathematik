@@ -10,7 +10,7 @@ Siebformel, De Morgan
 
 \subsection*{Relationen}
 \label{relationen}
-Verwandtschaft, Ordnungrelationen, Äquivalenzrelationen usw.
+Verwandtschaft, Ordnungsrelationen, Äquivalenzrelationen usw.
 
 \subsection*{Graphen}
 
@@ -18,9 +18,9 @@ Verwandtschaft, Ordnungrelationen, Äquivalenzrelationen usw.
 \subsection*{Die Grenzen der Mengenlehre}
 Unsere Beschreibung von Mengen stimmt ziemlich genau mit unserer alltäglichen Wahrnehmung überein -- wir betrachten Mengen als simple Zusammenfassung von einzelnen Objekten zu einem Ganzen. Sämtliche Operationen, die wir auf Mengen durchführen -- ob wir nun Elemente entfernen, hinzufügen, die gemeinsamen Elemente zweier Mengen suchen oder etwas ganz anderes tun -- sind auch komplett intuitiv. Weil diese Formulierung von Mengen so wahnsinnig naheliegend für uns ist, wird sie auch \textbf{naive Mengenlehre} genannt. Wir benutzen dieses Konzept von Mengen in vielen mathematischen Zusammenhängen. Wie du weiter oben in diesem Abschnitt gesehen hast, etwa um unterschiedliche Größenordnungen von Unendlichkeit unterscheiden zu können. Dieses System scheint perfekt, nicht wahr?
 
-Leider ist die naive Mengenlehre doch nicht so vollkommen, wie es zunächst scheint. In gewöhnlichen, alltäglichen Zusammenhängen funktioniert sie ganz wunderbar, in Randfällen führt sie allerdings zu Widersprüchen. Das vielleicht bekannteste Beispiel dieser Paradoxen ist die sogenannte \textbf{Russelsche Antinomie}, benannt nach einem ihrer Entdecker Bertrand Russell. 
+Leider ist die naive Mengenlehre doch nicht so vollkommen, wie es zunächst scheint. In gewöhnlichen, alltäglichen Zusammenhängen funktioniert sie ganz wunderbar, in Randfällen führt sie allerdings zu Widersprüchen. Das vielleicht bekannteste Beispiel dieser Paradoxen ist die sogenannte \textbf{Russellsche Antinomie}, benannt nach einem ihrer Entdecker Bertrand Russell. 
 
-\subsubsection{Die Russelsche Antinomie}
+\subsubsection{Die Russellsche Antinomie}
 In den bisherigen Beispielen waren die Elemente von Mengen Objekte wie Farben oder Zahlen. Wir können aber auch andere Mengen als Elemente wählen. 
 
 \begin{example}{Eine Menge von Mengen}
@@ -60,7 +60,7 @@ So ziemlich alle Mengen, mit denen wir bislang zu tun hatten, enthalten sich nic
 		\item \Natural, $\Natural_0$, \Integer, \Rational, \Real
 		\item $\emptyset$
 	\end{itemize}
-	enthalten sich allesamt nicht selber. Damit liegen sie in der Menge \R.
+	enthalten sich allesamt nicht selber. Damit liegen sie in der Menge \calR.
 \end{example}
 
 Wir können uns beliebig viele Beispiele für Elemente aus \calR überlegen. Aber was ist mit der Menge \calR selber? Ist sie selbst ein Element von \calR oder nicht?
@@ -69,24 +69,24 @@ Angenommen, \calR liegt in \calR, also $\calR \in \calR = \left\{ M \mid M \noti
 rechten Seite bedeutet dies, dass \calR eine Menge ist, die sich nicht selbst enthält. Es gilt also $\calR \notin \calR$. Wir sind 
 so zu einem Widerspruch gelangt, da \calR natürlich nicht gleichzeitig ein Element von \calR und kein Element von \calR sein kann.
 
-Nehmen wir also an, dass $\calR \notin \calR$ gilt. Die Menge \calR darf also nicht die Mengendefintion $\left\{ M \mid M \notin M \right\}$ erfüllen, es muss also $\calR \in \calR$ gelten. Wir sind nun in einer ähnlichen Situation wie im ersten Fall. Die Annahme $\calR \notin \calR$ kann demnach ebenfalls nicht wahr sein.
+Nehmen wir also an, dass $\calR \notin \calR$ gilt. Die Menge \calR darf also nicht die Mengendefinition $\left\{ M \mid M \notin M \right\}$ erfüllen, es muss also $\calR \in \calR$ gelten. Wir sind nun in einer ähnlichen Situation wie im ersten Fall. Die Annahme $\calR \notin \calR$ kann demnach ebenfalls nicht wahr sein.
 
-Egal welche der beiden Fälle wir betrachten, wir gelangen zu einem Widerspruch. Da \calR nun entweder in \calR liegt oder nicht, es also nicht noch weitere Fälle geben kann, haben wir ein Paradoxon erreicht -- die Russelsche Antinomie. 
+Egal welche der beiden Fälle wir betrachten, wir gelangen zu einem Widerspruch. Da \calR nun entweder in \calR liegt oder nicht, es also nicht noch weitere Fälle geben kann, haben wir ein Paradoxon erreicht -- die Russellsche Antinomie. 
 
 \subsubsection{Axiomatische Mengenlehre}
-Beispiele wie die Russelsche Antinomie zeigen, dass wir es uns mit unserer naiven Mengendefinition etwas zu einfach gemacht haben. Mathematiker und Mathematikerinnen des frühen zwanzigsten Jahrhunderts haben versucht, dieses Problem zu lösen, indem sie die bisherige Mengenlehre weiter präzisierten. Dazu haben sie einige \textbf{Axiome} aufgestellt, aus denen sie eine widerspruchsfreie Mengenlehre ableiten wollten.
+Beispiele wie die Russellsche Antinomie zeigen, dass wir es uns mit unserer naiven Mengendefinition etwas zu einfach gemacht haben. Mathematiker und Mathematikerinnen des frühen zwanzigsten Jahrhunderts haben versucht, dieses Problem zu lösen, indem sie die bisherige Mengenlehre weiter präzisierten. Dazu haben sie einige \textbf{Axiome} aufgestellt, aus denen sie eine widerspruchsfreie Mengenlehre ableiten wollten.
 
 Ein Axiom ist im Wesentlichen eine Aussage, von der wir ohne Beweis ausgehen, dass sie wahr ist. Solche Axiome können wir etwa aus unserem alltäglichen Leben ableiten, wir können zum Beispiel behaupten, dass wir auf einem Blatt Papier immer je zwei Punkte durch eine gerade Linie verbinden können.
 
 Im Falle der Mengenlehre ist eines der bekanntesten Axiomsysteme das \textbf{ZFC}, die \textbf{Z}ermelo-\textbf{F}raenkel-Mengenlehre mit Auswahlaxiom (\textbf{C}hoice). Das ZFC besteht aus insgesamt zehn aussagenlogisch formulierten Axiomen, von denen wir an dieser Stelle nur eine kleine Auswahl präsentieren. Für eine ausführliche Übersicht siehe auch (ref: Einführung in das mathematische Arbeiten von Schichl, Steinbauer, Kap. 4.5). Beachte aber, dass es mehrere äquivalente Formulierungen dieser Axiome gibt, sodass ihre Angabe von Quelle zu Quelle unterschiedlich sein kann. In jedem Fall implizieren sie das bereits genannte Auswahlaxiom, nach dem es möglich ist aus einer gegebenen Sammlung von Mengen je ein Element pro Menge auszuwählen.
 
-Die meisten der ZFC-Axiome formalisieren Eigenschaften von Mengen, die wir bislang auch angenommen haben. Zum Beispiel sagt das \textbf{Extensionalitätsaxiom} aus, dass zwei Mengen genau dann gleich sind, wenn sie die selben Elemente enthalten. Im \textbf{Aussonderungsaxiom} wird gefordert, dass wir stets Mengen von Elementen bilden können, indem wir diese Elemente auf bestimmte Eigenschaften überprüfen. Dies entspricht gerade der impliziten Mengenschreibweise, also Mengen der Bauart
+Die meisten der ZFC-Axiome formalisieren Eigenschaften von Mengen, die wir bislang auch angenommen haben. Zum Beispiel sagt das \textbf{Extensionalitätsaxiom} aus, dass zwei Mengen genau dann gleich sind, wenn sie dieselben Elemente enthalten. Im \textbf{Aussonderungsaxiom} wird gefordert, dass wir stets Mengen von Elementen bilden können, indem wir diese Elemente auf bestimmte Eigenschaften überprüfen. Dies entspricht gerade der impliziten Mengenschreibweise, also Mengen der Bauart
 \[M = \{x \mid x \text{ erfüllt eine bestimmte Eigenschaft}\}.\]
 Aus dem Axiom der \textbf{Vereinigung} können wir die Existenz der Vereinigung zweier Mengen folgern und aus dem \textbf{Potenzmengenaxiom} die Existenz von Potenzmengen. 
 
-Das für uns interessanteste Axiom ist das Axiom der \textbf{Fundierung}. Dieses verbietet nämlich, dass Mengen sich selbst enthalten können und verhindert somit die Russelsche Antinomie. 
+Das für uns interessanteste Axiom ist das Axiom der \textbf{Fundierung}. Dieses verbietet nämlich, dass Mengen sich selbst enthalten können und verhindert somit die Russellsche Antinomie. 
 
-Die Widersprüche der naiven Mengenlehre scheinen damit gelöst. Ob dieses Axiomschema aber selber zu neuen Widersprüchen führt, oder ob es widerspruchsfrei ist, ist leider nicht bekannt. Aus dem zweiten Gödelschen Unvollständigkeitssatz folgt nämlich, dass wir die Widerspruchsfreiheit der ZFC-Mengenlehre mathematisch gar nicht beweisen können. Die Tatsache aber, dass in all den Jahrzehnten seit ihrer Formulierung keine Paradoxen durch diese Axiomatisierung gefunden werden konnten deutet doch recht stark auf ihre Widerspruchsfreiheit hin. Insofern können wir guten Gewissens weiterhin mit Mengen arbeiten.
+Die Widersprüche der naiven Mengenlehre scheinen damit gelöst. Ob dieses Axiomenschema aber selber zu neuen Widersprüchen führt, oder ob es widerspruchsfrei ist, ist leider nicht bekannt. Aus dem zweiten Gödelschen Unvollständigkeitssatz folgt nämlich, dass wir die Widerspruchsfreiheit der ZFC-Mengenlehre mathematisch gar nicht beweisen können. Die Tatsache aber, dass in all den Jahrzehnten seit ihrer Formulierung keine Paradoxen durch diese Axiomatisierung gefunden werden konnten, deutet doch recht stark auf ihre Widerspruchsfreiheit hin. Insofern können wir guten Gewissens weiterhin mit Mengen arbeiten.
 \newpage
 \pagecolor{white}
 

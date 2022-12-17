@@ -1,6 +1,8 @@
 out/
 literatur/
 *.cpy
+.vscode
+!.vscode/settings.json
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/latex,windows,linux,macos
