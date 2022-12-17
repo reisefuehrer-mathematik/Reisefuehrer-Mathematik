@@ -1,0 +1,113 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+Wir haben einen Aspekt bisher komplett ignoriert: Negative Funktionen. Wir betrachten das folgende Beispiel:
+\begin{example}{}
+Wir berechnen $\displaystyle\int_{-3}^{3}x\diff x$. Wir arbeiten wieder mit dem Hauptsatz der Differential- und Integralrechnung:
+$F(x)=\frac{1}{2}x^2$ ist eine Stammfunktion von $f$: $F'(x)=x$ und deshalb gilt
+\[\int_{-3}^{3}x\diff x=\Bigl[\frac{1}{2}x^2\Bigr]_{-3}^3=\frac{1}{2}\bigl(3^2-(-3)^2\bigr)=0\]
+Das liefert uns die Information, dass zwischen der Funktion und der $x$-Achse keine Fläche entsteht. Allerdings würde das bedeuten, dass die Funktion auf der $x$-Achse verläuft, was sie definitiv nicht tut: Es ist eine Gerade durch den Ursprung, die für positive $x$ positiv und für negative $x$ negativ ist. Sie sieht so aus:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=-3, ymax=3, xmin=-3, xmax=3, xtick={-3,...,3}, ytick={-3,...,3}
+            ]
+            \addplot[name path=poly, domain=-3:3, violet] {x};
+            \addplot[name path=line, domain=-3:3, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=-3:3},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+Die Fläche ist eindeutig nicht 0. Warum bekommen wir aber als Ergebnis Null? Dafür berechnen wir zwei kleinere Integrale einzeln. Es gilt
+\[\int_{-3}^{3}x\diff x=\int_{-3}^{0}x\diff x+\int_{0}^{3}x\diff x=\Bigl[\frac{1}{2}x^2\Bigr]_{-3}^0+\Bigl[\frac{1}{2}x^2\Bigr]_0^3=\frac{}{}\bigl(0-(-3)^2\bigr)+\frac{1}{2}\bigl(3^2-0\bigr)=\underbrace{-\frac{9}{2}}_{\text{Negativ!}}+\frac{9}{2}=0\]
+Wir sehen, dass das Integral des linken Teils negativ wird. Wir berechnen jedoch eine Fläche, für die ein negativer Wert keinen Sinn ergibt. \textbf{Integrale berechnen Flächen unterhalb der $x$-Achse immer negativ}. Das ist für viele Anwendungen sinnvoll, aber für die Flächenberechnung müssen wir uns anders behelfen: Wir kehren das Vorzeichen immer, wenn eine Fläche unterhalb der $x$-Achse liegt, um. Um die orangene Fläche $A$ schließlich zu berechnen, können wir die Beträge der einzelnen Integrale verwenden:
+\[A=\Biggl|\int_{-3}^{0}x\diff x\Biggr|+\Biggl|\int_{0}^{3}x\diff x\Biggr|=\Bigl|-\frac{9}{2}\Bigr|+\Bigl|\frac{9}{2}\Bigr|=9\]
+\end{example}
+
+Im Allgemeinen können wir einer Funktion nicht ansehen, ob sie in unserem Intervall negativ wird. Deswegen müssen wir zunächst herausfinden, in welchen Bereichen unsere Funktion $f$ negativ wird. Falls unsere Funktion im Intervall $[a,b]$ ausschließlich positiv oder ausschließlich negativ ist, können wir einfach den Betrag des Integrals berechnen und erhalten die gesuchte Fläche.\\
+
+Deshalb betrachten wir den Fall, dass $x$ im betrachteten Intervall sowohl positive als auch negative Werte annimmt. Unter der Voraussetzung, dass $f$ stetig ist, hat $f$ bei jedem Vorzeichenwechsel eine Nullstelle. Der Graph verläuft links von der Nullstelle unterhalb der $x$-Achse, rechts davon überhalb der $x$-Achse. Er muss sie also schneiden (andersherum, mit Wechsel von + nach -, genauso). Wir gehen deshalb folgendermaßen vor, um die Fläche zu berechnen, die sie und die $x$-Achse im Intervall $[a,b]$ einschließen:
+\begin{itemize}
+    \item Berechne alle Nullstellen von $f$ im Intervall $[a,b]$.
+    \item Seien $x_{0,1},\dots,x_{0,n}$ alle Nullstellen von $f$ im Intervall $[a,b]$. Es gilt \[A=\Biggl|\int_a^{x_{0,1}} f(x)\diff x\Biggr|+\Biggl|\int_{x_{0,1}}^{x_{0,2}} f(x)\diff x\Biggr|+\dots+\Biggl|\int_{x_{0,n-1}}^{x_{0,n}} f(x)\diff x\Biggr|+\Biggl|\int_{x_{0,n}}^b f(x)\diff x\Biggr|\]
+\end{itemize}
+Alle einzelnen Integrale, die wir berechnen, sind entweder Flächen, die komplett über oder komplett unter der $x$-Achse liegen. Deswegen berechnen wir mit diesem Vorgehen jetzt wirklich die tatsächliche Fläche und subtrahieren auf keinen Fall mehr Flächen, die wir eigentlich addieren wollten.
+
+Es ist möglich, mit Integralen die Fläche zu berechnen, die eine Funktion mit der $x$-Achse einschließt. Das heißt, wir können eine Fläche, die wir berechnen wollen, durch ein Integral bestimmen, wenn wir eine Funktion finden, die der Form unserer Fläche entspricht. Mit unseren Vorkenntnissen ist es für uns jetzt auch kein großes Problem, \textit{beliebige} Flächen im Koordinatensystem zu berechnen, d.h. nicht nur an der $x$-Achse, sondern irgendwo im Koordinatensystem.\\
+
+Jede Fläche, die man berechnen möchte, muss irgendwie begrenzt werden, es muss also klar sein, was dazugehört und was nicht. Wir haben unsere Flächen in diesem Kapitel immer oben durch eine Funktion und unten durch die $x$-Achse beschränkt (oder andersrum). Jetzt wollen wir Flächen durch zwei Funktionen beschränken. Das sieht dann folgendermaßen aus:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=0, ymax=5, xmin=0, xmax=10, xtick={1,...,10}, ytick={1,...,5}
+            ]
+            \addplot[name path=poly, domain=0:10, violet] {5-0.5*x};
+            \addplot[name path=line, domain=0.1:10, violet] {4/x};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=0.877:9.12},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Zu berechnen ist jetzt die von beiden Funktionen eingeschlosene Fläche. Wir nennen die rote Funktion $f(x)$ und die blaue Funktion $g(x)$. Wir sehen ein Intervall, in dem die Funktionen eine orangene Fläche einschließen. Diese Fläche wollen wir durch ein Integral beschreiben. Wir wissen, dass die gesamte Fläche zwischen der roten Funktion $f(x)$ und der $x$-Achse mit $\displaystyle\int f(x)\diff x$ beschrieben werden kann.\\
+
+Gleichzeitig wissen wir auch, dass die Fläche unter der blauen Funktion $f(x)$ mit $\displaystyle\int g(x)\diff x$ beschrieben werden kann. Die Hauptfrage ist: Welche Grenzen wählen wir für unser Integral? Und wie kommen wir an die Fläche \textit{zwischen} diesen beiden Funktionen?\\
+
+Die markierte Fläche liegt offensichtlich vollständig unter der roten Funktion. Die Fläche unterhalb der blauen Funktion gehört jedoch nicht zur Fläche. Von der Fläche unter der Funktion $f$ subtrahieren wir deshalb die Fläche unter $g$. Außerdem kann eine Fläche wieder nicht negativ sein, das heißt wir können den Betrag verwenden. Die markierte Fläche ist ergibt sich zu \[\Bigl|\int f(x)-g(x)\diff x\Bigr|\] und es fehlen nur noch die Grenzen. Die Fläche, die zwei Funktionen einschließen, endet links und rechts an einem Punkt, an dem sich beide Funktionen schneiden. Wir wollen hier also das Integral $\Bigl|\displaystyle\int_a^b f(x)-g(x)\diff x\Bigr|$ berechnen, wobei $a$ der linke Schnittpunkt der beiden Funktionen und $b$ der rechte Schnittpunkt der beiden Funktionen ist. Wie kommen wir an $a$ und $b$?\\
+
+An einem Schnittpunkt $x_0$ zweier Funktionen $f$ und $g$ gilt $f(x_0)=g(x_0)$. Wir können deshalb die Schnittpunkte durch Auflösen der Gleichung $f(x_0)=g(x_0)$ nach $x_0$ berechnen. Allgemein gehen wir bei der Berechnung von Flächen zwischen Funktionen genauso vor wie bei der Flächenberechnung vorher. Diesmal ermitteln wir aber nicht die Schnittpunkte mit der $x$-Achse (die übrigens auch als Funktion $f(x)=0$ aufgefasst werden kann und somit auch die Berechnung der Fläche zwischen zwei Funktionen ist), sondern die Schnittpunkte mit der anderen Funktion. Wir gehen folgendermaßen vor:
+\begin{itemize}
+    \item Berechne alle Schnittpunkte von $f$ und $g$ durch Auflösen der Gleichung $f(x_S)-g(x_S)=0$.
+    \item Seien $x_{S,1},\dots,x_{S,n}$ die $x$-Koordinaten aller Schnittpunkte von $f$ und $g$. Die von $f$ und $g$ eingeschlossene Fläche ist \[A=\Biggl|\int_{x_{S,0}}^{x_{S,1}} f(x)-g(x)\diff x\Biggr|+\dots+\Biggl|\int_{x_{S,n-1}}^{x_{S,n}} f(x)-g(x)\diff x\Biggr|\]
+\end{itemize}
+
+Wir berücksichtigen nur die Flächen zwischen dem ersten und letzten Schnittpunkt von $f$ und $g$. Jenseits dieser Schnittpunkte werden die Funktionen keine Flächen mehr einschließen, da sie sich nicht mehr schneiden. Der Grund, warum wir Schnittpunkt zwischen dem ersten und dem letzten Schnittpunkt berechnen müssen, ist der gleiche wie vorhin: Wenn links von einem Schnittpunkt $f(x)>g(x)$ gilt und rechts davon $f(x)<g(x)$, dann wird die Fläche auf der rechten Seite negativ berechnet und wir berechnen tatsächlich nicht die gesamte Fläche.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=.75cm, x=1cm, ymin=-3, ymax=3, xmin=-2, xmax=2, xtick={-2,...,2}, ytick={-3,...,3}
+            ]
+            \addplot[name path=poly, domain=-3:3, violet] {2*x^3};
+            \addplot[name path=line, domain=-3:3, violet] {2*x};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=-1:1},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{example}{}
+Wir wollen die Fläche zwischen $f(x)=2x$ und $g(x)=2x^3$ berechnen und beginnen mit der Berechnung der Schnittpunkte, indem wir $f(x_0)-g(x_0)=0$ nach $x_0$ auflösen.
+\begin{align*}
+    2x-2x^3&=0\\
+    2x(1-x^2)&=0\\
+    x&=0~\lor~x^2=1\\
+    x&=0~\lor~x=\pm1\\
+\end{align*}
+
+Nach unserer Formel ist die eingeschlossene Fläche \[\Bigl|\int_{-1}^0 2x-2x^3\diff x\Bigr|+\Bigl|\int_0^1 2x-2x^3\diff x\Bigr|=\Biggl|\Bigl[x^2-\frac{1}{2}x^4\Bigr]_{-1}^0\Biggr|+\Biggl|\Bigl[x^2-\frac{1}{2}x^4\Bigr]_0^1\Biggr|=\frac{1}{2}+\frac{1}{2}=1\]
+\end{example}
+\begin{example}{}
+Wir berechnen die von $f(x)=-\frac{1}{2}x+5$ und $g(x)=\frac{4}{x}$ eingeschlossene Fläche (die aus Abbildung \ref{fig:intersections}). Wir berechnen zunächst die Schnittpunkte von $f$ und $g$:
+\begin{align*}
+    f(x_0)-g(x_0)&=0\\
+    -\frac{1}{2}x+5-\frac{4}{x}=0\\
+\end{align*}
+Für $x\neq 0$ können wir auf beiden Seiten mit $x$ multiplizieren, um das $x$ aus dem Nenner zu entfernen. Für $x=0$ gilt $f(0)=5$, während $g(0)$ undefiniert ist. Dort haben wir also definitiv keinen Schnittpunkt vorliegen. Nach dem Multiplizieren erhalten wir
+\begin{align*}
+    -\frac{1}{2}x^2+5x-4&=0 & |\cdot(-2)\\
+    x^2-10x+8&=0\\
+    x&=5\pm\sqrt{5^2-8}\\
+    &=5\pm\sqrt{17}
+\end{align*}
+Das Integral, das wir berechnen müssen, ist
+\[\Bigl|\int_{5-\sqrt{17}}^{5+\sqrt{17}} -\frac{1}{2}x+5-\frac{4}{x}\diff x\Bigr|\]
+\end{example}
+\end{document}

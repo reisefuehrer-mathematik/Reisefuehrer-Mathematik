@@ -1,0 +1,117 @@
+\makeatletter
+\renewcommand{\PackageInfo}[2]{}% Remove package information
+\renewcommand{\@font@info}[1]{}% Remove font information
+\renewcommand{\@latex@info}[1]{}% Remove LaTeX information
+\makeatother
+
+\documentclass{buch}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{formulary}
+\usepackage{mathdef}
+\usepackage{tikzdef}
+
+\usepackage{collcell}
+
+\usepackage{amsthm}
+\usepackage[]{todonotes}
+\usepackage{booktabs}
+\usepackage{transparent}
+\usepackage{diagbox}
+\usepackage{multirow, makecell, hhline}
+\usepackage{picins}
+\usepackage{clipboard}
+\usepackage{xifthen}
+\usepackage{skak}
+\usepackage{cancel}
+\usepackage{xfrac}
+
+\newclipboard{chapters}
+
+%%%%%%%%%%%%%%%%%%%%
+% Characters
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{epsdice}
+
+%%%%%%%%%%%%%%%%%%%%
+% Quotes
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{epigraph}
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+
+%%%%%%%%%%%%%%%%%%%%
+% Blind text
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{lipsum}
+
+\parskip=9pt plus 11 pt
+
+\usetikzlibrary{positioning}
+\tikzset{>=stealth}
+\graphicspath{../}
+
+%%%%%%%%%%%%%%%%%%%%
+% Timer for each page
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{atbegshi}
+\newcommand\showtimer{%
+  \message{^^Jtimer: \the\numexpr\the\pdfelapsedtime*1000/65536\relax}%
+  \pdfresettimer}
+\AtBeginDocument{\showtimer}
+\AtBeginShipout {\showtimer}
+
+\usepackage{scrhack} %I guess?
+
+\newcommand{\ifdraft}[2]{#2}
+
+\usepackage{eso-pic}
+\usepackage{transparent}
+
+\newcommand{\declchapter}[2]{\chapter{#2}\label{chap:#1}\vphantom{\Copy{chap:lbl_#1}{#2}}}
+
+\bookseries{Reiseführer\\Mathematik}
+\volume{1}
+\title{}%Sehenswürdigkeiten \& Wanderrouten}
+\begin{document}
+    \frontmatter
+    %\maketitle
+    \setcounter{tocdepth}{1}
+    {
+      \makeatletter
+      \renewcommand{\chapterlinesformat}[3]{%
+        \tikz{
+            \newcommand{\tikzlinghookbelly}{
+              \node[
+                anchor=south,
+                fill=\thing@signback,
+                draw=\thing@signcolour,
+                rounded corners=\scalingfactor*1,
+                text=white,
+                line width=\scalingfactor*1.8pt,
+                yshift=-.2cm] {\bfseries#3};
+            }
+            \bee;
+        }\par
+        \makeatother
+    }
+    \tableofcontents
+    
+    \mainmatter
+    
+    \declchapter{integrale}{Integralrechnung}
+    \ldsection{Einführung}
+    \ldsection{Das Riemann-Integral}
+    \ldsection{Der Hauptsatz der Differential- und Integralrechnung}
+    \ldsection{Von Integralen zu Flächen}
+    \ldsection{Uneigentliche Integrale}
+    \ldsection{Rotationsvolumen}
+    \ldadvsection{Weiterführendes Wissen}
+    
+    \backmatter
+    \printindex
+    
+    \subfile{formulary}
+    
+\end{document}
