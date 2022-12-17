@@ -1,0 +1,54 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+Mit unserem jetzigen Wissen können wir Integrale vieler (einfacher) Funktionen berechnen und sie verwenden, um Flächen 
+zu berechnen, die Funktionen mit der $x$-Achse einschließen. Wir sind aber leider immer auf ein bestimmtes Intervall 
+eingeschränkt, es ist uns also nicht möglich, Flächen auch in der Unendlichkeit zu betrachten. Es geht um die folgende 
+Situation:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=6, xtick={1,...,6}, ytick={1,...,4}
+            ]
+            \addplot[name path=poly, domain=0.1:6, violet] {4/x};
+            \addplot[name path=line, domain=1:6, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=1:6},
+            ];
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Wir wollen die Fläche, die die Funktion $f(x)=\frac{4}{x}$ mit der $x$-Achse einschließt, berechnen. Und zwar die 
+gesamte Fläche, beginnend bei $x=2$. Das dazugehörige Intervall lautet $[2,\infty[$. Als Integral sieht das 
+folgendermaßen aus:
+\[\int_2^\infty \frac{4}{x}\diff x=\Bigl[4\ln{x}\Bigr]_2^\infty=4\ln{\infty}-4\ln{2}\]
+An dieser Stelle haben wir ein Problem: Wir müssen den Wert $\ln{\infty}$ berechnen. Dieses Problem tritt generell 
+immer auf, wenn wir als eine Intervallgrenze einen Wert wählen, bei dem die Funktion, die wir betrachten, undefiniert 
+ist. Häufig is das $\pm\infty$, aber es kann sich bei diesen Stellen auch um Definitionslücken handeln, zum Beispiel 
+um 0 im Beispiel mit $f(x)=\frac{4}{x}$ (also oft Stellen, bei denen man durch 0 teilen würde). Für die beiden Fälle 
+helfen wir uns mit einer Erweiterung unseres Integralbegriffs durch eine weitere Definition:
+\begin{definition}{Uneigentliches Integral}
+Für eine stetige Funktion $f:[a,\infty[\rightarrow\mathbb{R}$, die auf allen Intervallen $[a,b]$, $b\in\mathbb{R}$ 
+integrierbar ist, setzt man
+\[\int_a^\infty f(x)\diff x:=\lim\limits_{b\rightarrow\infty}\int_a^b f(x)\diff x\]
+falls dieser Grenzwert existiert.\\
+
+Für eine stetige Funktion $g:[a,b[\rightarrow\mathbb{R}$, die auf allen Intervallen $[a,b-\epsilon]$ für alle 
+$\epsilon>0$ integrierbar ist, setzt man
+\[\int_a^b g(x)\diff x:=\lim\limits_{\epsilon\rightarrow 0}\int_a^{b-\epsilon} g(x)\diff x\]
+falls der Grenzwert existiert.
+\end{definition}
+\begin{example}{}
+Im obigen Beispiel gilt \[\int_2^\infty \frac{4}{x}\diff x=\lim\limits_{b\rightarrow\infty}\int_2^b \frac{4}{x}\diff x=\lim\limits_{b\rightarrow\infty}\Bigl[4\ln{|x|}\Bigr]_2^b=\lim\limits_{b\rightarrow\infty}4\underbrace{\ln{b}}_{\rightarrow\infty}-4\ln{2}=\infty\]
+\end{example}
+\begin{example}{}
+Für $f(x)=e^{-x}$ berechnet man das Integral $\displaystyle\int_1^\infty e^{-x}\diff x$ folgendermaßen: 
+\[\int_1^\infty e^{-x}\diff x=\lim\limits_{b\rightarrow\infty}\int_1^b e^{-x}\diff x=\lim\limits_{b\rightarrow\infty}\Bigl[-e^{-x}\Bigr]_1^b=\lim\limits_{b\rightarrow\infty}\underbrace{-e^{-b}}_{\rightarrow 0}-(-e^{-1})=e^{-1}=\frac{1}{e}\]
+\end{example}
+\begin{example}{}
+Das nachfolgende Integral kann nicht direkt berechnet werden, weil die Funktion für $x=0$ undefiniert ist.
+\[\int_0^1\frac{1}{2\sqrt{x}}\diff x=\lim\limits_{\epsilon\rightarrow 0}\int_\epsilon^1 \frac{1}{2\sqrt{x}}\diff x=\lim\limits_{\epsilon\rightarrow 0}\Bigl[\sqrt{x}\Bigr]_\epsilon^1=\lim\limits_{\epsilon\rightarrow 0}\sqrt{1}-\underbrace{\sqrt{\epsilon}}_{\rightarrow 0}=1\]
+\end{example}
+\end{document}

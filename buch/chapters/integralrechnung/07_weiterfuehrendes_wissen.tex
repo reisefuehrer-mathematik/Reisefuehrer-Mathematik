@@ -1,0 +1,273 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{Formale Definition des Riemann-Integrals}
+\label{riemannintegral-richtig}
+\[\sigma(f,\mathcal{Z})\defas\underbrace{\underbrace{(t_1-t_0)}_{\text{Breite}}\cdot \underbrace{f(t_0)}_{\text{Höhe}}}_{\text{1. Rechteck}}+\underbrace{\underbrace{(t_2-t_1)}_{\text{Breite}}\cdot \underbrace{f(t_1)}_{\text{Höhe}}}_{\text{2. Rechteck}}+\dots+\underbrace{(t_n-t_{n-1})}_{\text{Breite}}\cdot \underbrace{f(t_{n-1})}_{\text{Höhe}}\]    
+
+\subsection*{Partielle Integration}
+\label{partielle-integration}
+Wie bereits angekündigt, ist es nicht nur möglich, die Potenzregel umzukehren, sondern wir können das gleiche auch
+mit der Produkt- und der Kettenregel tun. In diesem Abschnitt fangen wir mit der Umkehrung der Produktregel an. Die
+Beispiele aus dem Abschnitt zu Stammfunktionen und den Übungsaufgaben sind immer so gewählt, dass sich die Funktionen
+mit einfachen Mitteln integrieren lassen. Die Stammfunktion war meistens sehr offensichtlich (etwa $\sin x$ als Stammfunktion 
+von $\cos x$). Das ist leider nicht immer der Fall.
+
+Wir schauen uns, bevor wir irgendwelche neuen Regeln aufstellen, erstmal ein Beispiel an, bei dem unsere bisherigen Verfahren 
+versagen (wir können lediglich durch Raten auf das Ergebnis kommen):
+\begin{example}{}
+    Wir wollen das Integral $\displaystyle\int_0^\pi x\sin x\diff x$ berechnen. Zwar kennen wir uns mit Integralen 
+    mittlerweile gut genug aus, um zu wissen, dass wir eigentlich nur eine Stammfunktion ermitteln müssen, aber die 
+    Ermittlung eben dieser ist im Regelfall die eigentliche Herausforderung beim Berechnen von Integralen.
+
+    Wir wissen, dass in der Stammfunktion ein Kosinus vorkommen muss, jedoch ist etwa $-x\cos x$ keine Lösung, da durch
+    die Produktregel immer störende Terme hinzukommen. Es ist zum Beispiel
+    \[(-x\cos x)'=x\sin x-\cos x.\]
+    Eine Stammfunkion zu finden, die dieses Problem löst, ist mit unseren bisherigen Mitteln reines Ausprobieren.
+\end{example}
+
+Nun nehmen wir die Produktregel aus dem Kapitel über Differentialrechnung (Seite \pageref{produktregel}) zur Hilfe. Diese lautete 
+(in Kurzschreibweise):
+\[(uv)'=uv'+u'v\]
+Das können wir durch Subtrahieren von $uv'$ umschreiben zu
+\[u'v=(uv)'-uv'\]
+und da wir uns nicht um Ableitungen, sondern um Integrale kümmern, integrieren wir die Gleichung, um
+\[\int u'v\diff x=uv-\int uv'\diff x\]
+zu erhalten. Nun können wir versuchen, damit weiterzukommen. Der Teil auf der linken Seite ist dabei der, den wir 
+suchen: Ein Integral (also eine Stammfunktion) zur Funktion $uv'$. Nun haben wir aber nur eine Funktion $f(x)$ und keine 
+Funktionen $u$ oder $v$. Um unsere Funktion in eine Form zu bringen, die wir in die Formel einsetzen können, müssen 
+wir sie als ein Produkt zweier Funktionen, die wir $u(x)$ und $v'(x)$ nennen, schreiben.
+\begin{example}{}
+    Für die Funktion $f(x)=x\sin x$ aus dem letzten Beispiel wählen wir jetzt $v(x)=x$ und $u'(x)=\sin x$. 
+    Warum das so herum sinnvoll ist, sehen wir gleich. Wir suchen also
+    \[\int_0^\pi f(x)\diff x=\int_0^\pi\colorbrace{x}{v(x)}\colorbrace{\sin x}{u'(x)}\diff x=\int_0^\pi u'(x)v(x)\diff x.\]
+\end{example}
+Es lässt sich nun die folgende Regel herleiten, mit der wir Integrale von Funktionen ausrechnen können, die das Produkt
+mehrerer Funktionen sind.
+\begin{theorem}[thm:partielle-integration]{Partielle Integration}
+    Es seien $f,g:[a,b]\rightarrow\mathbb{R}$ stetig differenzierbar. Dann gilt
+    \[\int_a^b f(x)g'(x)\diff x=\Bigl[f(x)g(x)\Bigr]_a^b-\int_a^b f'(x)g(x)\diff x\]
+\end{theorem}
+\begin{proof}
+    Wir setzen zunächst $F(x)=f(x)g(x)$. Dann gilt aufgrund der Produktregel \[F'(x)=f(x)g'(x)+f'(x)g(x).\] 
+    Wir berechnen nun $\displaystyle\int_a^b f(x)g'(x)+f'(x)g(x)\diff x$. Da die Funktion, die wir hier integrieren, 
+    genau $F'(x)$ entspricht, ist $F(x)$ eine Stammfunktion dieser Funktion und wir können schreiben:
+    \begin{align*}
+        &\int_a^b f(x)g'(x)\diff x+\int_a^b f'(x)g(x)\diff x\\
+        =&\int_a^b f(x)g'(x)+f'(x)g(x)\diff x\\
+        =&\int_a^b F'(x)\diff x\\
+        =&\Bigl[F(x)\Bigr]_a^b=\Bigl[f(x)g(x)\Bigr]_a^b
+    \end{align*}
+    Subtrahieren wir von der obigen Gleichung nun $\displaystyle\int_a^b f'(x)g(x)\diff x$, dann erhalten wir die Formel,
+    die wir herleiten wollten:
+    \[\int_a^b f(x)g'(x)\diff x=\Bigl[f(x)g(x)\Bigr]_a^b-\int_a^b f'(x)g(x)\diff x\qedhere\]
+\end{proof}
+
+\begin{example}{}
+    Wir haben die Funktion $f(x)=x\sin x$ aus den letzten Beispielen bereits als ein Produkt $u'(x)v(x)$ wie auf der linken
+    Seite der Formel aus Satz \ref{thm:partielle-integration} geschrieben. Alles, was wir nun machen müssen, um das Integral
+    \[\int_0^\pi f(x)\diff x=\int_0^\pi\colorbrace{x}{v(x)}\colorbrace{\sin x}{u'(x)}\diff x=\int_0^\pi u'(x)v(x)\diff x.\]
+    auszurechnen, ist, unsere Funktionen in die Formel für die partielle Integration einzusetzen. In der Formel kommen 
+    neben $v$ und $u'$ auch noch $v'$ und $u$ vor. Diese beiden Funktionen müssen wir also auch noch berechnen. Wir leiten 
+    deswegen $v(x)=x$ ab und erhalten $v'(x)=1$. Die Funktion ist durch das Ableiten also einfacher geworden.
+    
+    Generell kannst du dir als Faustregel merken, dass die meisten Funktionen beim Ableiten einfacher und beim Integrieren 
+    komplizierter werden. 
+    
+    Da $\sin x$ beim Ableiten nicht einfacher wird, haben wir $\sin x$ als $u'(x)$ gewählt, denn diese Funktion müssen wir
+    in der Formel von oben nicht ableiten, die Funktion $v(x)=x$, die beim Ableiten einfacher wird, hingegen schon. 
+    Nun müssen wir noch $u(x)$ berechnen. Es gilt für $u(x)=-\cos x$, dass $u'(x)=\sin x$. Somit haben wir 
+    unsere Funktionen zusammen und können einsetzen:
+    \[\int \colorbrace{x\sin x}{vu'=u'v}\diff x=\colorbrace{-\cos x\cdot x}{uv}-\int \colorbrace{-\cos x}{uv'}\diff x\]
+    Durch die geschickte Wahl von $u$ und $v$ haben wir unser gesuchtes, kompliziertes Integral nun als eine Summe zweier 
+    Teile geschrieben, die wir einfacher berechnen können. Zum einen haben wir den Teil $-x\cos x$, für den wir keine 
+    Stammfunktion mehr berechnen müssen. Zum anderen haben wir das Integral \[\int -\cos x\diff x,\] 
+    bei dem der Vorfaktor $x$ von $x\sin x$ durch das Ableiten weggefallen ist. Auf diese Weise können wir nun alles 
+    ausrechnen und erhalten
+    \[\int x\sin x\diff x=-\cos x\cdot x-(-\sin x)=-\cos x\cdot x+\sin x.\]
+    Dadurch haben wir die Stammfunktion bestimmt -- das können wir auch noch durch Ableiten nachrechnen:
+    \[(-x\cos x+\sin x)'=\colorbrace{-\cos x+x\sin x}{(-x\cos x)'}+\cos x=x\sin x\]
+    Schließlich setzen wir die Grenzen $0$ und $\pi$ in das Integral ein:
+    \[\int_0^\pi x\sin x\diff x=\Bigl[-x\cos x+\sin x\Bigr]_0^\pi=\pi-0=\pi\]
+\end{example}
+Wenn du also eine Funktion vor dir hast, die nach dem Produkt zweier Funktionen aussieht, die du aber nicht ohne
+Probleme integrieren kannst, dann kannst du versuchen, dieses Problem mit der partiellen Integration zu lösen.
+
+Leider ist diese Methode des Integrierens relativ aufwendig. In manchen Fällen erhältst du sogar erst eine ausreichende
+Vereinfachung, wenn du einen der Faktoren mehrfach ableitest. In diesem Fall ist es auch möglich, die partielle Integration 
+mehrfach anzuwenden. Man wendet sie also zunächst auf das ursprüngliche Integral und dann auf das Integral auf der 
+rechten Seite der Formel an. Außerdem kommt es manchmal vor, dass man durch Produktintegration die Funktion selbst erneut 
+auf der rechten Seite erhält, allerdings negativ. In diesem Fall müssen wir eine Gleichung auflösen, wie im folgenden 
+Beispiel.
+
+\begin{example}{}
+    Wir wollen das Integral
+    $\displaystyle\int \sin ^2 x\diff x$
+    berechnen. Wir schreiben die Funktion als $u(x)v'(x)$ mit $u(x)=\sin x$ und $v'(x)=\sin x$. Dann gilt $u'(x)=\cos x$ 
+    und \mbox{$v'(x)=-\cos x$}. In die Formel für die partielle Integration eingesetzt ergibt sich 
+    \[\int \sin ^2 x\diff x=-\sin x\cos x-\int -\cos ^2 x\diff x=-\sin x\cos x+\int \cos ^2 x\diff x~(*)\]
+    und wir können das letzte Integral wieder nicht sinnvoll berechnen. Hier nutzen wir die Regel $\sin ^2 x+\cos ^2 x=1$ 
+    (siehe Seite \pageref{additionstheoreme}), um die Gleichung
+    \[\int \cos ^2 x\diff x=\int (1-\sin ^2 x)\diff x=\int 1\diff x-\int \sin ^2 x\diff x=x-\int \sin ^2 x\diff x.\]
+    zu erhalten. Das können wir in die Formel $(*)$ einsetzen:
+    \[\int \sin ^2 x\diff x=-\sin x\cos x+x-\int \sin ^2 x\diff x\]
+    Jetzt können wir einen Trick anwenden und auf beiden Seiten $\displaystyle\int \sin ^2 x\diff x$ addieren. Dann 
+    verschwindet der Term auf der rechten Seite und wir erhalten
+    \[2\int \sin ^2 x\diff x=-\sin x\cos x+x~\text{bzw.}~\int \sin ^2 x\diff x=\frac{1}{2}(-\sin x\cos x+x).\]
+    Damit haben wir die Funktion $\sin^2 x$ erfolgreich integriert.
+\end{example}
+
+\subsection*{Integration durch Substitution}
+\label{substitution}
+Eine letzte Ableitungsregel, zu der wir eine passende Integrationsregel finden wollen, ist die Kettenregel. Der Effekt der
+Kettenregel ist, dass wir nur die äußere Funktion ableiten, das Ergebnis aber mit der Ableitung der inneren Funktion multiplizieren:
+\[\Bigl(f\bigl(g(x)\bigr)\Bigr)'=f'(g(x))\cdot g'(x)\]
+Falls nun $g(x)$ eine komplizierte Funktion ist, die uns an der Berechnung des Integrals hindern kann, so können wir versuchen, 
+sie durch eine einfachere Funktion zu ersetzen. Dafür leiten wir uns die folgende Integrationsregel aus der Kettenregel her.
+\begin{theorem}{Substitutionsregel}
+Sei $f:[a,b]\rightarrow\mathbb{R}$ stetig und $g:[c,d]\rightarrow[a,b]$ stetig differenzierbar. Dann gilt \[\int_a^b f(g(x))g'(x)\diff x=\int_{g(a)}^{g(b)} f(t)~dt\]
+\end{theorem}
+\begin{proof}
+Es sei $F$ eine Stammfunktion von $f$. Wir können nun mit der Kettenregel die Stammfunktion von $F(g(x))$ bestimmen: 
+\[F(g(x))'=F'(g(x))g'(x).\]
+Da $F$ eine Stammfunktion von $f$ ist, gilt 
+\[F'(g(x))g'(x)=f(g(x))g'(x).\] 
+Die Funktion $f(g(x))g'(x)$ ist also die Ableitung von $F(g(x))$ und wir können $F(g(x))$ nun als Stammfunktion zur 
+Berechnung des Integrals
+$\displaystyle\int_a^b f(g(x))g'(x)\diff x$ verwenden:
+\begin{align*}
+    &\int_a^b f(g(x))g'(x)\diff x=\Bigl[F(g(x))\Bigr]_a^b=F(g(b))-F(g(a))\\
+    =&\Bigl[F(t)\Bigr]_{g(a)}^{g(b)}=\int_{g(a)}^{g(b)} f(t)~dt\qedhere
+\end{align*}
+\end{proof}
+Das Verfahren der Integration durch Substitution können wir generell dann anwenden, wenn in der zu integrierenden 
+Funktion ein Term $g(x)$ und dessen Ableitung $g'(x)$ auftauchen. 
+\begin{example}{}
+    Wir möchten das Integral
+    \[\int_a^b\sin x\cos x\diff x\]
+    ausrechnen, in dem sowohl die Funktion $g(x)=\sin x$ als auch deren Ableitung $g'(x)=\cos x$ vorkommt. 
+    Mit $g(x)=\sin x$ gilt also
+    \[\int_a^b\sin x\cos x\diff x=\int_a^bg(x)g'(x)\diff x.\]
+\end{example}
+Die Substitutionsregel können wir nun anwenden, indem wir künstlich eine Situation produzieren, in der in unserem 
+Integral die Funktion
+\[f(g(x))\cdot g'(x)\]
+steht. Dabei gibt es oft gar keine Verkettung, das heißt die Funktion $f(x)$ fehlt im Integral. Das ist aber kein Problem,
+denn mit $f(x)=x$ können wir die Funktion $f(x)$ künstlich in unser Integral aufnehmen, ohne es dabei zu verändern.
+\begin{example}{}
+    In unserem obigen Beispiel ist $\sin x\cos x=f(\sin x)\cos x$, wenn wir $f(x)=x$ definieren. Dann gilt $g(x)=\sin x$ 
+    und wir erhalten genau die Form der linken Seite der Substitutionsregel.
+    \[\int_a^b \sin x\cos x\diff x=\int_a^b f(\sin x)\cos x\diff x=\int_{\sin a}^{\sin b} x\diff x=\Bigl[\frac{1}{2}x^2\Bigr]_{\sin a}^{\sin b}\]
+    Wir können nun das Integral mit Mitteln, die wir bereits kennen, berechnen.
+\end{example}
+
+Eine weitere Anwendung der Substitutionsregel besteht darin, allgemein und unabhängig von Intervallgrenzen Stammfunktionen 
+zu berechnen. Hierbei müssen wir aufpassen, weil wir nicht einfach die Integralgrenzen weglassen können (denn diese haben sich
+bei der Substitution verändert). Dieses Problem zu lösen, ist aber nur ein einziger weiterer Schritt, den wir nach Anwendung der
+Substitutionssregel nicht vergessen dürfen: Wir müssen in der Funktion, die wir als Ergebnis erhalten, eine sogenannte 
+Rücksubstitution durchführen, also alle vorkommenden $x$ durch $g(x)$ ersetzen.
+\begin{example}{}
+    Im letzten Beispiel haben wir herausgefunden, dass wir das Integral
+    \[\int_a^b\sin x\cos x\,dx\]
+    ausrechnen können, indem wir
+    \[\Bigl[\frac{1}{2}x^2\Bigr]_{\sin a}^{\sin b}\]
+    berechnen. Hier können wir eine Rücksubstitution durchführen, um die alten Intervallgrenzen wiederherzustellen:
+    \[\Bigl[\frac{1}{2}x^2\Bigr]_{\sin a}^{\sin b}=\frac{1}{2}\sin^2b-\frac{1}{2}\sin^2a=\Bigl[\frac{1}{2}\sin^2x\Bigr]_a^b\]
+    Jetzt, da wir die Integralgrenzen beibehalten haben, können wir die erhaltene Funktion als Stammfunktion verwenden. 
+    Das können wir auch nachrechnen, indem wir die Funktion mit der Produktregel ableiten: 
+    \[\Bigl(\frac{1}{2}\sin^2 x\Bigr)'=\Bigl(\frac{1}{2}(\sin x)^2\Bigr)'=2\cdot\frac{1}{2}(\sin x)\cdot\sin'x=\sin x\cos x\]
+\end{example}
+
+\subsubsection*{Beweis zum Hauptsatz der Differential- und Integralrechnung}
+\label{hdi-beweis}
+Bevor wir beginnen können, den Hauptsatz der Differential- und Integralrechnung zu beweisen, schauen wir uns einmal
+das folgende Integral an.
+\begin{center}
+    \begin{multicols}{2}
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=6, xtick={1,...,6}, ytick={1,...,4}
+                ]
+                \addplot[name path=poly, domain=0:6, violet] {4/x};
+                \addplot[name path=line, domain=1:5, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!40] fill between[ 
+                of = poly and line,
+                soft clip={domain=1:5},
+                ];
+            \end{axis}
+        \end{tikzpicture}
+
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=6, xtick={1,...,6}, ytick={1,...,4}
+                ]
+                \addplot[name path=poly, domain=0:6, violet] {4/x};
+                \fill[opacity=0.5,violet!40] (1,0) -- (1,1.609) -- (5,1.609) -- (5,0) -- cycle;
+            \end{axis}
+        \end{tikzpicture}
+    \end{multicols}
+\end{center}
+
+Wir sehen im Bild links ein Integral, das zur Funktion $f(x)=\frac{4}{x}$ gehört. Das dargestellte Integral ist
+\[\int_1^5\frac{4}{x}\diff x.\]
+Bei diesem Integral handelt es sich um eine Fläche mit der Breite 4, deren Höhe von links nach rechts immer kleiner wird.
+Wenn wir uns auf eine \enquote{mittlere} Höhe festlegen, können wir versuchen, eine gleichgroße Fläche durch ein Rechteck
+der Breite 4 zu erhalten -- wie auf der rechten Seite. Dadurch ist die Fläche des Rechtecks links kleiner als die
+des tatsächlichen Integrals, rechts dafür aber größer. 
+
+Wir können eine Höhe für das Rechteck ausrechnen, sodass
+links genauso viel vom Integral fehlt wie rechts zu viel ist (das wurde für das eingezeichnete Rechteck getan).
+Tatsächlich existiert ein solches Rechteck bei jeder stetigen Funktion:
+
+\begin{theorem}{Mittelwertsatz der Integralrechnung}
+    Sei $f:[a,b]\rightarrow\mathbb{R}$ eine stetige Funktion. Dann existiert ein $x_0\in[a,b]$ mit \[\int_a^b f(x)\diff x=f(x_0)\cdot(b-a)\]
+    \textit{(Das heißt, die Fläche unter einer Kurve im Bereich von $a$ bis $b$ lässt sich durch ein Rechteck mittlerer Höhe beschreiben.)}
+\end{theorem}
+\begin{proof}
+    Da $f$ stetig ist, nimmt $f$ in $[a,b]$ sein Minimum $k$ und sein Maximum $K$ an. Es gilt in diesem Intervall also 
+    $k\leq f(x)\leq K$. Deshalb können wir schreiben:
+    \[(b-a)k=k\int_a^b 1\diff x=\int_a^b k\diff x\leq\int_a^b f(x)\diff x\leq\int_a^b K\diff x=K\int_a^b 1\diff x=(b-a)K\]
+    Das Integral $\displaystyle\int_a^b f(x)\diff x$ liegt also zwischen $(b-a)k$ und $(b-a)K$. Es gibt folglich ein $l$ 
+    mit $k\leq l\leq K$, sodass $\displaystyle\int_a^b f(x)\diff x=(b-a)l$. Da $f$ stetig ist, nimmt $f$ alle Werte zwischen 
+    $k$ und $K$ im Intervall $[a,b]$ an und folglich auch den Wert $l$. Wir wählen nun ein $x_0\in[a,b]$ so, dass 
+    $f(x_0)=l$. Dann gilt
+    \[\int_a^b f(x)\diff x=(b-a)l=(b-a)f(x_0)\qedhere\]
+\end{proof}
+Diese Erkenntnis ist nun ausreichend, um den Satz zu beweisen, für den wir uns eigentlich interessiert haben.
+\begin{proof}
+    \emph{(vom Hauptsatz der Differential- und Integralrechnung)}
+    Wir beweisen den Hauptsatz der Differential- und Integralrechnung in drei Schritten: Als erstes wählen wir eine
+    Zahl $t\in\R$ und zeigen, dass 
+    die Funktion $F_0$, die definiert ist durch
+    \[F_0(x):=\int_t^x f(x)\diff x,\]
+    eine Stammfunktion von $f$ ist. Anschließend zeigen wir, dass wir damit Integrale der Funktion $f$ durch 
+    Einsetzen der Grenzen $a$ und $b$ in diese Funktion berechnen können. Schließlich müssen wir zeigen, dass wir das 
+    auch mit jeder beliebigen anderen Stammfunktion machen können und das gleiche Ergebnis erhalten.
+    
+    \textbf{Schritt 1.} Um zu zeigen, dass $F_0$ eine Stammfunktion von $f$ ist, leiten wir $F_0$ ab und weisen nach, dass wir 
+    tatsächlich $f$ erhalten:
+    \begin{align*}
+        F_0'(x)&=\lim_{h\rightarrow 0} \frac{F_0(x+h)-F_0(x)}{h}=\lim_{h\rightarrow 0}\frac{1}{h}\cdot\Biggl(\int_t^{x+h} f(x)\diff x-\int_t^x f(x)\diff x\Biggr)\\
+        &=\lim_{h\rightarrow 0}\frac{1}{h}\cdot\int_x^{x+h} f(x)\diff x
+    \end{align*}
+    Der Mittelwertsatz der Integralrechnung besagt, dass es zwischen $x$ und $x+h$ ein $x_0$ geben muss, sodass 
+    \[\int_x^{x+h} f(x)\diff x=(x+h-x)f(x_0)=hf(x_0)\]
+    gilt. Wir können das Integral also insgesamt umschreiben zu
+    \[\lim_{h\rightarrow 0}\frac{1}{h}\cdot\int_x^{x+h} f(x)\diff x=\lim_{h\rightarrow 0}\frac{1}{h}\cdot hf(x_0)=\lim_{h\rightarrow 0} f(x_0)=f(x)\]
+    und haben damit gezeigt, dass die Integralfunktion eine Stammfunktion der Funktion $f$ ist.
+    
+    \textbf{Schritt 2.} Als zweites müssen wir zeigen, dass wir mithilfe dieser Stammfunktion nun das Integral \[\int_a^b f(x)\diff x\] 
+    berechnen können. Dafür setzen wir einfach ein:
+    \[\int_a^b f(x)\diff x=\int_t^b f(x)\diff x-\int_t^a f(x)\diff x=F_0(b)-F_0(a).\]
+    \textbf{Schritt 3.} Schließlich wollen wir zeigen, dass das Integral mit jeder \textit{beliebigen} Stammfunktion von $f$ berechnet 
+    werden kann. Dieser Schritt ist nun einfach, da alle Stammfunktionen von $f$ sich lediglich durch einen konstanten 
+    Teil $c$ unterscheiden (alle nicht-konstanten Teile wirken sich auf die Ableitung aus). Damit sei $F$ eine beliebige 
+    Stammfunktion von $f$ und es gelte $F(x)=F_0(x)+c$. Wie gerade erläutert, lässt sich jede Stammfunktion so schreiben. 
+    Nun gilt aber
+    \[F(b)-F(a)=F_0(b)+c-(F_0(a)+c)=F_0(b)-F_0(a)\]
+    und da wir wissen, dass sich das Integral mit $F_0$ berechnen lässt, können wir es (da der gleiche Wert entsteht) 
+    auch mit jeder anderen Stammfunktion $F$ von $f$ berechnen.
+    \end{proof}
+
+\end{document}

@@ -71,8 +71,8 @@ Wir versuchen also, die Fläche durch Rechtecke darzustellen, indem wir eine Bre
 Rechteck so hoch zeichnen, dass der linke Teil den Funktionsgraphen berührt. Damit das Rechteck links den Funktionsgraphen
 berührt, hat es die Höhe $f(1)$. Insgesamt ergibt sich für die Rechteckfläche im linken Bild der Flächeninhalt
 \begin{align*}
-    A_R&=\underbrace{f(1)\cdot 1}_{\text{1. Rechteck}}+\underbrace{f(2)\cdot 1}_{\text{2. Rechteck}}+\underbrace{f(3)\cdot 1}_{\text{3. Rechteck}}\\
-    &=\underbrace{\frac{1}{5}+1}_{\text{1. Rechteck}}+\underbrace{\frac{4}{5}+1}_{\text{2. Rechteck}}+\underbrace{\frac{9}{5}+1}_{\text{3. Rechteck}}\\
+    A_R&=\colorbrace{f(1)\cdot 1}{\text{1. Rechteck}}+\colorbrace{f(2)\cdot 1}{\text{2. Rechteck}}+\colorbrace{f(3)\cdot 1}{\text{3. Rechteck}}\\
+    &=\colorbrace{\frac{1}{5}+1}{\text{1. Rechteck}}~+~\colorbrace{\frac{4}{5}+1}{\text{2. Rechteck}}~+~\colorbrace{\frac{9}{5}+1}{\text{3. Rechteck}}\\
     &=\frac{14}{5}+3=\frac{29}{5}.
 \end{align*}
 Die Annäherung $\frac{29}{5}$ für das Integral ist natürlich nicht besonders gut, da die weiß gebliebenen Flächen nicht 
@@ -121,7 +121,10 @@ heißt, dass es bei $x=a+\frac{b-a}{n}$ anfängt. Die Rechtecke haben also die H
 
 Damit können wir (theoretisch) die Rechtecksumme ausrechnen:
 \begin{align*}
-    &\underbrace{\underbrace{\frac{b-a}{n}}_{\text{Breite}}\cdot \underbrace{f(a)}_{\text{Höhe}}}_{\text{1. Rechteck}}+\underbrace{\underbrace{\frac{b-a}{n}}_{\text{Breite}}\cdot \underbrace{f(a+\frac{b-a}{n})}_{\text{Höhe}}}_{\text{2. Rechteck}}+\dots+\underbrace{\underbrace{\frac{b-a}{n}}_{\text{Breite}}\cdot \underbrace{f(a+(n-1)\frac{b-a}{n})}_{\text{Höhe}}}_{n\text{-tes Rechteck}}\\
+    &\colorbrace{\colorbrace{\frac{b-a}{n}}{\text{Breite}}\cdot \colorbrace{f(a)}{\text{Höhe}}}{\text{1. Rechteck}}+
+    \colorbrace{\colorbrace{\frac{b-a}{n}}{\text{Breite}}\cdot \colorbrace{f(a+\frac{b-a}{n})}{\text{Höhe}}}{\text{2. Rechteck}}+
+    \dots+
+    \colorbrace{\colorbrace{\frac{b-a}{n}}{\text{Breite}}\cdot \colorbrace{f(a+(n-1)\frac{b-a}{n})}{\text{Höhe}}}{n\text{-tes Rechteck}}\\
     =&\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+f\Bigl(a+2\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)
 \end{align*}
 Hier haben wir im letzten Schritt den Term $\frac{b-a}{n}$ ausgeklammert. Wenn wir $n$ möglichst groß wählen, entspricht diese Summe immer 
@@ -137,6 +140,10 @@ zu definieren.
     \[A=\int_a^bf(x)\diff x.\]
 \end{definition}
 
+Weil ein Integral die Summe vieler Rechteckflächen ist, soll das Integralzeichen an ein lang gezogenes \enquote{S} für 
+\enquote{Summe} erinnern. Die Berechnung solcher Rechteckflächen ist aber mit einem solchen Aufwand verbunden, dass
+wir im nächsten Abschnitt sofort beginnen werden, eine bessere Methode zur Berechnung von Integralen zu entwickeln.
+
 \begin{advanced}{Formale Definition des Riemann-Integrals}
     Die Definition von Integralen, die wir hier verwendet haben, entspricht nicht ganz der Definition von 
     Riemann-Integralen, die in der Mathematik normalerweise verwendet wird. Integrale lassen sich auch für
@@ -146,4 +153,30 @@ zu definieren.
     Dort definieren wir außerdem Riemann-Integrale so, wie
     sie eigentlich definiert werden (dies ist nicht viel schwieriger als unsere Definition, aber ein wenig aufwendiger). Mit diesem neuen Begriff kannst du dann aber auch einige nicht-stetige Funktionen integrieren.
 \end{advanced}
+\begin{nutshell}{Das Riemann-Integral}
+    \parpic[r]{
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[
+            defgrid, y=0.9cm, x=0.9cm, ymin=-0.5, ymax=4.2, xmin=0, xmax=4, xtick={1,4}, xticklabels={$a$,$b$}, ytick={1,...,4}
+            ]
+                \addplot[name path=poly, domain=0:4, violet] {0.2*x^2+1};
+                \pgfplotsinvokeforeach {1,2,3}{
+                    \filldraw[draw=violet,fill=violet!20, opacity=0.5] (#1,0) -- (#1,0.2*#1*#1+1) -- (#1 + 1, 0.2*#1*#1+1) -- (#1 + 1, 0) -- cycle;
+                }
+                \draw[latex-latex,very thick] (1,3.9) -- node[above] {$n$ Rechtecke} (4,3.9);
+                \draw[latex-latex] (2,-0.1) -- node[below] {\small $\frac{b-a}{n}$} (3,-0.1);
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Integrale lassen sich näherungsweise berechnen, indem die Fläche, die berechnet werden soll, in Rechtecke aufgeteilt 
+    wird. Je schmaler die Rechtecke sind, desto besser entspricht das Ergebnis dem tatsächlichen Integral.
+
+    \picskip{4}
+    Für stetige Funktionen $f$ können wir das Integral 
+    \[\int_a^bf(x)\diff x\] 
+    durch den Grenzwert
+    \[\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\]
+    beschreiben. Diese Summe beschreibt formal die Fläche zwischen einem Funk\-tions\-graphen und der $x$-Achse (wobei 
+    Flächen unterhalb der $x$-Achse weiterhin negativ gewichtet werden).
+\end{nutshell}
 \end{document}
