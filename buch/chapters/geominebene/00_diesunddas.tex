@@ -1,0 +1,35 @@
+\documentclass[../../main.tex]{subfiles}
+
+\usetikzlibrary{angles,quotes,babel,calc}
+
+\tikzset{
+	angle/.style={draw=#1, fill=#1!20},
+	angle/.default={maincolor},
+}
+
+\begin{document}
+\begin{tikzpicture}[very thick]
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (4,2);
+	\coordinate (C) at (4,0);
+	\coordinate (D) at (0,2);
+	% Winkel
+	\pic [draw, angle, "$\alpha$"{orange}, angle radius=1cm] {angle = C--A--B};
+	% Scheitelwinkel / Gegenwinkel
+	\coordinate (-B) at ($-1*(B)$);
+	\coordinate (-C) at ($-1*(C)$);
+	\pic [draw, angle=red, "$\alpha$"{red}, angle radius=1cm] {angle = {-C}--A--{-B}};
+	% Stufenwinkel
+	\coordinate (2B) at ($2*(B)$);
+	\coordinate (2B-D) at ($(2B)-(D)$);
+	\pic [draw, angle=blue, "$\alpha$"{blue}, angle radius=1cm] {angle = {2B-D}--B--{2B}};
+	% Wechselwinkel
+	\pic [draw, angle=purple, "$\alpha$"{purple}, angle radius=1cm] {angle = D--B--A};
+	% Nebenwinkel
+	\pic [draw, angle=green, "$\beta$"{green}, angle radius=1cm] {angle = {-B}--A--C};
+	\pic [draw, angle=green, "$\beta$"{green}, angle radius=1cm] {angle = B--A--{-C}};
+
+	\draw[shorten >=-2cm, shorten <=-2cm] (A) edge[green!50!black] (B) edge[blue] (C);
+	\draw[shorten >=-2cm, shorten <=-2cm, blue] (B) to[blue] (D);
+\end{tikzpicture}
+\end{document}

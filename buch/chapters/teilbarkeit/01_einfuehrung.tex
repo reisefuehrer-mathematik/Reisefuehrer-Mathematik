@@ -1,11 +1,81 @@
 \documentclass[../../main.tex]{subfiles}
 
+\usepackage{tabularray}
+
 \begin{document}
 
+Im letzten Kapitel haben wir gesehen, dass man nicht jede Zahl \enquote{sauber} Teilen kann.
+\begin{example}{}
+	Wenn Alice, Bob und Charly fünf Pizzen unter einander aufteilen möchten, dann haben wir gesehen, dass jeder eine
+	Pizza bekommt und zwei übrig bleiben. Sprich: \enquote{5 Pizzen geteilt durch 3 ist 1 Rest 2}. Wir sehen also, dass
+	5 nicht durch 3 teilbar ist.
+\end{example}
+
+\begin{remark}{}
+	Auch wenn manche Leser bereits mit Brüchen vertraut sind und somit wissen, dass in diesem Beispiel Alice, Bob und
+	Charly die letzte Pizza dritteln können, um sie aufzuteilen, sei an dieser Stelle erwähnt, dass die Division mit
+	Rest, wie sie in diesem Kapitel behandelt wird, ein sehr wichtiger Teil der Mathematik ist. Insbesondere ist
+	Division mit Rest also eine Krücke, die man nur lernt, um sich erst später mit Bruchrechnung beschäftigen zu müssen.
+	Ohne weiter darauf einzugehen, sei versichert, dass das Thema Teilbarkeit -- trotz seiner Einfachheit -- heutzutage
+	für Bereiche wie zum Beispiel die Kryptographie unabdingbar ist.
+\end{remark}
+
+Wir sehen also, dass eine Zahl $a$ teilbar ist durch eine andere, nennen wir sie $b$, wenn die Division keinen Rest
+ergibt. Oder, alternativ, wenn wir $a$ mit einer anderen Zahl, multiplizieren können, sodass $b$ rauskommt.
+
 \begin{definition}{Teilbarkeit}
+	$b$ ist teilbar durch $a$ genau dann, wenn wir $b$ als Produkt $a\cdot \Box = b$ schreiben können.
 \end{definition}
 
-\begin{definition}{Darstellung mit Rest}
-\end{definition}
+Mit den folgenden Beispielen wird dir bestimmt schnell auffallen, dass die Definition für Teilbarkeit also nichts neues
+ist, sondern lediglich eine mathematische Beschreibung von dem, was wir intuitiv schon wissen.
+
+\begin{example}{}
+	Wir haben oben schon gesehen, dass 5 nicht durch 3 teilbar ist, weil die Division $5/3 = 1 \text{R: }2$ ergibt. Wir
+	können auch argumentieren, dass wir keine Zahl finden können, sodass $3\cdot \Box = 5$. Wenn wir in das Kästchen
+	eine 1 schreiben, dann steht da $3\cdot 1 = 3$ und somit ist die Zahl im Kästchen zu klein. Wenn wir aber die 2
+	eintragen, kommt $3\cdot 2 = 6$ raus und das Ergebnis ist zu groß.
+\end{example}
+
+\begin{example}{}
+	
+\end{example}
+
+\[\begin{tblr}{
+		colspec={c*{11}{c}},
+		row{1}={bg=maincolor},
+		column{1}={bg=maincolor},
+		row{1-Z}={ht=1.5em, rowsep=2pt},
+		column{1-Z}={wd=1.5em, colsep=2pt},
+		cell{ 3}{2- 3}={bg=maincolor!50!white},
+		cell{ 5}{2- 5}={bg=maincolor!50!white},
+		cell{ 7}{2- 7}={bg=maincolor!50!white},
+		cell{ 9}{2- 9}={bg=maincolor!50!white},
+		cell{11}{2-11}={bg=maincolor!50!white},
+		cell{2- 3}{ 3}={bg=maincolor!50!white},
+		cell{2- 5}{ 5}={bg=maincolor!50!white},
+		cell{2- 7}{ 7}={bg=maincolor!50!white},
+		cell{2- 9}{ 9}={bg=maincolor!50!white},
+		cell{2-11}{11}={bg=maincolor!50!white},
+		hline{1,Z}={},
+		vline{1,Z}={},
+	}
+	\cdot &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 & 10 \\
+	    0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 &  0 \\
+	    1 &  0 &  1 &  2 &  3 &  4 &  5 &  6 &  7 &  8 &  9 & 10 \\
+	    2 &  0 &  2 &  4 &  6 &  8 & 10 & 12 & 14 & 16 & 18 & 20 \\
+	    3 &  0 &  3 &  6 &  9 & 12 & 15 & 18 & 21 & 24 & 27 & 30 \\
+	    4 &  0 &  4 &  8 & 12 & 16 & 20 & 24 & 28 & 32 & 36 & 40 \\
+	    5 &  0 &  5 & 10 & 15 & 20 & 25 & 30 & 35 & 40 & 45 & 50 \\
+	    6 &  0 &  6 & 12 & 18 & 24 & 30 & 36 & 42 & 48 & 54 & 60 \\
+	    7 &  0 &  7 & 14 & 21 & 28 & 35 & 42 & 49 & 56 & 63 & 70 \\
+	    8 &  0 &  8 & 16 & 24 & 32 & 40 & 48 & 56 & 64 & 72 & 80 \\
+	    9 &  0 &  9 & 18 & 27 & 36 & 45 & 54 & 63 & 72 & 81 & 90 \\
+	   10 &  0 & 10 & 20 & 30 & 40 & 50 & 60 & 70 & 80 & 90 & 100\\
+\end{tblr}\]
+
+
+%\begin{definition}{Darstellung mit Rest}
+%\end{definition}
 
 \end{document}
