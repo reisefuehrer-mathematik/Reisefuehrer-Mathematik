@@ -27,10 +27,12 @@ versagen (wir können lediglich durch Raten auf das Ergebnis kommen):
     Eine Stammfunkion zu finden, die dieses Problem löst, ist mit unseren bisherigen Mitteln reines Ausprobieren.
 \end{example}
 
-Nun nehmen wir die Produktregel aus dem Kapitel über Differentialrechnung (Seite \pageref{produktregel}) zur Hilfe. Diese lautete 
-(in Kurzschreibweise):
-\[(uv)'=uv'+u'v\]
-Das können wir durch Subtrahieren von $uv'$ umschreiben zu
+Nun nehmen wir die Produktregel aus dem Kapitel über Differentialrechnung (Seite \pageref{produktregel}) zur Hilfe. Diese lautete
+\[(u(x)v(x))'=u(x)v'(x)+u'(x)v(x),\]
+wobei $u$ und $v$ zwei differenzierbare Funktionen sind. Um Platz zu sparen, schreiben wir dies kurz als $(uv)'=uv'+u'v$ 
+(wir lassen also das Argument \enquote{($x$)} weg).
+Durch Subtrahieren von $uv'$ können wir diese Regel 
+umschreiben zu
 \[u'v=(uv)'-uv'\]
 und da wir uns nicht um Ableitungen, sondern um Integrale kümmern, integrieren wir die Gleichung, um
 \[\int u'v\diff x=uv-\int uv'\diff x\]
@@ -179,7 +181,7 @@ Rücksubstitution durchführen, also alle vorkommenden $x$ durch $g(x)$ ersetzen
     \[\Bigl(\frac{1}{2}\sin^2 x\Bigr)'=\Bigl(\frac{1}{2}(\sin x)^2\Bigr)'=2\cdot\frac{1}{2}(\sin x)\cdot\sin'x=\sin x\cos x\]
 \end{example}
 
-\subsubsection*{Beweis zum Hauptsatz der Differential- und Integralrechnung}
+\subsection*{Beweis zum Hauptsatz der Differential- und Integralrechnung}
 \label{hdi-beweis}
 Bevor wir beginnen können, den Hauptsatz der Differential- und Integralrechnung zu beweisen, schauen wir uns einmal
 das folgende Integral an.
@@ -269,5 +271,49 @@ Diese Erkenntnis ist nun ausreichend, um den Satz zu beweisen, für den wir uns 
     und da wir wissen, dass sich das Integral mit $F_0$ berechnen lässt, können wir es (da der gleiche Wert entsteht) 
     auch mit jeder anderen Stammfunktion $F$ von $f$ berechnen.
     \end{proof}
+    
+\subsection*{Beweis der Rechenregeln für Integrale (Satz \ref{thm:rechenregeln-integrale})}
+\label{das-riemann-integral}
+\begin{proof}
+    \emph{(von Satz \ref{thm:rechenregeln-integrale})} Wir können diese Rechenregeln nachrechnen, indem wir unsere Definition von Integralen aus Abschnitt 
+    \ref{das-riemann-integral} verwenden. Dann erhalten wir die folgenden Rechnungen.
+    \begin{enumerate}
+        \item Es ist
+            \begin{align*}
+                &\int_a^bf(x)\diff x\\
+                =&\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+                =&\lim_{n\rightarrow\infty}\frac{-(a-b)}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+                =&\lim_{n\rightarrow\infty}\frac{-(a-b)}{n}\cdot \biggl(f(a)+f\Bigl(\colorbrace{a+\frac{b-a}{n}}{=b-(n-1)\frac{b-a}{n}}\Bigr)
+                +\dots+f\Bigl(\colorbrace{a+(n-1)\frac{b-a}{n}}{=b-\frac{b-a}{n}}\Bigr)\biggr)\\
+                =&-\lim_{n\rightarrow\infty}\frac{a-b}{n}\cdot \biggl(f(a)+f\Bigl(b+(n-1)\frac{a-b}{n}\Bigr)
+                +\dots+f\Bigl(b+\frac{a-b}{n}\Bigr)\biggr)\\
+                =&-\colorbrace{\lim_{n\rightarrow\infty}\frac{a-b}{n}\cdot \biggl(f\Bigl(b+(n-1)\frac{a-b}{n}\Bigr)
+                +\dots+f\Bigl(b+\frac{a-b}{n}\Bigr)+f(b)\biggr)}{=\int_b^af(x)\diff x}\\
+                &-\colorbrace{\lim_{n\rightarrow\infty}\frac{a-b}{n}\cdot \colorbrace{\Bigl(f(a)-f(b)\Bigr)}{\text{konstant}}}{\text{=0}}
+            \end{align*}
+        \item Setzen wir $c\cdot f(x)$ in unsere Definition von Integralen ein, so erhalten wir
+        \begin{align*}
+            &\int_a^bc\cdot f(x)\diff x\\
+            =&\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(c\cdot f(a)+c\cdot f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+c\cdot f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+            =&\lim_{n\rightarrow\infty}c\cdot\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+            =&c\cdot \colorbrace{\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)}{=\int_a^bf(x)\diff x}\\
+            &=c\cdot \int_a^bf(x)\diff x.
+        \end{align*}
+        \item Wir setzen $f(x)+g(x)$ in unsere Definition für Integrale ein.
+        \begin{align*}
+            &\int_a^bf(x)+g(x)\diff x\\
+            =&\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(f(a)+g(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+g\Bigl(a+\frac{b-a}{n}\Bigr)+\dots\\
+            &+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)+g\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+        \end{align*}
+        Die Summe in der Klammer lässt sich nun auseinanderziehen zu
+        \begin{align*}
+            &\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+            &+\frac{b-a}{n}\cdot \biggl(g(a)+g\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+g\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)\\
+            =&\colorbrace{\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(f(a)+f\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+f\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)}{=\int_a^bf(x)\diff x}\\
+            &+\colorbrace{\lim_{n\rightarrow\infty}\frac{b-a}{n}\cdot \biggl(g(a)+g\Bigl(a+\frac{b-a}{n}\Bigr)+\dots+g\Bigl(a+(n-1)\frac{b-a}{n}\Bigr)\biggr)}{\int_a^bg(x)\diff x}\\
+            =&\int_a^bf(x)\diff x+\int_a^bg(x)\diff x\qedhere
+        \end{align*}
+    \end{enumerate}
+\end{proof}
 
 \end{document}

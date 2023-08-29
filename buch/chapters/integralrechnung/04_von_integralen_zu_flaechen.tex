@@ -1,113 +1,534 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-Wir haben einen Aspekt bisher komplett ignoriert: Negative Funktionen. Wir betrachten das folgende Beispiel:
+Obwohl Integrale auch noch einige andere interessante Informationen über Funktionen liefern, waren Flächen die 
+ursprüngliche Motivation, die uns dazu gebracht hat, Integrale zu untersuchen. Wenn wir einen Flächeninhalt ausrechnen
+möchten, müssen wir allerdings aufpassen, dass wir wirklich das ausrechnen, was wir ausrechnen wollten, weil Integrale
+manche Flächen negativ gewichten.
 \begin{example}{}
-Wir berechnen $\displaystyle\int_{-3}^{3}x\diff x$. Wir arbeiten wieder mit dem Hauptsatz der Differential- und Integralrechnung:
-$F(x)=\frac{1}{2}x^2$ ist eine Stammfunktion von $f$: $F'(x)=x$ und deshalb gilt
-\[\int_{-3}^{3}x\diff x=\Bigl[\frac{1}{2}x^2\Bigr]_{-3}^3=\frac{1}{2}\bigl(3^2-(-3)^2\bigr)=0\]
-Das liefert uns die Information, dass zwischen der Funktion und der $x$-Achse keine Fläche entsteht. Allerdings würde das bedeuten, dass die Funktion auf der $x$-Achse verläuft, was sie definitiv nicht tut: Es ist eine Gerade durch den Ursprung, die für positive $x$ positiv und für negative $x$ negativ ist. Sie sieht so aus:
-\begin{center}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=1cm, x=1cm, ymin=-1, ymax=2, xmin=-1, xmax=3.5, xtick={-1,...,3}, xticklabels={-1,0,~,2,3}, ytick={-1,...,2},samples=50
+                ]
+                \addplot[name path=poly, domain=-1.5:3.5, violet] {(x-1)^2-1};
+                \addplot[name path=line, domain=0:3.14159, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=0:2},
+                ];
+                \node[violet] at (1,-.5) {$A$};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Rechts ist die Funktion $f(x)=(x-1)^2-1$ abgebildet. Wir möchten die eingezeichnete Fläche $A$ im Bereich von $0$ bis $2$
+    berechnen. Deshalb berechnen wir das Integral
+    \[\int_0^2(x-1)^2-1\diff x.\]
+
+    \picskip{1}
+    Als erstes bestimmen wir eine Stammfunktion von $f$. Wir integrieren die Ausdrücke $(x-1)^2$ und $-1$ einzeln und
+    versuchen es für $(x-1)^2$ wieder mit der Potenzregel. Das liefert uns die Funktion $F(x)=\frac{1}{3}(x-1)^3-x$, die
+    wegen
+    \[\Bigl(\frac{1}{3}(x-1)^3-x\Bigr)'=\frac{1}{3}\cdot 3(x-1)^2-1=(x-1)^2-1\] 
+    tatsächlich eine Stammfunktion von $f$ ist. Wir konnten die Potenzregel hier anwenden, der Ausdruck $x-1$ in den
+    Klammern die Ableitung $1$ hat und die Ableitung der Potenz damit nicht beeinflusst (dies folgt aus der Kettenregel).
+
+    Indem wir die gefundene Stammfunktion jetzt in das Integral einsetzen, erhalten wir
+    \begin{align*}
+        \int_0^2(x-1)^2-1\diff x=&\Bigl[\frac{1}{3}(x-1)^3-x\Bigr]_0^2\\
+        =&\frac{1}{3}(2-1)^3-2-\Bigl(\frac{1}{3}(0-1)^3-0\Bigr)\\
+        =&\frac{1}{3}-2-\Bigl(-\frac{1}{3}\Bigr)\\
+        =&\frac{2}{3}-\frac{6}{3}=-\frac{4}{3}.
+    \end{align*}
+    Das ausgerechnete Integral hat also einen negativen Wert, obwohl wir eigentlich den Flächeninhalt einer Fläche
+    ausrechnen.
+    Das liegt daran, dass bei Integralen alle Flächen, die unterhalb der $x$-Achse liegen, negativ gewichtet werden.
+    Dieses Problem lässt sich in diesem Fall leicht lösen: Da wir wissen, dass der Flächeninhalt ein positiver Wert
+    sein soll, ist unser Ergebnis einfach der Betrag des Integrals, also
+    \[A=\Biggl|\int_0^2(x-1)^2-1\diff x\Biggr|=\Bigl|-\frac{4}{3}\Bigr|=\frac{4}{3}.\]
+\end{example}
+\parpic[r]{
     \begin{tikzpicture}
         \begin{axis}[
-            defgrid, y=1cm, x=1cm, ymin=-3, ymax=3, xmin=-3, xmax=3, xtick={-3,...,3}, ytick={-3,...,3}
+            defgrid, y=1cm, x=1cm, ymin=-2, ymax=2, xmin=0, xmax=3.5, xtick={1,2,3}, ytick={-2,...,2},samples=50
             ]
-            \addplot[name path=poly, domain=-3:3, violet] {x};
-            \addplot[name path=line, domain=-3:3, violet] {0};
+            \addplot[name path=poly, domain=-1.5:3.5, violet] {sin(120*x)};
+            \addplot[name path=line, domain=-1.5:3.5, violet] {0)};
             \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
             of = poly and line,
-            soft clip={domain=-3:3},
+            soft clip={domain=0:1.5},
             ];
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-Die Fläche ist eindeutig nicht 0. Warum bekommen wir aber als Ergebnis Null? Dafür berechnen wir zwei kleinere Integrale einzeln. Es gilt
-\[\int_{-3}^{3}x\diff x=\int_{-3}^{0}x\diff x+\int_{0}^{3}x\diff x=\Bigl[\frac{1}{2}x^2\Bigr]_{-3}^0+\Bigl[\frac{1}{2}x^2\Bigr]_0^3=\frac{}{}\bigl(0-(-3)^2\bigr)+\frac{1}{2}\bigl(3^2-0\bigr)=\underbrace{-\frac{9}{2}}_{\text{Negativ!}}+\frac{9}{2}=0\]
-Wir sehen, dass das Integral des linken Teils negativ wird. Wir berechnen jedoch eine Fläche, für die ein negativer Wert keinen Sinn ergibt. \textbf{Integrale berechnen Flächen unterhalb der $x$-Achse immer negativ}. Das ist für viele Anwendungen sinnvoll, aber für die Flächenberechnung müssen wir uns anders behelfen: Wir kehren das Vorzeichen immer, wenn eine Fläche unterhalb der $x$-Achse liegt, um. Um die orangene Fläche $A$ schließlich zu berechnen, können wir die Beträge der einzelnen Integrale verwenden:
-\[A=\Biggl|\int_{-3}^{0}x\diff x\Biggr|+\Biggl|\int_{0}^{3}x\diff x\Biggr|=\Bigl|-\frac{9}{2}\Bigr|+\Bigl|\frac{9}{2}\Bigr|=9\]
-\end{example}
-
-Im Allgemeinen können wir einer Funktion nicht ansehen, ob sie in unserem Intervall negativ wird. Deswegen müssen wir zunächst herausfinden, in welchen Bereichen unsere Funktion $f$ negativ wird. Falls unsere Funktion im Intervall $[a,b]$ ausschließlich positiv oder ausschließlich negativ ist, können wir einfach den Betrag des Integrals berechnen und erhalten die gesuchte Fläche.\\
-
-Deshalb betrachten wir den Fall, dass $x$ im betrachteten Intervall sowohl positive als auch negative Werte annimmt. Unter der Voraussetzung, dass $f$ stetig ist, hat $f$ bei jedem Vorzeichenwechsel eine Nullstelle. Der Graph verläuft links von der Nullstelle unterhalb der $x$-Achse, rechts davon überhalb der $x$-Achse. Er muss sie also schneiden (andersherum, mit Wechsel von + nach -, genauso). Wir gehen deshalb folgendermaßen vor, um die Fläche zu berechnen, die sie und die $x$-Achse im Intervall $[a,b]$ einschließen:
-\begin{itemize}
-    \item Berechne alle Nullstellen von $f$ im Intervall $[a,b]$.
-    \item Seien $x_{0,1},\dots,x_{0,n}$ alle Nullstellen von $f$ im Intervall $[a,b]$. Es gilt \[A=\Biggl|\int_a^{x_{0,1}} f(x)\diff x\Biggr|+\Biggl|\int_{x_{0,1}}^{x_{0,2}} f(x)\diff x\Biggr|+\dots+\Biggl|\int_{x_{0,n-1}}^{x_{0,n}} f(x)\diff x\Biggr|+\Biggl|\int_{x_{0,n}}^b f(x)\diff x\Biggr|\]
-\end{itemize}
-Alle einzelnen Integrale, die wir berechnen, sind entweder Flächen, die komplett über oder komplett unter der $x$-Achse liegen. Deswegen berechnen wir mit diesem Vorgehen jetzt wirklich die tatsächliche Fläche und subtrahieren auf keinen Fall mehr Flächen, die wir eigentlich addieren wollten.
-
-Es ist möglich, mit Integralen die Fläche zu berechnen, die eine Funktion mit der $x$-Achse einschließt. Das heißt, wir können eine Fläche, die wir berechnen wollen, durch ein Integral bestimmen, wenn wir eine Funktion finden, die der Form unserer Fläche entspricht. Mit unseren Vorkenntnissen ist es für uns jetzt auch kein großes Problem, \textit{beliebige} Flächen im Koordinatensystem zu berechnen, d.h. nicht nur an der $x$-Achse, sondern irgendwo im Koordinatensystem.\\
-
-Jede Fläche, die man berechnen möchte, muss irgendwie begrenzt werden, es muss also klar sein, was dazugehört und was nicht. Wir haben unsere Flächen in diesem Kapitel immer oben durch eine Funktion und unten durch die $x$-Achse beschränkt (oder andersrum). Jetzt wollen wir Flächen durch zwei Funktionen beschränken. Das sieht dann folgendermaßen aus:
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-            defgrid, y=1cm, x=1cm, ymin=0, ymax=5, xmin=0, xmax=10, xtick={1,...,10}, ytick={1,...,5}
-            ]
-            \addplot[name path=poly, domain=0:10, violet] {5-0.5*x};
-            \addplot[name path=line, domain=0.1:10, violet] {4/x};
-            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            \addplot[fill opacity=0.5, fill=orange!20] fill between[ 
             of = poly and line,
-            soft clip={domain=0.877:9.12},
+            soft clip={domain=1.5:3},
             ];
+            \node at (1.75,1.5) {$\displaystyle\Bigl|\int_0^{\frac{3}{2}}f(x)\diff x\Bigr|$};
+            \draw[-latex,very thick] (1.75,1.1) to[bend left] (1.2,0.2);
+            \node at (1.75,-1.5) {$\displaystyle\Bigl|\int_{\frac{3}{2}}^3f(x)\diff x\Bigr|$};
+            \draw[-latex,very thick] (1.75,-1.25) to[bend left] (2.2,-0.6);
         \end{axis}
     \end{tikzpicture}
-\end{center}
+}
+Weil Integrale manchmal negative Werte haben können, Flächeninhalte aber niemals negativ sind, interessiert uns bei der
+Berechnung von Flächeninhalten immer nur der \emph{Betrag} des dazugehörigen Integrals.
+\[\Biggl|\int_a^bf(x)\diff x\Biggr|.\] 
+Dadurch vermeiden wir negative
+Werte, wenn die Fläche unterhalb der $x$-Achse liegt und ändern den Wert nicht, wenn die Fläche ohnehin oberhalb der
+$x$-Achse liegt. Da wir einer Funktion im Algemeinen nicht ansehen können, ob sie positiv oder negativ ist, bietet es
+sich an, bei der Berechnung von Flächen immer den Betrag zu verwenden, weil das sowohl bei Flächen unterhalb der
+$x$-Achse als auch bei Flächen oberhalb der $x$-Achse zum richtigen Ergebnis führt.
 
-Zu berechnen ist jetzt die von beiden Funktionen eingeschlosene Fläche. Wir nennen die rote Funktion $f(x)$ und die blaue Funktion $g(x)$. Wir sehen ein Intervall, in dem die Funktionen eine orangene Fläche einschließen. Diese Fläche wollen wir durch ein Integral beschreiben. Wir wissen, dass die gesamte Fläche zwischen der roten Funktion $f(x)$ und der $x$-Achse mit $\displaystyle\int f(x)\diff x$ beschrieben werden kann.\\
-
-Gleichzeitig wissen wir auch, dass die Fläche unter der blauen Funktion $f(x)$ mit $\displaystyle\int g(x)\diff x$ beschrieben werden kann. Die Hauptfrage ist: Welche Grenzen wählen wir für unser Integral? Und wie kommen wir an die Fläche \textit{zwischen} diesen beiden Funktionen?\\
-
-Die markierte Fläche liegt offensichtlich vollständig unter der roten Funktion. Die Fläche unterhalb der blauen Funktion gehört jedoch nicht zur Fläche. Von der Fläche unter der Funktion $f$ subtrahieren wir deshalb die Fläche unter $g$. Außerdem kann eine Fläche wieder nicht negativ sein, das heißt wir können den Betrag verwenden. Die markierte Fläche ist ergibt sich zu \[\Bigl|\int f(x)-g(x)\diff x\Bigr|\] und es fehlen nur noch die Grenzen. Die Fläche, die zwei Funktionen einschließen, endet links und rechts an einem Punkt, an dem sich beide Funktionen schneiden. Wir wollen hier also das Integral $\Bigl|\displaystyle\int_a^b f(x)-g(x)\diff x\Bigr|$ berechnen, wobei $a$ der linke Schnittpunkt der beiden Funktionen und $b$ der rechte Schnittpunkt der beiden Funktionen ist. Wie kommen wir an $a$ und $b$?\\
-
-An einem Schnittpunkt $x_0$ zweier Funktionen $f$ und $g$ gilt $f(x_0)=g(x_0)$. Wir können deshalb die Schnittpunkte durch Auflösen der Gleichung $f(x_0)=g(x_0)$ nach $x_0$ berechnen. Allgemein gehen wir bei der Berechnung von Flächen zwischen Funktionen genauso vor wie bei der Flächenberechnung vorher. Diesmal ermitteln wir aber nicht die Schnittpunkte mit der $x$-Achse (die übrigens auch als Funktion $f(x)=0$ aufgefasst werden kann und somit auch die Berechnung der Fläche zwischen zwei Funktionen ist), sondern die Schnittpunkte mit der anderen Funktion. Wir gehen folgendermaßen vor:
-\begin{itemize}
-    \item Berechne alle Schnittpunkte von $f$ und $g$ durch Auflösen der Gleichung $f(x_S)-g(x_S)=0$.
-    \item Seien $x_{S,1},\dots,x_{S,n}$ die $x$-Koordinaten aller Schnittpunkte von $f$ und $g$. Die von $f$ und $g$ eingeschlossene Fläche ist \[A=\Biggl|\int_{x_{S,0}}^{x_{S,1}} f(x)-g(x)\diff x\Biggr|+\dots+\Biggl|\int_{x_{S,n-1}}^{x_{S,n}} f(x)-g(x)\diff x\Biggr|\]
-\end{itemize}
-
-Wir berücksichtigen nur die Flächen zwischen dem ersten und letzten Schnittpunkt von $f$ und $g$. Jenseits dieser Schnittpunkte werden die Funktionen keine Flächen mehr einschließen, da sie sich nicht mehr schneiden. Der Grund, warum wir Schnittpunkt zwischen dem ersten und dem letzten Schnittpunkt berechnen müssen, ist der gleiche wie vorhin: Wenn links von einem Schnittpunkt $f(x)>g(x)$ gilt und rechts davon $f(x)<g(x)$, dann wird die Fläche auf der rechten Seite negativ berechnet und wir berechnen tatsächlich nicht die gesamte Fläche.
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[
-            defgrid, y=.75cm, x=1cm, ymin=-3, ymax=3, xmin=-2, xmax=2, xtick={-2,...,2}, ytick={-3,...,3}
-            ]
-            \addplot[name path=poly, domain=-3:3, violet] {2*x^3};
-            \addplot[name path=line, domain=-3:3, violet] {2*x};
-            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
-            of = poly and line,
-            soft clip={domain=-1:1},
-            ];
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
+Diese Methode führt allerdings nur dann zum Ziel, wenn unsere Funktion im Intervall, in dem wir die Fläche berechnen,
+entweder vollständig über der $x$-Achse oder vollständig unter der $x$-Achse verläuft. Sonst kann es vorkommen, dass
+sich positiv und negativ gewichtete Flächen gegenseitig aufheben, bevor die Betragsstriche zum Einsatz kommen.
 
 \begin{example}{}
-Wir wollen die Fläche zwischen $f(x)=2x$ und $g(x)=2x^3$ berechnen und beginnen mit der Berechnung der Schnittpunkte, indem wir $f(x_0)-g(x_0)=0$ nach $x_0$ auflösen.
-\begin{align*}
-    2x-2x^3&=0\\
-    2x(1-x^2)&=0\\
-    x&=0~\lor~x^2=1\\
-    x&=0~\lor~x=\pm1\\
-\end{align*}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=0.6cm, x=1cm, ymin=-3, ymax=3, xmin=-2.5, xmax=2.5, xtick={-2,...,2}, ytick={-3,...,3},samples=50
+                ]
+                \addplot[name path=poly, domain=-3:3, violet] {(x)^3-4*x};
+                \addplot[name path=line, domain=-2:2, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=-2:2},
+                ];
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Die Funktion $f(x)=x^3-4x$ schließt mit der $x$-Achse zwei Flächen ein, die rechts im Bild markiert sind. Wir bestimmen
+    eine Stammfunktion von $f$, um die Fläche anschließend als
+    \[\Biggl|\int_{-2}^2x^3-4x\diff x\Biggr|\]
+    \picskip{1}
+    ausrechnen zu können. Mit der Potenzregel finden wir die Stammfunktion $F(x)=\frac{1}{4}x^3-2x^2$. Wir rechnen also:
+    \begin{align*}
+        &\Biggl|\int_{-2}^2x^3-4x\diff x\Biggr|=\Biggl|\Bigl[\frac{1}{4}x^4-2x^2\Bigr]_{-2}^2\Biggr|=\Biggl|\frac{2^4}{4}-2\cdot 2^2-\biggl(\frac{(-2)^4}{4}-2\cdot (-2)^2\biggr)\Biggr|\\
+        =&\Biggl|\frac{16}{4}-2\cdot 4-\biggl(\frac{16}{4}-2\cdot 4\biggr)\Biggr|=0
+    \end{align*}
+    Unsere Berechnung hat also den Wert 0 ergeben, obwohl der eingezeichnete Flächeninhalt nicht 0 sein kann.
+    Dieses Phänomen ist uns bereits in Beispiel \ref{ex:integrale-unter-achse} begegnet. Wo liegt jetzt aber das Problem?
 
-Nach unserer Formel ist die eingeschlossene Fläche \[\Bigl|\int_{-1}^0 2x-2x^3\diff x\Bigr|+\Bigl|\int_0^1 2x-2x^3\diff x\Bigr|=\Biggl|\Bigl[x^2-\frac{1}{2}x^4\Bigr]_{-1}^0\Biggr|+\Biggl|\Bigl[x^2-\frac{1}{2}x^4\Bigr]_0^1\Biggr|=\frac{1}{2}+\frac{1}{2}=1\]
+    Das eingezeichnete Integral besteht aus zwei Flächen. Eine davon liegt über der $x$-Achse und bekommt damit einen
+    positiven Wert. Die andere (gleich große) Fläche liegt unterhalb der $x$-Achse und hat damit einen negativen
+    Wert. Wenn wir das Integral ausrechnen, heben die beiden Werte sich auf und das Integral bekommt den Wert 0.
 \end{example}
+\parpic[l]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=0, ymax=2, xmin=0, xmax=3, xtick={1,...,3}, ytick={1,2},samples=400
+            ]
+            \addplot[name path=poly, domain=0:3, violet] {abs(sin(120*x))};
+            \addplot[name path=line, domain=0:3, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=0:3},
+            ];
+        \end{axis}
+    \end{tikzpicture}    
+}
+\picskip{6}
+Das Problem, dass sich Flächen oberhalb und unterhalb der $x$-Achse gegenseitig aufheben, lässt sich dadurch beheben,
+dass wir alle Flächen einzeln berechnen und dann ihre Beträge addieren. Durch die Beträge klappen wir die Flächen,
+die eigentlich unterhalb der $x$-Achse lagen, so um, dass sie anschließend oberhalb der $x$-Achse liegen und damit
+positiv gewichtet werden. Um zu erreichen, dass die Flächen immer positiv gewichtet werden, können wir das Integral
+\[\int_a^b|f(x)|\diff x\]
+berechnen. Hier nehmen wir also direkt den Betrag der Funktion $f(x)$ statt nur vom Ergebnis den Betrag zu betrachten. Das
+stellt sicher, dass die Funktion, die wir integrieren, überall positiv ist und sich keine Flächen mehr gegenseitig
+aufheben können. Die Funktion $f(x)$ aus der Abbildung weiter oben sieht dann wie links abgebildet aus, wenn wir ihren
+Betrag betrachten. Alle Flächen sind nun oberhalb der $x$-Achse.
+
 \begin{example}{}
-Wir berechnen die von $f(x)=-\frac{1}{2}x+5$ und $g(x)=\frac{4}{x}$ eingeschlossene Fläche (die aus Abbildung \ref{fig:intersections}). Wir berechnen zunächst die Schnittpunkte von $f$ und $g$:
-\begin{align*}
-    f(x_0)-g(x_0)&=0\\
-    -\frac{1}{2}x+5-\frac{4}{x}=0\\
-\end{align*}
-Für $x\neq 0$ können wir auf beiden Seiten mit $x$ multiplizieren, um das $x$ aus dem Nenner zu entfernen. Für $x=0$ gilt $f(0)=5$, während $g(0)$ undefiniert ist. Dort haben wir also definitiv keinen Schnittpunkt vorliegen. Nach dem Multiplizieren erhalten wir
-\begin{align*}
-    -\frac{1}{2}x^2+5x-4&=0 & |\cdot(-2)\\
-    x^2-10x+8&=0\\
-    x&=5\pm\sqrt{5^2-8}\\
-    &=5\pm\sqrt{17}
-\end{align*}
-Das Integral, das wir berechnen müssen, ist
-\[\Bigl|\int_{5-\sqrt{17}}^{5+\sqrt{17}} -\frac{1}{2}x+5-\frac{4}{x}\diff x\Bigr|\]
+    Um das Problem aus dem letzten Beispiel zu lösen, müssen wir alle Flächen mit dem gleichen Vorzeichen gewichten, damit sie sich nicht
+    gegenseitig aufheben. Eine Möglichkeit, das zu erreichen, ist, die Flächen einzeln auszurechnen und die Ergebnisse
+    dann zu addieren. Das führt uns zur Rechnung
+    \[\colorbrace{\Biggl|\int_{-2}^0x^3-4x\diff x\Biggr|}{\text{linke Fläche}}+\colorbrace{\Biggl|\int_0^2x^3-4x\diff x\Biggr|}{\text{Rechte Fläche}}.\]
+    Wenn wir dies ausrechnen, erhalten wir für den Flächeninhalt
+    \begin{align*}
+        &\Biggl|\int_{-2}^0x^3-4x\diff x\Biggr|+\Biggl|\int_{0}^2x^3-4x\diff x\Biggr|\\
+        =&\Biggl|\Bigl[\frac{1}{4}x^4-2x^2\Bigr]_{-2}^0\Biggr|+\Biggl|\Bigl[\frac{1}{4}x^4-2x^2\Bigr]_{0}^2\Biggr|\\
+        =&\bigl|0-(4-8)\bigr|+\bigl|(4-8)-0\bigr|\\
+        =&|4|+|-4|=8.
+    \end{align*}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=0.6cm, x=1cm, ymin=0, ymax=3, xmin=-2.5, xmax=2.5, xtick={-2,...,2}, ytick={1,...,3},samples=400
+                ]
+                \addplot[name path=poly, domain=-3:3, violet] {abs(x^3-4*x)};
+                \addplot[name path=line, domain=-2:2, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=-2:2},
+                ];
+            \end{axis}
+        \end{tikzpicture}
+    }
+    \picskip{6}
+    Da wir alle Flächen positiv gewichtet haben, haben wir so getan als würde die Funktion $f$ immer oberhalb der
+    $x$-Achse verlaufen. Wir haben also immer, wenn die Funktion einen negativen Wert annehmen würde, das Vorzeichen
+    geändert und damit $|f(x)|$ erhalten. 
+    
+    Die gerade berechnete Fläche lässt sich folglich auch als ein einzelnes Integral aufschreiben, 
+    nämlich als 
+    \[\int_{-2}^2\Bigl|x^3-4x\Bigr|\diff x.\]
 \end{example}
+Die Teilflächen einzeln auszurechnen und die Beträge einzeln zu addieren, löst unser Problem, aber um die Flächen 
+oberhalb und unterhalb der $x$-Achse einzeln zu berechnen, müssen wir zunächst herausfinden, wo ihre Grenzen sind.
+\begin{example}[ex:nullstellen-fuer-flaechenbetraege]{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=0.6cm, x=1cm, ymin=-4, ymax=3, xmin=-2.5, xmax=2.5, xtick={-2,...,2}, ytick={-4,...,3},samples=50
+                ]
+                \addplot[name path=poly, domain=-3:3, violet] {0.5*(x+2)*(x-1)*(x-2)*x};
+                \addplot[name path=line, domain=-2:2, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=-2:2},
+                ];
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Wir möchten für die Funktion\[f(x)=\frac{1}{2}x\cdot (x-1)(x-2)(x+2)\] herausfinden, ob sie im Intervall $[-2,2]$
+    mehrere verschiedene Teilflächen mit unterschiedlichen Vorzeichen hat -- und falls ja, wo die Grenzen dieser
+    Teilflächen liegen, damit wir die Flächeninhalte anschließend einzeln berechnen können. 
+    Zwischen einer Teilfläche über der $x$-Achse und einer Teilfläche unter der $x$-Achse
+    muss immer eine Nullstelle liegen. Wir bestimmen also die Nullstellen von $f$ und erhalten die folgenden Werte
+    (die sich direkt ablesen lassen, da $f$ in Linearfaktoren zerlegt ist).
+    \[x_1=-2,x_2=0,x_3=1,x_4=2\]
+
+    \picskip{0}
+    Es kann also nur an diesen vier Stellen Vorzeichenwechsel geben. Weil $-2$ und $2$ sowieso die Grenzen unseres
+    Intervalls $[-2,2]$ sind, können nur $x=0$ und $x=1$ weitere Grenzen von Teilflächen sein. Wir haben also die
+    folgenden Teilflächen in unserem Intervall:
+    \begin{itemize}
+        \item Die Teilfläche zwischen $x=-2$ und $x=0$
+        \item Die Teilfläche zwischen $x=0$ und $x=1$
+        \item Die Teilfläche zwischen $x=1$ und $x=2$
+    \end{itemize}
+\end{example}
+\parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=0.6cm, x=1cm, ymin=-3, ymax=3, xmin=0, xmax=4, xtick={1,...,4}, ytick={-3,...,3},samples=50
+            ]
+            \addplot[name path=poly, domain=0:4, violet] {-0.75*x^2+3.75*x-3};
+            \addplot[name path=line, domain=0:4, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=0:4},
+                ];
+                \addplot[mark=*, only marks, fill=red] coordinates {(1,0)};
+                \addplot[mark=*, only marks, fill=red] coordinates {(4,0)};
+                \node at (1,2.7) {\scriptsize Flächengrenze};
+                \node at (1,2.25) {\scriptsize $\corresponds$ Nullstelle};
+                \draw[-latex,very thick] (1,2) -- (1,0.1);
+                \draw[-latex,very thick] (1.1,2) -- (3.9,0.1);
+        \end{axis}
+    \end{tikzpicture}
+}
+Eine Funktion, zu der sowohl positive als auch negative Teilflächen gehören, muss zwischen diesen Teilflächen immer eine 
+Nullstelle haben (anders könnte die Funktion das Vorzeichen nicht wechseln und würde entweder immer positiv oder immer 
+negativ bleiben). Zum Beispiel befindet sich rechts eine Nullstelle bei $x=1$, die die negative Fläche links von der
+positiven Fläche rechts trennt.
+
+Wenn du die Grenzen der Teilflächen bestimmen möchtest, genügt es folglich, die Nullstellen auszurechnen. Anschließend kannst du die Flächeninhalte
+der einzelnen Flächen mit Integralen ausrechnen und ihre Beträge addieren, um die Gesamtfläche zu bekommen.
+Um die Fläche zwischen der $x$-Achse und einer Funktion $f$ im Bereich zwischen $a$ und $b$ zu berechnen, müssen wir 
+also das Integral $\displaystyle\int_a^b|f(x)|\diff x$ berechnen. Das machen wir so:
+\begin{enumerate}
+    \item Wir bestimmen die Nullstellen der Funktion $f$ im Intervall $[a,b]$, um die Grenzen der Teilflächen, die wir ausrechnen müssen, zu
+        ermitteln.
+    \item Sobald wir die Nullstellen $x_1<x_2<\dots<x_n$ gefunden haben, berechnen wir die Flächeninhalte der Teilflächen
+        durch die Beträge von Integralen wie folgt:
+        \[\Biggl|\int_a^{x_1}f(x)\diff x\Biggr|+\Biggl|\int_{x_1}^{x_2}f(x)\diff x\Biggr|\dots+\Biggl|\int_{x_n}^bf(x)\diff x\Biggr|.\]
+\end{enumerate}
+In keinem dieser Integrale können Flächen verloren gehen. Damit haben wir die Fläche berechnet, die wir gesucht haben.
+Mit unserem Vorgehen schaffen wir es jetzt also, das Integral von Betragsfunktionen auszurechnen.
+\begin{theorem}{Integral der Betragsfunktion}
+    Für eine stetige Funktion $f\colon[a,b]\rightarrow\R$, die im Intervall $[a,b]$ die Nullstellen 
+    $x_1,x_2,\dots,x_n$ besitzt, gilt
+    \[\int_a^b|f(x)|\diff x=\Biggl|\int_a^{x_1}f(x)\diff x\Biggr|+\Biggl|\int_{x_1}^{x_2}f(x)\diff x\Biggr|+\dots+\Biggl|\int_{x_n}^bf(x)\diff x\Biggr|.\]
+\end{theorem}
+\begin{example}{}
+    In Beispiel \ref{ex:nullstellen-fuer-flaechenbetraege} haben wir drei Teilflächen für die Funktion $f(x)=\frac{1}{2}x\cdot (x-1)(x-2)(x+2)$
+    im Intervall $[-2,2]$ gefunden. Wenn wir den Flächeninhalt der Gesamtfläche $G$ berechnen möchten, müssen wir von 
+    allen Flächen einzeln den Flächeninhalt bestimmen.
+    \begin{align*}
+        G=&\int_{-2}^2\Bigl|f(x)\Bigr|\diff x\\
+        =&\colorbrace{\Biggl|\int_{-2}^0f(x)\diff x\Biggr|}{\text{linke Fläche}}+
+        \colorbrace{\Biggl|\int_{0}^1f(x)\diff x\Biggr|}{\text{mittlere Fläche}}+
+        \colorbrace{\Biggl|\int_{1}^2f(x)\diff x\Biggr|}{\text{rechte Fläche}}
+    \end{align*}
+    Die Grenzen $x_1=0$ und $x_2=1$ der Integrale sind die Nullstellen der Funktion $f$, die wir in Beispiel 
+    \ref{ex:nullstellen-fuer-flaechenbetraege} ermittelt haben.
+\end{example}
+
+Integrale erlauben es uns nicht nur, Flächen zu berechnen, die durch die $x$-Achse beschränkt sind. Wenn die Fläche, die
+wir berechnen möchten, nach oben \emph{und} nach unten durch Funktionen beschränkt ist, kommen wir mit Integralen
+ebenfalls ans Ziel.
+
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=1cm, x=1cm, ymin=-2, ymax=2, xmin=-1, xmax=3.5, xtick={-1,...,3,3.14159}, xticklabels={-1,0,1,~,~,$\pi$}, ytick={-2,...,2},samples=50
+                ]
+                \addplot[name path=poly, domain=-1.5:3.5, violet] {sin(57.295*x)};
+                \addplot[name path=line, domain=-1.5:3.5, violet] {2*sin(57.295*x)};
+                \addplot[name path=axis, domain=-1.5:3.5, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=0:3.14159}
+                ];
+                \addplot[fill opacity=0.5, fill=violet!20, pattern=north east lines, pattern color=violet!40] fill between[ 
+                of = poly and axis,
+                soft clip={domain=0:3.14159}
+                ];
+                \node[violet] at (1.5,1.5) {$A$};
+                \node[violet] at (1.5,0.5) {$B$};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Rechts siehst du die Funktionen $\sin x$ und $2\sin x$. Wir möchten den Flächeninhalt der violett eingefärbten 
+    Fläche $A$ zwischen den beiden Funktionsgraphen bestimmen. Wenn wir allerdings
+    \[\int_0^{\pi}2\sin x\diff x\]
+    ausrechnen, dann erhalten wir nicht nur die eingefärbte Fläche $A$, sondern zusätzlich auch noch die schraffierte 
+    Fläche $B$ unter dem Graphen von $\sin x$. Die schraffierte Fläche hat den Flächeninhalt
+    \[B=\int_0^{\pi}\sin x\diff x,\]
+    denn sie ist nach unten durch die $x$-Achse beschränkt und damit ein Integral, wie wir es bereits kennen. Das
+    Integral $\displaystyle \int_0^{\pi}2\sin x\diff x$ besteht also aus der gesuchten Fläche $A$ und der Fläche 
+    $B$, die uns überhaupt nicht interessiert. Unsere gesuchte Fläche entspricht somit
+    \[\int_0^{\pi}2\sin x\diff x-B.\]
+    Wir müssen also
+    \[\int_0^{\pi}2\sin x\diff x-\int_0^{\pi}\sin x\diff x\]
+    berechnen, um unsere gesuchte Fläche $A$ zu erhalten.
+\end{example}
+\parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=0, ymax=2.2, xmin=0, xmax=4.2, xtick={1,...,4}, ytick={1,2},samples=50
+            ]
+            \addplot[name path=poly, domain=-1.5:4, violet] {2-0.5*x};
+            \addplot[name path=line, domain=-1.5:4, violet] {1} node[right] {$g$};
+            \addplot[name path=axis, domain=-1.5:2, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=0:2}
+            ];
+            \addplot[fill opacity=0.5, fill=violet!20, pattern=north east lines, pattern color=violet!40] fill between[ 
+            of = line and axis,
+            soft clip={domain=0:2}
+            ];
+            \node[violet] at (0.5,1.3) {$A$};
+            \node[violet] at (1,0.5) {$B$};
+            \node[violet] at (0.3,2.1) {$f$};
+        \end{axis}
+    \end{tikzpicture}
+}
+Um die Fläche zwischen den Funktionsgraphen von zwei Funktionen $f$ und $g$ auszurechnen (also die Fläche $A$ im rechten
+Bild), teilen wir zunächst das Integral einer der beiden Funktionen in eine Fläche $A$,
+die zwischen den Graphen liegt, und eine Fläche $B$, die unter \emph{beiden} Graphen liegt, ein. Das Integral 
+\[\int_a^bf(x)\diff x\]
+der oberen
+Funktion hat dann den gleichen Wert wie die Summe der Flächeninhalte $A$ und $B$. Weil wir nur die Fläche $A$ berechnen
+wollen, müssen wir vom Integral also noch $B$ subtrahieren. Zwischen den Graphen liegt also die Fläche
+\[A=\Biggl|\int_a^bf(x)\diff x-\colorbrace{\int_a^bg(x)\diff x}{B}\Biggr|.\]
+Die Betragsstriche haben wir eingefügt, weil wir wieder einen Flächeninhalt berechnen wollen, der nicht
+negativ sein kann. Allerdings haben wir auch hier wieder ein Problem, falls die Funktionen positiv und negativ
+gewichtete Flächen einschließen. Um genauer zu untersuchen, wann das passiert und wie wir damit umgehen können,
+überlegen wir uns zunächst ein paar Rechenregeln, mit denen wir Terme mit Integralen umformen können.
+
+\begin{example}{}
+    Wenn wir ein Integral
+    ausrechnen, müssen wir immer zunächst eine Stammfunktion der Funktion, die im Integral steht, finden. In Beispielen wie
+    \[\int_0^\pi\cos x+5\diff x\]
+    kann es helfen, die Stammfunktionen von $f(x)=\cos x$ und $g(x)=5$ einzeln zu berechnen. Dann erhalten wir 
+    $F(x)=\sin x$ und $G(x)=5x$. Angewandt auf das Integral ergibt sich
+    \[\int_0^\pi\cos x+5\diff x=\biggl[\sin x+5x\biggr]_0^\pi=\sin\pi+5\pi-(\sin 0+0).\]
+    Wenn wir die Terme auf der rechten Seite umordnen, können wir sie auch folgendermaßen schreiben:
+    \[\colorbrace{\sin\pi-\sin 0}{[\sin x]_0^\pi}+\colorbrace{5\pi-0}{[5x]_0^\pi}=\Bigl[\sin x\Bigr]_0^\pi+\Bigl[5x\Bigr]_0^\pi\]
+    Mit dem Ausdruck $\displaystyle \Bigl[\sin x\Bigr]_0^\pi$ können wir das Integral $\displaystyle \int_0^\pi\cos x\diff x$
+    berechnen, da $\sin x$ eine Stammfunktion $\cos x$ ist. Gleichzeitig ist $5x$ eine Stammfunktion von $5$, sodass
+    der Ausdruck $\displaystyle \Bigl[5x\Bigr]_0^\pi$ zum Integral $\displaystyle \int_0^\pi 5\diff x$ gehört. Es gilt
+    also
+    \[\Bigl[\sin x\Bigr]_0^\pi+\Bigl[5x\Bigr]_0^\pi=\int_0^\pi\cos x\diff x+\int_0^\pi 5\diff x.\]
+    Das bedeutet, dass das ursprüngliche Integral $\displaystyle \int_0^\pi\cos x+5\diff x$ das gleiche ist wie die Summe
+    der beiden Integrale $\displaystyle \int_0^\pi\cos x\diff x$ und $\displaystyle \int_0^\pi 5\diff x$.
+    Wir können das Integral also aufteilen und es gilt
+    \[\int_0^\pi\cos x+5\diff x=\int_0^\pi\cos x\diff x+\int_0^\pi 5\diff x.\]
+\end{example}
+Aufgrund der Summenregel für Ableitungen können wir Summen sowohl als Ganzes als auch getrennt ableiten oder integrieren.
+Nehmen wir beispielsweise einmal an, dass $F(x)$ eine Stammfunktion von $f(x)$ und
+$G(x)$ eine Stammfunktion von $g(x)$ ist. Die Summenregel für Ableitungen ergibt für die Ableitung der Summe $F(x)+G(x)$ 
+nun dass $\Bigl(F(x)+G(x)\Bigr)'=f(x)+g(x)$. 
+
+Wenn wir jetzt ein Integral der Summe $f(x)+g(x)$ ausrechnen, dann können
+wir die Summenregel verwenden, um das Integral in seine Bestandteile aufzuteilen:
+\begin{align*}
+    &\int_a^bf(x)+g(x)\diff x=\biggl[F(x)+G(x)\biggr]_a^b=F(b)+G(b)-(F(a)+G(a))\\
+    =&F(b)-F(a)+G(b)-G(a)=\biggl[F(x)\biggr]_a^b+\biggl[G(x)\biggr]_a^b=\int_a^bf(x)\diff x+\int_a^bg(x)\diff x.
+\end{align*}
+Ähnlich können wir die Faktorregel nutzen, um Zahlen $c\in\R$ aus Integralen herauszuziehen:
+\begin{align*}
+    &\int_a^bc\cdot f(x)\diff x=\biggl[c\cdot F(x)\biggr]_a^b=c\cdot F(b)-(c\cdot F(a))\\
+    =&c\cdot (F(b)-F(a))=c\cdot \biggl[F(x)\biggr]_a^b=c\cdot \int_a^bf(x)\diff x.
+\end{align*}
+\begin{theorem}[thm:rechenregeln-integrale]{Rechenregeln für Integrale}
+    Für zwei Integralgrenzen $a,b\in\R$ mit $a\leq b$ und stetige Funktionen $f,g$ gelten die folgenden Aussagen:
+    \begin{enumerate}
+        \item Für eine Zahl $c\in\R$ ist $\displaystyle \int_a^bc\cdot f(x)\diff x=c\cdot \int_a^bf(x)\diff x$.
+        \item $\displaystyle\int_a^bf(x)+g(x)\diff x=\int_a^bf(x)\diff x+\int_a^bg(x)\diff x$
+        \item $\displaystyle \int_a^bf(x)\diff x=-\int_b^af(x)\diff x$
+        \item Ist $a\leq b\leq c$, so gilt $\displaystyle \int_a^cf(x)\diff x=\int_a^bf(x)\diff x+\int_b^cf(x)\diff x$.
+    \end{enumerate}
+\end{theorem}
+Diese Regeln lassen sich verwenden, um den Term
+\[\Biggl|\int_a^bf(x)\diff x-\int_a^bg(x)\diff x\Biggr|,\]
+mit dem wir die Fläche zwischen zwei Funktionen $f$ und $g$ ausrechnen möchten, zu
+\[\Biggl|\int_a^bf(x)-g(x)\diff x\Biggr|\]
+zusammenzufassen. Wie bereits zu Beginn dieses Abschnitts müssen wir also nur ein einzelnes Integral berechnen. Allerdings
+müssen wir erneut sicherstellen, dass sich dabei positive und negative Flächen nicht gegenseitig aufheben. Wir wissen
+auch bereits, wie das funktioniert, nämlich indem wir die Betragsstriche in das Integral schreiben statt außen herum:
+\[\int_a^b|f(x)-g(x)|\diff x.\]
+\begin{example}{}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=1cm, x=1cm, ymin=0, ymax=3, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,3},samples=50
+                ]
+                \addplot[name path=poly, domain=-0.5:5, violet] {0.6667*x^3-3.333*x^2+3.5*x+2};
+                \addplot[name path=line, domain=-0.5:5, violet] {2-0.5*x};
+                \addplot[name path=axis, domain=-1.5:5, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=0:3}
+                ];
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Für die Funktionen \[f(x)=2-\frac{1}{2}x\] 
+    und 
+    \[g(x)=\frac{2}{3}x^3-\frac{10}{3}x^2+\frac{7}{2}x+2\] 
+    \picskip{2}
+    möchten wir die rechts markierte Fläche berechnen, die von ihren Graphen eingeschlossen wird. 
+    Du kannst in der Abbildung erkennen, dass die Fläche durch die Intervallgrenzen $0$ und $3$ beschränkt ist.
+    Wir können die Fläche also mit dem Integral
+    \[\int_0^3|f(x)-g(x)|\diff x=\int_0^3\Biggl|2-\frac{1}{2}x-\biggl(\frac{2}{3}x^3-\frac{10}{3}x^2+\frac{7}{2}x+2\biggr)\Biggr|\diff x\]
+    berechnen. Die Funktion, die wir integrieren, lässt sich noch ein wenig vereinfachen:
+    \begin{align*}
+        &2-\frac{1}{2}x-\biggl(\frac{2}{3}x^3-\frac{10}{3}x^2+\frac{7}{2}x+2\biggr)\\
+        =&2-\frac{1}{2}x-\frac{2}{3}x^3+\frac{10}{3}x^2-\frac{7}{2}x-2\\
+        =&-\frac{2}{3}x^3+\frac{10}{3}x^2-4x\\
+    \end{align*}
+    In der Abbildung ist außerdem zu sehen, dass sich die Fläche, die von beiden Funktionen eingeschlossen wird, in zwei
+    Teilflächen aufteilt, denn $f$ und $g$ schneiden sich bei $x=2$. Es gilt also $f(2)=g(2)$, also $f(2)-g(2)=0$. Im
+    Bild sehen wir, dass dies der einzige Schnittpunkt von $f$ und $g$ außer den Intervallgrenzen $0$ und $3$ ist.
+    Wir berechnen die Teilflächen einzeln, indem wir
+    \[\int_0^3\Biggl|-\frac{2}{3}x^3+\frac{10}{3}x^2-4x\Biggr|\diff x=\Biggl|\int_0^2-\frac{2}{3}x^3+\frac{10}{3}x^2-4x\diff x\Biggr|+\Biggl|\int_2^3-\frac{2}{3}x^3+\frac{10}{3}x^2-4x\diff x\Biggr|\]
+    ausrechnen. Dafür ermitteln wir eine Stammfunktion von $-\frac{2}{3}x^3+\frac{10}{3}x^2-4x$ und berechnen die einzelnen
+    Integrale mit dem Hauptsatz der Differential- und Integralrechnung.
+\end{example}
+\parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=-2, ymax=3, xmin=0, xmax=5, xtick={1,...,5}, ytick={-2,...,3},samples=50
+            ]
+            \addplot[name path=poly, domain=-0.5:5.5, violet] {0.75*sin(72*x)+0.5};
+            \addplot[name path=line, domain=-0.5:5.5, violet] {2*sin(72*x)+0.5};
+            \addplot[name path=axis, domain=-0:5, violet] {0};
+            \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+            of = poly and line,
+            soft clip={domain=0:5}
+            ];
+            \addplot[mark=*, only marks, fill=red] coordinates {(0,0.5)};
+            \addplot[mark=*, only marks, fill=red] coordinates {(2.5,0.5)};
+            \addplot[mark=*, only marks, fill=red] coordinates {(5,0.5)};
+            \node at (4,2.2) {\scriptsize Flächengrenze};
+            \node at (4,1.75) {\scriptsize $\corresponds$ Schnittpunkt};
+            \draw[-latex,very thick] (3.1,1.6) -- (0.1,0.6);
+            \draw[-latex,very thick] (3.3,1.6) -- (2.6,0.6);
+            \draw[-latex,very thick] (4.2,1.52) -- (4.9,0.6);
+        \end{axis}
+    \end{tikzpicture}
+}
+Die Flächen, die von den Graphen zweier Funktionen eingeschlossen werden, sind nach links und rechts immer durch
+Schnittpunkte der Funktionen beschränkt. 
+
+Um herauszufinden, wo die Grenzen der Flächen zwischen zwei Graphen liegen, 
+müssen wir also die Schnittpunkte der Funktionen bestimmen. Schnittpunkte sind genau die Punkte, für die $f(x)=g(x)$
+gilt. Die von $f$ und $g$ eingeschlossene Fläche liegt dann zwischen dem Schnittpunkt mit dem kleinsten $x$-Wert und dem
+Schnittpunkt mit dem größten $x$-Wert. Rechts sind die Schnittpunkte zum Beispiel $x_1=0, x_2=\frac{5}{2}$ und $x_3=5$.
+Die eingeschlossene Fläche lässt sich hier also durch das Integral
+\[\int_0^5|f(x)-g(x)|\diff x\]
+berechnen.
+\begin{example}{}
+    Wir möchten ausrechnen, welche Fläche von den Funktionen $f(x)=x^2$ und $g(x)=9$ eingeschlossen wird. Dazu müssen
+    wir zunächst die linke und rechte Grenze der eingeschlossenen Funktion berechnen. Wir ermitteln also die Schnittpunkte
+    von $f$ und $g$, indem wir die Gleichung $f(x)=g(x)$ nach $x$ auflösen. Eingesetzt ergibt sich
+    \[x^2=9\text{, also }x=3\text{ oder }x=-3.\]
+    Die Schnittpunkte von $f$ und $g$ liegen also bei $x=-3$ und $x=3$. Durch diese Grenzen ist die eingeschlossene
+    Fläche folglich begrenzt. Nun verwenden wir unsere Formel für den Flächeninhalt und erhalten
+    \begin{align*}
+        &\int_{-3}^3|f(x)-g(x)|\diff x=\Biggl|\int_{-3}^3x^2-9\diff x\Biggr|\\
+        =&\Biggl|\biggl[\frac{1}{3}x^3-9x\biggr]_{-3}^3\Biggr|=\Biggl|\frac{27}{3}-27-\biggl(\frac{-27}{3}+27\biggr)\Biggr|\\
+        =&\Bigl|9-27+9-27\Bigr|=\Bigl|18-54\Bigr|=\Bigl|-36\Bigr|=36.
+    \end{align*}
+\end{example}{}
+\begin{nutshell}{Flächenberechnung mit Integralen}
+    \parpic[r]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                defgrid, y=1cm, x=1cm, ymin=0, ymax=3, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,3},samples=50
+                ]
+                \addplot[name path=poly, domain=-0.5:4.5, violet] {1.25*sin(45*x)};
+                \addplot[name path=line, domain=-0.5:4.5, violet] {2.5*sin(45*x)};
+                \addplot[name path=axis, domain=-0.5:4.5, violet] {0};
+                \addplot[fill opacity=0.5, fill=violet!20] fill between[ 
+                of = poly and line,
+                soft clip={domain=0:4}
+                ];
+                \addplot[fill opacity=0.5, fill=violet!20, pattern=north east lines, pattern color=violet!40] fill between[ 
+                of = poly and axis,
+                soft clip={domain=0:4}
+                ];
+                \node[violet] at (2,1.75) {$A$};
+                \node[violet] at (2,0.5) {$B$};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    Um bei der Berechnung der Fläche zwischen einer Funktion $f$ und der $x$-Achse zu vermeiden, dass sich positiv und
+    negativ gewichtete Flächen im Integral gegenseitig aufheben, erzwingt man durch die Berechnung des Integrals
+    \[\int_a^b|f(x)|\diff x,\]
+    dass \emph{alle} Flächen positiv gewichtet werden. Dieses Integral lässt sich berechnen, indem man die Nullstellen
+    $x_1,\dots,x_n$ von $f(x)$ im Intervall $[a,b]$ bestimmt und die Flächen oberhalb und unterhalb der $x$-Achse einzeln
+    ausrechnet:
+    \[\int_a^b|f(x)|\diff x=\Biggl|\int_a^{x_1}f(x)\diff x\Biggr|+\Biggl|\int_{x_1}^{x_2}f(x)\diff x\Biggr|+\dots+
+    \Biggl|\int_{x_n}^bf(x)\diff x\Biggr|.\]
+    Die von zwei Funktionen $f$ und $g$ eingeschlossene Fläche lässt sich mithilfe des Integrals
+    \[\int_a^b|f(x)-g(x)|\diff x\]
+    bestimmen. Die Grenzen $a$ und $b$ entsprechen dabei dem am weitesten links bzw. rechts liegenden Schnittpunkt von
+    $f$ und $g$. Solche Schnittpunkte können durch das Auflösen der Gleichung $f(x)=g(x)$ gefunden werden.
+\end{nutshell}
 \end{document}
+
+Um das Integral berechnen zu können, müssen wir nach Nullstellen der Funktion 
+$f(x)-g(x)=-\frac{2}{3}x^3+\frac{10}{3}x^2-4x$ bestimmen. Dafür lösen wir die Gleichung $-\frac{2}{3}x^3+\frac{10}{3}x^2-4x=0$
+nach $x$ auf.
+\begin{align*}
+    -\frac{2}{3}x^3+\frac{10}{3}x^2-4x&=0\\
+    x\cdot (-\frac{2}{3}x^2+\frac{10}{3}x-4)&=0\\
+    x=0\text{ oder }-\frac{2}{3}x^2+\frac{10}{3}x-4&=0
+\end{align*}
+Die Gleichung $-\frac{2}{3}x^2+\frac{10}{3}x-4=0$ können wir mit der $pq$-Formel auflösen:
+\begin{align*}
+    -\frac{2}{3}x^2+\frac{10}{3}x-4&=0\commentLine{\cdot(-3)}\\
+    2x^2-10x+12&=0\commentLine{:2}\\
+    x^2-5x+6&=0\\
+    x&=\frac{5}{2}\pm \sqrt{(\frac{5}{2})^2-6}\\
+    x&=\frac{5}{2}\pm \sqrt{\frac{25}{4}-\frac{24}{4}}\\
+    x&=\frac{5}{2}\pm \sqrt{\frac{1}{4}}\\
+    x&=\frac{5}{2}\pm \frac{1}{2}\\
+    x&=2\text{ oder }x=3\\
+\end{align*}

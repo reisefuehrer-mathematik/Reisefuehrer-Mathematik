@@ -61,6 +61,7 @@ suffix_3p "\\,ff."
 \usepgfplotslibrary{groupplots}
 
 \usetikzlibrary{calc}
+\usetikzlibrary{patterns}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,21 +88,21 @@ suffix_3p "\\,ff."
 \def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
 %\newcommand{\ldsection}[2]{\section{#1}\subfile{#2}}
 %% This version works in TexLive 2021 and before
-%\newcommand{\tosnakecase}[2]{
-%    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
-%    \StrSubstitute{#2}{ä}{ae}[#2]
-%    \StrSubstitute{#2}{ö}{oe}[#2]
-%    \StrSubstitute{#2}{ü}{ue}[#2]
-%    \StrSubstitute{#2}{ }{_}[#2]
-%}
-%% This version works in TexLive 2022 and later
 \newcommand{\tosnakecase}[2]{
-    \begingroup\edef\x{\MakeLowercase{\endgroup\def\noexpand#2{#1}}}\x
+    \begingroup\edef\x{\lowercase{\endgroup\def\noexpand#2{#1}}}\x
     \StrSubstitute{#2}{ä}{ae}[#2]
     \StrSubstitute{#2}{ö}{oe}[#2]
     \StrSubstitute{#2}{ü}{ue}[#2]
     \StrSubstitute{#2}{ }{_}[#2]
 }
+%% This version works in TexLive 2022 and later
+%\newcommand{\tosnakecase}[2]{
+%    \begingroup\edef\x{\MakeLowercase{\endgroup\def\noexpand#2{#1}}}\x
+%    \StrSubstitute{#2}{ä}{ae}[#2]
+%    \StrSubstitute{#2}{ö}{oe}[#2]
+%    \StrSubstitute{#2}{ü}{ue}[#2]
+%    \StrSubstitute{#2}{ }{_}[#2]
+%}
 
 \makeatletter
 \newcommand\ldsection[2][]{
@@ -428,12 +429,22 @@ suffix_3p "\\,ff."
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\drawstar[1]{
+    \fill[yellow] ($(current page.north west)+ (#1) + (0:.5)$) -- 
+        ($(current page.north west)+ (#1) + (45:.2)$) --
+        ($(current page.north west)+ (#1) + (90:.5)$) --
+        ($(current page.north west)+ (#1) + (135:0.2)$) --
+        ($(current page.north west)+ (#1) + (180:.5)$) --
+        ($(current page.north west)+ (#1) + (225:.2)$) --
+        ($(current page.north west)+ (#1) + (270:.5)$) --
+        ($(current page.north west)+ (#1) + (315:.2)$) -- cycle;
+}
 \makeatletter
 \renewcommand{\maketitle}{
 \begin{titlepage}
 \begin{tikzpicture}[overlay,remember picture]
     % Background color
-    \fill[black!2] (current page.south west) rectangle (current page.north east);
+    \fill[black!60!blue] (current page.south west) rectangle (current page.north east);
     % Rectangles
     \shade[transform canvas={rotate around={45:($(current page.north west)+(0,-6)$)}}]
         ($(current page.north west)+(0,-6)$) rectangle ++(9,1.5);
@@ -462,17 +473,22 @@ suffix_3p "\\,ff."
     \shade[left color=orange!50!red, right color=red!80, rounded corners=0.6cm,
         transform canvas ={rotate around ={45:($(current page.north west)+(20,-9)$)}}] 
         ($(current page.north west)+(20,-9)$) rectangle ++(14,1.2);
+    \drawstar{1,-15}
+    \drawstar{3,-10}
+    \drawstar{11,-11}
+    %\node[yellow] at ($(current page.north west) + (17,-9.5)$) {\Large $\displaystyle\int_0^\pi\sin(x)\diff x$};
+    \node[yellow] at ($(current page.north west) + (17,-9.5)$) {\LARGE $e^{i\pi}+1=0$};
     % Volume and title
-    \draw[ultra thick,gray] ($(current page.center)+(5,2)$) -- ++(0,-3cm) 
-        node[midway, left=0.25cm, text width=20cm, align=right, black!75, font={\fontsize{32}{37} \selectfont\bfseries}] {\MakeUppercase \@bookseries} 
-        node[midway, right=0.25cm, text width=6cm, align=left, orange, font={\fontsize{72}{86.4} \selectfont}] {\@volume};
+    \node[text width=20cm, align=center, orange, font={\fontsize{32}{37} \selectfont\bfseries}] at ($(current page.center)+(0,0.5)$) 
+         {\textsf{\MakeUppercase \@bookseries}};
+        %node[midway, right=0.25cm, text width=6cm,  align=left,  orange, font={\fontsize{72}{86.4} \selectfont}] {\textsf{\@volume}};
     % Authors
     \node[align=center] at ($(current page.center)+(0,-5)$) {
         {\fontsize{30}{42} \selectfont {{\@title}}} \\[1cm]
-        {\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \textbf{Band 1: Unterstufenmathematik}}}\\[3pt]
-        Schulstoff ab Klasse 5\\[43pt]
+        {\fontsize{16}{19.2} \selectfont \textcolor{orange}{ \textbf{\textsf{Mathematik für Schüler und Studienanfänger}}}}\\[3pt]
+        \textcolor{white}{\textsf{Ein Flipped Classroom-Konzept für die Schulmathematik}}\\[43pt]
         %Ergänzungen für Unterforderte
-        Ein einfacher aber herausfordernder Leitfaden\\durch die Schulmathematik};
+        \textcolor{white}{\textsf{Ein einfacher aber herausfordernder Leitfaden}}\\\textcolor{white}{\textsf{durch die Schulmathematik}}};
 \end{tikzpicture}
 \end{titlepage}
 \makeatother

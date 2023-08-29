@@ -1,0 +1,171 @@
+\def\pathToMain{../buch/}
+\documentclass[]{uebungsblatt}
+\usepackage[ngerman]{babel}
+\usepackage{mathdef}
+\usepackage{exercisedef}
+
+\usepackage{subfiles}
+\usepackage{wrapfig}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usetikzlibrary{positioning}
+
+\tikzset{>=stealth}
+
+\sheet{Aufgabenblock 0}
+\title{Aufgabensammlung}
+\topic{Aufgabensammlung}
+\chapternum{0}
+
+\begin{document}
+    \maketitle
+    \makepreamble
+    
+    \begin{exercise}{advanced}
+        THOG (vier Objekte in zwei Farben, zwei Formen). Wähle geheim Farbe und Form. THOG bei genau einer 
+        Übereinstellung. Gegeben ein THOG. Finde anderes THOG.
+    \end{exercise}
+
+    \begin{exercise}{easy}
+        Funktion mit Berechnungsvorschrift gegeben, berechne Funktionswerte für vorgegebene Argumente
+    \end{exercise}
+
+    \begin{exercise}{easy}
+        Funktion mit Berechnungsvorschrift gegeben, berechne Funktionswerte für vorgegebene Argumente und entscheide,
+        welche davon Nullstellen oder $y$-Achsenabschnitt sind
+    \end{exercise}
+
+    \begin{exercise}{hard}
+        Logik-Aufgabe mit \emph{fast alle}
+    \end{exercise}
+
+    \begin{exercise}{hard}
+        Vereinfache $(-x)^y$ mit Potenzgesetzen.
+    \end{exercise}
+
+    \begin{exercise}{advanced}
+        Rotationsvolumen-Aufgabe zu rotierendem Trinkglas (Aufgabe: Rotationskörper um $y$-Achse berechnen)
+    \end{exercise}
+
+    \begin{exercise}{easy}
+        In jedem der folgenden Koordinatensysteme sind zwei Vektoren eingezeichnet. Entscheide jeweils, 
+        ob die eingezeichneten Vektoren gleich sind, indem du ihre Einträge berechnest und miteinander vergleichst.
+
+        \begin{multicols}{3}
+            \centering
+
+            \tikz{
+                \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,4}]
+                    \draw[-latex,ultra thick, violet] (0,1) -- node[above] {$a$} (3,1);
+                    \draw[-latex,ultra thick, orange] (4,1) -- node[left] {$b$} (4,4);
+                \end{axis} 
+            }
+
+            \tikz{
+                \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,4}]
+                    \draw[-latex, ultra thick, blue!60] (0,0) -- node[above] {$c$} (3,1);
+                    \draw[-latex,ultra thick, orange] (1,2) -- node[above] {$d$} (4,3);
+                \end{axis} 
+            }
+
+            \tikz{
+                \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,4}]
+                    \draw[-latex, ultra thick, blue!60] (0,4) -- node[right] {$e$} (1,1);
+                    \draw[-latex,ultra thick, orange] (3,0) -- node[right] {$f$} (2,3);
+                \end{axis} 
+            }
+        \end{multicols}
+    \end{exercise}
+
+    \begin{exercise}{easy}
+        Zeichne die Vektoren $a=\vectwo{-2}{1}$ und $b=\vectwo{-1}{6}$ so in ein Koordinatensystem ein, dass sie beide 
+        im Punkt $\coord{0}{0}$ beginnen. Bestimme anschließend das Ergebnis der folgenden Rechnungen.
+        \begin{enumerate}
+            \begin{multicols}{3}
+                \item $2\cdot \vectwo{-2}{1}$
+                \item $\vectwo{-1}{6}+\vectwo{-2}{1}$
+                \item $\vectwo{-1}{6}-2\cdot\vectwo{-2}{1}$
+            \end{multicols}
+        \end{enumerate}
+        Zeichne die Ergebnisse der Rechnungen ebenfalls so in das Koordinatensystem ein, dass die Vektoren im Punkt 
+        $\coord{0}{0}$ beginnen. Verbinde die Pfeilspitzen der Vektoren aus den Teilaufgaben b) und c) mit der 
+        Pfeilspitze des Vektors $b$. Beschreibe jeweils, was dir auffällt.
+    \end{exercise}
+
+    \begin{exercise}{normal}
+        \parpic[r]{
+            \tikz{
+                \begin{axis}[defgrid, domain=0:4, y=1cm, x=1cm, ymin=0, ymax=4, xmin=0, xmax=4, xtick={1,...,4}, ytick={1,...,4}]
+                    \draw[-latex, ultra thick, blue!60] (0,0) -- node[right] {$a$} (1,1);
+                    \draw[-latex,ultra thick, violet] (0,2) -- node[below] {$b$} (2,3);
+                    \draw[-latex,ultra thick, orange] (0,4) -- node[below] {$c$} (4,1);
+                \end{axis} 
+            }
+        }
+        \begin{enumerate}
+            \item Bestimme für die rechts abgebildeten Vektoren 
+            \[a=\vectwo{a_1}{a_2}, b=\vectwo{b_1}{b_2}, 
+            c=\vectwo{c_1}{c_2}\] 
+            jeweils die passenden Werte
+            $a_1,a_2,b_1,b_2,c_1,c_2$.
+            \item Zeichne (ohne zu rechnen) die Vektoren $a+b$ und $c-b$ in ein Koordinatensystem ein. berechne
+            anschließend ihre Einträge und kontrolliere dein Ergebnis mit deiner Zeichnung.
+            \item Zeichne den Vektor $3a$ in das Koordinatensystem aus Aufgabe b) ein und berechne seine Einträge.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}{normal}
+        Finde zwei Zahlen $a$ und $b$, sodass $\vectwo{-3}{-4}=a\cdot\vectwo{-3}{4}+b\cdot\vectwo{-2}{2}$ gilt.
+    \end{exercise}
+
+    \begin{exercise}{hard}
+        \begin{enumerate}
+            \item Zeichne den Vektor $a=\vectwo{3}{4}$ in ein Koordinatensystem ein und verwende den Satz des Pythagoras, 
+            um seine Länge $\abs{a}$ zu berechnen.
+            \item Gib eine allgemeine Formel an, mit der du die Länge $\abs{v}$ eines beliebigen Vektors 
+            $v=\vectwo{v_1}{v_2}$ berechnen kannst.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}{advanced}
+        \textbf{Die komplexen Zahlen als $\R$-Vektorraum}
+        \begin{enumerate}
+        \item Zeige, dass die komplexen Zahlen $\C$ ein $\R$-Vektorraum sind (als Vektoraddition verwendet man die
+        gewöhnliche Addition von komplexen Zahlen und als Skalarmultiplikation die gewöhnliche Multiplikation mit
+        reellen Zahlen).
+        \item Bestimme komplexe Zahlen $z_1,\dots,z_n$, sodass für jede komplexe Zahl $z\in\C$ eindeutig bestimmte 
+        reelle Zahlen $\lambda_1,\dots\lambda_n$ existieren mit
+        \[z=\lambda_1z_1+\lambda_2z_2+\dots+\lambda_nz_n.\]
+        \emph{Hinweis: Dies funktioniert nur für ein bestimmtes $n$. Diese Zahl $n$ heißt die \textbf{Dimension} 
+        von $\C$ als $\R$-Vektorraum, geschrieben $\dim_{\R}(\C)$.}
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}{advanced}
+        Finde eine geeignete Vektoraddition und Skalarmultiplikation, um die folgenden Mengen zu $\R$-Vektorräumen zu 
+        machen (beweise dafür, dass die Vektorraumaxiome mit den von dir gewählten Operationen erfüllt sind).
+        \begin{enumerate}
+            \item Die Menge aller Polynome über $\R$, definiert als 
+            \[\R[x]:=\Biggl\{\sum_{i=0}^\infty a_ix^i\mid a_i\in\R, a_i\neq 0\text{ für nur endlich viele }i\Biggr\}.\]
+            \emph{Beispiele: $x^2+1\in\R[x], x^3-\sqrt{2}x\in\R[x]$.}
+            \item Die Menge aller Funktionen $f\colon X\rightarrow \R$, definiert als
+            \[\text{Abb}(X,\R):=\{f\mid f\colon X\rightarrow\R\text{ ist eine Funktion}\}\]
+            für eine beliebige Menge $X$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}{easy}
+        Finde unter den folgenden Vektoren die Paare von Vektoren, die linear abhängig sind.
+        \[\vectwo{-1}{4}, \vectwo{0}{2}, \vectwo{2}{0}, \vectwo{1}{0}, \vectwo{0}{5}, \vectwo{3}{12}\]
+    \end{exercise}
+
+    \newpage
+    
+    %\makesolutions
+    
+    \newpage
+    
+    \makehints
+\end{document}

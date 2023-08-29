@@ -1,0 +1,70 @@
+\documentclass[../../main.tex]{subfiles}
+\begin{document}
+
+Durch das Zurückführen auf lineare Gleichungen sind wir nun in der Lage, quadratische Gleichungen zu lösen, falls $b=0$ oder $c=0$. Nun widmen wir uns dem allgemeinen Fall und betrachten Gleichungen mit $b,c\neq0$.\\
+In diesem Fall sind wir leider nicht mit einfachen Mitteln in der Lage, lineare Gleichungen zu erreichen. Wir werden aber wieder versuchen, das Quadrat durch Wurzelziehen loszuwerden, um dann linear weiterrechnen zu können. Das Wurzelziehen bringt erstmal nichts, weil wir zwar das Quadrat eliminieren können, aber dafür den Term $\sqrt{x}$ bekommen. Anschließend sind wir immer noch nicht in der Lage, $x$ zu isolieren.\\
+Um zu verstehen, wie wir trotzdem zum Ziel kommen können, schauen wir uns einmal ein dankbares Beispiel an:
+\begin{example}
+Sei die Gleichung $x^2-2x+1=0$ gegeben. Bei genauerem Hinschauen erkennt man auf der linken Seite eine \textbf{binomische Formel} (zur Erinnerung: $(a-b)^2=a^2-2ab+b^2$). Wenn wir die binomische Formel rückwärts anwenden, können wir die Gleichung folgendermaßen auflösen:
+\begin{equation*}\begin{split}
+x^2-2x+1&=0\\
+(x-1)^2&=0\\
+x-1&=0\\
+x&=1\\
+\end{split}\end{equation*}
+\end{example}
+Leider können wir nicht allgemein davon ausgehen, dass wir eine binomische Formel vor uns stehen haben. Wir können aber beobachten, dass wir bei gegebenem $b$ ein $c$ berechnen können, das die Rückwärtsanwendung der binomischen Formel ermöglicht. Dazu schauen wir uns den linken Teil der Gleichung etwas genauer an:
+\begin{equation*}\begin{split}
+    x^2+bx+c&=x^2+\frac{2bx}{2}+c\\
+    &=x^2+2\frac{b}{2}x+c
+\end{split}\end{equation*}
+\noindent Wir sehen, dass hier eine binomische Formel $\Big(x+\frac{b}{2}\Big)^2$ steht, wenn $c=\Big(\frac{b}{2}\Big)^2$:
+\[\Big(x+\frac{b}{2}\Big)^2=x^2+2\frac{b}{2}x+\Big(\frac{b}{2}\Big)^2\]
+\noindent Da wir bei Gleichungen auf beiden Seiten Zahlen addieren dürfen, können wir einen schlauen Trick anwenden, um zu erzwingen, dass $c=\Big(\frac{b}{2}\Big)^2$. Wenn wir auf beiden Seiten genau $\Big(\frac{b}{2}\Big)^2$ addieren, erhalten wir die Gleichung \[x^2+2\frac{b}{2}x+c+\Big(\frac{b}{2}\Big)^2=\Big(\frac{b}{2}\Big)^2\]
+\noindent Dieses Vorgehen heißt \textbf{quadratische Ergänzung} und wir verdeutlichen es am folgenden Beispiel:
+\begin{example}
+Gegeben sei die Gleichung $x^2+8x+15=0$. Mit unserem Konzept von eben addieren wir nun auf beiden Seiten $\Big(\frac{8}{2}\Big)^2=16$, um die binomische Formel rückwärts anwenden zu können.
+\begin{equation*}\begin{split}
+x^2+8x+15&=0\\
+x^2+8x+16+15&=16\\
+\Big(x+4\Big)^2+15&=16\\
+\Big(x+4\Big)^2&=1\\
+x+4&=\pm1\\
+x=-5&\lor x=-3
+\end{split}\end{equation*}
+\end{example}
+\noindent An einer Stelle können wir das noch etwas schlauer anstellen: Wir hatten eben die 15 auf der linken Seite übrig und mussten sie subtrahieren. Wir hätten auch einfach nur 1 statt 16 addieren können, um nur die zur 16 fehlende Differenz zu überbrücken. Das spart später einen Rechenschritt.\\
+Um nicht jedes mal eine quadratische Ergänzung durchführen zu müssen, betrachten wir nun eine quadratische Gleichung mit beliebigen Parametern und lösen sie allgemein auf, um eine direkte Lösungsformel zu erhalten:
+\begin{theorem}{$pq$-Formel}
+Die quadratische Gleichung $x^2+px+q=0$ hat die Lösungen
+\[x=-\frac{p}{2}\pm\sqrt{\Big(\frac{p}{2}\Big)^2-q}\]
+\end{theorem}
+\begin{proof}
+Wir lösen die Gleichung $x^2+px+q=0$ allgemein nach dem Prinzip der quadratischen Ergänzung. Unser Ziel ist es, die erste binomische Formel $(a+b)^2=a^2+2ab+b^2$ rückwärts anzuwenden. Dafür müssen wir den linken Teil der Gleichung so verändern, dass dort $x^2+px+(\frac{p}{2})^2$ steht. Wir müssen also das $q$ durch den Wert $(\frac{p}{2})^2$ ersetzen. Dafür können wir den Wert $(\frac{p}{2})^2$ addieren und den störenden Term $q$ subtrahieren.
+\begin{align*}
+    x^2+px+q&=0\commentLine{+(\frac{p}{2})^2-q}\\
+    x^2+px\cancel{+q}+\Big(\frac{p}{2}\Big)^2\cancel{-q}&=\Big(\frac{p}{2}\Big)^2-q\\
+    x^2+px+\Big(\frac{p}{2}\Big)^2&=\Big(\frac{p}{2}\Big)^2-q
+\end{align*}
+Nun steht auf der linken Seite die binomische Formel, die wir erreichen wollten. Nachdem wir die Formel angewandt haben,
+können wir den Rest durch Wurzelziehen bewerkstelligen.
+\begin{align*}
+    \Big(x+\frac{p}{2}\Big)^2&=\Big(\frac{p}{2}\Big)^2-q\\
+    x+\frac{p}{2}&=\pm\sqrt{\Big(\frac{p}{2}\Big)^2-q}\\
+    x&=-\frac{p}{2}\pm\sqrt{\Big(\frac{p}{2}\Big)^2-q}\qedhere
+\end{align*}
+\end{proof}
+\begin{corollary}
+Eine quadratische Gleichung $x^2+px+q$ hat genau dann eine reelle Lösung, wenn $\Big(\frac{p}{2}\Big)^2-q\geq 0$ und genau dann eine eindeutige reelle Lösung, wenn $\Big(\frac{p}{2}\Big)^2-q=0$.
+\end{corollary}
+\subsection*{Übungsaufgaben}
+Ermitteln Sie alle reellen Lösungen der folgenden Gleichungen.
+\begin{enumerate}
+    \item $x^2+6x-7=0$
+    \item $x^2-5x-36=0$
+    \item $3x^2-18x+30=6$
+    \item $x^2-7x+24=3x-1$
+    \item $7x^2+\frac{7}{3}x+21=0$
+\end{enumerate}
+
+\end{document}

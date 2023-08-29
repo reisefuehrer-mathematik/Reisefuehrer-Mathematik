@@ -1,7 +1,311 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-Das Kapitel zu Differentialrechnung hat uns mit der Ableitung ein mächtiges Werkzeug gegeben, auf dem die
-Methoden in diesem Kapitel aufbauen werden. Du hast gelernt, die Steigung einer Funktion zu ermitteln und daraus eine 
-Vorstellung vom Aussehen von Funktionen zu bekommen.
+
+Der Graph einer Funktion schließt, wie du bereits weißt, mit der $x$-Achse eine Fläche ein. In diesem Abschnitt
+untersuchen wir eine bestimmte Art von dreidimensionalen Körpern, deren Volumen sich mithilfe von Integralen ausrechnen
+lässt.
+
+\parpic[r]{
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\u}{1}
+        \begin{axis}[defgrid,
+            set layers,
+            x={(1*\u cm,0.0cm)}, 
+            y={(0cm,\u cm)},
+            z={(\u*0.3535cm,\u*0.3535cm)},  
+            axis lines=center,
+            hide z axis,
+            xmin=0,xmax=5,ymin=-2,ymax=2,xtick={1,...,5},ytick={-2,...,2}
+        ]
+            \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+            samples=20,
+            domain=0:5,y domain=0:2*pi,
+            z buffer=sort]
+            (x,{2*cos(deg(y))}, {2 * sin(deg(y))});
+            \draw[latex-latex,thick] (5,0,0) -- node[rotate=60,left,above] {\scriptsize $2$} (5,{2*cos(75)},{2*sin(75)});
+            \draw[latex-latex,thick] (0,0,0) -- node[rotate=60,left,above] {\scriptsize $2$} (0,{2*cos(75)},{2*sin(75)});
+        \end{axis}
+    \end{tikzpicture}
+}
+Rechts siehst du einen Zylinder mit dem Radius 2, der so um die $x$-Achse gelegt ist, dass seine Mitte genau die 
+$x$-Achse ist. Wie bei jedem Zylinder ist sein Radius natürlich überall gleich. Die linke Kreisfläche hat also ebenso
+wie die rechte Kreisfläche den Radius 2.
+
+Wenn wir nun das Volumen dieses Zylinders berechnen möchten, dann müssen wir die Fläche der Kreise mit der Breite des
+Zylinders multiplizieren. Wenn $K$ die Fläche der Kreise und $b$ die Breite ist, lautet die Volumenformel also
+\[V=K\cdot b=\pi r^2\cdot b,\]
+denn die Formel für die Kreisfläche bei einem Radius von $r$ ist $K=\pi r^2$. In unserem Fall ist der Zylinder 5 Einheiten
+breit und hat einen Radius von 2. Das Volumen ist also $\pi\cdot 2^2\cdot 5=20\pi$.
+\if 0
+\parpic[l]{
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\u}{1}
+        \begin{axis}[defgrid,
+            set layers,
+            x={(1*\u cm,0.0cm)}, 
+            y={(0cm,\u cm)},
+            z={(\u*0.3535cm,\u*0.3535cm)},  
+            axis lines=center,
+            hide z axis,
+            xmin=0,xmax=5,ymin=-2,ymax=2,xtick={1,...,5},ytick={-2,...,2}
+        ]
+            \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+            samples=20,
+            domain=0:5,y domain=0:2*pi,
+            z buffer=sort]
+            (x,{sin(deg(x))*cos(deg(y))}, {sin(deg(x)) * sin(deg(y))});
+        \end{axis}
+    \end{tikzpicture}
+}
+Wie bereits erwähnt, ist der Radius des Zylinders überall 2. Die Oberfläche hat also überall einen Abstand von 2 zur
+$x$-Achse. 
+
+Wir werden in diesem Abschnitt lernen, ganz ähnlich auch das Volumen von Körpern zu berechnen, deren
+Radius nicht überall gleich ist, sondern sich auf dem Weg von links nach rechts ändert. Einen solchen Körper siehst du
+zum Beispiel links. Sowohl ganz links als auch bei $x=\pi$ hat der Körper einen Radius von $0$. Dazwischen ist der
+Radius jedoch offensichtlich größer.
+Wie groß der Radius dieses Körpers ist, hängt also davon ab, wie weit links oder rechts du hinschaust.
+
+\begin{example}{}
+    \parpic[r]{
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\u}{1}
+        \begin{axis}[defgrid,
+            set layers,
+            x={(1*\u cm,0.0cm)}, 
+            y={(0cm,\u cm)},
+            z={(\u*0.3535cm,\u*0.3535cm)},  
+            axis lines=center,
+            hide z axis,
+            xmin=0,xmax=5,ymin=-2,ymax=2,xtick={1,...,5},ytick={-2,...,2}
+        ]
+            \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+            samples=20,
+            domain=0:5,y domain=0:2*pi,
+            z buffer=sort]
+            (x,{(0.3333*x+0.3333)*cos(deg(y))}, {(0.3333*x+0.3333) * sin(deg(y))});
+            \draw[latex-latex,thick] (5,0,0) -- node[rotate=-75,right,above] {\scriptsize $f(5)$} (5,{2*cos(-30)},{2*sin(-30)});
+        \end{axis}
+    \end{tikzpicture}
+    }
+    Der rechts eingezeichnete Körper ist dadurch entstanden, dass für jeden Wert für $x$ ein Kreis um die $x$-Achse
+    gezeichnet worden ist. Ähnlich wie beim Zylinder weiter oben liegt er also so, dass die $x$-Achse sich in seiner
+    Mitte befindet. 
+    
+    \picskip{3}
+    Der Radius des Körpers ist allerdings nicht überall gleich. Schaust du dir zum Beispiel die Kreisscheibe
+    an, die die $x$-Koordinate $0$ hat, dann erhältst du einen Kreis mit dem Radius $\frac{1}{3}$. Schaust du hingegen
+    weiter rechts die Kreisscheibe mit $x$-Koordinate $5$ an, so hat diese einen Radius von $2$.
+    
+    Der Radius dieser Kreisscheibe hängt somit von $x$ ab. Tatsächlich ist der rechts abgebildete Körper so gezeichnet,
+    dass der Radius des Kreises für ein bestimmtes $x$ genau $\frac{1}{3}x+\frac{1}{3}$ ist. Du kannst den Radius
+    auch als Funktion ansehen, in die du einen bestimmten Wert für $x$ einsetzt und den Radius des Körpers an dieser
+    Stelle bekommst:
+    \[\texttt{radius}(x)=\frac{1}{3}x+\frac{1}{3}\]
+    \parpic[l]{
+    \begin{tikzpicture}
+        \begin{axis}[
+            defgrid, y=1cm, x=1cm, ymin=-2, ymax=2, xmin=0, xmax=5.5, xtick={1,...,5}, ytick={-2,...,2},samples=50
+            ]
+            \addplot[name path=poly, domain=0:5, violet] {0.3333*x+0.3333};
+            \addplot[name path=poly, domain=0:5, violet, dashed] {-0.3333*x-0.3333};
+            \draw[violet,dashed] (0,.3333) arc[start angle=30,end angle=-30,radius=0.6667] (0,-.3333);
+            \draw[violet,dashed] (0,-.3333) arc[start angle=210,end angle=150,radius=0.6667] (0,.3333);
+            \draw[violet,dashed] (5,2) arc[start angle=30,end angle=-30,radius=4] (5,-2);
+            \draw[violet,dashed] (5,-2) arc[start angle=210,end angle=150,radius=4] (5,2);
+        \end{axis}
+    \end{tikzpicture}
+    }
+    Du kannst dir das auch so vorstellen, dass du den Graphen der Funktion $f(x)=\frac{1}{3}x+\frac{1}{3}$ zeichnest
+    und diesen um die $x$-Achse rotieren lässt, indem du einen Faden der Länge $f(x)$ an einem Punkt auf der
+    $x$-Achse befestigst und dann wie mit einem Zirkel einen Kreis zeichnest. 
+    
+    \picskip{2}
+    Wenn du das für alle Werte für $x$ machst, dann kommt genau der Körper, den du siehst, dabei heraus. Der Körper
+    entsteht also, wenn du den Graphen der Funktion $f$ um die $x$-Achse rotieren lässt. Deswegen nennt man einen
+    solchen Körper auch \textbf{Rotationskörper}.
+\end{example}
+Wenn wir den Graphen einer Funktion $f$ nehmen und um die $x$-Achse rotieren lassen, dann entsteht ein Körper, der wie
+in den vorherigen Abbildungen aussieht. Ein solcher Körper wird \textbf{Rotationskörper} genannt.
+Lassen wir zum Beispiel einen Punkt $\coord{x}{f(x)}$ um die $x$-Achse rotieren, 
+so erhalten wir einen Kreis mit dem Radius $f(x)$, da der Punkt genau $f(x)$ Einheiten von der $x$-Achse entfernt ist.
+\begin{example}{}
+    Lässt man die Funktion $f(x)=\frac{x^2}{8}$ um die $x$-Achse rotieren, dann erhält man den links abgebildeten
+    Rotationskörper. Der rechts abgebildete Körper gehört zur Funktion $g(x)=\cos(x)$.
+    \begin{multicols}{2}
+        \begin{center}\begin{tikzpicture}
+            \pgfmathsetmacro{\u}{1}
+            \begin{axis}[defgrid,
+                set layers,
+                x={(1*\u cm,0.0cm)}, 
+                y={(0cm,\u cm)},
+                z={(\u*0.3535cm,\u*0.3535cm)},  
+                axis lines=center,
+                hide z axis,
+                xmin=0,xmax=4,ymin=-2,ymax=2,xtick={1,...,4},ytick={-2,...,2}
+            ]
+                \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+                samples=20,
+                domain=0:4,y domain=0:2*pi,
+                z buffer=sort]
+                (x,{0.125*x^2*cos(deg(y))}, {(0.125*x^2) * sin(deg(y))});
+            \end{axis}
+        \end{tikzpicture}
+
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\u}{1}
+            \begin{axis}[defgrid,
+                set layers,
+                x={(1*\u cm,0.0cm)}, 
+                y={(0cm,\u cm)},
+                z={(\u*0.3535cm,\u*0.3535cm)},  
+                axis lines=center,
+                hide z axis,
+                xmin=0,xmax=4,ymin=-2,ymax=2,xtick={1,...,4},ytick={-2,...,2}
+            ]
+                \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+                samples=20,
+                domain=0:4,y domain=0:2*pi,
+                z buffer=sort]
+                (x,{cos(deg(x))*cos(deg(y))}, {cos(deg(x)) * sin(deg(y))});
+            \end{axis}
+        \end{tikzpicture}\end{center}
+    \end{multicols}
+\end{example}
+Um das Volumen solcher Körper auszurechnen, versuchen wir, uns an der Formel für den Zylinder zu orientieren, die wir
+zu Beginn dieses Abschnitts verwendet haben. Wie bereits bei der Berechnung gewöhnlicher Integrale ist unser Ziel, den
+Rotationskörper, dessen Volumen wir suchen, in viele kleinere Körper aufzuteilen, deren Volumen wir problemlos berechnen 
+können.
+\begin{example}{}
+    In den beiden oberen Abbildungen siehst du, wie der Rotationskörper, der durch die Funktion $f(x)=\frac{x^2}{8}$ aus
+    dem letzten Beispiel erzeugt wird, durch viele kleinere Zylinder ausgefüllt wurde. Die Zylinder liegen so im
+    Rotationskörper, dass ihr Radius am linken Rand dem Radius des Rotationskörpers entspricht.
+    \begin{center}
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\u}{1}
+            \begin{axis}[defgrid,
+                set layers,
+                x={(1*\u cm,0.0cm)}, 
+                y={(0cm,\u cm)},
+                z={(\u*0.3535cm,\u*0.3535cm)},  
+                axis lines=center,
+                hide z axis,
+                xmin=0,xmax=4,ymin=-2,ymax=2,xtick={1,...,4},ytick={-2,...,2}
+                ]
+                \addplot3[opacity=0.05,surf,shader=flat,on layer=axis background,
+                    samples=20,
+                    domain=0:4,y domain=0:2*pi,
+                    z buffer=sort]
+                    (x,{0.125*x^2*cos(deg(y))}, {(0.125*x^2) * sin(deg(y))});
+                \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+                samples=20,
+                domain=0:4,y domain=0:2*pi,
+                z buffer=sort]
+                (x,{(0.125*4 * (x > 2) * (x < 3) + 0.125 * (x < 2) * (x > 1) + 0.125 * 9 * (x > 3))*cos(deg(y))}, 
+                {(0.125*4 * (x > 2) * (x < 3) + 0.125 * (x < 2) * (x > 1) + 0.125 * 9 * (x > 3)) * sin(deg(y))});
+            \end{axis}
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\u}{1}
+            \begin{axis}[defgrid,
+                set layers,
+                x={(1*\u cm,0.0cm)}, 
+                y={(0cm,\u cm)},
+                z={(\u*0.3535cm,\u*0.3535cm)},  
+                axis lines=center,
+                hide z axis,
+                xmin=0,xmax=4,ymin=-2,ymax=2,xtick={1,...,4},ytick={-2,...,2}
+                ]
+                \addplot3[opacity=0.05,surf,shader=flat,on layer=axis background,
+                    samples=20,
+                    domain=0:4,y domain=0:2*pi,
+                    z buffer=sort]
+                    (x,{0.125*x^2*cos(deg(y))}, {(0.125*x^2) * sin(deg(y))});
+                \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+                samples=20,
+                domain=0:4,y domain=0:2*pi,
+                z buffer=sort]
+                (x,{(0.125*0.25*(x<0.5) + 0.125*2.25*(x > 1.5)*(x < 2)+0.125*6.25*(x > 2.5)*(x < 3)+0.125*12.25*(x > 3.5)*(x < 4) + 0.125*4 * (x > 2) * (x < 2.5) + 0.125 * (x < 1.5) * (x > 1) + 0.125 * 9 * (x > 3) * (x < 3.5))*cos(deg(y))}, 
+                {(0.125*0.25*(x<0.5) + 0.125*2.25*(x > 1.5)*(x < 2)+0.125*6.25*(x > 2.5)*(x < 3)+0.125*12.25*(x > 3.5)*(x < 4) + 0.125*4 * (x > 2) * (x < 2.5) + 0.125 * (x < 1.5) * (x > 1) + 0.125 * 9 * (x > 3) * (x < 3.5)) * sin(deg(y))});
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    Im linken Bild haben wir uns für vier Zylinder der Breite 1 entschieden (den ganz linken Zylinder siehst du nicht,
+    da sein Radius 0 ist) und im rechten Bild ist die Breite der Zylinder $\frac{1}{2}$. Damit der kleinste sichtbare
+    Zylinder im linken Bild die Funktion berührt, 
+\end{example}
+\parpic[r]{
+    \begin{tikzpicture}
+        \begin{axis}[
+        defgrid, y=0.9cm, x=0.9cm, ymin=-0.5, ymax=4.2, xmin=0, xmax=4, xtick={1,2,3,4}, ytick={1,...,4}
+        ]
+            \addplot[name path=poly, domain=0:4, violet] {0.2*x^2+1};
+            \pgfplotsinvokeforeach {2,3}{
+                \filldraw[draw=violet,fill=violet!20, opacity=0.5] (#1,0) -- (#1,0.2*#1*#1+1) -- (#1 + 1, 0.2*#1*#1+1) -- (#1 + 1, 0) -- cycle;
+            }
+            \draw[latex-latex,very thick] (1.9,0) -- node[left] {$f(2)$} (1.9,1.8);
+        \end{axis}
+    \end{tikzpicture}
+}
+Um das Integral $\displaystyle\int_a^bf(x)\diff x$ für eine Funktion $f$ auszurechnen, haben wir die gesuchte Fläche in
+Rechtecke aufgeteilt. Mit der Summe der Rechtecke haben wir die tatsächliche Fläche angenähert. Die Höhe eines Rechtecks, 
+das wir so erhalten, hängt vom Funktionswert an der Stelle ab, an der das Rechteck links beginnt. Ein Rechteck, das 
+links bei $x=2$ beginnt, hat zum Beispiel die Höhe $f(2)$. Multiplizieren wir diesen Wert mit der Breite des Rechtecks,
+erhalten wir die Rechteckfläche. Die Summe der Rechteckflächen entspricht ungefähr der gesuchten Fläche. Dieses
+Vorgehen haben wir im Abschnitt über Riemann-Integrale verwendet, um Integrale zu definieren. 
+
+\parpic[l]{
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\u}{1}
+        \begin{axis}[defgrid,
+            set layers,
+            x={(1*\u cm,0.0cm)}, 
+            y={(0cm,\u cm)},
+            z={(\u*0.3535cm,\u*0.3535cm)},  
+            axis lines=center,
+            hide z axis,
+            xmin=0,xmax=4,ymin=-2,ymax=2,xtick={1,...,4},ytick={-2,-1.5,...,2},yticklabels={-4,...,4}
+            ]
+            \addplot3[opacity=0.05,surf,shader=flat,on layer=axis background,
+                samples=10,
+                domain=0:4,y domain=0:2*pi,
+                z buffer=sort]
+                (x,{(0.1*x^2+0.5)*cos(deg(y))}, {(0.1*x^2+0.5) * sin(deg(y))});
+            \addplot3[opacity=0.2,surf,shader=flat,on layer=axis background,
+            samples=10,
+            domain=0:4,y domain=0:2*pi,
+            z buffer=sort]
+            (x,{(0.9 * (x > 2) * (x < 3) + 1.4 * (x > 3))*cos(deg(y))}, 
+            {(0.9 * (x > 2) * (x < 3) + 1.4 * (x > 3)) * sin(deg(y))});
+        \end{axis}
+    \end{tikzpicture}
+}\fi
+Wir können dieses Vorgehen nun so anpassen, dass wir damit auch das Volumen eines Rotationskörpers berechnen können.
+Dafür müssen wir statt Rechteckflächen die Volumina von kleinen Zylindern wie links dargestellt berechnen und addieren. 
+Die Zylinder zeichnen wir genauso wie die Rechtecke so ein, dass sie am linken Rand den Funktionsgraphen berühren.
+Zum Beispiel hat der linke Zylinder, der links durch $x=2$ begrenzt ist, einen Radius 
+von $f(2)$. Wenn wir nun die Volumina dieser kleinen Zylinder addieren, gibt uns das eine Näherung für das gesuchte
+Gesamtvolumen. Um das Volumen des linken Zylinders auszurechnen, müssen wir seine Grundfläche mit seiner Breite 
+multiplizieren. Die Grundfläche ist ein Kreis mit dem Radius $f(2)$ und hat 
+daher den Flächeninhalt $\pi r^2=\pi f(2)^2$ (denn der Radius 
+entspricht ja dem Funktionswert, den die Funktion am linken Rand des Zylinders annimmt). 
+
+Wenn unsere Rechtecke die
+Höhe $\pi f(x)^2$ statt der Höhe $f(x)$ hätten, dann würde ihr \enquote{Flächeninhalt} genau dem Volumen der Zylinder 
+entsprechen. Wenn wir das Integral für die Funktion $\pi f(x)^2$ in Rechtecke aufteilen, erhalten wir also Rechtecke
+mit der gesuchten Höhe. Wir können also so tun als hätten wir es mit Zylindern statt Rechtecken zu tun, wenn wir das
+Integral
+\[\int_a^b\pi f(x)^2\diff x\]
+ausrechnen und damit das Volumen des Rotationskörpers, der durch die Funktion $f(x)$
+erzeugt wird, im Bereich zwischen $a$ und $b$ ausrechnen.
+
+\begin{theorem}{Volumen eines Rotationskörpers}
+    Der Rotationskörper mit den Grenzen $a$ und $b$ einer Funktion $f\colon[a,b]\rightarrow\R$ hat das Volumen
+    \[\int_a^b\pi f(x)^2\diff x=\pi\cdot \int_a^bf(x)^2\diff x.\]
+\end{theorem}
+\begin{example}{}
+    Anwendung der Formel
+\end{example}
+
 \end{document}

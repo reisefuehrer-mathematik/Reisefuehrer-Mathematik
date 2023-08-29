@@ -4,15 +4,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Letter Symbols
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Natural}{\ensuremath{\mathbb{N}}\xspace}
+\newcommand{\Natural}{\N}
 \newcommand{\N}{\ensuremath{\mathbb{N}}\xspace}
-\newcommand{\Integer}{\ensuremath{\mathbb{Z}}\xspace}
+\newcommand{\Integer}{\Z}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}\xspace}
-\newcommand{\Rational}{\ensuremath{\mathbb{Q}}\xspace}
+\newcommand{\Rational}{\Q}
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}\xspace}
-\newcommand{\Real}{\ensuremath{\mathbb{R}}\xspace}
+\newcommand{\Real}{\R}
 \newcommand{\R}{\ensuremath{\mathbb{R}}\xspace}
-\newcommand{\Complex}{\ensuremath{\mathbb{C}}\xspace}
+\newcommand{\Complex}{\C}
+\newcommand{\C}{\ensuremath{\mathbb{C}}\xspace}
 \newcommand{\Prime}{\ensuremath{\mathbb{P}}\xspace}
 \newcommand{\Solutions}{\ensuremath{\mathbb{L}}\xspace}
 \renewcommand{\epsilon}{\varepsilon}
@@ -85,7 +86,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\coord}[2]{\left(#1 \:\middle|\: #2\right)}
 \newcommand{\st}{\:|\:} % short for "such that"
-\renewcommand{\vec}[1]{\overrightarrow{#1}}
+%\renewcommand{\vec}[1]{\overrightarrow{#1}}
+\newcommand{\inprod}[2]{\ensuremath{\langle #1, #2 \rangle}}
+\newcommand{\vectwo}[2]{
+    \begin{pmatrix}
+        #1\\
+        #2
+    \end{pmatrix}
+}
+\newcommand{\vecthree}[3]{
+    \begin{pmatrix}
+        #1\\
+        #2\\
+        #3
+    \end{pmatrix}
+}
 \renewcommand{\emptyset}{\varnothing}
 \newcommand*\diff{\mathop{}\mathrm{d}}
 

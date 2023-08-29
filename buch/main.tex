@@ -83,7 +83,7 @@
 \title{}%Sehenswürdigkeiten \& Wanderrouten}
 \begin{document}
     \frontmatter
-    %\maketitle
+    \maketitle
     \setcounter{tocdepth}{1}
     {
       \makeatletter
@@ -115,16 +115,25 @@
     
     \mainmatter
 
-    
+    \part{Grundrechenarten}
     \declchapter{grundrechnen}{Grundrechenarten}
-    
+    \ldsection{Einführung}
+    \ldsection{Schriftlich addieren und subtrahieren}
+    \ldsection{Schriftlich multiplizieren und dividieren}
+    \ldsection{Terme auswerten}
+    \ldsection{Das Kommutativgesetz}
+    \ldsection{Das Assoziativgesetz}
+    \ldsection{Das Distributivgesetz}
+    \ldsection{Potenzen und Wurzeln}
+    \ldsection{Runden und Überschlagsrechnung}
+
     \declchapter{teilbarkeit}{Teilbarkeit}
     \ldsection{Einführung}
     \ldsection{Teilbarkeitsregeln}
     \ldsection{Primzahlen}
     \ldsection{ggT und kgV}
     
-    \declchapter{geominebene}{Geometrische Konstruktionen}
+    \declchapter{geometrie}{Geometrische Konstruktionen}
     
     \declchapter{ganzzahl}{Ganze Zahlen}
     
@@ -134,6 +143,7 @@
 
     \declchapter{einheiten}{Rechnen mit Einheiten}
     
+    \part{Gleichungen und Funktionen}
     \declchapter{vars}{Variablen}
     \ldsection{Einführung}
     \ldsection{Ausklammern}
@@ -180,45 +190,57 @@
     
     \declchapter{lgs}{Lineare Gleichungssysteme}
     
-    \declchapter{quadgleichungen}{Quadratische Gleichungen}
-    
-    \declchapter{geomkonstr}{Geometrische Konstruktionen}
-    
-    \declchapter{geomraum}{Flächen und Volumen}
+    \declchapter{quadratische_gleichungen}{Quadratische Gleichungen}
+    \ldsection{Einführung}
+    \ldsection{Die pq-Formel}
+    \ldsection{Parabeln}
+    \ldsection{Linearfaktorzerlegung}
+
+    \declchapter{potulog}{Potenz- und Logarithmenrechnung}
+
+    \part{Geometrie}
+    \declchapter{flaechen}{Flächen und Volumen}
     
     \declchapter{kreise}{Kreise}
     
-    \declchapter{potulog}{Potenz- und Logarithmenrechnung}
-    
     \declchapter{trig}{Trigonometrie}
-
-    \declchapter{statistik}{Beschreibende Statistik}
     
-    \declchapter{kombinatorik}{Kombinatorik}
+    \declchapter{vektoren}{Vektorrechnung}
     \ldsection{Einführung}
-    \ldsection{Permutationen}
-    \ldsection{Urnenexperimente}
-    \ldsection{Eulersche Phi Funktion}
-    \ldadvsection{Für Fortgeschrittene}
+    \ldsection{Das Skalarprodukt}
+    \ldsection{Dreidimensionale Koordinatensysteme}
+    \ldsection{Geraden im Raum}
+    \ldsection{Ebenen im Raum}
+    \ldsection{Abstände berechnen}
+
+    \part{Analysis}
+    \declchapter{grenzwerte}{Grenzwerte}
     
-    \declchapter{wkeitstheorie}{Wahrscheinlichkeitstheorie}
-    
-    \declchapter{folgenundreihen}{Folgen und Reihen}
-    
-    \declchapter{diff}{Differentialrechnung in \Real}
-    \def\Chaptername{differentialrechnung}
+    \declchapter{ableitungen}{Ableitungen}
     \ldsection{Einführung}
     \ldsection{Sekantensteigung}
     \ldsection{Tangentensteigung}
     \ldsection{Ableitungsregeln}
+    \ldsection{Die Potenzregel}
+    \ldsection{Die Produktregel}
+    \ldsection{Die Kettenregel}
+    \ldsection{Ableitung von Exponentialfunktionen}
+    \ldsection{Ableitung von Sinus und Cosinus}
+    \ldsection{Trassierung}
+    
+    \declchapter{kurvendiskussion}{Kurvendiskussion}
+    \ldsection{Einführung}
+    \ldsection{Extrempunkte}
+    \ldsection{Wendepunkte}
     \ldsection{Monotonieverhalten}
-    \ldsection{Extremwerte und Wendepunkte}
-    \ldsection{Ableitung der Exponentialfunktion}
-    \ldsection{Ableitung von trigonometrischen Funktionen}
-    \ldsection{Wachstumsprozesse}
-    
-    \declchapter{interpol}{Interpolation}
-    
+
+    \declchapter{wachstumsprozesse}{Wachstumsprozesse}
+    \ldsection{Einführung}
+    \ldsection{Lineares Wachstum}
+    \ldsection{Exponentielles Wachstum}
+    \ldsection{Beschränktes Wachstum}
+    \ldsection{Logistisches Wachstum}
+
     \declchapter{integrale}{Integralrechnung}
     \ldsection{Einführung}
     \ldsection{Das Riemann-Integral}
@@ -228,11 +250,22 @@
     \ldsection{Rotationsvolumen}
     \ldadvsection{Weiterführendes Wissen}
     
-    \declchapter{vektoren}{Vektorrechnung}
+    \part{Stochastik}
+    \declchapter{statistik}{Beschreibende Statistik}
     
+    \declchapter{kombinatorik}{Kombinatorik}
+    \ldsection{Einführung}
+    \ldsection{Permutationen}
+    \ldsection{Urnenexperimente}
+    \ldsection{Eulersche Phi Funktion}
+    \ldadvsection{Weiterführendes Wissen}
+    
+    \declchapter{wkeitstheorie}{Wahrscheinlichkeitstheorie}
+
     \declchapter{zufallsvars}{Zufallsvariablen und Verteilungen}
     
     \backmatter
+    \appendix
     \printindex
     
     \subfile{formulary}
